@@ -58,5 +58,33 @@ The AWS Foundational Security Best Practices framework details are as
 follows:
 
 | Framework name in AWS Audit Manager      | Number of automated controls | Number of manual controls | Number of control sets |
-| ---------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Foundational Security Best Practices | 146                          | 0                         | 31                     | ###### Important To ensure that this framework collects the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with AWS Foundational Security Best Practices. Moreover, they can't guarantee that you'll pass an AWS Foundational Security Best Practices audit. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [AWS Foundational Security Best Practices standard](../../../securityhub/latest/userguide/securityhub-standards-fsbp.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp.md") in the _AWS Security Hub User Guide_ <br>• [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub User Guide_ |
+| ---------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| AWS Foundational Security Best Practices | 146                          | 0                         | 31                     |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
+that you enabled all standards in Security Hub.
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with AWS Foundational Security Best Practices. Moreover, they can't guarantee
+that you'll pass an AWS Foundational Security Best Practices audit.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional
+
+resources
+
+- [AWS Foundational Security Best Practices standard](../../../securityhub/latest/userguide/securityhub-standards-fsbp.md "../../../securityhub/latest/userguide/securityhub-standards-fsbp.md") in
+  the _AWS Security Hub User Guide_
+- [Control categories](../../../securityhub/latest/userguide/control-categories.md "../../../securityhub/latest/userguide/control-categories.md") in the _AWS Security Hub User Guide_

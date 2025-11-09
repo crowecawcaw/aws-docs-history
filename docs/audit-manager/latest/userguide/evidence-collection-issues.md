@@ -362,9 +362,218 @@ without a compliance determination.
 The following is a summary of the different data source types and how often they
 collect evidence.
 
-| Data source type | Description                                                                                                | Evidence collection frequency                                                     | When this control is active in an assessment                                                                                                    |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AWS CloudTrail   | Tracks a specific user activity.                                                                           | Continual                                                                         | Audit Manager filters your CloudTrail logs based on the keyword that you choose. The processed logs are imported as **User activity** evidence. |
-| AWS Security Hub | Captures a snapshot of your resource security posture by reporting findings from Security Hub.             | Based on the schedule of the Security Hub check (typically around every 12 hours) | Audit Manager retrieves the security finding directly from Security Hub. The finding is imported as **Compliance check** evidence.              |
-| AWS Config       | Captures a snapshot of your resource security posture by reporting findings from AWS Config.               | Based on the settings that are defined in the AWS Config rule                     | Audit Manager retrieves the rule evaluation directly from AWS Config. The evaluation is imported as **Compliance check** evidence.              |
-| AWS API calls    | Takes a snapshot of your resource configuration directly through an API call to the specified AWS service. | Daily, weekly, or monthly                                                         | Audit Manager makes the API call based on the frequency that you specify. The response is imported as **Configuration data** evidence.          | Regardless of the evidence collection frequency, new evidence is collected automatically for as long as the assessment is active. For more information, see [Evidence collection frequency](how-evidence-is-collected.md#frequency "how-evidence-is-collected.md#frequency"). To learn more, see [Supported data source types for automated evidence](control-data-sources.md "control-data-sources.md") and [Changing how often a control collects evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md"). ## I disabled and then re-enabled Audit Manager, and now my pre-existing assessments are no longer collecting evidence When you disable Audit Manager and choose not to delete your data, your existing assessments move into a dormant state and stop collecting evidence. This means that when you re-enable Audit Manager, the assessments that you previously created remain available. However, they don't automatically resume evidence collection. To start collecting evidence again for a pre-existing assessment, [edit the assessment](edit-assessment.md "edit-assessment.md") and choose **Save** without making any changes. ## On my assessment details page, I’m prompted to recreate my assessment ![Screenshot of the pop-up message that prompts you to recreate your assessment.](images/troubleshooting-recreate-assessment-post-common-controls-console.png) If you see a message that says **Create new assessment to collect more comprehensive evidence**, this indicates that Audit Manager now provides a new definition of the standard framework that your assessment was created from. In the new framework definition, all of the framework’s standard controls can now collect evidence from [AWS managed sources](concepts.md#aws-managed-source "concepts.md#aws-managed-source"). This means that whenever there’s an update to the underlying data sources for a common or core control, Audit Manager automatically applies the same update to all related standard controls. To benefit from these AWS managed sources, we recommend that you [create a new assessment](create-assessments.md "create-assessments.md") from the updated framework. After you do this, you can then [change the old assessment status to inactive](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md"). This action helps to ensure that your new assessment collects the most accurate and comprehensive evidence that’s available from AWS managed sources. If you take no action, your assessment continues to use the old framework and control definitions to collect evidence exactly as it did before. ## What’s the difference between a data source and an evidence source? An _evidence source_ determines where evidence is collected from. This can be an individual data source, or a predefined grouping of data sources that maps to a core control or a common control. A _data source_ is the most granular type of evidence source. A data source includes the following details that tell Audit Manager where exactly to collect evidence data from: <br>• [Data source type](control-data-sources.md "control-data-sources.md") (for example, AWS Config) <br>• [Data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") (for example, a specific AWS Config rule such as `s3-bucket-public-write-prohibited`) ## My assessment creation failed If your assessment creation fails, this could be due to one of the following issues. **You selected too many AWS accounts in your assessment scope** If you're using AWS Organizations, Audit Manager can support up to 200 member accounts in the scope of a single assessment. If you exceed this number, the assessment creation will fail. As a workaround, you can run multiple assessments with different accounts in scope for each assessment up to 250 unique member accounts across all assessments. **An account in your scope is already being assessed by another active assessment** If you try to create an assessment that includes an account that's already in scope for another active assessment, the assessment creation fails. This can happen when multiple teams or organizations are trying to assess the same account simultaneously. You might see an error message similar to: `Scope: AWS Account [account-id] has assessments in progress`. To resolve this issue, you can take one of the following actions: <br>• **Coordinate with other teams** - Contact other teams in your organization to determine which assessments are currently using the account in question. You can then coordinate to avoid overlapping assessment scopes. <br>• **Modify your assessment scope** - Remove the conflicting account from your assessment scope and create the assessment with the remaining accounts. You can assess the conflicting account separately once the other assessment is complete. <br>• **Wait for the other assessment to complete** - If the other assessment is temporary or nearing completion, you can wait for it to finish before creating your assessment with the desired scope. ###### Note This restriction helps ensure that evidence collection doesn't conflict between multiple assessments and that audit results remain accurate and consistent. ## What happens if I remove an in-scope account from my organization? When an in-scope account is removed from your organization, Audit Manager no longer collects evidence for that account and it will be removed from all assessments where the account is in scope. Removing a member account from all assessments will also reduce the total number of unique accounts in scope, allowing you to add a new account from your organization. ## I can't see the services in scope for my assessment If you don't see the **AWS services** tab, this means that the services in scope are managed for you by Audit Manager. When you create a new assessment, Audit Manager manages the services in scope for you from that point onwards. If you have an older assessment, it’s possible that you saw this tab previously in your assessment. However, Audit Manager automatically removes this tab from your assessment and takes over the management of services in scope when either of the following events occur: <br>• You edit your assessment <br>• You edit one of the custom controls that’s used in your assessment Audit Manager infers the services in scope by examining your assessment controls and their data sources, and then mapping this information to the corresponding AWS services. If an underlying data source changes for your assessment, we automatically update the scope as needed to reflect the correct services. This ensures that your assessment collects accurate and comprehensive evidence about all of the relevant services in your AWS environment. ## I can't edit the services in scope for my assessment The [Editing an assessment in AWS Audit Manager](edit-assessment.md "edit-assessment.md") workflow no longer has an **Edit services** step. This is because Audit Manager now manages which AWS services are in scope for your assessment. If you have an older assessment, it’s possible that you manually defined the services in scope when you created that assessment. However, you can’t edit these services moving forward. Audit Manager automatically takes over the management of services in scope for your assessment when either of the following events occur: <br>• You edit your assessment <br>• You edit one of the custom controls that’s used in your assessment Audit Manager infers the services in scope by examining your assessment controls and their data sources, and then mapping this information to the corresponding AWS services. If an underlying data source changes for your assessment, we automatically update the scope as needed to reflect the correct services. This ensures that your assessment collects accurate and comprehensive evidence about all of the relevant services in your AWS environment. ## What's the difference between a service in scope and a data source type? A [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is an AWS service that's included in the scope of your assessment. When a service is in scope, Audit Manager collects evidence about your usage of that service and its resources. ###### Note Audit Manager manages which AWS services are in scope for your assessments. If you have an older assessment, it’s possible that you manually specified the services in scope in the past. Moving forward, you can’t specify or edit services in scope. A [data source type](control-data-sources.md "control-data-sources.md") indicates where exactly the evidence is collected from. If you upload your own evidence, the data source type is _Manual_. If Audit Manager collects the evidence, the data source can be one of four types. 1. AWS Security Hub – Captures a snapshot of your resource security posture by reporting findings from Security Hub. 2. AWS Config – Captures a snapshot of your resource security posture by reporting findings from AWS Config. 3. AWS CloudTrail – Tracks a specific user activity for a resource. 4. AWS API calls – Takes a snapshot of your resource configuration directly through an API call to a specific AWS service. Here are two examples to illustrate the difference between a service in scope and a data source type. ###### Example 1 Let's say that you want to collect evidence for a control that's named _4.1.2 - Disallow public write access to S3 buckets_. This control checks the access levels of your S3 bucket policies. For this control, Audit Manager uses a specific AWS Config rule ([s3-bucket-public-write-prohibited](../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md "../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md")) to look for an evaluation of your S3 buckets. In this example, the following is true: <br>• The [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is Amazon S3 <br>• The [resources](concepts.md#resource "concepts.md#resource") that are being assessed are your S3 buckets <br>• The [data source type](control-data-sources.md "control-data-sources.md") is AWS Config <br>• The [data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") is a specific AWS Config rule (`s3-bucket-public-write-prohibited`) ###### Example 2 Let's say that you want to collect evidence for a HIPAA control that's named _164.308(a)(5)(ii)(C)_. This control requires a monitoring procedure for detecting inappropriate sign-ins. For this control, Audit Manager uses CloudTrail logs to look for all [AWS Management Console sign-in events](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md"). In this example, the following is true: <br>• The [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is IAM <br>• The [resources](concepts.md#resource "concepts.md#resource") that are being assessed are your users <br>• The [data source type](control-data-sources.md "control-data-sources.md") is CloudTrail <br>• The [data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") is a specific CloudTrail event (`ConsoleLogin`) |
+| Data source type | Description                                                                                                   | Evidence collection frequency                                                        | When this control is active in an assessment                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS CloudTrail   | Tracks a specific user activity.                                                                              | Continual                                                                            | Audit Manager filters your CloudTrail logs based on the keyword that you<br>choose. The processed logs are imported as \*_User<br>activity_<br>• evidence. |
+| AWS Security Hub | Captures a snapshot of your resource security posture by<br>reporting findings from Security Hub.             | Based on the schedule of the Security Hub check (typically around every<br>12 hours) | Audit Manager retrieves the security finding directly from Security Hub. The<br>finding is imported as \*_Compliance<br>check_<br>• evidence.              |
+| AWS Config       | Captures a snapshot of your resource security posture by<br>reporting findings from AWS Config.               | Based on the settings that are defined in the AWS Config rule                        | Audit Manager retrieves the rule evaluation directly from AWS Config. The<br>evaluation is imported as **Compliance check**<br>evidence.                   |
+| AWS API calls    | Takes a snapshot of your resource configuration directly<br>through an API call to the specified AWS service. | Daily, weekly, or monthly                                                            | Audit Manager makes the API call based on the frequency that you specify.<br>The response is imported as **Configuration data**<br>evidence.               |
+
+Regardless of the evidence collection frequency, new evidence is collected
+automatically for as long as the assessment is active. For more information, see
+[Evidence collection frequency](how-evidence-is-collected.md#frequency "how-evidence-is-collected.md#frequency").
+
+To learn more, see [Supported data source types for automated
+evidence](control-data-sources.md "control-data-sources.md") and [Changing how often a control collects
+evidence](change-evidence-collection-frequency.md "change-evidence-collection-frequency.md").
+
+## I disabled and then re-enabled Audit Manager,
+
+and now my pre-existing assessments are no longer collecting evidence
+
+When you disable Audit Manager and choose not to delete your data, your existing
+assessments move into a dormant state and stop collecting evidence. This means that
+when you re-enable Audit Manager, the assessments that you previously created remain
+available. However, they don't automatically resume evidence collection.
+
+To start collecting evidence again for a pre-existing assessment, [edit the assessment](edit-assessment.md "edit-assessment.md") and choose **Save**
+without making any changes.
+
+## On my assessment details page, I’m prompted to recreate
+
+my assessment
+
+![Screenshot of the pop-up message that prompts you to recreate your assessment.](images/troubleshooting-recreate-assessment-post-common-controls-console.png)
+
+If you see a message that says **Create new assessment to collect more
+comprehensive evidence**, this indicates that Audit Manager now provides a new
+definition of the standard framework that your assessment was created from.
+
+In the new framework definition, all of the framework’s standard controls can now
+collect evidence from [AWS
+managed sources](concepts.md#aws-managed-source "concepts.md#aws-managed-source"). This means that whenever there’s an update to the
+underlying data sources for a common or core control, Audit Manager automatically applies the
+same update to all related standard controls.
+
+To benefit from these AWS managed sources, we recommend that you [create a new
+assessment](create-assessments.md "create-assessments.md") from the updated framework. After you do this, you can then
+[change the old assessment status to inactive](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md"). This action helps to
+ensure that your new assessment collects the most accurate and comprehensive
+evidence that’s available from AWS managed sources. If you take no action, your
+assessment continues to use the old framework and control definitions to collect
+evidence exactly as it did before.
+
+## What’s the
+
+difference between a data source and an evidence source?
+
+An _evidence source_ determines where evidence is
+collected from. This can be an individual data source, or a predefined grouping of
+data sources that maps to a core control or a common control.
+
+A _data source_ is the most granular type of
+evidence source. A data source includes the following details that tell Audit Manager where
+exactly to collect evidence data from:
+
+- [Data
+  source type](control-data-sources.md "control-data-sources.md") (for example, AWS Config)
+- [Data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") (for example, a specific AWS Config rule such
+  as `s3-bucket-public-write-prohibited`)
+
+## My assessment
+
+creation failed
+
+If your assessment creation fails, this could be due to one of the following issues.
+
+**You selected too many AWS accounts in your assessment scope**
+
+If you're using AWS Organizations, Audit Manager can support up to 200 member accounts in the scope of a single assessment. If you exceed this number, the assessment creation will fail.
+
+As a workaround, you can run multiple assessments with different accounts in scope for each assessment up to 250 unique member accounts across all assessments.
+
+**An account in your scope is already being assessed by another active assessment**
+
+If you try to create an assessment that includes an account that's already in scope for another active assessment, the assessment creation fails. This can happen when multiple teams or organizations are trying to assess the same account simultaneously.
+
+You might see an error message similar to: `Scope: AWS Account [account-id] has assessments in progress`.
+
+To resolve this issue, you can take one of the following actions:
+
+- **Coordinate with other teams** - Contact other teams in your organization to determine which assessments are currently using the account in question. You can then coordinate to avoid overlapping assessment scopes.
+- **Modify your assessment scope** - Remove the conflicting account from your assessment scope and create the assessment with the remaining accounts. You can assess the conflicting account separately once the other assessment is complete.
+- **Wait for the other assessment to complete** - If the other assessment is temporary or nearing completion, you can wait for it to finish before creating your assessment with the desired scope.
+
+###### Note
+
+This restriction helps ensure that evidence collection doesn't conflict between multiple assessments and that audit results remain accurate and consistent.
+
+## What
+
+happens if I remove an in-scope account from my organization?
+
+When an in-scope account is removed from your organization, Audit Manager no longer
+collects evidence for that account and it will be removed from all assessments where
+the account is in scope. Removing a member account from all assessments will also
+reduce the total number of unique accounts in scope, allowing you to add a new
+account from your organization.
+
+## I can't see the
+
+services in scope for my assessment
+
+If you don't see the **AWS services** tab, this means that the
+services in scope are managed for you by Audit Manager. When you create a new assessment,
+Audit Manager manages the services in scope for you from that point onwards.
+
+If you have an older assessment, it’s possible that you saw this tab previously in
+your assessment. However, Audit Manager automatically removes this tab from your assessment
+and takes over the management of services in scope when either of the following
+events occur:
+
+- You edit your assessment
+- You edit one of the custom controls that’s used in your assessment
+
+Audit Manager infers the services in scope by examining your assessment controls and their
+data sources, and then mapping this information to the corresponding AWS services.
+If an underlying data source changes for your assessment, we automatically update
+the scope as needed to reflect the correct services. This ensures that your
+assessment collects accurate and comprehensive evidence about all of the relevant
+services in your AWS environment.
+
+## I can't edit the
+
+services in scope for my assessment
+
+The [Editing an assessment in AWS Audit Manager](edit-assessment.md "edit-assessment.md") workflow no
+longer has an **Edit services** step. This is because Audit Manager now
+manages which AWS services are in scope for your assessment.
+
+If you have an older assessment, it’s possible that you manually defined the
+services in scope when you created that assessment. However, you can’t edit these
+services moving forward. Audit Manager automatically takes over the management of services in
+scope for your assessment when either of the following events occur:
+
+- You edit your assessment
+- You edit one of the custom controls that’s used in your assessment
+
+Audit Manager infers the services in scope by examining your assessment controls and their
+data sources, and then mapping this information to the corresponding AWS services.
+If an underlying data source changes for your assessment, we automatically update
+the scope as needed to reflect the correct services. This ensures that your
+assessment collects accurate and comprehensive evidence about all of the relevant
+services in your AWS environment.
+
+## What's the
+
+difference between a service in scope and a data source type?
+
+A [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is an
+AWS service that's included in the scope of your assessment. When a service is in
+scope, Audit Manager collects evidence about your usage of that service and its
+resources.
+
+###### Note
+
+Audit Manager manages which AWS services are in scope for your assessments. If you
+have an older assessment, it’s possible that you manually specified the services
+in scope in the past. Moving forward, you can’t specify or edit services in
+scope.
+
+A [data source
+type](control-data-sources.md "control-data-sources.md") indicates where exactly the evidence is collected from. If you
+upload your own evidence, the data source type is _Manual_. If Audit Manager collects the evidence, the data source can be one of
+four types.
+
+1. AWS Security Hub – Captures a snapshot of your resource security posture
+   by reporting findings from Security Hub.
+2. AWS Config – Captures a snapshot of your resource security posture by
+   reporting findings from AWS Config.
+3. AWS CloudTrail – Tracks a specific user activity for a resource.
+4. AWS API calls – Takes a snapshot of your resource configuration
+   directly through an API call to a specific AWS service.
+
+Here are two examples to illustrate the difference between a service in scope and
+a data source type.
+
+###### Example 1
+
+Let's say that you want to collect evidence for a control that's named
+_4.1.2 - Disallow public write access to S3
+buckets_. This control checks the access levels of your S3 bucket
+policies. For this control, Audit Manager uses a specific AWS Config rule ([s3-bucket-public-write-prohibited](../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md "../../../config/latest/developerguide/s3-bucket-public-write-prohibited.md")) to look for an evaluation of
+your S3 buckets. In this example, the following is true:
+
+- The [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is
+  Amazon S3
+- The [resources](concepts.md#resource "concepts.md#resource") that are being assessed are your S3 buckets
+- The [data
+  source type](control-data-sources.md "control-data-sources.md") is AWS Config
+- The [data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") is a specific AWS Config rule
+  (`s3-bucket-public-write-prohibited`)
+
+###### Example 2
+
+Let's say that you want to collect evidence for a HIPAA control that's named
+_164.308(a)(5)(ii)(C)_. This control
+requires a monitoring procedure for detecting inappropriate sign-ins. For this
+control, Audit Manager uses CloudTrail logs to look for all [AWS Management Console sign-in events](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.md"). In this example, the
+following is true:
+
+- The [service in scope](concepts.md#service-in-scope "concepts.md#service-in-scope") is
+  IAM
+- The [resources](concepts.md#resource "concepts.md#resource") that are being assessed are your users
+- The [data
+  source type](control-data-sources.md "control-data-sources.md") is CloudTrail
+- The [data source mapping](concepts.md#control-data-source "concepts.md#control-data-source") is a specific CloudTrail event
+  (`ConsoleLogin`)

@@ -81,7 +81,55 @@ Your viewing preferences control what you see on the results page.
 2. Review and change the following settings as needed:
 
 | Setting                          | Description                                                               |
-| -------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------- | ------------------------------------------------------------------------- |
 | **Select visible table columns** | Use the toggle option to change which columns are displayed.              |
 | **Page size**                    | Select a radio button to specify how many results are shown on each page. |
-| **Wrap text**                    | Select the check box to wrap long lines of text for better readability.   | 3. Choose **Confirm** to save your preferences. #### Previewing resource summaries You can preview the related resources for the evidence that matched your search query. This helps you determine if the search query returned the intended results, or if you need to adjust your filters and re-run the search query. Keep in mind that evidence can have one or more related resources. Evidence finder shows results at the resource level (with one row for each resource). ###### Note Evidence finder returns results for automated and manual evidence. However, you can only preview resource summaries for automated evidence. This is because Audit Manager doesn’t perform resource assessments for manual evidence, and as a result, no resource summary is available. To see details about manual evidence, choose the evidence name to open the evidence details page. If you generate an assessment report from your evidence finder results, the manual evidence details are included in the assessment report. ###### To preview resource summaries 1. Select the radio button next to a result. This opens a resource summary panel on the current page. 2. (Optional) To see the full details of the related evidence, choose the evidence name. 3. (Optional) Use the horizontal lines (**=**) to drag and resize the resource summary pane. 4. Choose (**x**) to close the resource summary pane. ![An example resource summary on the view results page in evidence finder.](images/evidence-finder-preview-console.png) ## Next steps After you review your search results, you can generate an assessment report from them or export them as a CSV file. For instructions, see [Exporting your search results from evidence finder](exporting-search-results-from-evidence-finder.md "exporting-search-results-from-evidence-finder.md"). ## Additional resources <br>• [Filter and grouping options for evidence finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md") <br>• [Example use cases for evidence finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md") <br>• [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md") |
+| **Wrap text**                    | Select the check box to wrap long lines of text for better readability.   |
+
+3. Choose **Confirm** to save your preferences.
+
+#### Previewing resource summaries
+
+You can preview the related resources for the
+evidence that matched your search query. This helps you determine if the search query returned
+the intended results, or if you need to adjust your filters and re-run the search query.
+
+Keep in mind that evidence can have one or more related resources. Evidence finder shows
+results at the resource level (with one row for each resource).
+
+###### Note
+
+Evidence finder returns results for automated and manual evidence. However, you can only
+preview resource summaries for automated evidence. This is because Audit Manager doesn’t perform
+resource assessments for manual evidence, and as a result, no resource summary is
+available.
+
+To see details about manual evidence, choose the evidence name to open the evidence
+details page. If you generate an assessment report from your evidence finder results, the
+manual evidence details are included in the assessment report.
+
+###### To preview resource summaries
+
+1. Select the radio button next to a result. This opens a resource summary panel on the
+   current page.
+2. (Optional) To see the full details of the related evidence, choose the evidence
+   name.
+3. (Optional) Use the horizontal lines (**=**) to drag and resize the
+   resource summary pane.
+4. Choose (**x**) to close the resource summary pane.
+
+![An example resource summary on the view results page in evidence finder.](images/evidence-finder-preview-console.png)
+
+## Next steps
+
+After you review your search results, you can generate an assessment report from them or
+export them as a CSV file. For instructions, see [Exporting your search results
+from evidence finder](exporting-search-results-from-evidence-finder.md "exporting-search-results-from-evidence-finder.md").
+
+## Additional resources
+
+- [Filter and grouping options for evidence
+  finder](evidence-finder-filters-and-groups.md "evidence-finder-filters-and-groups.md")
+- [Example use cases for evidence
+  finder](example-use-cases-for-evidence-finder.md "example-use-cases-for-evidence-finder.md")
+- [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

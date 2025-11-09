@@ -43,5 +43,57 @@ working as intended.
 The AWS License Manager framework details are as follows:
 
 | Framework name in AWS Audit Manager | Number of automated controls | Number of manual controls | Number of control sets |
-| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS License Manager                 | 27                           | 0                         | 6                      | The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with licensing rules. Moreover, they can't guarantee that you'll pass a licensing usage audit. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources ###### License Manager links <br>• [AWS License Manager service page](https://aws.amazon.com/license-manager "https://aws.amazon.com/license-manager") <br>• [AWS License Manager user guide](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md") ###### License Manager APIs For this framework, Audit Manager uses a custom activity called `GetLicenseManagerSummary` to collect evidence. The `GetLicenseManagerSummary` activity calls the following three License Manager APIs: 1. [ListLicenseConfigurations](../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md "../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md") 2. [ListAssociationsForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md") 3. [ListUsageForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md") The data that’s returned is then converted into evidence and attached to the relevant controls in your assessment. For example: Let's say that you use two licensed products (_SQL Server 2017_ and _Oracle Database Enterprise Edition_). First, the `GetLicenseManagerSummary` activity calls the [ListLicenseConfigurations](../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md "../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md") API, which provides details of license configurations in your account. Next, it adds additional contextual data for each license configuration by calling [ListUsageForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md") and [ListAssociationsForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md"). Finally, it converts the license configuration data into evidence and attaches it to the respective controls in the framework (_4.5 - Customer managed license for SQL Server 2017_ and _3.0.4 - Customer managed license for Oracle Database Enterprise Edition_). If you’re using a licensed product that isn’t covered by any of the controls in the framework, that license configuration data is attached as evidence to the following control: _5.0 - Customer managed license for other licenses_. |
+| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| AWS License Manager                 | 27                           | 0                         | 6                      |
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with licensing rules. Moreover, they can't guarantee that you'll pass a
+licensing usage audit.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+###### License Manager links
+
+- [AWS License Manager service
+  page](https://aws.amazon.com/license-manager "https://aws.amazon.com/license-manager")
+- [AWS License Manager user
+  guide](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md")
+
+###### License Manager APIs
+
+For this framework,
+Audit Manager uses a custom activity called `GetLicenseManagerSummary` to collect
+evidence. The `GetLicenseManagerSummary` activity calls the following three
+License Manager APIs:
+
+1. [ListLicenseConfigurations](../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md "../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md")
+2. [ListAssociationsForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md")
+3. [ListUsageForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md")
+
+The data that’s returned is then converted into evidence and attached to the relevant
+controls in your assessment.
+
+For example: Let's say that you use two licensed products (_SQL
+Server 2017_ and _Oracle Database Enterprise
+Edition_). First, the `GetLicenseManagerSummary` activity calls the
+[ListLicenseConfigurations](../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md "../../../license-manager/latest/APIReference/API_ListLicenseConfigurations.md") API, which provides details of license configurations
+in your account. Next, it adds additional contextual data for each license configuration
+by calling [ListUsageForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListUsageForLicenseConfiguration.md") and [ListAssociationsForLicenseConfiguration](../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md "../../../license-manager/latest/APIReference/API_ListAssociationsForLicenseConfiguration.md"). Finally, it converts the license
+configuration data into evidence and attaches it to the respective controls in the
+framework (_4.5 - Customer managed license for SQL Server
+2017_ and _3.0.4 - Customer managed license for Oracle
+Database Enterprise Edition_). If you’re using a licensed product that isn’t
+covered by any of the controls in the framework, that license configuration data is
+attached as evidence to the following control: _5.0 - Customer
+managed license for other licenses_.

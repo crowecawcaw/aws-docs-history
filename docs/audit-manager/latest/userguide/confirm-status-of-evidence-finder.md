@@ -37,10 +37,115 @@ console
 
 Each status is defined as follows:
 
-| Status                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Evidence finder isn't enabled**                 | You haven't successfully enabled evidence finder yet.                                                                                                                                                                                                                                                                                                                                                                              |
-| **You have requested to enable evidence finder**  | Your request is pending the event data store being created.                                                                                                                                                                                                                                                                                                                                                                        |
-| **Evidence finder is enabled**                    | The event data store was created. You can now use evidence finder. Depending how much evidence you have, it takes up to seven days to backfill the new event data store with your past evidence data. A blue information panel indicates that the data backfill is in progress. Feel free to start exploring evidence finder in the meantime. However, keep in mind that not all data is available until the backfill is complete. |
-| **You have requested to disable evidence finder** | Your request is pending the event data store being deleted.                                                                                                                                                                                                                                                                                                                                                                        |
-| **Evidence finder has been disabled**             | Evidence finder has been permanently disabled and the event data store is deleted.                                                                                                                                                                                                                                                                                                                                                 | AWS CLI ###### To see the current status of evidence finder in the AWS CLI Run the [get-settings](../../../cli/latest/reference/auditmanager/get-settings.md "../../../cli/latest/reference/auditmanager/get-settings.md") command with the `--attribute` parameter set to `EVIDENCE_FINDER_ENABLEMENT`. `aws auditmanager get-settings --attribute EVIDENCE_FINDER_ENABLEMENT` This returns the following information: ###### enablementStatus This attribute shows the current status of evidence finder. <br>• `ENABLE_IN_PROGRESS` – You requested to enable evidence finder. An event data store is currently being created to support evidence finder queries. <br>• `ENABLED` – An event data store was created and evidence finder is enabled. We recommend waiting seven days until the event data store is backfilled with your past evidence data. You can use evidence finder in the meantime, but not all data is available until the backfill is complete. <br>• `DISABLE_IN_PROGRESS` – You requested to disable evidence finder, and your request is pending the event data store being deleted. <br>• `DISABLED` – You permanently disabled evidence finder and the event data store is deleted. You can't re-enable evidence finder after this point. ###### backfillStatus This attribute shows the current status of the evidence data backfill. <br>• `NOT_STARTED` – The backfill hasn’t started yet. <br>• `IN_PROGRESS` – The backfill is in progress. This takes up to seven days to complete, depending on the amount of evidence data. <br>• `COMPLETED` – The backfill is complete. All of your past evidence is now queryable. Audit Manager API ###### To see the current status of evidence finder using the API Call the [GetSettings](../APIReference/API_GetSettings.md "../APIReference/API_GetSettings.md") operation with the `attribute` parameter set to `EVIDENCE_FINDER_ENABLEMENT`. This returns the following information: ###### enablementStatus This attribute shows the current status of evidence finder. <br>• `ENABLE_IN_PROGRESS` - You requested to enable evidence finder. An event data store is currently being created to support evidence finder queries. <br>• `ENABLED` - An event data store was created and evidence finder is enabled. We recommend waiting seven days until the event data store is backfilled with your past evidence data. You can use evidence finder in the meantime, but not all data is available until the backfill is complete. <br>• `DISABLE_IN_PROGRESS` - You requested to disable evidence finder, and your request is pending the deletion of the event data store. <br>• `DISABLED` - You permanently disabled evidence finder and the event data store is deleted. You can't re-enable evidence finder after this point. ###### backfillStatus This attribute shows the current status of the evidence data backfill. <br>• `NOT_STARTED` means that the backfill hasn’t started yet. <br>• `IN_PROGRESS` means that the backfill is in progress. This takes up to seven days to complete, depending on the amount of evidence data. <br>• `COMPLETED` means that the backfill is complete. All of your past evidence is now queryable. For more information, see [evidenceFinderEnablement](../APIReference/API_EvidenceFinderEnablement.md "../APIReference/API_EvidenceFinderEnablement.md") in the _Audit Manager API Reference_. ## Next steps After evidence finder is successfully enabled, you can start using the feature. We recommend waiting seven days until the event data store is backfilled with your past evidence data. You can use evidence finder in the meantime, but not all data might be available until the backfill is complete. To get started with evidence finder, see [Searching for evidence in evidence finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md"). ## Additional resources <br>• [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md") |
+| Status                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Evidence finder isn't<br>enabled**                 | You haven't successfully enabled evidence<br>finder yet.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **You have requested to enable<br>evidence finder**  | Your request is pending the event data store<br>being created.                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Evidence finder is<br>enabled**                    | The event data store was created. You can<br>now use evidence finder.<br>Depending how much evidence you have, it<br>takes up to seven days to backfill the new event<br>data store with your past evidence data. A blue<br>information panel indicates that the data backfill<br>is in progress. Feel free to start exploring<br>evidence finder in the meantime. However, keep in<br>mind that not all data is available until the<br>backfill is complete. |
+| **You have requested to disable<br>evidence finder** | Your request is pending the event data store<br>being deleted.                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Evidence finder has been<br>disabled**             | Evidence finder has been permanently<br>disabled and the event data store is deleted.                                                                                                                                                                                                                                                                                                                                                                         |
+
+AWS CLI
+
+###### To see the current status of evidence finder in the AWS CLI
+
+Run the [get-settings](../../../cli/latest/reference/auditmanager/get-settings.md "../../../cli/latest/reference/auditmanager/get-settings.md") command with the `--attribute`
+parameter set to `EVIDENCE_FINDER_ENABLEMENT`.
+
+```
+aws auditmanager get-settings --attribute EVIDENCE_FINDER_ENABLEMENT
+```
+
+This returns the following information:
+
+###### enablementStatus
+
+This attribute shows the current status of evidence finder.
+
+- `ENABLE_IN_PROGRESS` – You requested to
+  enable evidence finder. An event data store is currently being
+  created to support evidence finder queries.
+- `ENABLED` – An event data store was created
+  and evidence finder is enabled. We recommend waiting seven days
+  until the event data store is backfilled with your past evidence
+  data. You can use evidence finder in the meantime, but not all
+  data is available until the backfill is complete.
+- `DISABLE_IN_PROGRESS` – You requested to
+  disable evidence finder, and your request is pending the event
+  data store being deleted.
+- `DISABLED` – You permanently disabled
+  evidence finder and the event data store is deleted. You can't
+  re-enable evidence finder after this point.
+
+###### backfillStatus
+
+This attribute shows the current status of the evidence data
+backfill.
+
+- `NOT_STARTED` – The backfill hasn’t started
+  yet.
+- `IN_PROGRESS` – The backfill is in progress.
+  This takes up to seven days to complete, depending on the amount
+  of evidence data.
+- `COMPLETED` – The backfill is complete. All
+  of your past evidence is now queryable.
+
+Audit Manager API
+
+###### To see the current status of evidence finder using the
+
+API
+
+Call the [GetSettings](../APIReference/API_GetSettings.md "../APIReference/API_GetSettings.md") operation with the `attribute`
+parameter set to `EVIDENCE_FINDER_ENABLEMENT`. This
+returns the following information:
+
+###### enablementStatus
+
+This attribute shows the current status of evidence finder.
+
+- `ENABLE_IN_PROGRESS` - You requested to enable
+  evidence finder. An event data store is currently being created
+  to support evidence finder queries.
+- `ENABLED` - An event data store was created and
+  evidence finder is enabled. We recommend waiting seven days
+  until the event data store is backfilled with your past evidence
+  data. You can use evidence finder in the meantime, but not all
+  data is available until the backfill is complete.
+- `DISABLE_IN_PROGRESS` - You requested to disable
+  evidence finder, and your request is pending the deletion of the
+  event data store.
+- `DISABLED` - You permanently disabled evidence
+  finder and the event data store is deleted. You can't re-enable
+  evidence finder after this point.
+
+###### backfillStatus
+
+This attribute shows the current status of the evidence data
+backfill.
+
+- `NOT_STARTED` means that the backfill hasn’t
+  started yet.
+- `IN_PROGRESS` means that the backfill is in
+  progress. This takes up to seven days to complete, depending on
+  the amount of evidence data.
+- `COMPLETED` means that the backfill is complete.
+  All of your past evidence is now queryable.
+
+For more information, see [evidenceFinderEnablement](../APIReference/API_EvidenceFinderEnablement.md "../APIReference/API_EvidenceFinderEnablement.md") in the _Audit Manager API Reference_.
+
+## Next steps
+
+After evidence finder is successfully enabled, you can start using the feature. We
+recommend waiting seven days until the event data store is backfilled with your past
+evidence data. You can use evidence finder in the meantime, but not all data might
+be available until the backfill is complete.
+
+To get started with evidence finder, see [Searching for evidence in evidence
+finder](search-for-evidence-in-evidence-finder.md "search-for-evidence-in-evidence-finder.md").
+
+## Additional
+
+resources
+
+- [Troubleshooting evidence finder issues](evidence-finder-issues.md "evidence-finder-issues.md")

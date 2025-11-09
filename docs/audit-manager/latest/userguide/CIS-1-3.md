@@ -88,7 +88,42 @@ working as intended.
 
 The framework details are as follows:
 
-| Framework name in AWS Audit Manager                                                          | Number of automated controls | Number of manual controls | Number of control sets |
-| -------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Center for Internet Security (CIS) Amazon Web Services (AWS) Benchmark v1.3.0, Level 1       | 32                           | 5                         | 5                      |
-| Center for Internet Security (CIS) Amazon Web Services (AWS) Benchmark v1.3.0, Level 1 and 2 | 49                           | 6                         | 5                      | ###### Important To ensure that these frameworks collect the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. To ensure that these frameworks collect the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review a list of the AWS Config rules that are used as data source mappings for these standard frameworks, download the following files: 1. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.md") 2. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.md") The controls in these frameworks aren't intended to verify if your systems are compliant with CIS AWS Benchmark best practices. Moreover, they can't guarantee that you'll pass a CIS audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about these frameworks, including the list of standard controls that they contain, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using these frameworks, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize these frameworks to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [CIS AWS Foundations Benchmark blog posts](https://aws.amazon.com/blogs/security/tag/cis-aws-foundations-benchmark/ "https://aws.amazon.com/blogs/security/tag/cis-aws-foundations-benchmark/") on the _AWS Security Blog_ |
+| Framework name in AWS Audit Manager                                                             | Number of automated controls | Number of manual controls | Number of control sets |
+| ----------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| Center for Internet Security (CIS) Amazon Web Services (AWS) Benchmark<br>v1.3.0, Level 1       | 32                           | 5                         | 5                      |
+| Center for Internet Security (CIS) Amazon Web Services (AWS) Benchmark<br>v1.3.0, Level 1 and 2 | 49                           | 6                         | 5                      |
+
+###### Important
+
+To ensure that these frameworks collect the intended evidence from AWS Security Hub, make
+sure that you enabled all standards in Security Hub.
+
+To ensure that these frameworks collect the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review a list of the AWS Config rules that
+are used as data source mappings for these standard frameworks, download the following
+files:
+
+1. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1.md")
+2. [AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.zip](samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.md "samples/AuditManager_ConfigDataSourceMappings_CIS-AWS-Benchmark-v1.3.0,-Level-1-and-2.md")
+
+The controls in these frameworks aren't intended to verify if your systems are
+compliant with CIS AWS Benchmark best practices. Moreover, they can't guarantee that
+you'll pass a CIS audit. AWS Audit Manager doesn't automatically check procedural controls that
+require manual evidence collection.
+
+## Next steps
+
+For instructions on how to view detailed information about these frameworks, including
+the list of standard controls that they contain, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using these frameworks, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize these frameworks to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [CIS AWS
+  Foundations Benchmark blog posts](https://aws.amazon.com/blogs/security/tag/cis-aws-foundations-benchmark/ "https://aws.amazon.com/blogs/security/tag/cis-aws-foundations-benchmark/") on the _AWS
+  Security Blog_

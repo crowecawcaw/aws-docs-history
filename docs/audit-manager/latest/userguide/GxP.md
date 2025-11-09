@@ -52,6 +52,37 @@ are working as intended.
 
 The framework details are as follows:
 
-| Framework name in AWS Audit Manager                                                                                               | Number of automated controls | Number of manual controls | Number of control sets |
-| --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Title 21 Code of Federal Regulations (CFR) Part 11, Electronic records; Electronic Signatures - Scope and Application 24 May 2023 | 6                            | 19                        | 2                      | ###### Important To ensure that this framework collects the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.zip](samples/AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.md "samples/AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.md") file. The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with GxP regulations. Moreover, they can't guarantee that you'll pass an audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [AWS Compliance page for GxP](https://aws.amazon.com/compliance/gxp-part-11-annex-11/ "https://aws.amazon.com/compliance/gxp-part-11-annex-11/") <br>• [Considerations for Using AWS Products in GxP Systems](https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf "https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf") |
+| Framework name in AWS Audit Manager                                                                                                     | Number of automated controls | Number of manual controls | Number of control sets |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| Title 21 Code of Federal Regulations (CFR) Part 11, Electronic records;<br>Electronic Signatures<br>• Scope and Application 24 May 2023 | 6                            | 19                        | 2                      |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
+that you enabled all standards in Security Hub.
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.zip](samples/AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.md "samples/AuditManager_ConfigDataSourceMappings_Title-21-CFR-Part-11.md") file.
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with GxP regulations. Moreover, they can't guarantee that you'll pass an audit.
+AWS Audit Manager doesn't automatically check procedural controls that require manual evidence
+collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [AWS Compliance
+  page for GxP](https://aws.amazon.com/compliance/gxp-part-11-annex-11/ "https://aws.amazon.com/compliance/gxp-part-11-annex-11/")
+- [Considerations for Using AWS Products in GxP Systems](https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf "https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf")

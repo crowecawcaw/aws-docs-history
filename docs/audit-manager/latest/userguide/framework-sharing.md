@@ -136,11 +136,95 @@ apply filters to display only requests that expire within the next 30 days.
    this by finding the **All statuses** dropdown list, and changing
    the filter to one of the following.
 
-| Status          | Description                                                                                                                                                      |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Active**      | This filter displays share requests that are awaiting a response from the recipient.                                                                             |
-| **Expiring**    | This filter displays share requests that expire in the next 30 days.                                                                                             |
-| **Shared**      | This filter displays share requests that were accepted by the recipient. The shared custom framework now exists in the recipient's framework library.            |
-| **Inactive**    | This filter displays share requests that were declined, revoked, or expired before the recipient took action. Choose the word **Inactive** to view more details. |
-| **Replicating** | This indicates an accepted share request that's being replicated to the recipient's framework library.                                                           |
-| **Failed**      | This filter displays the share requests that weren't successfully sent to the recipient. Choose the word **Failed** to view more details.                        | ###### Note It can take up to 15 minutes to process a share request. As a result, if an error occurred when sending your share request to the recipient, the _Failed_ status might not display immediately. We recommend that you check back later to confirm that your share request was sent successfully. ### Step 4 (Optional): Revoke the share request If you need to cancel an active share request before it’s due to expire, you can revoke the request at any time. This step is optional. If you take no action, the recipient loses the ability to accept the share request after the expiration date. ###### To revoke a share request 1. From the navigation pane, choose **Share requests**. 2. Choose the **Sent requests** tab. 3. Select the framework that you want to revoke and choose **Revoke request**. 4. In the pop-up window that appears, choose **Revoke**. ###### Note You can only revoke access to share requests that have a status of _Active_ or _Expiring_. After a recipient accepts a share request, you can no longer revoke their access to that custom framework. This is because a copy of the custom framework now exists in the recipient’s framework library. When sharing frameworks across AWS Regions, it can take up to 10 minutes to process share request actions. After revoking a cross-Region share request, we recommend that you check back later to confirm that the share request was revoked successfully. ## Next steps ### Resending a share request for an updated framework You might send a share request for a custom framework and then update the same framework afterwards. If you do this, the share request isn't automatically updated to reflect the latest version of the framework. However, if its status is _active_, _shared_, or _expiring_, you can update an existing share request. To do this, you resend a new share request with the same set of details as the existing request. In the new share request, include the same custom framework ID, recipient account ID, and recipient AWS Region. You can also provide a new comment with the new share request. Keep in mind the following when you resend a share request: <br>• For the update to be successful, the new request must be for the same custom framework ID. It must also specify the same recipient account ID and Region as the existing request. <br>• If the name of the custom framework has changed, the updated share request displays the latest name. <br>• If you provide a new comment, the updated share request displays the latest comment. <br>• When you resend a share request, the expiration date is extended by six months. ###### To resend a share request for an updated framework 1. From the **Custom frameworks** tab of the framework library, choose the name of the framework that you want to share. This opens the framework detail page. 2. Choose **Actions** and then choose **Share custom framework**. 3. Review the notice that displays in the dialog box, enter `agree`, and then choose **Agree** to proceed. 4. On the next screen, follow these steps: <br>• Under **AWS account**, enter the same account ID that you specified in the existing share request. <br>• Under **AWS Region**, select the same Region that you specified in the existing share request. <br>• (Optional) Under **Message to recipient**, enter an optional comment about the updated custom framework. <br>• Under **Custom framework details**, review the details to confirm that you want to resend the share request. 5. Choose **Share** to resend and update the share request. ## Additional resources To find solutions to the issues that you might encounter when sharing a custom framework, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md"). |
+| Status          | Description                                                                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Active**      | This filter displays share requests that are awaiting a response from<br>the recipient.                                                                                     |
+| **Expiring**    | This filter displays share requests that expire in the next 30<br>days.                                                                                                     |
+| **Shared**      | This filter displays share requests that were accepted by the<br>recipient. The shared custom framework now exists in the recipient's<br>framework library.                 |
+| **Inactive**    | This filter displays share requests that were declined, revoked, or<br>expired before the recipient took action. Choose the word<br>\*_Inactive_<br>• to view more details. |
+| **Replicating** | This indicates an accepted share request that's being replicated to the<br>recipient's framework library.                                                                   |
+| **Failed**      | This filter displays the share requests that weren't successfully sent<br>to the recipient. Choose the word \*_Failed_<br>• to view more<br>details.                        |
+
+###### Note
+
+It can take up to 15 minutes to process a share request. As a result, if an error occurred
+when sending your share request to the recipient, the _Failed_ status might not display immediately. We recommend that you check
+back later to confirm that your share request was sent successfully.
+
+### Step 4 (Optional):
+
+Revoke the share request
+
+If you need to cancel an active share request before it’s due to expire, you can
+revoke the request at any time. This step is optional. If you take no action, the
+recipient loses the ability to accept the share request after the expiration date.
+
+###### To revoke a share request
+
+1. From the navigation pane, choose **Share requests**.
+2. Choose the **Sent requests** tab.
+3. Select the framework that you want to revoke and choose **Revoke
+   request**.
+4. In the pop-up window that appears, choose **Revoke**.
+
+###### Note
+
+You can only revoke access to share requests that have a status of _Active_ or _Expiring_. After a recipient
+accepts a share request, you can no longer revoke their access to that custom framework.
+This is because a copy of the custom framework now exists in the recipient’s framework
+library.
+
+When sharing frameworks across AWS Regions, it can take up to 10 minutes to
+process share request actions. After revoking a cross-Region share request, we recommend
+that you check back later to confirm that the share request was revoked successfully.
+
+## Next steps
+
+### Resending a share request for an updated
+
+framework
+
+You might send a share request for a custom framework and then update the same
+framework afterwards. If you do this, the share request isn't automatically updated to
+reflect the latest version of the framework. However, if its status is _active_, _shared_, or _expiring_, you can update an existing share request. To do this,
+you resend a new share request with the same set of details as the existing request. In
+the new share request, include the same custom framework ID, recipient account ID, and
+recipient AWS Region. You can also provide a new comment with the new share
+request.
+
+Keep in mind the following when you resend a share request:
+
+- For the update to be successful, the new request must be for the same custom
+  framework ID. It must also specify the same recipient account ID and Region as the
+  existing request.
+- If the name of the custom framework has changed, the updated share request displays
+  the latest name.
+- If you provide a new comment, the updated share request displays the latest comment.
+- When you resend a share request, the expiration date is extended by six months.
+
+###### To resend a share request for an updated framework
+
+1. From the **Custom frameworks** tab of the framework library,
+   choose the name of the framework that you want to share. This opens the framework
+   detail page.
+2. Choose **Actions** and then choose **Share custom
+   framework**.
+3. Review the notice that displays in the dialog box, enter
+   `agree`, and then choose **Agree**
+   to proceed.
+4. On the next screen, follow these steps:
+   - Under **AWS account**, enter the same account ID that you
+     specified in the existing share request.
+   - Under **AWS Region**, select the same Region that you
+     specified in the existing share request.
+   - (Optional) Under **Message to recipient**, enter an optional
+     comment about the updated custom framework.
+   - Under **Custom framework details**, review the details to
+     confirm that you want to resend the share request.
+
+5. Choose **Share** to resend and update the share request.
+
+## Additional resources
+
+To find solutions to the issues that you might encounter when sharing a custom
+framework, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md").

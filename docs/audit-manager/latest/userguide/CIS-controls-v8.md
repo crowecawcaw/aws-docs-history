@@ -72,5 +72,36 @@ working as intended.
 The framework details are as follows:
 
 | Framework name in AWS Audit Manager                        | Number of automated controls | Number of manual controls | Number of control sets |
-| ---------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CIS Critical Security Controls version 8.0 (CIS v8.0), IG1 | 11                           | 45                        | 15                     | ###### Important To ensure that this framework collects the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.zip](<samples/AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.md> "samples/AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.md") file. The controls in this framework aren't intended to verify if your systems are compliant with CIS Controls. Moreover, they can't guarantee that you'll pass a CIS audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [CIS Controls v8](https://www.cisecurity.org/controls/v8/ "https://www.cisecurity.org/controls/v8/") |
+| ---------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| CIS Critical Security Controls version 8.0 (CIS v8.0), IG1 | 11                           | 45                        | 15                     |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
+that you enabled all standards in Security Hub.
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.zip](<samples/AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.md> "samples/AuditManager_ConfigDataSourceMappings_CIS-Critical-Security-Controls-version-8.0-(CIS-v8.0),-IG1.md")
+file.
+
+The controls in this framework aren't intended to verify if your systems are compliant
+with CIS Controls. Moreover, they can't guarantee that you'll pass a CIS audit. AWS Audit Manager
+doesn't automatically check procedural controls that require manual evidence
+collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [CIS Controls
+  v8](https://www.cisecurity.org/controls/v8/ "https://www.cisecurity.org/controls/v8/")

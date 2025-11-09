@@ -71,5 +71,40 @@ working as intended.
 The framework details are as follows:
 
 | Framework name in AWS Audit Manager     | Number of automated controls | Number of manual controls | Number of control sets |
-| --------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NIST Cybersecurity Framework (CSF) v1.1 | 14                           | 94                        | 22                     | ###### Important To ensure that this framework collects the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip](samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md "samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md") file. The controls that are offered by Audit Manager aren't intended to verify if your systems are compliant with the NIST CSF. Moreover, they can't guarantee that you'll pass a NIST audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [National Institute of Standards and Technology (NIST)](https://www.nist.gov/ "https://www.nist.gov/") <br>• [NIST Computer Security Resource Center](http://csrc.nist.gov "http://csrc.nist.gov") <br>• [AWS Compliance page for NIST](https://aws.amazon.com/compliance/nist/ "https://aws.amazon.com/compliance/nist/") <br>• [NIST Cybersecurity Framework - Aligning to the NIST CSF in the AWS Cloud](https://d1.awsstatic.com/whitepapers/compliance/NIST_Cybersecurity_Framework_CSF.pdf "https://d1.awsstatic.com/whitepapers/compliance/NIST_Cybersecurity_Framework_CSF.pdf") |
+| --------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| NIST Cybersecurity Framework (CSF) v1.1 | 14                           | 94                        | 22                     |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
+that you enabled all standards in Security Hub.
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.zip](samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md "samples/AuditManager_ConfigDataSourceMappings_NIST-CSF-v1.1.md") file.
+
+The controls that are offered by Audit Manager aren't intended to verify if your systems are
+compliant with the NIST CSF. Moreover, they can't guarantee that you'll pass a NIST audit.
+AWS Audit Manager doesn't automatically check procedural controls that require manual evidence
+collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [National Institute of Standards and Technology
+  (NIST)](https://www.nist.gov/ "https://www.nist.gov/")
+- [NIST Computer Security Resource
+  Center](http://csrc.nist.gov "http://csrc.nist.gov")
+- [AWS Compliance page for
+  NIST](https://aws.amazon.com/compliance/nist/ "https://aws.amazon.com/compliance/nist/")
+- [NIST Cybersecurity Framework - Aligning to the NIST CSF in the AWS Cloud](https://d1.awsstatic.com/whitepapers/compliance/NIST_Cybersecurity_Framework_CSF.pdf "https://d1.awsstatic.com/whitepapers/compliance/NIST_Cybersecurity_Framework_CSF.pdf")

@@ -108,4 +108,4 @@ the current page. You can preview each individual resource that relates to an ev
 see the full evidence details for any resource, choose the evidence name. For more information,
 see [Previewing resource summaries](viewing-search-results-in-evidence-finder.md#preview-evidence "viewing-search-results-in-evidence-finder.md#preview-evidence").
 
-![An example of a search result and the on-screen resource summary for that result.](/images/audit-manager/latest/userguide/images/evidence-finder-preview-console.png)
+![An example of a search result and the on-screen resource summary for that result.](images/evidence-finder-preview-console.png)

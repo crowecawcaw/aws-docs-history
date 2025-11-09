@@ -127,10 +127,22 @@ that you accepted.
 4. Find the **All statuses** dropdown list, and select
    one of the following filters:
 
-| Name         | Description                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Active**   | This filter displays share requests that you haven't yet accepted or declined.                                           |
-| **Expiring** | This filter displays share requests that expire in the next 30 days.                                                     |
-| **Shared**   | This filter displays share requests that you accepted. The shared framework is now available in your framework library.  |
-| **Inactive** | This filter displays share requests that were declined or expired.                                                       |
-| **Failed**   | This filter displays the share requests that weren't sent successfully. Choose the word **Failed** to view more details. | ## Next steps After you accept a shared custom framework, you can find it in the custom frameworks tab of the framework library. You can now use that framework to create an assessment. To learn more, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to edit your new custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md"). ## Additional resources To find solutions to issues that you might encounter, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md"). |
+| Name         | Description                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Active**   | This filter displays share requests that you haven't yet accepted or<br>declined.                                                   |
+| **Expiring** | This filter displays share requests that expire in the next 30<br>days.                                                             |
+| **Shared**   | This filter displays share requests that you accepted. The shared<br>framework is now available in your framework library.          |
+| **Inactive** | This filter displays share requests that were declined or<br>expired.                                                               |
+| **Failed**   | This filter displays the share requests that weren't sent<br>successfully. Choose the word \*_Failed_<br>• to view more<br>details. |
+
+## Next steps
+
+After you accept a shared custom framework, you can find it in the custom frameworks
+tab of the framework library. You can now use that framework to create an assessment. To
+learn more, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to edit your new custom framework, see [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md").
+
+## Additional resources
+
+To find solutions to issues that you might encounter, see [Troubleshooting framework issues](framework-issues.md "framework-issues.md").

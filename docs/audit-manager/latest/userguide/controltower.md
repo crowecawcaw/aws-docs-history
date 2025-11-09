@@ -47,5 +47,33 @@ to show that your controls are working as intended.
 The AWS Control Tower Guardrails framework details are as follows:
 
 | Framework name in AWS Audit Manager | Number of automated controls | Number of manual controls | Number of control sets |
-| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Control Tower Guardrails        | 14                           | 0                         | 5                      | ###### Important To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.zip](samples/AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.md "samples/AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.md") file. The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with AWS Control Tower Guardrails. Moreover, they can't guarantee that you'll pass an audit. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [AWS Control Tower service page](https://aws.amazon.com/controltower "https://aws.amazon.com/controltower") <br>• [AWS Control Tower user guide](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md") |
+| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| AWS Control Tower Guardrails        | 14                           | 0                         | 5                      |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.zip](samples/AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.md "samples/AuditManager_ConfigDataSourceMappings_AWS-Control-Tower-Guardrails.md")
+file.
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with AWS Control Tower Guardrails. Moreover, they can't guarantee that you'll pass an
+audit.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [AWS Control Tower service page](https://aws.amazon.com/controltower "https://aws.amazon.com/controltower")
+- [AWS Control Tower user
+  guide](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md")

@@ -23,9 +23,20 @@ AWS Audit Manager](security_iam_id-based-policy-examples.md#management-access "s
    information:
 
 | Name            | Description                                                        |
-| --------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ------------------------------------------------------------------ |
 | **Date**        | The date when the control set was delegated.                       |
 | **Assessment**  | The name of the assessment that's associated with the control set. |
 | **Control set** | The name of the control set.                                       |
 | **Source**      | The user or role that delegated the control set to you.            |
-| **Description** | Instructions that are provided by the audit owner.                 | ###### Tip You can also subscribe to an SNS topic to receive email alerts when a control set is delegated to you for review. For more information, see [Notifications in AWS Audit Manager](notifications.md "notifications.md"). ## Next steps When you're ready to start reviewing the controls that were delegated to you, see [Reviewing the delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md"). |
+| **Description** | Instructions that are provided by the audit owner.                 |
+
+###### Tip
+
+You can also subscribe to an SNS topic to receive email alerts when a control set is
+delegated to you for review. For more information, see [Notifications in AWS Audit Manager](notifications.md "notifications.md").
+
+## Next steps
+
+When you're ready to start reviewing the controls that were delegated to you, see
+[Reviewing the
+delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md").

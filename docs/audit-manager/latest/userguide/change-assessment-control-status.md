@@ -39,8 +39,79 @@ Audit Manager console
 5. Choose **Update control status** at the top right of the page, and
    then choose a status:
 
-| Status           | Description                                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Under review** | Choose this status if you haven't reviewed the control yet.                                                                              |
-| **Reviewed**     | Choose this status if you have finished reviewing the evidence for this control, and you want to continue collecting or adding evidence. |
-| **Inactive**     | Choose this status if you want to stop collecting automated evidence for this control.                                                   | 6. Choose **Update control status** to confirm your choice. AWS CLI ###### To change an assessment control status in the AWS CLI 1. Run the [list-assessments](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/list-assessments.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/list-assessments.html") command. `aws auditmanager list-assessments` The response returns a list of assessments. Find the assessment that contains the control that you want to update, and take note of the assessment ID. 2. Run the [get-assessment](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/get-assessment.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/get-assessment.html") command and specify the assessment ID from step 1. In the following example, replace the `placeholder text` with your own information. `` aws auditmanager get-assessment --assessment-id `1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4e5f6g` `` In the response, find the control that you want to update and take note of the control ID and its control set ID. 3. Run the [update-assessment-control](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html") command and specify the following parameters: <br>• `--assessment-id` – The assessment that the control belongs to. <br>• `--control-set-id` – The control set that the control belongs to. <br>• `--control-id` – The control that you want to update. <br>• `--control-status` – Set this value to `UNDER_REVIEW`, `REVIEWED`, or `INACTIVE`. In the following example, replace the `placeholder text` with your own information. `` aws auditmanager update-assessment-control --assessment-id `1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4e5f6g` --control-set-id "`My control set`" --control-id `2b3c4d5e-2b3c-2b3c-2b3c-2b3c4d5f6g7h` --control-status `REVIEWED` `` Audit Manager API ###### To change an assessment control status using the API 1. Use the [ListAssessments](../APIReference/API_ListAssessments.md "../APIReference/API_ListAssessments.md") operation. In the response, find the assessment that contains the control that you want to update, and take note of the assessment ID. 2. Use the [GetAssessment](../APIReference/API_GetAssessment.md "../APIReference/API_GetAssessment.md") operation and specify the assessment ID from step 1. In the response, find the control that you want to update and take note of the control ID and its control set ID. 3. Use the [UpdateAssessmentControl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html") operation and specify the following parameters: <br>• `assessmentId` – The assessment that the control belongs to. <br>• `controlSetId` – The control set that the control belongs to. <br>• `controlId` –The control that you want to update. <br>• `controlStatus` – Set this value to `UNDER_REVIEW`, `REVIEWED`, or `INACTIVE`. For more information about these API operations, choose any of the links in the previous procedure to read more in the _AWS Audit Manager API Reference_. This includes information about how to use these operations and parameters in one of the language-specific AWS SDKs. ## Next steps When you're ready to change the status of the assessment, see [Changing the status of an assessment to inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md"). |
+| Status           | Description                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Under review** | Choose this status if you haven't reviewed the control yet.                                                                                 |
+| **Reviewed**     | Choose this status if you have finished reviewing the evidence for this control,<br>and you want to continue collecting or adding evidence. |
+| **Inactive**     | Choose this status if you want to stop collecting automated evidence for this<br>control.                                                   |
+
+6. Choose **Update control status** to confirm your choice.
+
+AWS CLI
+
+###### To change an assessment control status in the AWS CLI
+
+1. Run the [list-assessments](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/list-assessments.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/list-assessments.html") command.
+
+```
+ aws auditmanager list-assessments
+```
+
+The response returns a list of assessments. Find the assessment that contains the
+control that you want to update, and take note of the assessment ID. 2. Run the [get-assessment](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/get-assessment.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/get-assessment.html") command and specify the assessment ID from step 1.
+
+In the following example, replace the `placeholder text` with
+your own information.
+
+```
+ aws auditmanager get-assessment --assessment-id `1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4e5f6g`
+```
+
+In the response, find the control that you want to update and take note of the control
+ID and its control set ID. 3. Run the [update-assessment-control](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html") command and specify the following parameters:
+
+    * `--assessment-id` – The assessment that the control belongs
+     to.
+    * `--control-set-id` – The control set that the control belongs
+     to.
+    * `--control-id` – The control that you want to update.
+    * `--control-status` – Set this value to `UNDER_REVIEW`,
+     `REVIEWED`, or `INACTIVE`.
+
+In the following example, replace the `placeholder text` with
+your own information.
+
+```
+aws auditmanager update-assessment-control --assessment-id `1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4e5f6g` --control-set-id "`My control set`" --control-id `2b3c4d5e-2b3c-2b3c-2b3c-2b3c4d5f6g7h` --control-status `REVIEWED`
+```
+
+Audit Manager API
+
+###### To change an assessment control status using the API
+
+1. Use the [ListAssessments](../APIReference/API_ListAssessments.md "../APIReference/API_ListAssessments.md") operation.
+
+In the response, find the assessment that contains the control that you want to
+update, and take note of the assessment ID. 2. Use the [GetAssessment](../APIReference/API_GetAssessment.md "../APIReference/API_GetAssessment.md") operation and specify the assessment ID from
+step 1.
+
+In the response, find the control that you want to update and take note of the control
+ID and its control set ID. 3. Use the [UpdateAssessmentControl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/auditmanager/update-assessment-control.html") operation and specify the following parameters:
+
+    * `assessmentId` – The assessment that the control belongs
+     to.
+    * `controlSetId` – The control set that the control belongs
+     to.
+    * `controlId` –The control that you want to update.
+    * `controlStatus` – Set this value to `UNDER_REVIEW`,
+     `REVIEWED`, or `INACTIVE`.
+
+For more information about these API operations, choose any of the links in the previous
+procedure to read more in the _AWS Audit Manager API Reference_. This
+includes information about how to use these operations and parameters in one of the
+language-specific AWS SDKs.
+
+## Next steps
+
+When you're ready to change the status of the assessment, see [Changing the status of an assessment to
+inactive in AWS Audit Manager](change-assessment-status-to-inactive.md "change-assessment-status-to-inactive.md").

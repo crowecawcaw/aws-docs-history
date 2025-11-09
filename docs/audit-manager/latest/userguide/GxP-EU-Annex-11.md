@@ -50,6 +50,29 @@ are working as intended.
 
 The framework details are as follows:
 
-| Framework name in AWS Audit Manager                                                                                                                                                       | Number of automated controls | Number of manual controls | Number of control sets |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EudraLex - The Rules Governing Medicinal Products in the European Union (EU) <br>• Volume 4: Good Manufacturing Practice (GMP) Medicinal Products for Human and Veterinary Use - Annex 11 | 0                            | 32                        | 3                      | ###### Important To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip](samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md "samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md") file. The controls in this framework aren't intended to verify if your systems are compliant with the EU GMP Annex 11 requirements. Moreover, they can't guarantee that you'll pass a EU GMP audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). |
+| Framework name in AWS Audit Manager                                                                                                                                                               | Number of automated controls | Number of manual controls | Number of control sets |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| EudraLex<br>• The Rules Governing Medicinal Products in the European Union (EU)<br>• Volume 4: Good Manufacturing Practice (GMP) Medicinal Products for Human and<br>Veterinary Use<br>• Annex 11 | 0                            | 32                        | 3                      |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.zip](samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md "samples/AuditManager_ConfigDataSourceMappings_EudraLex-GMP-Volume-4-Annex-11.md")
+file.
+
+The controls in this framework aren't intended to verify if your systems are compliant
+with the EU GMP Annex 11 requirements. Moreover, they can't guarantee that you'll pass a
+EU GMP audit. AWS Audit Manager doesn't automatically check procedural controls that require manual
+evidence collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").

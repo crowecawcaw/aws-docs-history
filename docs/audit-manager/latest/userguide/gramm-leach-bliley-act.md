@@ -45,5 +45,21 @@ to show that your controls are working as intended.
 The framework details are as follows:
 
 | Framework name in AWS Audit Manager | Number of automated controls | Number of manual controls | Number of control sets |
-| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Gramm-Leach-Bliley Act (GLBA)       | 0                            | 120                       | 16                     | The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with the GLBA standard. Moreover, they can't guarantee that you'll pass a GLBA audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). |
+| ----------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| Gramm-Leach-Bliley Act (GLBA)       | 0                            | 120                       | 16                     |
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with the GLBA standard. Moreover, they can't guarantee that you'll pass a GLBA
+audit. AWS Audit Manager doesn't automatically check procedural controls that require manual
+evidence collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").

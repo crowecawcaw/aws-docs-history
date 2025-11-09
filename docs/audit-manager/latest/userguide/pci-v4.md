@@ -73,5 +73,42 @@ working as intended.
 The framework details are as follows:
 
 | Framework name in AWS Audit Manager                         | Number of automated controls | Number of manual controls | Number of control sets |
-| ----------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Payment Card Industry Data Security Standard (PCI DSS) v4.0 | 40                           | 240                       | 15                     | ###### Important To ensure that this framework collects the intended evidence from AWS Security Hub, make sure that you enabled all standards in Security Hub. To ensure that this framework collects the intended evidence from AWS Config, make sure that you enable the necessary AWS Config rules. To review the AWS Config rules that are used as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip](samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md "samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md") file. The controls in this AWS Audit Manager framework aren't intended to verify if your systems are compliant with the PCI DSS standard. Moreover, they can't guarantee that you'll pass a PCI DSS audit. AWS Audit Manager doesn't automatically check procedural controls that require manual evidence collection. ## Next steps For instructions on how to view detailed information about this framework, including the list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md"). For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md"). For instructions on how to customize this framework to support your specific requirements, see [Making an editable copy of an existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md"). ## Additional resources <br>• [PCI DSS v4.0 Resource Hub](https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub "https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub") <br>• [PCI Security Standards Council](https://www.pcisecuritystandards.org/ "https://www.pcisecuritystandards.org/") <br>• [PCI Security Standards Council Document Library](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss "https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss"). <br>• [AWS Compliance page for PCI DSS](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/") <br>• [Payment Card Industry Data Security Standard (PCI DSS) v4.0 on AWS Compliance Guide](https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws-v4-102023.pdf "https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws-v4-102023.pdf") |
+| ----------------------------------------------------------- | ---------------------------- | ------------------------- | ---------------------- |
+| Payment Card Industry Data Security Standard (PCI DSS) v4.0 | 40                           | 240                       | 15                     |
+
+###### Important
+
+To ensure that this framework collects the intended evidence from AWS Security Hub, make sure
+that you enabled all standards in Security Hub.
+
+To ensure that this framework collects the intended evidence from AWS Config, make sure
+that you enable the necessary AWS Config rules. To review the AWS Config rules that are used
+as data source mappings in this standard framework, download the [AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.zip](samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md "samples/AuditManager_ConfigDataSourceMappings_PCI-DSS-v4.0.md") file.
+
+The controls in this AWS Audit Manager framework aren't intended to verify if your systems are
+compliant with the PCI DSS standard. Moreover, they can't guarantee that you'll pass a PCI
+DSS audit. AWS Audit Manager doesn't automatically check procedural controls that require manual
+evidence collection.
+
+## Next steps
+
+For instructions on how to view detailed information about this framework, including the
+list of standard controls that it contains, see [Reviewing a framework in AWS Audit Manager](review-frameworks.md "review-frameworks.md").
+
+For instructions on how to create an assessment using this framework, see [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md").
+
+For instructions on how to customize this framework to support your specific
+requirements, see [Making an editable copy of an
+existing framework in AWS Audit Manager](create-custom-frameworks-from-existing.md "create-custom-frameworks-from-existing.md").
+
+## Additional resources
+
+- [PCI
+  DSS v4.0 Resource Hub](https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub "https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub")
+- [PCI Security Standards
+  Council](https://www.pcisecuritystandards.org/ "https://www.pcisecuritystandards.org/")
+- [PCI Security Standards Council Document Library](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss "https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss").
+- [AWS Compliance
+  page for PCI DSS](https://aws.amazon.com/compliance/pci-dss-level-1-faqs/ "https://aws.amazon.com/compliance/pci-dss-level-1-faqs/")
+- [Payment Card Industry Data Security Standard (PCI DSS) v4.0 on AWS Compliance
+  Guide](https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws-v4-102023.pdf "https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws-v4-102023.pdf")
