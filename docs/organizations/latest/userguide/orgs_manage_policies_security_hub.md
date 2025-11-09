@@ -72,9 +72,83 @@ maintaining baseline controls.
 
 This topic uses the following terms when discussing Security Hub policies.
 
-| Security Hub policy terminology | Term                                                                                 | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Effective policy                | The final policy that applies to an account after combining all inherited policies.  |
-| Policy inheritance              | The process by which accounts inherit policies from parent organizational units.     |
-| Delegated administrator         | An account designated to manage Security Hub policies on behalf of the organization. |
-| Service-linked role             | An IAM role that allows Security Hub to interact with other AWS services.            | ## Use cases for Security Hub policies Security Hub policies address common security management challenges in multi-account environments. The following use cases demonstrate how organizations typically implement these policies to enhance their security posture. ### Example use case: Regional compliance requirements A multinational corporation needs different Security Hub configurations for different geographical regions. They create a parent policy enabling Security Hub in all regions using `ALL_SUPPORTED`, then use child policies to disable specific regions where different security controls are required. This allows them to maintain compliance with regional regulations while ensuring comprehensive security coverage. ### Example use case: Development team security standards A software development organization implements Security Hub policies that enable monitoring in production regions while keeping development regions unmanaged. They use explicit region lists in their policies rather than `ALL_SUPPORTED` to maintain precise control over security monitoring coverage. This approach allows them to enforce stricter security controls in production environments while maintaining flexibility in development areas. ## Policy inheritance and enforcement Understanding how policies are inherited and enforced is crucial for effective security management across your organization. The inheritance model follows the AWS Organizations hierarchy, ensuring predictable and consistent policy application. <br>• Policies attached at the root level apply to all accounts <br>• Accounts inherit policies from their parent organizational units <br>• Multiple policies can apply to a single account <br>• More specific policies (closer to the account in the hierarchy) take precedence ## Policy validation When creating Security Hub policies, the following validations occur: <br>• Region names must be valid AWS region identifiers <br>• Regions must be supported by Security Hub <br>• Policy structure must follow AWS Organizations policy syntax rules <br>• Both `enable_in_regions` and `disable_in_regions` lists must be present, though they can be empty ## Regional considerations and supported Regions Security Hub policies operate across multiple Regions, requiring careful consideration of your global security requirements. Understanding regional behavior helps you implement effective security controls across your organization's global footprint. <br>• Policy enforcement occurs in each Region independently <br>• You can specify which Regions to include or exclude in your policies <br>• New Regions are automatically included when using the `ALL_SUPPORTED` option <br>• Policies only apply to Regions where Security Hub is available ## Next steps To get started with Security Hub policies: 1. Review the prerequisites in Getting started with Security Hub policies 2. Plan your policy strategy using our best practices guide 3. Learn about policy syntax and view example policies |
+| Security Hub policy terminology | Term                                                                                    | Definition |
+| ------------------------------- | --------------------------------------------------------------------------------------- | ---------- |
+| Effective policy                | The final policy that applies to an account after combining all<br>inherited policies.  |
+| Policy inheritance              | The process by which accounts inherit policies from parent<br>organizational units.     |
+| Delegated administrator         | An account designated to manage Security Hub policies on behalf of the<br>organization. |
+| Service-linked role             | An IAM role that allows Security Hub to interact with other AWS<br>services.            |
+
+## Use cases for Security Hub policies
+
+Security Hub policies address common security management challenges in multi-account
+environments. The following use cases demonstrate how organizations typically implement
+these policies to enhance their security posture.
+
+### Example use case: Regional
+
+compliance requirements
+
+A multinational corporation needs different Security Hub configurations for different
+geographical regions. They create a parent policy enabling Security Hub in all regions
+using `ALL_SUPPORTED`, then use child policies to disable specific
+regions where different security controls are required. This allows them to maintain
+compliance with regional regulations while ensuring comprehensive security
+coverage.
+
+### Example use case: Development
+
+team security standards
+
+A software development organization implements Security Hub policies that enable
+monitoring in production regions while keeping development regions unmanaged. They
+use explicit region lists in their policies rather than `ALL_SUPPORTED`
+to maintain precise control over security monitoring coverage. This approach allows
+them to enforce stricter security controls in production environments while
+maintaining flexibility in development areas.
+
+## Policy inheritance and
+
+enforcement
+
+Understanding how policies are inherited and enforced is crucial for effective
+security management across your organization. The inheritance model follows the AWS Organizations
+hierarchy, ensuring predictable and consistent policy application.
+
+- Policies attached at the root level apply to all accounts
+- Accounts inherit policies from their parent organizational units
+- Multiple policies can apply to a single account
+- More specific policies (closer to the account in the hierarchy) take
+  precedence
+
+## Policy validation
+
+When creating Security Hub policies, the following validations occur:
+
+- Region names must be valid AWS region identifiers
+- Regions must be supported by Security Hub
+- Policy structure must follow AWS Organizations policy syntax rules
+- Both `enable_in_regions` and `disable_in_regions` lists
+  must be present, though they can be empty
+
+## Regional considerations and supported
+
+Regions
+
+Security Hub policies operate across multiple Regions, requiring careful consideration of
+your global security requirements. Understanding regional behavior helps you implement
+effective security controls across your organization's global footprint.
+
+- Policy enforcement occurs in each Region independently
+- You can specify which Regions to include or exclude in your policies
+- New Regions are automatically included when using the
+  `ALL_SUPPORTED` option
+- Policies only apply to Regions where Security Hub is available
+
+## Next steps
+
+To get started with Security Hub policies:
+
+1. Review the prerequisites in Getting started with Security Hub policies
+2. Plan your policy strategy using our best practices guide
+3. Learn about policy syntax and view example policies

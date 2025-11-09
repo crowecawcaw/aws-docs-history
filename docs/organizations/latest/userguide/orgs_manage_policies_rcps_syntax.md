@@ -34,14 +34,190 @@ RCP allows all principals and actions access to pass through RCP evaluation, mea
 until you start creating and attaching RCPs, all your existing IAM permissions
 continue to operate as they did. This does not grant access.
 
-| Element                                                    | Purpose                                                                                           |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Version](#rcp-syntax-version "#rcp-syntax-version")       | Specifies the language syntax rules to use for processing the policy.                             |
-| [Statement](#rcp-syntax-statement "#rcp-syntax-statement") | Serves as the container for policy elements. You can have multiple statements in RCPs.            |
-| [Statement ID (Sid)](#rcp-syntax-sid "#rcp-syntax-sid")    | (Optional) Provides a friendly name for the statement.                                            |
-| [Effect](#rcp-syntax-effect "#rcp-syntax-effect")          | Defines whether the RCP statement denies access to the resources in an account.                   |
-| [Principal](#rcp-syntax-principal "#rcp-syntax-principal") | Specifies the principal that is allowed or denied access to resources in an account.              |
-| [Action](#rcp-syntax-action "#rcp-syntax-action")          | Specifies AWS service and actions that the RCP allows or denies.                                  |
-| [Resource](#rcp-syntax-resource "#rcp-syntax-resource")    | Specifies the AWS resources that the RCP applies to.                                              |
-| [NotResource](#rcp-syntax-resource "#rcp-syntax-resource") | Specifies the AWS resources that are exempt from the RCP. Used instead of the `Resource` element. |
-| [Condition](#rcp-syntax-condition "#rcp-syntax-condition") | Specifies conditions for when the statement is in effect.                                         | ###### Topics <br>• [Version element](#rcp-syntax-version "#rcp-syntax-version") <br>• [Statement element](#rcp-syntax-statement "#rcp-syntax-statement") <br>• [Statement ID (Sid) element](#rcp-syntax-sid "#rcp-syntax-sid") <br>• [Effect element](#rcp-syntax-effect "#rcp-syntax-effect") <br>• [Principal element](#rcp-syntax-principal "#rcp-syntax-principal") <br>• [Action element](#rcp-syntax-action "#rcp-syntax-action") <br>• [Resource and NotResource elements](#rcp-syntax-resource "#rcp-syntax-resource") <br>• [Condition element](#rcp-syntax-condition "#rcp-syntax-condition") <br>• [Unsupported elements](#rcp-syntax-unsupported "#rcp-syntax-unsupported") ## `Version` element Every RCP must include a `Version` element with the value `"2012-10-17"`. This is the same version value as the most recent version of IAM permission policies. For more information, see [IAM JSON Policy Elements: Version](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md") in the _IAM User Guide_. ## `Statement` element An RCP consists of one or more `Statement` elements. You can have only one `Statement` keyword in a policy, but the value can be a JSON array of statements (surrounded by [ ] characters). The following example shows a single statement that consists of single `Effect`, `Principal`, `Action`, and `Resource` elements. `{ "Statement": { "Effect": "Deny", "Principal": "*", "Action": "s3:PutBucketPublicAccessBlock", "Resource": "*" } }` For more information, see [IAM JSON Policy Elements: Statement](../../../IAM/latest/UserGuide/reference_policies_elements_statement.md "../../../IAM/latest/UserGuide/reference_policies_elements_statement.md") in the _IAM User Guide_. ## Statement ID (`Sid`) element The `Sid` is an optional identifier that you provide for the policy statement. You can assign a `Sid` value to each statement in a statement array. The following example RCP shows a sample `Sid` statement. `{ "Statement": { "Sid": "DenyBPAConfigurations", "Effect": "Deny", "Principal": "*", "Action": "s3:PutBucketPublicAccessBlock", "Resource": "*" } }` For more information, see [IAM JSON Policy Elements: Sid](../../../IAM/latest/UserGuide/reference_policies_elements_sid.md "../../../IAM/latest/UserGuide/reference_policies_elements_sid.md") in the _IAM User Guide_. ## `Effect` element Each statement must contain one `Effect` element. Using the value of `Deny` in the `Effect` element, you can restrict access to specific resources or define conditions for when RCPs are in effect. For RCPs that you create, the value must be `Deny`. For more information, see [RCP evaluation](orgs_manage_policies_rcps_evaluation.md "orgs_manage_policies_rcps_evaluation.md") and [IAM JSON Policy Elements: Effect](../../../IAM/latest/UserGuide/reference_policies_elements_effect.md "../../../IAM/latest/UserGuide/reference_policies_elements_effect.md") in the _IAM User Guide_. ## `Principal` element Each statement must contain the `Principal` element. You can only specify “`*`” in the `Principal` element of an RCP. Use the `Conditions` element to restrict specific principals. For more information, see [IAM JSON Policy Elements: Principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in the _IAM User Guide_. ## `Action` element Each statement must contain the `Action` element. The value for the `Action` element is a string or list (a JSON array) of strings that identify AWS services and actions that are allowed or denied by the statement. Each string consists of the abbreviation for the service (such as "s3", "sqs", or "sts"), in all lowercase, followed by a colon and then an action from that service. Generally, they are all entered with each word starting with an uppercase letter and the rest lowercase. For example: `"s3:ListAllMyBuckets"`. You also can use wildcard characters such as asterisk (\*) or question mark (?) in an RCP: <br>• Use an asterisk (\*) as a wildcard to match multiple actions that share part of a name. The value `"s3:*"` means all actions in the Amazon S3 service. The value `"sts:Get*"` matches only the AWS STS actions that begin with "Get". <br>• Use the question mark (?) wildcard to match a single character. ###### Note **Wildcards (\*) and question marks (?) can be used anywhere in the action name** You cannot use "\*" in the Action element of a customer managed RCP and have to specify the abbreviation for the service (such as "s3", "sqs", or "sts") you want to restrict access to. For a list of the services that support RCPs, see [List of AWS services that support RCPs](orgs_manage_policies_rcps.md#rcp-supported-services "orgs_manage_policies_rcps.md#rcp-supported-services"). For a list of the actions an AWS service supports, see [Actions, Resources, and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the _Service Authorization Reference_. For more information, see [IAM JSON Policy Elements: Action](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md") in the _IAM User Guide_. ## `Resource` and `NotResource` elements Each statement must contain the `Resource` or `NotResource` element. You can use wildcard characters such as asterisk (\*) or question mark (?) in the resource element: <br>• Use an asterisk (\*) as a wildcard to match multiple resources that share part of a name. <br>• Use the question mark (?) wildcard to match a single character. For more information, see [IAM JSON Policy Elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") and see [IAM JSON Policy Elements: NotResource](../../../IAM/latest/UserGuide/reference_policies_elements_notresource.md "../../../IAM/latest/UserGuide/reference_policies_elements_notresource.md") in the _IAM User Guide_. ## `Condition` element You can specify a `Condition` element in deny statements in an RCP. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Principal": "*", "Action": "s3:*", "Resource": "*", "Condition": { "BoolIfExists": { "aws:SecureTransport": "false" } } } ] }` `` This RCP denies access to Amazon S3 operations and resources unless the request occurs over secure transport (the request was sent over TLS). For more information, see [IAM JSON Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_. ## Unsupported elements The following elements are not supported in RCPs: <br>• `NotPrincipal` <br>• `NotAction` |
+| Element                                                    | Purpose                                                                                              |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [Version](#rcp-syntax-version "#rcp-syntax-version")       | Specifies the language syntax rules to use for processing the<br>policy.                             |
+| [Statement](#rcp-syntax-statement "#rcp-syntax-statement") | Serves as the container for policy elements. You can have multiple<br>statements in RCPs.            |
+| [Statement ID (Sid)](#rcp-syntax-sid "#rcp-syntax-sid")    | (Optional) Provides a friendly name for the statement.                                               |
+| [Effect](#rcp-syntax-effect "#rcp-syntax-effect")          | Defines whether the RCP statement denies access to the resources in<br>an account.                   |
+| [Principal](#rcp-syntax-principal "#rcp-syntax-principal") | Specifies the principal that is allowed or denied access to resources<br>in an account.              |
+| [Action](#rcp-syntax-action "#rcp-syntax-action")          | Specifies AWS service and actions that the RCP allows or<br>denies.                                  |
+| [Resource](#rcp-syntax-resource "#rcp-syntax-resource")    | Specifies the AWS resources that the RCP applies to.                                                 |
+| [NotResource](#rcp-syntax-resource "#rcp-syntax-resource") | Specifies the AWS resources that are exempt from the RCP. Used<br>instead of the `Resource` element. |
+| [Condition](#rcp-syntax-condition "#rcp-syntax-condition") | Specifies conditions for when the statement is in effect.                                            |
+
+###### Topics
+
+- [Version element](#rcp-syntax-version "#rcp-syntax-version")
+- [Statement element](#rcp-syntax-statement "#rcp-syntax-statement")
+- [Statement ID (Sid) element](#rcp-syntax-sid "#rcp-syntax-sid")
+- [Effect element](#rcp-syntax-effect "#rcp-syntax-effect")
+- [Principal element](#rcp-syntax-principal "#rcp-syntax-principal")
+- [Action element](#rcp-syntax-action "#rcp-syntax-action")
+- [Resource and NotResource
+  elements](#rcp-syntax-resource "#rcp-syntax-resource")
+- [Condition element](#rcp-syntax-condition "#rcp-syntax-condition")
+- [Unsupported elements](#rcp-syntax-unsupported "#rcp-syntax-unsupported")
+
+## `Version` element
+
+Every RCP must include a `Version` element with the value
+`"2012-10-17"`. This is the same version value as the most recent version
+of IAM permission policies.
+
+For more information, see [IAM JSON Policy
+Elements: Version](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md") in the _IAM User Guide_.
+
+## `Statement` element
+
+An RCP consists of one or more `Statement` elements. You can have only one
+`Statement` keyword in a policy, but the value can be a JSON array of
+statements (surrounded by [ ] characters).
+
+The following example shows a single statement that consists of single
+`Effect`, `Principal`, `Action`, and
+`Resource` elements.
+
+```
+ {
+    "Statement": {
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:PutBucketPublicAccessBlock",
+        "Resource": "*"
+    }
+}
+```
+
+For more information, see [IAM JSON Policy
+Elements: Statement](../../../IAM/latest/UserGuide/reference_policies_elements_statement.md "../../../IAM/latest/UserGuide/reference_policies_elements_statement.md") in the _IAM User Guide_.
+
+## Statement ID (`Sid`) element
+
+The `Sid` is an optional identifier that you provide for the policy
+statement. You can assign a `Sid` value to each statement in a statement
+array. The following example RCP shows a sample `Sid` statement.
+
+```
+{
+    "Statement": {
+        "Sid": "DenyBPAConfigurations",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:PutBucketPublicAccessBlock",
+        "Resource": "*"
+    }
+}
+```
+
+For more information, see [IAM JSON Policy Elements:
+Sid](../../../IAM/latest/UserGuide/reference_policies_elements_sid.md "../../../IAM/latest/UserGuide/reference_policies_elements_sid.md") in the _IAM User Guide_.
+
+## `Effect` element
+
+Each statement must contain one `Effect` element. Using the value of
+`Deny` in the `Effect` element, you can restrict access to
+specific resources or define conditions for when RCPs are in effect. For RCPs that you
+create, the value must be `Deny`. For more information, see [RCP evaluation](orgs_manage_policies_rcps_evaluation.md "orgs_manage_policies_rcps_evaluation.md") and [IAM JSON Policy
+Elements: Effect](../../../IAM/latest/UserGuide/reference_policies_elements_effect.md "../../../IAM/latest/UserGuide/reference_policies_elements_effect.md") in the _IAM User Guide_.
+
+## `Principal` element
+
+Each statement must contain the `Principal` element. You can only specify
+“`*`” in the `Principal` element of an RCP. Use the
+`Conditions` element to restrict specific principals.
+
+For more information, see [IAM JSON Policy
+Elements: Principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in the _IAM User Guide_.
+
+## `Action` element
+
+Each statement must contain the `Action` element.
+
+The value for the `Action` element is a string or list (a JSON array) of
+strings that identify AWS services and actions that are allowed or denied by the
+statement.
+
+Each string consists of the abbreviation for the service (such as "s3", "sqs", or
+"sts"), in all lowercase, followed by a colon and then an action from that service.
+Generally, they are all entered with each word starting with an uppercase letter and the
+rest lowercase. For example: `"s3:ListAllMyBuckets"`.
+
+You also can use wildcard characters such as asterisk (\*) or question mark (?) in an
+RCP:
+
+- Use an asterisk (\*) as a wildcard to match multiple actions that share part of
+  a name. The value `"s3:*"` means all actions in the Amazon S3 service. The
+  value `"sts:Get*"` matches only the AWS STS actions that begin with
+  "Get".
+- Use the question mark (?) wildcard to match a single character.
+
+###### Note
+
+**Wildcards (\*) and question marks (?) can be used anywhere in the action name**
+
+You cannot use "\*" in the Action element of a customer managed RCP and have to specify the abbreviation for the service (such as "s3", "sqs", or "sts") you want to restrict access to.
+
+For a list of the services that support RCPs, see [List of AWS services that support RCPs](orgs_manage_policies_rcps.md#rcp-supported-services "orgs_manage_policies_rcps.md#rcp-supported-services"). For a list of the actions an AWS service supports, see [Actions, Resources,
+and Condition Keys for AWS Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
+_Service Authorization Reference_.
+
+For more information, see [IAM JSON Policy
+Elements: Action](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md") in the _IAM User Guide_.
+
+## `Resource` and `NotResource`
+
+elements
+
+Each statement must contain the `Resource` or `NotResource`
+element.
+
+You can use wildcard characters such as asterisk (\*) or question mark (?) in the
+resource element:
+
+- Use an asterisk (\*) as a wildcard to match multiple resources that share part
+  of a name.
+- Use the question mark (?) wildcard to match a single character.
+
+For more information, see [IAM JSON Policy
+Elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") and see [IAM JSON Policy
+Elements: NotResource](../../../IAM/latest/UserGuide/reference_policies_elements_notresource.md "../../../IAM/latest/UserGuide/reference_policies_elements_notresource.md") in the _IAM User Guide_.
+
+## `Condition` element
+
+You can specify a `Condition` element in deny statements in an RCP.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Principal": "*",
+ "Action": "s3:*",
+ "Resource": "*",
+ "Condition": {
+ "BoolIfExists": {
+ "aws:SecureTransport": "false"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+This RCP denies access to Amazon S3 operations and resources unless the request occurs over
+secure transport (the request was sent over TLS).
+
+For more information, see [IAM JSON Policy
+Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
+
+## Unsupported elements
+
+The following elements are not supported in RCPs:
+
+- `NotPrincipal`
+- `NotAction`

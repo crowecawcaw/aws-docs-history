@@ -31,41 +31,41 @@ see [Tag policies | Support Regions](orgs_manage_policies_tag-policies-supported
 
 The following table lists all the available AWS Regions.
 
-| Region Name                | Region         | Endpoint                                                                         | Protocol    |
-| -------------------------- | -------------- | -------------------------------------------------------------------------------- | ----------- |
-| US East (Ohio)             | us-east-2      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| US East (N. Virginia)      | us-east-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| US West (N. California)    | us-west-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| US West (Oregon)           | us-west-2      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Africa (Cape Town)         | af-south-1     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Hong Kong)   | ap-east-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Hyderabad)   | ap-south-2     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Malaysia)    | ap-southeast-5 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Mumbai)      | ap-south-1     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (New Zealand) | ap-southeast-6 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Osaka)       | ap-northeast-3 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Seoul)       | ap-northeast-2 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Singapore)   | ap-southeast-1 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Sydney)      | ap-southeast-2 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Taipei)      | ap-east-2      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Thailand)    | ap-southeast-7 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Canada (Central)           | ca-central-1   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Canada West (Calgary)      | ca-west-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Frankfurt)         | eu-central-1   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Ireland)           | eu-west-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (London)            | eu-west-2      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Milan)             | eu-south-1     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Paris)             | eu-west-3      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Spain)             | eu-south-2     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Stockholm)         | eu-north-1     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Europe (Zurich)            | eu-central-2   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Israel (Tel Aviv)          | il-central-1   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Mexico (Central)           | mx-central-1   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Middle East (Bahrain)      | me-south-1     | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| Middle East (UAE)          | me-central-1   | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| South America (São Paulo)  | sa-east-1      | organizations.us-east-1.amazonaws.com organizations-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
-| AWS GovCloud (US-East)     | us-gov-east-1  | organizations.us-gov-west-1.amazonaws.com                                        | HTTPS       |
-| AWS GovCloud (US-West)     | us-gov-west-1  | organizations.us-gov-west-1.amazonaws.com                                        | HTTPS       |
+| Region Name                | Region         | Endpoint                                                                            | Protocol       |
+| -------------------------- | -------------- | ----------------------------------------------------------------------------------- | -------------- |
+| US East (Ohio)             | us-east-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US East (N. Virginia)      | us-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (N. California)    | us-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| US West (Oregon)           | us-west-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Africa (Cape Town)         | af-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Hong Kong)   | ap-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Hyderabad)   | ap-south-2     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Mumbai)      | ap-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (New Zealand) | ap-southeast-6 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Osaka)       | ap-northeast-3 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Seoul)       | ap-northeast-2 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Singapore)   | ap-southeast-1 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Sydney)      | ap-southeast-2 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Taipei)      | ap-east-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Thailand)    | ap-southeast-7 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Canada (Central)           | ca-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Canada West (Calgary)      | ca-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Frankfurt)         | eu-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Ireland)           | eu-west-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (London)            | eu-west-2      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Milan)             | eu-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Paris)             | eu-west-3      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Spain)             | eu-south-2     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Stockholm)         | eu-north-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Europe (Zurich)            | eu-central-2   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Israel (Tel Aviv)          | il-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Mexico (Central)           | mx-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Middle East (Bahrain)      | me-south-1     | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| Middle East (UAE)          | me-central-1   | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| South America (São Paulo)  | sa-east-1      | organizations.us-east-1.amazonaws.com<br>organizations-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
+| AWS GovCloud (US-East)     | us-gov-east-1  | organizations.us-gov-west-1.amazonaws.com                                           | HTTPS          |
+| AWS GovCloud (US-West)     | us-gov-west-1  | organizations.us-gov-west-1.amazonaws.com                                           | HTTPS          |

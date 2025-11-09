@@ -22,7 +22,7 @@ AWS Management Console
    the OU](navigate_tree.md "navigate_tree.md") that you want to rename, and then do one of the
    following steps:
    - Choose the radio button
-     ![Blue circular icon with a white checkmark symbol in the center.](/images/organizations/latest/userguide/images/radio-button-selected.png)
+     ![Blue circular icon with a white checkmark symbol in the center.](images/radio-button-selected.png)
      next to the OU that you want to rename.
      Then, on the **Actions** menu, under
      **Organizational unit**, choose

@@ -37,7 +37,7 @@ If you want to invite an account that is a management account in another organiz
 Accepted, canceled, and declined invitations continue to
 appear in the list for 30 days. After that, they're deleted and
 no longer appear in the list. 3. Choose the radio button
-![Blue circular icon with a white checkmark symbol in the center.](/images/organizations/latest/userguide/images/radio-button-selected.png)
+![Blue circular icon with a white checkmark symbol in the center.](images/radio-button-selected.png)
 next to the invitation that you want to cancel,
 and then choose **Cancel invitation**. If the radio
 button is grayed out, then that invitation can't be canceled.
