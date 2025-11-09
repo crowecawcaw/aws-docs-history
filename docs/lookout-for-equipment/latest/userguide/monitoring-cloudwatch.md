@@ -15,11 +15,14 @@ more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWat
 The `Amazon Lookout for Equipment` service reports the following metrics
 in the `AWS/lookoutequipment` namespace.
 
-| Metric                   | Description                                                                                                                                                                        |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `InferenceSucceeded`     | If the value is `1`, the inference succeeded. If the value is `0`, the inference failed. ModelName: The name of the model. InferenceSchedulerName: Name of the inference scheduler |
-| `InferenceFailed`        | If the value is `1`, the inference failed. If the value is `0`, the inference succeeded. ModelName: The name of the model. InferenceSchedulerName: Name of the inference scheduler |
-| `InferenceInvalidInput`  | If the value is `1`, you've provided an invalid value for the inference. ModelName: The name of the model. InferenceSchedulerName: Name of the inference scheduler                 | The following dimensions are supported for the `Service Name` metrics. |
-| ModelName                | The name of the ML model that you've trained to monitor your equipment.                                                                                                            |
-| ---                      | ---                                                                                                                                                                                |
-| `InferenceSchedulerName` | The inference scheduler schedules the times when your model monitors your equipment.                                                                                               |
+| Metric                  | Description                                                                                                                                                                              |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `InferenceSucceeded`    | If the value is `1`, the inference succeeded. If the value is `0`, the inference failed.<br>ModelName: The name of the model.<br>InferenceSchedulerName: Name of the inference scheduler |
+| `InferenceFailed`       | If the value is `1`, the inference failed. If the value is `0`, the inference succeeded.<br>ModelName: The name of the model.<br>InferenceSchedulerName: Name of the inference scheduler |
+| `InferenceInvalidInput` | If the value is `1`, you've provided an invalid value for the inference.<br>ModelName: The name of the model.<br>InferenceSchedulerName: Name of the inference scheduler                 |
+
+The following dimensions are supported for the `Service Name` metrics.
+
+| ModelName                | The name of the ML model that you've trained to monitor your equipment.              |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| `InferenceSchedulerName` | The inference scheduler schedules the times when your model monitors your equipment. |

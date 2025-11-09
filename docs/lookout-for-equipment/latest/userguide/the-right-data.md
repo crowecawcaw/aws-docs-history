@@ -93,7 +93,20 @@ recommend that you filter out data from any restart procedure.
 The following is an example of such a CSV file.
 
 | Row | Timestamp 1    | Timestamp 2    |
-| --- | -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --- | -------------- | -------------- |
 | 1   | 1/1/2020 0:00  | 1/3/2020 0:00  |
 | 2   | 2/2/2020 0:05  | 2/7/2020 0:05  |
-| 3   | 4/11/2020 0:10 | 4/21/2020 0:10 | Row 1 represents a maintenance event on January 3rd with a 2-day window for Lookout for Equipment to look for abnormal behavior. Row 2 represents a maintenance event on February 7th with a 5-day window for Lookout for Equipment to look for abnormal behavior. Row 3 represents a maintenance event on April 21st with a 10-day window for Lookout for Equipment to look for abnormal behavior. Lookout for Equipment uses all of these time windows to look for an optimal model that finds abnormal behavior within these windows. Note that not all events are detectable and most are highly dependent on the data provided. |
+| 3   | 4/11/2020 0:10 | 4/21/2020 0:10 |
+
+Row 1 represents a maintenance event on January 3rd with a 2-day window for Lookout for Equipment
+to look for abnormal behavior.
+
+Row 2 represents a maintenance event on February 7th with a 5-day window for Lookout for Equipment
+to look for abnormal behavior.
+
+Row 3 represents a maintenance event on April 21st with a 10-day window for Lookout for Equipment
+to look for abnormal behavior.
+
+Lookout for Equipment uses all of these time windows to look for an optimal model that finds
+abnormal behavior within these windows. Note that not all events are detectable and
+most are highly dependent on the data provided.
