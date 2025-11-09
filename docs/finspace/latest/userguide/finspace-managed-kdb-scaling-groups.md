@@ -53,7 +53,7 @@ When launching a cluster to run on a scaling group,the total available
 amount of memory on the scaling group host is limited. The following table describes the limits of each host.
 
 | Compute type    | vCPUs | Memory available for kdb (GiB) |
-| --------------- | ----- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ----- | ------------------------------ |
 | kx.sg.large     | 2     | 16                             |
 | kx.sg.xlarge    | 4     | 32                             |
 | kx.sg.2xlarge   | 8     | 64                             |
@@ -62,4 +62,26 @@ amount of memory on the scaling group host is limited. The following table descr
 | kx.sg.16xlarge  | 64    | 432                            |
 | kx.sg.32xlarge  | 128   | 864                            |
 | kx.sg1.16xlarge | 64    | 1949                           |
-| kx.sg1.24xlarge | 96    | 2948                           | When launching a kdb cluster to run on a scaling group, you specify the minimum memory required for each kdb process in the cluster (node) as well as expected amount of memory. If there is insufficient memory on the scaling group host to meet this required value, the cluster will not start. You can also specify an expected value for the amount of memory the cluster will require. The scheduler will use this to avoid launching the cluster if the memory value is not sufficient. For clusters with more than one node or kdb processes, the amount of memory used is the sum of the kdb process memory that each node consumes. ## Considerations <br>• Currently, a scaling group consists of a single scaling group host and clusters can only run on one scaling group at a time. If you need to run more clusters in your environment than can fit on a single scaling group host, you may run multiple and put different clusters from your set on to different scaling groups. <br>• You cannot delete a scaling group until you delete all the clusters running on it. <br>• [Savedown storage](kdb-cluster-types.md#kdb-cluster-savedown-storage "kdb-cluster-types.md#kdb-cluster-savedown-storage") does not work with General purpose (GP) and RDB clusters running on scaling groups. Instead, you should use volumes for the temporary storage of your savedown data. <br>• HDB and GP clusters, when they are run as a part of a scaling group, don't support high performance HDB disk cache. You may instead use dataviews if you need to place portions of your database on high performance disk. |
+| kx.sg1.24xlarge | 96    | 2948                           |
+
+When launching a kdb cluster to run on a scaling group, you specify the minimum memory required
+for each kdb process in the cluster (node) as well as expected amount of memory. If there is
+insufficient memory on the scaling group host to meet this required value, the cluster will not
+start. You can also specify an expected value for the amount of memory the cluster will
+require. The scheduler will use this to avoid launching the cluster if the memory value is not
+sufficient. For clusters with more than one node or kdb processes, the amount of memory used
+is the sum of the kdb process memory that each node consumes.
+
+## Considerations
+
+- Currently, a scaling group consists of a single scaling group host and clusters can only run on one scaling
+  group at a time. If you need to run more clusters in your environment than can fit on a
+  single scaling group host, you may run multiple and put different clusters from your set on to
+  different scaling groups.
+- You cannot delete a scaling group until you delete all the clusters running on it.
+- [Savedown storage](kdb-cluster-types.md#kdb-cluster-savedown-storage "kdb-cluster-types.md#kdb-cluster-savedown-storage") does not work with
+  General purpose (GP) and RDB clusters running on scaling groups. Instead, you should use
+  volumes for the temporary storage of your savedown data.
+- HDB and GP clusters,
+  when they are run as a part of a scaling group, don't support high performance HDB disk cache. You may instead use dataviews if
+  you need to place portions of your database on high performance disk.

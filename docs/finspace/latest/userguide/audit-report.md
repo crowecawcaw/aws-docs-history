@@ -39,22 +39,25 @@ environment.
 
 the audit report
 
-| Audit report column   | Description                                                                              |
-| --------------------- | ---------------------------------------------------------------------------------------- | -------------- |
-| Timestamp             | The date and time of the event                                                           |
-| Event Type            | Type of the event. For example - user login, user accessing data content                 |
-| Event                 | Details of the event                                                                     |
-| User                  | Email of the user related to the audit activity                                          |
-| Dataset ID            | Dataset ID related to the event when applicable                                          | ## Event types |
-| Event type            | Description                                                                              |
-| ---                   | ---                                                                                      |
-| Authentication        | Events related to user sign in or accessing temporary credentials to use the API         |
-| Dataset Content       | Events related to accessing and using a dataset                                          |
-| Dataset Definition    | Events related to associating and updating an attribute set to a dataset                 |
-| Categories            | Events related to creating, editing, and removing categories                             |
-| Attribute Sets        | Events related to creating, editing, and removing attribute sets                         |
-| Users and Permissions | Events related to creating, editing, and removing users and permission group permissions |
-| Spark Clusters        | Events related to creating, scaling, and terminating spark clusters                      |
-| Notebooks             | Events related to creating, modifying, and terminating notebooks                         |
-| Search                | Events related to searching for datasets or browsing for datasets via data browser       |
-| Audit                 | Events related to generating, viewing, and downloading audit reports                     |
+| Audit report column | Description                                                                    |
+| ------------------- | ------------------------------------------------------------------------------ |
+| Timestamp           | The date and time of the event                                                 |
+| Event Type          | Type of the event. For example<br>• user login, user accessing data<br>content |
+| Event               | Details of the event                                                           |
+| User                | Email of the user related to the audit activity                                |
+| Dataset ID          | Dataset ID related to the event when applicable                                |
+
+## Event types
+
+| Event type            | Description                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| Authentication        | Events related to user sign in or accessing temporary credentials to<br>use the API         |
+| Dataset Content       | Events related to accessing and using a dataset                                             |
+| Dataset Definition    | Events related to associating and updating an attribute set to a<br>dataset                 |
+| Categories            | Events related to creating, editing, and removing categories                                |
+| Attribute Sets        | Events related to creating, editing, and removing attribute<br>sets                         |
+| Users and Permissions | Events related to creating, editing, and removing users and permission<br>group permissions |
+| Spark Clusters        | Events related to creating, scaling, and terminating spark<br>clusters                      |
+| Notebooks             | Events related to creating, modifying, and terminating<br>notebooks                         |
+| Search                | Events related to searching for datasets or browsing for datasets via<br>data browser       |
+| Audit                 | Events related to generating, viewing, and downloading audit<br>reports                     |

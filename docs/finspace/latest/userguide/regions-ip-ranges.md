@@ -10,7 +10,7 @@ The following table provides supported regions and endpoints for
 Amazon FinSpace Managed kdb Insights.
 
 | Region name              | Region code    | Endpoint (HTTPS)                      |
-| ------------------------ | -------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- | ------------------------------------- |
 | US East (Ohio)           | us-east-2      | finspace.us-east-2.amazonaws.com      |
 | US East (N. Virginia)    | us-east-1      | finspace.us-east-1.amazonaws.com      |
 | US West (Oregon)         | us-west-2      | finspace.us-west-2.amazonaws.com      |
@@ -20,11 +20,22 @@ Amazon FinSpace Managed kdb Insights.
 | Europe (Frankfurt)       | eu-central-1   | finspace.eu-central-1.amazonaws.com   |
 | Asia Pacific (Singapore) | ap-southeast-1 | finspace.ap-southeast-1.amazonaws.com |
 | Asia Pacific (Sydney)    | ap-southeast-2 | finspace.ap-southeast-2.amazonaws.com |
-| Asia Pacific (Tokyo)     | ap-northeast-1 | finspace.ap-northeast-1.amazonaws.com | ###### Important Amazon FinSpace Dataset Browser will be discontinued on `March 26, 2025`. Starting `November 29, 2023`, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/ "https://aws.amazon.com/finspace/features/managed-kdb-insights/") will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/ "https://aws.amazon.com/finspace/faqs/") or contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") to assist with your transition. The following table provides supported regions and endpoints for Amazon FinSpace Dataset Browser. |
-| Region name              | Region code    | Endpoint (HTTPS)                      |
-| ---                      | ---            | ---                                   |
-| US East (Ohio)           | us-east-2      | finspace.us-east-2.amazonaws.com      |
-| US East (N. Virginia)    | us-east-1      | finspace.us-east-1.amazonaws.com      |
-| US West (Oregon)         | us-west-2      | finspace.us-west-2.amazonaws.com      |
-| Canada (Central)         | ca-central-1   | finspace.ca-central-1.amazonaws.com   |
-| Europe (Ireland)         | eu-west-1      | finspace.eu-west-1.amazonaws.com      |
+| Asia Pacific (Tokyo)     | ap-northeast-1 | finspace.ap-northeast-1.amazonaws.com |
+
+###### Important
+
+Amazon FinSpace Dataset Browser will be discontinued on `March 26,
+ 2025`. Starting `November 29, 2023`, FinSpace will no longer accept the creation of new Dataset Browser
+environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/ "https://aws.amazon.com/finspace/features/managed-kdb-insights/") will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/ "https://aws.amazon.com/finspace/faqs/") or contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") to assist with your
+transition.
+
+The following table provides supported regions and endpoints for
+Amazon FinSpace Dataset Browser.
+
+| Region name           | Region code  | Endpoint (HTTPS)                    |
+| --------------------- | ------------ | ----------------------------------- |
+| US East (Ohio)        | us-east-2    | finspace.us-east-2.amazonaws.com    |
+| US East (N. Virginia) | us-east-1    | finspace.us-east-1.amazonaws.com    |
+| US West (Oregon)      | us-west-2    | finspace.us-west-2.amazonaws.com    |
+| Canada (Central)      | ca-central-1 | finspace.ca-central-1.amazonaws.com |
+| Europe (Ireland)      | eu-west-1    | finspace.eu-west-1.amazonaws.com    |

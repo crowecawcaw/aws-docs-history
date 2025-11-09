@@ -9,86 +9,192 @@ Amazon FinSpace provides a variety of Amazon CloudWatch metrics that you can mon
 
 The `AWS/FinSpace` namespace includes the following metrics.
 
-| Metric                                         | Description                                                                              |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CPUUtilization`                               | The average CPU utilization across all the nodes in a cluster.                           |
-| `MemoryUtilization`                            | The average memory utilization across all the nodes in a cluster.                        |
-| `DatabaseCacheDataReadBytes`                   | The operations for reading database cache.                                               |
-| `DatabaseCacheDataWriteBytes`                  | The operations for writing to database cache.                                            |
-| `DatabaseCacheDataReadOperations`              | The operations for reading database cache.                                               |
-| `DatabaseCacheDataWriteOperations`             | The operations for writing to database cache.                                            |
-| `DatabaseCacheFreeDataStorageCapacity`         | Database cache free storage.                                                             |
-| `LocalStorageVolumeReadBytes`                  | The volume for read operation in local storage.                                          |
-| `LocalStorageVolumeWriteBytes`                 | The volume for read operation in local storage.                                          |
-| `LocalStorageVolumeReadOps`                    | The operations for reading local storage volume.                                         |
-| `LocalStorageVolumeWriteOps`                   | The operations for writing to local storage volume.                                      |
-| `MemoryHeapBytes`                              | The memory available in the heap in bytes for the component container.                   |
-| `MemoryHeapPeakBytes`                          | The maximum heap size so far in bytes for the component container.                       |
-| `MemoryHeapLimitBytes`                         | The memory limit heap in bytes for the component container as set by `-w`.               |
-| `MemoryMappedBytes`                            | The mapped memory in bytes for the component container.                                  |
-| `MemoryPhysicalBytes`                          | The physical memory available in bytes for the component container.                      |
-| `KdbSymsTotal`                                 | The number of symbols for the component container.                                       |
-| `KdbSymsMemoryBytes`                           | The memory use of symbols in bytes for the component container.                          |
-| `KdbHandlesTotal`                              | The number of active connection handles.                                                 |
-| `KdbIpcOpenedTotal`                            | The total number of IPC sockets that have been opened to the component container.        |
-| `KdbIpcClosedTotal`                            | The total number of open handles (IPC and WebSocket) for the component container.        |
-| `KdbWsOpenedTotal`                             | The total number of WebSocket connections opened to the component container.             |
-| `KdbWsClosedTotal`                             | The total number of WebSocket connections closed to the component container.             |
-| `KdbSyncTotal`                                 | The sync requests made to the component container.                                       |
-| `KdbHttpGetTotal`                              | The HTTP `GET` requests made to the component container.                                 |
-| `KdbHttpPostTotal`                             | The HTTP `POST` requests made to the component container.                                |
-| `KdbWsTotal`                                   | The WebSocket messages received by the component container.                              |
-| `KdbTsTotal`                                   | The timer calls made within the component container.                                     |
-| `KdbSyncErrTotal`                              | The number of errors returned in sync requests.                                          |
-| `KdbAsyncErrTotal`                             | The number of errors returned in async requests.                                         |
-| `KdbHttpGetErrTotal`                           | The number of errors returned in http `GET` requests.                                    |
-| `KdbHttpPostErrTotal`                          | The number of errors returned in http `POST` requests.                                   |
-| `KdbWsErrTotal`                                | The number of errors returned in WebSocket calls.                                        |
-| `KdbTsErrTotal`                                | The number of errors returned in timer calls.                                            |
-| `KdbSyncSeconds`                               | The count and time taken by the sync requests.                                           |
-| `KdbAsyncSeconds`                              | The count and time taken by the async requests.                                          | The `AWS/Usage` namespace includes the following metrics.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Metric                                         | Description                                                                              |
-| ---                                            | ---                                                                                      |
-| `KxNodeSglargePerEnvironment`                  | The maximum number of kx.sg.large Managed kdb scaling group nodes per environment.       |
-| `KxNodeSgxlargePerEnvironment`                 | The maximum number of kx.sg.xlarge Managed kdb scaling group nodes per environment.      |
-| `KxNodeSg2xlargePerEnvironment`                | The maximum number of kx.sg.2xlarge Managed kdb scaling group nodes per environment.     |
-| `KxNodeSg4xlargePerEnvironment`                | The maximum number of kx.sg.4xlarge Managed kdb scaling group nodes per environment.     |
-| `KxNodeSg8xlargePerEnvironment`                | The maximum number of kx.sg.8xlarge Managed kdb scaling group nodes per environment.     |
-| `KxNodeSg16xlargePerEnvironment`               | The maximum number of kx.sg.16xlarge Managed kdb scaling group nodes per environment.    |
-| `KxNodeSg32xlargePerEnvironment`               | The maximum number of kx.sg.32xlarge Managed kdb scaling group nodes per environment.    |
-| `KxNodeSgOne16xlargePerEnvironment`            | The maximum number of kx.sg1.16xlarge Managed kdb scaling group nodes per environment.   |
-| `KxNodeSgOne24xlargePerEnvironment`            | The maximum number of kx.sg1.24xlarge Managed kdb scaling group nodes per environment.   |
-| `KdbFileStorageVolumesPerEnvironment`          | The maximum number of Managed kdb volumes per environment.                               |
-| `ReadMountsPerKdbVolume`                       | The maximum number of read mounts per Managed kdb volume per environment.                |
-| `WriteMountsPerKdbVolume`                      | The maximum number of write mounts per Managed kdb volume per environment.               |
-| `ManagedKdbVolumeStorage`                      | The maximum amount of storage for Managed kdb volumes per environment.                   |
-| `KdbScalingGroupsPerEnvironment`               | The maximum number of Managed kdb scaling groups per environment.                        |
-| `KdbDataviewsPerEnvironment`                   | The maximum number of Managed kdb dataviews per environment.                             |
-| `ConcurrentKdbDataviewsVersionsPerEnvironment` | The maximum number of concurrent Managed kdb dataview version processing.                |
-| `TotalKdbEnvironments`                         | The maximum number of environments per AWS account.                                      |
-| `ManagedKdbClusterUsers`                       | The maximum number of cluster users per environment.                                     |
-| `ManagedKdbClusters`                           | The maximum number of clusters allowed per environment.                                  |
-| `ManagedKdbDatabases`                          | The maximum number of databases allowed per environment.                                 |
-| `ManagedKdbConcurrentChangesetIngestions`      | The maximum number of concurrent changeset ingestions allowed per environment.           |
-| `ManagedKdbDatabaseClusterCacheSize`           | The maximum amount of database cluster cache allowed per environment.                    |
-| `ManagedKdbSavedownStorage`                    | The maximum amount of savedown storage allowed per environment.                          |
-| `KxSlargeNodes`                                | The maximum number of `kx.s.large` nodes allowed per environment.                        |
-| `KxSxlargeNodes`                               | The maximum number of `kx.s.xlarge` nodes allowed per environment.                       |
-| `KxS2xlargeNodes`                              | The maximum number of `kx.s.2xlarge` nodes allowed per environment.                      |
-| `KxS4xlargeNodes`                              | The maximum number of `kx.s.4xlarge` nodes allowed per environment.                      |
-| `KxS8xlargeNodes`                              | The maximum number of `kx.s.8xlarge` nodes allowed per environment.                      |
-| `KxS16xlargeNodes`                             | The maximum number of `kx.s.16xlarge` nodes allowed per environment.                     |
-| `KxS32xlargeNodes`                             | The maximum number of `kx.s.32xlarge` nodes allowed per environment.                     |
-| `ManagedKdbSingleAzClusters`                   | The maximum number of Single-AZ clusters per environment.                                |
-| `ManagedKdbMultiAzClusters`                    | The maximum number of Multi-AZ clusters per environment.                                 | ###### Note Amazon CloudWatch aggregates these metrics at one-minute intervals. ## Monitoring Managed kdb cluster metrics You can monitor the health and activity of Managed kdb Insights clusters by using CloudWatch. When you interact with Managed kdb clusters, the following metrics are sent to CloudWatch in the AWS account that you used to create the Managed kdb environment. You can use the following procedures to view the metrics for Managed kdb clusters. ###### To view metrics using the CloudWatch console Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace. 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. Under the **All metrics** tab, choose **FinSpace** and then choose the **KxClusterId**. ## Monitoring Managed kdb scaling groups metrics You can monitor the health and activity of Managed kdb scaling groups by using CloudWatch. When you interact with Managed kdb scaling groups, the following metrics are sent to CloudWatch in the AWS account that you used to create the Managed kdb environment. You can use the following procedures to view the metrics for Managed kdb scaling groups. ###### To view metrics using the CloudWatch console Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace. 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. Under the **All metrics** tab, choose **FinSpace** and then choose the **KxClusterId**. FinSpace supports the following metrics for Managed Kdb scaling groups. |
-| Metric                                         | Description                                                                              |
-| ---                                            | ---                                                                                      |
-| `ScalingGroupCpuUtilization`                   | The total CPU utilization of the Managed kdb scaling group hosts across all clusters.    |
-| `ScalingGroupMemoryUtilization`                | The total memory utilization of the Managed kdb scaling group hosts across all clusters. | ## Monitoring Managed kdb volume metrics You can monitor the health and activity of Managed kdb volumes by using CloudWatch. When you interact with Managed kdb volumes, the following metrics are sent to CloudWatch in the AWS account that you used to create the Managed kdb environment. You can use the following procedures to view the metrics for Managed kdb volumes. ###### To view metrics using the CloudWatch console Metrics are grouped first by the service namespace, and then by the various dimension combinations within each namespace. 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. Under the **All metrics** tab, choose **FinSpace** and then choose the **KxVolumeName**. FinSpace supports the following metrics for Managed Kdb volumes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Metric                                         | Description                                                                              |
-| ---                                            | ---                                                                                      |
-| `KdbVolumeDataReadBytes`                       | The data in bytes read from managed kdb volumes.                                         |
-| `KdbVolumeDataWriteBytes`                      | The data in bytes written from managed kdb volumes.                                      |
-| `KdbVolumeDataReadOperations`                  | The operations for reading Managed kdb volumes.                                          |
-| `KdbVolumeDataWriteOperations`                 | The operations for writing to Managed kdb volumes.                                       |
-| `KdbVolumeFreeDataStorageCapacity`             | The Managed kdb volumes free storage.                                                    | ## Logging The KDB application logs from Managed kdb clusters are captured in Amazon CloudWatch Logs. There is a separate CloudWatch Log Group created for each cluster. You can access cluster logs for FinSpace in the following CloudWatch log group. `/aws/vendedlogs/finspace/<Managed kdb Environment ID>/<Managed kdb Cluster Name>` You can view data directly in CloudWatch using CloudWatch reporting or CloudWatch Insights. You can also extract the data from CloudWatch into other logging tools like Splunk or Datadog. Using the **Logs**, you can view `stdout` and `stderr` logs the for KDB processes. From this tab, you can navigate to CloudWatch Logs Insights to run custom queries on the logs. ###### To view and query logs for Managed kdb clusters 1. Sign in to the AWS Management Console and open the Amazon FinSpace console at [https://console.aws.amazon.com/finspace](https://console.aws.amazon.com/finspace/landing "https://console.aws.amazon.com/finspace/landing"). 2. In the left pane, under **Managed kdb Insights**, choose **Kdb environments**. 3. From the kdb environments table, choose the name of the environment. 4. On the environment details page, choose the **Clusters** tab. The table under this tab displays a list of clusters. 5. Choose a cluster name to view its logs. The cluster details page opens. 6. Choose the **Logs** tab. The logs are displayed in a list. 7. Choose the **@logstream** links to open the CloudWatch Logs Insights where you can run custom queries on the logs.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Metric                                 | Description                                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------------------ |
+| `CPUUtilization`                       | The average CPU utilization across all the nodes in a<br>cluster.                    |
+| `MemoryUtilization`                    | The average memory utilization across all the nodes in a<br>cluster.                 |
+| `DatabaseCacheDataReadBytes`           | The operations for reading database cache.                                           |
+| `DatabaseCacheDataWriteBytes`          | The operations for writing to database cache.                                        |
+| `DatabaseCacheDataReadOperations`      | The operations for reading database cache.                                           |
+| `DatabaseCacheDataWriteOperations`     | The operations for writing to database cache.                                        |
+| `DatabaseCacheFreeDataStorageCapacity` | Database cache free storage.                                                         |
+| `LocalStorageVolumeReadBytes`          | The volume for read operation in local storage.                                      |
+| `LocalStorageVolumeWriteBytes`         | The volume for read operation in local storage.                                      |
+| `LocalStorageVolumeReadOps`            | The operations for reading local storage volume.                                     |
+| `LocalStorageVolumeWriteOps`           | The operations for writing to local storage volume.                                  |
+| `MemoryHeapBytes`                      | The memory available in the heap in bytes for the component<br>container.            |
+| `MemoryHeapPeakBytes`                  | The maximum heap size so far in bytes for the component<br>container.                |
+| `MemoryHeapLimitBytes`                 | The memory limit heap in bytes for the component container as<br>set by `-w`.        |
+| `MemoryMappedBytes`                    | The mapped memory in bytes for the component container.                              |
+| `MemoryPhysicalBytes`                  | The physical memory available in bytes for the component<br>container.               |
+| `KdbSymsTotal`                         | The number of symbols for the component container.                                   |
+| `KdbSymsMemoryBytes`                   | The memory use of symbols in bytes for the component<br>container.                   |
+| `KdbHandlesTotal`                      | The number of active connection handles.                                             |
+| `KdbIpcOpenedTotal`                    | The total number of IPC sockets that have been opened to the<br>component container. |
+| `KdbIpcClosedTotal`                    | The total number of open handles (IPC and WebSocket) for the<br>component container. |
+| `KdbWsOpenedTotal`                     | The total number of WebSocket connections opened to the<br>component container.      |
+| `KdbWsClosedTotal`                     | The total number of WebSocket connections closed to the<br>component container.      |
+| `KdbSyncTotal`                         | The sync requests made to the component container.                                   |
+| `KdbHttpGetTotal`                      | The HTTP `GET` requests made to the component<br>container.                          |
+| `KdbHttpPostTotal`                     | The HTTP `POST` requests made to the component<br>container.                         |
+| `KdbWsTotal`                           | The WebSocket messages received by the component<br>container.                       |
+| `KdbTsTotal`                           | The timer calls made within the component container.                                 |
+| `KdbSyncErrTotal`                      | The number of errors returned in sync requests.                                      |
+| `KdbAsyncErrTotal`                     | The number of errors returned in async requests.                                     |
+| `KdbHttpGetErrTotal`                   | The number of errors returned in http `GET`<br>requests.                             |
+| `KdbHttpPostErrTotal`                  | The number of errors returned in http `POST`<br>requests.                            |
+| `KdbWsErrTotal`                        | The number of errors returned in WebSocket calls.                                    |
+| `KdbTsErrTotal`                        | The number of errors returned in timer calls.                                        |
+| `KdbSyncSeconds`                       | The count and time taken by the sync requests.                                       |
+| `KdbAsyncSeconds`                      | The count and time taken by the async requests.                                      |
+
+The `AWS/Usage` namespace includes the following metrics.
+
+| Metric                                         | Description                                                                               |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `KxNodeSglargePerEnvironment`                  | The maximum number of kx.sg.large Managed kdb scaling group nodes per<br>environment.     |
+| `KxNodeSgxlargePerEnvironment`                 | The maximum number of kx.sg.xlarge Managed kdb scaling group nodes per<br>environment.    |
+| `KxNodeSg2xlargePerEnvironment`                | The maximum number of kx.sg.2xlarge Managed kdb scaling group nodes<br>per environment.   |
+| `KxNodeSg4xlargePerEnvironment`                | The maximum number of kx.sg.4xlarge Managed kdb scaling group nodes<br>per environment.   |
+| `KxNodeSg8xlargePerEnvironment`                | The maximum number of kx.sg.8xlarge Managed kdb scaling group nodes per<br>environment.   |
+| `KxNodeSg16xlargePerEnvironment`               | The maximum number of kx.sg.16xlarge Managed kdb scaling group nodes per<br>environment.  |
+| `KxNodeSg32xlargePerEnvironment`               | The maximum number of kx.sg.32xlarge Managed kdb scaling group nodes per<br>environment.  |
+| `KxNodeSgOne16xlargePerEnvironment`            | The maximum number of kx.sg1.16xlarge Managed kdb scaling group nodes<br>per environment. |
+| `KxNodeSgOne24xlargePerEnvironment`            | The maximum number of kx.sg1.24xlarge Managed kdb scaling group nodes<br>per environment. |
+| `KdbFileStorageVolumesPerEnvironment`          | The maximum number of Managed kdb volumes per environment.                                |
+| `ReadMountsPerKdbVolume`                       | The maximum number of read mounts per Managed kdb volume per<br>environment.              |
+| `WriteMountsPerKdbVolume`                      | The maximum number of write mounts per Managed kdb volume per<br>environment.             |
+| `ManagedKdbVolumeStorage`                      | The maximum amount of storage for Managed kdb volumes per<br>environment.                 |
+| `KdbScalingGroupsPerEnvironment`               | The maximum number of Managed kdb scaling groups per<br>environment.                      |
+| `KdbDataviewsPerEnvironment`                   | The maximum number of Managed kdb dataviews per environment.                              |
+| `ConcurrentKdbDataviewsVersionsPerEnvironment` | The maximum number of concurrent Managed kdb dataview version<br>processing.              |
+| `TotalKdbEnvironments`                         | The maximum number of environments per AWS account.                                       |
+| `ManagedKdbClusterUsers`                       | The maximum number of cluster users per environment.                                      |
+| `ManagedKdbClusters`                           | The maximum number of clusters allowed per environment.                                   |
+| `ManagedKdbDatabases`                          | The maximum number of databases allowed per environment.                                  |
+| `ManagedKdbConcurrentChangesetIngestions`      | The maximum number of concurrent changeset ingestions allowed per<br>environment.         |
+| `ManagedKdbDatabaseClusterCacheSize`           | The maximum amount of database cluster cache allowed per<br>environment.                  |
+| `ManagedKdbSavedownStorage`                    | The maximum amount of savedown storage allowed per environment.                           |
+| `KxSlargeNodes`                                | The maximum number of `kx.s.large` nodes allowed per<br>environment.                      |
+| `KxSxlargeNodes`                               | The maximum number of `kx.s.xlarge` nodes allowed per<br>environment.                     |
+| `KxS2xlargeNodes`                              | The maximum number of `kx.s.2xlarge` nodes allowed per<br>environment.                    |
+| `KxS4xlargeNodes`                              | The maximum number of `kx.s.4xlarge` nodes allowed per<br>environment.                    |
+| `KxS8xlargeNodes`                              | The maximum number of `kx.s.8xlarge` nodes allowed per<br>environment.                    |
+| `KxS16xlargeNodes`                             | The maximum number of `kx.s.16xlarge` nodes allowed per<br>environment.                   |
+| `KxS32xlargeNodes`                             | The maximum number of `kx.s.32xlarge` nodes allowed per<br>environment.                   |
+| `ManagedKdbSingleAzClusters`                   | The maximum number of Single-AZ clusters per environment.                                 |
+| `ManagedKdbMultiAzClusters`                    | The maximum number of Multi-AZ clusters per environment.                                  |
+
+###### Note
+
+Amazon CloudWatch aggregates these metrics at one-minute intervals.
+
+## Monitoring Managed kdb cluster
+
+metrics
+
+You can monitor the health and activity of Managed kdb Insights clusters by using
+CloudWatch. When you interact with Managed kdb clusters, the following metrics are sent
+to CloudWatch in the AWS account that you used to create the Managed kdb environment.
+You can use the following procedures to view the metrics for Managed kdb
+clusters.
+
+###### To view metrics using the CloudWatch console
+
+Metrics are grouped first by the service namespace, and then by the various
+dimension combinations within each namespace.
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. Under the **All metrics** tab, choose
+   **FinSpace** and then choose the **KxClusterId**.
+
+## Monitoring Managed kdb scaling groups
+
+metrics
+
+You can monitor the health and activity of Managed kdb scaling groups by using
+CloudWatch. When you interact with Managed kdb scaling groups, the following metrics are sent
+to CloudWatch in the AWS account that you used to create the Managed kdb environment.
+You can use the following procedures to view the metrics for Managed kdb
+scaling groups.
+
+###### To view metrics using the CloudWatch console
+
+Metrics are grouped first by the service namespace, and then by the various
+dimension combinations within each namespace.
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. Under the **All metrics** tab, choose
+   **FinSpace** and then choose the
+   **KxClusterId**.
+
+FinSpace supports the following metrics for Managed Kdb scaling groups.
+
+| Metric                          | Description                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ScalingGroupCpuUtilization`    | The total CPU utilization of the Managed kdb scaling group hosts across<br>all clusters.    |
+| `ScalingGroupMemoryUtilization` | The total memory utilization of the Managed kdb scaling group hosts<br>across all clusters. |
+
+## Monitoring Managed kdb volume metrics
+
+You can monitor the health and activity of Managed kdb volumes by using CloudWatch.
+When you interact with Managed kdb volumes, the following metrics are sent to CloudWatch in
+the AWS account that you used to create the Managed kdb environment. You can use the
+following procedures to view the metrics for Managed kdb volumes.
+
+###### To view metrics using the CloudWatch console
+
+Metrics are grouped first by the service namespace, and then by the various
+dimension combinations within each namespace.
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. Under the **All metrics** tab, choose
+   **FinSpace** and then choose the
+   **KxVolumeName**.
+
+FinSpace supports the following metrics for Managed Kdb volumes.
+
+| Metric                             | Description                                         |
+| ---------------------------------- | --------------------------------------------------- |
+| `KdbVolumeDataReadBytes`           | The data in bytes read from managed kdb volumes.    |
+| `KdbVolumeDataWriteBytes`          | The data in bytes written from managed kdb volumes. |
+| `KdbVolumeDataReadOperations`      | The operations for reading Managed kdb volumes.     |
+| `KdbVolumeDataWriteOperations`     | The operations for writing to Managed kdb volumes.  |
+| `KdbVolumeFreeDataStorageCapacity` | The Managed kdb volumes free storage.               |
+
+## Logging
+
+The KDB application logs from Managed kdb clusters are captured in Amazon CloudWatch Logs.
+There is a separate CloudWatch Log Group created for each cluster. You can access
+cluster logs for FinSpace in the following CloudWatch log group.
+
+`/aws/vendedlogs/finspace/<Managed kdb Environment ID>/<Managed kdb
+ Cluster Name>`
+
+You can view data directly in CloudWatch using CloudWatch reporting or CloudWatch Insights. You
+can also extract the data from CloudWatch into other logging tools like Splunk or
+Datadog. Using the **Logs**, you can view `stdout` and
+`stderr` logs the for KDB processes. From this tab, you can navigate
+to CloudWatch Logs Insights to run custom queries on the logs.
+
+###### To view and query logs for Managed kdb clusters
+
+1. Sign in to the AWS Management Console and open the Amazon FinSpace console at [https://console.aws.amazon.com/finspace](https://console.aws.amazon.com/finspace/landing "https://console.aws.amazon.com/finspace/landing").
+2. In the left pane, under **Managed kdb Insights**, choose **Kdb
+   environments**.
+3. From the kdb environments table, choose the name of the
+   environment.
+4. On the environment details page, choose the **Clusters**
+   tab. The table under this tab displays a list of clusters.
+5. Choose a cluster name to view its logs. The cluster details page
+   opens.
+6. Choose the **Logs** tab. The logs are displayed in a
+   list.
+7. Choose the **@logstream** links to open the CloudWatch Logs
+   Insights where you can run custom queries on the logs.

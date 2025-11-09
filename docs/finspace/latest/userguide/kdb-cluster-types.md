@@ -52,7 +52,7 @@ replay the logs from an RDB type cluster.
 
 **Features of a tickerplant cluster**
 
-Following are the features of a tickerplant type cluster:
+Following are the features of a tickerplant type cluster: 
 
 - It supports only single-node that is only one kdb process.
 - It shares storage with RDB clusters.
@@ -75,7 +75,7 @@ gateways to a multi-node, Multi-AZ deployment for resiliency.
 
 **Features of a gateway cluster**
 
-The following are the features of a gateway type cluster:
+The following are the features of a gateway type cluster: 
 
 - It provides support to run gateways with your custom allocation hosted
   inside of a Managed kdb environment.

@@ -15,6 +15,6 @@ Before you start using the FinSpace web application, use the following table to 
 | Browser                    | Version                     | Check your version                                                                                                                             |
 | -------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Apple Safari for macOS** | Latest three major versions | Open Safari. On the menu, choose **Safari**, and then choose **About Safari**. The version number is shown in the dialog box that displays.    |
-| **Google Chrome**          | Latest three major versions | Open Chrome and type `chrome://version` in your address bar. The version is in the **Google Chrome** field at the top of the results.          |
+| **Google Chrome**          | Latest three major versions | Open Chrome and type `chrome://version` in your address bar. The version is in the \*_Google Chrome_<br>• field at the top of the results.     |
 | **Microsoft Edge**         | Latest three major versions | Open Microsoft Edge. Select Settings and more at the top of the window, and then select Settings. Scroll down and select About Microsoft Edge. |
 | **Mozilla Firefox**        | Latest three major versions | Open Firefox. On the menu, choose the Help icon, and then choose About Firefox. The version number is listed underneath the Firefox name.      |
