@@ -10,6 +10,7 @@ Follow the steps in this section to manage your IP address space in IPAM.
 
 ###### Contents
 
+- [Automate prefix list updates with IPAM](automate-prefix-list-updates.md "automate-prefix-list-updates.md")
 - [Change the monitoring state of VPC CIDRs](change-monitoring-state-ipam.md "change-monitoring-state-ipam.md")
 - [Create additional scopes](add-scope-ipam.md "add-scope-ipam.md")
 - [Delete an IPAM](delete-ipam.md "delete-ipam.md")
@@ -18,6 +19,7 @@ Follow the steps in this section to manage your IP address space in IPAM.
 - [Deprovision CIDRs from a pool](depro-pool-cidr-ipam.md "depro-pool-cidr-ipam.md")
 - [Edit an IPAM pool](mod-pool-ipam.md "mod-pool-ipam.md")
 - [Enable cost distribution](ipam-enable-cost-distro.md "ipam-enable-cost-distro.md")
+- [Integrate VPC IPAM with Infoblox infrastructure](integrate-infoblox-ipam.md "integrate-infoblox-ipam.md")
 - [Enable provisioning private IPv6 GUA CIDRs](enable-prov-ipv6-gua.md "enable-prov-ipv6-gua.md")
 - [Enforce IPAM use for VPC creation with SCPs](scp-ipam.md "scp-ipam.md")
 - [Exclude organizational units from IPAM](exclude-ous.md "exclude-ous.md")

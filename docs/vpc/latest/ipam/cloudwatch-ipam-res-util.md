@@ -51,48 +51,87 @@ Let’s say that your IPAM monitors 2,500 VPCs and 10,000 subnets, all with IPv4
 
 The VPC metric name and description is listed below.
 
-| Metric name                       | Description                                                                                                                                                                                                      |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VpcIPUsage                        | The total IPs covered by CIDRs in the VPC’s subnets divided by the total IPs covered by CIDRs in the VPC. This is calculated across all VPC CIDRs in the same IPAM Scope and separately for IPv4 and IPv6 CIDRs. | The dimensions you can use to filter VPC metrics are listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Dimension                         | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| AddressFamily                     | The IP address family for resource CIDRs (IPv4 or IPv6).                                                                                                                                                         |
-| OwnerID                           | The ID of the VPC owner.                                                                                                                                                                                         |
-| Region                            | The AWS Region where the VPC is located.                                                                                                                                                                         |
-| ScopeID                           | The ID of the IPAM scope that the VPC belongs to.                                                                                                                                                                |
-| VpcID                             | The ID of the VPC.                                                                                                                                                                                               | ## Subnet metrics The subnet metric name and description is listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Metric name                       | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| SubnetIPUsage                     | The number of active IPs divided by total IPs in the subnet's IPv4 CIDR.                                                                                                                                         | The dimensions you can use to filter subnet metrics are listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Dimension                         | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| AddressFamily                     | The IP address family for resource CIDRs (IPv4 only).                                                                                                                                                            |
-| OwnerID                           | The ID of the subnet owner.                                                                                                                                                                                      |
-| Region                            | The AWS Region where the subnet is located.                                                                                                                                                                      |
-| ScopeID                           | The ID of the IPAM scope that the subnet belongs to.                                                                                                                                                             |
-| SubnetID                          | The ID of the subnet.                                                                                                                                                                                            |
-| VpcID                             | The ID of the VPC that the subnet belongs to.                                                                                                                                                                    | ## Public IPv4 pool metrics The public IPv4 pool metric name and description is listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Metric name                       | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| PublicIPv4PoolIPUsage             | The number of EIPs from the public IPv4 Pool divided by total IPs in the pool.                                                                                                                                   | The dimensions you can use to filter the public IPv4 pool metrics are listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Dimension                         | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| OwnerID                           | The ID of the public IPv4 pool owner.                                                                                                                                                                            |
-| PublicIPv4PoolID                  | The ID of the public IPv4 pool.                                                                                                                                                                                  |
-| Region                            | The AWS Region where the public IPv4 pool is located.                                                                                                                                                            |
-| ScopeID                           | The ID of the IPAM scope that the public IPv4 pool belongs to.                                                                                                                                                   | ## Public IP insight metrics The [public IP insight](view-public-ip-insights.md "view-public-ip-insights.md") metric names and descriptions are listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Metric name                       | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| AmazonOwnedElasticIPs             | The number of Amazon-owned Elastic IP addresses that you have provisioned or assigned to resources in your AWS account.                                                                                          |
-| AssociatedAmazonOwnedElasticIPs   | The number of Amazon-owned Elastic IP addresses that you have associated with resources in your AWS account.                                                                                                     |
-| AssociatedBringYourOwnIPs         | The number of public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP) and have associated with resources in your AWS account.                                               |
-| BringYourOwnIPs                   | The number of public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP).                                                                                                      |
-| EC2PublicIPs                      | The number of public IPv4 addresses assigned to EC2 instances when the instances were launched into a default subnet or into a subnet configured to automatically assign a public IPv4 address.                  |
-| ServiceManagedBringYourOwnIPs     | The number of public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP) that are provisioned and managed by an AWS service.                                                   |
-| ServiceManagedIPs                 | The number of public IPv4 addresses provisioned and managed by an AWS service.                                                                                                                                   |
-| UnassociatedAmazonOwnedElasticIPs | The number of Amazon-owned Elastic IP addresses that you have not associated with resources in your AWS account.                                                                                                 |
-| UnassociatedBringYourOwnIPs       | The number of public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP) and have not associated with any resources in your AWS account.                                       | The dimensions you can use to filter the public IP insight metrics are listed below.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Dimension                         | Description                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                              |
-| IpamId                            | The ID of the IPAM that the IP address belongs to.                                                                                                                                                               |
-| Region                            | The AWS Region where the public IP address is located.                                                                                                                                                           | ## Quick tip for creating alarms To quickly create an Amazon CloudWatch alarm for resources with high IP address utilization, open the CloudWatch console, choose **Metrics**, **All metrics**, choose the **Query** tab, choose the **Namespace** `AWS/IPAM > VPC IP Usage Metrics`, `AWS/IPAM > Subnet IP Usage Metrics`, or `AWS/IPAM > Public IPv4 Pool IP Usage Metrics`, choose the **Metric name** `MAX(VpcIPUsage)`, `MAX(SubnetIPUsage)`, or `MAX(PublicIPv4PoolIPUsage)`, and choose **Create alarm**. For more information, see [Create alarms on Metrics Insights queries](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-alarms.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-alarms.md") in the _Amazon CloudWatch User Guide_. |
+| Metric name | Description                                                                                                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VpcIPUsage  | The total IPs covered by CIDRs in the VPC’s subnets divided by<br>the total IPs covered by CIDRs in the VPC. This is calculated across<br>all VPC CIDRs in the same IPAM Scope and separately for IPv4 and<br>IPv6 CIDRs. |
+
+The dimensions you can use to filter VPC metrics are listed below.
+
+| Dimension     | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| AddressFamily | The IP address family for resource CIDRs (IPv4 or IPv6). |
+| OwnerID       | The ID of the VPC owner.                                 |
+| Region        | The AWS Region where the VPC is located.                 |
+| ScopeID       | The ID of the IPAM scope that the VPC belongs to.        |
+| VpcID         | The ID of the VPC.                                       |
+
+## Subnet metrics
+
+The subnet metric name and description is listed below.
+
+| Metric name   | Description                                                                 |
+| ------------- | --------------------------------------------------------------------------- |
+| SubnetIPUsage | The number of active IPs divided by total IPs in the subnet's IPv4<br>CIDR. |
+
+The dimensions you can use to filter subnet metrics are listed below.
+
+| Dimension     | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| AddressFamily | The IP address family for resource CIDRs (IPv4 only). |
+| OwnerID       | The ID of the subnet owner.                           |
+| Region        | The AWS Region where the subnet is located.           |
+| ScopeID       | The ID of the IPAM scope that the subnet belongs to.  |
+| SubnetID      | The ID of the subnet.                                 |
+| VpcID         | The ID of the VPC that the subnet belongs to.         |
+
+## Public IPv4 pool metrics
+
+The public IPv4 pool metric name and description is listed below.
+
+| Metric name           | Description                                                                    |
+| --------------------- | ------------------------------------------------------------------------------ |
+| PublicIPv4PoolIPUsage | The number of EIPs from the public IPv4 Pool divided by total IPs in the pool. |
+
+The dimensions you can use to filter the public IPv4 pool metrics are listed below.
+
+| Dimension        | Description                                                    |
+| ---------------- | -------------------------------------------------------------- |
+| OwnerID          | The ID of the public IPv4 pool owner.                          |
+| PublicIPv4PoolID | The ID of the public IPv4 pool.                                |
+| Region           | The AWS Region where the public IPv4 pool is located.          |
+| ScopeID          | The ID of the IPAM scope that the public IPv4 pool belongs to. |
+
+## Public IP insight metrics
+
+The [public IP insight](view-public-ip-insights.md "view-public-ip-insights.md") metric names and descriptions are listed below.
+
+| Metric name                       | Description                                                                                                                                                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AmazonOwnedElasticIPs             | The number of Amazon-owned Elastic IP addresses that you have<br>provisioned or assigned to resources in your AWS account.                                                                      |
+| AssociatedAmazonOwnedElasticIPs   | The number of Amazon-owned Elastic IP addresses that you have<br>associated with resources in your AWS account.                                                                                 |
+| AssociatedBringYourOwnIPs         | The number of public IPv4 addresses that you have brought to<br>AWS using Bring your own IP addresses (BYOIP) and have associated<br>with resources in your AWS account.                        |
+| BringYourOwnIPs                   | The number of public IPv4 addresses that you have brought to<br>AWS using Bring your own IP addresses (BYOIP).                                                                                  |
+| EC2PublicIPs                      | The number of public IPv4 addresses assigned to EC2 instances when the instances were launched into a default subnet or into a subnet configured to automatically assign a public IPv4 address. |
+| ServiceManagedBringYourOwnIPs     | The number of public IPv4 addresses that you have brought to<br>AWS using Bring your own IP addresses (BYOIP) that are provisioned<br>and managed by an AWS service.                            |
+| ServiceManagedIPs                 | The number of public IPv4 addresses provisioned and managed by an<br>AWS service.                                                                                                               |
+| UnassociatedAmazonOwnedElasticIPs | The number of Amazon-owned Elastic IP addresses that you have not associated with resources in your AWS account.                                                                                |
+| UnassociatedBringYourOwnIPs       | The number of public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP) and have not associated with any resources in your AWS account.                      |
+
+The dimensions you can use to filter the public IP insight metrics are listed below.
+
+| Dimension | Description                                            |
+| --------- | ------------------------------------------------------ |
+| IpamId    | The ID of the IPAM that the IP address belongs to.     |
+| Region    | The AWS Region where the public IP address is located. |
+
+## Quick tip for creating alarms
+
+To quickly create an Amazon CloudWatch alarm for resources with high IP address utilization, open the
+CloudWatch console, choose **Metrics**, **All
+metrics**, choose the **Query** tab, choose the
+**Namespace**
+`AWS/IPAM > VPC IP Usage Metrics`, `AWS/IPAM > Subnet IP Usage Metrics`, or `AWS/IPAM > Public IPv4 Pool IP Usage Metrics`, choose the **Metric
+name**
+`MAX(VpcIPUsage)`, `MAX(SubnetIPUsage)`, or `MAX(PublicIPv4PoolIPUsage)`, and choose **Create alarm**. For
+more information, see [Create alarms on Metrics Insights queries](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-alarms.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-alarms.md") in the _Amazon CloudWatch User
+Guide_.
