@@ -101,12 +101,25 @@ postbuild:
    reports. For more information, see [Run AWS CodeBuild builds manually](run-build.md "run-build.md") and [Log AWS CodeBuild API calls with AWS CloudTrail](cloudtrail.md "cloudtrail.md"). Codecov information in the build logs looks
    like the following:
 
-````
+```
 [Container] 2020/03/09 16:31:04 Running command bash my_script.sh
 
   _____          _
  / ____|        | |
 | |     ___   __| | ___  ___ _____   __
 | |    / _ \ / _` |/ _ \/ __/ _ \ \ / /
-| |___| (_) | (_| |  __/ (_| (_) \ V / \_____\___/ \__,_|\___|\___\___/ \_/ Bash-20200303-bc4d7e6 ·[0;90m==>·[0m AWS CodeBuild detected. `... The full list of Codecov log entries has been omitted for brevity ...` · ·[0;32m->·[0m View reports at ·[0;36m`https://codecov.io/github/user/test_py/commit/commit-id`·[0m [Container] 2020/03/09 16:31:07 Phase complete: POST_BUILD State: SUCCEEDED ``` The reports look like the following: ![The sample reports.](images/codecov-report.png)
-````
+| |___| (_) | (_| |  __/ (_| (_) \ V /
+ \_____\___/ \__,_|\___|\___\___/ \_/
+                              Bash-20200303-bc4d7e6
+
+·[0;90m==>·[0m AWS CodeBuild detected.
+`... The full list of Codecov log entries has been omitted for brevity ...`
+    ·
+    ·[0;32m->·[0m View reports at ·[0;36m`https://codecov.io/github/user/test_py/commit/commit-id`·[0m
+
+[Container] 2020/03/09 16:31:07 Phase complete: POST_BUILD State: SUCCEEDED
+```
+
+The reports look like the following:
+
+![The sample reports.](images/codecov-report.png)

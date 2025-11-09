@@ -11,8 +11,25 @@ a running background task.
 
 - Start a background process and wait for it to complete later:
 
-````
-| nohup sleep 30 & echo $! > pidfile … wait $(cat pidfile) ``` <br>• Start a background process and do not wait for it to ever complete: ```
-| nohup sleep 30 & disown $! ``` <br>• Start a background process and kill it later: ```
-| nohup sleep 30 & echo $! > pidfile … kill $(cat pidfile) ```
-````
+```
+|
+nohup sleep 30 & echo $! > pidfile
+…
+wait $(cat pidfile)
+```
+
+- Start a background process and do not wait for it to ever complete:
+
+```
+|
+nohup sleep 30 & disown $!
+```
+
+- Start a background process and kill it later:
+
+```
+|
+nohup sleep 30 & echo $! > pidfile
+…
+kill $(cat pidfile)
+```

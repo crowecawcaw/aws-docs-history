@@ -76,8 +76,41 @@ The following table lists the alias for each of the four available FIPS
 endpoints:
 
 | Region name             | Region    | Endpoint                               | Alias          |
-| ----------------------- | --------- | -------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------- | --------- | -------------------------------------- | -------------- |
 | US East (N. Virginia)   | us-east-1 | codebuild-fips.us-east-1.amazonaws.com | us-east-1-fips |
 | US East (Ohio)          | us-east-2 | codebuild-fips.us-east-2.amazonaws.com | us-east-2-fips |
 | US West (N. California) | us-west-1 | codebuild-fips.us-west-1.amazonaws.com | us-west-1-fips |
-| US West (Oregon)        | us-west-2 | codebuild-fips.us-west-2.amazonaws.com | us-west-2-fips | To specify use of the FIPS endpoint in the US West (Oregon) region using an alias: `AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard(). withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-west-2-fips", "us-west-2")). withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)). build();` To specify use of the non-FIPS endpoint in the US East (N. Virginia) region: `AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard(). withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-east-1", "us-east-1")). withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)). build();` To specify use of the non-FIPS endpoint in the Asia Pacific (Mumbai) region: `AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard(). withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("ap-south-1", "ap-south-1")). withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)). build();` |
+| US West (Oregon)        | us-west-2 | codebuild-fips.us-west-2.amazonaws.com | us-west-2-fips |
+
+To specify use of the FIPS endpoint in the US West (Oregon) region using an alias:
+
+```
+
+AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
+    withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-west-2-fips", "us-west-2")).
+    withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
+    build();
+
+```
+
+To specify use of the non-FIPS endpoint in the US East (N. Virginia) region:
+
+```
+
+AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
+    withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("us-east-1", "us-east-1")).
+    withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
+    build();
+
+```
+
+To specify use of the non-FIPS endpoint in the Asia Pacific (Mumbai) region:
+
+```
+
+AWSCodeBuild awsCodeBuild = AWSCodeBuildClientBuilder.standard().
+    withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("ap-south-1", "ap-south-1")).
+    withCredentials(new AWSStaticCredentialsProvider(sessionCredentials)).
+    build();
+
+```

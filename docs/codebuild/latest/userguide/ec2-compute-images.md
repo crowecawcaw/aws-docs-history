@@ -13,7 +13,7 @@ regions:
 - Europe (Ireland)
 
 | Platform                 | Image identifier                                       | Definition                                                                                                                                                                                                            |
-| ------------------------ | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Amazon Linux 2           | `aws/codebuild/amazonlinux-x86_64-standard:4.0`        | [al/standard/4.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/4.0 "https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/4.0")                      |
 | Amazon Linux 2023        | `aws/codebuild/amazonlinux-x86_64-standard:5.0`        | [al/standard/5.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/5.0 "https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/5.0")                      |
 | Amazon Linux 2           | `aws/codebuild/amazonlinux-x86_64-standard:corretto8`  | [al/standard/corretto8](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/corretto8 "https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/corretto8")    |
@@ -27,4 +27,10 @@ regions:
 | Windows Server Core 2019 | `aws/codebuild/windows-base:2019-2.0`                  | N/A                                                                                                                                                                                                                   |
 | Windows Server Core 2019 | `aws/codebuild/windows-base:2019-3.0`                  | N/A                                                                                                                                                                                                                   |
 | Windows Server Core 2022 | `aws/codebuild/windows-base:2022-1.0`                  | N/A                                                                                                                                                                                                                   |
-| macOS                    | `aws/codebuild/macos-arm-base:14`                      | N/A                                                                                                                                                                                                                   | ###### Note On November 22nd, 2024, the aliases for Linux-based standard runtime images were updated from `amazonlinux2` to `amazonlinux`. No manual update is required as the previous aliases are still valid. |
+| macOS                    | `aws/codebuild/macos-arm-base:14`                      | N/A                                                                                                                                                                                                                   |
+
+###### Note
+
+On November 22nd, 2024, the aliases for Linux-based standard runtime images were updated from
+`amazonlinux2` to `amazonlinux`. No manual update is required as the previous
+aliases are still valid.

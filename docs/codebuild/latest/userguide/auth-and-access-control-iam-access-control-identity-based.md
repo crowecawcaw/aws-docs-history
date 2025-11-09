@@ -32,12 +32,150 @@ are also resources and have ARNs associated with them. For more information, see
 (ARN) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") in the
 _Amazon Web Services General Reference_.
 
-| Resource type                                                                      | ARN format                                                                    |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Build project                                                                      | `arn:aws:codebuild:`region-ID`:`account-ID`:project/`project-name``           |
-| Build                                                                              | `arn:aws:codebuild:`region-ID`:`account-ID`:build/`build-ID``                 |
-| Report group                                                                       | `arn:aws:codebuild:`region-ID`:`account-ID`:report-group/`report-group-name`` |
-| Report                                                                             | `arn:aws:codebuild:`region-ID`:`account-ID`:report/`report-ID``               |
-| Fleet                                                                              | `arn:aws:codebuild:`region-ID`:`account-ID`:fleet/`fleet-ID``                 |
-| All CodeBuild resources                                                            | `arn:aws:codebuild:*`                                                         |
-| All CodeBuild resources owned by the specified account in the specified AWS Region | `arn:aws:codebuild:`region-ID`:`account-ID`:*`                                | ###### Important When using the reserved capacity feature, data cached on fleet instances, including source files, Docker layers, and cached directories specified in the buildspec, can be accessible to other projects within the same account. This is by design and allows projects within the same account to share fleet instances. ###### Note Most AWS services treat a colon (:) or a forward slash (/) as the same character in ARNs. However, CodeBuild uses an exact match in resource patterns and rules. Be sure to use the correct characters when you create event patterns so that they match the ARN syntax in the resource. For example, you can indicate a specific build project (`myBuildProject`) in your statement using its ARN as follows: ``"Resource": "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myBuildProject`"`` To specify all resources, or if an API action does not support ARNs, use the wildcard character (\*) in the `Resource` element as follows: `"Resource": "*"` Some CodeBuild API actions accept multiple resources (for example, `BatchGetProjects`). To specify multiple resources in a single statement, separate their ARNs with commas, as follows: ``"Resource": [ "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myBuildProject`", "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myOtherBuildProject`" ]`` CodeBuild provides a set of operations to work with the CodeBuild resources. For a list, see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). ## Understanding resource ownership The AWS account owns the resources that are created in the account, regardless of who created the resources. Specifically, the resource owner is the AWS account of the [principal entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") (that is, the root account, an user, or an IAM role) that authenticates the resource creation request. The following examples illustrate how this works: <br>• If you use the root account credentials of your AWS account to create a rule, your AWS account is the owner of the CodeBuild resource. <br>• If you create an user in your AWS account and grant permissions to create CodeBuild resources to that user, the user can create CodeBuild resources. However, your AWS account, to which the user belongs, owns the CodeBuild resources. <br>• If you create an IAM role in your AWS account with permissions to create CodeBuild resources, anyone who can assume the role can create CodeBuild resources. Your AWS account, to which the role belongs, owns the CodeBuild resources. ## Managing access to resources A permissions policy describes who has access to which resources. ###### Note This section discusses the use of IAM in AWS CodeBuild. It doesn't provide detailed information about the IAM service. For complete IAM documentation, see [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_. Policies attached to an IAM identity are referred to as identity-based policies (IAM policies). Policies attached to a resource are referred to as resource-based policies. CodeBuild supports identity-based policies, and resource-based policies for certain read only APIs for the purpose of cross-account resource sharing. ### Secure access to S3 buckets We strongly recommend that you include the following permissions in your IAM role to verify the S3 bucket associated with your CodeBuild project is owned by you or someone you trust. These permissions are not included in AWS managed policies and roles. You must add them yourself. <br>• `s3:GetBucketAcl` <br>• `s3:GetBucketLocation` If the owner of an S3 bucket used by your project changes, you must verify you still own the bucket and update permissions in your IAM role if not. For more information, see [Allow users to interact with CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md") and [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md"). ## Specifying policy elements: Actions, effects, and principals For each AWS CodeBuild resource, the service defines a set of API operations. To grant permissions for these API operations, CodeBuild defines a set of actions that you can specify in a policy. Some API operations can require permissions for more than one action in order to perform the API operation. For more information, see [AWS CodeBuild resources and operations](#arn-formats "#arn-formats") and [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). The following are the basic policy elements: <br>• **Resource** – You use an Amazon Resource Name (ARN) to identify the resource that the policy applies to. <br>• **Action** – You use action keywords to identify resource operations you want to allow or deny. For example, the `codebuild:CreateProject` permission gives the user permissions to perform the `CreateProject` operation. <br>• **Effect** – You specify the effect, either allow or deny, when the user requests the action. If you don't explicitly grant access to (allow) a resource, access is implicitly denied. You can also explicitly deny access to a resource. You might do this to make sure a user cannot access a resource, even if a different policy grants access. <br>• **Principal** – In identity-based policies (IAM policies), the user the policy is attached to is the implicit principal. For resource-based policies, you specify the user, account, service, or other entity that you want to receive permissions. To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_. For a table showing all of the CodeBuild API actions and the resources they apply to, see the [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). |
+| Resource type                                                                         | ARN format                                                                    |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Build project                                                                         | `arn:aws:codebuild:`region-ID`:`account-ID`:project/`project-name``           |
+| Build                                                                                 | `arn:aws:codebuild:`region-ID`:`account-ID`:build/`build-ID``                 |
+| Report group                                                                          | `arn:aws:codebuild:`region-ID`:`account-ID`:report-group/`report-group-name`` |
+| Report                                                                                | `arn:aws:codebuild:`region-ID`:`account-ID`:report/`report-ID``               |
+| Fleet                                                                                 | `arn:aws:codebuild:`region-ID`:`account-ID`:fleet/`fleet-ID``                 |
+| All CodeBuild resources                                                               | `arn:aws:codebuild:*`                                                         |
+| All CodeBuild resources owned by the specified account in the<br>specified AWS Region | `arn:aws:codebuild:`region-ID`:`account-ID`:*`                                |
+
+###### Important
+
+When using the reserved capacity feature, data cached on fleet instances, including source files,
+Docker layers, and cached directories specified in the buildspec, can be accessible to other projects
+within the same account. This is by design and allows projects within the same account to share fleet instances.
+
+###### Note
+
+Most AWS services treat a colon (:) or a forward slash (/) as the same
+character in ARNs. However, CodeBuild uses an exact match in resource patterns and
+rules. Be sure to use the correct characters when you create event patterns so
+that they match the ARN syntax in the resource.
+
+For example, you can indicate a specific build project
+(`myBuildProject`) in your statement using its ARN as
+follows:
+
+```
+"Resource": "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myBuildProject`"
+```
+
+To specify all resources, or if an API action does not support ARNs, use the
+wildcard character (\*) in the `Resource` element as follows:
+
+```
+"Resource": "*"
+```
+
+Some CodeBuild API actions accept multiple resources (for example,
+`BatchGetProjects`). To specify multiple resources in a
+single statement, separate their ARNs with commas, as follows:
+
+```
+"Resource": [
+  "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myBuildProject`",
+  "arn:aws:codebuild:`us-east-2`:`123456789012`:project/`myOtherBuildProject`"
+]
+```
+
+CodeBuild provides a set of operations to work with the CodeBuild resources. For a list,
+see [AWS CodeBuild permissions
+reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+
+## Understanding resource
+
+ownership
+
+The AWS account owns the resources that are created in the account, regardless
+of who created the resources. Specifically, the resource owner is the AWS account
+of the [principal
+entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") (that is, the root account, an user, or an IAM role) that
+authenticates the resource creation request. The following examples illustrate how
+this works:
+
+- If you use the root account credentials of your AWS account to create a
+  rule, your AWS account is the owner of the CodeBuild resource.
+- If you create an user in your AWS account and grant permissions to
+  create CodeBuild resources to that user, the user can create CodeBuild resources.
+  However, your AWS account, to which the user belongs, owns the CodeBuild
+  resources.
+- If you create an IAM role in your AWS account with permissions to
+  create CodeBuild resources, anyone who can assume the role can create CodeBuild
+  resources. Your AWS account, to which the role belongs, owns the CodeBuild
+  resources.
+
+## Managing access to resources
+
+A permissions policy describes who has access to which resources.
+
+###### Note
+
+This section discusses the use of IAM in AWS CodeBuild. It doesn't provide
+detailed information about the IAM service. For complete IAM documentation,
+see [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the
+_IAM User Guide_. For information about IAM policy
+syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the
+_IAM User Guide_.
+
+Policies attached to an IAM identity are referred to as identity-based policies
+(IAM policies). Policies attached to a resource are referred to as resource-based
+policies. CodeBuild supports identity-based policies, and resource-based policies for
+certain read only APIs for the purpose of cross-account resource sharing.
+
+### Secure access to S3 buckets
+
+We strongly recommend that you include the following permissions in your IAM
+role to verify the S3 bucket associated with your CodeBuild project is owned by you or
+someone you trust. These permissions are not included in AWS managed policies and
+roles. You must add them yourself.
+
+- `s3:GetBucketAcl`
+- `s3:GetBucketLocation`
+
+If the owner of an S3 bucket used by your project changes, you must verify you
+still own the bucket and update permissions in your IAM role if not. For more
+information, see [Allow users to interact with
+CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md") and [Allow CodeBuild to interact with other AWS
+services](setting-up-service-role.md "setting-up-service-role.md").
+
+## Specifying policy elements: Actions,
+
+effects, and principals
+
+For each AWS CodeBuild resource, the service defines a set of API operations. To grant
+permissions for these API operations, CodeBuild defines a set of actions that you can
+specify in a policy. Some API operations can require permissions for more than one
+action in order to perform the API operation. For more information, see [AWS CodeBuild resources and operations](#arn-formats "#arn-formats") and [AWS CodeBuild permissions
+reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+
+The following are the basic policy elements:
+
+- **Resource** – You use an Amazon
+  Resource Name (ARN) to identify the resource that the policy applies
+  to.
+- **Action** – You use action keywords to
+  identify resource operations you want to allow or deny. For example, the
+  `codebuild:CreateProject` permission gives the user
+  permissions to perform the `CreateProject`
+  operation.
+- **Effect** – You specify the effect,
+  either allow or deny, when the user requests the action. If you don't
+  explicitly grant access to (allow) a resource, access is implicitly denied.
+  You can also explicitly deny access to a resource. You might do this to make
+  sure a user cannot access a resource, even if a different policy grants
+  access.
+- **Principal** – In identity-based
+  policies (IAM policies), the user the policy is attached to is the
+  implicit principal. For resource-based policies, you specify the user,
+  account, service, or other entity that you want to receive
+  permissions.
+
+To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md")
+in the _IAM User Guide_.
+
+For a table showing all of the CodeBuild API actions and the resources they apply to,
+see the [AWS CodeBuild permissions
+reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
