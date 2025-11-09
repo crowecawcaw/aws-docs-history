@@ -598,9 +598,178 @@ step. 2. Open a new Postman window and create a new HTTP POST request.
          **test-invoke-authorize** command in the
          previous section.
 
-| Key                                | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `x-amz-customauthorizer-name`      | `my-new-authorizer`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `Host`                             | `device_data_endpoint_address`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `tokenKeyName`                     | `tokenKeyValue`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `x-amz-customauthorizer-signature` | `dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=` | 5. In the Body tab: 1. In the data format option box, choose **Raw**. 2. In the data type list, choose **JavaScript**. 3. In the text field, enter this JSON message payload for your test message: `{ "data_mode": "test", "vibration": 200, "temperature": 40 }` 4. Choose **Send** to send the request. If the request was successful, it returns: `{ "message": "OK", "traceId": "ff35c33f-409a-ea90-b06f-fbEXAMPLE25c" }` The successful response indicates that your custom authorizer allowed the connection to AWS IoT and that the test message was delivered to broker in AWS IoT Core. If it returns an error, review error message, the `device_data_endpoint_address`, the signature string, and the other header values. Keep this request in Postman for use in the next section. ## Step 6: View messages in MQTT test client In the previous step, you sent simulated device messages to AWS IoT by using Postman. The successful response indicated that your custom authorizer allowed the connection to AWS IoT and that the test message was delivered to broker in AWS IoT Core. In this section, you'll use the MQTT test client in the AWS IoT console to see the message contents from that message as other devices and services might. ###### To see the test messages authorized by your custom authorizer 1. In the AWS IoT console, open the [MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test"). 2. In the **Subscribe to topic** tab, in **Topic filter**, enter `test/cust-auth/topic`, which is the message topic used in the Postman example from the previous section. 3. Choose **Subscribe**. Keep this window visible for the next step. 4. In Postman, in the request you created for the previous section, choose **Send**. Review the response to make sure it was successful. If not, troubleshoot the error as the previous section describes. 5. In the **MQTT test client**, you should see a new entry that shows the message topic and, if expanded, the message payload from the request you sent from Postman. If you don't see your messages in the **MQTT test client**, here are some things to check: <br>• Make sure your Postman request returned successfully. If AWS IoT rejects the connection and returns an error, the message in the request doesn't get passed to the message broker. <br>• Make sure the AWS account and AWS Region used to open the AWS IoT console are the same as you're using in the Postman URL. <br>• Make sure that you're using the appropriate endpoint for the custom authorizer. The default IoT endpoint might not support using custom authorizers with Lambda functions. Instead, you can use domain configurations to define a new endpoint and then specify that endpoint for the custom authorizer. <br>• Make sure you've entered the topic correctly in the **MQTT test client**. The topic filter is case-sensitive. If in doubt, you can also subscribe to the `#` topic, which subscribes to all MQTT messages that pass through the message broker the AWS account and AWS Region used to open the AWS IoT console. ## Step 7: Review the results and next steps ###### In this tutorial: <br>• You created a Lambda function to be a custom authorizer handler <br>• You created a custom authorizer with token signing enabled <br>• You tested your custom authorizer using the **test-invoke-authorizer** command <br>• You published an MQTT topic by using [Postman](https://www.postman.com/ "https://www.postman.com/") and validate the request with your custom authorizer <br>• You used the **MQTT test client** to view the messages sent from your Postman test ###### Next steps After you send some messages from Postman to verify that the custom authorizer is working, try experimenting to see how changing different aspects of this tutorial affect the results. Here are some examples to get you started. <br>• Change the signature string so that it's no longer valid to see how unauthorized connection attempts are handled. You should get an error response, such as this one, and the message should not appear in the **MQTT test client**. `{ "message": "Forbidden", "traceId": "15969756-a4a4-917c-b47a-5433e25b1356" }` <br>• To learn more about how to find errors that might occur while you're developing and using AWS IoT rules, see [Monitoring AWS IoT](monitoring_overview.md "monitoring_overview.md"). ## Step 8: Clean up If you'd like repeat this tutorial, you might need to remove some of your custom authorizers. Your AWS account can have only a limited number of custom authorizers configured at one time and you can get a `LimitExceededException` when you try to add a new one without removing an existing custom authorizer. ###### To remove a custom authorizer (console) 1. Open the [Custom authorizer page of the AWS IoT console](https://console.aws.amazon.com/iot/home#/authorizerhub "https://console.aws.amazon.com/iot/home#/authorizerhub"), and in the list of custom authorizers, find the custom authorizer to remove. 2. Open the Custom authorizer details page and, from the **Actions** menu, choose **Edit**. 3. Uncheck the **Activate authorizer**, and then choose **Update**. You can't delete a custom authorizer while it's active. 4. From the Custom authorizer details page, open the **Actions** menu, and choose **Delete**. ###### To remove a custom authorizer (AWS CLI) 1. List the custom authorizers that you have installed and find the name of the custom authorizer you want to delete. `aws iot list-authorizers` 2. Set the custom authorizer to `inactive` by running this command after replacing `Custom_Auth_Name` with the `authorizerName` of the custom authorizer to delete. `` aws iot update-authorizer --status INACTIVE --authorizer-name `Custom_Auth_Name` `` 3. Delete the custom authorizer by running this command after replacing `Custom_Auth_Name` with the `authorizerName` of the custom authorizer to delete. `` aws iot delete-authorizer --authorizer-name `Custom_Auth_Name` `` |
+
+
+
+        | Key | Value |
+        | --- | --- |
+        | `x-amz-customauthorizer-name` | `my-new-authorizer` |
+        | `Host` | `device_data_endpoint_address` |
+        | `tokenKeyName` | `tokenKeyValue` |
+        | `x-amz-customauthorizer-signature` | `dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=` |
+
+    5. In the Body tab:
+       1. In the data format option box, choose
+          **Raw**.
+       2. In the data type list, choose
+          **JavaScript**.
+       3. In the text field, enter this JSON message payload for your
+          test message:
+
+       ```
+       {
+           "data_mode": "test",
+           "vibration": 200,
+           "temperature": 40
+       }
+       ```
+
+4.  Choose **Send** to send the request.
+
+If the request was successful, it returns:
+
+```
+{
+    "message": "OK",
+    "traceId": "ff35c33f-409a-ea90-b06f-fbEXAMPLE25c"
+}
+```
+
+The successful response indicates that your custom authorizer allowed the
+connection to AWS IoT and that the test message was delivered to broker in
+AWS IoT Core.
+
+If it returns an error, review error message, the
+`device_data_endpoint_address`, the signature
+string, and the other header values.
+
+Keep this request in Postman for use in the next section.
+
+## Step 6: View messages in MQTT test
+
+client
+
+In the previous step, you sent simulated device messages to AWS IoT by using Postman.
+The successful response indicated that your custom authorizer allowed the connection to
+AWS IoT and that the test message was delivered to broker in AWS IoT Core. In this section,
+you'll use the MQTT test client in the AWS IoT console to see the message contents from
+that message as other devices and services might.
+
+###### To see the test messages authorized by your custom authorizer
+
+1. In the AWS IoT console, open the [MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test").
+2. In the **Subscribe to topic** tab, in **Topic
+   filter**, enter `test/cust-auth/topic`, which
+   is the message topic used in the Postman example from the previous
+   section.
+3. Choose **Subscribe**.
+
+Keep this window visible for the next step. 4. In Postman, in the request you created for the previous section, choose
+**Send**.
+
+Review the response to make sure it was successful. If not, troubleshoot the
+error as the previous section describes. 5. In the **MQTT test client**, you should see a new entry that
+shows the message topic and, if expanded, the message payload from the request
+you sent from Postman.
+
+If you don't see your messages in the **MQTT test client**,
+here are some things to check:
+
+    * Make sure your Postman request returned successfully. If AWS IoT rejects
+     the connection and returns an error, the message in the request doesn't
+     get passed to the message broker.
+    * Make sure the AWS account and AWS Region used to open the
+     AWS IoT console are the same as you're using in the Postman URL.
+    * Make sure that you're using the appropriate endpoint for the
+     custom authorizer. The default IoT endpoint might not support using
+     custom authorizers with Lambda functions. Instead, you can use domain
+     configurations to define a new endpoint and then specify that endpoint
+     for the custom authorizer.
+    * Make sure you've entered the topic correctly in the **MQTT
+     test client**. The topic filter is case-sensitive. If in
+     doubt, you can also subscribe to the `#` topic,
+     which subscribes to all MQTT messages that pass through the message
+     broker the AWS account and AWS Region used to open the AWS IoT
+     console.
+
+## Step 7: Review the results and next
+
+steps
+
+###### In this tutorial:
+
+- You created a Lambda function to be a custom authorizer handler
+- You created a custom authorizer with token signing enabled
+- You tested your custom authorizer using the
+  **test-invoke-authorizer** command
+- You published an MQTT topic by using [Postman](https://www.postman.com/ "https://www.postman.com/") and validate the request with your custom authorizer
+- You used the **MQTT test client** to view the messages sent
+  from your Postman test
+
+###### Next steps
+
+After you send some messages from Postman to verify that the custom authorizer is
+working, try experimenting to see how changing different aspects of this tutorial
+affect the results. Here are some examples to get you started.
+
+- Change the signature string so that it's no longer valid to see how
+  unauthorized connection attempts are handled. You should get an error response,
+  such as this one, and the message should not appear in the **MQTT test
+  client**.
+
+```
+{
+    "message": "Forbidden",
+    "traceId": "15969756-a4a4-917c-b47a-5433e25b1356"
+}
+```
+
+- To learn more about how to find errors that might occur while you're
+  developing and using AWS IoT rules, see [Monitoring AWS IoT](monitoring_overview.md "monitoring_overview.md").
+
+## Step 8: Clean up
+
+If you'd like repeat this tutorial, you might need to remove some of your custom
+authorizers. Your AWS account can have only a limited number of custom authorizers
+configured at one time and you can get a `LimitExceededException` when you
+try to add a new one without removing an existing custom authorizer.
+
+###### To remove a custom authorizer (console)
+
+1. Open the [Custom
+   authorizer page of the AWS IoT console](https://console.aws.amazon.com/iot/home#/authorizerhub "https://console.aws.amazon.com/iot/home#/authorizerhub"), and in the list of custom
+   authorizers, find the custom authorizer to remove.
+2. Open the Custom authorizer details page and, from the
+   **Actions** menu, choose
+   **Edit**.
+3. Uncheck the **Activate authorizer**, and then choose
+   **Update**.
+
+You can't delete a custom authorizer while it's active. 4. From the Custom authorizer details page, open the
+**Actions** menu, and choose
+**Delete**.
+
+###### To remove a custom authorizer (AWS CLI)
+
+1. List the custom authorizers that you have installed and find the name of
+   the custom authorizer you want to delete.
+
+```
+aws iot list-authorizers
+```
+
+2. Set the custom authorizer to `inactive` by running this command
+   after replacing `Custom_Auth_Name` with
+   the `authorizerName` of the custom authorizer to delete.
+
+```
+aws iot update-authorizer --status INACTIVE --authorizer-name `Custom_Auth_Name`
+```
+
+3. Delete the custom authorizer by running this command after replacing
+   `Custom_Auth_Name` with the
+   `authorizerName` of the custom authorizer to delete.
+
+```
+aws iot delete-authorizer --authorizer-name `Custom_Auth_Name`
+```

@@ -77,7 +77,31 @@ Publishing clients can't use wildcard characters in the topic names they publish
 
 The following table lists the wildcard characters that can be used in a topic filter.
 
-| Topic wildcards | Wildcard character                                         | Matches                                                                                                                                                                                    | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| #               | All strings at and below its level in the topic hierarchy. | Must be the last character in the topic filter. Must be the only character in its level of the topic hierarchy. Can be used in a topic filter that also contains the + wildcard character. |
-| +               | Any string in the level that contains the character.       | Must be the only character in its level of the topic hierarchy. Can be used in multiple levels of a topic filter.                                                                          | Using wildcards with the previous sensor topic name examples: <br>• A subscription to `sensor/#` receives messages published to `sensor/`, `sensor/temperature`, `sensor/temperature/room1`, but not messages published to `sensor`. <br>• A subscription to `sensor/+/room1` receives messages published to `sensor/temperature/room1` and `sensor/humidity/room1`, but not messages sent to `sensor/temperature/room2` or `sensor/humidity/room2`. ### Topic filter ARN All topic filter ARNs (Amazon Resource Names) have the following form: `` arn:aws:iot:`aws-region`:`AWS-account-ID`:topicfilter/`TopicFilter` `` For example, `arn:aws:iot:us-west-2:123EXAMPLE456:topicfilter/application/topic/+/sensor` is an ARN for the topic filter `application/topic/+/sensor`. |
+| Topic wildcards | Wildcard character                                         | Matches                                                                                                                                                                                                | Notes |
+| --------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| #               | All strings at and below its level in the topic hierarchy. | Must be the last character in the topic filter.<br>Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in a topic filter that also contains the + wildcard<br>character. |
+| +               | Any string in the level that contains the character.       | Must be the only character in its level of the topic<br>hierarchy.<br>Can be used in multiple levels of a topic filter.                                                                                |
+
+Using wildcards with the previous sensor topic name examples:
+
+- A subscription to `sensor/#` receives messages published to
+  `sensor/`, `sensor/temperature`,
+  `sensor/temperature/room1`, but not messages published to
+  `sensor`.
+- A subscription to `sensor/+/room1` receives messages published to
+  `sensor/temperature/room1` and
+  `sensor/humidity/room1`, but not messages sent to
+  `sensor/temperature/room2` or
+  `sensor/humidity/room2`.
+
+### Topic filter ARN
+
+All topic filter ARNs (Amazon Resource Names) have the following form:
+
+```
+arn:aws:iot:`aws-region`:`AWS-account-ID`:topicfilter/`TopicFilter`
+```
+
+For example,
+`arn:aws:iot:us-west-2:123EXAMPLE456:topicfilter/application/topic/+/sensor`
+is an ARN for the topic filter `application/topic/+/sensor`.

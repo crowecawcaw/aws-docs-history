@@ -166,8 +166,15 @@ by AWS IoT
 The table below shows how key algorithms are supported:
 
 | Key algorithm                                 | Certificate signing algorithm | TLS version     | Supported? Yes or No |
-| --------------------------------------------- | ----------------------------- | --------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------- | ----------------------------- | --------------- | -------------------- |
 | RSA with a key size of at least 2048 bits     | All                           | TLS 1.2 TLS 1.3 | Yes                  |
 | ECC NIST P-256/P-384/P-521                    | All                           | TLS 1.2 TLS 1.3 | Yes                  |
 | RSA-PSS with a key size of at least 2048 bits | All                           | TLS 1.2         | No                   |
-| RSA-PSS with a key size of at least 2048 bits | All                           | TLS 1.3         | Yes                  | To create a certificate using [CreateCertificateFromCSR](../apireference/API_CreateCertificateFromCsr.md "../apireference/API_CreateCertificateFromCsr.md"), you can use a supported key algorithm to generate a public key for your CSR. To register your own certificate using [RegisterCertificate](../apireference/API_RegisterCertificate.md "../apireference/API_RegisterCertificate.md") or [RegisterCertificateWithoutCA](../apireference/API_RegisterCertificateWithoutCA.md "../apireference/API_RegisterCertificateWithoutCA.md"), you can use a supported key algorithm to generate a public key for the certificate. For more information, see [Security policies](transport-security.md#tls-policy-table "transport-security.md#tls-policy-table"). |
+| RSA-PSS with a key size of at least 2048 bits | All                           | TLS 1.3         | Yes                  |
+
+To create a certificate using [CreateCertificateFromCSR](../apireference/API_CreateCertificateFromCsr.md "../apireference/API_CreateCertificateFromCsr.md"), you can use a supported key algorithm to
+generate a public key for your CSR. To register your own certificate using
+[RegisterCertificate](../apireference/API_RegisterCertificate.md "../apireference/API_RegisterCertificate.md") or [RegisterCertificateWithoutCA](../apireference/API_RegisterCertificateWithoutCA.md "../apireference/API_RegisterCertificateWithoutCA.md"), you can use a supported key algorithm
+to generate a public key for the certificate.
+
+For more information, see [Security policies](transport-security.md#tls-policy-table "transport-security.md#tls-policy-table").

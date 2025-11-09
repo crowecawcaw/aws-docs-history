@@ -137,11 +137,134 @@ The following table shows the different statuses of a command execution and how
 the command execution transitions between the various statuses depending on the
 progress of the execution.
 
-| Command execution status and source | Command execution status | Initiated by device/cloud? | Terminal execution?                                                           | Allowed status transitions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------- | ------------------------ | -------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CREATED`                           | Cloud                    | No                         | <br>• IN_PROGRESS <br>• SUCCEEDED <br>• FAILED <br>• REJECTED <br>• TIMED_OUT |
-| `IN_PROGRESS`                       | Device                   | No                         | <br>• IN_PROGRESS <br>• SUCCEEDED <br>• FAILED <br>• REJECTED <br>• TIMED_OUT |
-| `TIMED_OUT`                         | Device and cloud         | No                         | <br>• SUCCEEDED <br>• FAILED <br>• REJECTED <br>• TIMED_OUT                   |
-| `SUCCEEDED`                         | Device                   | Yes                        | Not applicable                                                                |
-| `FAILED`                            | Device                   | Yes                        | Not applicable                                                                |
-| `REJECTED`                          | Device                   | Yes                        | Not applicable                                                                | As your devices execute the command, it can publish updates to the status and result any time to the cloud using the commands reserved MQTT topics. To provide additional context about the status of each command execution to the cloud, it can use the `reasonCode` and `reasonDescription` that are contained within the `statusReason` object. The following diagram shows the various command execution statuses and how the transition occurs between them. ![Image showing how a command execution status transitions between various statuses.](images/command-execution-status-transitions.png) ###### Note When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status that allows retries and state changes. If your device explicitly reports `TIMED_OUT` during command execution, this becomes a terminal status with no further transitions possible. See [Non-terminal command executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal"). The following section describes terminal and non-terminal command executions, the various execution statuses, and how it works. ###### Topics <br>• [Non-terminal command executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal") <br>• [Terminal command executions](#iot-command-execution-status-terminal "#iot-command-execution-status-terminal") ### Non-terminal command executions Your command execution is non-terminal if the execution can accept updates from devices or clients. An execution in a non-terminal status is considered _Active_. The following statuses are non-terminal. <br>• ###### CREATED When you start a command execution from the AWS IoT console, or use the `StartCommandExecution` API to send the command to your device using the commands request topic. If the request is successful, the command execution status changes to `CREATED`. From this status, the command execution can transition to any of the other non-terminal or terminal statuses. <br>• ###### IN_PROGRESS After receiving the command payload, your device can start executing the instructions in the payload and perform the actions specified. While executing the command, the device can publish a response to the commands response topic and update the command execution status as `IN_PROGRESS`. From the `IN_PROGRESS` status, the command execution can transition to any of the other terminal or non-terminal statuses other than `CREATED`. ###### Note The `UpdateCommandExecution` API can be invoked multiple times with a status of `IN_PROGRESS`. You can specify additional details about the execution using the `statusReason` object. <br>• ###### TIMED_OUT This command execution status can be triggered by both the cloud and the device. An execution in `CREATED` or `IN_PROGRESS` status can change to the `TIMED_OUT` status due to the following reasons. + After the command is sent to the device, a timer starts. If there is no response from the device within a specified duration, the cloud changes the command execution status to `TIMED_OUT`. In this case, the command execution is non-terminal. + The device can override the status to any of the other terminal statuses, or report that a time out occurred when executing the command, and set the status to `TIMED_OUT`. In this case, the execution status stays at `TIMED_OUT` but the fields of the `StatusReason` object change depending on the information reported by the devices. The command execution now becomes terminal. For more information, see [Time out value and TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status"). ### Terminal command executions A command execution becomes terminal if the execution no longer accepts any additional updates from the devices. The following statuses are terminal. An execution can transition to the terminal statuses from any of the non-terminal statuses, `CREATED`, `IN_PROGRESS`, or `TIMED_OUT`. <br>• ###### SUCCEEDED If the device successfully completed executing the command, it can publish a response to the commands response topic and update the command execution status to `SUCCEEDED`. <br>• ###### FAILED When your device fails to complete executing the command, it can publish a response to the commands response topic and update the command execution status to `FAILED`. You can use the `reasonCode` and `reasonDescription` fields of the `statusReason` object, or the CloudWatch logs, to further troubleshoot the failures. <br>• ###### REJECTED When your device receives an invalid or incompatible request, the device can invoke the `UpdateCommandExecution` API with a status of `REJECTED`. You can use the `reasonCode` and `reasonDescription` fields of the `statusReason` object, or the CloudWatch logs, to further troubleshoot any issues. |
+| Command execution status and source | Command execution status | Initiated by device/cloud? | Terminal execution?                                                   | Allowed status transitions |
+| ----------------------------------- | ------------------------ | -------------------------- | --------------------------------------------------------------------- | -------------------------- |
+| `CREATED`                           | Cloud                    | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT |
+| `IN_PROGRESS`                       | Device                   | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT |
+| `TIMED_OUT`                         | Device and cloud         | No                         | • SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT                  |
+| `SUCCEEDED`                         | Device                   | Yes                        | Not applicable                                                        |
+| `FAILED`                            | Device                   | Yes                        | Not applicable                                                        |
+| `REJECTED`                          | Device                   | Yes                        | Not applicable                                                        |
+
+As your devices execute the command, it can publish updates to the status and
+result any time to the cloud using the commands reserved MQTT topics. To provide
+additional context about the status of each command execution to the cloud, it can
+use the `reasonCode` and `reasonDescription` that are
+contained within the `statusReason` object.
+
+The following diagram shows the various command execution statuses and how the
+transition occurs between them.
+
+![Image showing how a command execution status transitions between various statuses.](images/command-execution-status-transitions.png)
+
+###### Note
+
+When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status that allows retries and
+state changes. If your device explicitly reports `TIMED_OUT` during command execution, this becomes a terminal status with no further transitions
+possible. See [Non-terminal command
+executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal").
+
+The following section describes terminal and non-terminal command executions, the
+various execution statuses, and how it works.
+
+###### Topics
+
+- [Non-terminal command
+  executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal")
+- [Terminal command
+  executions](#iot-command-execution-status-terminal "#iot-command-execution-status-terminal")
+
+### Non-terminal command
+
+executions
+
+Your command execution is non-terminal if the execution can accept updates
+from devices or clients. An execution in a non-terminal status is considered
+_Active_. The following statuses are non-terminal.
+
+- ###### CREATED
+
+When you start a command execution from the AWS IoT console, or use
+the `StartCommandExecution` API to send the command to
+your device using the commands request topic. If the request is
+successful, the command execution status changes to
+`CREATED`. From this status, the command execution
+can transition to any of the other non-terminal or terminal
+statuses.
+
+- ###### IN_PROGRESS
+
+After receiving the command payload, your device can start
+executing the instructions in the payload and perform the actions
+specified. While executing the command, the device can publish a
+response to the commands response topic and update the command
+execution status as `IN_PROGRESS`. From the
+`IN_PROGRESS` status, the command execution can
+transition to any of the other terminal or non-terminal statuses
+other than `CREATED`.
+
+###### Note
+
+The `UpdateCommandExecution` API can be invoked
+multiple times with a status of `IN_PROGRESS`. You can
+specify additional details about the execution using the
+`statusReason` object.
+
+- ###### TIMED_OUT
+
+This command execution status can be triggered by both the cloud
+and the device. An execution in `CREATED` or
+`IN_PROGRESS` status can change to the
+`TIMED_OUT` status due to the following
+reasons.
+
+    + After the command is sent to the device, a timer starts. If
+     there is no response from the device within a specified
+     duration, the cloud changes the command execution status to
+     `TIMED_OUT`. In this case, the command execution
+     is non-terminal.
+    + The device can override the status to any of the other
+     terminal statuses, or report that a time out occurred when
+     executing the command, and set the status to
+     `TIMED_OUT`. In this case, the execution status
+     stays at `TIMED_OUT` but the fields of the
+     `StatusReason` object change depending on the
+     information reported by the devices. The command execution now
+     becomes terminal.
+
+For more information, see [Time out value and
+TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
+
+### Terminal command
+
+executions
+
+A command execution becomes terminal if the execution no longer accepts any
+additional updates from the devices. The following statuses are terminal. An
+execution can transition to the terminal statuses from any of the non-terminal
+statuses, `CREATED`, `IN_PROGRESS`, or
+`TIMED_OUT`.
+
+- ###### SUCCEEDED
+
+If the device successfully completed executing the command, it can
+publish a response to the commands response topic and update the
+command execution status to `SUCCEEDED`.
+
+- ###### FAILED
+
+When your device fails to complete executing the command, it can
+publish a response to the commands response topic and update the
+command execution status to `FAILED`. You can use the
+`reasonCode` and `reasonDescription`
+fields of the `statusReason` object, or the CloudWatch logs, to
+further troubleshoot the failures.
+
+- ###### REJECTED
+
+When your device receives an invalid or incompatible request, the
+device can invoke the `UpdateCommandExecution` API with a
+status of `REJECTED`. You can use the
+`reasonCode` and `reasonDescription`
+fields of the `statusReason` object, or the CloudWatch logs, to
+further troubleshoot any issues.

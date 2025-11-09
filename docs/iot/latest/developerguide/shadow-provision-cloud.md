@@ -128,8 +128,33 @@ We recommend that you download the files into a `certs` subdirectory in
 your `home` directory on the Raspberry Pi and name each of them with a
 simpler name as suggested in the following table.
 
-| Certificate file names | File                           | File path                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Certificate file names | File                           | File path |
+| ---------------------- | ------------------------------ | --------- |
 | Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
 | Device certificate     | `~/certs/device.pem.crt`       |
-| Private key            | `~/certs/private.pem.key`      | 3. After you activate the certificate to enable connections to AWS IoT, choose **Attach a policy** and make sure you attach the policy that you created earlier (for example, `My_Device_Shadow_policy`) to the thing. After you've created a thing, you can see your thing resource displayed in the list of things in the AWS IoT console. ## Step 3: Review the results and next steps ###### In this tutorial, you learned how to: <br>• Set up and configure the Raspberry Pi device. <br>• Create an AWS IoT policy document that authorizes your device to interact with AWS IoT services. <br>• Create a thing resource and associated X.509 device certificate, and attach the policy document to it. ###### Next steps You can now install the AWS IoT device SDK for Python, run the `shadow.py` sample application, and use Device Shadows to control the state. For more information about how to run this tutorial, see [Tutorial: Installing the Device SDK and running the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md"). |
+| Private key            | `~/certs/private.pem.key`      |
+
+3. After you activate the certificate to enable connections to AWS IoT, choose
+   **Attach a policy** and make sure you attach the policy that you
+   created earlier (for example, `My_Device_Shadow_policy`) to the
+   thing.
+
+After you've created a thing, you can see your thing resource displayed in the list of
+things in the AWS IoT console.
+
+## Step 3: Review the results and next steps
+
+###### In this tutorial, you learned how to:
+
+- Set up and configure the Raspberry Pi device.
+- Create an AWS IoT policy document that authorizes your device to interact with AWS IoT
+  services.
+- Create a thing resource and associated X.509 device certificate, and attach the
+  policy document to it.
+
+###### Next steps
+
+You can now install the AWS IoT device SDK for Python, run the `shadow.py`
+sample application, and use Device Shadows to control the state. For more information
+about how to run this tutorial, see [Tutorial: Installing the Device SDK and running
+the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md").

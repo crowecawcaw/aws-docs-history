@@ -398,10 +398,190 @@ The commands in the next section assume that your key and
 certificate files are stored on the device as shown in this
 table.
 
-| Certificate file names | File                                                                                                                                                                                                                                                                               | File path                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------- |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem`                                                                                                                                                                                                                                                     |
-| Device certificate     | `~/certs/device.pem.crt`                                                                                                                                                                                                                                                           |
-| Private key            | `~/certs/private.pem.key`                                                                                                                                                                                                                                                          | To run the sample app, you need the following information: Application parameter values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Parameter | Where to find the value |
-| ---                    | ---                                                                                                                                                                                                                                                                                |
-| `your-iot-endpoint`    | In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **All devices**, and then choose **Things**. On the **Settings** page in the AWS IoT menu. Your endpoint is displayed in the **Device data endpoint** section. | The `your-iot-endpoint` value has a format of: ``endpoint_id`-ats.iot.`region`.amazonaws.com`, for example, `a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`. Python ###### To install and run the sample app 1. Navigate to the sample app directory. ``` cd ~/aws-iot-device-sdk-python-v2/samples ``` 2. In the command line window, replace `your-iot-endpoint`as indicated and run this command. ``` python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint`your-iot-endpoint` ``` 3. Observe that the sample app: 1. Connects to the AWS IoT service for your account. 2. Subscribes to the message topic, **topic\_1**, and displays the messages it receives on that topic. 3. Publishes 10 messages to the topic, **topic\_1**. 4. Displays output similar to the following: ``` Connecting to a3qEXAMPLEffp-ats.iot.us-west-2.amazonaws.com with client ID 'test-0c8ae2ff-cc87-49d2-a82a-ae7ba1d0ca5a'... Connected! Subscribing to topic 'topic_1'... Subscribed with QoS.AT_LEAST_ONCE Sending 10 message(s) Publishing message to topic 'topic_1': Hello World! [1] Received message from topic 'topic_1': b'Hello World! [1]' Publishing message to topic 'topic_1': Hello World! [2] Received message from topic 'topic_1': b'Hello World! [2]' Publishing message to topic 'topic_1': Hello World! [3] Received message from topic 'topic_1': b'Hello World! [3]' Publishing message to topic 'topic_1': Hello World! [4] Received message from topic 'topic_1': b'Hello World! [4]' Publishing message to topic 'topic_1': Hello World! [5] Received message from topic 'topic_1': b'Hello World! [5]' Publishing message to topic 'topic_1': Hello World! [6] Received message from topic 'topic_1': b'Hello World! [6]' Publishing message to topic 'topic_1': Hello World! [7] Received message from topic 'topic_1': b'Hello World! [7]' Publishing message to topic 'topic_1': Hello World! [8] Received message from topic 'topic_1': b'Hello World! [8]' Publishing message to topic 'topic_1': Hello World! [9] Received message from topic 'topic_1': b'Hello World! [9]' Publishing message to topic 'topic_1': Hello World! [10] Received message from topic 'topic_1': b'Hello World! [10]' 10 message(s) received. Disconnecting... Disconnected! ``` If you're having trouble running the sample app, review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md"). You can also add the `--verbosity Debug`parameter to the command line so the sample app displays detailed messages about what it’s doing. That information might provide you the help you need to correct the problem. JavaScript ###### To install and run the sample app 1. In your command line window, navigate to the`~/aws-iot-device-sdk-js-v2/samples/node/pub_sub`directory that the SDK created and install the sample app by using these commands. The command`npm install`will invoke the`aws-crt`library build that can take a few minutes to complete. ``` cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub npm install ``` 2. In the command line window, replace`your-iot-endpoint`as indicated and run this command. ``` node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint`your-iot-endpoint` ``` 3. Observe that the sample app: 1. Connects to the AWS IoT service for your account. 2. Subscribes to the message topic, **topic\_1**, and displays the messages it receives on that topic. 3. Publishes 10 messages to the topic, **topic\_1**. 4. Displays output similar to the following: ``` Publish received on topic topic_1 {"message":"Hello world!","sequence":1} Publish received on topic topic_1 {"message":"Hello world!","sequence":2} Publish received on topic topic_1 {"message":"Hello world!","sequence":3} Publish received on topic topic_1 {"message":"Hello world!","sequence":4} Publish received on topic topic_1 {"message":"Hello world!","sequence":5} Publish received on topic topic_1 {"message":"Hello world!","sequence":6} Publish received on topic topic_1 {"message":"Hello world!","sequence":7} Publish received on topic topic_1 {"message":"Hello world!","sequence":8} Publish received on topic topic_1 {"message":"Hello world!","sequence":9} Publish received on topic topic_1 {"message":"Hello world!","sequence":10} ``` If you're having trouble running the sample app, review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md"). You can also add the `--verbosity Debug`parameter to the command line so the sample app displays detailed messages about what it’s doing. That information might provide you the help you need to correct the problem. ## View messages from the sample app in the AWS IoT console You can see the sample app's messages as they pass through the message broker by using the **MQTT test client** in the **AWS IoT console**. ###### To view the MQTT messages published by the sample app 1. Review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how to use the **MQTT test client** in the **AWS IoT console** to view MQTT messages as they pass through the message broker. 2. Open the **MQTT test client** in the **AWS IoT console**. 3. Subscribe to the topic, **topic\_1**. 4. In your command line window, run the sample app again and watch the messages in the **MQTT client** in the **AWS IoT console**. Python ``` cd ~/aws-iot-device-sdk-python-v2/samples python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint`your-iot-endpoint` ``` JavaScript ``` cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint` ``` |
+| Certificate file names | File                           | File path |
+| ---------------------- | ------------------------------ | --------- |
+| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
+| Device certificate     | `~/certs/device.pem.crt`       |
+| Private key            | `~/certs/private.pem.key`      |
+
+To run the sample app, you need the following information:
+
+| Application parameter values | Parameter                                                                                                                                                                                                                                                                                                   | Where to find the value |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `your-iot-endpoint`          | In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **All<br>devices**, and then choose<br>**Things**.<br>On the **Settings\*<br>• page in the AWS IoT<br>menu. Your endpoint is displayed in the **Device<br>data endpoint\*<br>• section. |
+
+The `your-iot-endpoint` value has a format of:
+``endpoint_id`-ats.iot.`region`.amazonaws.com`,
+ for example,
+ `a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`.
+
+Python
+
+###### To install and run the sample app
+
+1. Navigate to the sample app directory.
+
+```
+cd ~/aws-iot-device-sdk-python-v2/samples
+```
+
+2. In the command line window, replace
+   `your-iot-endpoint` as
+   indicated and run this command.
+
+```
+python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```
+
+3. Observe that the sample app:
+   1. Connects to the AWS IoT service for your
+      account.
+   2. Subscribes to the message topic, **topic_1**, and displays the
+      messages it receives on that topic.
+   3. Publishes 10 messages to the topic, **topic_1**.
+   4. Displays output similar to the
+      following:
+
+```
+Connecting to a3qEXAMPLEffp-ats.iot.us-west-2.amazonaws.com with client ID 'test-0c8ae2ff-cc87-49d2-a82a-ae7ba1d0ca5a'...
+Connected!
+Subscribing to topic 'topic_1'...
+Subscribed with QoS.AT_LEAST_ONCE
+Sending 10 message(s)
+Publishing message to topic 'topic_1': Hello World! [1]
+Received message from topic 'topic_1': b'Hello World! [1]'
+Publishing message to topic 'topic_1': Hello World! [2]
+Received message from topic 'topic_1': b'Hello World! [2]'
+Publishing message to topic 'topic_1': Hello World! [3]
+Received message from topic 'topic_1': b'Hello World! [3]'
+Publishing message to topic 'topic_1': Hello World! [4]
+Received message from topic 'topic_1': b'Hello World! [4]'
+Publishing message to topic 'topic_1': Hello World! [5]
+Received message from topic 'topic_1': b'Hello World! [5]'
+Publishing message to topic 'topic_1': Hello World! [6]
+Received message from topic 'topic_1': b'Hello World! [6]'
+Publishing message to topic 'topic_1': Hello World! [7]
+Received message from topic 'topic_1': b'Hello World! [7]'
+Publishing message to topic 'topic_1': Hello World! [8]
+Received message from topic 'topic_1': b'Hello World! [8]'
+Publishing message to topic 'topic_1': Hello World! [9]
+Received message from topic 'topic_1': b'Hello World! [9]'
+Publishing message to topic 'topic_1': Hello World! [10]
+Received message from topic 'topic_1': b'Hello World! [10]'
+10 message(s) received.
+Disconnecting...
+Disconnected!
+```
+
+If you're having trouble running the sample app,
+review [Troubleshoot problems with the
+sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+
+You can also add the `--verbosity Debug`
+parameter to the command line so the sample app displays
+detailed messages about what it’s doing. That
+information might provide you the help you need to
+correct the problem.
+
+JavaScript
+
+###### To install and run the sample app
+
+1. In your command line window, navigate to the
+   `~/aws-iot-device-sdk-js-v2/samples/node/pub_sub`
+   directory that the SDK created and install the sample
+   app by using these commands. The command `npm
+install` will invoke the `aws-crt`
+   library build that can take a few minutes to
+   complete.
+
+```
+cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
+npm install
+```
+
+2. In the command line window, replace
+   `your-iot-endpoint` as
+   indicated and run this command.
+
+```
+node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```
+
+3. Observe that the sample app:
+   1. Connects to the AWS IoT service for your
+      account.
+   2. Subscribes to the message topic, **topic_1**, and displays the
+      messages it receives on that topic.
+   3. Publishes 10 messages to the topic, **topic_1**.
+   4. Displays output similar to the
+      following:
+
+```
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":1}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":2}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":3}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":4}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":5}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":6}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":7}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":8}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":9}
+Publish received on topic topic_1
+{"message":"Hello world!","sequence":10}
+```
+
+If you're having trouble running the sample app,
+review [Troubleshoot problems with the
+sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+
+You can also add the `--verbosity Debug`
+parameter to the command line so the sample app displays
+detailed messages about what it’s doing. That
+information might provide you the help you need to
+correct the problem.
+
+## View messages from the sample app in
+
+the AWS IoT console
+
+You can see the sample app's messages as they pass through the message
+broker by using the **MQTT test client** in the
+**AWS IoT console**.
+
+###### To view the MQTT messages published by the sample app
+
+1. Review [View MQTT messages with the AWS IoT MQTT
+   client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
+   to use the **MQTT test client** in the
+   **AWS IoT console** to view MQTT messages as they
+   pass through the message broker.
+2. Open the **MQTT test client** in the
+   **AWS IoT console**.
+3. Subscribe to the topic, **topic_1**.
+4. In your command line window, run the sample app again and watch
+   the messages in the **MQTT client** in the
+   **AWS IoT console**.
+
+Python
+
+```
+cd ~/aws-iot-device-sdk-python-v2/samples
+python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```
+
+JavaScript
+
+```
+cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
+node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```

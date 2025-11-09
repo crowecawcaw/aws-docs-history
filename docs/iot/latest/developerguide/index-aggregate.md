@@ -382,6 +382,6 @@ perform.
 You can specify the thing groups index as a resource ARN in an AWS IoT policy action, as
 follows.
 
-| Action              | Resource                                                                                                                               |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `iot:GetStatistics` | An index ARN (for example, `arn:aws:iot:`your-aws-region`:index/AWS_Things` or `arn:aws:iot:`your-aws-region`:index/AWS_ThingGroups`). |
+| Action              | Resource                                                                                                                                        |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `iot:GetStatistics` | An index ARN (for example,<br>`arn:aws:iot:`your-aws-region`:index/AWS_Things`<br>or<br>`arn:aws:iot:`your-aws-region`:index/AWS_ThingGroups`). |

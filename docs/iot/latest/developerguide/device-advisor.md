@@ -52,8 +52,19 @@ to the message broker by using a device endpoint. The following table lists the
 protocols that the Device Advisor endpoints support and the authentication methods
 and ports used.
 
-| Protocols, authentication, and port mappings | Protocol           | Operations supported     | Authentication | Port             | ALPN protocol name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------------------------- | ------------------ | ------------------------ | -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Protocols, authentication, and port mappings | Protocol           | Operations supported     | Authentication | Port             | ALPN protocol name |
+| -------------------------------------------- | ------------------ | ------------------------ | -------------- | ---------------- | ------------------ |
 | MQTT over WebSocket                          | Publish, Subscribe | Signature Version 4      | 443            | N/A              |
 | MQTT                                         | Publish, Subscribe | X.509 client certificate | 8883           | `x-amzn-mqtt-ca` |
-| MQTT                                         | Publish, Subscribe | X.509 client certificate | 443            | N/A              | ###### This chapter contains the following sections: <br>• [Setting up](device-advisor-setting-up.md "device-advisor-setting-up.md") <br>• [Getting started with Device Advisor in the console](da-console-guide.md "da-console-guide.md") <br>• [Device Advisor workflow](device-advisor-workflow.md "device-advisor-workflow.md") <br>• [Device Advisor detailed console workflow](device-advisor-console-tutorial.md "device-advisor-console-tutorial.md") <br>• [Long duration tests console workflow](device-advisor-long-duration-console-tutorial.md "device-advisor-long-duration-console-tutorial.md") <br>• [Device Advisor VPC endpoints (AWS PrivateLink)](device-advisor-vpc-endpoint.md "device-advisor-vpc-endpoint.md") <br>• [Device Advisor test cases](device-advisor-tests.md "device-advisor-tests.md") |
+| MQTT                                         | Publish, Subscribe | X.509 client certificate | 443            | N/A              |
+
+###### This chapter contains the following sections:
+
+- [Setting up](device-advisor-setting-up.md "device-advisor-setting-up.md")
+- [Getting started with Device Advisor in the console](da-console-guide.md "da-console-guide.md")
+- [Device Advisor workflow](device-advisor-workflow.md "device-advisor-workflow.md")
+- [Device Advisor detailed console workflow](device-advisor-console-tutorial.md "device-advisor-console-tutorial.md")
+- [Long duration tests console workflow](device-advisor-long-duration-console-tutorial.md "device-advisor-long-duration-console-tutorial.md")
+- [Device Advisor VPC endpoints
+  (AWS PrivateLink)](device-advisor-vpc-endpoint.md "device-advisor-vpc-endpoint.md")
+- [Device Advisor test cases](device-advisor-tests.md "device-advisor-tests.md")

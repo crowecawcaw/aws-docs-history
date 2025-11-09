@@ -309,10 +309,207 @@ When updating the encryption configuration for new customer managed keys, ensure
 The following table describes common failure scenarios when keys are deleted or deactivated:
 
 | Scenario                         | Immediate Impact                                                                             | Long-term Consequences                                      |
-| -------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | Key disabled                     | All new encryption/decryption operations fail immediately                                    | Service disruption until the key is re-enabled or replaced  |
 | Key scheduled for deletion       | Key status is changed to pending deletion and all encryption/decryption operations will fail | Automatic service failure when deletion completes           |
 | Key permanently deleted          | Immediate and permanent failure of all operations                                            | Permanent data loss and inability to recover encrypted data |
 | Key policy modified incorrectly  | AWS IoT Core loses access permissions to the key                                             | Service failures until policy is corrected                  |
 | IAM role deleted                 | AWS IoT Core can't assume role to access key                                                 | Complete encryption service failure                         |
-| IAM role is modified incorrectly | AWS IoT Core can't assume role or use role to access key                                     | Service failures until IAM role is corrected                | ##### Prevention and best practices To prevent accidental key deletion or deactivation and minimize the risk of service failures: Implement key lifecycle policies Establish clear procedures for key creation, rotation, and retirement. Document which keys are used by which AWS IoT Core resources and maintain an inventory of active keys. Use IAM policies to restrict key deletion Create IAM policies that prevent unauthorized users from deleting or disabling critical encryption keys. Use conditions to require additional approval for key deletion operations. Enable CloudTrail logging Monitor all AWS KMS key operations through CloudTrail to detect unauthorized or accidental key management activities. Set up alerts for key deletion, disabling, or policy changes. Test key replacement procedures Regularly test your key replacement procedures in non-production environments to ensure you can quickly recover from key-related failures. Maintain key backups While you can't export AWS KMS key material, maintain detailed records of key ARNs, policies, and associated AWS IoT Core configurations to facilitate rapid key replacement if needed. Monitor key health Continuously monitor the `CMK.Health` metric and set up automated alerts for key health status changes. Implement automated responses to quickly address key-related issues. ###### Important Always test key update procedures in development environments before implementing them in production. Have a documented rollback plan and ensure that key replacement procedures can be executed quickly in case of emergencies. ### Step 6: Monitoring key health As part of the periodic checks AWS IoT Core runs, CloudWatch metrics and logs are emitted to provide visibility on the health status of your customer managed key configuration AWS IoT Core emits the `CMK.Health` metric to CloudWatch at least once every minute. The metric provides information about the health status of the customer managed keys used by AWS IoT Core for encrypting and decrypting your data. The `CMK.Health` metric can have the following values: <br>• The value is `1`: AWS IoT Core is able to use the encryption keys successfully for encrypting and decrypting your data. <br>• The value is `0`: AWS IoT Core is unable to use the encryption keys for encrypting and decrypting your data. AWS IoT Core also emits AWS IoT V2 logs when the health status of the encryption keys changes. These logs provide additional details about the health status update. To view these logs, you must enable AWS IoT V2 logs. The `HEALTHY` logs are emitted at `INFO` level, and the `UNHEALTHY` logs are emitted at `ERROR` level. For more information about the log levels, see [Log levels](configure-logging.md#log-level "configure-logging.md#log-level"). The following examples are CloudWatch log entries emitted by AWS IoT Core to indicate the health status update of the customer managed keys. To effectively monitor and respond to key health status changes: 1. **Set up CloudWatch alarms** for the `CMK.Health` metric: `aws cloudwatch put-metric-alarm --region us-west-2 \ --alarm-name "IoTCore-CMK-Health-Alert" \ --alarm-description "Alert when IoT Core CMK health is unhealthy" \ --metric-name "CMK.Health" \ --namespace "AWS/IoT" \ --statistic "Minimum" \ --period 300 \ --evaluation-periods 1 \ --threshold 1 \ --comparison-operator "LessThanThreshold" \ --alarm-actions "arn:aws:sns:us-west-2:111122223333:iot-alerts"` 2. **Enable AWS IoT V2 logging** to capture detailed health status change events with error codes and messages. 3. **Check configuration status** for troubleshooting: `aws iot describe-encryption-configuration --region us-west-2` 4. **Investigate UNHEALTHY status** by examining the `errorCode` field: <br>• `KMS_KEY_VALIDATION_ERROR` – Issue with the AWS KMS key (disabled, deleted, or policy problems) <br>• `ROLE_VALIDATION_ERROR` – Issue with the IAM role (deleted, policy problems, or trust issues) #### From UNHEALTHY to HEALTHY When the status of the encryption keys is updated from `UNHEALTHY` to `HEALTHY`, AWS IoT Core will emit an AWS IoT V2 log message in the following format. `{ "timestamp": "2017-08-10 15:37:23.476", "logLevel": "INFO", "traceId": "8421693b-f4f0-4e4a-9235-0cff8bab897d", "accountId": "111122223333", "status": "SUCCESS", "cmkStatus": "HEALTHY", "kmsKeyArn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab", "kmsAccessRoleArn": "arn:aws:iam::111122223333:role/myrole", "eventType": "CmkHealthCheck" }` #### From HEALTHY to UNHEALTHY When the status of the encryption keys is updated from `HEALTHY` to `UNHEALTHY`, AWS IoT Core will emit an AWS IoT V2 log message in the following format. `{ "timestamp": "2017-08-10 15:37:23.476", "logLevel": "ERROR", "traceId": "8421693b-f4f0-4e4a-9235-0cff8bab897d", "accountId": "111122223333", "status": "FAILURE", "cmkStatus": "UNHEALTHY", "errorCode": "KMS_KEY_VALIDATION_ERROR / ROLE_VALIDATION_ERROR", "errorMessage": "Error message on why there was a failure", "kmsKeyArn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab", "kmsAccessRoleArn": "arn:aws:iam::111122223333:role/myrole", "eventType": "CmkHealthCheck" }` ###### Warning When key health becomes `UNHEALTHY`, AWS IoT Core operations fail immediately. If this occurs, review your key configurations, IAM role permissions, and policies. Monitor the `CMK.Health` metric for status changes. If operations continue to fail after reviewing your configurations, contact your account manager or the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") for additional assistance. #### AWS CloudTrail events You can also monitor AWS IoT Core's usage of the KMS key for encrypt decrypt operations. AWS IoT Core will make `DescribeKey`, `Decrypt`, `ReEncrypt`, and `GenerateDataKeyWithoutPlaintext` operations on your KMS key to encrypt / decrypt data belonging to your AWS account stored at rest. There are CloudTrail events for `DescribeKey`, `Decrypt`, `ReEncrypt`, and `GenerateDataKeyWithoutPlaintext`. These events monitor AWS KMS operations called by AWS IoT Core to access data encrypted by your customer managed key. ##### `Decrypt` example `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "*********************", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "*****" }, "attributes": { "creationDate": "2024-09-16T20:23:39Z", "mfaAuthenticated": "false" } }, "invokedBy": "iot.amazonaws.com" }, "eventTime": "2024-09-16T20:32:48Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "us-west-2", "sourceIPAddress": "iot.amazonaws.com", "userAgent": "iot.amazonaws.com", "requestParameters": { "encryptionContext": { "kms-arn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab", "aws-crypto-ec:vendor": "iot.amazonaws.com", "branch-key-id": "111122223333", "type": "branch:ACTIVE" }, "encryptionAlgorithm": "SYMMETRIC_DEFAULT", "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" }, "responseElements": null, "requestID": "1afb6d98-8388-455d-8b48-e62c9e0cf7f4", "eventID": "b59a5f16-0d98-46d8-a590-0e040a48b39b", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` |
+| IAM role is modified incorrectly | AWS IoT Core can't assume role or use role to access key                                     | Service failures until IAM role is corrected                |
+
+##### Prevention and best practices
+
+To prevent accidental key deletion or deactivation and minimize the risk of service failures:
+
+Implement key lifecycle policies
+
+Establish clear procedures for key creation, rotation, and retirement. Document which keys are used by
+which AWS IoT Core resources and maintain an inventory of active keys.
+
+Use IAM policies to restrict key deletion
+
+Create IAM policies that prevent unauthorized users from deleting or disabling critical encryption keys.
+Use conditions to require additional approval for key deletion operations.
+
+Enable CloudTrail logging
+
+Monitor all AWS KMS key operations through CloudTrail to detect unauthorized or accidental key management activities.
+Set up alerts for key deletion, disabling, or policy changes.
+
+Test key replacement procedures
+
+Regularly test your key replacement procedures in non-production environments to ensure
+you can quickly recover from key-related failures.
+
+Maintain key backups
+
+While you can't export AWS KMS key material, maintain detailed records of key ARNs, policies, and
+associated AWS IoT Core configurations to facilitate rapid key replacement if needed.
+
+Monitor key health
+
+Continuously monitor the `CMK.Health` metric and set up automated alerts for key health
+status changes. Implement automated responses to quickly address key-related issues.
+
+###### Important
+
+Always test key update procedures in development environments before implementing them in
+production. Have a documented rollback plan and ensure that key replacement procedures can be executed quickly
+in case of emergencies.
+
+### Step 6: Monitoring key health
+
+As part of the periodic checks AWS IoT Core runs, CloudWatch metrics and logs are emitted to provide visibility on the health status of your customer managed key configuration
+
+AWS IoT Core emits the `CMK.Health` metric to CloudWatch at least once every minute. The metric provides information about the health status of the customer managed keys used by AWS IoT Core for encrypting and decrypting your data.
+
+The `CMK.Health` metric can have the following values:
+
+- The value is `1`: AWS IoT Core is able to use the encryption keys successfully for encrypting and decrypting your data.
+- The value is `0`: AWS IoT Core is unable to use the encryption keys for encrypting and decrypting your data.
+
+AWS IoT Core also emits AWS IoT V2 logs when the health status of the encryption keys changes. These logs provide additional details about the health status
+update. To view these logs, you must enable AWS IoT V2 logs. The `HEALTHY` logs are emitted at `INFO` level, and the `UNHEALTHY`
+logs are emitted at `ERROR` level. For more information about the log levels, see [Log levels](configure-logging.md#log-level "configure-logging.md#log-level").
+
+The following examples are CloudWatch log entries emitted by AWS IoT Core to indicate the health status update of the customer managed keys.
+
+To effectively monitor and respond to key health status changes:
+
+1. **Set up CloudWatch alarms** for the `CMK.Health` metric:
+
+```
+aws cloudwatch put-metric-alarm --region us-west-2 \
+  --alarm-name "IoTCore-CMK-Health-Alert" \
+  --alarm-description "Alert when IoT Core CMK health is unhealthy" \
+  --metric-name "CMK.Health" \
+  --namespace "AWS/IoT" \
+  --statistic "Minimum" \
+  --period 300 \
+  --evaluation-periods 1 \
+  --threshold 1 \
+  --comparison-operator "LessThanThreshold" \
+  --alarm-actions "arn:aws:sns:us-west-2:111122223333:iot-alerts"
+```
+
+2. **Enable AWS IoT V2 logging** to capture detailed health status change events with error codes and messages.
+3. **Check configuration status** for troubleshooting:
+
+```
+aws iot describe-encryption-configuration --region us-west-2
+```
+
+4. **Investigate UNHEALTHY status** by examining the `errorCode` field:
+   - `KMS_KEY_VALIDATION_ERROR` – Issue with the AWS KMS key (disabled, deleted, or policy problems)
+   - `ROLE_VALIDATION_ERROR` – Issue with the IAM role (deleted, policy problems, or trust issues)
+
+#### From UNHEALTHY to HEALTHY
+
+When the status of the encryption keys is updated from `UNHEALTHY` to `HEALTHY`, AWS IoT Core will emit an AWS IoT V2 log message in the following format.
+
+```
+{
+    "timestamp": "2017-08-10 15:37:23.476",
+    "logLevel": "INFO",
+    "traceId": "8421693b-f4f0-4e4a-9235-0cff8bab897d",
+    "accountId": "111122223333",
+    "status": "SUCCESS",
+    "cmkStatus": "HEALTHY",
+    "kmsKeyArn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    "kmsAccessRoleArn": "arn:aws:iam::111122223333:role/myrole",
+    "eventType": "CmkHealthCheck"
+}
+```
+
+#### From HEALTHY to UNHEALTHY
+
+When the status of the encryption keys is updated from `HEALTHY` to `UNHEALTHY`, AWS IoT Core will emit an AWS IoT V2 log message in the following format.
+
+```
+{
+    "timestamp": "2017-08-10 15:37:23.476",
+    "logLevel": "ERROR",
+    "traceId": "8421693b-f4f0-4e4a-9235-0cff8bab897d",
+    "accountId": "111122223333",
+    "status": "FAILURE",
+    "cmkStatus": "UNHEALTHY",
+    "errorCode": "KMS_KEY_VALIDATION_ERROR / ROLE_VALIDATION_ERROR",
+    "errorMessage": "Error message on why there was a failure",
+    "kmsKeyArn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    "kmsAccessRoleArn": "arn:aws:iam::111122223333:role/myrole",
+    "eventType": "CmkHealthCheck"
+}
+```
+
+###### Warning
+
+When key health becomes `UNHEALTHY`, AWS IoT Core operations fail immediately. If this occurs, review your key configurations, IAM role
+permissions, and policies. Monitor the `CMK.Health` metric for status changes. If operations continue to fail after reviewing your
+configurations, contact your account manager or the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") for additional assistance.
+
+#### AWS CloudTrail events
+
+You can also monitor AWS IoT Core's usage of the KMS key for encrypt decrypt operations. AWS IoT Core will make `DescribeKey`, `Decrypt`, `ReEncrypt`, and `GenerateDataKeyWithoutPlaintext` operations on your KMS key to encrypt / decrypt data belonging to your AWS account stored at rest.
+
+There are CloudTrail events for `DescribeKey`, `Decrypt`, `ReEncrypt`, and `GenerateDataKeyWithoutPlaintext`. These events monitor AWS KMS operations called by AWS IoT Core to access data encrypted by your customer managed key.
+
+##### `Decrypt` example
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "*********************",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+                "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+                "accountId": "111122223333",
+                "userName": "*****"
+            },
+            "attributes": {
+                "creationDate": "2024-09-16T20:23:39Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "iot.amazonaws.com"
+    },
+    "eventTime": "2024-09-16T20:32:48Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "iot.amazonaws.com",
+    "userAgent": "iot.amazonaws.com",
+    "requestParameters": {
+        "encryptionContext": {
+            "kms-arn": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+            "aws-crypto-ec:vendor": "iot.amazonaws.com",
+            "branch-key-id": "111122223333",
+            "type": "branch:ACTIVE"
+        },
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    },
+    "responseElements": null,
+    "requestID": "1afb6d98-8388-455d-8b48-e62c9e0cf7f4",
+    "eventID": "b59a5f16-0d98-46d8-a590-0e040a48b39b",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+
+```

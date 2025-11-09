@@ -14,6 +14,511 @@ Shadows can be named or unnamed (classic). The topics used by each differ only i
 topic prefix. This table shows the topic prefix used by each shadow type.
 
 | `ShadowTopicPrefix` value                          | Shadow type              |
-| -------------------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------- | ------------------------ |
 | `$aws/things/`thingName`/shadow`                   | Unnamed (classic) shadow |
-| `$aws/things/`thingName`/shadow/name/`shadowName`` | Named shadow             | To create a complete topic, select the `ShadowTopicPrefix` for the type of shadow to which you want to refer, replace `thingName`, and `shadowName` if applicable, with their corresponding values, and then append that with the topic stub as shown in the following sections. The following are the MQTT topics used for interacting with shadows. ###### Topics <br>• [/get](#get-pub-sub-topic "#get-pub-sub-topic") <br>• [/get/accepted](#get-accepted-pub-sub-topic "#get-accepted-pub-sub-topic") <br>• [/get/rejected](#get-rejected-pub-sub-topic "#get-rejected-pub-sub-topic") <br>• [/update](#update-pub-sub-topic "#update-pub-sub-topic") <br>• [/update/delta](#update-delta-pub-sub-topic "#update-delta-pub-sub-topic") <br>• [/update/accepted](#update-accepted-pub-sub-topic "#update-accepted-pub-sub-topic") <br>• [/update/documents](#update-documents-pub-sub-topic "#update-documents-pub-sub-topic") <br>• [/update/rejected](#update-rejected-pub-sub-topic "#update-rejected-pub-sub-topic") <br>• [/delete](#delete-pub-sub-topic "#delete-pub-sub-topic") <br>• [/delete/accepted](#delete-accepted-pub-sub-topic "#delete-accepted-pub-sub-topic") <br>• [/delete/rejected](#delete-rejected-pub-sub-topic "#delete-rejected-pub-sub-topic") ## /get Publish an empty message to this topic to get the device's shadow: `` `ShadowTopicPrefix`/get `` AWS IoT responds by publishing to either [/get/accepted](#get-accepted-pub-sub-topic "#get-accepted-pub-sub-topic") or [/get/rejected](#get-rejected-pub-sub-topic "#get-rejected-pub-sub-topic"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Publish" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get" ] } ] }` `` ## /get/accepted AWS IoT publishes a response shadow document to this topic when returning the device's shadow: `` `ShadowTopicPrefix`/get/accepted `` For more information, see [Response state documents](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/get/accepted" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get/accepted" ] } ] }` `` ## /get/rejected AWS IoT publishes an error response document to this topic when it can't return the device's shadow: `` `ShadowTopicPrefix`/get/rejected `` For more information, see [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json"). ### Example policy The following is an example of the required policy: ## /update Publish a request state document to this topic to update the device's shadow: `` `ShadowTopicPrefix`/update `` The message body contains a [partial request state document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json"). A client attempting to update the state of a device would send a JSON request state document with the `desired` property such as this: `{ "state": { "desired": { "color": "red", "power": "on" } } }` A device updating its shadow would send a JSON request state document with the `reported` property, such as this: `{ "state": { "reported": { "color": "red", "power": "on" } } }` AWS IoT responds by publishing to either [/update/accepted](#update-accepted-pub-sub-topic "#update-accepted-pub-sub-topic") or [/update/rejected](#update-rejected-pub-sub-topic "#update-rejected-pub-sub-topic"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Publish" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update" ] } ] }` `` ## /update/delta AWS IoT publishes a response state document to this topic when it accepts a change for the device's shadow, and the response state document contains different values for `desired` and `reported` states: `` `ShadowTopicPrefix`/update/delta `` The message buffer contains a [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta"). ### Message body details <br>• A message published on `update/delta` includes only the desired attributes that differ between the `desired` and `reported` sections. It contains all of these attributes, regardless of whether these attributes were contained in the current update message or were already stored in AWS IoT. Attributes that do not differ between the `desired` and `reported` sections are not included. <br>• If an attribute is in the `reported` section but has no equivalent in the `desired` section, it is not included. <br>• If an attribute is in the `desired` section but has no equivalent in the `reported` section, it is included. <br>• If an attribute is deleted from the `reported` section but still exists in the `desired` section, it is included. ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/delta" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/delta" ] } ] }` `` ## /update/accepted AWS IoT publishes a response state document to this topic when it accepts a change for the device's shadow: `` `ShadowTopicPrefix`/update/accepted `` The message buffer contains a [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/accepted" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/accepted" ] } ] }` `` ## /update/documents AWS IoT publishes a state document to this topic whenever an update to the shadow is successfully performed: `` `ShadowTopicPrefix`/update/documents `` The message body contains a [/documents response state document](device-shadow-document.md#device-shadow-example-response-json-documents "device-shadow-document.md#device-shadow-example-response-json-documents"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/documents" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/documents" ] } ] }` `` ## /update/rejected AWS IoT publishes an error response document to this topic when it rejects a change for the device's shadow: `` `ShadowTopicPrefix`/update/rejected `` The message body contains an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/rejected" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/rejected" ] } ] }` `` ## /delete To delete a device's shadow, publish an empty message to the delete topic: `` `ShadowTopicPrefix`/delete `` The content of the message is ignored. Note that deleting a shadow does not reset its version number to 0. AWS IoT responds by publishing to either [/delete/accepted](#delete-accepted-pub-sub-topic "#delete-accepted-pub-sub-topic") or [/delete/rejected](#delete-rejected-pub-sub-topic "#delete-rejected-pub-sub-topic"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Publish" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete" ] } ] }` `` ## /delete/accepted AWS IoT publishes a message to this topic when a device's shadow is deleted: `` `ShadowTopicPrefix`/delete/accepted `` ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/accepted" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/accepted" ] } ] }` `` ## /delete/rejected AWS IoT publishes an error response document to this topic when it can't delete the device's shadow: `` `ShadowTopicPrefix`/delete/rejected `` The message body contains an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json"). ### Example policy The following is an example of the required policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "iot:Subscribe" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/rejected" ] }, { "Effect": "Allow", "Action": [ "iot:Receive" ], "Resource": [ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/rejected" ] } ] }` `` |
+| `$aws/things/`thingName`/shadow/name/`shadowName`` | Named shadow             |
+
+To create a complete topic, select the
+`ShadowTopicPrefix` for the type of shadow
+to which you want to refer, replace `thingName`,
+and `shadowName` if applicable, with their
+corresponding values, and then append that with the topic stub as shown in the following
+sections.
+
+The following are the MQTT topics used for interacting with shadows.
+
+###### Topics
+
+- [/get](#get-pub-sub-topic "#get-pub-sub-topic")
+- [/get/accepted](#get-accepted-pub-sub-topic "#get-accepted-pub-sub-topic")
+- [/get/rejected](#get-rejected-pub-sub-topic "#get-rejected-pub-sub-topic")
+- [/update](#update-pub-sub-topic "#update-pub-sub-topic")
+- [/update/delta](#update-delta-pub-sub-topic "#update-delta-pub-sub-topic")
+- [/update/accepted](#update-accepted-pub-sub-topic "#update-accepted-pub-sub-topic")
+- [/update/documents](#update-documents-pub-sub-topic "#update-documents-pub-sub-topic")
+- [/update/rejected](#update-rejected-pub-sub-topic "#update-rejected-pub-sub-topic")
+- [/delete](#delete-pub-sub-topic "#delete-pub-sub-topic")
+- [/delete/accepted](#delete-accepted-pub-sub-topic "#delete-accepted-pub-sub-topic")
+- [/delete/rejected](#delete-rejected-pub-sub-topic "#delete-rejected-pub-sub-topic")
+
+## /get
+
+Publish an empty message to this topic to get the device's shadow:
+
+```
+`ShadowTopicPrefix`/get
+```
+
+AWS IoT responds by publishing to either [/get/accepted](#get-accepted-pub-sub-topic "#get-accepted-pub-sub-topic") or [/get/rejected](#get-rejected-pub-sub-topic "#get-rejected-pub-sub-topic").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /get/accepted
+
+AWS IoT publishes a response shadow document to this topic when returning the
+device's shadow:
+
+```
+`ShadowTopicPrefix`/get/accepted
+```
+
+For more information, see [Response state
+documents](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/get/accepted"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/get/accepted"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /get/rejected
+
+AWS IoT publishes an error response document to this topic when it can't return the
+device's shadow:
+
+```
+`ShadowTopicPrefix`/get/rejected
+```
+
+For more information, see [Error response
+document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+
+### Example policy
+
+The following is an example of the required policy:
+
+## /update
+
+Publish a request state document to this topic to update the device's
+shadow:
+
+```
+`ShadowTopicPrefix`/update
+```
+
+The message body contains a [partial request state document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json").
+
+A client attempting to update the state of a device would send a JSON request
+state document with the `desired` property such as this:
+
+```
+{
+  "state": {
+    "desired": {
+      "color": "red",
+      "power": "on"
+    }
+  }
+}
+```
+
+A device updating its shadow would send a JSON request state document with the
+`reported` property, such as this:
+
+```
+{
+  "state": {
+    "reported": {
+      "color": "red",
+      "power": "on"
+    }
+  }
+}
+```
+
+AWS IoT responds by publishing to either [/update/accepted](#update-accepted-pub-sub-topic "#update-accepted-pub-sub-topic") or [/update/rejected](#update-rejected-pub-sub-topic "#update-rejected-pub-sub-topic").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /update/delta
+
+AWS IoT publishes a response state document to this topic when it accepts a change
+for the device's shadow, and the response state document contains different values
+for `desired` and `reported` states:
+
+```
+`ShadowTopicPrefix`/update/delta
+```
+
+The message buffer contains a [/delta response
+state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta").
+
+### Message body details
+
+- A message published on `update/delta` includes only the
+  desired attributes that differ between the `desired` and
+  `reported` sections. It contains all of these attributes,
+  regardless of whether these attributes were contained in the current
+  update message or were already stored in AWS IoT. Attributes that do not
+  differ between the `desired` and `reported`
+  sections are not included.
+- If an attribute is in the `reported` section but has no
+  equivalent in the `desired` section, it is not
+  included.
+- If an attribute is in the `desired` section but has no
+  equivalent in the `reported` section, it is included.
+- If an attribute is deleted from the `reported` section but
+  still exists in the `desired` section, it is included.
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/delta"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/delta"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /update/accepted
+
+AWS IoT publishes a response state document to this topic when it accepts a change
+for the device's shadow:
+
+```
+`ShadowTopicPrefix`/update/accepted
+```
+
+The message buffer contains a [/accepted
+response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/accepted"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/accepted"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /update/documents
+
+AWS IoT publishes a state document to this topic whenever an update to the shadow is
+successfully performed:
+
+```
+`ShadowTopicPrefix`/update/documents
+```
+
+The message body contains a [/documents
+response state document](device-shadow-document.md#device-shadow-example-response-json-documents "device-shadow-document.md#device-shadow-example-response-json-documents").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/documents"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/documents"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /update/rejected
+
+AWS IoT publishes an error response document to this topic when it rejects a change
+for the device's shadow:
+
+```
+`ShadowTopicPrefix`/update/rejected
+```
+
+The message body contains an [Error response
+document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/update/rejected"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/update/rejected"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /delete
+
+To delete a device's shadow, publish an empty message to the delete topic:
+
+```
+`ShadowTopicPrefix`/delete
+```
+
+The content of the message is ignored.
+
+Note that deleting a shadow does not reset its version number to 0.
+
+AWS IoT responds by publishing to either [/delete/accepted](#delete-accepted-pub-sub-topic "#delete-accepted-pub-sub-topic") or [/delete/rejected](#delete-rejected-pub-sub-topic "#delete-rejected-pub-sub-topic").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /delete/accepted
+
+AWS IoT publishes a message to this topic when a device's shadow is deleted:
+
+```
+`ShadowTopicPrefix`/delete/accepted
+```
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/accepted"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/accepted"
+ ]
+ }
+ ]
+}`
+
+```
+
+## /delete/rejected
+
+AWS IoT publishes an error response document to this topic when it can't delete the
+device's shadow:
+
+```
+`ShadowTopicPrefix`/delete/rejected
+```
+
+The message body contains an [Error response
+document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+
+### Example policy
+
+The following is an example of the required policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Subscribe"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topicfilter/$aws/things/`thingName`/shadow/delete/rejected"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Receive"
+ ],
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:topic/$aws/things/`thingName`/shadow/delete/rejected"
+ ]
+ }
+ ]
+}`
+
+```

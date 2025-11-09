@@ -103,11 +103,340 @@ while completing the tutorials in this learning path.
 This procedure helps you identify and remove the AWS IoT resources that you created
 while completing the tutorials in this learning path.
 
-| AWS IoT resources created in this learning path                                                                            | Tutorial                                      | Thing resource                                | Policy resource                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------- | ------------------- |
-| [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")              | **DevCliTestThing**                           | **DevCliTestThingPolicy**                     |
-| [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing**                           | **PubSubTestThingPolicy**                     |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | _user defined_ (there could be more than one) | _user defined_ (there could be more than one) | ###### To delete the AWS IoT resources, follow this procedure for each thing resource that you created 1. Replace `thing_name` with the name of the thing resource you want to delete, and then run this command to list the certificates attached to the thing resource, from the local host computer. ``` `aws iot list-thing-principals --thing-name `thing_name`` ``` This command returns a response like this one that lists the certificates that are attached to `thing_name`. In most cases, there will only be one certificate in the list. `{ "principals": [ "arn:aws:iot:us-west-2:57EXAMPLE833:cert/23853eea3cf0edc7f8a69c74abeafa27b2b52823cab5b3e156295e94b26ae8ac" ] }` 2. For each certificate listed by the previous command: 1. Replace `certificate_ID` with the certificate ID from the previous command. The certificate ID is the alphanumeric characters that follow `cert/` in the ARN returned by the previous command. Then run this command to inactivate the certificate. ``` `aws iot update-certificate --new-status INACTIVE --certificate-id `certificate_ID`` ``` If successful, this command doesn't return anything. 2. Replace `certificate_ARN` with the certificate ARN from the list of certificates returned earlier, and then run this command to list the policies attached to this certificate. ``` `aws iot list-attached-policies --target `certificate_ARN`` ``` This command returns a response like this one that lists the policies attached to the certificate. In most cases, there will only be one policy in the list. `{ "policies": [ { "policyName": "DevCliTestThingPolicy", "policyArn": "arn:aws:iot:us-west-2:57EXAMPLE833:policy/DevCliTestThingPolicy" } ] }` 3. For each policy attached to the certificate: 1. Replace `policy_name` with the `policyName` value from the previous command, replace `certificate_ARN` with the certificate's ARN, and then run this command to detach the policy from the certificate. ``` `aws iot detach-policy --policy-name `policy_name` --target `certificate_ARN`` ``` If successful, this command doesn't return anything. 2. Replace `policy_name` with the `policyName` value, and then run this command to see if the policy is attached to any more certificates. ``` `aws iot list-targets-for-policy --policy-name `policy_name`` ``` If the command returns an empty list like this, the policy is not attached to any certificates and you continue to list the policy versions. If there are still certificates attached to the policy, continue with the **detach-thing-principal** step. `{ "targets": [] }` 3. Replace `policy_name` with the `policyName` value, and then run this command to check for policy versions. To delete the policy, it must have only one version. ``` `aws iot list-policy-versions --policy-name `policy_name`` ``` If the policy has only one version, like this example, you can skip to the **delete-policy** step and delete the policy now. `{ "policyVersions": [ { "versionId": "1", "isDefaultVersion": true, "createDate": "2021-11-18T01:02:46.778000+00:00" } ] }` If the policy has more than one version, like this example, the policy versions with an `isDefaultVersion` value of `false` must be deleted before the policy can be deleted. `{ "policyVersions": [ { "versionId": "2", "isDefaultVersion": true, "createDate": "2021-11-18T01:52:04.423000+00:00" }, { "versionId": "1", "isDefaultVersion": false, "createDate": "2021-11-18T01:30:18.083000+00:00" } ] }` If you need to delete a policy version, replace `policy_name` with the `policyName` value, replace `version_ID` with the `versionId` value from the previous command, and then run this command to delete a policy version. ``` `aws iot delete-policy-version --policy-name `policy_name` --policy-version-id `version_ID`` ``` If successful, this command doesn't return anything. After you delete a policy version, repeat this step until the policy has only one policy version. 4. Replace `policy_name` with the `policyName` value, and then run this command to delete the policy. ``` `aws iot delete-policy --policy-name `policy_name`` ``` 4. Replace `thing_name` with the thing's name, replace `certificate_ARN` with the certificate's ARN, and then run this command to detach the certificate from the thing resource. ``` `aws iot detach-thing-principal --thing-name `thing_name` --principal `certificate_ARN`` ``` If successful, this command doesn't return anything. 5. Replace `certificate_ID` with the certificate ID from the previous command. The certificate ID is the alphanumeric characters that follow `cert/` in the ARN returned by the previous command. Then run this command to delete the certificate resource. ``` `aws iot delete-certificate --certificate-id `certificate_ID`` ``` If successful, this command doesn't return anything. 3. Replace `thing_name` with the thing's name, and then run this command to delete the thing. ``` `aws iot delete-thing --thing-name `thing_name`` ``` If successful, this command doesn't return anything. ### Clean up AWS resources This procedure helps you identify and remove other AWS resources that you created while completing the tutorials in this learning path. Other AWS resources created in this learning path | Tutorial | Resource type | Resource name or ID |
-| ---                                                                                                                        | ---                                           | ---                                           |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | Amazon S3 object                              | hello-world-job.json                          |
-| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | AWS IoT job resources                         | _user defined_                                | ###### To delete the AWS resources created in this learning path 1. To delete the jobs created in this learning path 1. Run this command to list the jobs in your AWS account. `` `aws iot list-jobs` `` The command returns a list of the AWS IoT jobs in your AWS account and AWS Region that looks like this. `{ "jobs": [ { "jobArn": "arn:aws:iot:us-west-2:57EXAMPLE833:job/hello-world-job-2", "jobId": "hello-world-job-2", "targetSelection": "SNAPSHOT", "status": "COMPLETED", "createdAt": "2021-11-16T23:40:36.825000+00:00", "lastUpdatedAt": "2021-11-16T23:40:41.375000+00:00", "completedAt": "2021-11-16T23:40:41.375000+00:00" }, { "jobArn": "arn:aws:iot:us-west-2:57EXAMPLE833:job/hello-world-job-1", "jobId": "hello-world-job-1", "targetSelection": "SNAPSHOT", "status": "COMPLETED", "createdAt": "2021-11-16T23:35:26.381000+00:00", "lastUpdatedAt": "2021-11-16T23:35:29.239000+00:00", "completedAt": "2021-11-16T23:35:29.239000+00:00" } ] }` 2. For each job that you recognize from the list as a job you created in this learning path, replace `jobId` with the `jobId` value of the job to delete, and then run this command to delete an AWS IoT job. ``` `aws iot delete-job --job-id `jobId`` ``` If the command is successful, it returns nothing. 2. To delete the job documents you stored in an Amazon S3 bucket in this learning path. 1. Replace `bucket` with the name of the bucket you used, and then run this command to list the objects in the Amazon S3 bucket that you used. ``` `aws s3api list-objects --bucket `bucket`` ``` The command returns a list of the Amazon S3 objects in bucket that looks like this. `{ "Contents": [ { "Key": "hello-world-job.json", "LastModified": "2021-11-18T03:02:12+00:00", "ETag": "\"868c8bc3f56b5787964764d4b18ed5ef\"", "Size": 54, "StorageClass": "STANDARD", "Owner": { "DisplayName": "EXAMPLE", "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee" } }, { "Key": "iot_job_firmware_update.json", "LastModified": "2021-04-13T21:57:07+00:00", "ETag": "\"7c68c591949391791ecf625253658c61\"", "Size": 66, "StorageClass": "STANDARD", "Owner": { "DisplayName": "EXAMPLE", "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee" } }, { "Key": "order66.json", "LastModified": "2021-04-13T21:57:07+00:00", "ETag": "\"bca60d5380b88e1a70cc27d321caba72\"", "Size": 29, "StorageClass": "STANDARD", "Owner": { "DisplayName": "EXAMPLE", "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee" } } ] }` 2. For each object that you recognize from the list as an object you created in this learning path, replace `bucket` with the bucket name and `key` with key value of the object to delete, and then run this command to delete an Amazon S3 object. `` aws s3api delete-object --bucket `bucket` --key `key` `` If the command is successful, it returns nothing. After you delete all the AWS resources and objects that you created while completing this learning path, you can start over and repeat the tutorials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| AWS IoT resources created in this learning path                                                                               | Tutorial                                              | Thing resource                                        | Policy resource |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------- |
+| [Tutorial: Installing and configuring the<br>AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")              | **DevCliTestThing**                                   | **DevCliTestThingPolicy**                             |
+| [Tutorial: Demonstrate MQTT message communication with the<br>AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing**                                   | **PubSubTestThingPolicy**                             |
+| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | \*user defined<br>• (there could be<br>more than one) | \*user defined<br>• (there could<br>be more than one) |
+
+###### To delete the AWS IoT resources, follow this procedure for each thing resource
+
+that you created
+
+1. Replace `thing_name` with the name
+   of the thing resource you want to delete, and then run this command to list
+   the certificates attached to the thing resource, from the local host
+   computer.
+
+```
+`aws iot list-thing-principals --thing-name `thing_name``
+```
+
+This command returns a response like this one that lists the
+certificates that are attached to
+`thing_name`. In most
+cases, there will only be one certificate in the list.
+
+```
+{
+    "principals": [
+        "arn:aws:iot:us-west-2:57EXAMPLE833:cert/23853eea3cf0edc7f8a69c74abeafa27b2b52823cab5b3e156295e94b26ae8ac"
+    ]
+}
+```
+
+2. For each certificate listed by the previous command:
+   1. Replace `certificate_ID`
+      with the certificate ID from the previous command. The certificate
+      ID is the alphanumeric characters that follow `cert/` in
+      the ARN returned by the previous command. Then run this command to
+      inactivate the certificate.
+
+   ```
+   `aws iot update-certificate --new-status INACTIVE --certificate-id `certificate_ID``
+   ```
+
+   If successful, this command doesn't return
+   anything. 2. Replace `certificate_ARN`
+   with the certificate ARN from the list of certificates returned
+   earlier, and then run this command to list the policies attached to
+   this certificate.
+
+   ```
+   `aws iot list-attached-policies --target `certificate_ARN``
+   ```
+
+   This command returns a response like this one that lists the
+   policies attached to the certificate. In most cases, there will only
+   be one policy in the list.
+
+   ```
+   {
+       "policies": [
+           {
+               "policyName": "DevCliTestThingPolicy",
+               "policyArn": "arn:aws:iot:us-west-2:57EXAMPLE833:policy/DevCliTestThingPolicy"
+           }
+       ]
+   }
+   ```
+
+   3. For each policy attached to the certificate:
+      1. Replace
+         `policy_name` with
+         the `policyName` value from the previous command,
+         replace
+         `certificate_ARN`
+         with the certificate's ARN, and then run this command to
+         detach the policy from the certificate.
+
+      ```
+      `aws iot detach-policy --policy-name `policy_name` --target `certificate_ARN``
+      ```
+
+      If successful, this command doesn't return
+      anything. 2. Replace
+      `policy_name` with
+      the `policyName` value, and then run this command
+      to see if the policy is attached to any more
+      certificates.
+
+      ```
+      `aws iot list-targets-for-policy --policy-name `policy_name``
+      ```
+
+      If the command returns an empty list like this, the policy
+      is not attached to any certificates and you continue to list
+      the policy versions. If there are still certificates
+      attached to the policy, continue with the
+      **detach-thing-principal** step.
+
+      ```
+      {
+          "targets": []
+      }
+      ```
+
+      3. Replace
+         `policy_name` with
+         the `policyName` value, and then run this command
+         to check for policy versions. To delete the policy, it must
+         have only one version.
+
+      ```
+      `aws iot list-policy-versions --policy-name `policy_name``
+      ```
+
+      If the policy has only one version, like this example, you
+      can skip to the **delete-policy** step and
+      delete the policy now.
+
+      ```
+      {
+          "policyVersions": [
+              {
+                  "versionId": "1",
+                  "isDefaultVersion": true,
+                  "createDate": "2021-11-18T01:02:46.778000+00:00"
+              }
+          ]
+      }
+      ```
+
+      If the policy has more than one version, like this
+      example, the policy versions with an
+      `isDefaultVersion` value of
+      `false` must be deleted before the policy can
+      be deleted.
+
+      ```
+      {
+          "policyVersions": [
+              {
+                  "versionId": "2",
+                  "isDefaultVersion": true,
+                  "createDate": "2021-11-18T01:52:04.423000+00:00"
+              },
+              {
+                  "versionId": "1",
+                  "isDefaultVersion": false,
+                  "createDate": "2021-11-18T01:30:18.083000+00:00"
+              }
+          ]
+      }
+      ```
+
+      If you need to delete a policy version, replace
+      `policy_name`
+      with the `policyName` value, replace
+      `version_ID`
+      with the `versionId` value from the previous
+      command, and then run this command to delete a policy
+      version.
+
+      ```
+      `aws iot delete-policy-version --policy-name `policy_name` --policy-version-id `version_ID``
+      ```
+
+      If successful, this command doesn't return
+      anything.
+
+      After you delete a policy version, repeat this
+      step until the policy has only one policy
+      version. 4. Replace
+      `policy_name` with
+      the `policyName` value, and then run this command
+      to delete the policy.
+
+      ```
+      `aws iot delete-policy --policy-name `policy_name``
+      ```
+
+   4. Replace `thing_name` with
+      the thing's name, replace
+      `certificate_ARN` with
+      the certificate's ARN, and then run this command to detach the
+      certificate from the thing resource.
+
+   ```
+   `aws iot detach-thing-principal --thing-name `thing_name` --principal `certificate_ARN``
+   ```
+
+   If successful, this command doesn't return
+   anything. 5. Replace `certificate_ID`
+   with the certificate ID from the previous command. The certificate
+   ID is the alphanumeric characters that follow `cert/` in
+   the ARN returned by the previous command. Then run this command to
+   delete the certificate resource.
+
+   ```
+   `aws iot delete-certificate --certificate-id `certificate_ID``
+   ```
+
+   If successful, this command doesn't return
+   anything.
+
+3. Replace `thing_name` with the
+   thing's name, and then run this command to delete the thing.
+
+```
+`aws iot delete-thing --thing-name `thing_name``
+```
+
+If successful, this command doesn't return anything.
+
+### Clean up AWS resources
+
+This procedure helps you identify and remove other AWS resources that you
+created while completing the tutorials in this learning path.
+
+| Other AWS resources created in this learning path                                                                      | Tutorial              | Resource type        | Resource name or ID |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ------------------- |
+| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | Amazon S3 object      | hello-world-job.json |
+| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | AWS IoT job resources | _user defined_       |
+
+###### To delete the AWS resources created in this learning path
+
+1. To delete the jobs created in this learning path
+   1. Run this command to list the jobs in your AWS account.
+
+   ```
+   `aws iot list-jobs`
+   ```
+
+   The command returns a list of the AWS IoT jobs in your AWS account
+   and AWS Region that looks like this.
+
+   ```
+   {
+       "jobs": [
+           {
+               "jobArn": "arn:aws:iot:us-west-2:57EXAMPLE833:job/hello-world-job-2",
+               "jobId": "hello-world-job-2",
+               "targetSelection": "SNAPSHOT",
+               "status": "COMPLETED",
+               "createdAt": "2021-11-16T23:40:36.825000+00:00",
+               "lastUpdatedAt": "2021-11-16T23:40:41.375000+00:00",
+               "completedAt": "2021-11-16T23:40:41.375000+00:00"
+           },
+           {
+               "jobArn": "arn:aws:iot:us-west-2:57EXAMPLE833:job/hello-world-job-1",
+               "jobId": "hello-world-job-1",
+               "targetSelection": "SNAPSHOT",
+               "status": "COMPLETED",
+               "createdAt": "2021-11-16T23:35:26.381000+00:00",
+               "lastUpdatedAt": "2021-11-16T23:35:29.239000+00:00",
+               "completedAt": "2021-11-16T23:35:29.239000+00:00"
+           }
+       ]
+   }
+   ```
+
+   2. For each job that you recognize from the list as a job you created
+      in this learning path, replace
+      `jobId` with the
+      `jobId` value of the job to delete, and then run this
+      command to delete an AWS IoT job.
+
+   ```
+   `aws iot delete-job --job-id `jobId``
+   ```
+
+   If the command is successful, it returns nothing.
+
+2. To delete the job documents you stored in an Amazon S3 bucket in this learning path.
+   1. Replace `bucket` with the
+      name of the bucket you used, and then run this command to list the
+      objects in the Amazon S3 bucket that you used.
+
+   ```
+   `aws s3api list-objects --bucket `bucket``
+   ```
+
+   The command returns a list of the Amazon S3 objects in bucket that looks like this.
+
+   ```
+   {
+       "Contents": [
+           {
+               "Key": "hello-world-job.json",
+               "LastModified": "2021-11-18T03:02:12+00:00",
+               "ETag": "\"868c8bc3f56b5787964764d4b18ed5ef\"",
+               "Size": 54,
+               "StorageClass": "STANDARD",
+               "Owner": {
+                   "DisplayName": "EXAMPLE",
+                   "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee"
+               }
+           },
+           {
+               "Key": "iot_job_firmware_update.json",
+               "LastModified": "2021-04-13T21:57:07+00:00",
+               "ETag": "\"7c68c591949391791ecf625253658c61\"",
+               "Size": 66,
+               "StorageClass": "STANDARD",
+               "Owner": {
+                   "DisplayName": "EXAMPLE",
+                   "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee"
+               }
+           },
+           {
+               "Key": "order66.json",
+               "LastModified": "2021-04-13T21:57:07+00:00",
+               "ETag": "\"bca60d5380b88e1a70cc27d321caba72\"",
+               "Size": 29,
+               "StorageClass": "STANDARD",
+               "Owner": {
+                   "DisplayName": "EXAMPLE",
+                   "ID": "e9e3d6ec1EXAMPLEf5bfb5e6bd0a2b6ed03884d1ed392a82ad011c144736a4ee"
+               }
+           }
+       ]
+   }
+   ```
+
+   2. For each object that you recognize from the list as an object you
+      created in this learning path, replace
+      `bucket` with the
+      bucket name and `key` with key
+      value of the object to delete, and then run this command to delete
+      an Amazon S3 object.
+
+   ```
+    aws s3api delete-object --bucket `bucket` --key `key`
+   ```
+
+   If the command is successful, it returns nothing.
+
+After you delete all the AWS resources and objects that you created while
+completing this learning path, you can start over and repeat the tutorials.

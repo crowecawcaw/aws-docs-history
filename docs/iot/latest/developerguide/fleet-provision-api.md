@@ -11,6 +11,365 @@ The Fleet Provisioning service supports the following MQTT API operations:
   and request examples in this section are shown in JSON format.
 
 | `payload-format` | Response format data type                   |
-| ---------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ------------------------------------------- |
 | cbor             | Concise Binary Object Representation (CBOR) |
-| json             | JavaScript Object Notation (JSON)           | ###### Important Before publishing a request message topic, subscribe to the response topics to receive the response. The messages used by this API use MQTT's publish/subscribe protocol to provide a request and response interaction. If you don't subscribe to the response topics _before_ you publish a request, you might not receive the results of that request. IoT Core Fleet Provisioning returns the device provisioning MQTT API results through the same MQTT connection used to publish the API request. ## CreateCertificateFromCsr Creates a certificate from a certificate signing request (CSR). AWS IoT provides client certificates that are signed by the Amazon Root certificate authority (CA). The new certificate has a `PENDING_ACTIVATION` status. When you call `RegisterThing` to provision a thing with this certificate, the certificate status changes to `ACTIVE` or `INACTIVE` as described in the template. For more information on creating a client certificate using your Certificate Authority certificate and a certificate signing request, refer to [Create a client certificate using your CA certificate](create-device-cert.md "create-device-cert.md"). ###### Note For security, the `certificateOwnershipToken` returned by `CreateCertificateFromCsr` expires after one hour. `RegisterThing` must be called before the `certificateOwnershipToken` expires. If the certificate created by `CreateCertificateFromCsr` hasn't been activated and attached to a policy or a thing by the time the token expires, the certificate is deleted. If the token expires, the device can call `CreateCertificateFromCsr` to generate a new certificate. ### CreateCertificateFromCsr request Publish a message with the `$aws/certificates/create-from-csr/`payload-format`` topic. `payload-format` The message payload format as `cbor` or `json`. #### CreateCertificateFromCsr request payload ``` { "certificateSigningRequest": "string" } ``` `certificateSigningRequest` The CSR, in PEM format. ### CreateCertificateFromCsr response Subscribe to `$aws/certificates/create-from-csr/`payload-format`/accepted`. `payload-format` The message payload format as `cbor` or `json`. #### CreateCertificateFromCsr response payload ``` { "certificateOwnershipToken": "string", "certificateId": "string", "certificatePem": "string" } ``` `certificateOwnershipToken` The token to prove ownership of the certificate during provisioning. `certificateId` The ID of the certificate. Certificate management operations only take a certificateId. `certificatePem` The certificate data, in PEM format. ### CreateCertificateFromCsr error To receive error responses, subscribe to `$aws/certificates/create-from-csr/`payload-format`/rejected`. `payload-format` The message payload format as `cbor` or `json`. #### CreateCertificateFromCsr error payload ``` { "statusCode": int, "errorCode": "string", "errorMessage": "string" } ``` `statusCode` The status code. `errorCode` The error code. `errorMessage` The error message. ## CreateKeysAndCertificate Creates new keys and a certificate. AWS IoT provides client certificates that are signed by the Amazon Root certificate authority (CA). The new certificate has a `PENDING_ACTIVATION` status. When you call `RegisterThing` to provision a thing with this certificate, the certificate status changes to `ACTIVE` or `INACTIVE` as described in the template. ###### Note For security, the `certificateOwnershipToken` returned by `CreateKeysAndCertificate` expires after one hour. `RegisterThing` must be called before the `certificateOwnershipToken` expires. If the certificate created by `CreateKeysAndCertificate` hasn't been activated and attached to a policy or a thing by the time the token expires, the certificate is deleted. If the token expires, the device can call `CreateKeysAndCertificate` to generate a new certificate. ### CreateKeysAndCertificate request Publish a message on `$aws/certificates/create/`payload-format`` with an empty message payload. `payload-format` The message payload format as `cbor` or `json`. ### CreateKeysAndCertificate response Subscribe to `$aws/certificates/create/`payload-format`/accepted`. `payload-format` The message payload format as `cbor` or `json`. #### CreateKeysAndCertificate response `{ "certificateId": "string", "certificatePem": "string", "privateKey": "string", "certificateOwnershipToken": "string" }` `certificateId` The certificate ID. `certificatePem` The certificate data, in PEM format. `privateKey` The private key. `certificateOwnershipToken` The token to prove ownership of the certificate during provisioning. ### CreateKeysAndCertificate error To receive error responses, subscribe to `$aws/certificates/create/`payload-format`/rejected`. `payload-format` The message payload format as `cbor` or `json`. #### CreateKeysAndCertificate error payload `{ "statusCode": int, "errorCode": "string", "errorMessage": "string" }` `statusCode` The status code. `errorCode` The error code. `errorMessage` The error message. ## RegisterThing Provisions a thing using a pre-defined template. ### RegisterThing request Publish a message on `$aws/provisioning-templates/`templateName`/provision/`payload-format``. `payload-format`The message payload format as`cbor`or`json`. `templateName` The provisioning template name. #### RegisterThing request payload ``` { "certificateOwnershipToken": "string", "parameters": { "string": "string", ... } } ``` `certificateOwnershipToken`The token to prove ownership of the certificate. AWS IoT generates the token when you create a certificate over MQTT.`parameters`Optional. Key-value pairs from the device that are used by the [pre-provisioning hooks](pre-provisioning-hook.md "pre-provisioning-hook.md") to evaluate the registration request. ### RegisterThing response Subscribe to`$aws/provisioning-templates/`templateName`/provision/`payload-format`/accepted`. `payload-format` The message payload format as `cbor` or `json`. `templateName` The provisioning template name. #### RegisterThing response payload ``` { "deviceConfiguration": { "string": "string", ... }, "thingName": "string" } ``` `deviceConfiguration` The device configuration defined in the template. `thingName` The name of the IoT thing created during provisioning. ### RegisterThing error response To receive error responses, subscribe to `$aws/provisioning-templates/`templateName`/provision/`payload-format`/rejected`. `payload-format`The message payload format as`cbor`or`json`. `templateName` The provisioning template name. #### RegisterThing error response payload ``` { "statusCode": int, "errorCode": "string", "errorMessage": "string" } ``` `statusCode`The status code.`errorCode`The error code.`errorMessage` The error message. |
+| json             | JavaScript Object Notation (JSON)           |
+
+###### Important
+
+Before publishing a request message topic, subscribe to the response topics to
+receive the response. The messages used by this API use MQTT's publish/subscribe
+protocol to provide a request and response interaction.
+
+If you don't subscribe to the response topics _before_ you
+publish a request, you might not receive the results of that request.
+
+IoT Core Fleet Provisioning returns the device provisioning MQTT API results through the same MQTT connection used to publish the API request.
+
+## CreateCertificateFromCsr
+
+Creates a certificate from a certificate signing request (CSR). AWS IoT provides
+client certificates that are signed by the Amazon Root certificate authority (CA).
+The new certificate has a `PENDING_ACTIVATION` status. When you call
+`RegisterThing` to provision a thing with this certificate, the
+certificate status changes to `ACTIVE` or `INACTIVE` as
+described in the template.
+
+For more information on creating a client certificate using your Certificate
+Authority certificate and a certificate signing request, refer to [Create a client certificate using your
+CA certificate](create-device-cert.md "create-device-cert.md").
+
+###### Note
+
+For security, the `certificateOwnershipToken` returned by
+`CreateCertificateFromCsr` expires after one hour. `RegisterThing` must be called
+before the `certificateOwnershipToken` expires. If the certificate
+created by `CreateCertificateFromCsr` hasn't been activated and attached
+to a policy or a thing by the time the token expires, the certificate is
+deleted. If the token expires, the device can call `CreateCertificateFromCsr` to
+generate a new certificate.
+
+### CreateCertificateFromCsr
+
+request
+
+Publish a message with the
+`$aws/certificates/create-from-csr/`payload-format``
+topic.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+#### CreateCertificateFromCsr
+
+request payload
+
+```
+{
+    "certificateSigningRequest": "string"
+}
+```
+
+`certificateSigningRequest`
+
+The CSR, in PEM format.
+
+### CreateCertificateFromCsr
+
+response
+
+Subscribe to
+`$aws/certificates/create-from-csr/`payload-format`/accepted`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+#### CreateCertificateFromCsr
+
+response payload
+
+```
+{
+    "certificateOwnershipToken": "string",
+    "certificateId": "string",
+    "certificatePem": "string"
+}
+```
+
+`certificateOwnershipToken`
+
+The token to prove ownership of the certificate during
+provisioning.
+
+`certificateId`
+
+The ID of the certificate. Certificate management operations
+only take a certificateId.
+
+`certificatePem`
+
+The certificate data, in PEM format.
+
+### CreateCertificateFromCsr error
+
+To receive error responses, subscribe to
+`$aws/certificates/create-from-csr/`payload-format`/rejected`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+#### CreateCertificateFromCsr
+
+error payload
+
+```
+{
+    "statusCode": int,
+    "errorCode": "string",
+    "errorMessage": "string"
+}
+```
+
+`statusCode`
+
+The status code.
+
+`errorCode`
+
+The error code.
+
+`errorMessage`
+
+The error message.
+
+## CreateKeysAndCertificate
+
+Creates new keys and a certificate. AWS IoT provides client certificates that are
+signed by the Amazon Root certificate authority (CA). The new certificate has a
+`PENDING_ACTIVATION` status. When you call `RegisterThing`
+to provision a thing with this certificate, the certificate status changes to
+`ACTIVE` or `INACTIVE` as described in the
+template.
+
+###### Note
+
+For security, the `certificateOwnershipToken` returned by
+`CreateKeysAndCertificate` expires after one hour. `RegisterThing` must be called
+before the `certificateOwnershipToken` expires. If the certificate
+created by `CreateKeysAndCertificate` hasn't been activated and
+attached to a policy or a thing by the time the token expires, the certificate
+is deleted. If the token expires, the device can call `CreateKeysAndCertificate` to
+generate a new certificate.
+
+### CreateKeysAndCertificate
+
+request
+
+Publish a message on
+`$aws/certificates/create/`payload-format``
+with an empty message payload.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+### CreateKeysAndCertificate
+
+response
+
+Subscribe to
+`$aws/certificates/create/`payload-format`/accepted`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+#### CreateKeysAndCertificate
+
+response
+
+```
+{
+    "certificateId": "string",
+    "certificatePem": "string",
+    "privateKey": "string",
+    "certificateOwnershipToken": "string"
+}
+```
+
+`certificateId`
+
+The certificate ID.
+
+`certificatePem`
+
+The certificate data, in PEM format.
+
+`privateKey`
+
+The private key.
+
+`certificateOwnershipToken`
+
+The token to prove ownership of the certificate during
+provisioning.
+
+### CreateKeysAndCertificate error
+
+To receive error responses, subscribe to
+`$aws/certificates/create/`payload-format`/rejected`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+#### CreateKeysAndCertificate
+
+error payload
+
+```
+{
+    "statusCode": int,
+    "errorCode": "string",
+    "errorMessage": "string"
+}
+```
+
+`statusCode`
+
+The status code.
+
+`errorCode`
+
+The error code.
+
+`errorMessage`
+
+The error message.
+
+## RegisterThing
+
+Provisions a thing using a pre-defined template.
+
+### RegisterThing request
+
+Publish a message on
+`$aws/provisioning-templates/`templateName`/provision/`payload-format``.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+`templateName`
+
+The provisioning template name.
+
+#### RegisterThing request
+
+payload
+
+```
+{
+    "certificateOwnershipToken": "string",
+    "parameters": {
+        "string": "string",
+        ...
+    }
+}
+```
+
+`certificateOwnershipToken`
+
+The token to prove ownership of the certificate. AWS IoT
+generates the token when you create a certificate over
+MQTT.
+
+`parameters`
+
+Optional. Key-value pairs from the device that are used by the
+[pre-provisioning
+hooks](pre-provisioning-hook.md "pre-provisioning-hook.md") to evaluate the registration request.
+
+### RegisterThing response
+
+Subscribe to
+`$aws/provisioning-templates/`templateName`/provision/`payload-format`/accepted`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+`templateName`
+
+The provisioning template name.
+
+#### RegisterThing response
+
+payload
+
+```
+{
+    "deviceConfiguration": {
+        "string": "string",
+        ...
+    },
+    "thingName": "string"
+}
+```
+
+`deviceConfiguration`
+
+The device configuration defined in the template.
+
+`thingName`
+
+The name of the IoT thing created during provisioning.
+
+### RegisterThing error response
+
+To receive error responses, subscribe to
+`$aws/provisioning-templates/`templateName`/provision/`payload-format`/rejected`.
+
+`payload-format`
+
+The message payload format as `cbor` or
+`json`.
+
+`templateName`
+
+The provisioning template name.
+
+#### RegisterThing error response
+
+payload
+
+```
+{
+    "statusCode": int,
+    "errorCode": "string",
+    "errorMessage": "string"
+}
+```
+
+`statusCode`
+
+The status code.
+
+`errorCode`
+
+The error code.
+
+`errorMessage`
+
+The error message.

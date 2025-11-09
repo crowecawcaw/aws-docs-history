@@ -103,9 +103,50 @@ These job execution policy actions apply only to the HTTP TLS
 endpoint. If you use the MQTT endpoint, you must use the MQTT policy
 actions defined previously.
 
-| AWS IoT Core policy actions on data plane  | Policy action                                                                                                                                                 | API operation         | Resource types                                                                                                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `iotjobsdata:DescribeJobExecution`         | [`DescribeJobExecution`](../apireference/API_iot-jobs-data_DescribeJobExecution.md "../apireference/API_iot-jobs-data_DescribeJobExecution.md")               | <br>• job <br>• thing | Represents the permission to retrieve a job execution. The `iotjobsdata:DescribeJobExecution` permission is checked every time a request is made to retrieve a job execution.                                                                                                                               |
-| `iotjobsdata:GetPendingJobExecutions`      | [`GetPendingJobExecutions`](../apireference/API_iot-jobs-data_GetPendingJobExecutions.md "../apireference/API_iot-jobs-data_GetPendingJobExecutions.md")      | thing                 | Represents the permission to retrieve the list of jobs that are not in a terminal status for a thing. The `iotjobsdata:GetPendingJobExecutions` permission is checked every time a request is made to retrieve the list.                                                                                    |
-| `iotjobsdata:StartNextPendingJobExecution` | [`StartNextPendingJobExecution`](../apireference/API_iot-jobs-data_GetPendingJobExecutions.md "../apireference/API_iot-jobs-data_GetPendingJobExecutions.md") | thing                 | Represents the permission to get and start the next pending job execution for a thing. That is, to update a job execution with status `QUEUED` to `IN_PROGRESS`. The `iotjobsdata:StartNextPendingJobExecution` permission is checked every time a request is made to start the next pending job execution. |
-| `iotjobsdata:UpdateJobExecution`           | [`UpdateJobExecution`](../apireference/API_iot-jobs-data_UpdateJobExecution.md "../apireference/API_iot-jobs-data_UpdateJobExecution.md")                     | thing                 | Represents the permission to update a job execution. The `iotjobsdata:UpdateJobExecution` permission is checked every time a request is made to update the state of a job execution.                                                                                                                        | The following shows an example of an AWS IoT Core policy that grants permission to perform the actions on the data plane API operations for any resource. You can scope your policy to a specific resource, such as an IoT thing. In your example, replace: <br>• `region` with your AWS Region such as `us-east-1`. <br>• `account-id` with your AWS account number, such as `57EXAMPLE833`. <br>• `thing-name` with the name of the IoT thing, such as `MyIoTthing`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "iotjobsdata:GetPendingJobExecutions", "iotjobsdata:StartNextPendingJobExecution", "iotjobsdata:DescribeJobExecution", "iotjobsdata:UpdateJobExecution" ], "Effect": "Allow", "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`" } ] }` `` An example of when you must use these policies can be when your IoT devices use an AWS IoT Core policy to access one of these API operations, such as the following example of the `DescribeJobExecution` API: `GET /things/thingName/jobs/jobId?executionNumber=executionNumber&includeJobDocument=includeJobDocument&namespaceId=namespaceId HTTP/1.1` |
+| AWS IoT Core policy actions on data plane  | Policy action                                                                                                                                                 | API operation    | Resource types                                                                                                                                                                                                                                                                                                             | Description |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `iotjobsdata:DescribeJobExecution`         | [`DescribeJobExecution`](../apireference/API_iot-jobs-data_DescribeJobExecution.md "../apireference/API_iot-jobs-data_DescribeJobExecution.md")               | • job<br>• thing | Represents the permission to retrieve a job execution.<br>The `iotjobsdata:DescribeJobExecution` permission<br>is checked every time a request is made to retrieve a job<br>execution.                                                                                                                                     |
+| `iotjobsdata:GetPendingJobExecutions`      | [`GetPendingJobExecutions`](../apireference/API_iot-jobs-data_GetPendingJobExecutions.md "../apireference/API_iot-jobs-data_GetPendingJobExecutions.md")      | thing            | Represents the permission to retrieve the list of jobs<br>that are not in a terminal status for a thing. The<br>`iotjobsdata:GetPendingJobExecutions`<br>permission is checked every time a request is made to<br>retrieve the list.                                                                                       |
+| `iotjobsdata:StartNextPendingJobExecution` | [`StartNextPendingJobExecution`](../apireference/API_iot-jobs-data_GetPendingJobExecutions.md "../apireference/API_iot-jobs-data_GetPendingJobExecutions.md") | thing            | Represents the permission to get and start the next<br>pending job execution for a thing. That is, to update a job<br>execution with status `QUEUED` to `IN_PROGRESS`.<br>The `iotjobsdata:StartNextPendingJobExecution` permission<br>is checked every time a request is made to start the next<br>pending job execution. |
+| `iotjobsdata:UpdateJobExecution`           | [`UpdateJobExecution`](../apireference/API_iot-jobs-data_UpdateJobExecution.md "../apireference/API_iot-jobs-data_UpdateJobExecution.md")                     | thing            | Represents the permission to update a job execution. The<br>`iotjobsdata:UpdateJobExecution` permission is checked every<br>time a request is made to update the state of a job execution.                                                                                                                                 |
+
+The following shows an example of an AWS IoT Core policy that grants
+permission to perform the actions on the data plane API operations for any
+resource. You can scope your policy to a specific resource, such as an IoT
+thing. In your example, replace:
+
+- `region` with your AWS Region such as
+  `us-east-1`.
+- `account-id` with your AWS account number,
+  such as `57EXAMPLE833`.
+- `thing-name` with the name of the IoT thing,
+  such as `MyIoTthing`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "iotjobsdata:GetPendingJobExecutions",
+ "iotjobsdata:StartNextPendingJobExecution",
+ "iotjobsdata:DescribeJobExecution",
+ "iotjobsdata:UpdateJobExecution"
+ ],
+ "Effect": "Allow",
+ "Resource": "arn:aws:iot:`us-east-1`:`123456789012`:thing/`thing-name`"
+ }
+ ]
+}`
+
+```
+
+An example of when you must use these policies can be when your IoT devices use an
+AWS IoT Core policy to access one of these API operations, such as the following example
+of the `DescribeJobExecution` API:
+
+```
+GET /things/thingName/jobs/jobId?executionNumber=executionNumber&includeJobDocument=includeJobDocument&namespaceId=namespaceId HTTP/1.1
+```

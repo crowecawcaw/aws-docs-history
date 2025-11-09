@@ -171,9 +171,33 @@ page:
 
 
     Certificate file names| File | File path |
+    | --- | --- |
+    | Private key | `private.pem.key` |
+    | Public key | *(not used in these<br>examples)* |
+    | Device certificate | `device.pem.crt` |
+    | Root CA certificate | `Amazon-root-CA-1.pem` |
+    2. To download the root CA file for these files, choose the
+     **Download** link of the root CA
+     certificate file that corresponds to the type of data endpoint
+     and cipher suite you're using. In this tutorial, choose
+     **Download** to the right of **RSA
+     2048 bit key: Amazon Root CA 1** and download the
+     **RSA 2048 bit key: Amazon Root CA 1**
+     certificate file.
 
-| --- | --- |
-| Private key | `private.pem.key` |
-| Public key | _(not used in these examples)_ |
-| Device certificate | `device.pem.crt` |
-| Root CA certificate | `Amazon-root-CA-1.pem` | 2. To download the root CA file for these files, choose the **Download** link of the root CA certificate file that corresponds to the type of data endpoint and cipher suite you're using. In this tutorial, choose **Download** to the right of **RSA 2048 bit key: Amazon Root CA 1** and download the **RSA 2048 bit key: Amazon Root CA 1** certificate file. ###### Important You must save the certificate files before you leave this page. After you leave this page in the console, you will no longer have access to the certificate files. If you forgot to download the certificate files that you created in this step, you must exit this console screen, go to the list of things in the console, delete the thing object you created, and then restart this procedure from the beginning. 3. Choose **Done**. After you complete this procedure, you should see the new thing object in your list of things.
+
+    ###### Important
+
+    You must save the certificate files before you leave this
+     page. After you leave this page in the console, you will no
+     longer have access to the certificate files.
+
+    If you forgot to download the certificate files that you
+     created in this step, you must exit this console screen, go
+     to the list of things in the console, delete the thing
+     object you created, and then restart this procedure from the
+     beginning.
+    3. Choose **Done**.
+
+After you complete this procedure, you should see the new thing object in your
+list of things.

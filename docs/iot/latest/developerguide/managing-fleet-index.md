@@ -153,9 +153,46 @@ The following lists managed fields for thing indexing:
 The following table lists managed fields that are not searchable.
 
 | Data source     | Managed field that is unsearchable |
-| --------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ---------------------------------- |
 | Registry        | `registry.version`                 |
 | Unnamed shadows | `shadow.version`                   |
 | Named shadows   | `shadow.name.*.version`            |
 | Device Defender | `deviceDefender.version`           |
-| Thing groups    | `version`                          | ## Custom fields You can aggregate thing attributes, Device Shadow data, and Device Defender violations data by creating custom fields to index them. The `customFields` attribute is a list of field name and data type pairs. You can perform aggregation queries based on data type. The indexing mode that you choose affects fields can be specified in `customFields`. For example, if you specify the `REGISTRY` indexing mode, you can't specify a custom field from a thing shadow. You can use the [update-indexing-configuration](../../../cli/latest/reference/iot/update-indexing-configuration.md "../../../cli/latest/reference/iot/update-indexing-configuration.md") CLI command to create or update the custom fields (see an example command in [Updating indexing configuration examples](managing-index.md#update-index-examples "managing-index.md#update-index-examples")). <br>• **Custom field names** Custom field names for thing and thing group attributes begin with `attributes.`, followed by the attribute name. If unnamed shadow indexing is on, things can have custom field names that begin with `shadow.desired` or `shadow.reported`, followed by the unnamed shadow data value name. If named shadow indexing is on, things can have custom field names that begin with `shadow.name.*.desired.` or `shadow.name.*.reported.`, followed by the named shadow data value. If Device Defender violations indexing is on, things can have custom field names that begin with `deviceDefender.`, followed by the Device Defender violations data value. The attribute or data value name that follows the prefix can have only alphanumeric, - (hyphen), and \_ (underscore) characters. It can't have any spaces. If there' a type inconsistency between a custom field in your configuration and the value being indexed, fleet indexing ignores the inconsistent value for aggregation queries. CloudWatch Logs are helpful when troubleshooting aggregation query problems. For more information, see [Troubleshooting aggregation queries for the fleet indexing service](fleet-indexing-troubleshooting.md#aggregation-troubleshooting "fleet-indexing-troubleshooting.md#aggregation-troubleshooting"). <br>• **Custom field types** Custom field types have the following supported values: `Number`, `String`, and `Boolean`. |
+| Thing groups    | `version`                          |
+
+## Custom fields
+
+You can aggregate thing attributes, Device Shadow data, and Device Defender violations
+data by creating custom fields to index them. The `customFields` attribute is a
+list of field name and data type pairs. You can perform aggregation queries based on data
+type. The indexing mode that you choose affects fields can be specified in
+`customFields`. For example, if you specify the `REGISTRY` indexing
+mode, you can't specify a custom field from a thing shadow. You can use the [update-indexing-configuration](../../../cli/latest/reference/iot/update-indexing-configuration.md "../../../cli/latest/reference/iot/update-indexing-configuration.md") CLI command to create or update the custom fields
+(see an example command in [Updating indexing
+configuration examples](managing-index.md#update-index-examples "managing-index.md#update-index-examples")).
+
+- **Custom field names**
+
+Custom field names for thing and thing group attributes begin with
+`attributes.`, followed by the attribute name. If unnamed shadow indexing is
+on, things can have custom field names that begin with `shadow.desired` or
+`shadow.reported`, followed by the unnamed shadow data value name. If named
+shadow indexing is on, things can have custom field names that begin with
+`shadow.name.*.desired.` or `shadow.name.*.reported.`, followed by
+the named shadow data value. If Device Defender violations indexing is on, things can have
+custom field names that begin with `deviceDefender.`, followed by the Device
+Defender violations data value.
+
+The attribute or data value name that follows the prefix can have only alphanumeric, -
+(hyphen), and \_ (underscore) characters. It can't have any spaces.
+
+If there' a type inconsistency between a custom field in your configuration and the
+value being indexed, fleet indexing ignores the inconsistent value for aggregation queries.
+CloudWatch Logs are helpful when troubleshooting aggregation query problems. For more information, see
+[Troubleshooting aggregation queries for the
+fleet indexing service](fleet-indexing-troubleshooting.md#aggregation-troubleshooting "fleet-indexing-troubleshooting.md#aggregation-troubleshooting").
+
+- **Custom field types**
+
+Custom field types have the following supported values: `Number`,
+`String`, and `Boolean`.

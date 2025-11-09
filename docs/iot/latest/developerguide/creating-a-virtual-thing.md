@@ -472,8 +472,116 @@ npm install
 The commands in the next sections assume that your key and certificate
 files are stored on your virtual device as shown in this table.
 
-| Certificate file names | File                           | File path                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Certificate file names | File                           | File path |
+| ---------------------- | ------------------------------ | --------- |
 | Private key            | `~/certs/private.pem.key`      |
 | Device certificate     | `~/certs/device.pem.crt`       |
-| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` | In this section, you'll install and run the `pub-sub.js` sample app found in the `aws-iot-device-sdk-js-v2/samples/node` directory of the AWS IoT Device SDK for JavaScript. This app shows how a device, your Amazon EC2 instance, uses the MQTT library to publish and subscribe to MQTT messages. The `pub-sub.js` sample app subscribes to a topic, `topic_1`, publishes 10 messages to that topic and displays the messages as they're received from the message broker. ###### To install and run the sample app 1. In your **Amazon EC2 Instance Connect** window, navigate to the `aws-iot-device-sdk-js-v2/samples/node/pub_sub` directory that the SDK created and install the sample app by using these commands. `cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub npm install` 2. In your **Amazon EC2 Instance Connect** window, get `your-iot-endpoint` from AWS IoT by using this command. `aws iot describe-endpoint --endpoint-type iot:Data-ATS` 3. In your **Amazon EC2 Instance Connect** window, insert `your-iot-endpoint` as indicated and run this command. `` node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint` `` The sample app: 1. Connects to AWS IoT Core for your account. 2. Subscribes to the message topic, **topic_1**, and displays the messages it receives on that topic. 3. Publishes 10 messages to the topic, **topic_1**. 4. Displays output similar to the following: `Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":1} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":2} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":3} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":4} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":5} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":6} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":7} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":8} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":9} Publish received. topic:"topic_1" dup:false qos:1 retain:false {"message":"Hello world!","sequence":10}` If you're having trouble running the sample app, review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md"). You can also add the `--verbosity debug` parameter to the command line so the sample app displays detailed messages about what it’s doing. That information might provide you the help you need to correct the problem. ## View messages from the sample app in the AWS IoT console You can see the sample app's messages as they pass through the message broker by using the **MQTT test client** in the **AWS IoT console**. ###### To view the MQTT messages published by the sample app 1. Review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how to use the **MQTT test client** in the **AWS IoT console** to view MQTT messages as they pass through the message broker. 2. Open the **MQTT test client** in the **AWS IoT console**. 3. In **Subscribe to a topic**, Subscribe to the topic, **topic_1**. 4. In your **Amazon EC2 Instance Connect** window, run the sample app again and watch the messages in the **MQTT test client** in the **AWS IoT console**. `` cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint` `` For more information about MQTT and how AWS IoT Core supports the protocol, see [MQTT](mqtt.md "mqtt.md"). |
+| Root CA certificate    | `~/certs/Amazon-root-CA-1.pem` |
+
+In this section, you'll install and run the `pub-sub.js` sample
+app found in the `aws-iot-device-sdk-js-v2/samples/node`
+directory of the AWS IoT Device SDK for JavaScript. This app shows how a
+device, your Amazon EC2 instance, uses the MQTT library to publish and subscribe
+to MQTT messages. The `pub-sub.js` sample app subscribes to a
+topic, `topic_1`, publishes 10 messages to that topic and
+displays the messages as they're received from the message broker.
+
+###### To install and run the sample app
+
+1. In your **Amazon EC2 Instance Connect** window,
+   navigate to the
+   `aws-iot-device-sdk-js-v2/samples/node/pub_sub`
+   directory that the SDK created and install the sample app by using
+   these commands.
+
+```
+cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
+npm install
+```
+
+2. In your **Amazon EC2 Instance Connect** window, get
+   `your-iot-endpoint` from AWS IoT by using
+   this command.
+
+```
+aws iot describe-endpoint --endpoint-type iot:Data-ATS
+```
+
+3. In your **Amazon EC2 Instance Connect** window, insert
+   `your-iot-endpoint` as indicated and
+   run this command.
+
+```
+node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```
+
+The sample app:
+
+1. Connects to AWS IoT Core for your account.
+2. Subscribes to the message topic, **topic_1**, and displays the messages it receives on
+   that topic.
+3. Publishes 10 messages to the topic, **topic_1**.
+4. Displays output similar to the following:
+
+```
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":1}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":2}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":3}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":4}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":5}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":6}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":7}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":8}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":9}
+Publish received. topic:"topic_1" dup:false qos:1 retain:false
+{"message":"Hello world!","sequence":10}
+```
+
+If you're having trouble running the sample app, review [Troubleshoot problems with the
+sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+
+You can also add the `--verbosity debug` parameter to the
+command line so the sample app displays detailed messages about what it’s
+doing. That information might provide you the help you need to correct the
+problem.
+
+## View messages from the sample app in the
+
+AWS IoT console
+
+You can see the sample app's messages as they pass through the message
+broker by using the **MQTT test client** in the
+**AWS IoT console**.
+
+###### To view the MQTT messages published by the sample app
+
+1. Review [View MQTT messages with the AWS IoT MQTT
+   client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
+   to use the **MQTT test client** in the
+   **AWS IoT console** to view MQTT messages as they
+   pass through the message broker.
+2. Open the **MQTT test client** in the
+   **AWS IoT console**.
+3. In **Subscribe to a topic**, Subscribe to the
+   topic, **topic_1**.
+4. In your **Amazon EC2 Instance Connect** window, run
+   the sample app again and watch the messages in the **MQTT
+   test client** in the **AWS IoT
+   console**.
+
+```
+cd ~/aws-iot-device-sdk-js-v2/samples/node/pub_sub
+node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.pem.crt --key ~/certs/private.pem.key --endpoint `your-iot-endpoint`
+```
+
+For more information about MQTT and how AWS IoT Core supports the protocol,
+see [MQTT](mqtt.md "mqtt.md").
