@@ -62,10 +62,10 @@ practices referenced.
 | [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")                                                                                                                          |
 | [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")                                                                                                                                |
 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")                                                              |
-| [Amazon Cost and Usage Reports (CUR)](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/ "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/")                      |
+| [Amazon<br>Cost and Usage Reports (CUR)](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/ "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/")                   |
 | [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")                                                                                                                                 |
 | [AWS Graviton](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/")                                                                                                                     |
-| [Amazon Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")                                                                                                                             |
+| [Amazon<br>Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")                                                                                                                          |
 | [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/ "https://aws.amazon.com/kinesis/data-streams/")                                                                                      |
 | [AWS Serverless services](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/")                                                                                                              |
 | [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-energy-and-carbon-footprint/ "https://aws.amazon.com/aws-energy-and-carbon-footprint/")                                                         |

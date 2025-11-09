@@ -6,5 +6,19 @@ workloads use multiple solutions and allow different features
 to improve performance.
 
 | ADVPERF01: How does your architecture account for advertising workload needs like low latency and bursty traffic? |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                   | Focus on the architecture design needs for your advertising workload, including networking, compute, storage, machine learning workloads, decision between self-managed and managed services. Address the low latency, burst traffic, and scaling needs of advertising workloads ###### Best practices <br>• [ADVPERF01-BP01 Design geographical affinity architecture with external entities (DSPs and SSPs)](advperf01-bp01.md "advperf01-bp01.md") <br>• [ADVPERF01-BP02 Use appropriate scaling to handle burst traffic with cost considerations](advperf01-bp02.md "advperf01-bp02.md") <br>• [ADVPERF01-BP03 Design for low latency with appropriate compute, storage, and network considerations](advperf01-bp03.md "advperf01-bp03.md") <br>• [ADVPERF01-BP04 Evaluate AI/ML-based architecture for optimization (like contextual advertising or scaling algorithms on event context)](advperf01-bp04.md "advperf01-bp04.md") <br>• [ADVPERF01-BP05 Evaluate the choice of open source-based software (self-managed) against using a fully-managed service](advperf01-bp05.md "advperf01-bp05.md") |
+| ----------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                   |
+
+Focus on the architecture design needs for your advertising
+workload, including networking, compute, storage, machine
+learning workloads, decision between self-managed and managed
+services. Address the low latency, burst traffic, and scaling
+needs of advertising workloads
+
+###### Best practices
+
+- [ADVPERF01-BP01 Design geographical affinity architecture with external entities (DSPs and SSPs)](advperf01-bp01.md "advperf01-bp01.md")
+- [ADVPERF01-BP02 Use appropriate scaling to handle burst traffic with cost considerations](advperf01-bp02.md "advperf01-bp02.md")
+- [ADVPERF01-BP03 Design for low latency with appropriate compute, storage, and network considerations](advperf01-bp03.md "advperf01-bp03.md")
+- [ADVPERF01-BP04 Evaluate AI/ML-based architecture for optimization (like contextual advertising or scaling algorithms on event context)](advperf01-bp04.md "advperf01-bp04.md")
+- [ADVPERF01-BP05 Evaluate the choice of open source-based software (self-managed) against using a fully-managed service](advperf01-bp05.md "advperf01-bp05.md")

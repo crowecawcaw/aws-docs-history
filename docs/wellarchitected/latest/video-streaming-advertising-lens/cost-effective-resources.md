@@ -1,5 +1,15 @@
 # Cost-effective resources
 
-| ADVCOST02: How are you optimizing the costs associated with your bidding resources while providing the fastest performance? |
-| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                             | Cost optimization isn't just about reducing costs, but about providing the performance required at the lowest possible cost. ###### Best practices <br>• [ADVCOST02-BP01 Use ARM processors for faster and more cost-effective bidder nodes](advcost02-bp01.md "advcost02-bp01.md") <br>• [ADVCOST02-BP02 Use compression to reduce network traffic and storage costs](advcost02-bp02.md "advcost02-bp02.md") <br>• [ADVCOST02-BP03 Use provisioned resource allocation for campaigns with predictable capacity requirements, and use dynamic allocation for unexpected capacity needs](advcost02-bp03.md "advcost02-bp03.md") <br>• [ADVCOST02-BP04 Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms](advcost02-bp04.md "advcost02-bp04.md") |
+| ADVCOST02: How are you optimizing the<br>costs associated with your bidding resources while providing the<br>fastest performance? |
+| --------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   |
+
+Cost optimization isn't just about reducing costs, but about
+providing the performance required at the lowest possible cost.
+
+###### Best practices
+
+- [ADVCOST02-BP01 Use ARM processors for faster and more cost-effective bidder nodes](advcost02-bp01.md "advcost02-bp01.md")
+- [ADVCOST02-BP02 Use compression to reduce network traffic and storage costs](advcost02-bp02.md "advcost02-bp02.md")
+- [ADVCOST02-BP03 Use provisioned resource allocation for campaigns with predictable capacity requirements, and use dynamic allocation for unexpected capacity needs](advcost02-bp03.md "advcost02-bp03.md")
+- [ADVCOST02-BP04 Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms](advcost02-bp04.md "advcost02-bp04.md")
