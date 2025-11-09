@@ -1,5 +1,280 @@
 # Finding services and products using AWS Price List Query API
 
-|                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:** This survey is in English only. | We recommend that you use the Price List Query API when you want to: <br>• Find pricing information about a product. <br>• Search for products and rates that match your filters. <br>• Quickly find products and prices that you need when you're developing applications that have limited resources, such as front-end environments. To find AWS services, their products, and the product attributes and prices, see the following steps. Once you find the service, you can then get its attributes by using the `DescribeServices` API operation. If you know the service code, you can also use the AWS Price List Query API to get attributes for a service. Then, you can use the service attributes to find the products that meet your requirements based on the attribute values. ### Examples: Find services The following AWS Command Line Interface (AWS CLI) commands show how to find services. ###### Example: Find all services `aws pricing describe-services --region us-east-1` **Response** `{ "FormatVersion": "aws_v1", "NextToken": "abcdefg123", "Services": [ { "AttributeNames": [ "volumeType", "maxIopsvolume", "instanceCapacity10xlarge", "locationType", "operation" ], "ServiceCode": "AmazonEC2" }, { "AttributeNames": [ "productFamily", "volumeType", "engineCode", "memory" ], "ServiceCode": "AmazonRDS" }, {...} ] }` ###### Example: Find service metadata for Amazon Elastic Compute Cloud (Amazon EC2) The following command shows how to find service metadata for Amazon EC2. `aws pricing describe-services --region us-east-1 --service-code AmazonEC2` **Response** `{ "FormatVersion": "aws_v1", "NextToken": "abcdefg123", "Services": [ { "AttributeNames": [ "productFamily", "volumeType", "engineCode", "memory" ], "ServiceCode": "AmazonEC2" } ] }` The AWS Region is the API endpoint for the Price List Query API. The endpoints aren't related to product or service attributes. For more information, see [DescribeServices](../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md "../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md") in the _AWS Billing and Cost Management API Reference_. In [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services"), you retrieved a list of attributes for an AWS service. In this step, you use these attributes to search for products. In step 3, you need the available values for these attributes. To find the values for an attribute, use the `GetAttributeValues` API operation. To call the API, specify the `AttributeName` and `ServiceCode` parameters. ### Example: Get attribute values The following AWS Command Line Interface (AWS CLI) command shows how to get attribute values for an AWS service. ###### Example: Find attribute values for Amazon Relational Database Service (Amazon RDS) `aws pricing get-attribute-values --service-code AmazonRDS --attribute-name operation --region us-east-1` **Response** `{ "AttributeValues": [ { "Value": "CreateDBInstance:0002" }, { "Value": "CreateDBInstance:0003" }, { "Value": "CreateDBInstance:0004" }, { "Value": "CreateDBInstance:0005" } ], "NextToken": "abcdefg123" }` The AWS Region is the API endpoint for the Price List Query API. The endpoints aren't related to product or service attributes. For more information, see [GetAttributeValues](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso") in the _AWS Billing and Cost Management API Reference_. In this step, you use the information from [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services") and [step 2](#price-list-query-api-find-attributes "#price-list-query-api-find-attributes") to find the products and their terms. To get information about products, use the `GetProducts` API operation. You can specify a list of filters to return the products that you want. ###### Note The Price List Query API supports only `"AND"` matching. The response to your command only contains products that match all specified filters. ### Examples: Find products from attributes The following AWS Command Line Interface (AWS CLI) commands show how to find products by using attributes. ###### Example: Find products with specified filters The following command shows how you can specify filters for Amazon Relational Database Service (Amazon RDS). `aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters Type=TERM_MATCH,Field=operation,Value="CreateDBInstance:0002"` **Response** `{ "FormatVersion": "aws_v1", "PriceList": ["{ \"product\":{ \"productFamily\":\"Database Instance\", \"attributes\":{ \"engineCode\":\"2\", \"enhancedNetworkingSupported\":\"Yes\", \"memory\":\"64 GiB\", \"dedicatedEbsThroughput\":\"2000 Mbps\", \"vcpu\":\"16\", \"locationType\":\"AWS Region\", \"storage\":\"EBS Only\", \"instanceFamily\":\"General purpose\", \"regionCode\":\"us-east-1\", \"operation\":\"CreateDBInstance:0002\", ... }, \"sku\":\"22ANV4NNQP3UUCWY\"}, \"serviceCode\":\"AmazonRDS\", \"terms\":{...}" ], "NextToken": "abcd1234" }` ###### Example: Use the `filters.json` file to specify filters The following command shows how you can specify a JSON file that contains all filters. `aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters file://filters.json` For example, the `filters.json` file might include the following filters. `[ { "Type": "TERM_MATCH", "Field": "operation", "Value": "CreateDBInstance:0002" } ]` The following example shows how you can specify more than one filter. `[ { "Type": "TERM_MATCH", "Field": "AttributeName1", "Value": "AttributeValue1" }, { "Type": "TERM_MATCH", "Field": "AttributeName2", "Value": "AttributeValue2" }, ... ]` **Response** `{ "FormatVersion": "aws_v1", "PriceList": ["{ \"product\":{ \"productFamily\":\"Database Instance\", \"attributes\":{ \"engineCode\":\"2\", \"enhancedNetworkingSupported\":\"Yes\", \"memory\":\"64 GiB\", \"dedicatedEbsThroughput\":\"2000 Mbps\", \"vcpu\":\"16\", \"locationType\":\"AWS Region\", \"storage\":\"EBS Only\", \"instanceFamily\":\"General purpose\", \"regionCode\":\"us-east-1\", \"operation\":\"CreateDBInstance:0002\", ... }, \"sku\":\"22ANV4NNQP3UUCWY\"}, \"serviceCode\":\"AmazonRDS\", \"terms\":{...}" ], "NextToken": "abcd1234" }` For more information, see the following topics: <br>• [GetProducts](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso") in the _AWS Billing and Cost Management API Reference_ <br>• [Reading the service price list files](reading-service-price-list-files.md "reading-service-price-list-files.md") <br>• [Finding prices in the service price list file](finding-prices-in-service-price-list-files.md "finding-prices-in-service-price-list-files.md") |
+|                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
+
+We recommend that you use the Price List Query API when you want to:
+
+- Find pricing information about a product.
+- Search for products and rates that match your filters.
+- Quickly find products and prices that you need when you're developing applications
+  that have limited resources, such as front-end environments.
+  To find AWS services, their products, and the product attributes and prices, see the
+  following steps.
+
+Once you find the service, you can then get its attributes by using the
+`DescribeServices` API operation. If you know the service code, you
+can also use the AWS Price List Query API to get attributes for a service. Then, you
+can use the service attributes to find the products that meet your requirements
+based on the attribute values.
+
+### Examples: Find
+
+services
+
+The following AWS Command Line Interface (AWS CLI) commands show how to find services.
+
+###### Example: Find all services
+
+```
+aws pricing describe-services --region us-east-1
+```
+
+**Response**
+
+```
+{
+    "FormatVersion": "aws_v1",
+    "NextToken": "abcdefg123",
+    "Services": [
+        {
+            "AttributeNames": [
+                "volumeType",
+                "maxIopsvolume",
+                "instanceCapacity10xlarge",
+                "locationType",
+                "operation"
+            ],
+            "ServiceCode": "AmazonEC2"
+        },
+        {
+            "AttributeNames": [
+                "productFamily",
+                "volumeType",
+                "engineCode",
+                "memory"
+            ],
+            "ServiceCode": "AmazonRDS"
+        },
+        {...}
+    ]
+}
+```
+
+###### Example: Find service metadata for Amazon Elastic Compute Cloud (Amazon EC2)
+
+The following command shows how to find service metadata for Amazon EC2.
+
+```
+aws pricing describe-services --region us-east-1 --service-code AmazonEC2
+```
+
+**Response**
+
+```
+{
+    "FormatVersion": "aws_v1",
+    "NextToken": "abcdefg123",
+    "Services": [
+        {
+            "AttributeNames": [
+                "productFamily",
+                "volumeType",
+                "engineCode",
+                "memory"
+            ],
+            "ServiceCode": "AmazonEC2"
+        }
+    ]
+}
+```
+
+The AWS Region is the API endpoint for the Price List Query API. The endpoints
+aren't related to product or service attributes.
+
+For more information, see [DescribeServices](../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md "../../../aws-cost-management/latest/APIReference/API_pricing_DescribeServices.md") in the
+_AWS Billing and Cost Management API Reference_.
+
+In [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services"), you retrieved
+a list of attributes for an AWS service. In this step, you use these attributes to
+search for products. In step 3, you need the available values for these
+attributes.
+
+To find the values for an attribute, use the `GetAttributeValues` API
+operation. To call the API, specify the `AttributeName` and
+`ServiceCode` parameters.
+
+### Example: Get attribute
+
+values
+
+The following AWS Command Line Interface (AWS CLI) command shows how to get attribute values for
+an AWS service.
+
+###### Example: Find attribute values for Amazon Relational Database Service (Amazon RDS)
+
+```
+aws pricing get-attribute-values --service-code AmazonRDS --attribute-name operation --region us-east-1
+```
+
+**Response**
+
+```
+{
+    "AttributeValues": [
+        {
+            "Value": "CreateDBInstance:0002"
+        },
+        {
+            "Value": "CreateDBInstance:0003"
+        },
+        {
+            "Value": "CreateDBInstance:0004"
+        },
+        {
+            "Value": "CreateDBInstance:0005"
+        }
+    ],
+    "NextToken": "abcdefg123"
+}
+```
+
+The AWS Region is the API endpoint for the Price List Query API. The endpoints
+aren't related to product or service attributes.
+
+For more information, see [GetAttributeValues](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.md#API_pricing_GetAttributeValues_SeeAlso") in the
+_AWS Billing and Cost Management API Reference_.
+
+In this step, you use the information from [step 1](#price-list-query-api-find-services "#price-list-query-api-find-services") and [step 2](#price-list-query-api-find-attributes "#price-list-query-api-find-attributes") to find the
+products and their terms. To get information about products, use the
+`GetProducts` API operation. You can specify a list of filters to
+return the products that you want.
+
+###### Note
+
+The Price List Query API supports only `"AND"` matching. The response
+to your command only contains products that match all specified filters.
+
+### Examples: Find products from attributes
+
+The following AWS Command Line Interface (AWS CLI) commands show how to find products by using
+attributes.
+
+###### Example: Find products with specified filters
+
+The following command shows how you can specify filters for Amazon Relational Database Service
+(Amazon RDS).
+
+```
+aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters Type=TERM_MATCH,Field=operation,Value="CreateDBInstance:0002"
+```
+
+**Response**
+
+```
+{
+    "FormatVersion": "aws_v1",
+    "PriceList": ["{
+        \"product\":{
+            \"productFamily\":\"Database Instance\",
+            \"attributes\":{
+                \"engineCode\":\"2\",
+                \"enhancedNetworkingSupported\":\"Yes\",
+                \"memory\":\"64 GiB\",
+                \"dedicatedEbsThroughput\":\"2000 Mbps\",
+                \"vcpu\":\"16\",
+                \"locationType\":\"AWS Region\",
+                \"storage\":\"EBS Only\",
+                \"instanceFamily\":\"General purpose\",
+                \"regionCode\":\"us-east-1\",
+                \"operation\":\"CreateDBInstance:0002\",
+                ...
+            },
+            \"sku\":\"22ANV4NNQP3UUCWY\"},
+            \"serviceCode\":\"AmazonRDS\",
+            \"terms\":{...}"
+    ],
+    "NextToken": "abcd1234"
+}
+```
+
+###### Example: Use the `filters.json` file to specify
+
+filters
+
+The following command shows how you can specify a JSON file that contains
+all filters.
+
+```
+aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters file://filters.json
+```
+
+For example, the `filters.json` file might include the
+following filters.
+
+```
+[
+  {
+    "Type": "TERM_MATCH",
+    "Field": "operation",
+    "Value": "CreateDBInstance:0002"
+  }
+]
+```
+
+The following example shows how you can specify more than one
+filter.
+
+```
+[
+  {
+    "Type": "TERM_MATCH",
+    "Field": "AttributeName1",
+    "Value": "AttributeValue1"
+  },
+  {
+    "Type": "TERM_MATCH",
+    "Field": "AttributeName2",
+    "Value": "AttributeValue2"
+  },
+  ...
+]
+```
+
+**Response**
+
+```
+{
+    "FormatVersion": "aws_v1",
+    "PriceList": ["{
+        \"product\":{
+            \"productFamily\":\"Database Instance\",
+            \"attributes\":{
+                \"engineCode\":\"2\",
+                \"enhancedNetworkingSupported\":\"Yes\",
+                \"memory\":\"64 GiB\",
+                \"dedicatedEbsThroughput\":\"2000 Mbps\",
+                \"vcpu\":\"16\",
+                \"locationType\":\"AWS Region\",
+                \"storage\":\"EBS Only\",
+                \"instanceFamily\":\"General purpose\",
+                \"regionCode\":\"us-east-1\",
+                \"operation\":\"CreateDBInstance:0002\",
+                ...
+            },
+            \"sku\":\"22ANV4NNQP3UUCWY\"},
+            \"serviceCode\":\"AmazonRDS\",
+            \"terms\":{...}"
+    ],
+    "NextToken": "abcd1234"
+}
+```
+
+For more information, see the following topics:
+
+- [GetProducts](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso") in the
+  _AWS Billing and Cost Management API Reference_
+- [Reading the service price list files](reading-service-price-list-files.md "reading-service-price-list-files.md")
+- [Finding prices in the service
+  price list file](finding-prices-in-service-price-list-files.md "finding-prices-in-service-price-list-files.md")

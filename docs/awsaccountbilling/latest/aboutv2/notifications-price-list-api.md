@@ -1,5 +1,264 @@
 # Setting up price update notifications
 
-|                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:** This survey is in English only. | Price list files can change anytime. When the price list files are updated, an Amazon Simple Notification Service (Amazon SNS) notification is sent. You can set up to receive notifications when prices change, such as when AWS lowers prices, or when new products and services are launched. You can get notified every time a price changes or only once a day. If you choose to be notified once a day, the notification includes all price changes applied during the previous day. We recommend that you set up notifications and get the latest files when they change. ###### Contents <br>• [Set up Amazon SNS notifications](notifications-price-list-api.md#set-up-sns-notifications-price-changes "notifications-price-list-api.md#set-up-sns-notifications-price-changes") <br>• [Notification structure for AWS services](notifications-price-list-api.md#notification-structure-for-aws-services "notifications-price-list-api.md#notification-structure-for-aws-services") <br>• [Notification structure for Savings Plans](notifications-price-list-api.md#notification-structures-for-aws-savings-plans "notifications-price-list-api.md#notification-structures-for-aws-savings-plans") ## Set up Amazon SNS notifications You can use the AWS Management Console to sign up for Amazon SNS notifications. ###### To set up Amazon SNS notifications for price list file updates 1. Sign in to the AWS Management Console and open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home"). 2. If you're new to Amazon SNS, choose **Get Started**. 3. If necessary, change the AWS Region on the navigation bar to **US East (N. Virginia)**. 4. On the navigation pane, choose **Subscriptions**. 5. Choose **Create subscription**. 6. For **Topic ARN**, enter the following as needed: <br>• For service pricing: + To get notified every time a price changes, enter: `arn:aws:sns:us-east-1:278350005181:price-list-api` + To get notified about price changes once a day, enter: `arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api` <br>• For Savings Plans prices, enter: `arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications` 7. For **Protocol**, use the default `HTTP` setting. 8. For **Endpoint**, specify the format that you want to receive the notification, such as Amazon Simple Queue Service (Amazon SQS), AWS Lambda, or email. 9. Choose **Create subscription**. When a price changes, you will receive a notification from your preferred format that you specified in step 8. ###### Important If you get an error message **`Couldn't create subscription. Error code: InvalidParameter - Error message: Invalid parameter: TopicArn`**, it's likely that you're not using the US East (N. Virginia) Region. The billing metric data is stored in this Region, even for resources in other Regions. Return to step 3 and complete the rest of this procedure. ## Notification structure for AWS services The pricing update notification has a subject line in the following format. ``[Pricing Update] New `<serviceCode>` offer file available.`` ###### Example: Subject line A price update notification for Amazon Relational Database Service (Amazon RDS) looks like the following. `[Pricing Update] New AmazonRDS offer file available.` ###### Example: Notification message If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the structure of the pricing update notification message body looks like the following. ``{ "formatVersion":"v1.0", "offerCode":"`<serviceCode>`", "version":"`<Version number of this new price list>`", "timeStamp":"`<Publish date of this new price list>`", "url":{ "JSON":"`<JSON URL of the current version price list>`", "CSV":"`<CSV URL of the current version price list>`" }, "regionIndex":"<Region index url of the current version price list>", "operation":"Publish" }`` For example, the notification message for Amazon RDS looks like the following. `{ "formatVersion":"v1.0", "offerCode":"AmazonRDS", "version":"20230328234721", "timeStamp":"2023-03-28T23:47:21Z", "url":{ "JSON":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.json", "CSV":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.csv" }, "regionIndex":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/region_index.json", "operation":"Publish" }` ###### Example: Email notification If you subscribed to email, the structure of the pricing update email message body looks like the following. `Hello, You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:278350005181:price-list-api. We've published a new version of the offer file for Service <serviceCode>. To download the offer file, use the following URLs: <br>• JSON format : <JSON URL of the current version price list> <br>• CSV format : <CSV URL url of the current version price list> To download the index for the region-specific offer files, use the following URL: <br>• RegionIndexUrl : <Region index URL of the current version price list> To get a daily email that shows all price changes made the previous day, subscribe to the following SNS topic: arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api. To learn more about offer files and index files, see  http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html. Thank You, Amazon Web Services Team` An example email message for Amazon RDS looks like the following. `Hello, You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:278350005181:price-list-api. We've published a new version of the offer file for Service AmazonRDS. To download the offer file, use the following URLs: <br>• JSON format : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.json <br>• CSV format : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.csv To download the index for the region-specific offer files, use the following URL: <br>• RegionIndexUrl : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/region_index.json To get a daily email that shows all price changes made the previous day, subscribe to the following SNS topic: arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api. To learn more about offer files and index files, see  http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html. Thank You, Amazon Web Services Team` ## Notification structure for Savings Plans The pricing update notification has a subject line in the following format. ``[Pricing Update] New `<Savings Plan name>` is available.`` ###### Example: Subject line for Savings Plan A subject line for Savings Plan looks like the following. `[Pricing Update] New AWS Compute Savings Plan is available.` ###### Example: Notification message If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the structure of the pricing update notification message body looks like the following, ``{ "version":"<Version number of this new price list>", "offerCode":"<savingsPlanCode which can be used as input to API calls>", "savingsPlanCode":"`<savingsPlan Name>`", "topicArn":"arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications", "versionIndex":"`<version index url of the version price list>`", "regionIndex":"`<Region index URL of the version price list>`" }`` For example, a notification for `ComputeSavingsPlans` looks like the following. `{ "version":"20230509202901", "offerCode":"AWSComputeSavingsPlan", "savingsPlanCode":"ComputeSavingsPlans", "topicArn":"arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications", "versionIndex":"https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/index.json", "regionIndex":"https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/region_index.json" }` ###### Example: Email notification If you subscribed to email, the structure of the pricing update email body looks like the following. `Hello, You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications. We've published a new version of <Savings Plan name>. To download the index of current region specific savings plans, use the following URL: <br>• <Region index URL of the version price list> To download the index of previous versions of savings plans, use the following URL: <br>• <version index URL of the version price list> To learn more about Savings Plans, see http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html. To learn about finding Savings Plan prices in an offer file, see https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/sp-offer-file.html Thank You, Amazon Web Services Team` For example, an email body for Savings Plan looks like the following. `Hello, You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications. We've published a new version of Compute Savings Plans. To download the index of current region specific savings plans, use the following URL: <br>• https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/region_index.json To download the index of previous versions of savings plans, use the following URL: <br>• https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/index.json To learn more about savings plans, see http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html. To learn about finding Savings Plan prices in an offer file, see https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/sp-offer-file.html Thank You, Amazon Web Services Team` |
+|                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
+
+Price list files can change anytime. When the price list files are updated, an Amazon Simple Notification Service
+(Amazon SNS) notification is sent. You can set up to receive notifications when prices change,
+such as when AWS lowers prices, or when new products and services are launched.
+
+You can get notified every time a price changes or only once a day. If you choose to be
+notified once a day, the notification includes all price changes applied during the previous
+day. We recommend that you set up notifications and get the latest files when they
+change.
+
+###### Contents
+
+- [Set up Amazon SNS
+  notifications](notifications-price-list-api.md#set-up-sns-notifications-price-changes "notifications-price-list-api.md#set-up-sns-notifications-price-changes")
+- [Notification structure for
+  AWS services](notifications-price-list-api.md#notification-structure-for-aws-services "notifications-price-list-api.md#notification-structure-for-aws-services")
+- [Notification structure
+  for Savings Plans](notifications-price-list-api.md#notification-structures-for-aws-savings-plans "notifications-price-list-api.md#notification-structures-for-aws-savings-plans")
+
+## Set up Amazon SNS
+
+notifications
+
+You can use the AWS Management Console to sign up for Amazon SNS notifications.
+
+###### To set up Amazon SNS notifications for price list file updates
+
+1. Sign in to the AWS Management Console and open the Amazon SNS console at
+   [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+2. If you're new to Amazon SNS, choose **Get Started**.
+3. If necessary, change the AWS Region on the navigation bar to
+   **US East (N. Virginia)**.
+4. On the navigation pane, choose **Subscriptions**.
+5. Choose **Create subscription**.
+6. For **Topic ARN**, enter the following as needed:
+   - For service pricing:
+     - To get notified every time a price changes,
+       enter:
+       `arn:aws:sns:us-east-1:278350005181:price-list-api`
+     - To get notified about price changes once a
+       day, enter:
+       `arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api`
+
+   - For Savings Plans prices, enter:
+     `arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications`
+
+7. For **Protocol**, use the default `HTTP`
+   setting.
+8. For **Endpoint**, specify the format that you want to receive
+   the notification, such as Amazon Simple Queue Service (Amazon SQS), AWS Lambda, or email.
+9. Choose **Create subscription**.
+
+When a price changes, you will receive a notification from your preferred
+format that you specified in step 8.
+
+###### Important
+
+If you get an error message **`Couldn't create subscription. Error code:
+ InvalidParameter - Error message: Invalid parameter: TopicArn`**, it's
+likely that you're not using the US East (N. Virginia) Region. The billing metric data is stored
+in this Region, even for resources in other Regions. Return to step 3 and complete
+the rest of this procedure.
+
+## Notification structure for
+
+AWS services
+
+The pricing update notification has a subject line in the following format.
+
+```
+[Pricing Update] New `<serviceCode>` offer file available.
+```
+
+###### Example: Subject line
+
+A price update notification for Amazon Relational Database Service (Amazon RDS) looks like the following.
+
+```
+[Pricing Update] New AmazonRDS offer file available.
+```
+
+###### Example: Notification message
+
+If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the
+structure of the pricing update notification message body looks like the
+following.
+
+```
+{
+    "formatVersion":"v1.0",
+    "offerCode":"`<serviceCode>`",
+    "version":"`<Version number of this new price list>`",
+    "timeStamp":"`<Publish date of this new price list>`",
+    "url":{
+        "JSON":"`<JSON URL of the current version price list>`",
+        "CSV":"`<CSV URL of the current version price list>`"
+    },
+    "regionIndex":"<Region index url of the current version price list>",
+    "operation":"Publish"
+}
+```
+
+For example, the notification message for Amazon RDS looks like the following.
+
+```
+{
+    "formatVersion":"v1.0",
+    "offerCode":"AmazonRDS",
+    "version":"20230328234721",
+    "timeStamp":"2023-03-28T23:47:21Z",
+    "url":{
+        "JSON":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.json",
+        "CSV":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.csv"
+    },
+    "regionIndex":"https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/region_index.json",
+    "operation":"Publish"
+}
+```
+
+###### Example: Email notification
+
+If you subscribed to email, the structure of the pricing update email message body
+looks like the following.
+
+```
+Hello,
+You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:278350005181:price-list-api.
+
+We've published a new version of the offer file for Service <serviceCode>. To download the offer file, use the following URLs:
+  - JSON format : <JSON URL of the current version price list>
+  - CSV format : <CSV URL url of the current version price list>
+
+To download the index for the region-specific offer files, use the following URL:
+   - RegionIndexUrl : <Region index URL of the current version price list>
+
+To get a daily email that shows all price changes made the previous day, subscribe to the following SNS topic: arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api.
+
+To learn more about offer files and index files, see  http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html.
+
+Thank You,
+Amazon Web Services Team
+```
+
+An example email message for Amazon RDS looks like the following.
+
+```
+Hello,
+You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:278350005181:price-list-api.
+
+We've published a new version of the offer file for Service AmazonRDS. To download the offer file, use the following URLs:
+  - JSON format : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.json
+  - CSV format : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/index.csv
+
+To download the index for the region-specific offer files, use the following URL:
+   - RegionIndexUrl : https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/current/region_index.json
+
+To get a daily email that shows all price changes made the previous day, subscribe to the following SNS topic: arn:aws:sns:us-east-1:278350005181:daily-aggregated-price-list-api.
+
+To learn more about offer files and index files, see  http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html.
+
+Thank You,
+Amazon Web Services Team
+```
+
+## Notification structure
+
+for Savings Plans
+
+The pricing update notification has a subject line in the following format.
+
+```
+[Pricing Update] New `<Savings Plan name>` is available.
+```
+
+###### Example: Subject line for Savings Plan
+
+A subject line for Savings Plan looks like the following.
+
+```
+[Pricing Update] New AWS Compute Savings Plan is available.
+```
+
+###### Example: Notification message
+
+If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the
+structure of the pricing update notification message body looks like the
+following,
+
+```
+{
+  "version":"<Version number of this new price list>",
+  "offerCode":"<savingsPlanCode which can be used as input to API calls>",
+  "savingsPlanCode":"`<savingsPlan Name>`",
+  "topicArn":"arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications",
+  "versionIndex":"`<version index url of the version price list>`",
+  "regionIndex":"`<Region index URL of the version price list>`"
+}
+```
+
+For example, a notification for `ComputeSavingsPlans` looks like the
+following.
+
+```
+{
+  "version":"20230509202901",
+  "offerCode":"AWSComputeSavingsPlan",
+  "savingsPlanCode":"ComputeSavingsPlans",
+  "topicArn":"arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications",
+  "versionIndex":"https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/index.json",
+  "regionIndex":"https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/region_index.json"
+}
+```
+
+###### Example: Email notification
+
+If you subscribed to email, the structure of the pricing update email body looks
+like the following.
+
+```
+Hello,
+
+You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications.
+
+We've published a new version of <Savings Plan name>.
+
+To download the index of current region specific savings plans, use the following URL:
+  - <Region index URL of the version price list>
+
+To download the index of previous versions of savings plans, use the following URL:
+  - <version index URL of the version price list>
+
+To learn more about Savings Plans, see http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html.
+To learn about finding Savings Plan prices in an offer file, see https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/sp-offer-file.html
+
+Thank You,
+Amazon Web Services Team
+```
+
+For example, an email body for Savings Plan looks like the following.
+
+```
+Hello,
+
+You've received this notification because you subscribed to receiving updates from SNS topic arn:aws:sns:us-east-1:626627529009:SavingsPlanPublishNotifications.
+
+We've published a new version of Compute Savings Plans.
+
+To download the index of current region specific savings plans, use the following URL:
+  - https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/region_index.json
+
+To download the index of previous versions of savings plans, use the following URL:
+  - https://pricing.us-east-1.amazonaws.com/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20230509202901/index.json
+
+To learn more about savings plans, see http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html.
+To learn about finding Savings Plan prices in an offer file, see https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/sp-offer-file.html
+
+Thank You,
+Amazon Web Services Team
+```

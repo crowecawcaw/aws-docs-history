@@ -1,5 +1,27 @@
 # Reading the service price list files
 
-|                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:** This survey is in English only. | The service price list file lists the products and prices for a single AWS service or Savings Plan in _all AWS Regions_ or a single AWS service or Savings Plan in a _specific Region_. Service price list files are available in CSV or JSON format. To read the file, you can use a spreadsheet program to read and sort the CSV file or an application that parses the JSON file. ###### Note In the CSV file, the product and pricing details are combined into one section. In the JSON file, the product details and pricing details are in separate sections. ###### Topics <br>• [Reading the service price list file for an AWS service](reading-service-price-list-file-for-services.md "reading-service-price-list-file-for-services.md") <br>• [Reading the service price list file for a Savings Plan](reading-service-price-list-file-for-savings-plans.md "reading-service-price-list-file-for-savings-plans.md") |
+|                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
+
+The service price list file lists the products and prices for a single AWS service
+or Savings Plan in _all AWS Regions_ or a single AWS service or
+Savings Plan in a _specific Region_.
+
+Service price list files are available in CSV or JSON format.
+
+To read the file, you can use a spreadsheet program to read and sort the CSV file or
+an application that parses the JSON file.
+
+###### Note
+
+In the CSV file, the product and pricing details are combined into one section. In
+the JSON file, the product details and pricing details are in separate
+sections.
+
+###### Topics
+
+- [Reading the service
+  price list file for an AWS service](reading-service-price-list-file-for-services.md "reading-service-price-list-file-for-services.md")
+- [Reading the
+  service price list file for a Savings Plan](reading-service-price-list-file-for-savings-plans.md "reading-service-price-list-file-for-savings-plans.md")

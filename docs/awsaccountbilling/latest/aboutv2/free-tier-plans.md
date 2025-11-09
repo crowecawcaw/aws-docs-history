@@ -64,11 +64,11 @@ AWS services. The trials include monthly free tier usage limits for
 specified duration. To learn more about services with short-term trials, see
 [AWS Free Tier](https://aws.amazon.com/free "https://aws.amazon.com/free").
 
-| Free Tier account plan comparison table                                                     | Free plan                                                                                                               | Paid plan |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------- |
-| Receive USD $100 sign up credit and earn up to $100 in additional credits                   | Receive USD $100 sign up credit and earn up to $100 in additional credits                                               |
-| Access to [Always free](https://aws.amazon.com/free "https://aws.amazon.com/free") services | Access to [Always free](https://aws.amazon.com/free "https://aws.amazon.com/free") services and short-term trial offers |
-| Access to select AWS services and features                                                  | Access to all AWS services and features                                                                                 |
-| No charges incur during usage                                                               | Pay for charges that exceed the credit balance                                                                          |
-| Account closes when credits are depleted or when the plan duration ends                     | Account doesn't close when credits are depleted                                                                         |
-| Not eligible for other promotional credits and discounts                                    | Eligible for other promotional credits and discounts                                                                    |
+| Free Tier account plan comparison table                                                        | Free plan                                                                                                                  | Paid plan |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Receive USD $100 sign up credit and earn up to $100 in additional<br>credits                   | Receive USD $100 sign up credit and earn up to $100 in additional<br>credits                                               |
+| Access to [Always free](https://aws.amazon.com/free "https://aws.amazon.com/free")<br>services | Access to [Always free](https://aws.amazon.com/free "https://aws.amazon.com/free")<br>services and short-term trial offers |
+| Access to select AWS services and features                                                     | Access to all AWS services and features                                                                                    |
+| No charges incur during usage                                                                  | Pay for charges that exceed the credit balance                                                                             |
+| Account closes when credits are depleted or when the plan duration<br>ends                     | Account doesn't close when credits are depleted                                                                            |
+| Not eligible for other promotional credits and discounts                                       | Eligible for other promotional credits and discounts                                                                       |

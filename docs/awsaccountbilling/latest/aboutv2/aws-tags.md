@@ -74,7 +74,7 @@ The `createdBy` tag is applied only to the following services and resources
 after the following events.
 
 | AWS Product                                     | API or Console Event                  | Resource Type          |
-| ----------------------------------------------- | ------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------- | ------------------------------------- | ---------------------- |
 | AWS CloudFormation (AWS CloudFormation)         | `CreateStack`                         | Stack                  |
 | AWS Data Pipeline (AWS Data Pipeline)           | `CreatePipeline`                      | Pipeline               |
 | Amazon Elastic Compute Cloud (Amazon EC2)       | `CreateCustomerGateway`               | Customer gateway       |
@@ -117,4 +117,29 @@ after the following events.
 | Amazon Route 53 (Route 53)                      | `CreateHealthCheck`                   | HealthCheck            |
 |                                                 | `CreatedHostedZone`                   | HostedZone             |
 | Amazon Simple Storage Service (Amazon S3)       | `CreateBucket`                        | Bucket                 |
-| AWS Storage Gateway (Storage Gateway)           | `ActivateGateway`                     | Gateway                | ###### Note The `CreateDBSnapshot` tag isn't applied to the snapshot backup storage. ## AWS Marketplace vendor-provided tags Certain AWS Marketplace vendors can create tags and associate them with your software usage. These tags will have the prefix `aws:marketplace:isv:`. To use the tags, a management account owner must activate the tag in the Billing and Cost Management console. When a management account owner activates the tag, the tag is also activated for all member accounts. Similar to `aws:createdBy` tags, these tags appear only in the Billing and Cost Management console and they don't count towards your tags per resource quota. You can find the tag keys that apply to the product on the [AWS Marketplace](https://aws.amazon.com/marketplace/ "https://aws.amazon.com/marketplace/") product pages. ## Restrictions on AWS-generated tags cost allocation tags The following restrictions apply to the AWS-generated tags: <br>• Only a management account can activate AWS-generated tags. <br>• You can't update, edit, or delete AWS-generated tags. <br>• The maximum active tag keys for Billing and Cost Management reports is 500. <br>• AWS-generated tags are created using CloudTrail logs. CloudTrail logs over a certain size cause AWS-generated tag creation to fail. <br>• The reserved prefix is `aws:`. AWS-generated tag names and values are automatically assigned the `aws:` prefix, which you can't assign. AWS-generated tag names don't count towards the user-defined resource tag quota of 50. User-defined tag names have the prefix `user:` in the cost allocation report. <br>• Null tag values will not appear in Cost Explorer and AWS Budgets. If there is only one tag value that is also null, the tag key will also not appear in Cost Explorer or AWS Budgets. |
+| AWS Storage Gateway (Storage Gateway)           | `ActivateGateway`                     | Gateway                |
+
+###### Note
+
+The `CreateDBSnapshot` tag isn't applied to the snapshot backup
+storage.
+
+## AWS Marketplace vendor-provided tags
+
+Certain AWS Marketplace vendors can create tags and associate them with your software usage. These tags will have the prefix `aws:marketplace:isv:`. To use the tags, a management account owner must activate the tag in the Billing and Cost Management console. When a management account owner activates the tag, the tag is also activated for all member accounts. Similar to `aws:createdBy` tags, these tags appear only in the Billing and Cost Management console and they don't count towards your tags per resource quota. You can find the tag keys that apply to the product on the [AWS Marketplace](https://aws.amazon.com/marketplace/ "https://aws.amazon.com/marketplace/") product pages.
+
+## Restrictions on AWS-generated tags cost allocation tags
+
+The following restrictions apply to the AWS-generated tags:
+
+- Only a management account can activate AWS-generated tags.
+- You can't update, edit, or delete AWS-generated tags.
+- The maximum active tag keys for Billing and Cost Management reports is 500.
+- AWS-generated tags are created using CloudTrail logs. CloudTrail logs over a certain
+  size cause AWS-generated tag creation to
+  fail.
+- The reserved prefix is `aws:`.
+
+AWS-generated tag names and values are automatically assigned the `aws:` prefix, which you can't assign. AWS-generated tag names don't count towards the user-defined resource tag quota of 50. User-defined tag names have the prefix `user:` in the cost allocation report.
+
+- Null tag values will not appear in Cost Explorer and AWS Budgets. If there is only one tag value that is also null, the tag key will also not appear in Cost Explorer or AWS Budgets.

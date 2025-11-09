@@ -1,8 +1,101 @@
 # Reading the price list files
 
-|                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:** This survey is in English only. | Use this section to understand how to read your price list files. This covers the service index file, the service version index file, the Region index file, and the price list files for both AWS services and Savings Plans use cases. ## Reading the service index file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                                                                                                                                                                                                                                                                                      |
-| ---                                                                                                                                                                                                                                                                                  |
-| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. **Note:** This survey is in English only. | After you have the service index file, you can use it to find an service price list file. The service index file is available as a JSON file. To read the file, you can use a text application or a program that parses the JSON. The service index file has two main sections: <br>• Metadata about the service index file <br>• Either a list of the services that AWS offers (for the service index file) and a list of AWS Regions where a service is offered (for the service Region index file) The information about the service index file includes the URL where you can download the prices and a URL for the service Region index file for that service. ### Example: Service index file The service index file looks like the following. `{ "formatVersion":"The version number for the offer index format", "disclaimer":"The disclaimers for this offer index", "publicationDate":"The publication date of this offer index", "offers":{ "firstService":{ "offerCode":"The service that this price list is for", "currentVersionUrl":"The URL for this offer file", "currentRegionIndexUrl":"The URL for the regional offer index file", "savingsPlanVersionIndexUrl":"The URL for the Savings Plan index file (if applicable)" }, "secondService":{ "offerCode": ..., "currentVersionUrl": ..., "currentRegionIndexUrl": ..., "savingsPlanVersionIndexUrl":... }, ... }, }` ### Service index file definitions The following list defines the terms that are used in the service index file: **FormatVersion** An attribute that tracks which format version the service version index file is in. The `formatVersion` of the file is updated when the structure is changed. For example, the version will change from `v1` to `v2`. **Disclaimer** Any disclaimers that apply to the service version index file. **PublicationDate** The date and time in UTC format when a service version index file was published. For example, this might look like `2015-04-09T02:22:05Z` and `2015-09-10T18:21:05Z`. **Offers** A list of available service price list files. **Offers:OfferCode** A unique code for the product of an AWS service. For example, this might be `AmazonEC2` or `AmazonS3`. The `OfferCode` is used as the lookup key for the index. **Offers:CurrentVersionUrl** The URL where you can download the most up-to-date service price list file. **Offers:currentRegionIndexUrl** A list of available service price list files by Region. **Offers:savingsPlanVersionIndexUrl** The list of applicable Savings Plan offers. |
+|                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
+
+Use this section to understand how to read your price list files. This covers the service index file, the service version index file, the Region index file, and the price list files for both AWS services and Savings Plans use cases.
+
+## Reading the service index file
+
+|                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
+
+After you have the service index file, you can use it to find an service price list
+file.
+
+The service index file is available as a JSON file. To read the file, you can use a
+text application or a program that parses the JSON.
+
+The service index file has two main sections:
+
+- Metadata about the service index file
+- Either a list of the services that AWS offers (for the service index file)
+  and a list of AWS Regions where a service is offered (for the service Region index file)
+
+The information about the service index file includes the URL where you can download
+the prices and a URL for the service Region index file for that service.
+
+### Example: Service index file
+
+The service index file looks like the following.
+
+```
+{
+   "formatVersion":"The version number for the offer index format",
+   "disclaimer":"The disclaimers for this offer index",
+   "publicationDate":"The publication date of this offer index",
+   "offers":{
+      "firstService":{
+         "offerCode":"The service that this price list is for",
+         "currentVersionUrl":"The URL for this offer file",
+         "currentRegionIndexUrl":"The URL for the regional offer index file",
+         "savingsPlanVersionIndexUrl":"The URL for the Savings Plan index file (if applicable)"
+      },
+      "secondService":{
+         "offerCode": ...,
+         "currentVersionUrl": ...,
+         "currentRegionIndexUrl": ...,
+         "savingsPlanVersionIndexUrl":...
+      },
+      ...
+   },
+}
+```
+
+### Service index file definitions
+
+The following list defines the terms that are used in the service index
+file:
+
+**FormatVersion**
+
+An attribute that tracks which format version the service version index file is in. The
+`formatVersion` of the file is updated when the structure
+is changed. For example, the version will change from `v1` to
+`v2`.
+
+**Disclaimer**
+
+Any disclaimers that apply to the service version index file.
+
+**PublicationDate**
+
+The date and time in UTC format when a service version index file was published. For
+example, this might look like `2015-04-09T02:22:05Z` and
+`2015-09-10T18:21:05Z`.
+
+**Offers**
+
+A list of available service price list files.
+
+**Offers:OfferCode**
+
+A unique code for the product of an AWS service. For example, this
+might be `AmazonEC2` or `AmazonS3`. The
+`OfferCode` is used as the lookup key for the
+index.
+
+**Offers:CurrentVersionUrl**
+
+The URL where you can download the most up-to-date service
+price list file.
+
+**Offers:currentRegionIndexUrl**
+
+A list of available service price list files by Region.
+
+**Offers:savingsPlanVersionIndexUrl**
+
+The list of applicable Savings Plan offers.
