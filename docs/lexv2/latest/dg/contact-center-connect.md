@@ -30,6 +30,6 @@ _Amazon Connect administrator guide_.
   determine which contact center application is sending traffic to
   your bot.
 
-| Common request attributes for Amazon Connect | Attribute                                                         | Value |
-| -------------------------------------------- | ----------------------------------------------------------------- | ----- |
-| x-amz-lex:channels:platform                  | One of the following values: <br>• `Connect` <br>• `Connect Chat` |
+| Common request attributes for Amazon Connect | Attribute                                                       | Value |
+| -------------------------------------------- | --------------------------------------------------------------- | ----- |
+| x-amz-lex:channels:platform                  | One of the following values:<br>• `Connect`<br>• `Connect Chat` |

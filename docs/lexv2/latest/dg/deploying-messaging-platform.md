@@ -26,6 +26,6 @@ function. Use this attribute to customize the way that your bot
 behaves. For more information, see [Setting request
 attributes for your Lex V2 bot](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md").
 
-| Common request attributes for messaging platforms | Attribute                                                                  | Description |
-| ------------------------------------------------- | -------------------------------------------------------------------------- | ----------- |
-| x-amz-lex:channels:platform                       | One of the following values: <br>• `Facebook` <br>• `Slack` <br>• `Twilio` |
+| Common request attributes for messaging platforms | Attribute                                                               | Description |
+| ------------------------------------------------- | ----------------------------------------------------------------------- | ----------- |
+| x-amz-lex:channels:platform                       | One of the following values:<br>• `Facebook`<br>• `Slack`<br>• `Twilio` |

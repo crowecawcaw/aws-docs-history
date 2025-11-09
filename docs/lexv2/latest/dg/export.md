@@ -62,12 +62,13 @@ To export bots, bot locales, and custom vocabularies, the user
 running the export must have the following IAM
 permissions.
 
-| API | <br>• Required IAM actions
-| Resource |
-| --- | --- | --- |
-| [CreateExport](../APIReference/API_CreateExport.md "../APIReference/API_CreateExport.md") | <br>• CreateExport | Bot |
-| [UpdateExport](../APIReference/API_UpdateExport.md "../APIReference/API_UpdateExport.md") | <br>• UpdateExport | Bot |
-| [DescribeExport](../APIReference/API_DescribeExport.md "../APIReference/API_DescribeExport.md") | <br>• DescribeExport <br>• DescribeBot <br>• DescribeCustomVocabulary <br>• DescribeLocale <br>• DescribeIntent <br>• DescribeSlot <br>• DescribeSlotType <br>• ListLocale <br>• ListIntent <br>• ListSlot <br>• ListSlotType | Bot |
-| [DescribeExport](../APIReference/API_DescribeExport.md "../APIReference/API_DescribeExport.md") for custom vocabularies | <br>• DescribeExport <br>• DescribeCustomVocabulary | bot |
-| [DeleteExport](../APIReference/API_DeleteExport.md "../APIReference/API_DeleteExport.md") | <br>• DeleteExport | Bot |
-| [ListExports](../APIReference/API_ListExports.md "../APIReference/API_ListExports.md") | <br>• ListExports | \* | For an example IAM policy, see [Allow a user to export bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export") .
+| API                                                                                                                        | • Required IAM actions                                                                                                                                                                                          | Resource |
+| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| [CreateExport](../APIReference/API_CreateExport.md "../APIReference/API_CreateExport.md")                                  | • CreateExport                                                                                                                                                                                                  | Bot      |
+| [UpdateExport](../APIReference/API_UpdateExport.md "../APIReference/API_UpdateExport.md")                                  | • UpdateExport                                                                                                                                                                                                  | Bot      |
+| [DescribeExport](../APIReference/API_DescribeExport.md "../APIReference/API_DescribeExport.md")                            | • DescribeExport<br>• DescribeBot<br>• DescribeCustomVocabulary<br>• DescribeLocale<br>• DescribeIntent<br>• DescribeSlot<br>• DescribeSlotType<br>• ListLocale<br>• ListIntent<br>• ListSlot<br>• ListSlotType | Bot      |
+| [DescribeExport](../APIReference/API_DescribeExport.md "../APIReference/API_DescribeExport.md") for<br>custom vocabularies | • DescribeExport<br>• DescribeCustomVocabulary                                                                                                                                                                  | bot      |
+| [DeleteExport](../APIReference/API_DeleteExport.md "../APIReference/API_DeleteExport.md")                                  | • DeleteExport                                                                                                                                                                                                  | Bot      |
+| [ListExports](../APIReference/API_ListExports.md "../APIReference/API_ListExports.md")                                     | • ListExports                                                                                                                                                                                                   | \*       |
+
+For an example IAM policy, see [Allow a user to export bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export") .

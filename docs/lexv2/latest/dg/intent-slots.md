@@ -91,6 +91,62 @@ retries is exceeded. For example, for a bot for scheduling
 service for a car, you can send a message to the user when the
 vehicle identification number (VIN) is entered:
 
-|                                                                                                    |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Thank you for providing the VIN number of your car. I will now proceed to schedule an appointment. | You can create two responses: <br>• **Success response** – sent when Amazon Lex V2 understands a slot value. <br>• **Failure response** – sent when Amazon Lex V2 can't understand a slot value from the user after the maximum number of retries. You can set values, configure the next steps, and apply conditions that correspond to each response to design the conversation flow. In the absence of a condition or an explicit next step, Amazon Lex V2 moves to the next slot in priority order. ![The advanced options for slot responses.](images/response-slot.png) You can use a Lambda function to validate a slot value that a user has entered and determine what the next action should be. For example, you can use the validation function to make sure that the entered value falls in the correct range, or that is correctly formatted. To activate the Lambda function, choose the **Invoke Lambda function** checkbox and the **Active** button in the **Dialog code hook** section. You can specify an invocation label for the dialog code hook. This invocation label can be used in Lambda function to write the business logic corresponding to the slot elicitation. ![The options for dialog code hook.](images/response-dialog-code-hook.png) Slots that are not required for the intent are not part of the main conversation flow. However, if a user utterance contains a value that your bot identifies as corresponding to an optional slot, it can popluate the slot with that value. For example, if you configure a business intelligence bot to have an optional `City` slot and the user utterance `What is the sales for April in San Diego?`, the bot fills the optional slot with `San Diego`. You can configure the business logic to use the optional slot value, if present. Slots not required for the intent cannot be elicited using next steps. These steps can be populated only during intent elicitation (as in the preceding example) or can be elicited by setting the dialog state within the Lambda function. If the slot is elicited using the Lambda function, you must use the Lambda function to decide the next step in the conversation after the slot elicitation is completed. To enable support for next step while building the bot, you must mark the slot as required for the intent. ###### Note On August 17, 2022, Amazon Lex V2 released a change to the way conversations are managed with the user. This change gives you more control over the path that the user takes through the conversation. For more information, see [Changes to conversation flows in Amazon Lex V2](understanding-new-flows.md "understanding-new-flows.md"). Bots created before August 17, 2022 do not support dialog code hook messages, setting values, configuring next steps, and adding conditions. The following topics describe how to configure a bot to re-elicit a slot value that has already been filled and how to create a slot that consists of multiple values: ###### Topics <br>• [Re-eliciting slots](reelicit-slots.md "reelicit-slots.md") <br>• [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md") |
+|                                                                                                          |
+| -------------------------------------------------------------------------------------------------------- |
+| Thank you for providing the VIN<br>number of your car. I will now proceed to<br>schedule an appointment. |
+
+You can create two responses:
+
+- **Success response** –
+  sent when Amazon Lex V2 understands
+  a slot value.
+- **Failure response** –
+  sent when Amazon Lex V2 can't
+  understand a slot value from the user after the maximum
+  number of retries.
+  You can set values, configure the next steps, and apply
+  conditions that correspond to each response to design the
+  conversation flow.
+
+In the absence of a condition or an explicit next step, Amazon Lex V2
+moves to the next slot in priority order.
+
+![The advanced options for slot responses.](images/response-slot.png)
+You can use a Lambda function to validate a slot value that a user has entered and determine
+what the next action should be. For
+example, you can use the validation function to make sure that the entered value
+falls in the correct range, or that is correctly formatted. To activate the Lambda function, choose the **Invoke Lambda function** checkbox and the **Active** button in the **Dialog code hook** section.
+You can specify an invocation label for the dialog code hook. This invocation label
+can be used in Lambda function to write the business logic corresponding to the slot
+elicitation.
+
+![The options for dialog code hook.](images/response-dialog-code-hook.png)
+Slots that are not required for the intent are not part of the main conversation
+flow. However, if a user utterance contains a value that your bot identifies as corresponding to an optional slot, it can popluate the slot with that value. For example, if you configure a
+business intelligence bot to have an optional `City` slot and the user utterance `What is the sales for April in San Diego?`, the bot fills the optional slot with `San Diego`. You can configure the business logic to use the optional slot
+value, if present.
+
+Slots not required for the intent cannot be elicited using next steps. These
+steps can be populated only during intent elicitation (as in the preceding
+example) or can be elicited by setting the dialog state within the Lambda function.
+If the slot is elicited using the Lambda function, you must use the Lambda function to
+decide the next step in the conversation after the slot elicitation is completed. To
+enable support for next step while building the bot, you must mark the slot as
+required for the intent.
+
+###### Note
+
+On August 17, 2022, Amazon Lex V2 released a change to the way conversations are
+managed with the user. This change gives you more control over the path
+that the user takes through the conversation. For more information,
+see [Changes to conversation flows in Amazon Lex V2](understanding-new-flows.md "understanding-new-flows.md").
+Bots created before August 17, 2022 do not support dialog code hook messages,
+setting values, configuring next steps, and adding conditions.
+
+The following topics describe how to configure a bot to re-elicit a slot value that has already been filled and how to create a slot that consists of multiple values:
+
+###### Topics
+
+- [Re-eliciting slots](reelicit-slots.md "reelicit-slots.md")
+- [Using multiple values in a
+  slot](multi-valued-slots.md "multi-valued-slots.md")

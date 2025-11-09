@@ -74,13 +74,13 @@ transcription for each slot. You can download this report by selecting the
 
 The following table lists the result failure error messages with scenarios.
 
-| Scenario                             | Error message                                                                                 | Action                                         |
-| ------------------------------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| Intent Mismatch                      | Expected BookFlight intent but it was BookHotel intent.                                       | Skip other turns in the conversation           |
-| Slot Elicitation mismatch            | Expected departureDate slot to be elicited but it was cabinType.                              | Skip other turns in the conversation           |
-| Slot value mismatch                  | Mismatch between expected and actual slot value.                                              | Continue with other turns in the conversations |
-| Back-to-back agent prompt is missing | Expected bot to return an agent prompt in this turn but it was not received.                  | Skip other turns in the conversation           |
-| Transcription Mismatch               | Expected transcription didn't match actual transcription.                                     | Continue with other turns in the conversations |
-| Optional slot not elicited           | Expected to elicit cabinType slot in next turn, however current intent fulfilled before that. | Skip other turns in the conversation           |
-| Slot not recognized                  | Expected departureDate slot was not recognized in this turn.                                  | Skip other turns in the conversation           |
-| Extra back-to-back agent prompt      | Expected a user turn but it was agent prompt                                                  | Skip other turns in the conversation           |
+| Scenario                             | Error message                                                                                    | Action                                         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| Intent Mismatch                      | Expected BookFlight intent but it was BookHotel intent.                                          | Skip other turns in the conversation           |
+| Slot Elicitation mismatch            | Expected departureDate slot to be elicited but it was<br>cabinType.                              | Skip other turns in the conversation           |
+| Slot value mismatch                  | Mismatch between expected and actual slot value.                                                 | Continue with other turns in the conversations |
+| Back-to-back agent prompt is missing | Expected bot to return an agent prompt in this turn but it was not<br>received.                  | Skip other turns in the conversation           |
+| Transcription Mismatch               | Expected transcription didn't match actual transcription.                                        | Continue with other turns in the conversations |
+| Optional slot not elicited           | Expected to elicit cabinType slot in next turn, however current<br>intent fulfilled before that. | Skip other turns in the conversation           |
+| Slot not recognized                  | Expected departureDate slot was not recognized in this turn.                                     | Skip other turns in the conversation           |
+| Extra back-to-back agent prompt      | Expected a user turn but it was agent prompt                                                     | Skip other turns in the conversation           |

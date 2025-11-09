@@ -49,9 +49,198 @@ example:
 x-amz-lex:allow-interrupt:`<intentName>`:`<slotName>`.`<subSlotName>`
 ```
 
-| Expression          | Scenario                                                                       |
-| ------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Intent:Slot.SubSlot | Applicable to only sub slot named ‘SubSlot’ inside composite slot named ‘Slot’ |
-| Intent:Slot.\*      | Applicable to any sub slot inside composite slot named ‘Slot’                  |
-| Intent:\*.SubSlot   | Applicable to only sub slot named ‘SubSlot’ inside any composite slot          |
-| Intent:\*.\*        | Applicable to any sub slot inside any composite slot                           | ## How interrupt behavior works in a Lex V2 bot You can set up the interrupt behavior for the bot. The attribute is defined by Amazon Lex V2. Allow interrupt `` x-amz-lex:allow-interrupt:`<intentName>`:`<slotName>` `` Defines whether user can interrupt the prompt played by Amazon Lex V2 bot. You can selectively turn it off. **Default:** True ## Set the timeouts for voice input You can set time-out values for voice interaction with your bot using session attributes. The attributes are defined by Amazon Lex V2. These attributes enable you to specify how long Amazon Lex V2 waits for a customer to finish speaking before collecting input speech. All of these attributes are in the `x-amz-lex:audio` namespace. ### Maximum utterance length `` x-amz-lex:audio:max-length-ms:`<intentName>`:`<slotName>` `` Defines how long Amazon Lex V2 waits before speech input is truncated and the speech is returned to your application. You can increase the length of the input when you expect long responses, or if you want to give customers more time to provide information. **Default:** 13,000 milliseconds (13 seconds). The maximum value is 55,000 milliseconds (55 seconds) If you set the `max-length-ms` attribute to more than 55,000 milliseconds, the value will default to 55,000 milliseconds. ### Voice timeout `` x-amz-lex:audio:start-timeout-ms:`<intentName>`:`<slotName>` `` How long a bot waits before assuming that the customer isn't going to speak. You can increase the time in situations where the customer may need more time to find or recall information before speaking. For example, you might want to give customers time to get out their credit card so they can enter the number. **Default:** 4,000 milliseconds (4 seconds) ### Silence timeout `` x-amz-lex:audio:end-timeout-ms:`<intentName>`:`<slotName>` `` How long a bot waits after the customer stops speaking to assume the utterance is finished. You can increase the time in situations where periods of silence are expected while providing input. **Default:** 600 milliseconds (0.6 seconds) ### Allow audio input `` x-amz-lex:allow-audio-input:`<intentName>`:`<slotName>` `` You can enable this attribute so that the bot accepts user input only via audio modality. The bot will not accept audio input if this flag is set to false. The value is set to true by default. **Default:** True ## Timeouts for text input Use the following session attribute to specify how your bot behaves with the text conversation mode. This attribute is in the `x-amz-lex:text` namespace. ### Start timeout threshold `` x-amz-lex:text:start-timeout-ms:`<intentName>`:`<slotName>` `` How long the bot waits before re-prompting a customer for text input. You can increase the time in situations where you’d like to allow the customer more time to find or recall information before providing text input. For example, you might want to give customers more time to find details on their order. Alternatively, you may reduce the threshold to prompt customers earlier. **Default:** 30,000 milliseconds (30 seconds) ## Set configuration for DTMF input Use the following session attributes to specify how your Amazon Lex V2 bot responds to DTMF input when using an audio conversation. All of these attributes are in the `x-amz-lex:dtmf` namespace. ### Deletion character `` x-amz-lex:dtmf:deletion-character:`<intentName>`:`<slotName>` `` The DTMF character that clears the accumulated DTMF digits and immediately ends the input. **Default:** \* ### End character `` x-amz-lex:dtmf:end-character:`<intentName>`:`<slotName>` `` The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout. **Default:** # ### End timeout `` x-amz-lex:dtmf:end-timeout-ms:`<intentName>`:`<slotName>` `` How long the bot should wait from the last DTMF character input before assuming that the input has concluded. **Default:** 5000 milliseconds (5 seconds) ### Maximum number of DTMF digits per utterance `` x-amz-lex:dtmf:max-length:`<intentName>`:`<slotName>` `` The maximum number of DTMF digits allowed in an utterance. For example, you could set this value to 16 to limit the number of characters that can be input for a credit card number. This value can't be increased. **Default:** 1024 characters ### Allow DTMF input You can set the type of input that the bot can accept using session attributes. The attributes are defined by Amazon Lex V2. `` x-amz-lex:allow-dtmf-input:`<intentName>`:`<slotName>` `` You can enable this attribute so that the bot accepts user input via DTMF modality. The bot will not accept DTMF input if this flag is set to false. The value is set to true by default. **Default:** True |
+| Expression          | Scenario                                                                          |
+| ------------------- | --------------------------------------------------------------------------------- |
+| Intent:Slot.SubSlot | Applicable to only sub slot named ‘SubSlot’ inside composite slot<br>named ‘Slot’ |
+| Intent:Slot.\*      | Applicable to any sub slot inside composite slot named<br>‘Slot’                  |
+| Intent:\*.SubSlot   | Applicable to only sub slot named ‘SubSlot’ inside any composite<br>slot          |
+| Intent:\*.\*        | Applicable to any sub slot inside any composite slot                              |
+
+## How interrupt behavior works in a Lex V2 bot
+
+You can set up the interrupt behavior for the bot. The attribute is defined by
+Amazon Lex V2.
+
+Allow interrupt
+
+```
+x-amz-lex:allow-interrupt:`<intentName>`:`<slotName>`
+```
+
+Defines whether user can interrupt the prompt played by Amazon Lex V2 bot. You can
+selectively turn it off.
+
+**Default:** True
+
+## Set the timeouts for voice input
+
+You can set time-out values for voice interaction with your bot
+using session attributes. The attributes are defined by Amazon Lex V2.
+These attributes enable you to specify how long Amazon Lex V2 waits for a
+customer to finish speaking before collecting input speech.
+
+All of these attributes are in the `x-amz-lex:audio`
+namespace.
+
+### Maximum utterance length
+
+```
+x-amz-lex:audio:max-length-ms:`<intentName>`:`<slotName>`
+```
+
+Defines how long Amazon Lex V2 waits before speech input is truncated
+and the speech is returned to your application. You can increase
+the length of the input when you expect long responses, or if
+you want to give customers more time to provide
+information.
+
+**Default:** 13,000 milliseconds (13 seconds). The
+maximum value is 55,000 milliseconds (55 seconds)
+
+If you set the `max-length-ms` attribute to more
+than 55,000 milliseconds, the value will default to 55,000 milliseconds.
+
+### Voice timeout
+
+```
+x-amz-lex:audio:start-timeout-ms:`<intentName>`:`<slotName>`
+```
+
+How long a bot waits before assuming that the customer isn't
+going to speak. You can increase the time in situations where
+the customer may need more time to find or recall information
+before speaking. For example, you might want to give customers
+time to get out their credit card so they can enter the
+number.
+
+**Default:** 4,000 milliseconds
+(4 seconds)
+
+### Silence timeout
+
+```
+x-amz-lex:audio:end-timeout-ms:`<intentName>`:`<slotName>`
+```
+
+How long a bot waits after the customer stops speaking to
+assume the utterance is finished. You can increase the time in
+situations where periods of silence are expected while providing
+input.
+
+**Default:** 600 milliseconds
+(0.6 seconds)
+
+### Allow audio input
+
+```
+x-amz-lex:allow-audio-input:`<intentName>`:`<slotName>`
+```
+
+You can enable this attribute so that the bot accepts user
+input only via audio modality. The bot will not accept audio input
+if this flag is set to false. The value is set to true by default.
+
+**Default:** True
+
+## Timeouts for text input
+
+Use the following session attribute to specify how your bot
+behaves with the text conversation mode.
+
+This attribute is in the `x-amz-lex:text`
+namespace.
+
+### Start timeout
+
+threshold
+
+```
+x-amz-lex:text:start-timeout-ms:`<intentName>`:`<slotName>`
+```
+
+How long the bot waits before re-prompting a customer for text
+input. You can increase the time in situations where you’d like
+to allow the customer more time to find or recall information
+before providing text input. For example, you might want to give
+customers more time to find details on their order.
+Alternatively, you may reduce the threshold to prompt customers
+earlier.
+
+**Default:** 30,000 milliseconds
+(30 seconds)
+
+## Set configuration for DTMF
+
+input
+
+Use the following session attributes to specify how your Amazon Lex V2
+bot responds to DTMF input when using an audio conversation.
+
+All of these attributes are in the `x-amz-lex:dtmf`
+namespace.
+
+### Deletion character
+
+```
+x-amz-lex:dtmf:deletion-character:`<intentName>`:`<slotName>`
+```
+
+The DTMF character that clears the accumulated DTMF digits and
+immediately ends the input.
+
+**Default:** \*
+
+### End character
+
+```
+x-amz-lex:dtmf:end-character:`<intentName>`:`<slotName>`
+```
+
+The DTMF character that immediately ends input. If the
+user does not press this character, the input ends after
+the end timeout.
+
+**Default:** #
+
+### End timeout
+
+```
+x-amz-lex:dtmf:end-timeout-ms:`<intentName>`:`<slotName>`
+```
+
+How long the bot should wait from the last DTMF character
+input before assuming that the input has concluded.
+
+**Default:** 5000 milliseconds (5
+seconds)
+
+### Maximum number of DTMF digits per
+
+utterance
+
+```
+x-amz-lex:dtmf:max-length:`<intentName>`:`<slotName>`
+```
+
+The maximum number of DTMF digits allowed in an utterance.
+For example, you could set this value to 16 to limit the
+number of characters that can be input for a credit card number.
+This value can't be increased.
+
+**Default:** 1024
+characters
+
+### Allow DTMF input
+
+You can set the type of input that the bot can accept using
+session attributes. The attributes are defined by Amazon Lex V2.
+
+```
+x-amz-lex:allow-dtmf-input:`<intentName>`:`<slotName>`
+```
+
+You can enable this attribute so that the bot accepts user
+input via DTMF modality. The bot will not accept DTMF
+input if this flag is set to false. The value is set to true by default.
+
+**Default:** True

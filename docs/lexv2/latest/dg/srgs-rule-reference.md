@@ -7,11 +7,46 @@ reference](https://www.w3.org/TR/speech-grammar/#S2.2 "https://www.w3.org/TR/spe
 grammar specification version 1_ W3C
 recommendation.
 
-| Reference type                                                                                                                                                                                                                                                                                                                                                                                                  | XML form                                                                               | Supported |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [2.2.1](https://www.w3.org/TR/speech-grammar/#S2.2.1 "https://www.w3.org/TR/speech-grammar/#S2.2.1") Explicit local rule reference                                                                                                                                                                                                                                                                              | `<ruleref uri="#rulename"/>`                                                           | Yes       |
-| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Explicit reference to a named rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri")                                                                                                                                     | `<ruleref uri="grammarURI#rulename"/>`                                                 | **No**    |
-| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Implicit reference to the root rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri")                                                                                                                                    | `<ruleref uri="grammarURI"/>`                                                          | **No**    |
-| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Explicit reference to a named rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri") with a [media type](https://www.w3.org/TR/speech-grammar/#term-media-type "https://www.w3.org/TR/speech-grammar/#term-media-type")  | `<ruleref uri="grammarURI#rulename" type="media-type"/>`                               | **No**    |
-| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Implicit reference to the root rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri") with a [media type](https://www.w3.org/TR/speech-grammar/#term-media-type "https://www.w3.org/TR/speech-grammar/#term-media-type") | `<ruleref uri="grammarURI" type="media-type"/>`                                        | **No**    |
-| [2.2.3](https://www.w3.org/TR/speech-grammar/#S2.2.3 "https://www.w3.org/TR/speech-grammar/#S2.2.3") Special rule definitions                                                                                                                                                                                                                                                                                   | `<ruleref special="NULL"/>` `<ruleref special="VOID"/>` `<ruleref special="GARBAGE"/>` | **No**    | **Notes** 1. Grammar URI is an external URI. For example, `http://grammar.example.com/world-cities.grxml`. 2. Media type can be: <br>• `application/srgs+xml` <br>• `text/plain` **Example** `<rule id="city" scope="public"> <one-of> <item>Boston</item> <item>Philadelphia</item> <item>Fargo</item> </one-of> </rule> <rule id="state" scope="public"> <one-of> <item>FL</item> <item>MA</item> <item>NY</item> </one-of> </rule> <!-- "Boston MA" -> city = Boston, state = MA --> <rule id="city_state" scope="public"> <ruleref uri="#city"/> <ruleref uri="#state"/> </rule>` |
+| Reference type                                                                                                                                                                                                                                                                                                                                                                                                     | XML form                                                                                              | Supported |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | --------- |
+| [2.2.1](https://www.w3.org/TR/speech-grammar/#S2.2.1 "https://www.w3.org/TR/speech-grammar/#S2.2.1") Explicit local rule<br>reference                                                                                                                                                                                                                                                                              | `<ruleref<br>uri="#rulename"/>`                                                                       | Yes       |
+| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Explicit reference to a<br>named rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri")                                                                                                                                     | `<ruleref<br>uri="grammarURI#rulename"/>`                                                             | **No**    |
+| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Implicit reference to the<br>root rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri")                                                                                                                                    | `<ruleref<br>uri="grammarURI"/>`                                                                      | **No**    |
+| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Explicit reference to a<br>named rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri") with a [media type](https://www.w3.org/TR/speech-grammar/#term-media-type "https://www.w3.org/TR/speech-grammar/#term-media-type")  | `<ruleref uri="grammarURI#rulename"<br>type="media-type"/>`                                           | **No**    |
+| [2.2.2](https://www.w3.org/TR/speech-grammar/#S2.2.2 "https://www.w3.org/TR/speech-grammar/#S2.2.2") Implicit reference to the<br>root rule of a grammar identified by a [URI](https://www.w3.org/TR/speech-grammar/#term-uri "https://www.w3.org/TR/speech-grammar/#term-uri") with a [media type](https://www.w3.org/TR/speech-grammar/#term-media-type "https://www.w3.org/TR/speech-grammar/#term-media-type") | `<ruleref uri="grammarURI"<br>type="media-type"/>`                                                    | **No**    |
+| [2.2.3](https://www.w3.org/TR/speech-grammar/#S2.2.3 "https://www.w3.org/TR/speech-grammar/#S2.2.3") Special rule<br>definitions                                                                                                                                                                                                                                                                                   | `<ruleref<br>special="NULL"/>`<br>`<ruleref<br>special="VOID"/>`<br>`<ruleref<br>special="GARBAGE"/>` | **No**    |
+
+**Notes**
+
+1.  Grammar URI is an external URI. For example,
+    `http://grammar.example.com/world-cities.grxml`.
+2.  Media type can be:
+
+        * `application/srgs+xml`
+        * `text/plain`
+
+    **Example**
+
+```
+<rule id="city" scope="public">
+    <one-of>
+        <item>Boston</item>
+        <item>Philadelphia</item>
+        <item>Fargo</item>
+    </one-of>
+</rule>
+
+<rule id="state" scope="public">
+    <one-of>
+        <item>FL</item>
+        <item>MA</item>
+        <item>NY</item>
+    </one-of>
+</rule>
+
+<!-- "Boston MA" -> city = Boston, state = MA -->
+<rule id="city_state" scope="public">
+    <ruleref uri="#city"/> <ruleref uri="#state"/>
+</rule>
+
+```

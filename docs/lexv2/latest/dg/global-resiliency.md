@@ -35,6 +35,21 @@ Additional information about using Global Resiliency:
 - Global Resiliency currently only works with pre-determined pairs of regions.
 
 |           |              |
-| --------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | ------------ |
 | us-east-1 | us-west-2    |
-| eu-west-2 | eu-central-1 | <br>• When Global Resiliency is enabled for a bot, all existing aliases and their associated versions get replicated in the replica region. Versions which are not associated to an alias before enabling replication, are replicated when they are associated to an alias. Every version and alias created after enabling replication, gets automatically replicated. Users can use `ListBotVersionReplicas` and `ListBotAliasReplicas` to know the status of replication for each individual version and alias. Bot mutations are uni-directional from bot to its replica. Users cannot modify the replica bot, because it is always kept in sync with the bot. <br>• Any Alias can be associated with any version. If the version is not replicated already, it will be replicated during the association with the Alias. Limitations: <br>• Global Resiliency does not replicate bots created with slots that use LLM such as CFAQ and Utterance Generation. <br>• Global Resiliency does not replicate a Network of Bots, but any bot that is part of the Network of Bots can still be individually replicated. ###### Topics <br>• [Permissions to replicate bots and manage bot replicas in Lex V2](gr-permissions.md "gr-permissions.md") <br>• [Deploying Global Resiliency with your Lex V2 bot](navigation-gr.md "navigation-gr.md") |
+| eu-west-2 | eu-central-1 |
+
+- When Global Resiliency is enabled for a bot, all existing aliases and their associated versions get replicated in the replica region. Versions
+  which are not associated to an alias before enabling replication, are replicated when they are associated to an alias. Every version and alias created after
+  enabling replication, gets automatically replicated. Users can use `ListBotVersionReplicas` and `ListBotAliasReplicas` to know the status of replication for each
+  individual version and alias. Bot mutations are uni-directional from bot to its replica. Users cannot modify the replica bot, because it is always kept in sync with the bot.
+- Any Alias can be associated with any version. If the version is not replicated already, it will be replicated during the association with the Alias.
+  Limitations:
+
+- Global Resiliency does not replicate bots created with slots that use LLM such as CFAQ and Utterance Generation.
+- Global Resiliency does not replicate a Network of Bots, but any bot that is part of the Network of Bots can still be individually replicated.
+
+###### Topics
+
+- [Permissions to replicate bots and manage bot replicas in Lex V2](gr-permissions.md "gr-permissions.md")
+- [Deploying Global Resiliency with your Lex V2 bot](navigation-gr.md "navigation-gr.md")

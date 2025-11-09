@@ -17,6 +17,11 @@ Cloud website.
   determine which contact center application is sending traffic to
   your bot.
 
-| Common request attributes for Genesys Cloud | Attribute             | Value                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| x-amz-lex:channels:platform                 | <br>• `Genesys Cloud` | _Learn more_ <br>• [Power your contact center with Amazon Lex and Genesys Cloud](https://aws.amazon.com/blogs/machine-learning/enhancing-customer-service-experiences-using-conversational-ai-power-your-contact-center-with-amazon-lex-and-genesys-cloud/ "https://aws.amazon.com/blogs/machine-learning/enhancing-customer-service-experiences-using-conversational-ai-power-your-contact-center-with-amazon-lex-and-genesys-cloud/") |
+| Common request attributes for Genesys Cloud | Attribute         | Value |
+| ------------------------------------------- | ----------------- | ----- |
+| x-amz-lex:channels:platform                 | • `Genesys Cloud` |
+
+_Learn more_
+
+- [Power your contact center with Amazon Lex and
+  Genesys Cloud](https://aws.amazon.com/blogs/machine-learning/enhancing-customer-service-experiences-using-conversational-ai-power-your-contact-center-with-amazon-lex-and-genesys-cloud/ "https://aws.amazon.com/blogs/machine-learning/enhancing-customer-service-experiences-using-conversational-ai-power-your-contact-center-with-amazon-lex-and-genesys-cloud/")
