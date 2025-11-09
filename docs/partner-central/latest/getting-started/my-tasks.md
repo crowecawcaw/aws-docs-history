@@ -29,7 +29,25 @@ To view a summary of your tasks, refer to the **Tasks** section on the AWS Partn
 3. On the **My tasks** menu, choose a task type.
 
 | My tasks menu option | Description                                                       |
-| -------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------------- |
 | **Account tasks**    | AWS Partner Central onboarding, account setup and administration. |
 | **Solution tasks**   | Build, market, sell, and grow solutions on AWS.                   |
-| **Program tasks**    | Enroll in AWS Partner Network programs.                           | 4. On the **Tasks** page, choose the task name. 5. Complete the actions on the task details page. <br>• Some tasks, such as adding a company description, provide a form to complete. Complete the form and choose **Submit**. <br>• Some tasks, such as creating a software offering, provide a link to choose to begin task work. 6. When you have finished the task work, on the task details page, choose **Confirm**. ## Dismissing a task On a task detail page, standard users can dismiss a task. Dismissing a task removes it from your list of task assignments and sends the task back to your alliance lead for reassignment. ###### To dismiss a task 1. On the **Tasks** page, choose the task name. 2. On the task details page, choose **Dismiss task**. 3. On the **Dismiss task** dialog, enter a reason for your alliance lead to read. 4. Choose **Dismiss task**. |
+| **Program tasks**    | Enroll in AWS Partner Network programs.                           |
+
+4. On the **Tasks** page, choose the task name.
+5. Complete the actions on the task details page.
+   - Some tasks, such as adding a company description, provide a form to complete. Complete the form and choose **Submit**.
+   - Some tasks, such as creating a software offering, provide a link to choose to begin task work.
+
+6. When you have finished the task work, on the task details page, choose **Confirm**.
+
+## Dismissing a task
+
+On a task detail page, standard users can dismiss a task. Dismissing a task removes it from your list of task assignments and sends the task back to your alliance lead for reassignment.
+
+###### To dismiss a task
+
+1. On the **Tasks** page, choose the task name.
+2. On the task details page, choose **Dismiss task**.
+3. On the **Dismiss task** dialog, enter a reason for your alliance lead to read.
+4. Choose **Dismiss task**.
