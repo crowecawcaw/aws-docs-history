@@ -1,5 +1,66 @@
 # Tradeoffs
 
-| CONTAINER_BUILD_PERF_06: How do you optimize the size of your target image? |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                             | **Use caching during build** A container image is created using layers. Each statement in a Dockerfile (like `RUN` or `COPY`) creates a new layer. These layers are stored in a local image cache and can be reused in the next build. The cache can be invalidated by changing the Dockerfile, which means that all subsequent steps to build the image must be rerun. Naturally, this has a great influence on the speed the image is built. Thus, the order of the commands in your Dockerfile can have a dramatic effect on build performance. In the following example you can see the effect of the proper ordering of statements in a Dockerfile: `FROM amazonlinux:2 RUN yum update -y COPY . /app RUN yum install -y python python-pip wget CMD [ "app.py" ]` This simple container image uses `amazonlinux` with tag 2 as parent image. In the second step, the Amazon Linux distribution is updated with the latest patches. After that, the Python application is copied into the container image. Next, Python, pip, wget, and additional dependencies required by the application are installed. In the final step, we start the application. The issue with this approach is that each application change results in cache invalidation for all subsequent steps. A small change in the application results in a rerun of the Python installation, which has a negative impact on build time. An optimized version of the Dockerfile looks like this: `FROM amazonlinux:2 RUN yum update -y && yum install -y python python-pip wget COPY . /app CMD [ "app.py" ]` Now the `COPY` statement of the application is located after `yum install`. The effect of this small adaption is that a change of the application code results in fewer layer changes. In the previous version of the file, each application change results in an invalidation of the layer that installs Python and other dependencies. This had to be rerun after a code change. One additional aspect, which is covered in the optimized version of this Dockerfile, is the number of layers. Each `RUN` command creates a new layer, by combining layers it is possible to reduce the images size. **Use the CPU architecture with best price to performance ratio** AWS Graviton-based Amazon EC2 instances deliver up to 40% better price performance over comparable current generation x86-based instances for a broad spectrum of workloads. Instead of using one build-server for x86 and ARM in combination with QEMU for CPU emulation, it might be a more efficient architecture to use at least one build server per CPU architecture. For example, it is possible to create multi-architecture container images to support AWS Graviton-based Amazon EC2 instances and x86 using AWS CodeBuild and AWS CodePipeline. As described in the blog post [Creating multi-architecture Docker images to support Graviton2 using AWS CodeBuild and AWS CodePipeline](https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/ "https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/"), this approach includes three CodeBuild projects to create an x86 container image, an ARM64 container image, and a manifest list. A manifest list is a list of image layers that is created by specifying one or more (ideally more than one) image names. This approach is used to create multi-architecture container images. |
+| CONTAINER_BUILD_PERF_06: How do you optimize the size of your<br>target image? |
+| ------------------------------------------------------------------------------ |
+|                                                                                |
+
+**Use caching during
+build**
+
+A container image is created using layers. Each statement in a
+Dockerfile (like `RUN` or `COPY`) creates a new layer. These
+layers are stored in a local image cache and can be reused in
+the next build. The cache can be invalidated by changing the
+Dockerfile, which means that all subsequent steps to build the
+image must be rerun. Naturally, this has a great influence on
+the speed the image is built. Thus, the order of the commands
+in your Dockerfile can have a dramatic effect on build
+performance. In the following example you can see the effect
+of the proper ordering of statements in a Dockerfile:
+
+```
+FROM amazonlinux:2
+RUN yum update -y
+COPY . /app
+RUN yum install -y python python-pip wget
+CMD [ "app.py" ]
+```
+
+This simple container image uses `amazonlinux` with tag 2 as parent image. In the second step, the Amazon Linux distribution is updated with the latest patches. After that, the Python application is copied into the container image. Next, Python, pip, wget, and additional dependencies required by the application are installed. In the final step, we start the application. The issue with this approach is that each application change results in cache invalidation for all subsequent steps. A small change in the application results in a rerun of the Python installation, which has a negative impact on build time.
+
+An optimized version of the Dockerfile looks like this:
+
+```
+FROM amazonlinux:2
+RUN yum update -y && yum install -y python python-pip wget
+
+COPY . /app
+
+CMD [ "app.py" ]
+```
+
+Now the `COPY` statement of the application is located after `yum
+ install`. The effect of this small adaption is that a change of
+the application code results in fewer layer changes. In the
+previous version of the file, each application change results
+in an invalidation of the layer that installs Python and other
+dependencies. This had to be rerun after a code change. One
+additional aspect, which is covered in the optimized version
+of this Dockerfile, is the number of layers. Each `RUN` command
+creates a new layer, by combining layers it is possible to
+reduce the images size.
+
+**Use the CPU architecture
+with best price to performance ratio**
+
+AWS Graviton-based Amazon EC2 instances deliver up to 40% better price performance over
+comparable current generation x86-based instances for a broad spectrum of workloads.
+Instead of using one build-server for x86 and ARM in combination with QEMU for CPU
+emulation, it might be a more efficient architecture to use at least one build server per
+CPU architecture. For example, it is possible to create multi-architecture container
+images to support AWS Graviton-based Amazon EC2 instances and x86 using AWS CodeBuild and
+AWS CodePipeline. As described in the blog post [Creating multi-architecture Docker images to support Graviton2 using AWS CodeBuild and
+AWS CodePipeline](https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/ "https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/"), this approach includes three CodeBuild projects to create an x86
+container image, an ARM64 container image, and a manifest list. A manifest list is a list
+of image layers that is created by specifying one or more (ideally more than one) image
+names. This approach is used to create multi-architecture container images.

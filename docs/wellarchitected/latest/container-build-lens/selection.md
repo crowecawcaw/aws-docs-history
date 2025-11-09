@@ -1,8 +1,98 @@
 # Selection
 
-| CONTAINER_BUILD_PERF_01: How do you reduce the size of your container image?      |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                   | **Use small parent images** The OS parent image that is used to create the target images has a huge impact on the final container image size. We can see huge differences when comparing different base images: `ubuntu:20.04      72.7MB debian:10-slim    69.3MB alpine:3.14       5.6MB` We can use [Alpine](https://hub.docker.com/_/alpine "https://hub.docker.com/_/alpine") to build performant containers, but for certain languages there are even more optimized run environments we can leverage. When using statically linked binaries, [scratch](https://hub.docker.com/_/scratch "https://hub.docker.com/_/scratch") can be an alternative. In the following example, we have a multi-stage build with a builder image based on Alpine (we will discuss multi-stage builds later in the document). In the first stage, the Go programming language application is built to a statically linked binary, the second stage uses scratch as base image and run the application built in the first stage. With this combined approach of a multi-stage build and using scratch as a base image, we achieve the smallest possible target image for running our application: `FROM golang:alpine AS builder .... RUN go build -o /go/bin/myApplication FROM scratch COPY --from=builder /go/bin/myApplication /go/bin/myApplication CMD ["/go/bin/myApplication"]` **Run a single process per container** It is highly recommended to limit the number of processes in each container to one. This approach simplifies the implementation of [separations of concerns](https://www.castsoftware.com/blog/how-to-implement-design-pattern-separation-of-concerns#:~:text=Separation%20of%20concerns%20is%20a,of%20concerns%20is%20about%20order "https://www.castsoftware.com/blog/how-to-implement-design-pattern-separation-of-concerns#:~:text=Separation%20of%20concerns%20is%20a,of%20concerns%20is%20about%20order") using simple services. Each container should only be responsible for a single aspect of the application that facilitates horizontal scaling of this particular aspect. If it’s necessary to run more than one process per container, use a proper process supervisor (like [supervisord](http://supervisord.org/ "http://supervisord.org/")) and an init system (like [tini](https://github.com/krallin/tini "https://github.com/krallin/tini")). **Exclude files with from your build process** The `.dockerignore` file is similar to `.gitignore` and is used to exclude files that are not necessary for the build, or are of a sensitive nature. This can be useful if it’s not possible to restructure the source code directory to limit the build context. The following example shows a typical `.dockerignore` file, which excludes files like the compilation target-directory, JAR-files, and subdirectories. `* !target/*-runner !target/*-runner.jar !target/lib/* !target/quarkus-app/*` |
-| CONTAINER_BUILD_PERF_02: How do you reduce the pull time of your container image? |
-| ---                                                                               |
-|                                                                                   | **Use a container registry close to your cluster** One of the essential factors in the speed of deploying container images from a registry is locality. The registry should be as close to the cluster as possible, which means that both the cluster and the registry should be in the same AWS Region. For multi-region deployments, this means that the CI/CD chain should publish a container image to multiple Regions. An additional way to optimize the pull time of your container image is to keep the container image as small as possible. In [Tradeoffs](tradeoffs.md "tradeoffs.md") multi-stage builds are discussed in detail to reduce the image size.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| CONTAINER_BUILD_PERF_01: How do you reduce the size of your<br>container image? |
+| ------------------------------------------------------------------------------- |
+|                                                                                 |
+
+**Use small parent
+images**
+
+The OS parent image that is used to create the target images
+has a huge impact on the final container image size. We can
+see huge differences when comparing different base images:
+
+```
+ubuntu:20.04      72.7MB
+debian:10-slim    69.3MB
+alpine:3.14       5.6MB
+```
+
+We can
+use [Alpine](https://hub.docker.com/_/alpine "https://hub.docker.com/_/alpine")
+to build performant containers, but for certain languages
+there are even more optimized run environments we can
+leverage. When using statically linked binaries,
+[scratch](https://hub.docker.com/_/scratch "https://hub.docker.com/_/scratch")
+can be an alternative. In the following example, we have a
+multi-stage build with a builder image based on Alpine (we
+will discuss multi-stage builds later in the document). In the
+first stage, the Go programming language application is built
+to a statically linked binary, the second stage uses scratch
+as base image and run the application built in the first
+stage. With this combined approach of a multi-stage build and
+using scratch as a base image, we achieve the smallest
+possible target image for running our application:
+
+```
+FROM golang:alpine AS builder
+
+....
+
+RUN go build -o /go/bin/myApplication
+
+FROM scratch
+COPY --from=builder /go/bin/myApplication /go/bin/myApplication
+
+CMD ["/go/bin/myApplication"]
+```
+
+**Run a single process per
+container**
+
+It is highly recommended to limit the number of processes in
+each container to one. This approach simplifies the
+implementation of
+[separations
+of concerns](https://www.castsoftware.com/blog/how-to-implement-design-pattern-separation-of-concerns#:~:text=Separation%20of%20concerns%20is%20a,of%20concerns%20is%20about%20order "https://www.castsoftware.com/blog/how-to-implement-design-pattern-separation-of-concerns#:~:text=Separation%20of%20concerns%20is%20a,of%20concerns%20is%20about%20order") using simple services. Each container
+should only be responsible for a single aspect of the
+application that facilitates horizontal scaling of this
+particular aspect. If it’s necessary to run more than one
+process per container, use a proper process supervisor (like
+[supervisord](http://supervisord.org/ "http://supervisord.org/"))
+and an init system (like
+[tini](https://github.com/krallin/tini "https://github.com/krallin/tini")). 
+
+**Exclude files with from your
+build process**
+
+The `.dockerignore` file
+is similar to `.gitignore`
+and is used to exclude files that are not necessary for the
+build, or are of a sensitive nature. This can be useful if
+it’s not possible to restructure the source code directory to
+limit the build context. The following example shows a typical
+`.dockerignore` file, which excludes files like the compilation
+target-directory, JAR-files, and subdirectories.
+
+```
+*
+!target/*-runner
+!target/*-runner.jar
+!target/lib/*
+!target/quarkus-app/*
+```
+
+| CONTAINER_BUILD_PERF_02: How do you reduce the pull time of your<br>container image? |
+| ------------------------------------------------------------------------------------ |
+|                                                                                      |
+
+**Use a container registry
+close to your cluster**
+
+One of the essential factors in the speed of deploying container images from a
+registry is locality. The registry should be as close to the cluster as possible, which
+means that both the cluster and the registry should be in the same AWS Region. For
+multi-region deployments, this means that the CI/CD chain should publish a container image
+to multiple Regions. An additional way to optimize the pull time of your container image
+is to keep the container image as small as possible. In [Tradeoffs](tradeoffs.md "tradeoffs.md")
+multi-stage builds are discussed in detail to reduce the image size.

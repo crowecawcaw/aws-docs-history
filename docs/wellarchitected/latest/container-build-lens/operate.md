@@ -1,5 +1,71 @@
 # Operate
 
-| CONTAINER_BUILD_OPS_02: How do you know whether your containerized workload is achieving its business goals? |
-| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                              | An important part of operating any workload is understanding the health of your workload quickly. The sooner an issue can be identified the better. To ensure the success of your running container, you must understand the health of your containerized workload as well as what your customers are experiencing when they interact with your application. Identify sources of information within your workload and use the information to understand the health of the containerized workload. Identifying where the telemetry within your workload will come from, determining the proper logging levels, identifying the thresholds and information from that telemetry that must be acted upon, and identifying the action that is required when those thresholds are passed will reduce risk and impact on your users. **Implement health checks to determine container state** Implement container health checks. Health checks are one way to determine the health of your running container. They enable your orchestration tooling to direct connection traffic to the container only when it is ready to accept connections, or stop routing connections to the container if the health checks show that the container is no longer running as expected. In the latter case, the orchestration tooling will tear down the misbehaving container and replace it with a new healthy one. For example, with Amazon ECS you can define health checks as part of the task definition, and perform load balancer health checks for your running application. For Kubernetes and Amazon Elastic Kubernetes Service (Amazon EKS), you can take advantage of features such as liveness probes to detect deadlock condition, readiness probes to determine if the pod is prepared to receive requests, and startup probes to know when the application running in the container has started. Liveness probes can either be shell commands or HTTP requests of TCP probes. **Have your logs available outside the running container** Ensure that the logs generated by your running containers are collected and accessible externally. This will enable you to use log monitors to gain more insights into the behavior and functionality of your running container. Your application should be writing its logs to `STDOUT` and `STDERR` so that a logging agent can ship the logs to your log monitoring system. As with other application workloads, you must understand the metrics and messages that you have collected from your workload. Not only must you understand the data emitted by your containers, but you must also have a standardized log format to easily evaluate the data with your logging tools. Logging collector and forwarder tools give you the ability to standardize your log format across multiple containerized services. To enable you and your team to pinpoint where issues may be occurring, define your log messages to be consistently structured to enable correlation of logs across multiple microservices in your central logging system. This understanding enables you to evolve your workload to respond to external pressures such as increased traffic or issues with external APIs that your workload may use in the course of accomplishing its business goals. |
+| CONTAINER_BUILD_OPS_02: How do you know whether your<br>containerized workload is achieving its business goals? |
+| --------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                 |
+
+An important part of operating any workload is understanding
+the health of your workload quickly. The sooner an issue can
+be identified the better.
+
+To ensure the success of your running container, you must
+understand the health of your containerized workload as well
+as what your customers are experiencing when they interact
+with your application. Identify sources of information within
+your workload and use the information to understand the health
+of the containerized workload. Identifying where the telemetry
+within your workload will come from, determining the proper
+logging levels, identifying the thresholds and information
+from that telemetry that must be acted upon, and identifying
+the action that is required when those thresholds are passed
+will reduce risk and impact on your users.
+
+**Implement health checks to determine container state**
+
+Implement container health checks. Health checks are one way to determine the health
+of your running container. They enable your orchestration tooling to direct connection
+traffic to the container only when it is ready to accept connections, or stop routing
+connections to the container if the health checks show that the container is no longer
+running as expected. In the latter case, the orchestration tooling will tear down the
+misbehaving container and replace it with a new healthy one.
+
+For example, with Amazon ECS you can define health checks as
+part of the task definition, and perform load balancer health
+checks for your running application. 
+
+For Kubernetes and Amazon Elastic Kubernetes Service (Amazon EKS), you can take advantage of features such as liveness
+probes to detect deadlock condition, readiness probes to
+determine if the pod is prepared to receive requests, and
+startup probes to know when the application running in the
+container has started. Liveness probes can either be shell
+commands or HTTP requests of TCP probes.
+
+**Have your logs available
+outside the running container**
+
+Ensure that the logs generated by your running containers are
+collected and accessible externally. This will enable you to
+use log monitors to gain more insights into the behavior and
+functionality of your running container. Your application
+should be writing its logs to `STDOUT` and `STDERR` so that a
+logging agent can ship the logs to your log monitoring
+system. 
+
+As with other application workloads, you must understand the
+metrics and messages that you have collected from your
+workload. Not only must you understand the data emitted by
+your containers, but you must also have a standardized log
+format to easily evaluate the data with your logging tools.
+Logging collector and forwarder tools give you the ability to
+standardize your log format across multiple containerized
+services.
+
+To enable you and your team to pinpoint where issues may be
+occurring, define your log messages to be consistently
+structured to enable correlation of logs across multiple
+microservices in your central logging system.
+
+This understanding enables you to evolve your workload to
+respond to external pressures such as increased traffic or
+issues with external APIs that your workload may use in the
+course of accomplishing its business goals.

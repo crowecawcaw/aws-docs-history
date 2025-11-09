@@ -1,5 +1,45 @@
 # Infrastructure protection
 
-| CONTAINER_BUILD_SEC_04: How do you manage your container image boundaries? |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                            | **Minimize attack surface** In the context of container workloads, infrastructure protection is often a topic with respect to the container as a vector to access the underlying compute infrastructure. In any security context, reducing attack surface is top of mind. This can be accomplished when designing and building your container in a variety of ways: <br>• Run distroless images without a shell or a package manager to ensure that bad actors cannot make changes to the image or easily download software packages to aid in their attack. <br>• Build open-source libraries from source or scan libraries for vulnerabilities to ensure awareness of all of the components of the container image. <br>• Remove or defang `setuid` and `setgid` bits from the container image to make sure that these permissions are not used in privilege escalation attacks. <br>• Lint your Dockerfile to help identify violations of best practices for building container images. <br>• Use a tool such as [docker-slim](https://github.com/docker-slim/docker-slim "https://github.com/docker-slim/docker-slim") to analyze existing images and remove unnecessary binaries not required by the application. <br>• Ensure that your container is designed to operate with a read-only root filesystem. This functionality is normally defined at runtime but it is important to consider this facet when designing the container itself. **Understand the lineage of your container image** Aside from reducing attack surface, it is also important to understand where your container images are coming from. If not building images from scratch, you should only run images from trusted registries that have been signed with a trusted signature to ensure integrity. Regarding signing images, it is recommended to utilize signed images to ensure that the contents of the container have not been modified before they are deployed. In general, don’t incorporate images directly from a public repository into your container pipeline. Private registries should be used to allow an organization to maintain complete control and visibility over their container image catalog. If using images originating from public repositories, they should be scanned, signed, and stored in a private registry to ensure that the contents of the image are known and verified against existing security standards. |
+| CONTAINER_BUILD_SEC_04: How do you manage your container image<br>boundaries? |
+| ----------------------------------------------------------------------------- |
+|                                                                               |
+
+**Minimize attack surface**
+
+In the context of container workloads, infrastructure
+protection is often a topic with respect to the container as a
+vector to access the underlying compute infrastructure. In any
+security context, reducing attack surface is top of mind. This
+can be accomplished when designing and building your container
+in a variety of ways:
+
+- Run distroless images without a shell or a package manager
+  to ensure that bad actors cannot make changes to the image
+  or easily download software packages to aid in their
+  attack.
+- Build open-source libraries from source or scan libraries
+  for vulnerabilities to ensure awareness of all of the
+  components of the container image.
+- Remove or defang
+  `setuid`
+  and
+  `setgid`
+  bits from the container image to make sure that these
+  permissions are not used in privilege escalation attacks.
+- Lint your Dockerfile to help identify violations of best
+  practices for building container images.
+- Use a tool such as
+  [docker-slim](https://github.com/docker-slim/docker-slim "https://github.com/docker-slim/docker-slim")
+  to analyze existing images and remove unnecessary binaries
+  not required by the application.
+- Ensure that your container is designed to operate with a
+  read-only root filesystem. This functionality is normally
+  defined at runtime but it is important to consider this
+  facet when designing the container itself.
+
+**Understand the lineage of
+your container image**
+
+Aside from reducing attack surface, it is also important to understand where your container images are coming from. If not building images from scratch, you should only run images from trusted registries that have been signed with a trusted signature to ensure integrity. Regarding signing images, it is recommended to utilize signed images to ensure that the contents of the container have not been modified before they are deployed.
+
+In general, don’t incorporate images directly from a public repository into your container pipeline. Private registries should be used to allow an organization to maintain complete control and visibility over their container image catalog. If using images originating from public repositories, they should be scanned, signed, and stored in a private registry to ensure that the contents of the image are known and verified against existing security standards.

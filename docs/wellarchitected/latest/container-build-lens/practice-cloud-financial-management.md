@@ -1,5 +1,22 @@
 # Practice cloud financial management
 
-| CONTAINER_BUILD_COST_01: How do you design your container build process to avoid unnecessary cost? |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                    | Building a containerized application can result in multiple images for the same service. Depending on your organization policy, you might want to keep a subset of your container images to be used in a case of a rollback scenario. An example of such a policy might be that you don’t roll back more than three versions, or more than three months in time. That means, that not all container images of a specific application should be kept. Deleting old images can save costs as container registries charge by size of images stored in the registry. You can achieve this deletion policy by creating automation processes, or use service features, for example: Amazon ECR supports a lifecycle policy that can be used to expire (delete) images based on rules such as image age, count, specific tags and more (see [Examples of lifecycle policies](../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md "../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md")). |
+| CONTAINER_BUILD_COST_01: How do you design your container<br>build process to avoid unnecessary cost? |
+| ----------------------------------------------------------------------------------------------------- |
+|                                                                                                       |
+
+Building a containerized application can result in multiple
+images for the same service. Depending on your organization
+policy, you might want to keep a subset of your container
+images to be used in a case of a rollback scenario. An example
+of such a policy might be that you don’t roll back more than
+three versions, or more than three months in time. That means,
+that not all container images of a specific application should
+be kept. Deleting old images can save costs as container
+registries charge by size of images stored in the registry.
+You can achieve this deletion policy by creating automation
+processes, or use service features, for example: Amazon ECR
+supports a lifecycle policy that can be used to expire
+(delete) images based on rules such as image age, count,
+specific tags and more
+(see [Examples
+of lifecycle policies](../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md "../../../AmazonECR/latest/userguide/lifecycle_policy_examples.md")).
