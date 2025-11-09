@@ -136,8 +136,98 @@ the target receives when you select either the `append`,
 `preserve` or the `remove` mode. In this example, the IP
 address of the last hop is `127.0.0.1`.
 
-| Request description                                                   | Example request                                                                    | append                                             | preserve                                | remove      |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------- | --------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Request is sent with no XFF header                                    | `GET /index.html HTTP/1.1 Host: example.com`                                       | `X-Forwarded-For: 127.0.0.1`                       | Not present                             | Not present |
-| Request is sent with an XFF header and a client IP address.           | `GET /index.html HTTP/1.1 Host: example.com X-Forwarded-For: 127.0.0.4`            | `X-Forwarded-For: 127.0.0.4, 127.0.0.1`            | `X-Forwarded-For: 127.0.0.4`            | Not present |
-| Request is sent with an XFF header with multiple client IP addresses. | `GET /index.html HTTP/1.1 Host: example.com X-Forwarded-For: 127.0.0.4, 127.0.0.8` | `X-Forwarded-For: 127.0.0.4, 127.0.0.8, 127.0.0.1` | `X-Forwarded-For: 127.0.0.4, 127.0.0.8` | Not present | Console ###### To manage the X-Forwarded-For header 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. On the navigation pane, choose **Load Balancers**. 3. Select the load balancer. 4. On the **Attributes** tab, choose **Edit**. 5. In the **Traffic configuration** section, under **Packet handling**, for **X-Forwarded-For header**, choose **Append** (default), **Preserve**, or **Remove**. 6. Choose **Save changes**. AWS CLI ###### To manage the X-Forwarded-For header Use the [modify-load-balancer-attributes](../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md "../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md") command with the `routing.http.xff_header_processing.mode` attribute. The possible values are `append`, `preserve`, and `remove`. The default is `append`. ``aws elbv2 modify-load-balancer-attributes \ --load-balancer-arn `load-balancer-arn` \ --attributes "Key=routing.http.xff_header_processing.mode,Value=`preserve`"`` CloudFormation ###### To manage the X-Forwarded-For header Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md") resource to include the `routing.http.xff_header_processing.mode` attribute. The possible values are `append`, `preserve`, and `remove`. The default is `append`. ``Resources: myLoadBalancer: Type: AWS::ElasticLoadBalancingV2::LoadBalancer Properties: Name: my-alb Type: application Scheme: internal Subnets: <br>• !Ref subnet-AZ1 <br>• !Ref subnet-AZ2 SecurityGroups: <br>• !Ref mySecurityGroup LoadBalancerAttributes: <br>• Key: "routing.http.xff_header_processing.mode" Value: "`preserve`"`` ## X-Forwarded-Proto The `X-Forwarded-Proto` request header helps you identify the protocol (HTTP or HTTPS) that a client used to connect to your load balancer. Your server access logs contain only the protocol used between the server and the load balancer; they contain no information about the protocol used between the client and the load balancer. To determine the protocol used between the client and the load balancer, use the `X-Forwarded-Proto` request header. Elastic Load Balancing stores the protocol used between the client and the load balancer in the `X-Forwarded-Proto` request header and passes the header along to your server. Your application or website can use the protocol stored in the `X-Forwarded-Proto` request header to render a response that redirects to the appropriate URL. The `X-Forwarded-Proto` request header takes the following form: `` X-Forwarded-Proto: `originatingProtocol` `` The following example contains an `X-Forwarded-Proto` request header for a request that originated from the client as an HTTPS request: `X-Forwarded-Proto: https` ## X-Forwarded-Port The `X-Forwarded-Port` request header helps you identify the destination port that the client used to connect to the load balancer. |
+| Request description                                                      | Example request                                                                       | append                                                | preserve                                | remove      |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------- | ----------- |
+| Request is sent with no XFF header                                       | `GET /index.html HTTP/1.1 Host: example.com`                                          | `X-Forwarded-For: 127.0.0.1`                          | Not present                             | Not present |
+| Request is sent with an XFF header and a client IP<br>address.           | `GET /index.html HTTP/1.1 Host: example.com X-Forwarded-For:<br>127.0.0.4`            | `X-Forwarded-For: 127.0.0.4, 127.0.0.1`               | `X-Forwarded-For: 127.0.0.4`            | Not present |
+| Request is sent with an XFF header with multiple client IP<br>addresses. | `GET /index.html HTTP/1.1 Host: example.com X-Forwarded-For:<br>127.0.0.4, 127.0.0.8` | `X-Forwarded-For: 127.0.0.4, 127.0.0.8,<br>127.0.0.1` | `X-Forwarded-For: 127.0.0.4, 127.0.0.8` | Not present |
+
+Console
+
+###### To manage the X-Forwarded-For header
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the navigation pane, choose **Load Balancers**.
+3. Select the load balancer.
+4. On the **Attributes** tab, choose **Edit**.
+5. In the **Traffic configuration** section, under **Packet handling**,
+   for **X-Forwarded-For header**, choose
+   **Append** (default), **Preserve**, or
+   **Remove**.
+6. Choose **Save changes**.
+
+AWS CLI
+
+###### To manage the X-Forwarded-For header
+
+Use the [modify-load-balancer-attributes](../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md "../../../cli/latest/reference/elbv2/modify-load-balancer-attributes.md") command with the
+`routing.http.xff_header_processing.mode` attribute.
+The possible values are `append`, `preserve`, and `remove`.
+The default is `append`.
+
+```
+aws elbv2 modify-load-balancer-attributes \
+    --load-balancer-arn `load-balancer-arn` \
+    --attributes "Key=routing.http.xff_header_processing.mode,Value=`preserve`"
+```
+
+CloudFormation
+
+###### To manage the X-Forwarded-For header
+
+Update the [AWS::ElasticLoadBalancingV2::LoadBalancer](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-loadbalancer.md")
+resource to include the `routing.http.xff_header_processing.mode`
+attribute. The possible values are `append`, `preserve`,
+and `remove`. The default is `append`.
+
+```
+Resources:
+  myLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: my-alb
+      Type: application
+      Scheme: internal
+      Subnets:
+        - !Ref subnet-AZ1
+        - !Ref subnet-AZ2
+      SecurityGroups:
+        - !Ref mySecurityGroup
+      LoadBalancerAttributes:
+        - Key: "routing.http.xff_header_processing.mode"
+          Value: "`preserve`"
+```
+
+## X-Forwarded-Proto
+
+The `X-Forwarded-Proto` request header helps you identify the protocol
+(HTTP or HTTPS) that a client used to connect to your load balancer. Your server
+access logs contain only the protocol used between the server and the load balancer;
+they contain no information about the protocol used between the client and the load
+balancer. To determine the protocol used between the client and the load balancer,
+use the `X-Forwarded-Proto` request header. Elastic Load Balancing stores the protocol
+used between the client and the load balancer in the `X-Forwarded-Proto`
+request header and passes the header along to your server.
+
+Your application or website can use the protocol stored in the
+`X-Forwarded-Proto` request header to render a response that
+redirects to the appropriate URL.
+
+The `X-Forwarded-Proto` request header takes the following form:
+
+```
+X-Forwarded-Proto: `originatingProtocol`
+```
+
+The following example contains an `X-Forwarded-Proto` request header
+for a request that originated from the client as an HTTPS request:
+
+```
+X-Forwarded-Proto: https
+```
+
+## X-Forwarded-Port
+
+The `X-Forwarded-Port` request header helps you identify the
+destination port that the client used to connect to the load balancer.
