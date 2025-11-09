@@ -39,7 +39,7 @@ of a series per replica. The `cluster` label is kept.
 
 ###### Note
 
-Certain versions of Kubernetes (1.28 and 1.29) may emit their own
-metric with a `cluster` label. This can cause issues with
-Amazon Managed Service for Prometheus deduplication. See the [High
-availability FAQ](HA_FAQ.md#HA_FAQ_cluster-label "HA_FAQ.md#HA_FAQ_cluster-label") for more information.
+Certain versions of Kubernetes (1.28 and 1.29) may emit their own metric with
+a `cluster` label. This can cause issues with Amazon Managed Service for Prometheus
+deduplication. See the [High availability
+FAQ](HA_FAQ.md#HA_FAQ_cluster-label "HA_FAQ.md#HA_FAQ_cluster-label") for more information.

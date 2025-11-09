@@ -39,9 +39,15 @@ using `query_range` to query for a range of time.
 seconds. Use only if you are using `query_range` to query for a
 range of time, and required for such queries.
 
-`max_samples_processed_warning_threshold=<integer>` (Optional) Sets the warning threshold for Query Samples Processed (QSP). When queries hit this threshold, a warning message will be returned in the API response.
+`max_samples_processed_warning_threshold=<integer>`
+(Optional) Sets the warning threshold for Query Samples Processed (QSP).
+When queries hit this threshold, a warning message will be returned in the
+API response.
 
-`max_samples_processed_error_threshold=<integer>>` (Optional) Sets the error threshold for Query Samples Processed (QSP). Queries that exceed this threshold will be rejected with an error and will not be charged. Used to prevent excessive query costs.
+`max_samples_processed_error_threshold=<integer>>`
+(Optional) Sets the error threshold for Query Samples Processed (QSP).
+Queries that exceed this threshold will be rejected with an error and will
+not be charged. Used to prevent excessive query costs.
 
 **Duration**
 

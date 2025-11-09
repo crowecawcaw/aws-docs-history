@@ -20,16 +20,32 @@ the _PagerDuty website_.
 
 configuration options
 
-| Option        | Description                                                                                                | Required                |
-| ------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routing_key` | The PagerDuty routing key for an integration on a service. You must specify this as an Secrets Manager ARN | Yes                     |
-| `service_key` | The PagerDuty service key for an integration on a service. You must specify this as an Secrets Manager ARN | Yes (for Events API v1) |
-| `client`      | The client identification of the notifier                                                                  | No                      |
-| `client_url`  | A backlink to the sender of the notification                                                               | No                      |
-| `description` | Description of the incident                                                                                | No                      |
-| `details`     | A set of arbitrary key/value pairs that provide further detail about the incident                          | No                      |
-| `severity`    | Severity of the incident                                                                                   | No                      |
-| `class`       | The class, or type, of the event                                                                           | No                      |
-| `component`   | Component of the source machine that is responsible for the event                                          | No                      |
-| `group`       | Logical grouping of components                                                                             | No                      |
-| `source`      | The unique location of the affected system                                                                 | No                      | ###### Note The `url`, `service_key_file`, `routing_key_file`, and `http_config` options are not supported. The following topics describe how to configure PagerDuty as an alert receiver in Amazon Managed Service for Prometheus. ###### Topics <br>• [Configure AWS Secrets Manager and permissions](AMP-alertmanager-pagerduty-permissions.md "AMP-alertmanager-pagerduty-permissions.md") <br>• [Configure alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md") |
+| Option        | Description                                                                                                   | Required                |
+| ------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `routing_key` | The PagerDuty routing key for an integration on a service.<br>You must specify this as an Secrets Manager ARN | Yes                     |
+| `service_key` | The PagerDuty service key for an integration on a service.<br>You must specify this as an Secrets Manager ARN | Yes (for Events API v1) |
+| `client`      | The client identification of the notifier                                                                     | No                      |
+| `client_url`  | A backlink to the sender of the notification                                                                  | No                      |
+| `description` | Description of the incident                                                                                   | No                      |
+| `details`     | A set of arbitrary key/value pairs that provide further<br>detail about the incident                          | No                      |
+| `severity`    | Severity of the incident                                                                                      | No                      |
+| `class`       | The class, or type, of the event                                                                              | No                      |
+| `component`   | Component of the source machine that is responsible for<br>the event                                          | No                      |
+| `group`       | Logical grouping of components                                                                                | No                      |
+| `source`      | The unique location of the affected system                                                                    | No                      |
+
+###### Note
+
+The `url`, `service_key_file`,
+`routing_key_file`, and `http_config` options are
+not supported.
+
+The following topics describe how to configure PagerDuty as an alert receiver in
+Amazon Managed Service for Prometheus.
+
+###### Topics
+
+- [Configure AWS Secrets Manager and
+  permissions](AMP-alertmanager-pagerduty-permissions.md "AMP-alertmanager-pagerduty-permissions.md")
+- [Configure
+  alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md")

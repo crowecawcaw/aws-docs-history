@@ -571,9 +571,8 @@ delete them.
 
 Make sure that you are using the latest version of the AWS CLI or SDK. The
 latest version provides you with the latest features and functionality, as well
-as security updates. Alternatively, use [AWS Cloudshell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"),
-which provides an always up-to-date command line experience,
-automatically.
+as security updates. Alternatively, use [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"), which
+provides an always up-to-date command line experience, automatically.
 
 To list all the scrapers in your account, use the [ListScrapers](../APIReference/API_ListScrapers.md "../APIReference/API_ListScrapers.md")
 API operation.
@@ -581,7 +580,7 @@ API operation.
 Alternatively, with the AWS CLI, call:
 
 ```
-aws amp list-scrapers
+aws amp list-scrapers --region ``aws-region``
 ```
 
 `ListScrapers` returns all of the scrapers in your account, for

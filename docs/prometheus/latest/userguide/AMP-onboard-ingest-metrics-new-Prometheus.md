@@ -125,5 +125,7 @@ helm install `prometheus-chart-name` prometheus-community/prometheus -n `prometh
 
 ###### Note
 
-You can customize the `helm install` command in many ways. For
-more information, see [Helm install](https://helm.sh/docs/helm/helm_install/ "https://helm.sh/docs/helm/helm_install/") in the _Helm documentation_.
+You can customize the `helm install` command in many
+ways. For more information, see [Helm
+install](https://helm.sh/docs/helm/helm_install/ "https://helm.sh/docs/helm/helm_install/") in the _Helm
+documentation_.

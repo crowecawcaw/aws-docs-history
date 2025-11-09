@@ -225,8 +225,25 @@ logs:
 You can also use CloudWatch Logs Insights to query and analyze your collector logs. For
 example, to find all service discovery errors:
 
-````
+```
 fields @timestamp, message.message
 | filter component = "SERVICE_DISCOVERY" and message.message like /Failed/
-| sort @timestamp desc ``` ### Best practices for monitoring collectors To effectively monitor your Amazon Managed Service for Prometheus collectors: 1. Set up CloudWatch alarms for critical collector issues, such as persistent scrape failures or export errors. For more information, see [Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the *Amazon CloudWatch User Guide*. 2. Create CloudWatch dashboards to visualize collector performance metrics alongside vended log data. For more information, see [Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the *Amazon CloudWatch User Guide*. 3. Regularly review service discovery logs to ensure targets are being discovered correctly. 4. Monitor the number of dropped targets to identify potential configuration issues. 5. Track export failures to ensure metrics are being successfully sent to your workspace.
-````
+| sort @timestamp desc
+```
+
+### Best practices for monitoring
+
+collectors
+
+To effectively monitor your Amazon Managed Service for Prometheus collectors:
+
+1. Set up CloudWatch alarms for critical collector issues, such as persistent
+   scrape failures or export errors. For more information, see [Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
+2. Create CloudWatch dashboards to visualize collector performance metrics
+   alongside vended log data. For more information, see [Dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") in the _Amazon CloudWatch User Guide_.
+3. Regularly review service discovery logs to ensure targets are being
+   discovered correctly.
+4. Monitor the number of dropped targets to identify potential configuration
+   issues.
+5. Track export failures to ensure metrics are being successfully sent to
+   your workspace.

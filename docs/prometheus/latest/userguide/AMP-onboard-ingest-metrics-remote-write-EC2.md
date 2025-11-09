@@ -58,8 +58,8 @@ User Guide for Linux Instances_.
 
 application
 
-After creating your IAM role, and launching an EC2 instance with the role,
-you can run a demo application to see it work.
+After creating your IAM role, and launching an EC2 instance with the role, you
+can run a demo application to see it work.
 
 ###### To run a demo application and test metrics
 

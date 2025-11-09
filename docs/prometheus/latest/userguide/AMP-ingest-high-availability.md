@@ -1,6 +1,6 @@
-# Set up Amazon Managed Service for Prometheus for high
+# Set up Amazon Managed Service for Prometheus for high availability
 
-availability data
+data
 
 When you send data to Amazon Managed Service for Prometheus, it is automatically replicated across AWS
 Availability Zones in the Region, and is served to you from a cluster of hosts that

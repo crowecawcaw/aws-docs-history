@@ -96,9 +96,9 @@ service:
       exporters: [logging, prometheusremotewrite]
 ```
 
-## Step 2:
+## Step 2: Push
 
-Push your ADOT collector container image to an Amazon ECR repository
+your ADOT collector container image to an Amazon ECR repository
 
 Use a Dockerfile to create and push your container image to an Amazon Elastic Container Registry (ECR)
 repository.

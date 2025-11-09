@@ -3,13 +3,12 @@
 collector
 
 This section describes how to configure the AWS Distro for OpenTelemetry (ADOT)
-Collector to scrape from a Prometheus-instrumented application, and send the metrics
-to Amazon Managed Service for Prometheus. For more information about the ADOT Collector, see [AWS Distro for
-OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/").
+Collector to scrape from a Prometheus-instrumented application, and send the metrics to
+Amazon Managed Service for Prometheus. For more information about the ADOT Collector, see [AWS Distro for OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/").
 
-The following topics describe three different ways to set up ADOT as a collector
-for your metrics, based on whether your metrics are coming from Amazon EKS, Amazon ECS, or an
-Amazon EC2 instance.
+The following topics describe three different ways to set up ADOT as a collector for
+your metrics, based on whether your metrics are coming from Amazon EKS, Amazon ECS, or an Amazon EC2
+instance.
 
 ###### Topics
 

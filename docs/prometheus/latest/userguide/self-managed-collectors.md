@@ -29,5 +29,5 @@ Most customer managed collectors use one of the following tools:
   collector](AMP-ingest-with-adot.md "AMP-ingest-with-adot.md")
 - [Using a Prometheus instance as a
   collector](AMP-ingest-with-prometheus.md "AMP-ingest-with-prometheus.md")
-- [Set up Amazon Managed Service for Prometheus for high
-  availability data](AMP-ingest-high-availability.md "AMP-ingest-high-availability.md")
+- [Set up Amazon Managed Service for Prometheus for high availability
+  data](AMP-ingest-high-availability.md "AMP-ingest-high-availability.md")

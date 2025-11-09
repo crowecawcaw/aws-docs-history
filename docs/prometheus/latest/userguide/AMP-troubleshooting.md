@@ -129,18 +129,28 @@ limits.| Type of data | Query to use |
 | Current active series | `prometheus_tsdb_head_series` |
 | Current ingestion rate | `rate(prometheus_tsdb_head_samples_appended_total[5m])` |
 | Most-to-least list of active series per metric name | `sort_desc(count by(__name__) ({__name__!=""}))` |
-| Number of labels per metric series | `group by(mylabelname) ({__name__!=""})` | ## Some of my data isn't appearing Data that is sent to Amazon Managed Service for Prometheus can be discarded for various reasons. The following table shows reasons that data might be discarded rather than being ingested. You can track the amount and reasons that data is discarded using Amazon CloudWatch. For more information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
-| Reason | Meaning |
-| --- | --- |
-| greater_than_max_sample_age | Discarding log lines which are older than the current time |
-| new-value-for-timestamp | Duplicate samples are sent with the same timestamp as the previous sample but with different values. |
-| per_metric_series_limit | User has hit the active series per metric limit |
-| per_user_series_limit | User has hit the total number of active series limit |
-| rate_limited | Ingestion rate limited |
-| sample-out-of-order | Samples are sent out of order and cannot be processed |
-| label_value_too_long | Label value is longer than allowed character limit |
-| max_label_names_per_series | User has hit the label names per metric |
-| missing_metric_name | Metric name is not provided |
-| metric_name_invalid | Invalid metric name provided |
-| label_invalid | Invalid label provided |
-| duplicate_label_names | Duplicate label names provided |
+| Number of labels per metric series | `group by(mylabelname) ({__name__!=""})` |
+
+## Some of my data isn't appearing
+
+Data that is sent to Amazon Managed Service for Prometheus can be discarded for various reasons. The following
+table shows reasons that data might be discarded rather than being ingested.
+
+You can track the amount and reasons that data is discarded using Amazon CloudWatch. For more
+information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
+resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+
+| Reason                      | Meaning                                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------- |
+| greater_than_max_sample_age | Discarding log lines which are older than the current time                                              |
+| new-value-for-timestamp     | Duplicate samples are sent with the same timestamp as the previous sample<br>but with different values. |
+| per_metric_series_limit     | User has hit the active series per metric limit                                                         |
+| per_user_series_limit       | User has hit the total number of active series limit                                                    |
+| rate_limited                | Ingestion rate limited                                                                                  |
+| sample-out-of-order         | Samples are sent out of order and cannot be processed                                                   |
+| label_value_too_long        | Label value is longer than allowed character limit                                                      |
+| max_label_names_per_series  | User has hit the label names per metric                                                                 |
+| missing_metric_name         | Metric name is not provided                                                                             |
+| metric_name_invalid         | Invalid metric name provided                                                                            |
+| label_invalid               | Invalid label provided                                                                                  |
+| duplicate_label_names       | Duplicate label names provided                                                                          |

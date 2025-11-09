@@ -2,8 +2,8 @@
 
 using AWS Distro for OpenTelemetry on an Amazon Elastic Kubernetes Service cluster
 
-You can use the AWS Distro for OpenTelemetry (ADOT) collector to scrape
-metrics from a Prometheus-instrumented application, and send the metrics to
+You can use the AWS Distro for OpenTelemetry (ADOT) collector to scrape metrics
+from a Prometheus-instrumented application, and send the metrics to
 Amazon Managed Service for Prometheus.
 
 ###### Note
@@ -11,8 +11,7 @@ Amazon Managed Service for Prometheus.
 For more information about the ADOT collector, see [AWS Distro for
 OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/").
 
-For more information about Prometheus-instrumented applications, see
-[What are Prometheus-compatible
+For more information about Prometheus-instrumented applications, see [What are Prometheus-compatible
 metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md").
 
 Collecting Prometheus metrics with ADOT involves three OpenTelemetry components:
