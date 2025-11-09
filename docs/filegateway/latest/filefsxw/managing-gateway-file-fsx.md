@@ -37,15 +37,240 @@ In the following table, you can find a description of each gateway status, and w
 you should act based on the status. A gateway should have `RUNNING` status
 all or most of the time it's in use.
 
-| Status         | Meaning                                                                                                                                                                                                                                                                                                                         |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RUNNING`      | The gateway is configured properly and is available to use.                                                                                                                                                                                                                                                                     |
-| `OFFLINE`      | Your gateway might be in an `OFFLINE` status for one or more of the following reasons: <br>• The gateway can't reach the Storage Gateway service endpoints. <br>• The gateway had an unexpected shutdown. <br>• The gateway has an associated cache disk that is disconnected, has been modified, or has failed.                | ## Understanding file system status You can view the health of a file system at a glance by looking at its status. If the status indicates that the file system is functioning normally, no action is needed on your part. If the status indicates that there's a problem, you can investigate to determine whether action could be required. You can view a file system's status on the Storage Gateway console in the **Status** column. A file system that's functioning properly shows a status of AVAILABLE. This should be the status most of the time. The following table describes file share statuses, what they mean, and whether action might be required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Status         | Meaning                                                                                                                                                                                                                                                                                                                         |
-| ---            | ---                                                                                                                                                                                                                                                                                                                             |
-| AVAILABLE      | The file system is configured properly and is available to use. This is the standard status for a file system that's working properly.                                                                                                                                                                                          |
-| CREATING       | The file system is not yet fully created and is not ready for use. The CREATING status is transitional. No action is required. If the file system gets stuck in this status, it's probably because the gateway VM lost connection to AWS.                                                                                       |
-| UPDATING       | The file system configuration is currently updating. The UPDATING status is transitional. No action is required. If a file system gets stuck in this status, it's probably because the gateway VM lost connection to AWS.                                                                                                       |
-| DELETING       | The file system is being deleted. The file system is not deleted until all data is uploaded to AWS. The DELETING status is transitional, and no action is required.                                                                                                                                                             |
-| FORCE_DELETING | The file system is being deleted forcibly. The file system is deleted immediately and data is not uploaded to AWS. The FORCE_DELETING status is transitional, and no action is required.                                                                                                                                        |
-| ERROR          | The file system is in an unhealthy state. Action is required. Some possible causes include problems with access credentials or privileges, connectivity issues, or insufficient storage space on the file system. When the issue that caused the unhealthy state is resolved, the file system returns to a status of AVAILABLE. | ## Edit basic information for an FSx File Gateway You can use the Storage Gateway console to edit basic information for an existing gateway, including the gateway name, time zone, and CloudWatch log group. ###### To edit basic information for an existing gateway 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. Choose **Gateways**, then choose the gateway for which you want to edit basic information. 3. From the **Actions** dropdown menu, choose **Edit gateway information**. 4. For **Gateway name**, enter a name for your gateway. You can search for this name to find your gateway on the list pages in the Storage Gateway console. ###### Note Gateway names must be between 2 and 255 characters, and cannot include a slash (`\` or `/`). Changing a gateway's name will disconnect any CloudWatch alarms set up to monitor the gateway. To reconnect the alarms, update the **GatewayName** for each alarm in the CloudWatch console. 5. For **Gateway time zone**, choose the local time zone for the part of the world where you want to deploy your gateway. 6. For **Choose how to set up log group**, choose how to set up Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the following options: <br>• **Create a new log group** – Set up a new log group to monitor your gateway. <br>• **Use an existing log group** – Choose an existing log group from the corresponding dropdown list. <br>• **Deactivate logging** – Do not use Amazon CloudWatch Logs to monitor your gateway. 7. When you finish modifying the settings you want to change, choose **Save changes**. ## Set a security level for your gateway You can configure the SMB security level for your FSx File Gateway to specify whether the gateway should require Server Message Block (SMB) signing or SMB encryption. ###### To configure security level 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. Choose **Gateways**, then choose the gateway for which you want to edit SMB settings. 3. From the **Actions** dropdown menu, choose **Edit SMB settings**, then choose **SMB security settings**. 4. For **Security level**, choose one of the following: ###### Note For information about configuring this setting using the AWS API, see [UpdateSMBSecurityStrategy](https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html "https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html") in the _AWS Storage Gateway API Reference_. A higher security level can affect performance of the gateway. <br>• **Mandatory encryption** – If you choose this option, FSx File Gateway only allows connections from SMBv3 clients that use 256-bit AES encryption algorithms. 128-bit algorithms are not allowed. This option is recommended for environments that handle sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server 2012, or later. <br>• **Enforce encryption** – If you choose this option, FSx File Gateway only allows connections from SMBv3 clients that have encryption turned on. Both 256-bit and 128-bit algorithms are allowed. This option is recommended for environments that handle sensitive data. It works with SMB clients on Microsoft Windows 8, Windows Server 2012, or later. <br>• **Enforce signing** – If you choose this option, FSx File Gateway only allows connections from SMBv2 or SMBv3 clients that have signing turned on. This option works with SMB clients on Microsoft Windows Vista, Windows Server 2008, or later. ###### Note The default security level for FSx File Gateway is **Enforce encryption**. 5. Choose **Save**. ## Editing Active Directory settings for n FSx File Gateway To use your corporate Microsoft Active Directory or AWS Managed Microsoft AD for user authenticated access to your Amazon FSx file system, edit the SMB settings for your gateway and provide your Active Directory domain credentials. Doing this allows your gateway to join your Active Directory domain and allows members of the domain to access the file system. ###### Note Using AWS Directory Service, you can create a hosted Active Directory domain service in the AWS Cloud. To use AWS Managed Microsoft AD with an Amazon EC2 gateway, you must create the Amazon EC2 instance in the same VPC as the AWS Managed Microsoft AD, add the \_workspaceMembers security group to the Amazon EC2 instance, and join the AD domain using the Admin credentials from the AWS Managed Microsoft AD. For more information about AWS Managed Microsoft AD, see the [_AWS Directory Service Administration Guide_](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md"). For more information about Amazon EC2, see the [_Amazon Elastic Compute Cloud Documentation_](../../../ec2.md "../../../ec2.md"). ###### To turn on Active Directory authentication 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. Choose **Gateways**, then choose the gateway for which you want to edit SMB settings. 3. From the **Actions** drop-down menu, choose **Edit SMB settings**, then choose **Active Directory settings**. 4. For **Domain name**, enter the name of the Active Directory domain you want your gateway to join. ###### Note **Active Directory status** shows **Detached** when a gateway has never joined a domain. Your Active Directory service account must have the requisite permissions. For more information, see [Active Directory service account permission requirements](ad-serviceaccount-permissions.md "ad-serviceaccount-permissions.md"). Joining a domain creates an Active Directory computer account in the default computers container (which is not an OU), using the gateway's **Gateway ID** as the account name (for example, SGW-1234ADE). It is not possible to customize the name of this account. If your Active Directory environment requires that you pre-stage accounts to facilitate the join domain process, you will need to create this account ahead of time. If your Active Directory environment has a designated OU for new computer objects, you must specify that OU when joining the domain. If your gateway can't join an Active Directory directory, try joining with the directory's IP address by using the [JoinDomain](../../../storagegateway/latest/APIReference/API_JoinDomain.md "../../../storagegateway/latest/APIReference/API_JoinDomain.md") API operation. 5. For **Domain user** and **Domain password**, enter the credentials for the Active Directory service account that the gateway will use to join the domain. 6. (Optional) For **Organization unit (OU)**, enter the designated OU that your Active Directory uses for new computer objects. 7. (Optional) For **Domain controller(s) (DC)**, enter the name of one or more DCs through which your gateway will connect to Active Directory. You can enter multiple DCs as a comma-separated list. You can leave this field blank to allow DNS to automatically select a DC. 8. Choose **Save changes**. ## Editing settings for an Amazon FSx file system After creating an Amazon FSx for Windows File Server file system, you can edit settings for CloudWatch logs, automated cache refresh, and Amazon FSx service account credentials. ###### To edit Amazon FSx file system settings 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. In the navigation pane, choose **File system**, and choose the file system whose settings you want to edit. 3. For **Actions**, choose **Edit file system settings**. 4. In the file system settings section, verify the gateway, Amazon FSx location, and IP address information. ###### Note You cannot edit a file system's IP address after it is attached to a gateway. To change the IP address, you must detach and reattach the file system. 5. In the **Audit logs** section, choose an option to use CloudWatch log groups to monitor access to Amazon FSx file systems. You can use an existing log group. 6. For **Automated cache refresh settings**, choose an option. If you choose **Set refresh interval**, set the time in days, hours, and minutes to refresh the file system's cache using Time To Live (TTL). TTL is the length of time since the last refresh. When the directory is accessed after that length of time, the File Gateway refreshes that directory's contents from the Amazon FSx file system. ###### Note Valid refresh interval values are between 5 minutes and 30 days. 7. In the **Service account settings - optional** section, enter a user name and a **Password**. These credentials are for a user that has the Backup Administrator role from the Active Directory service associated with your Amazon FSx file systems. 8. Choose **Save changes**. ## Detaching an Amazon FSx file system Detaching a file system doesn't delete your data in FSx for Windows File Server. Data that is written to these the file systems before you detach them will still be uploaded to your FSx for Windows File Server. ###### To detach an Amazon FSx file system 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. Choose **FSx file systems**, then select one or more file systems to detach. 3. For **Actions**, choose **Detach file system**. The confirmation dialog box appears. 4. Verify that you want to detach the specified file systems, then type the word _detach_ in the confirmation box and choose **Detach**. |
+| Status    | Meaning                                                                                                                                                                                                                                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RUNNING` | The gateway is configured properly and is available to use.                                                                                                                                                                                                                                                            |
+| `OFFLINE` | Your gateway might be in an `OFFLINE` status for one or<br>more of the following reasons:<br>• The gateway can't reach the Storage Gateway service<br>endpoints.<br>• The gateway had an unexpected shutdown.<br>• The gateway has an associated cache disk that is<br>disconnected, has been modified, or has failed. |
+
+## Understanding file system status
+
+You can view the health of a file system at a glance by looking at its status. If the
+status indicates that the file system is functioning normally, no action is needed on
+your part. If the status indicates that there's a problem, you can investigate to
+determine whether action could be required.
+
+You can view a file system's status on the Storage Gateway console in the
+**Status** column. A file system that's functioning properly shows
+a status of AVAILABLE. This should be the status most of the time.
+
+The following table describes file share statuses, what they mean, and whether action
+might be required.
+
+| Status         | Meaning                                                                                                                                                                                                                                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AVAILABLE      | The file system is configured properly and is available to use.<br>This is the standard status for a file system that's working<br>properly.                                                                                                                                                                                                |
+| CREATING       | The file system is not yet fully created and is not ready for use.<br>The CREATING status is transitional. No action is required. If the<br>file system gets stuck in this status, it's probably because<br>the gateway VM lost connection to AWS.                                                                                          |
+| UPDATING       | The file system configuration is currently updating. The UPDATING<br>status is transitional. No action is required. If a file system gets<br>stuck in this status, it's probably because the gateway VM lost<br>connection to AWS.                                                                                                          |
+| DELETING       | The file system is being deleted. The file system is not deleted<br>until all data is uploaded to AWS. The DELETING status is<br>transitional, and no action is required.                                                                                                                                                                   |
+| FORCE_DELETING | The file system is being deleted forcibly. The file system is<br>deleted immediately and data is not uploaded to AWS. The<br>FORCE_DELETING status is transitional, and no action is<br>required.                                                                                                                                           |
+| ERROR          | The file system is in an unhealthy state. Action is required. Some<br>possible causes include problems with access credentials or<br>privileges, connectivity issues, or insufficient storage space on<br>the file system. When the issue that caused the unhealthy state is<br>resolved, the file system returns to a status of AVAILABLE. |
+
+## Edit basic information for an
+
+FSx File Gateway
+
+You can use the Storage Gateway console to edit basic information for an existing gateway,
+including the gateway name, time zone, and CloudWatch log group.
+
+###### To edit basic information for an existing gateway
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. Choose **Gateways**, then choose the gateway for which you
+   want to edit basic information.
+3. From the **Actions** dropdown menu, choose **Edit
+   gateway information**.
+4. For **Gateway name**, enter a name for your gateway. You can
+   search for this name to find your gateway on the list pages in the Storage Gateway
+   console.
+
+###### Note
+
+Gateway names must be between 2 and 255 characters, and cannot include a
+slash (`\` or `/`).
+
+Changing a gateway's name will disconnect any CloudWatch alarms set up to
+monitor the gateway. To reconnect the alarms, update the
+**GatewayName** for each alarm in the CloudWatch
+console. 5. For **Gateway time zone**, choose the local time zone for the
+part of the world where you want to deploy your gateway. 6. For **Choose how to set up log group**, choose how to set up
+Amazon CloudWatch Logs to monitor the health of your gateway. You can choose
+from the following options:
+
+    * **Create a new log group** – Set up a new log group
+     to monitor your gateway.
+    * **Use an existing log group** – Choose an existing
+     log group from the corresponding dropdown list.
+    * **Deactivate logging** – Do not use Amazon CloudWatch
+     Logs to monitor your gateway.
+
+7. When you finish modifying the settings you want to change, choose
+   **Save changes**.
+
+## Set a security level for your gateway
+
+You can configure the SMB security level for your FSx File Gateway to specify whether the
+gateway should require Server Message Block (SMB) signing or SMB encryption.
+
+###### To configure security level
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. Choose **Gateways**, then choose the gateway for which you
+   want to edit SMB settings.
+3. From the **Actions** dropdown menu, choose **Edit SMB
+   settings**, then choose **SMB security
+   settings**.
+4. For **Security level**, choose one of the following:
+
+###### Note
+
+For information about configuring this setting using the AWS API, see [UpdateSMBSecurityStrategy](https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html "https://amazonaws.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html") in the _AWS Storage Gateway API Reference_.
+
+A higher security level can affect performance of the gateway.
+
+    * **Mandatory encryption** – If you choose this
+     option, FSx File Gateway only allows connections from SMBv3 clients that use
+     256-bit AES encryption algorithms. 128-bit algorithms are not allowed.
+     This option is recommended for environments that handle sensitive data.
+     It works with SMB clients on Microsoft Windows 8, Windows Server 2012,
+     or later.
+    * **Enforce encryption** – If you choose this
+     option, FSx File Gateway only allows connections from SMBv3 clients that have
+     encryption turned on. Both 256-bit and 128-bit algorithms are allowed.
+     This option is recommended for environments that handle sensitive data.
+     It works with SMB clients on Microsoft Windows 8, Windows Server 2012,
+     or later.
+    * **Enforce signing** – If you choose this
+     option, FSx File Gateway only allows connections from SMBv2 or SMBv3 clients
+     that have signing turned on. This option works with SMB clients on
+     Microsoft Windows Vista, Windows Server 2008, or later.
+
+###### Note
+
+The default security level for FSx File Gateway is **Enforce
+encryption**. 5. Choose **Save**.
+
+## Editing Active Directory settings for n
+
+FSx File Gateway
+
+To use your corporate Microsoft Active Directory or AWS Managed Microsoft AD for user
+authenticated access to your Amazon FSx file system, edit the SMB settings for your gateway
+and provide your Active Directory domain credentials. Doing this allows your gateway to
+join your Active Directory domain and allows members of the domain to access the file
+system.
+
+###### Note
+
+Using AWS Directory Service, you can create a hosted Active Directory domain service in the
+AWS Cloud.
+
+To use AWS Managed Microsoft AD with an Amazon EC2 gateway, you must create the Amazon EC2 instance in
+the same VPC as the AWS Managed Microsoft AD, add the \_workspaceMembers security group to the
+Amazon EC2 instance, and join the AD domain using the Admin credentials from the
+AWS Managed Microsoft AD.
+
+For more information about AWS Managed Microsoft AD, see the [_AWS Directory Service Administration
+Guide_](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md").
+
+For more information about Amazon EC2, see the [_Amazon Elastic Compute Cloud Documentation_](../../../ec2.md "../../../ec2.md").
+
+###### To turn on Active Directory authentication
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. Choose **Gateways**, then choose the gateway for which you
+   want to edit SMB settings.
+3. From the **Actions** drop-down menu, choose **Edit
+   SMB settings**, then choose **Active Directory
+   settings**.
+4. For **Domain name**, enter the name of the Active Directory
+   domain you want your gateway to join.
+
+###### Note
+
+**Active Directory status** shows
+**Detached** when a gateway has never joined a
+domain.
+
+Your Active Directory service account must have the requisite permissions.
+For more information, see [Active Directory service account permission
+requirements](ad-serviceaccount-permissions.md "ad-serviceaccount-permissions.md").
+
+Joining a domain creates an Active Directory computer account in the
+default computers container (which is not an OU), using the gateway's
+**Gateway ID** as the account name (for example,
+SGW-1234ADE). It is not possible to customize the name of this
+account.
+
+If your Active Directory environment requires that you pre-stage accounts
+to facilitate the join domain process, you will need to create this account
+ahead of time.
+
+If your Active Directory environment has a designated OU for new computer
+objects, you must specify that OU when joining the domain.
+
+If your gateway can't join an Active Directory directory, try joining
+with the directory's IP address by using the [JoinDomain](../../../storagegateway/latest/APIReference/API_JoinDomain.md "../../../storagegateway/latest/APIReference/API_JoinDomain.md") API operation. 5. For **Domain user** and **Domain password**,
+enter the credentials for the Active Directory service account that the gateway
+will use to join the domain. 6. (Optional) For **Organization unit (OU)**, enter the
+designated OU that your Active Directory uses for new computer objects. 7. (Optional) For **Domain controller(s) (DC)**, enter the name
+of one or more DCs through which your gateway will connect to Active Directory.
+You can enter multiple DCs as a comma-separated list. You can leave this field
+blank to allow DNS to automatically select a DC. 8. Choose **Save changes**.
+
+## Editing settings for an Amazon FSx file system
+
+After creating an Amazon FSx for Windows File Server file system, you can edit settings for CloudWatch logs,
+automated cache refresh, and Amazon FSx service account credentials.
+
+###### To edit Amazon FSx file system settings
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. In the navigation pane, choose **File system**, and choose
+   the file system whose settings you want to edit.
+3. For **Actions**, choose **Edit file system
+   settings**.
+4. In the file system settings section, verify the gateway, Amazon FSx location, and
+   IP address information.
+
+###### Note
+
+You cannot edit a file system's IP address after it is attached to a
+gateway. To change the IP address, you must detach and reattach the file
+system. 5. In the **Audit logs** section, choose an option to use CloudWatch
+log groups to monitor access to Amazon FSx file systems. You can use an existing log
+group. 6. For **Automated cache refresh settings**, choose an option.
+If you choose **Set refresh interval**, set the time in days,
+hours, and minutes to refresh the file system's cache using Time To Live (TTL).
+
+TTL is the length of time since the last refresh. When the directory is
+accessed after that length of time, the File Gateway refreshes that directory's
+contents from the Amazon FSx file system.
+
+###### Note
+
+Valid refresh interval values are between 5 minutes and 30 days. 7. In the **Service account settings - optional** section, enter
+a user name and a **Password**. These credentials are for a
+user that has the Backup Administrator role from the Active Directory service
+associated with your Amazon FSx file systems. 8. Choose **Save changes**.
+
+## Detaching an Amazon FSx file system
+
+Detaching a file system doesn't delete your data in FSx for Windows File Server. Data that is written
+to these the file systems before you detach them will still be uploaded to your
+FSx for Windows File Server.
+
+###### To detach an Amazon FSx file system
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. Choose **FSx file systems**, then select one or more file
+   systems to detach.
+3. For **Actions**, choose **Detach file
+   system**. The confirmation dialog box appears.
+4. Verify that you want to detach the specified file systems, then type the word
+   _detach_ in the confirmation box and choose
+   **Detach**.
