@@ -44,8 +44,10 @@ For information about when to specify these when creating a batch load task, see
 [Create a batch
 load task](batch-load-using-console.md#console_timestream.create-batch-load.using-console "batch-load-using-console.md#console_timestream.create-batch-load.using-console").
 
-| Parameter        | Options           |
-| ---------------- | ----------------- | ------- | ---------------- | -------------------------- | ----------------- | ------------------ |
-| Column separator | (Comma (',')      | Pipe (' | ')               | Semicolon (';')            | Tab ('/t')        | Blank space (' ')) |
-| Escape character | none              |         | Quote character  | Console: (Double quote (") | Single quote (')) |
-| Null value       | Blank space (' ') |         | Trim white space | Console: (No               | Yes)              |
+| Parameter        | Options                    |
+| ---------------- | -------------------------- | ----------------- | --- | --------------- | ---------- | --------------------- |
+| Column separator | (Comma (',')               | Pipe ('           | ')  | Semicolon (';') | Tab ('/t') | Blank<br>space (' ')) |
+| Escape character | none                       |
+| Quote character  | Console: (Double quote (") | Single quote (')) |
+| Null value       | Blank space (' ')          |
+| Trim white space | Console: (No               | Yes)              |

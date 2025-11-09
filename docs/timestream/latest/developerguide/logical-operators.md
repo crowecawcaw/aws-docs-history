@@ -6,21 +6,39 @@ data ingestion and single-digit millisecond query response times for real-time a
 Timestream for LiveAnalytics supports the following logical operators.
 
 | Operator | Description                  | Example |
-| -------- | ---------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
+| -------- | ---------------------------- | ------- |
 | AND      | True if both values are true | a AND b |
 | OR       | True if either value is true | a OR b  |
-| NOT      | True if the value is false   | NOT a   | <br>• The result of an `AND` comparison may be `NULL` if one or both sides of the expression are `NULL`. <br>• If at least one side of an `AND` operator is `FALSE` the expression evaluates to `FALSE`. <br>• The result of an `OR` comparison may be `NULL` if one or both sides of the expression are `NULL`. <br>• If at least one side of an `OR` operator is `TRUE` the expression evaluates to `TRUE`. <br>• The logical complement of `NULL` is `NULL`. The following truth table demonstrates the handling of `NULL` in `AND` and `OR`: |
-| A        | B                            | A and b | A or b                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---      | ---                          | ---     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| null     | null                         | null    | null                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| false    | null                         | false   | null                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| null     | false                        | false   | null                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| true     | null                         | null    | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| null     | true                         | null    | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| false    | false                        | false   | false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| true     | false                        | false   | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| false    | true                         | false   | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| true     | true                         | true    | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | The following truth table demonstrates the handling of NULL in NOT: |
-| A        | Not a                        |         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ---                                                                 |
-| null     | null                         |         | true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | false                                                               |
-| false    | true                         |
+| NOT      | True if the value is false   | NOT a   |
+
+- The result of an `AND` comparison may be `NULL` if one or both sides
+  of the expression are `NULL`.
+- If at least one side of an `AND` operator is `FALSE` the expression
+  evaluates to `FALSE`.
+- The result of an `OR` comparison may be `NULL` if one or both sides
+  of the expression are `NULL`.
+- If at least one side of an `OR` operator is `TRUE` the expression
+  evaluates to `TRUE`.
+- The logical complement of `NULL` is `NULL`.
+  The following truth table demonstrates the handling of `NULL` in `AND`
+  and `OR`:
+
+| A     | B     | A and b | A or b |
+| ----- | ----- | ------- | ------ |
+| null  | null  | null    | null   |
+| false | null  | false   | null   |
+| null  | false | false   | null   |
+| true  | null  | null    | true   |
+| null  | true  | null    | true   |
+| false | false | false   | false  |
+| true  | false | false   | true   |
+| false | true  | false   | true   |
+| true  | true  | true    | true   |
+
+The following truth table demonstrates the handling of NULL in NOT:
+
+| A     | Not a |
+| ----- | ----- |
+| null  | null  |
+| true  | false |
+| false | true  |

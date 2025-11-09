@@ -1,382 +1,146 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Create table
+# Update scheduled query
 
-###### Topics
-
-- [Memory store writes](#code-samples.create-table-memorystore "#code-samples.create-table-memorystore")
-- [Magnetic store writes](#code-samples.create-table-magneticstore "#code-samples.create-table-magneticstore")
-
-## Memory store writes
-
-You can use the following code snippet to create a table that has magnetic store
-writes disabled, as a result you can only write data into your memory store retention
-window.
-
-###### Note
-
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
+You can use the following code snippets to update a scheduled query.
 
 Java
 
 ```
-    public void createTable() {
-        System.out.println("Creating table");
-        CreateTableRequest createTableRequest = new CreateTableRequest();
-        createTableRequest.setDatabaseName(DATABASE_NAME);
-        createTableRequest.setTableName(TABLE_NAME);
-        final RetentionProperties retentionProperties = new RetentionProperties()
-                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
-                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
-        createTableRequest.setRetentionProperties(retentionProperties);
-
-        try {
-            amazonTimestreamWrite.createTable(createTableRequest);
-            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
-        } catch (ConflictException e) {
-            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
-        }
+public void updateScheduledQueries(String scheduledQueryArn) {
+    System.out.println("Updating Scheduled Query");
+    try {
+        queryClient.updateScheduledQuery(new UpdateScheduledQueryRequest()
+                .withScheduledQueryArn(scheduledQueryArn)
+                .withState(ScheduledQueryState.DISABLED));
+        System.out.println("Successfully update scheduled query state");
     }
+    catch (ResourceNotFoundException e) {
+        System.out.println("Scheduled Query doesn't exist");
+        throw e;
+    }
+    catch (Exception e) {
+        System.out.println("Execution Scheduled Query failed: " + e);
+        throw e;
+    }
+}
 ```
 
 Java v2
 
 ```
-    public void createTable() {
-        System.out.println("Creating table");
-
-        final RetentionProperties retentionProperties = RetentionProperties.builder()
-                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
-                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS).build();
-        final CreateTableRequest createTableRequest = CreateTableRequest.builder()
-                .databaseName(DATABASE_NAME).tableName(TABLE_NAME).retentionProperties(retentionProperties).build();
-
-        try {
-            timestreamWriteClient.createTable(createTableRequest);
-            System.out.println("Table [" + TABLE_NAME + "] successfully created.");
-        } catch (ConflictException e) {
-            System.out.println("Table [" + TABLE_NAME + "] exists on database [" + DATABASE_NAME + "] . Skipping database creation");
-        }
+public void updateScheduledQuery(String scheduledQueryArn, ScheduledQueryState state) {
+    System.out.println("Updating Scheduled Query");
+    try {
+        queryClient.updateScheduledQuery(UpdateScheduledQueryRequest.builder()
+                .scheduledQueryArn(scheduledQueryArn)
+                .state(state)
+                .build());
+        System.out.println("Successfully update scheduled query state");
     }
+    catch (ResourceNotFoundException e) {
+        System.out.println("Scheduled Query doesn't exist");
+        throw e;
+    }
+    catch (Exception e) {
+        System.out.println("Execution Scheduled Query failed: " + e);
+        throw e;
+    }
+}
 ```
 
 Go
 
 ```
-// Create table.
-    createTableInput := &timestreamwrite.CreateTableInput{
-        DatabaseName: aws.String(*databaseName),
-        TableName:    aws.String(*tableName),
-    }
-    _, err = writeSvc.CreateTable(createTableInput)
+func (timestreamBuilder TimestreamBuilder) UpdateScheduledQuery(scheduledQueryArn string) error {
 
-    if err != nil {
-        fmt.Println("Error:")
-        fmt.Println(err)
-    } else {
-        fmt.Println("Create table is successful")
-    }
+     updateScheduledQueryInput := &timestreamquery.UpdateScheduledQueryInput{
+         ScheduledQueryArn: aws.String(scheduledQueryArn),
+         State:             aws.String(timestreamquery.ScheduledQueryStateDisabled),
+     }
+     _, err := timestreamBuilder.QuerySvc.UpdateScheduledQuery(updateScheduledQueryInput)
+
+     if err != nil {
+         if aerr, ok := err.(awserr.Error); ok {
+             switch aerr.Code() {
+             case timestreamquery.ErrCodeResourceNotFoundException:
+                 fmt.Println(timestreamquery.ErrCodeResourceNotFoundException, aerr.Error())
+             default:
+                 fmt.Printf("Error: %s", aerr.Error())
+             }
+         } else {
+             fmt.Printf("Error: %s", err.Error())
+         }
+         return err
+     } else {
+         fmt.Println("UpdateScheduledQuery is successful")
+         return nil
+     }
+ }
 ```
 
 Python
 
 ```
-    def create_table(self):
-        print("Creating table")
-        retention_properties = {
-            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
-            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
-        }
-        try:
-            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
-                                     RetentionProperties=retention_properties)
-            print("Table [%s] successfully created." % Constant.TABLE_NAME)
-        except self.client.exceptions.ConflictException:
-            print("Table [%s] exists on database [%s]. Skipping table creation" % (
-                Constant.TABLE_NAME, Constant.DATABASE_NAME))
-        except Exception as err:
-            print("Create table failed:", err)
+def update_scheduled_query(self, scheduled_query_arn, state):
+    print("\nUpdating Scheduled Query")
+    try:
+        self.query_client.update_scheduled_query(ScheduledQueryArn=scheduled_query_arn,
+                                                 State=state)
+        print("Successfully update scheduled query state to", state)
+    except self.query_client.exceptions.ResourceNotFoundException as err:
+        print("Scheduled Query doesn't exist")
+        raise err
+    except Exception as err:
+        print("Scheduled Query deletion failed:", err)
+        raise err
 ```
 
 Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
-
-Also see [Class CreateTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md") and [CreateTable](API_CreateTable.md "API_CreateTable.md").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
 
 ```
-import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
-
-const params = {
-    DatabaseName: "testDbFromNode",
-    TableName: "testTableFromNode",
-    RetentionProperties: {
-        MemoryStoreRetentionPeriodInHours: 24,
-        MagneticStoreRetentionPeriodInDays: 365
-    }
-};
-
-const command = new CreateTableCommand(params);
-
-try {
-    const data = await writeClient.send(command);
-    console.log(`Table ${data.Table.TableName} created successfully`);
-} catch (error) {
-    if (error.code === 'ConflictException') {
-        console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
-    } else {
-        console.log("Error creating table. ", error);
-        throw error;
-    }
-}
-```
-
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
-
-```
-async function createTable() {
-    console.log("Creating Table");
-    const params = {
-        DatabaseName: constants.DATABASE_NAME,
-        TableName: constants.TABLE_NAME,
-        RetentionProperties: {
-            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
-            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
-        }
-    };
-
-    const promise = writeClient.createTable(params).promise();
-
-    await promise.then(
-        (data) => {
-            console.log(`Table ${data.Table.TableName} created successfully`);
-        },
-        (err) => {
-            if (err.code === 'ConflictException') {
-                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
-            } else {
-                console.log("Error creating table. ", err);
-                throw err;
-            }
-        }
-    );
-}
+async function updateScheduledQueries(scheduledQueryArn) {
+     console.log("Updating Scheduled Query");
+     var params = {
+         ScheduledQueryArn: scheduledQueryArn,
+         State: "DISABLED"
+     }
+     try {
+         await queryClient.updateScheduledQuery(params).promise();
+         console.log("Successfully update scheduled query state");
+     } catch (err) {
+         console.log("Update Scheduled Query failed: ", err);
+         throw err;
+     }
+ }
 ```
 
 .NET
 
 ```
-        public async Task CreateTable()
-        {
-            Console.WriteLine("Creating Table");
-
-            try
-            {
-                var createTableRequest = new CreateTableRequest
-                {
-                    DatabaseName = Constants.DATABASE_NAME,
-                    TableName = Constants.TABLE_NAME,
-                    RetentionProperties = new RetentionProperties
-                    {
-                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
-                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
-                    }
-                };
-                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
-                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
-            }
-            catch (ConflictException)
-            {
-                Console.WriteLine("Table already exists.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Create table failed:" + e.ToString());
-            }
-
-        }
-```
-
-## Magnetic store writes
-
-You can use the following code snippet to create a table with magnetic store writes
-enabled. With magnetic store writes you can write data into both your memory store
-retention window and magnetic store retention window.
-
-###### Note
-
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
-
-```
-    public void createTable(String databaseName, String tableName) {
-        System.out.println("Creating table");
-        CreateTableRequest createTableRequest = new CreateTableRequest();
-        createTableRequest.setDatabaseName(databaseName);
-        createTableRequest.setTableName(tableName);
-        final RetentionProperties retentionProperties = new RetentionProperties()
-                .withMemoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
-                .withMagneticStoreRetentionPeriodInDays(CT_TTL_DAYS);
-        createTableRequest.setRetentionProperties(retentionProperties);
-        // Enable MagneticStoreWrite
-        final MagneticStoreWriteProperties magneticStoreWriteProperties = new MagneticStoreWriteProperties()
-                .withEnableMagneticStoreWrites(true);
-        createTableRequest.setMagneticStoreWriteProperties(magneticStoreWriteProperties);
-        try {
-            amazonTimestreamWrite.createTable(createTableRequest);
-            System.out.println("Table [" + tableName + "] successfully created.");
-        } catch (ConflictException e) {
-            System.out.println("Table [" + tableName + "] exists on database [" + databaseName + "] . Skipping table creation");
-            //We do not throw exception here, we use the existing table instead
-        }
-    }
-```
-
-Java v2
-
-```
-    public void createTable(String databaseName, String tableName) {
-        System.out.println("Creating table");
-
-        // Enable MagneticStoreWrite
-        final MagneticStoreWriteProperties magneticStoreWriteProperties =
-                MagneticStoreWriteProperties.builder()
-                        .enableMagneticStoreWrites(true)
-                        .build();
-
-        CreateTableRequest createTableRequest =
-                CreateTableRequest.builder()
-                        .databaseName(databaseName)
-                        .tableName(tableName)
-                        .retentionProperties(RetentionProperties.builder()
-                                .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
-                                .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS)
-                                .build())
-                        .magneticStoreWriteProperties(magneticStoreWriteProperties)
-                        .build();
-        try {
-            timestreamWriteClient.createTable(createTableRequest);
-            System.out.println("Table [" + tableName + "] successfully created.");
-        } catch (ConflictException e) {
-            System.out.println("Table [" + tableName + "] exists in database [" + databaseName + "] . Skipping table creation");
-        }
-    }
-```
-
-Go
-
-```
-// Create table.
-    createTableInput := &timestreamwrite.CreateTableInput{
-        DatabaseName: aws.String(*databaseName),
-        TableName:    aws.String(*tableName),
-    // Enable MagneticStoreWrite
-        MagneticStoreWriteProperties: &timestreamwrite.MagneticStoreWriteProperties{
-            EnableMagneticStoreWrites: aws.Bool(true),
-             },
-      }
-    _, err = writeSvc.CreateTable(createTableInput)
-```
-
-Python
-
-```
-    def create_table(self):
-        print("Creating table")
-        retention_properties = {
-            'MemoryStoreRetentionPeriodInHours': Constant.HT_TTL_HOURS,
-            'MagneticStoreRetentionPeriodInDays': Constant.CT_TTL_DAYS
-        }
-        magnetic_store_write_properties = {
-            'EnableMagneticStoreWrites': True
-        }
-        try:
-            self.client.create_table(DatabaseName=Constant.DATABASE_NAME, TableName=Constant.TABLE_NAME,
-                                     RetentionProperties=retention_properties,
-                                     MagneticStoreWriteProperties=magnetic_store_write_properties)
-            print("Table [%s] successfully created." % Constant.TABLE_NAME)
-        except self.client.exceptions.ConflictException:
-            print("Table [%s] exists on database [%s]. Skipping table creation" % (
-                Constant.TABLE_NAME, Constant.DATABASE_NAME))
-        except Exception as err:
-            print("Create table failed:", err)
-```
-
-Node.js
-
-```
-async function createTable() {
-    console.log("Creating Table");
-
-    const params = {
-        DatabaseName: constants.DATABASE_NAME,
-        TableName: constants.TABLE_NAME,
-        RetentionProperties: {
-            MemoryStoreRetentionPeriodInHours: constants.HT_TTL_HOURS,
-            MagneticStoreRetentionPeriodInDays: constants.CT_TTL_DAYS
-        },
-        MagneticStoreWriteProperties: {
-            EnableMagneticStoreWrites: true
-        }
-    };
-
-    const promise = writeClient.createTable(params).promise();
-
-    await promise.then(
-        (data) => {
-            console.log(`Table ${data.Table.TableName} created successfully`);
-        },
-        (err) => {
-            if (err.code === 'ConflictException') {
-                console.log(`Table ${params.TableName} already exists on db ${params.DatabaseName}. Skipping creation.`);
-            } else {
-                console.log("Error creating table. ", err);
-                throw err;
-            }
-        }
-    );
-}
-```
-
-.NET
-
-```
-        public async Task CreateTable()
-        {
-            Console.WriteLine("Creating Table");
-
-            try
-            {
-                var createTableRequest = new CreateTableRequest
-                {
-                    DatabaseName = Constants.DATABASE_NAME,
-                    TableName = Constants.TABLE_NAME,
-                    RetentionProperties = new RetentionProperties
-                    {
-                        MagneticStoreRetentionPeriodInDays = Constants.CT_TTL_DAYS,
-                        MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
-                    },
-                    // Enable MagneticStoreWrite
-                    MagneticStoreWriteProperties = new MagneticStoreWriteProperties
-                    {
-                        EnableMagneticStoreWrites = true,
-                    }
-                };
-                CreateTableResponse response = await writeClient.CreateTableAsync(createTableRequest);
-                Console.WriteLine($"Table {Constants.TABLE_NAME} created");
-            }
-            catch (ConflictException)
-            {
-                Console.WriteLine("Table already exists.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Create table failed:" + e.ToString());
-            }
-
-        }
+private async Task UpdateScheduledQuery(string scheduledQueryArn, ScheduledQueryState state)
+ {
+     try
+     {
+         Console.WriteLine("Updating Scheduled Query");
+         await _amazonTimestreamQuery.UpdateScheduledQueryAsync(new UpdateScheduledQueryRequest()
+         {
+             ScheduledQueryArn = scheduledQueryArn,
+             State = state
+         });
+         Console.WriteLine("Successfully update scheduled query state");
+     }
+     catch (ResourceNotFoundException e)
+     {
+         Console.WriteLine($"Scheduled Query doesn't exist: {e}");
+         throw;
+     }
+     catch (Exception e)
+     {
+         Console.WriteLine($"Update Scheduled Query failed: {e}");
+         throw;
+     }
+ }
 ```

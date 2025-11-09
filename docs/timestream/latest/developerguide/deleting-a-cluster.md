@@ -134,8 +134,20 @@ Recovery options after deletion:
 The following table covers some common deletion issues and solutions:
 
 | **Issue**             | **Solution**                                         |
-| --------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ---------------------------------------------------- |
 | Deletion fails        | Check for dependent resources or AWS service issues. |
 | Slow deletion         | Large clusters may extend deletion time.             |
 | Cannot delete         | Ensure you have proper IAM permissions.              |
-| Need to preserve data | Must export data manually before deletion.           | ### Best Practices for deleting a cluster <br>• **Always export critical data** before deletion. <br>• **Test data export and reimport process** before deleting production clusters. <br>• **Create comprehensive backups** including schema, data, and configuration. <br>• **Document deletion** for audit and compliance purposes. <br>• **Coordinate with teams** before deleting shared resources. <br>• **Verify deletion completion** before removing related resources. |
+| Need to preserve data | Must export data manually before deletion.           |
+
+### Best Practices for deleting a cluster
+
+- **Always export critical data** before deletion.
+- **Test data export and reimport process** before deleting
+  production clusters.
+- **Create comprehensive backups** including schema, data, and
+  configuration.
+- **Document deletion** for audit and compliance purposes.
+- **Coordinate with teams** before deleting shared resources.
+- **Verify deletion completion** before removing related
+  resources.

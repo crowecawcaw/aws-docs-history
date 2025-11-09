@@ -1,31 +1,58 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Queries with aggregate functions
+# Simple queries
 
-Below is an example IoT scenario example data set to illustrate queries with aggregate
-functions.
+The following gets the 10 most recently added data points for a table.
 
-###### Topics
+```
+SELECT * FROM `<database_name>`.`<table_name>`
+ORDER BY time DESC
+LIMIT 10
 
-- [Example data](#sample-queries.iot-scenarios.example-data "#sample-queries.iot-scenarios.example-data")
-- [Example queries](#sample-queries.iot-scenarios.example-queries "#sample-queries.iot-scenarios.example-queries")
+```
 
-## Example data
+The following gets the 5 oldest data points for a specific measure.
 
-Timestream enables you to store and analyze IoT sensor data such as the location,
-fuel consumption, speed, and load capacity of one or more fleets of trucks to enable
-effective fleet management. Below is the schema and some of the data of a table
-iot_trucks that stores telemetry such as location, fuel consumption, speed, and load
-capacity of trucks.
+```
+SELECT * FROM `<database_name>`.`<table_name>`
+WHERE measure_name = '`<measure_name>`'
+ORDER BY time ASC
+LIMIT 5
 
-| Time                          | truck_id  | Make     | Model | Fleet | fuel_capacity | load_capacity | measure_name | measure_value::double | measure_value::varchar               |
-| ----------------------------- | --------- | -------- | ----- | ----- | ------------- | ------------- | ------------ | --------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | fuel_reading | 65.2                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | load         | 400.0                 | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | speed        | 90.2                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | location     | null                  | 47.6062 N, 122.3321 W                |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | fuel_reading | 10.1                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | load         | 950.3                 | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | speed        | 50.8                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | location     | null                  | 40.7128 degrees N, 74.0060 degrees W | ## Example queries Get a list of all the sensor attributes and values being monitored for each truck in the fleet. `SELECT truck_id, fleet, fuel_capacity, model, load_capacity, make, measure_name FROM "sampleDB".IoT GROUP BY truck_id, fleet, fuel_capacity, model, load_capacity, make, measure_name` Get the most recent fuel reading of each truck in the fleet in the past 24 hours. `WITH latest_recorded_time AS ( SELECT truck_id, max(time) as latest_time FROM "sampleDB".IoT WHERE measure_name = 'fuel-reading' AND time >= ago(24h) GROUP BY truck_id ) SELECT b.truck_id, b.fleet, b.make, b.model, b.time, b.measure_value::double as last_reported_fuel_reading FROM latest_recorded_time a INNER JOIN "sampleDB".IoT b ON a.truck_id = b.truck_id AND b.time = a.latest_time WHERE b.measure_name = 'fuel-reading' AND b.time > ago(24h) ORDER BY b.truck_id` Identify trucks that have been running on low fuel(less than 10 %) in the past 48 hours: `WITH low_fuel_trucks AS ( SELECT time, truck_id, fleet, make, model, (measure_value::double/cast(fuel_capacity as double)*100) AS fuel_pct FROM "sampleDB".IoT WHERE time >= ago(48h) AND (measure_value::double/cast(fuel_capacity as double)*100) < 10 AND measure_name = 'fuel-reading' ), other_trucks AS ( SELECT time, truck_id, (measure_value::double/cast(fuel_capacity as double)*100) as remaining_fuel FROM "sampleDB".IoT WHERE time >= ago(48h) AND truck_id IN (SELECT truck_id FROM low_fuel_trucks) AND (measure_value::double/cast(fuel_capacity as double)*100) >= 10 AND measure_name = 'fuel-reading' ), trucks_that_refuelled AS ( SELECT a.truck_id FROM low_fuel_trucks a JOIN other_trucks b ON a.truck_id = b.truck_id AND b.time >= a.time ) SELECT DISTINCT truck_id, fleet, make, model, fuel_pct FROM low_fuel_trucks WHERE truck_id NOT IN ( SELECT truck_id FROM trucks_that_refuelled )` Find the average load and max speed for each truck for the past week: `SELECT bin(time, 1d) as binned_time, fleet, truck_id, make, model, AVG( CASE WHEN measure_name = 'load' THEN measure_value::double ELSE NULL END ) AS avg_load_tons, MAX( CASE WHEN measure_name = 'speed' THEN measure_value::double ELSE NULL END ) AS max_speed_mph FROM "sampleDB".IoT WHERE time >= ago(7d) AND measure_name IN ('load', 'speed') GROUP BY fleet, truck_id, make, model, bin(time, 1d) ORDER BY truck_id` Get the load efficiency for each truck for the past week: `WITH average_load_per_truck AS ( SELECT truck_id, avg(measure_value::double)  AS avg_load FROM "sampleDB".IoT WHERE measure_name = 'load' AND time >= ago(7d) GROUP BY truck_id, fleet, load_capacity, make, model ), truck_load_efficiency AS ( SELECT a.truck_id, fleet, load_capacity, make, model, avg_load, measure_value::double, time, (measure_value::double*100)/avg_load as load_efficiency -- , approx_percentile(avg_load_pct, DOUBLE '0.9') FROM "sampleDB".IoT a JOIN average_load_per_truck b ON a.truck_id = b.truck_id WHERE a.measure_name = 'load' ) SELECT truck_id, time, load_efficiency FROM truck_load_efficiency ORDER BY truck_id, time` |
+```
+
+The following works with nanosecond granularity timestamps.
+
+```
+SELECT now() AS time_now
+, now() - (INTERVAL '12' HOUR) AS twelve_hour_earlier -- Compatibility with ANSI SQL
+, now() - 12h AS also_twelve_hour_earlier -- Convenient time interval literals
+, ago(12h) AS twelve_hours_ago -- More convenience with time functionality
+, bin(now(), 10m) AS time_binned -- Convenient time binning support
+, ago(50ns) AS fifty_ns_ago -- Nanosecond support
+, now() + (1h + 50ns) AS hour_fifty_ns_future
+
+```
+
+Measure values for multi-measure records are identified by column name. Measure values
+for single-measure records are identified by
+`measure_value::`<data_type>`, where
+ `<data_type>``is one of
+`double`, `bigint`, `boolean`, or `varchar`
+as described in [Supported data types](supported-data-types.md "supported-data-types.md"). For more information about how measure values are modeled, see [Single table vs. multiple tables](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
+
+The following retrieves values for a measure called `speed` from
+multi-measure records with a `measure_name` of
+`IoTMulti-stats`.
+
+```
+SELECT speed FROM `<database_name>`.`<table_name>` where measure_name = 'IoTMulti-stats'
+```
+
+The following retrieves `double` values from single-measure records with a
+`measure_name` of `load`.
+
+```
+SELECT measure_value::double FROM `<database_name>`.`<table_name>` WHERE measure_name = 'load'
+```
