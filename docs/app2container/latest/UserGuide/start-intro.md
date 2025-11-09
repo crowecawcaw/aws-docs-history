@@ -1,4 +1,4 @@
-AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
+AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Getting started with AWS App2Container
 
@@ -874,6 +874,37 @@ Perform the actions in the list below once per Active Directory domain before yo
   value pairs:
 
 | Key      | Value                            |
-| -------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | -------------------------------- |
 | Username | <DomainNetBIOSName>\<DomainUser> |
-| Password | <DomainUserPassword>             | <br>• For the VPC with the Domain Controller, verify that the DHCP options are set to reach the Domain Controller. The options for `DomainName` and `DomainNameServers` must be set correctly. See [DHCP options sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md") for more information about how to set DHCP options. ## Step 6: Clean up If you explored deployment options outside of the steps that we covered for this tutorial, make sure that you tear down any application stacks that might have been created, and verify that you have removed any artifacts that were created in the process. Choose the tab that matches your operating system (OS) platform to continue: Linux To remove App2Container from your application server or worker machine, delete the `/usr/local/app2container` folder where it is installed, and then remove this folder from your path. To clean up your AWS profile, use the **aws configure set** command. For more information, see [Set and view configuration settings](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods") in the _AWS Command Line Interface User Guide_. Windows To remove App2Container from your application server or worker machine, delete the `C:\Users\Administrator\app2container` folder where it is installed, and then remove this folder from your path. To clean up your AWS profile, see [Removing Credential Profiles](../../../powershell/latest/userguide/shared-credentials-in-aws-powershell.md#removing-credential-profiles "../../../powershell/latest/userguide/shared-credentials-in-aws-powershell.md#removing-credential-profiles") in the _AWS Tools for PowerShell User Guide_. |
+| Password | <DomainUserPassword>             |
+
+- For the VPC with the Domain Controller, verify that the DHCP options are set to reach the
+  Domain Controller. The options for `DomainName` and `DomainNameServers` must
+  be set correctly. See [DHCP options sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md")
+  for more information about how to set DHCP options.
+
+## Step 6: Clean up
+
+If you explored deployment options outside of the steps that we covered
+for this tutorial, make sure that you tear down any application stacks that
+might have been created, and verify that you have removed any artifacts that
+were created in the process.
+
+Choose the tab that matches your operating system (OS) platform to continue:
+
+Linux
+To remove App2Container from your application server or worker machine, delete the
+`/usr/local/app2container` folder where it is installed, and then
+remove this folder from your path.
+
+To clean up your AWS profile, use the
+**aws configure set** command. For more information, see [Set and
+view configuration settings](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-methods") in the _AWS Command Line Interface User Guide_.
+
+Windows
+To remove App2Container from your application server or worker machine, delete the
+`C:\Users\Administrator\app2container` folder where it is installed, and then
+remove this folder from your path.
+
+To clean up your AWS profile, see [Removing
+Credential Profiles](../../../powershell/latest/userguide/shared-credentials-in-aws-powershell.md#removing-credential-profiles "../../../powershell/latest/userguide/shared-credentials-in-aws-powershell.md#removing-credential-profiles") in the _AWS Tools for PowerShell User Guide_.

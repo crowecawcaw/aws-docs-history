@@ -1,4 +1,4 @@
-AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
+AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # App2Container Automation runbook
 
@@ -550,10 +550,71 @@ will use a Linux based image.
 
 You can specify the following parameters for the Automation runbook.
 
-| Parameter name           | Type    | Description                                                                                                                                                                                                                                                                                                                  | Default value | Required |
-| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AutomationAssumeRole`   | String  | The ARN of the role that allows Automation to perform actions on your behalf.                                                                                                                                                                                                                                                |               | TRUE     |
-| `EnableContainerization` | Boolean | Controls whether to containerize discovered applications. If enabled, the automation will use the artifacts uploaded to the S3 bucket to generate Open Containers Initiative (OCI) container images and push them to Amazon ECR.                                                                                             | FALSE         | FALSE    |
-| `OutputLocation`         | String  | The S3 location in which to upload deployment artifacts. The bucket must be in the same account and Region of the EC2 instance. All artifacts will be created with a prefix of `application-transformation`.                                                                                                                 |               | TRUE     |
-| `OutputEncryptionKey`    | String  | The ARN of a customer managed KMS key to use for server-side encryption. For more information, see [Protecting data with server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the _Amazon Simple Storage Service User Guide_. |               | FALSE    |
-| `InstanceId`             | String  | An EC2 instance ID with applications to be assessed for replatforming. Only running applications are assessed.                                                                                                                                                                                                               |               | TRUE     | ### Running the automation You can run the automation from the Systems Manager console. ###### To run the automation 1. Access the AWS Systems Manager Automation console at [https://console.aws.amazon.com/systems-manager/automation](https://console.aws.amazon.com/systems-manager/automation "https://console.aws.amazon.com/systems-manager/automation"). 2. Choose **Execute automation**. 3. Under **Automation runbook**, enter `AWSApp2Container-ReplatformApplications`, and search the repository. 4. Choose the `AWSApp2Container-ReplatformApplications` runbook, then choose **Next**. 5. Enter the required parameters, and any optional ones you require: 1. For `AutomationAssumeRole`, enter the ARN of the service role you created previously. 2. For `EnableContainerization`, specify `TRUE` if you want your containerized applications pushed to Amazon ECR. 3. For `OutputLocation`, specify the S3 path to upload artifacts to. 4. For `OutputEncryptionKey`, you can specify the ARN of a KMS key if you want to encrypt the uploaded objects with your customer managed key. 5. For `InstanceId`, specify the instance ID for the automation to take action on. 6. Choose **Execute**. ### Reviewing output from the automation Once the automation has completed, you can access the output in the S3 location that you provided. ###### To review output from the automation 1. Access the AWS Systems Manager Automation console at [https://console.aws.amazon.com/systems-manager/automation](https://console.aws.amazon.com/systems-manager/automation "https://console.aws.amazon.com/systems-manager/automation"). 2. Choose the **Execution ID** to review. 3. Select **Outputs** and review the **Finalize.report** output. 4. For more details, review the text file indicated in the **Finalize.reportS3Location** output. ## Complete the modernization process You can complete the modernization process using AWS Migration Hub Orchestrator to create a workflow based on the _Replatform applications to Amazon ECS_ template to deploy your applications on Amazon ECS on AWS Fargate. This template can use the application artifacts App2Container uploaded to Amazon S3. For more information, see [Replatform applications to Amazon ECS](../../../migrationhub-orchestrator/latest/userguide/replatform-to-ecs.md "../../../migrationhub-orchestrator/latest/userguide/replatform-to-ecs.md") in the _AWS Migration Hub Orchestrator User Guide_. To continue the containerization process without Migration Hub Orchestrator, you can use the App2Container CLI extraction and containerization process. For more information, see [Step 4: Transform your application](start-intro.md#start-step4-transform "start-intro.md#start-step4-transform"). After performing the containerization process with App2Container, continue with the deployment phase to complete the modernization process. You can use either App2Container or proprietary deployment tools. If you use the App2Container CLI, you can generate the required AWS CloudFormation templates. For more information about deploying your containerized application using App2Container, see [Step 5: Deploy your application](start-intro.md#start-step5-deploy "start-intro.md#start-step5-deploy"). |
+| Parameter name           | Type    | Description                                                                                                                                                                                                                                                                                                                        | Default value | Required |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| `AutomationAssumeRole`   | String  | The ARN of the role that allows Automation to perform actions<br>on your behalf.                                                                                                                                                                                                                                                   |               | TRUE     |
+| `EnableContainerization` | Boolean | Controls whether to containerize discovered applications. If enabled, the automation<br>will use the artifacts uploaded to the S3 bucket to generate<br>Open Containers Initiative (OCI) container images and push them<br>to Amazon ECR.                                                                                          | FALSE         | FALSE    |
+| `OutputLocation`         | String  | The S3 location in which to upload deployment artifacts. The bucket must be in the same<br>account and Region of the EC2 instance. All artifacts will be<br>created with a prefix of<br>`application-transformation`.                                                                                                              |               | TRUE     |
+| `OutputEncryptionKey`    | String  | The ARN of a customer managed KMS key to use for server-side encryption. For more information,<br>see [Protecting data with server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the<br>_Amazon Simple Storage Service User Guide_. |               | FALSE    |
+| `InstanceId`             | String  | An EC2 instance ID with applications to be assessed for<br>replatforming. Only running applications are assessed.                                                                                                                                                                                                                  |               | TRUE     |
+
+### Running the
+
+automation
+
+You can run the automation from the Systems Manager console.
+
+###### To run the automation
+
+1. Access the AWS Systems Manager Automation console at [https://console.aws.amazon.com/systems-manager/automation](https://console.aws.amazon.com/systems-manager/automation "https://console.aws.amazon.com/systems-manager/automation").
+2. Choose **Execute automation**.
+3. Under **Automation runbook**, enter
+   `AWSApp2Container-ReplatformApplications`, and search the
+   repository.
+4. Choose the `AWSApp2Container-ReplatformApplications` runbook, then choose
+   **Next**.
+5. Enter the required parameters, and any optional ones you require:
+   1. For `AutomationAssumeRole`, enter the ARN of the
+      service role you created previously.
+   2. For `EnableContainerization`, specify `TRUE`
+      if you want your containerized applications pushed to Amazon ECR.
+   3. For `OutputLocation`, specify the S3 path to upload
+      artifacts to.
+   4. For `OutputEncryptionKey`, you can specify the ARN of a
+      KMS key if you want to encrypt the uploaded objects with your
+      customer managed key.
+   5. For `InstanceId`, specify the instance ID for the
+      automation to take action on.
+
+6. Choose **Execute**.
+
+### Reviewing output from the automation
+
+Once the automation has completed, you can access the output in the S3 location that you provided.
+
+###### To review output from the automation
+
+1. Access the AWS Systems Manager Automation console at [https://console.aws.amazon.com/systems-manager/automation](https://console.aws.amazon.com/systems-manager/automation "https://console.aws.amazon.com/systems-manager/automation").
+2. Choose the **Execution ID** to review.
+3. Select **Outputs** and review the
+   **Finalize.report** output.
+4. For more details, review the text file indicated in the
+   **Finalize.reportS3Location** output.
+
+## Complete the modernization
+
+process
+
+You can complete the modernization process using AWS Migration Hub Orchestrator to create a workflow based
+on the _Replatform applications to Amazon ECS_ template to deploy
+your applications on Amazon ECS on AWS Fargate. This template can use the application
+artifacts App2Container uploaded to Amazon S3. For more information, see [Replatform applications to Amazon ECS](../../../migrationhub-orchestrator/latest/userguide/replatform-to-ecs.md "../../../migrationhub-orchestrator/latest/userguide/replatform-to-ecs.md") in the _AWS Migration Hub Orchestrator User
+Guide_.
+
+To continue the containerization process without Migration Hub Orchestrator, you can use the App2Container CLI extraction and
+containerization process. For more information, see [Step 4: Transform your application](start-intro.md#start-step4-transform "start-intro.md#start-step4-transform").
+
+After performing the containerization process with App2Container, continue with the deployment phase to
+complete the modernization process. You can use either App2Container or proprietary deployment
+tools. If you use the App2Container CLI, you can generate the required AWS CloudFormation templates. For more
+information about deploying your containerized application using App2Container, see [Step 5: Deploy your application](start-intro.md#start-step5-deploy "start-intro.md#start-step5-deploy").
