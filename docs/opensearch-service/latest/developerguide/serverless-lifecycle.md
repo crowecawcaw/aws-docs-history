@@ -187,9 +187,149 @@ Each rule contains the following elements. You can either provide
 `MinIndexRetention` or `NoMinIndexRetention` in each rule, but
 not both.
 
-| Element                 | Description                                                                                                                                                                                               |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| **Resource type**       | The type of resource that the rule applies to. The only supported option for data lifecycle policies is `index`.                                                                                          |
-| **Resource**            | A list of resource names and/or patterns. Patterns consist of a prefix and a wildcard (`*`), which allow the associated permissions to apply to multiple resources. For example, `index/`<collection-name | pattern>`/`<index-name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | pattern>``. |
-| **MinIndexRetention**   | The minimum period, in days (`d`) or hours (`h`), to retain the document in the index. The lower bound is `24h` and the upper bound is `3650d`.                                                           |
-| **NoMinIndexRetention** | If `true`, OpenSearch Serverless retains documents indefinitely.                                                                                                                                          | In the following example, the first rule applies to all indexes under the `autoparts-inventory` pattern (`index/autoparts-inventory/*`) and requires data to be retained for at least 20 days before any actions, such as deletion or archiving, can occur. The second rule targets indexes matching the `auto*/gear` pattern (`index/auto*/gear`), setting a minimum retention period of 24 hours. The third rule applies specifically to the `tires` index and has no minimum retention period, meaning that data in this index can be deleted or archived immediately or based on other criteria. These rules help manage the retention of index data with varying retention times or no retention restrictions. ``{ "Rules": [ { "ResourceType": "index", "Resource": [ "index/`autoparts-inventory`/*" ], "MinIndexRetention": "20d" }, { "ResourceType": "index", "Resource": [ "index/`auto*`/`gear`" ], "MinIndexRetention": "24h" }, { "ResourceType": "index", "Resource": [ "index/`autoparts-inventory`/`tires`" ], "NoMinIndexRetention": true } ] }`` ## Creating data lifecycle policies To create a data lifecycle policy, you define rules that manage the retention and deletion of your data based on specified criteria. ###### To create a data lifecycle policy 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home"). 2. In the left navigation pane, choose **Data lifecycle policies**. 3. Choose **Create data lifecycle policy**. 4. Enter a descriptive name for the policy. 5. For **Data lifecycle**, choose **Add** and select the collections and indexes for the policy. Start by choosing the collections to which the indexes belong. Then, either choose the index from the list or enter an index pattern. To select all collections as sources, enter an asterisk (`*`). 6. For **Data retention**, you can either choose to retain the data indefinitely, or deselect **Unlimited (never delete)** and specify a time period after which OpenSearch Serverless automatically deletes the data from Amazon S3. 7. Choose **Save**, then **Create**. To create a data lifecycle policy using the AWS CLI, use the [create-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/create-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/create-lifecycle-policy.md") command with the following options: <br>• `--name` – The name of the policy. <br>• `--type` – The type of policy. Currently, the only available value is `retention`. <br>• `--policy` – The data lifecycle policy. This parameter accepts both inline policies and .json files. You must encode inline policies as a JSON escaped string. To provide the policy in a file, use the format `--policy file://`my-policy`.json`. ``aws opensearchserverless create-lifecycle-policy \ --name `my-policy` \ --type retention \ --policy "{\"Rules\":[{\"ResourceType\":\"index\",\"Resource\":[\"index/`autoparts-inventory`/*\"],\"MinIndexRetention\": \"81d\"},{\"ResourceType\":\"index\",\"Resource\":[\"index/`sales`/`orders*`\"],\"NoMinIndexRetention\":true}]}"`` ## Updating data lifecycle policies To update a data lifecycle policy, you can modify existing rules to reflect changes in your data retention or deletion requirements. This allows you to adapt your policies as your data management needs evolve. There might be a few minutes of lag time between when you update the policy and when OpenSearch Serverless starts to enforce the new retention periods. ###### To update a data lifecycle policy 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home"). 2. In the left navigation pane, choose **Data lifecycle policies**. 3. Select the data lifecycle policy that you want to update, then choose **Edit**. 4. Modify the policy using the visual editor or the JSON editor. 5. Choose **Save**. To update a data lifecycle policy using the AWS CLI, use the [update-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/update-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/update-lifecycle-policy.md") command. You must include the `--policy-version` parameter in the request. You can retrieve the policy version by using the [list-lifecycle-policies](../../../cli/latest/reference/opensearchserverless/list-lifecycle-policies.md "../../../cli/latest/reference/opensearchserverless/list-lifecycle-policies.md") or [batch-get-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/batch-get-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/batch-get-lifecycle-policy.md") commands. We recommend including the most recent policy version to prevent accidentally overwriting changes made by others. The following request updates a data lifecycle policy with a new policy JSON document. `` aws opensearchserverless update-lifecycle-policy \ --name `my-policy` \ --type retention \ --policy-version `MTY2MzY5MTY1MDA3Ml8x` \ --policy file://`my-new-policy.json` `` ## Deleting data lifecycle policies When you delete a data lifecycle policy, OpenSearch Serverless no longer enforces it on any matching indexes. ###### To delete a data lifecycle policy 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home"). 2. In the left navigation pane, choose **Data lifecycle policies**. 3. Select the policy that you want to delete, then choose **Delete** and confirm deletion. To delete a data lifecycle policy using the AWS CLI, use the [delete-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md") command. ``aws opensearchserverless delete-lifecycle-policy \ --name `my-policy` \ --type retention`` |
+| Element                 | Description                                                                                                                                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ----------- |
+| **Resource type**       | The type of resource that the rule applies to. The only supported<br>option for data lifecycle policies is `index`.                                                                                                |
+| **Resource**            | A list of resource names and/or patterns. Patterns consist of a<br>prefix and a wildcard (`*`), which allow the associated<br>permissions to apply to multiple resources. For example,<br>`index/`<collection-name | pattern>`/`<index-name | pattern>``. |
+| **MinIndexRetention**   | The minimum period, in days (`d`) or hours<br>(`h`), to retain the document in the index. The lower bound<br>is `24h` and the upper bound is `3650d`.                                                              |
+| **NoMinIndexRetention** | If `true`, OpenSearch Serverless retains documents indefinitely.                                                                                                                                                   |
+
+In the following example, the first rule applies to all indexes under the
+`autoparts-inventory` pattern (`index/autoparts-inventory/*`)
+and requires data to be retained for at least 20 days before any actions, such as
+deletion or archiving, can occur.
+
+The second rule targets indexes matching the `auto*/gear` pattern
+(`index/auto*/gear`), setting a minimum retention period of 24
+hours.
+
+The third rule applies specifically to the `tires` index and has no minimum
+retention period, meaning that data in this index can be deleted or archived immediately
+or based on other criteria. These rules help manage the retention of index data with
+varying retention times or no retention restrictions.
+
+```
+{
+  "Rules": [
+    {
+      "ResourceType": "index",
+      "Resource": [
+        "index/`autoparts-inventory`/*"
+      ],
+      "MinIndexRetention": "20d"
+    },
+    {
+      "ResourceType": "index",
+      "Resource": [
+        "index/`auto*`/`gear`"
+      ],
+      "MinIndexRetention": "24h"
+    },
+    {
+      "ResourceType": "index",
+      "Resource": [
+        "index/`autoparts-inventory`/`tires`"
+      ],
+      "NoMinIndexRetention": true
+    }
+  ]
+}
+```
+
+## Creating data lifecycle policies
+
+To create a data lifecycle policy, you define rules that manage the retention and
+deletion of your data based on specified criteria.
+
+###### To create a data lifecycle policy
+
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose **Data lifecycle
+   policies**.
+3. Choose **Create data lifecycle policy**.
+4. Enter a descriptive name for the policy.
+5. For **Data lifecycle**, choose
+   **Add** and select the collections and indexes for
+   the policy.
+
+Start by choosing the collections to which the indexes belong. Then,
+either choose the index from the list or enter an index pattern. To
+select all collections as sources, enter an asterisk
+(`*`). 6. For **Data retention**, you can either choose to
+retain the data indefinitely, or deselect **Unlimited (never
+delete)** and specify a time period after which OpenSearch Serverless
+automatically deletes the data from Amazon S3. 7. Choose **Save**, then
+**Create**.
+To create a data lifecycle policy using the AWS CLI, use the [create-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/create-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/create-lifecycle-policy.md") command with the following options:
+
+- `--name` – The name of the policy.
+- `--type` – The type of policy. Currently, the only
+  available value is `retention`.
+- `--policy` – The data lifecycle policy. This
+  parameter accepts both inline policies and .json files. You must encode
+  inline policies as a JSON escaped string. To provide the policy in a
+  file, use the format `--policy
+file://`my-policy`.json`.
+
+```
+aws opensearchserverless create-lifecycle-policy \
+  --name `my-policy` \
+  --type retention \
+  --policy "{\"Rules\":[{\"ResourceType\":\"index\",\"Resource\":[\"index/`autoparts-inventory`/*\"],\"MinIndexRetention\": \"81d\"},{\"ResourceType\":\"index\",\"Resource\":[\"index/`sales`/`orders*`\"],\"NoMinIndexRetention\":true}]}"
+```
+
+## Updating data lifecycle policies
+
+To update a data lifecycle policy, you can modify existing rules to reflect changes in
+your data retention or deletion requirements. This allows you to adapt your policies as
+your data management needs evolve.
+
+There might be a few minutes of lag time between when you update the policy and when
+OpenSearch Serverless starts to enforce the new retention periods.
+
+###### To update a data lifecycle policy
+
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose **Data lifecycle
+   policies**.
+3. Select the data lifecycle policy that you want to update, then choose
+   **Edit**.
+4. Modify the policy using the visual editor or the JSON editor.
+5. Choose **Save**.
+   To update a data lifecycle policy using the AWS CLI, use the [update-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/update-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/update-lifecycle-policy.md") command.
+
+You must include the `--policy-version` parameter in the request.
+You can retrieve the policy version by using the [list-lifecycle-policies](../../../cli/latest/reference/opensearchserverless/list-lifecycle-policies.md "../../../cli/latest/reference/opensearchserverless/list-lifecycle-policies.md") or [batch-get-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/batch-get-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/batch-get-lifecycle-policy.md") commands. We recommend including the
+most recent policy version to prevent accidentally overwriting changes made by
+others.
+
+The following request updates a data lifecycle policy with a new policy JSON
+document.
+
+```
+aws opensearchserverless update-lifecycle-policy \
+  --name `my-policy` \
+  --type retention \
+  --policy-version `MTY2MzY5MTY1MDA3Ml8x` \
+  --policy file://`my-new-policy.json`
+```
+
+## Deleting data lifecycle policies
+
+When you delete a data lifecycle policy, OpenSearch Serverless no longer enforces it on any matching
+indexes.
+
+###### To delete a data lifecycle policy
+
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose **Data lifecycle
+   policies**.
+3. Select the policy that you want to delete, then choose
+   **Delete** and confirm deletion.
+   To delete a data lifecycle policy using the AWS CLI, use the [delete-lifecycle-policy](../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md "../../../cli/latest/reference/opensearchserverless/delete-lifecycle-policy.md") command.
+
+```
+aws opensearchserverless delete-lifecycle-policy \
+  --name `my-policy` \
+  --type retention
+```

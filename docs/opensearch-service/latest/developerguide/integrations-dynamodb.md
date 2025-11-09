@@ -8,8 +8,111 @@ your custom code to perform the indexing.
 
 Before proceeding, you must have the following resources.
 
-| Prerequisite              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DynamoDB table            | The table contains your source data. For more information, see [Basic Operations on DynamoDB Tables](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md") in the _Amazon DynamoDB Developer Guide_.The table must reside in the same Region as your OpenSearch Service domain and have a stream set to **New image**. To learn more, see [Enabling a Stream](../../../amazondynamodb/latest/developerguide/Streams.md#Streams.Enabling "../../../amazondynamodb/latest/developerguide/Streams.md#Streams.Enabling").                                                                                                                                                                                                                               |
-| OpenSearch Service domain | The destination for data after your Lambda function processes it. For more information, see [Creating OpenSearch Service domains](createupdatedomains.md#createdomains "createupdatedomains.md#createdomains").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| IAM role                  | This role must have basic OpenSearch Service, DynamoDB, and Lambda execution permissions, such as the following: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "es:ESHttpPost", "es:ESHttpPut", "dynamodb:DescribeStream", "dynamodb:GetRecords", "dynamodb:GetShardIterator", "dynamodb:ListStreams", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents" ], "Resource": "*" } ] }` `` The role must have the following trust relationship: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "lambda.amazonaws.com" }, "Action": "sts:AssumeRole" } ] }` `` To learn more, see [Creating IAM roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the _IAM User Guide_. | ## Create the Lambda function Follow the instructions in [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package"), but create a directory named `ddb-to-opensearch` and use the following code for `sample.py`: `import boto3 import requests from requests_aws4auth import AWS4Auth region = '' # e.g. us-east-1 service = 'es' credentials = boto3.Session().get_credentials() awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token) host = '' # the OpenSearch Service domain, e.g. https://search-mydomain.us-west-1.es.amazonaws.com index = 'lambda-index' datatype = '_doc' url = host + '/' + index + '/' + datatype + '/' headers = { "Content-Type": "application/json" } def handler(event, context): count = 0 for record in event['Records']: # Get the primary key for use as the OpenSearch ID id = record['dynamodb']['Keys']['id']['S'] if record['eventName'] == 'REMOVE': r = requests.delete(url + id, auth=awsauth) else: document = record['dynamodb']['NewImage'] r = requests.put(url + id, auth=awsauth, json=document, headers=headers) count += 1 return str(count) + ' records processed.'` Edit the variables for `region` and `host`. [Install pip](https://pip.pypa.io/en/stable/installation/ "https://pip.pypa.io/en/stable/installation/") if you haven't already, then use the following commands to install your dependencies: `cd ddb-to-opensearch pip install --target ./package requests pip install --target ./package requests_aws4auth` Then follow the instructions in [Create the Lambda function](integrations-s3-lambda.md#integrations-s3-lambda-create "integrations-s3-lambda.md#integrations-s3-lambda-create"), but specify the IAM role from [Prerequisites](#integrations-dynamodb-prereq "#integrations-dynamodb-prereq") and the following settings for the trigger: <br>• **Table**: your DynamoDB table <br>• **Batch size**: 100 <br>• **Starting position**: Trim horizon To learn more, see [Process New Items with DynamoDB Streams and Lambda](../../../amazondynamodb/latest/developerguide/Streams.Lambda.md "../../../amazondynamodb/latest/developerguide/Streams.Lambda.md") in the _Amazon DynamoDB Developer Guide_. At this point, you have a complete set of resources: a DynamoDB table for your source data, a DynamoDB stream of changes to the table, a function that runs after your source data changes and indexes those changes, and an OpenSearch Service domain for searching and visualization. ## Test the Lambda function After you create the function, you can test it by adding a new item to the DynamoDB table using the AWS CLI: `` aws dynamodb put-item --table-name test --item '{"director": {"S": "Kevin Costner"},"id": {"S": "00001"},"title": {"S": "The Postman"}}' --region `us-west-1` `` Then use the OpenSearch Service console or OpenSearch Dashboards to verify that `lambda-index` contains a document. You can also use the following request: ``GET https://`domain-name`/lambda-index/_doc/00001 { "_index": "lambda-index", "_type": "_doc", "_id": "00001", "_version": 1, "found": true, "_source": { "director": { "S": "Kevin Costner" }, "id": { "S": "00001" }, "title": { "S": "The Postman" } } }`` |
+| Prerequisite              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DynamoDB table            | The table contains your source data. For more information,<br>see [Basic Operations on DynamoDB Tables](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md") in the<br>_Amazon DynamoDB Developer Guide_.The table<br>must reside in the same Region as your OpenSearch Service<br>domain and have a stream set to **New image**.<br>To learn more, see [Enabling a<br>Stream](../../../amazondynamodb/latest/developerguide/Streams.md#Streams.Enabling "../../../amazondynamodb/latest/developerguide/Streams.md#Streams.Enabling").                                                                                                                                                                                                                                                                                                                                                 |
+| OpenSearch Service domain | The destination for data after your Lambda function processes it.<br>For more information, see [Creating OpenSearch Service domains](createupdatedomains.md#createdomains "createupdatedomains.md#createdomains").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| IAM role                  | This role must have basic OpenSearch Service, DynamoDB, and Lambda execution<br>permissions, such as the<br>following:<br>JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Action": [<br>"es:ESHttpPost",<br>"es:ESHttpPut",<br>"dynamodb:DescribeStream",<br>"dynamodb:GetRecords",<br>"dynamodb:GetShardIterator",<br>"dynamodb:ListStreams",<br>"logs:CreateLogGroup",<br>"logs:CreateLogStream",<br>"logs:PutLogEvents"<br>],<br>"Resource": "*"<br>}<br>]<br>}`<br>``<br>The role must have the following trust<br>relationship:<br>JSON<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Principal": {<br>"Service": "lambda.amazonaws.com"<br>},<br>"Action": "sts:AssumeRole"<br>}<br>]<br>}`<br>``<br>To learn more, see [Creating IAM<br>roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the _IAM User Guide_. |
+
+## Create the Lambda function
+
+Follow the instructions in [Create the Lambda
+deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package"), but create a directory
+named `ddb-to-opensearch` and use the following code for
+`sample.py`:
+
+```
+import boto3
+import requests
+from requests_aws4auth import AWS4Auth
+
+region = '' # e.g. us-east-1
+service = 'es'
+credentials = boto3.Session().get_credentials()
+awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
+
+host = '' # the OpenSearch Service domain, e.g. https://search-mydomain.us-west-1.es.amazonaws.com
+index = 'lambda-index'
+datatype = '_doc'
+url = host + '/' + index + '/' + datatype + '/'
+
+headers = { "Content-Type": "application/json" }
+
+def handler(event, context):
+    count = 0
+    for record in event['Records']:
+        # Get the primary key for use as the OpenSearch ID
+        id = record['dynamodb']['Keys']['id']['S']
+
+        if record['eventName'] == 'REMOVE':
+            r = requests.delete(url + id, auth=awsauth)
+        else:
+            document = record['dynamodb']['NewImage']
+            r = requests.put(url + id, auth=awsauth, json=document, headers=headers)
+        count += 1
+    return str(count) + ' records processed.'
+```
+
+Edit the variables for `region` and `host`.
+
+[Install pip](https://pip.pypa.io/en/stable/installation/ "https://pip.pypa.io/en/stable/installation/") if
+you haven't already, then use the following commands to install your
+dependencies:
+
+```
+cd ddb-to-opensearch
+
+pip install --target ./package requests
+pip install --target ./package requests_aws4auth
+```
+
+Then follow the instructions in [Create the Lambda function](integrations-s3-lambda.md#integrations-s3-lambda-create "integrations-s3-lambda.md#integrations-s3-lambda-create"),
+but specify the IAM role from [Prerequisites](#integrations-dynamodb-prereq "#integrations-dynamodb-prereq") and the
+following settings for the trigger:
+
+- **Table**: your DynamoDB table
+- **Batch size**: 100
+- **Starting position**: Trim horizon
+
+To learn more, see [Process
+New Items with DynamoDB Streams and Lambda](../../../amazondynamodb/latest/developerguide/Streams.Lambda.md "../../../amazondynamodb/latest/developerguide/Streams.Lambda.md") in the _Amazon DynamoDB Developer Guide_.
+
+At this point, you have a complete set of resources: a DynamoDB table for your source
+data, a DynamoDB stream of changes to the table, a function that runs after your source
+data changes and indexes those changes, and an OpenSearch Service domain for searching and
+visualization.
+
+## Test the Lambda function
+
+After you create the function, you can test it by adding a new item to the DynamoDB
+table using the AWS CLI:
+
+```
+aws dynamodb put-item --table-name test --item '{"director": {"S": "Kevin Costner"},"id": {"S": "00001"},"title": {"S": "The Postman"}}' --region `us-west-1`
+```
+
+Then use the OpenSearch Service console or OpenSearch Dashboards to verify that
+`lambda-index` contains a document. You can also use the following
+request:
+
+```
+GET https://`domain-name`/lambda-index/_doc/00001
+{
+    "_index": "lambda-index",
+    "_type": "_doc",
+    "_id": "00001",
+    "_version": 1,
+    "found": true,
+    "_source": {
+        "director": {
+            "S": "Kevin Costner"
+        },
+        "id": {
+            "S": "00001"
+        },
+        "title": {
+            "S": "The Postman"
+        }
+    }
+}
+```

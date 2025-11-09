@@ -13,7 +13,22 @@ following steps:
 2. Choose **Create action group** and configure the
    following groups:
 
-| Group name                    | Permissions                                                                                                                                                                                                                                                           |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `flow_framework_full_access`  | <br>• `cluster:admin/opensearch/flow_framework/*` <br>• `cluster_monitor`                                                                                                                                                                                             |
-| `flow_framework_read_accesss` | <br>• `cluster:admin/opensearch/flow_framework/workflow/get` <br>• `cluster:admin/opensearch/flow_framework/workflow/search` <br>• `cluster:admin/opensearch/flow_framework/workflow_state/get` <br>• `cluster:admin/opensearch/flow_framework/workflow_state/search` | 3. Choose **Roles** and **Create role**. 4. Name the role **flow_framework_manager**. 5. For **Cluster permissions,** select `flow_framework_full_access` and `flow_framework_read_access`. 6. For **Index**, type `*`. 7. For **Index permissions**, select `indices:admin/aliases/get`, `indices:admin/mappings/get`, and `indices_monitor`. 8. Choose **Create**. 9. After you create the role, [map it](fgac.md#fgac-mapping "fgac.md#fgac-mapping") to any user or backend role that will manage flow framework indexes. |
+| Group name                    | Permissions                                                                                                                                                                                                                                                    |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flow_framework_full_access`  | • `cluster:admin/opensearch/flow_framework/*`<br>• `cluster_monitor`                                                                                                                                                                                           |
+| `flow_framework_read_accesss` | • `cluster:admin/opensearch/flow_framework/workflow/get`<br>• `cluster:admin/opensearch/flow_framework/workflow/search`<br>• `cluster:admin/opensearch/flow_framework/workflow_state/get`<br>• `cluster:admin/opensearch/flow_framework/workflow_state/search` |
+
+3. Choose **Roles** and **Create
+   role**.
+4. Name the role **flow_framework_manager**.
+5. For **Cluster permissions,** select
+   `flow_framework_full_access` and
+   `flow_framework_read_access`.
+6. For **Index**, type `*`.
+7. For **Index permissions**, select
+   `indices:admin/aliases/get`,
+   `indices:admin/mappings/get`, and
+   `indices_monitor`.
+8. Choose **Create**.
+9. After you create the role, [map it](fgac.md#fgac-mapping "fgac.md#fgac-mapping") to
+   any user or backend role that will manage flow framework indexes.

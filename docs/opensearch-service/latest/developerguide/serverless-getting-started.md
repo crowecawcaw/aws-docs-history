@@ -152,6 +152,27 @@ PUT movies-index/_doc/1
    **Discover**, or use the [search
    API](https://opensearch.org/docs/latest/api-reference/search/ "https://opensearch.org/docs/latest/api-reference/search/") within Dev Tools.
 
+## Handling errors
+
+When running index and search operations, you may get the following error
+responses:
+
+- `HTTP 507` – Indicates that an internal server error
+  occurred. This error generally indicates that your OpenSearch compute units
+  (OCUs) are overloaded by the volume or complexity of your requests. Although
+  OpenSearch Serverless scales automatically to manage the load, there can be a delay in
+  deploying additional resources.
+
+To mitigate this error, implement an exponential backoff retry policy. This
+approach temporarily reduces the request rate to effectively manage the load.
+For more details, refer to [Retry behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md")
+in the _AWS SDKs and Tools Reference
+Guide_.
+
+- `HTTP 402` – Indicates that you reached the maximum
+  OpenSearch compute unit (OCU) capacity limit. Optimize your workload to reduce
+  the OCU usage or request a quota increase.
+
 ## Step 4: Delete the collection
 
 Because the _movies_ collection is for test purposes,

@@ -41,9 +41,16 @@ documents in an accounts index with `age` greater than 18:
 search source=accounts | where age > 18 | fields firstname, lastname
 ```
 
-| Sample Response | id      | firstname | lastname                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------- | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Sample Response | id      | firstname | lastname |
+| --------------- | ------- | --------- | -------- |
 | 0               | Amber   | Duke      |
 | 1               | Hattie  | Bond      |
 | 2               | Nanette | Bates     |
-| 3               | Dale    | Adams     | You can use a complete set of read-only commands like `search`, `where`, `fields`, `rename`, `dedup`, `stats`, `sort`, `eval`, `head`, `top`, and `rare`. The PPL plugin supports all SQL functions, including mathematical, trigonometric, date-time, string, aggregate, and advanced operators and expressions. To learn more, see the [OpenSearch PPL reference manual](https://github.com/opensearch-project/sql/blob/2.x/docs/user/ppl/index.rst "https://github.com/opensearch-project/sql/blob/2.x/docs/user/ppl/index.rst"). |
+| 3               | Dale    | Adams     |
+
+You can use a complete set of read-only commands like `search`,
+`where`, `fields`, `rename`, `dedup`,
+`stats`, `sort`, `eval`, `head`,
+`top`, and `rare`. The PPL plugin supports all SQL functions,
+including mathematical, trigonometric, date-time, string, aggregate, and advanced operators
+and expressions. To learn more, see the [OpenSearch PPL reference manual](https://github.com/opensearch-project/sql/blob/2.x/docs/user/ppl/index.rst "https://github.com/opensearch-project/sql/blob/2.x/docs/user/ppl/index.rst").

@@ -53,7 +53,96 @@ identity information helps you determine:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding OpenSearch Serverless log file
+## OpenSearch Serverless data events in CloudTrail
+
+[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in
+a resource (for example, searching or indexing to an OpenSearch Serverless Collection). These are also known as data
+plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
+data events. The CloudTrail **Event history** doesn't record data events.
+
+Additional charges apply for data events. For more information about CloudTrail pricing, see
+[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+
+You can log data events for the `AWS::AOSS::Collection` resource types by
+using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log
+data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
+_AWS CloudTrail User Guide_.
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## Understanding OpenSearch Serverless Data Event entries
+
+In the following example:
+
+- The `requestParameters` field contains details about the API call made to
+  the collection. It includes the base request path (without query parameters).
+- The `responseElements` field includes a status code that indicates the
+  outcome of your request when modifying resources. This status code helps you track
+  whether your changes were processed successfully or require attention.
+- OpenSearch Serverless logs CloudTrail data events only for requests that have successfully completed
+  IAM authentication.
+
+```
+ {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA123456789EXAMPLE",
+        "arn": "arn:aws::sts::111122223333:assumed-role/Admin/user-role",
+        "accountId": "111122223333",
+        "accessKeyId": "access-key",
+        "userName": "",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROA123456789EXAMPLE",
+            "arn": "arn:aws:iam::111122223333:role/Admin",
+            "accountId": "111122223333",
+            "userName": "Admin"
+          },
+          "attributes": {
+            "creationDate": "2025-08-15T22:57:38Z",
+            "mfaAuthenticated": "false"
+          },
+          "sourceIdentity": "",
+          "ec2RoleDelivery": "",
+          "assumedRoot": ""
+        },
+        "identityProvider": "",
+        "credentialId": ""
+      },
+      "eventTime": "2025-08-15T22:58:00Z",
+      "eventSource": "aoss.amazonaws.com",
+      "eventName": "Search",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "AWS Internal",
+      "userAgent": "python-requests/2.32.3",
+      "requestParameters": {
+        "pathPrefix": "/_search"
+      },
+      "responseElements": null,
+      "requestID": "2cfee788-EXAM-PLE1-8617-4018cEXAMPLE",
+      "eventID": "48d43617-EXAM-PLE1-9d9c-f7EXAMPLE",
+      "readOnly": true,
+      "resources": [
+        {
+          "type": "AWS::AOSS::Collection",
+          "ARN": "arn:aws:aoss:us-east-1:111122223333:collection/aab9texampletu45xh77"
+        }
+      ],
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    }
+  ]
+}
+```
+
+## Understanding OpenSearch Serverless Management Events
 
 entries
 
@@ -65,7 +154,7 @@ requested action, the date and time of the action, request parameters, and so on
 files aren't an ordered stack trace of the public API calls, so they don't appear in any
 specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
+The following example displays a CloudTrail log entry that demonstrates the
 `CreateCollection` action.
 
 ```

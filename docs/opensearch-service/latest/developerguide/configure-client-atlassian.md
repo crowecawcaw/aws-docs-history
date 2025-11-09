@@ -432,33 +432,36 @@ exception is that the change monitoring syncs only `create` and
 
 **Type: Jira connector metrics**
 
-| Source                            | Metric  | Metric Type                                                                                     |
-| --------------------------------- | ------- | ----------------------------------------------------------------------------------------------- | -------------------------------------- |
-| acknowledgementSetSuccesses.count | Counter | If acknowledgments are enabled, this metric provides the number of tickets successfully synced. |
-| acknowledgementSetFailures.count  | Counter | If acknowledgments are enabled, this metric provides the number of tickets that failed to sync. |
-| crawlingTime.avg                  | Timer   | The time it took to crawl through all the new changes.                                          |
-| ticketFetchLatency.avg            | Timer   | The ticket fetch API latency average.                                                           |
-| ticketFetchLatency.max            | Timer   | The ticket fetch API latency maximum.                                                           |
-| ticketsRequested.count            | Counter | Number of ticket fetch requests made.                                                           |
-| ticketRequestedFailed.count       | Counter | Number of ticket fetch requests failed.                                                         |
-| ticketRequestedSuccess.count      | Counter | Number of ticket fetch requests succeeded.                                                      |
-| searchCallLatency.avg             | Timer   | Search API call latency average.                                                                |
-| searchCallLatency.max             | Timer   | Search API call latency maximum.                                                                |
-| searchResultsFound.count          | Counter | Number of items found in a given search call.                                                   |
-| searchRequestFailed.count         | Counter | Search API call failures count.                                                                 |
-| authFailures.count                | Counter | Authentication failure count.                                                                   | **Type: Confluence connector metrics** |
-| Source                            | Metric  | Metric Type                                                                                     |
-| ---                               | ---     | ---                                                                                             |
-| acknowledgementSetSuccesses.count | Counter | If acknowledgments are enabled, this metric provides the number of pages successfully synced.   |
-| acknowledgementSetFailures.count  | Counter | If acknowledgments are enabled, this metric provides the number of pages that failed to sync.   |
-| crawlingTime.avg                  | Timer   | The time it took to crawl through all the new changes.                                          |
-| pageFetchLatency.avg              | Timer   | Content fetching API latency (average).                                                         |
-| pageFetchLatency.max              | Timer   | Content fetching API latency (maximum).                                                         |
-| pagesRequested.count              | Counter | Number of invocations of content fetching API.                                                  |
-| pageRequestFailed.count           | Counter | Number of failed requests of content fetching API.                                              |
-| pageRequestedSuccess.count        | Counter | Number of successful requests of content fetching API.                                          |
-| searchCallLatency.avg             | Timer   | Search API call latency average.                                                                |
-| searchCallLatency.max             | Timer   | Search API call latency max.                                                                    |
-| searchResultsFound.count          | Counter | Number of items found in a given search call.                                                   |
-| searchRequestsFailed.count        | Counter | Search API call failures count.                                                                 |
-| authFailures.count                | Counter | Authentication failure count.                                                                   |
+| Source                            | Metric  | Metric Type                                                                                        |
+| --------------------------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| acknowledgementSetSuccesses.count | Counter | If acknowledgments are enabled, this metric provides the number of<br>tickets successfully synced. |
+| acknowledgementSetFailures.count  | Counter | If acknowledgments are enabled, this metric provides the number of<br>tickets that failed to sync. |
+| crawlingTime.avg                  | Timer   | The time it took to crawl through all the new changes.                                             |
+| ticketFetchLatency.avg            | Timer   | The ticket fetch API latency average.                                                              |
+| ticketFetchLatency.max            | Timer   | The ticket fetch API latency maximum.                                                              |
+| ticketsRequested.count            | Counter | Number of ticket fetch requests made.                                                              |
+| ticketRequestedFailed.count       | Counter | Number of ticket fetch requests failed.                                                            |
+| ticketRequestedSuccess.count      | Counter | Number of ticket fetch requests succeeded.                                                         |
+| searchCallLatency.avg             | Timer   | Search API call latency average.                                                                   |
+| searchCallLatency.max             | Timer   | Search API call latency maximum.                                                                   |
+| searchResultsFound.count          | Counter | Number of items found in a given search call.                                                      |
+| searchRequestFailed.count         | Counter | Search API call failures count.                                                                    |
+| authFailures.count                | Counter | Authentication failure count.                                                                      |
+
+**Type: Confluence connector metrics**
+
+| Source                            | Metric  | Metric Type                                                                                      |
+| --------------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| acknowledgementSetSuccesses.count | Counter | If acknowledgments are enabled, this metric provides the number of<br>pages successfully synced. |
+| acknowledgementSetFailures.count  | Counter | If acknowledgments are enabled, this metric provides the number of<br>pages that failed to sync. |
+| crawlingTime.avg                  | Timer   | The time it took to crawl through all the new changes.                                           |
+| pageFetchLatency.avg              | Timer   | Content fetching API latency (average).                                                          |
+| pageFetchLatency.max              | Timer   | Content fetching API latency (maximum).                                                          |
+| pagesRequested.count              | Counter | Number of invocations of content fetching API.                                                   |
+| pageRequestFailed.count           | Counter | Number of failed requests of content fetching API.                                               |
+| pageRequestedSuccess.count        | Counter | Number of successful requests of content fetching API.                                           |
+| searchCallLatency.avg             | Timer   | Search API call latency average.                                                                 |
+| searchCallLatency.max             | Timer   | Search API call latency max.                                                                     |
+| searchResultsFound.count          | Counter | Number of items found in a given search call.                                                    |
+| searchRequestsFailed.count        | Counter | Search API call failures count.                                                                  |
+| authFailures.count                | Counter | Authentication failure count.                                                                    |

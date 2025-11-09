@@ -27,7 +27,263 @@ This section uses the following terminology:
 Before you configure VPCs to share OpenSearch Ingestion pipelines across AWS accounts,
 complete the following tasks:
 
-| Task                                              | Details                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create one or more OpenSearch Ingestion pipelines | Set the minimum OpenSearch Compute Units (OSUs) to 2 or higher. For more information, see [Creating Amazon OpenSearch Ingestion pipelines](creating-pipeline.md "creating-pipeline.md"). For information about updating a pipeline, see [Updating Amazon OpenSearch Ingestion pipelines](update-pipeline.md "update-pipeline.md").                                                                  |
-| Create one or more VPCs for OpenSearch Ingestion  | To enable cross-account pipeline sharing, any VPC involved for the pipeline and the pipeline endpoints must be configured with the following DNS values: <br>• `enableDnsSupport=true` <br>• `enableDnsHostnames=true` For more information, see [DNS attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") in the _Amazon VPC User Guide_. | ## Grant connecting accounts access to a pipeline The procedures in this section describe how to use the OpenSearch Service console and the AWS CLI to set up cross-account pipeline access by creating a resource policy. A _resource policy_ enables a pipeline owner to specify other accounts that can access a pipeline. Once created, pipeline policies exist for as long as the pipeline exists or until the policy is deleted. ###### Note Resource policies don't replace standard OpenSearch Ingestion authoriziation using [IAM permissions](creating-pipeline.md#create-pipeline-permissions "creating-pipeline.md#create-pipeline-permissions"). Resource policies are an added authorization mechanism for enabling cross-account pipeline access. ###### Topics <br>• [Grant connecting accounts access to a pipeline (console)](#cross-account-pipelines-setting-up-grant-access-console "#cross-account-pipelines-setting-up-grant-access-console") <br>• [Grant connecting accounts access to a pipeline (CLI)](#cross-account-pipelines-setting-up-grant-access-cli "#cross-account-pipelines-setting-up-grant-access-cli") ### Grant connecting accounts access to a pipeline (console) Use the following procedure to grant connecting accounts access to a pipeline by using the Amazon OpenSearch Service console. ###### To create a pipeline endpoint connection 1. In the Amazon OpenSearch Service console, in the navigation pane, expand **Ingestion**, and then select **Pipelines**. 2. In the **Pipelines** section, choose the name of a pipeline that you want to grant access for a connecting account. 3. Choose the **VPC endpoints** tab. 4. In the **Authorized principals** section, choose **Authorize account**. 5. In the **AWS account ID** field, enter the 12-digit number account ID, and then select **Authorize**. ### Grant connecting accounts access to a pipeline (CLI) Use the following procedure to grant connecting accounts access to a pipeline by using the AWS CLI. ###### To grant connecting accounts access to the pipeline 1. Update to the latest version of the AWS CLI (version 2.0). For more information, see [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Open the CLI in the account and AWS Region with the pipeline you want to share. 3. Run the following command to create a resource policy for the pipeline. This policy gives the `osis:CreatePipelineEndpoint` permission on the pipeline. The policy includes a parameter where you can list AWS account IDs to allow. ###### Note In the following command, you must use the short form of the account ID by providing only the twelve- digit account ID. Using an ARN will not work. You must also provide the Amazon Resource Name (ARN) of the pipeline in the CLI parameter for `resource-arn` and in the policy JSON under `Resource`, as shown. ``aws --region `region` osis-cross-account put-resource-policy \ --resource-arn arn:aws:osis:`region`:`pipeline-owner-account-ID`:pipeline/`pipeline-name` --policy '`IAM-policy`'`` Use a policy like the following for `IAM-policy` JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "AllowAccess", "Effect": "Allow", "Principal": { "AWS": [ "`111122223333`", "`444455556666`" ] }, "Action": "osis:CreatePipelineEndpoint", "Resource": "arn:aws:osis:`us-east-1`:`123456789012`:pipeline/`pipeline-name`" } ] }` `` ## Create a pipeline endpoint connection for each connecting VPC After the pipeline owner grants access to a pipeline in their VPC using the previous procedure, a user in the connecting account creates a pipeline endpoint in their VPC. This section includes procedures for creating endpoints by using the OpenSearch Service console and the AWS CLI. When you create an endpoint, OpenSearch Ingestion performs the following actions: <br>• Creates the [AWSServiceRoleForAmazonOpenSearchIngestionService](slr-osis.md "slr-osis.md") service-linked role in your account, if it doesn't already exist. This role gives the user in the connecting account permission to call the [CreatePipelineEndpoint](../APIReference/API_osis_CreatePipelineEndpoint.md "../APIReference/API_osis_CreatePipelineEndpoint.md") API action. <br>• Creates the pipeline endpoint. <br>• Configures the pipeline endpoint to ingest data from the shared pipeline in the pipeline owner VPC. ###### Topics <br>• [Creating a pipeline endpoint connection (console)](#cross-account-pipelines-setting-up-create-pipeline-endpoints-console "#cross-account-pipelines-setting-up-create-pipeline-endpoints-console") <br>• [Creating a pipeline endpoint connection (CLI)](#cross-account-pipelines-setting-up-create-pipeline-endpoints-cli "#cross-account-pipelines-setting-up-create-pipeline-endpoints-cli") ### Creating a pipeline endpoint connection (console) Use the following procedure to create a pipeline endpoint connection by using the OpenSearch Service console. ###### To create a pipeline endpoint connection 1. In the Amazon OpenSearch Service console, in the navigation pane, expand **Ingestion**, and then select **VPC endpoints**. 2. In the **VPC endpoints** page, choose **Create**. 3. For **Pipeline location**, choose an option. If you choose **Current account**, choose the pipeline from the list. If you choose **Cross-account**, specify the pipeline ARN in the field. The pipeline owner must have granted access to the pipeline, as described in [Grant connecting accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access"). 4. In the **VPC settings** section, for **VPC**, choose a VPC from the list. 5. For **Subnets**, choose a subnet. 6. For **Security groups**, choose a group. 7. Choose **Create endpoint**. Wait for the status of the endpoint you created to transition to `ACTIVE`. Once the pipeline is `ACTIVE`, you will see a new field named `ingestEndpointUrl`. Use this endpoint to access the pipeline and ingest data using a client like FluentBit. For more information about using FluentBit to ingest data, see [Using an OpenSearch Ingestion pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md"). ###### Note The `ingestEndpointUrl` is the same URL for all connecting accounts. ### Creating a pipeline endpoint connection (CLI) Use the following procedure to crate a pipeline endpoint connection by using the AWS CLI. ###### To create a pipeline endpoint connection 1. If you haven't already, update to the latest version of the AWS CLI (version 2.0). For more information, see [Installing or updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Open the CLI in the connecting account in the AWS Region with the shared pipeline. 3. Run the following command to create a pipeline endpoint. ###### Note You must provide at least one subnet and one security group for the connecting account VPC. The security group must include port 443 and support clients in connecting account VPC. `` aws osis --region `region` create-pipeline-endpoint \ --pipeline-arn arn:aws:osis:`region`:`connecting-account-ID`:pipeline/`shared-pipeline-name` --vpc-options SecurityGroupIds={sg-`security-group-ID-1`,sg-`security-group-ID-2`},SubnetIds=subnet-`subnet-ID` `` 4. Run the following command to list endpoints in the Region specified in the previous command: ``aws osis-cross-account --region `region` list-pipeline-endpoints`` Wait for the status of the endpoint you created to transition to `ACTIVE`. Once the pipeline is `ACTIVE`, you will see a new field named `ingestEndpointUrl`. Use this endpoint to access the pipeline and ingest data using a client like FluentBit. For more information about using FluentBit to ingest data, see [Using an OpenSearch Ingestion pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md"). ###### Note The `ingestEndpointUrl` is the same URL for all connecting accounts. ## Removing pipeline endpoints If you no longer want to provide access to a shared pipeline, you can remove a pipeline endpoint using one of the following methods: <br>• Delete the pipeline endpoint (connecting account). <br>• Revoke the pipeline endpoint (pipeline owner). Use the following procedure to delete a pipeline endpoint in a connecting account. ###### To delete a pipeline endpoint (connecting account) 1. Open the CLI in the connecting account in the AWS Region with the shared pipeline. 2. Run the following command to list pipeline endpoints in the Region: ``aws osis-cross-account --region `region` list-pipeline-endpoints`` Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint: ``aws osis-cross-account --region `region` delete-pipeline-endpoint \ --endpoint-id '`ID`'`` As the pipeline owner of the shared pipeline, use the following procedure to revoke a pipeline endpoint. ###### To revoke a pipeline endpoint (pipeline owner) 1. Open the CLI in the connecting account in the AWS Region with the shared pipeline. 2. Run the following command to list pipeline endpoint connections in the Region: ``aws osis-cross-account --region `region` list-pipeline-endpoint-connections`` Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint: `` aws osis-cross-account --region `region` revoke-pipeline-endpoint-connections \ --pipeline-arn `pipeline-arn` --endpoint-ids `ID` `` The command supports specifying only one endpoint ID. |
+| Task                                              | Details                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create one or more OpenSearch Ingestion pipelines | Set the minimum OpenSearch Compute Units (OSUs) to 2 or higher. For<br>more information, see [Creating Amazon OpenSearch Ingestion pipelines](creating-pipeline.md "creating-pipeline.md"). For information about<br>updating a pipeline, see [Updating Amazon OpenSearch Ingestion pipelines](update-pipeline.md "update-pipeline.md").                                                                      |
+| Create one or more VPCs for OpenSearch Ingestion  | To enable cross-account pipeline sharing, any VPC involved for the<br>pipeline and the pipeline endpoints must be configured with the<br>following DNS values:<br>• `enableDnsSupport=true`<br>• `enableDnsHostnames=true`<br>For more information, see [DNS attributes for your<br>VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") in the _Amazon VPC User Guide_. |
+
+## Grant connecting
+
+accounts access to a pipeline
+
+The procedures in this section describe how to use the OpenSearch Service console and the AWS CLI to
+set up cross-account pipeline access by creating a resource policy. A _resource
+policy_ enables a pipeline owner to specify other accounts that can access
+a pipeline. Once created, pipeline policies exist for as long as the pipeline exists or
+until the policy is deleted.
+
+###### Note
+
+Resource policies don't replace standard OpenSearch Ingestion authoriziation using
+[IAM permissions](creating-pipeline.md#create-pipeline-permissions "creating-pipeline.md#create-pipeline-permissions"). Resource policies are an added authorization
+mechanism for enabling cross-account pipeline access.
+
+###### Topics
+
+- [Grant
+  connecting accounts access to a pipeline (console)](#cross-account-pipelines-setting-up-grant-access-console "#cross-account-pipelines-setting-up-grant-access-console")
+- [Grant
+  connecting accounts access to a pipeline (CLI)](#cross-account-pipelines-setting-up-grant-access-cli "#cross-account-pipelines-setting-up-grant-access-cli")
+
+### Grant
+
+connecting accounts access to a pipeline (console)
+
+Use the following procedure to grant connecting accounts access to a pipeline by
+using the Amazon OpenSearch Service console.
+
+###### To create a pipeline endpoint connection
+
+1. In the Amazon OpenSearch Service console, in the navigation pane, expand
+   **Ingestion**, and then select
+   **Pipelines**.
+2. In the **Pipelines** section, choose the name of a
+   pipeline that you want to grant access for a connecting account.
+3. Choose the **VPC endpoints** tab.
+4. In the **Authorized principals** section, choose
+   **Authorize account**.
+5. In the **AWS account ID** field, enter the 12-digit
+   number account ID, and then select **Authorize**.
+
+### Grant
+
+connecting accounts access to a pipeline (CLI)
+
+Use the following procedure to grant connecting accounts access to a pipeline by
+using the AWS CLI.
+
+###### To grant connecting accounts access to the pipeline
+
+1. Update to the latest version of the AWS CLI (version 2.0). For more
+   information, see [Installing or
+   updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+2. Open the CLI in the account and AWS Region with the pipeline you want to
+   share.
+3. Run the following command to create a resource policy for the pipeline.
+   This policy gives the `osis:CreatePipelineEndpoint` permission on
+   the pipeline. The policy includes a parameter where you can list
+   AWS account IDs to allow.
+
+###### Note
+
+In the following command, you must use the short form of the account
+ID by providing only the twelve- digit account ID. Using an ARN will not
+work. You must also provide the Amazon Resource Name (ARN) of the
+pipeline in the CLI parameter for `resource-arn` and in the
+policy JSON under `Resource`, as shown.
+
+```
+aws --region `region` osis-cross-account put-resource-policy \
+  --resource-arn arn:aws:osis:`region`:`pipeline-owner-account-ID`:pipeline/`pipeline-name`
+  --policy '`IAM-policy`'
+```
+
+Use a policy like the following for `IAM-policy`
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowAccess",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "`111122223333`",
+ "`444455556666`"
+ ]
+ },
+ "Action":
+ "osis:CreatePipelineEndpoint",
+ "Resource": "arn:aws:osis:`us-east-1`:`123456789012`:pipeline/`pipeline-name`"
+ }
+ ]
+ }`
+
+```
+
+## Create a
+
+pipeline endpoint connection for each connecting VPC
+
+After the pipeline owner grants access to a pipeline in their VPC using the previous
+procedure, a user in the connecting account creates a pipeline endpoint in their VPC.
+This section includes procedures for creating endpoints by using the OpenSearch Service console and
+the AWS CLI. When you create an endpoint, OpenSearch Ingestion performs the following
+actions:
+
+- Creates the [AWSServiceRoleForAmazonOpenSearchIngestionService](slr-osis.md "slr-osis.md") service-linked
+  role in your account, if it doesn't already exist. This role gives the user in
+  the connecting account permission to call the [CreatePipelineEndpoint](../APIReference/API_osis_CreatePipelineEndpoint.md "../APIReference/API_osis_CreatePipelineEndpoint.md") API action.
+- Creates the pipeline endpoint.
+- Configures the pipeline endpoint to ingest data from the shared pipeline in
+  the pipeline owner VPC.
+
+###### Topics
+
+- [Creating a pipeline endpoint connection (console)](#cross-account-pipelines-setting-up-create-pipeline-endpoints-console "#cross-account-pipelines-setting-up-create-pipeline-endpoints-console")
+- [Creating a pipeline endpoint connection (CLI)](#cross-account-pipelines-setting-up-create-pipeline-endpoints-cli "#cross-account-pipelines-setting-up-create-pipeline-endpoints-cli")
+
+### Creating a pipeline endpoint connection (console)
+
+Use the following procedure to create a pipeline endpoint connection by using the
+OpenSearch Service console.
+
+###### To create a pipeline endpoint connection
+
+1. In the Amazon OpenSearch Service console, in the navigation pane, expand
+   **Ingestion**, and then select **VPC
+   endpoints**.
+2. In the **VPC endpoints** page, choose
+   **Create**.
+3. For **Pipeline location**, choose an option. If you
+   choose **Current account**, choose the pipeline from the
+   list. If you choose **Cross-account**, specify the pipeline
+   ARN in the field. The pipeline owner must have granted access to the
+   pipeline, as described in [Grant connecting
+   accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access").
+4. In the **VPC settings** section, for
+   **VPC**, choose a VPC from the list.
+5. For **Subnets**, choose a subnet.
+6. For **Security groups**, choose a group.
+7. Choose **Create endpoint**.
+
+Wait for the status of the endpoint you created to transition to
+`ACTIVE`. Once the pipeline is `ACTIVE`, you will see a
+new field named `ingestEndpointUrl`. Use this endpoint to access the
+pipeline and ingest data using a client like FluentBit. For more information about
+using FluentBit to ingest data, see [Using an OpenSearch Ingestion
+pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
+
+###### Note
+
+The `ingestEndpointUrl` is the same URL for all connecting
+accounts.
+
+### Creating a pipeline endpoint connection (CLI)
+
+Use the following procedure to crate a pipeline endpoint connection by using the
+AWS CLI.
+
+###### To create a pipeline endpoint connection
+
+1. If you haven't already, update to the latest version of the AWS CLI (version
+   2.0). For more information, see [Installing or
+   updating to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+2. Open the CLI in the connecting account in the AWS Region with the shared
+   pipeline.
+3. Run the following command to create a pipeline endpoint.
+
+###### Note
+
+You must provide at least one subnet and one security group for the
+connecting account VPC. The security group must include port 443 and
+support clients in connecting account VPC.
+
+```
+aws osis --region `region` create-pipeline-endpoint \
+  --pipeline-arn arn:aws:osis:`region`:`connecting-account-ID`:pipeline/`shared-pipeline-name`
+  --vpc-options SecurityGroupIds={sg-`security-group-ID-1`,sg-`security-group-ID-2`},SubnetIds=subnet-`subnet-ID`
+```
+
+4. Run the following command to list endpoints in the Region specified in the
+   previous command:
+
+```
+aws osis-cross-account --region `region` list-pipeline-endpoints
+```
+
+Wait for the status of the endpoint you created to transition to
+`ACTIVE`. Once the pipeline is `ACTIVE`, you will see a
+new field named `ingestEndpointUrl`. Use this endpoint to access the
+pipeline and ingest data using a client like FluentBit. For more information about
+using FluentBit to ingest data, see [Using an OpenSearch Ingestion
+pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
+
+###### Note
+
+The `ingestEndpointUrl` is the same URL for all connecting
+accounts.
+
+## Removing pipeline endpoints
+
+If you no longer want to provide access to a shared pipeline, you can remove a
+pipeline endpoint using one of the following methods:
+
+- Delete the pipeline endpoint (connecting account).
+- Revoke the pipeline endpoint (pipeline owner).
+
+Use the following procedure to delete a pipeline endpoint in a connecting
+account.
+
+###### To delete a pipeline endpoint (connecting account)
+
+1. Open the CLI in the connecting account in the AWS Region with the shared
+   pipeline.
+2. Run the following command to list pipeline endpoints in the Region:
+
+```
+aws osis-cross-account --region `region` list-pipeline-endpoints
+```
+
+Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint:
+
+```
+aws osis-cross-account --region `region` delete-pipeline-endpoint \
+  --endpoint-id '`ID`'
+```
+
+As the pipeline owner of the shared pipeline, use the following procedure to revoke a
+pipeline endpoint.
+
+###### To revoke a pipeline endpoint (pipeline owner)
+
+1. Open the CLI in the connecting account in the AWS Region with the shared
+   pipeline.
+2. Run the following command to list pipeline endpoint connections in the
+   Region:
+
+```
+aws osis-cross-account --region `region` list-pipeline-endpoint-connections
+```
+
+Make a note of the pipeline ID you want to delete. 3. Run the following command to delete the pipeline endpoint:
+
+```
+aws osis-cross-account --region `region` revoke-pipeline-endpoint-connections \
+  --pipeline-arn `pipeline-arn` --endpoint-ids `ID`
+```
+
+The command supports specifying only one endpoint ID.

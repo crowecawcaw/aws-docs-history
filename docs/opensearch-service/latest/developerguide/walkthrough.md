@@ -65,7 +65,344 @@ Pricing](https://aws.amazon.com/comprehend/pricing/ "https://aws.amazon.com/comp
 
 Before proceeding, you must have the following resources.
 
-| Prerequisite              | Description                                                                                                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon S3 bucket          | For more information, see [Creating a Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the _Amazon Simple Storage Service User Guide_. |
-| OpenSearch Service domain | The destination for data. For more information, see [Creating OpenSearch Service domains](createupdatedomains.md#createdomains "createupdatedomains.md#createdomains").                                         | If you don't already have these resources, you can create them using the following AWS CLI commands: `aws s3 mb s3://my-transcribe-test --region us-west-2` ``aws opensearch create-domain --domain-name my-transcribe-test --engine-version OpenSearch_1.0 --cluster-config  InstanceType=t2.medium.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeType=standard,VolumeSize=10 --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`123456789012`:root"},"Action":"es:*","Resource":"arn:aws:es:us-west-2:`123456789012`:domain/my-transcribe-test/*"}]}' --region us-west-2`` ###### Note These commands use the `us-west-2` Region, but you can use any Region that Amazon Comprehend supports. To learn more, see the [AWS General Reference](../../../general/latest/gr/rande.md#comprehend_region "../../../general/latest/gr/rande.md#comprehend_region"). ## Step 2: Copy sample code 1. Copy and paste the following Python 3 sample code into a new file named `call-center.py`: `import boto3 import datetime import json import requests from requests_aws4auth import AWS4Auth import time import urllib.request # Variables to update audio_file_name = '' # For example, 000001.mp3 bucket_name = '' # For example, my-transcribe-test domain = '' # For example, https://search-my-transcribe-test-12345.us-west-2.es.amazonaws.com index = 'support-calls' type = '_doc' region = 'us-west-2' # Upload audio file to S3. s3_client = boto3.client('s3') audio_file = open(audio_file_name, 'rb') print('Uploading ' + audio_file_name + '...') response = s3_client.put_object( Body=audio_file, Bucket=bucket_name, Key=audio_file_name ) # # Build the URL to the audio file on S3. # # Only for the us-east-1 region. # mp3_uri = 'https://' + bucket_name + '.s3.amazonaws.com/' + audio_file_name # Get the necessary details and build the URL to the audio file on S3. # For all other regions. response = s3_client.get_bucket_location( Bucket=bucket_name ) bucket_region = response['LocationConstraint'] mp3_uri = 'https://' + bucket_name + '.s3-' + bucket_region + '.amazonaws.com/' + audio_file_name # Start transcription job. transcribe_client = boto3.client('transcribe') print('Starting transcription job...') response = transcribe_client.start_transcription_job( TranscriptionJobName=audio_file_name, LanguageCode='en-US', MediaFormat='mp3', Media={ 'MediaFileUri': mp3_uri }, Settings={ 'ShowSpeakerLabels': True, 'MaxSpeakerLabels': 2 # assumes two people on a phone call } ) # Wait for the transcription job to finish. print('Waiting for job to complete...') while True: response = transcribe_client.get_transcription_job(TranscriptionJobName=audio_file_name) if response['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']: break else: print('Still waiting...') time.sleep(10) transcript_uri = response['TranscriptionJob']['Transcript']['TranscriptFileUri'] # Open the JSON file, read it, and get the transcript. response = urllib.request.urlopen(transcript_uri) raw_json = response.read() loaded_json = json.loads(raw_json) transcript = loaded_json['results']['transcripts'][0]['transcript'] # Send transcript to Comprehend for key phrases and sentiment. comprehend_client = boto3.client('comprehend') # If necessary, trim the transcript. # If the transcript is more than 5 KB, the Comprehend calls fail. if len(transcript) > 5000: trimmed_transcript = transcript[:5000] else: trimmed_transcript = transcript print('Detecting key phrases...') response = comprehend_client.detect_key_phrases( Text=trimmed_transcript, LanguageCode='en' ) keywords = [] for keyword in response['KeyPhrases']: keywords.append(keyword['Text']) print('Detecting sentiment...') response = comprehend_client.detect_sentiment( Text=trimmed_transcript, LanguageCode='en' ) sentiment = response['Sentiment'] # Build the Amazon OpenSearch Service URL. id = audio_file_name.strip('.mp3') url = domain + '/' + index + '/' + type + '/' + id # Create the JSON document. json_document = {'transcript': transcript, 'keywords': keywords, 'sentiment': sentiment, 'timestamp': datetime.datetime.now().isoformat()} # Provide all details necessary to sign the indexing request. credentials = boto3.Session().get_credentials() awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, 'opensearchservice', session_token=credentials.token) # Index the document. print('Indexing document...') response = requests.put(url, auth=awsauth, json=json_document, headers=headers) print(response) print(response.json())` 2. Update the initial six variables. 3. Install the required packages using the following commands: `pip install boto3 pip install requests pip install requests_aws4auth` 4. Place your MP3 in the same directory as `call-center.py` and run the script. A sample output follows: `$ python call-center.py Uploading 000001.mp3... Starting transcription job... Waiting for job to complete... Still waiting... Still waiting... Still waiting... Still waiting... Still waiting... Still waiting... Still waiting... Detecting key phrases... Detecting sentiment... Indexing document... <Response [201]> {u'_type': u'call', u'_seq_no': 0, u'_shards': {u'successful': 1, u'failed': 0, u'total': 2}, u'_index': u'support-calls4', u'_version': 1, u'_primary_term': 1, u'result': u'created', u'_id': u'000001'}` `call-center.py` performs a number of operations: 1. The script uploads an audio file (in this case, an MP3, but Amazon Transcribe supports several formats) to your S3 bucket. 2. It sends the audio file's URL to Amazon Transcribe and waits for the transcription job to finish. The time to finish the transcription job depends on the length of the audio file. Assume minutes, not seconds. ###### Tip To improve the quality of the transcription, you can configure a [custom vocabulary](../../../transcribe/latest/dg/API_CreateVocabulary.md "../../../transcribe/latest/dg/API_CreateVocabulary.md") for Amazon Transcribe. 3. After the transcription job finishes, the script extracts the transcript, trims it to 5,000 characters, and sends it to Amazon Comprehend for keyword and sentiment analysis. 4. Finally, the script adds the full transcript, keywords, sentiment, and current time stamp to a JSON document and indexes it in OpenSearch Service. ###### Tip [LibriVox](https://librivox.org/ "https://librivox.org/") has public domain audiobooks that you can use for testing. ## (Optional) Step 3: Index sample data If you don't have a bunch of call recordings handy—and who does?—you can [index](indexing.md "indexing.md") the sample documents in [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md"), which are comparable to what `call-center.py` produces. 1. Create a file named `bulk-helper.py`: `import boto3 from opensearchpy import OpenSearch, RequestsHttpConnection import json from requests_aws4auth import AWS4Auth host = '' # For example, my-test-domain.us-west-2.es.amazonaws.com region = '' # For example, us-west-2 service = 'es' bulk_file = open('sample-calls.bulk', 'r').read() credentials = boto3.Session().get_credentials() awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token) search = OpenSearch( hosts = [{'host': host, 'port': 443}], http_auth = awsauth, use_ssl = True, verify_certs = True, connection_class = RequestsHttpConnection ) response = search.bulk(bulk_file) print(json.dumps(response, indent=2, sort_keys=True))` 2. Update the initial two variables for `host` and `region`. 3. Install the required package using the following command: `pip install opensearch-py` 4. Download and unzip [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md"). 5. Place `sample-calls.bulk` in the same directory as `bulk-helper.py` and run the helper. A sample output follows: ``$ python bulk-helper.py { "errors": false, "items": [ { "index": { "_id": "1", "_index": "support-calls", "_primary_term": 1, "_seq_no": 42, "_shards": { "failed": 0, "successful": 1, "total": 2 }, "_type": "_doc", "_version": 9, "result": "updated", "status": 200 } }, `...` ], "took": 27 }`` ## Step 4: Analyze and visualize your data Now that you have some data in OpenSearch Service, you can visualize it using OpenSearch Dashboards. 1. Navigate to `https://search-`domain`.`region`.es.amazonaws.com/_dashboards`. 2. Before you can use OpenSearch Dashboards, you need an index pattern. Dashboards uses index patterns to narrow your analysis to one or more indices. To match the `support-calls` index that `call-center.py` created, go to **Stack Management**, **Index Patterns**, and define an index pattern of `support*`, and then choose **Next step**. 3. For **Time Filter field name**, choose **timestamp**. 4. Now you can start creating visualizations. Choose **Visualize**, and then add a new visualization. 5. Choose the pie chart and the `support*` index pattern. 6. The default visualization is basic, so choose **Split Slices** to create a more interesting visualization. For **Aggregation**, choose **Terms**. For **Field**, choose **sentiment.keyword**. Then choose **Apply changes** and **Save**. ![Sample configuration for a Dashboards pie chart.](images/sentiment-pie-chart.png) 7. Return to the **Visualize** page, and add another visualization. This time, choose the horizontal bar chart. 8. Choose **Split Series**. For **Aggregation**, choose **Terms**. For **Field**, choose **keywords.keyword** and change **Size** to 20. Then choose **Apply Changes** and **Save**. ![Sample configuration for a Dashboards horizontal bar chart.](images/keyword-bar-chart.png) 9. Return to the **Visualize** page and add one final visualization, a vertical bar chart. 10. Choose **Split Series**. For **Aggregation**, choose **Date Histogram**. For **Field**, choose **timestamp** and change **Interval** to **Daily**. 11. Choose **Metrics & Axes** and change **Mode** to **normal**. 12. Choose **Apply Changes** and **Save**. ![Sample configuration for a Dashboards vertical bar chart.](images/timestamp-bar-chart-2.png) 13. Now that you have three visualizations, you can add them to a Dashboards visualization. Choose **Dashboard**, create a dashboard, and add your visualizations. ![Sample Dashboards visualization.](images/dashboard-2.png) ## Step 5: Clean up resources and next steps To avoid unnecessary charges, delete the S3 bucket and OpenSearch Service domain. To learn more, see [Delete a Bucket](../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md#delete-bucket "../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md#delete-bucket") in the _Amazon Simple Storage Service User Guide_ and [Delete an OpenSearch Service domain](gsgdeleting.md "gsgdeleting.md") in this guide. Transcripts require much less disk space than MP3 files. You might be able to shorten your MP3 retention window—for example, from three months of call recordings to one month—retain years of transcripts, and still save on storage costs. You could also automate the transcription process using AWS Step Functions and Lambda, add additional metadata before indexing, or craft more complex visualizations to fit your exact use case. |
+| Prerequisite              | Description                                                                                                                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon S3 bucket          | For more information, see [Creating a Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in<br>the _Amazon Simple Storage Service User Guide_. |
+| OpenSearch Service domain | The destination for data. For more information, see [Creating OpenSearch Service domains](createupdatedomains.md#createdomains "createupdatedomains.md#createdomains").                                            |
+
+If you don't already have these resources, you can create them using the following
+AWS CLI commands:
+
+```
+aws s3 mb s3://my-transcribe-test --region us-west-2
+```
+
+```
+aws opensearch create-domain --domain-name my-transcribe-test --engine-version OpenSearch_1.0 --cluster-config  InstanceType=t2.medium.search,InstanceCount=1 --ebs-options EBSEnabled=true,VolumeType=standard,VolumeSize=10 --access-policies '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::`123456789012`:root"},"Action":"es:*","Resource":"arn:aws:es:us-west-2:`123456789012`:domain/my-transcribe-test/*"}]}' --region us-west-2
+```
+
+###### Note
+
+These commands use the `us-west-2` Region, but you can
+use any Region that Amazon Comprehend supports. To learn more, see the [AWS General Reference](../../../general/latest/gr/rande.md#comprehend_region "../../../general/latest/gr/rande.md#comprehend_region").
+
+## Step 2: Copy sample code
+
+1. Copy and paste the following Python 3 sample code into a new file named
+   `call-center.py`:
+
+```
+import boto3
+import datetime
+import json
+import requests
+from requests_aws4auth import AWS4Auth
+import time
+import urllib.request
+
+# Variables to update
+audio_file_name = '' # For example, 000001.mp3
+bucket_name = '' # For example, my-transcribe-test
+domain = '' # For example, https://search-my-transcribe-test-12345.us-west-2.es.amazonaws.com
+index = 'support-calls'
+type = '_doc'
+region = 'us-west-2'
+
+# Upload audio file to S3.
+s3_client = boto3.client('s3')
+
+audio_file = open(audio_file_name, 'rb')
+
+print('Uploading ' + audio_file_name + '...')
+response = s3_client.put_object(
+    Body=audio_file,
+    Bucket=bucket_name,
+    Key=audio_file_name
+)
+
+# # Build the URL to the audio file on S3.
+# # Only for the us-east-1 region.
+# mp3_uri = 'https://' + bucket_name + '.s3.amazonaws.com/' + audio_file_name
+
+# Get the necessary details and build the URL to the audio file on S3.
+# For all other regions.
+response = s3_client.get_bucket_location(
+    Bucket=bucket_name
+)
+bucket_region = response['LocationConstraint']
+mp3_uri = 'https://' + bucket_name + '.s3-' + bucket_region + '.amazonaws.com/' + audio_file_name
+
+# Start transcription job.
+transcribe_client = boto3.client('transcribe')
+
+print('Starting transcription job...')
+response = transcribe_client.start_transcription_job(
+    TranscriptionJobName=audio_file_name,
+    LanguageCode='en-US',
+    MediaFormat='mp3',
+    Media={
+        'MediaFileUri': mp3_uri
+    },
+    Settings={
+        'ShowSpeakerLabels': True,
+        'MaxSpeakerLabels': 2 # assumes two people on a phone call
+    }
+)
+
+# Wait for the transcription job to finish.
+print('Waiting for job to complete...')
+while True:
+    response = transcribe_client.get_transcription_job(TranscriptionJobName=audio_file_name)
+    if response['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+        break
+    else:
+        print('Still waiting...')
+    time.sleep(10)
+
+transcript_uri = response['TranscriptionJob']['Transcript']['TranscriptFileUri']
+
+# Open the JSON file, read it, and get the transcript.
+response = urllib.request.urlopen(transcript_uri)
+raw_json = response.read()
+loaded_json = json.loads(raw_json)
+transcript = loaded_json['results']['transcripts'][0]['transcript']
+
+# Send transcript to Comprehend for key phrases and sentiment.
+comprehend_client = boto3.client('comprehend')
+
+# If necessary, trim the transcript.
+# If the transcript is more than 5 KB, the Comprehend calls fail.
+if len(transcript) > 5000:
+    trimmed_transcript = transcript[:5000]
+else:
+    trimmed_transcript = transcript
+
+print('Detecting key phrases...')
+response = comprehend_client.detect_key_phrases(
+    Text=trimmed_transcript,
+    LanguageCode='en'
+)
+
+keywords = []
+for keyword in response['KeyPhrases']:
+    keywords.append(keyword['Text'])
+
+print('Detecting sentiment...')
+response = comprehend_client.detect_sentiment(
+    Text=trimmed_transcript,
+    LanguageCode='en'
+)
+
+sentiment = response['Sentiment']
+
+# Build the Amazon OpenSearch Service URL.
+id = audio_file_name.strip('.mp3')
+url = domain + '/' + index + '/' + type + '/' + id
+
+# Create the JSON document.
+json_document = {'transcript': transcript, 'keywords': keywords, 'sentiment': sentiment, 'timestamp': datetime.datetime.now().isoformat()}
+
+# Provide all details necessary to sign the indexing request.
+credentials = boto3.Session().get_credentials()
+awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, 'opensearchservice', session_token=credentials.token)
+
+# Index the document.
+print('Indexing document...')
+response = requests.put(url, auth=awsauth, json=json_document, headers=headers)
+
+print(response)
+print(response.json())
+```
+
+2. Update the initial six variables.
+3. Install the required packages using the following commands:
+
+```
+pip install boto3
+pip install requests
+pip install requests_aws4auth
+```
+
+4. Place your MP3 in the same directory as `call-center.py` and run
+   the script. A sample output follows:
+
+```
+$ python call-center.py
+Uploading 000001.mp3...
+Starting transcription job...
+Waiting for job to complete...
+Still waiting...
+Still waiting...
+Still waiting...
+Still waiting...
+Still waiting...
+Still waiting...
+Still waiting...
+Detecting key phrases...
+Detecting sentiment...
+Indexing document...
+<Response [201]>
+{u'_type': u'call', u'_seq_no': 0, u'_shards': {u'successful': 1, u'failed': 0, u'total': 2}, u'_index': u'support-calls4', u'_version': 1, u'_primary_term': 1, u'result': u'created', u'_id': u'000001'}
+```
+
+`call-center.py` performs a number of operations:
+
+1. The script uploads an audio file (in this case, an MP3, but Amazon Transcribe
+   supports several formats) to your S3 bucket.
+2. It sends the audio file's URL to Amazon Transcribe and waits for the transcription job to
+   finish.
+
+The time to finish the transcription job depends on the length of the audio
+file. Assume minutes, not seconds.
+
+###### Tip
+
+To improve the quality of the transcription, you can configure a [custom vocabulary](../../../transcribe/latest/dg/API_CreateVocabulary.md "../../../transcribe/latest/dg/API_CreateVocabulary.md") for Amazon Transcribe. 3. After the transcription job finishes, the script extracts the transcript,
+trims it to 5,000 characters, and sends it to Amazon Comprehend for keyword and sentiment
+analysis. 4. Finally, the script adds the full transcript, keywords, sentiment, and current
+time stamp to a JSON document and indexes it in OpenSearch Service.
+
+###### Tip
+
+[LibriVox](https://librivox.org/ "https://librivox.org/") has public domain audiobooks
+that you can use for testing.
+
+## (Optional) Step 3: Index sample data
+
+If you don't have a bunch of call recordings handy—and who does?—you can
+[index](indexing.md "indexing.md") the sample documents in [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md"), which are comparable to
+what `call-center.py` produces.
+
+1. Create a file named `bulk-helper.py`:
+
+```
+import boto3
+from opensearchpy import OpenSearch, RequestsHttpConnection
+import json
+from requests_aws4auth import AWS4Auth
+
+host = '' # For example, my-test-domain.us-west-2.es.amazonaws.com
+region = '' # For example, us-west-2
+service = 'es'
+
+bulk_file = open('sample-calls.bulk', 'r').read()
+
+credentials = boto3.Session().get_credentials()
+awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
+
+search = OpenSearch(
+    hosts = [{'host': host, 'port': 443}],
+    http_auth = awsauth,
+    use_ssl = True,
+    verify_certs = True,
+    connection_class = RequestsHttpConnection
+)
+
+response = search.bulk(bulk_file)
+print(json.dumps(response, indent=2, sort_keys=True))
+```
+
+2. Update the initial two variables for `host` and
+   `region`.
+3. Install the required package using the following command:
+
+```
+pip install opensearch-py
+```
+
+4. Download and unzip [sample-calls.zip](samples/sample-calls.md "samples/sample-calls.md").
+5. Place `sample-calls.bulk` in the same directory as
+   `bulk-helper.py` and run the helper. A sample output
+   follows:
+
+```
+$ python bulk-helper.py
+{
+  "errors": false,
+  "items": [
+    {
+      "index": {
+        "_id": "1",
+        "_index": "support-calls",
+        "_primary_term": 1,
+        "_seq_no": 42,
+        "_shards": {
+          "failed": 0,
+          "successful": 1,
+          "total": 2
+        },
+        "_type": "_doc",
+        "_version": 9,
+        "result": "updated",
+        "status": 200
+      }
+    },
+    `...`
+  ],
+  "took": 27
+}
+```
+
+## Step 4: Analyze and visualize your data
+
+Now that you have some data in OpenSearch Service, you can visualize it using
+OpenSearch Dashboards.
+
+1. Navigate to
+   `https://search-`domain`.`region`.es.amazonaws.com/_dashboards`.
+2. Before you can use OpenSearch Dashboards, you need an index pattern. Dashboards
+   uses index patterns to narrow your analysis to one or more indices. To match the
+   `support-calls` index that `call-center.py` created,
+   go to **Stack Management**, **Index
+   Patterns**, and define an index pattern of `support*`, and
+   then choose **Next step**.
+3. For **Time Filter field name**, choose
+   **timestamp**.
+4. Now you can start creating visualizations. Choose
+   **Visualize**, and then add a new visualization.
+5. Choose the pie chart and the `support*` index pattern.
+6. The default visualization is basic, so choose **Split
+   Slices** to create a more interesting visualization.
+
+For **Aggregation**, choose **Terms**. For
+**Field**, choose **sentiment.keyword**.
+Then choose **Apply changes** and
+**Save**.
+
+![Sample configuration for a Dashboards pie chart.](images/sentiment-pie-chart.png) 7. Return to the **Visualize** page, and add another
+visualization. This time, choose the horizontal bar chart. 8. Choose **Split Series**.
+
+For **Aggregation**, choose **Terms**. For
+**Field**, choose **keywords.keyword** and
+change **Size** to 20. Then choose **Apply
+Changes** and **Save**.
+
+![Sample configuration for a Dashboards horizontal bar chart.](images/keyword-bar-chart.png) 9. Return to the **Visualize** page and add one final
+visualization, a vertical bar chart. 10. Choose **Split Series**. For
+**Aggregation**, choose **Date Histogram**.
+For **Field**, choose **timestamp** and change
+**Interval** to **Daily**. 11. Choose **Metrics & Axes** and change
+**Mode** to **normal**. 12. Choose **Apply Changes** and
+**Save**.
+
+![Sample configuration for a Dashboards vertical bar chart.](images/timestamp-bar-chart-2.png) 13. Now that you have three visualizations, you can add them to a Dashboards
+visualization. Choose **Dashboard**, create a dashboard, and
+add your visualizations.
+
+![Sample Dashboards visualization.](images/dashboard-2.png)
+
+## Step 5: Clean up resources and next
+
+steps
+
+To avoid unnecessary charges, delete the S3 bucket and OpenSearch Service domain. To learn more, see
+[Delete a
+Bucket](../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md#delete-bucket "../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md#delete-bucket") in the _Amazon Simple Storage Service User Guide_ and [Delete an OpenSearch Service domain](gsgdeleting.md "gsgdeleting.md") in this guide.
+
+Transcripts require much less disk space than MP3 files. You might be able to shorten
+your MP3 retention window—for example, from three months of call recordings to
+one month—retain years of transcripts, and still save on storage costs.
+
+You could also automate the transcription process using AWS Step Functions and Lambda, add
+additional metadata before indexing, or craft more complex visualizations to fit your
+exact use case.

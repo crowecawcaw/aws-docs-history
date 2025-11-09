@@ -432,7 +432,7 @@ operations for the same request in parallel.
 In addition to the standard reindexing options, OpenSearch Service supports the following
 options:
 
-| Options  | Valid values | Description                                                                                                                   | Required |
-| -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- | -------- |
-| external | Boolean      | If the remote domain is not an OpenSearch Service domain, or if you're reindexing between two VPC domains, specify as `true`. | No       |
-| region   | String       | If the remote domain is in a different Region, specify the Region name.                                                       | No       |
+| Options  | Valid values | Description                                                                                                                      | Required |
+| -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| external | Boolean      | If the remote domain is not an OpenSearch Service domain, or if you're reindexing<br>between two VPC domains, specify as `true`. | No       |
+| region   | String       | If the remote domain is in a different Region,<br>specify the Region name.                                                       | No       |

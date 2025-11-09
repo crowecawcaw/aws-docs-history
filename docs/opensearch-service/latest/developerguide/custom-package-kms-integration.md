@@ -53,9 +53,220 @@ ID.
 Amazon OpenSearch Service custom packages require the grant to use your customer managed key for the following
 internal operations:
 
-| Operation                         | Description                                                                                                                                     |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DescribeKey`                     | Sends `DescribeKey` requests to AWS KMS to verify that the symmetric customer managed key ID entered when creating the plugin package is valid. |
-| `GenerateDataKeyWithoutPlaintext` | Sends `GenerateDataKeyWithoutPlaintext` requests to AWS KMS to generate data keys encrypted by your customer managed key.                       |
-| `GenerateDataKey`                 | Sends `GenerateDataKey` requests to AWS KMS to generate data keys to encrypt the package when copying it internally.                            |
-| `Decrypt`                         | Sends `Decrypt` requests to AWS KMS to decrypt the encrypted data keys so they can be used to decrypt your data.                                | You can revoke access to the grant or remove the service's access to the customer managed key at any time. If you do, OpenSearch Service won't be able to access any data encrypted by the customer managed key, which affects operations that depend on that data. For example, if you attempt to associate a plugin package that OpenSearch Service can't access, the operation returns an `AccessDeniedException` error. ## Create a customer managed key You can create a symmetric customer managed key by using the AWS Management Console or the AWS KMS APIs. ###### To create a symmetric customer managed key <br>• Follow the steps in [Creating a KMS key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_. ### Key policy Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_. To use your customer managed key with your plugin resources, you must permit the following API operations in the key policy: <br>• `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control access to a specified AWS KMS key, allowing access to grant operations that OpenSearch Service custom packages require. For more information about using grants, see the [AWS KMS Developer Guide](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"). This allows OpenSearch Service to do the following: + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data key and store it for further validations. + Call `GenerateDataKey` to copy the plugin package internally. + Call `Decrypt` to access the plugin package internally. + Set up a retiring principal to allow the service to `RetireGrant`. <br>• `kms:DescribeKey` – Provides the customer managed key details to allow OpenSearch Service to validate the key. <br>• `kms:GenerateDataKey`, `kms:GenerateDataKeyWithoutPlaintext`, `kms:Decrypt` – Gives OpenSearch Service custom packages access to use these operations in the grant. The following are policy statement examples you can add for OpenSearch Service custom packages: `"Statement" : [ { "Sid" : "Allow access to principals authorized to use OpenSearch Service custom packages", "Effect" : "Allow", "Principal" : { "AWS" : "*" }, "Action" : [ "kms:CreateGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Decrypt" ], "Resource" : "*", "Condition" : { "StringEquals" : { "kms:ViaService" : "custom-packages.region.amazonaws.com" }, "StringEquals" : { "kms:EncryptionContext:packageId": "Id of the package" } } }, { "Sid" : "Allow access to principals authorized to use Amazon OpenSearch Service custom packages", "Effect" : "Allow", "Principal" : { "AWS" : "*" }, "Action" : [ "kms:DescribeKey" ], "Resource" : "*", "Condition" : { "StringEquals" : { "kms:ViaService" : "custom-packages.region.amazonaws.com" } } } ]` For more information about specifying permissions in a policy, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_. For more information about troubleshooting key access, see [Troubleshooting AWS KMS permissions](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the _AWS Key Management Service Developer Guide_. ## Specify a customer managed key for Amazon OpenSearch Service custom packages You can specify a customer managed key as a second layer of encryption for your `ZIP-PLUGIN` packages. When you create a plugin package, you can specify the data key by entering a AWS KMS key ID, which OpenSearch Service custom packages use to encrypt the plugin package. _AWS KMS key ID_ — A key identifier for a AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN. ## Amazon OpenSearch Service custom packages encryption context An encryption context is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. ### Amazon OpenSearch Service custom packages encryption context Amazon OpenSearch Service custom packages use the same encryption context in all AWS KMS cryptographic operations, where the key is `packageId` and the value is the `package-id` of your plugin package. ### Use encryption context for monitoring When you use a symmetric customer managed key to encrypt your plugin package, you can use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by AWS CloudTrail or Amazon CloudWatch Logs. ### Using encryption context to control access to your customer managed key You can use the encryption context in key policies and IAM policies as conditions to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant. OpenSearch Service custom packages use an encryption context constraint in grants to control access to the customer managed key in your account or Region. The grant constraint requires that the operations that the grant allows use the specified encryption context. The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context. `{ "Sid": "Enable DescribeKey", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole" }, "Action": "kms:DescribeKey", "Resource": "*" }, { "Sid": "Enable OpenSearch Service custom packages to use the key", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole" }, "Action" : [ "kms:CreateGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Decrypt" ], "Resource": "*", "Condition": { "StringEquals" : { "kms:EncryptionContext:packageId": "ID of the package" } } }` ## Monitoring your encryption keys for OpenSearch custom packages service When you use an AWS KMS customer managed key with your OpenSearch Service custom packages service resources, you can use CloudTrail or CloudWatch Logs to track requests that OpenSearch custom packages send to AWS KMS. ###### Learn more The following resources provide more information about data encryption at rest. <br>• For more information about AWS KMS basic concepts, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_. <br>• For more information about security best practices for AWS KMS, see the _AWS Prescriptive Guidance_ guide for [AWS Key Management Service best practices](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"). |
+| Operation                         | Description                                                                                                                                        |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DescribeKey`                     | Sends `DescribeKey` requests to AWS KMS to verify that the symmetric<br>customer managed key ID entered when creating the plugin package is valid. |
+| `GenerateDataKeyWithoutPlaintext` | Sends `GenerateDataKeyWithoutPlaintext` requests to AWS KMS to<br>generate data keys encrypted by your customer managed key.                       |
+| `GenerateDataKey`                 | Sends `GenerateDataKey` requests to AWS KMS to generate data keys to<br>encrypt the package when copying it internally.                            |
+| `Decrypt`                         | Sends `Decrypt` requests to AWS KMS to decrypt the encrypted data<br>keys so they can be used to decrypt your data.                                |
+
+You can revoke access to the grant or remove the service's access to the customer managed key at
+any time. If you do, OpenSearch Service won't be able to access any data encrypted by the customer managed key,
+which affects operations that depend on that data. For example, if you attempt to
+associate a plugin package that OpenSearch Service can't access, the operation returns an
+`AccessDeniedException` error.
+
+## Create a customer managed key
+
+You can create a symmetric customer managed key by using the AWS Management Console or the AWS KMS APIs.
+
+###### To create a symmetric customer managed key
+
+- Follow the steps in [Creating a KMS
+  key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_.
+
+### Key policy
+
+Key policies control access to your customer managed key. Every customer managed key must have exactly
+one key policy, which contains statements that determine who can use the key and how
+they can use it. When you create your customer managed key, you can specify a key policy. For more
+information, see [Key policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
+_AWS Key Management Service Developer Guide_.
+
+To use your customer managed key with your plugin resources, you must permit the following API
+operations in the key policy:
+
+- `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control
+  access to a specified AWS KMS key, allowing access to grant operations that OpenSearch Service
+  custom packages require. For more information about using grants, see the [AWS KMS Developer
+  Guide](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
+
+This allows OpenSearch Service to do the following:
+
+    + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted
+     data key and store it for further validations.
+    + Call `GenerateDataKey` to copy the plugin package
+     internally.
+    + Call `Decrypt` to access the plugin package internally.
+    + Set up a retiring principal to allow the service to
+     `RetireGrant`.
+
+- `kms:DescribeKey` – Provides the customer managed key details to allow OpenSearch Service to
+  validate the key.
+- `kms:GenerateDataKey`,
+  `kms:GenerateDataKeyWithoutPlaintext`, `kms:Decrypt` – Gives
+  OpenSearch Service custom packages access to use these operations in the grant.
+
+The following are policy statement examples you can add for OpenSearch Service custom
+packages:
+
+```
+
+"Statement" : [
+  {
+    "Sid" : "Allow access to principals authorized to use OpenSearch Service custom packages",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : [
+      "kms:CreateGrant",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:Decrypt"
+    ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "custom-packages.region.amazonaws.com"
+      },
+      "StringEquals" : {
+        "kms:EncryptionContext:packageId": "Id of the package"
+      }
+    }
+  },
+  {
+    "Sid" : "Allow access to principals authorized to use Amazon OpenSearch Service custom packages",
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "*"
+    },
+    "Action" : [
+      "kms:DescribeKey"
+    ],
+    "Resource" : "*",
+    "Condition" : {
+      "StringEquals" : {
+        "kms:ViaService" : "custom-packages.region.amazonaws.com"
+      }
+    }
+  }
+]
+
+```
+
+For more information about specifying permissions in a policy, see [Key policies in
+AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_.
+
+For more information about troubleshooting key access, see [Troubleshooting AWS KMS permissions](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the _AWS Key Management Service Developer
+Guide_.
+
+## Specify a customer managed key for Amazon OpenSearch Service custom
+
+packages
+
+You can specify a customer managed key as a second layer of encryption for your
+`ZIP-PLUGIN` packages.
+
+When you create a plugin package, you can specify the data key by entering a AWS KMS key
+ID, which OpenSearch Service custom packages use to encrypt the plugin package.
+
+_AWS KMS key ID_ — A key identifier for a AWS KMS customer managed key. Enter a
+key ID, key ARN, alias name, or alias ARN.
+
+## Amazon OpenSearch Service custom packages encryption
+
+context
+
+An encryption context is an optional set of key-value pairs that contain additional
+contextual information about the data.
+
+AWS KMS uses the encryption context as additional authenticated data to support
+authenticated encryption. When you include an encryption context in a request to encrypt
+data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you
+include the same encryption context in the request.
+
+### Amazon OpenSearch Service custom packages
+
+encryption context
+
+Amazon OpenSearch Service custom packages use the same encryption context in all AWS KMS cryptographic
+operations, where the key is `packageId` and the value is the
+`package-id` of your plugin package.
+
+### Use encryption context
+
+for monitoring
+
+When you use a symmetric customer managed key to encrypt your plugin package, you can use the
+encryption context in audit records and logs to identify how the customer managed key is being
+used. The encryption context also appears in logs generated by AWS CloudTrail or
+Amazon CloudWatch Logs.
+
+### Using encryption
+
+context to control access to your customer managed key
+
+You can use the encryption context in key policies and IAM policies as conditions
+to control access to your symmetric customer managed key. You can also use encryption context
+constraints in a grant.
+
+OpenSearch Service custom packages use an encryption context constraint in grants to control
+access to the customer managed key in your account or Region. The grant constraint requires that
+the operations that the grant allows use the specified encryption context.
+
+The following are example key policy statements to grant access to a customer managed key for
+a specific encryption context. The condition in this policy statement requires that the
+grants have an encryption context constraint that specifies the encryption
+context.
+
+```
+
+{
+    "Sid": "Enable DescribeKey",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole"
+    },
+    "Action": "kms:DescribeKey",
+    "Resource": "*"
+},
+{
+    "Sid": "Enable OpenSearch Service custom packages to use the key",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole"
+    },
+    "Action" : [
+         "kms:CreateGrant",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:Decrypt"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEquals" : {
+            "kms:EncryptionContext:packageId": "ID of the package"
+         }
+    }
+}
+
+```
+
+## Monitoring your encryption keys for
+
+OpenSearch custom packages service
+
+When you use an AWS KMS customer managed key with your OpenSearch Service custom packages service resources, you
+can use CloudTrail or CloudWatch Logs to track requests that OpenSearch custom packages send to
+AWS KMS.
+
+###### Learn more
+
+The following resources provide more information about data encryption at rest.
+
+- For more information about AWS KMS basic concepts, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the
+  _AWS Key Management Service Developer Guide_.
+- For more information about security best practices for AWS KMS, see the
+  _AWS Prescriptive Guidance_ guide for [AWS Key Management Service best
+  practices](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md").

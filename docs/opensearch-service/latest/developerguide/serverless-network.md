@@ -273,8 +273,186 @@ recommend that you create network policies before you start creating collections
 
 Each rule contains the following elements:
 
-| Element           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Rule name**     | A name that describes the contents of the rule. For example, "VPC access for marketing team".                                                                                                                                                                                                                                                                                                                                                                       |
-| **Access type**   | Choose either public or private access. Then, select one or both of the following: <br>• **VPC endpoints for access** – Specify one or more [OpenSearch Serverless-managed VPC endpoints](serverless-vpc.md "serverless-vpc.md")–managed VPC endpoints. <br>• **AWS service private access** – Select one or more supported AWS services.                                                                                                                           |
-| **Resource type** | Select whether to provide access to OpenSearch endpoints (which allows making calls to the OpenSearch API), to OpenSearch Dashboards (which allows access to visualizations and the user interface for OpenSearch plugins), or both.NoteAWS service private access only applies to the collection's OpenSearch endpoint, not to the OpenSearch Dashboards endpoint. Even if you select **OpenSearch Dashboards**, AWS services can only be granted endpoint access. | For each resource type that you select, you can choose existing collections to apply the policy settings to, and/or create one or more resource patterns. Resource patterns consist of a prefix and a wildcard (\*), and define which collections the policy settings will apply to. For example, if you include a pattern called `Marketing*`, any new or existing collections whose names start with "Marketing" will have the network settings in this policy automatically applied to them. A single wildcard (`*`) applies the policy to all current and future collections. In addition, you can specify the name of a _future_ collection without a wildcard, such as `Finance`. OpenSearch Serverless will apply the policy settings to any newly created collection with that exact name. 6. When you're satisfied with your policy configuration, choose **Create**. ## Creating network policies (AWS CLI) To create a network policy using the OpenSearch Serverless API operations, you specify rules in JSON format. The [CreateSecurityPolicy](../ServerlessAPIReference/API_CreateSecurityPolicy.md "../ServerlessAPIReference/API_CreateSecurityPolicy.md") request accepts both inline policies and .json files. All collections and patterns must take the form `collection/<collection name | pattern>`. ###### Note The resource type `dashboards`only allows permission to OpenSearch Dashboards, but in order for OpenSearch Dashboards to function, you must also allow collection access from the same sources. See the second policy below for an example. To specify private access, include one or both of the following elements: <br>•`SourceVPCEs`– Specify one or more OpenSearch Serverless–managed VPC endpoints. <br>•`SourceServices`– Specify the identifier of one or more supported AWS services. Currently, the following service identifiers are supported: +`bedrock.amazonaws.com`– Amazon Bedrock The following sample network policy provides private access, to a VPC endpoint and Amazon Bedrock, to collection endpoints only for collections beginning with the prefix`log*`. Authenticated users can't sign in to OpenSearch Dashboards; they can only access the collection endpoint programmatically. ``` [ { "Description":"Private access for log collections", "Rules":[ { "ResourceType":"collection", "Resource":[ "collection/`log*`" ] } ], "AllowFromPublic":false, "SourceVPCEs":[ "`vpce-050f79086ee71ac05`" ], "SourceServices":[ "bedrock.amazonaws.com" ], } ] ``` The following policy provides public access to the OpenSearch endpoint *and* OpenSearch Dashboards for a single collection named `finance`. If the collection doesn't exist, the network settings will be applied to the collection if and when it's created. ``` [ { "Description":"Public access for finance collection", "Rules":[ { "ResourceType":"dashboard", "Resource":[ "collection/`finance`" ] }, { "ResourceType":"collection", "Resource":[ "collection/`finance`" ] } ], "AllowFromPublic":true } ] ``` The following request creates the above network policy: ``` aws opensearchserverless create-security-policy \ --name `sales-inventory`\ --type network \ --policy "[{\"Description\":\"Public access for finance collection\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/finance\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/finance\"]}],\"AllowFromPublic\":true}]" ``` To provide the policy in a JSON file, use the format`--policy file://`my-policy`.json`## Viewing network policies Before you create a collection, you might want to preview the existing network policies in your account to see which one has a resource pattern that matches your collection's name. The following [ListSecurityPolicies](../ServerlessAPIReference/API_ListSecurityPolicies.md "../ServerlessAPIReference/API_ListSecurityPolicies.md") request lists all network policies in your account: ``` aws opensearchserverless list-security-policies --type network ``` The request returns information about all configured network policies. To view the pattern rules defined in the one specific policy, find the policy information in the contents of the`securityPolicySummaries`element in the response. Note the`name`and`type`of this policy and use these properties in a [GetSecurityPolicy](../ServerlessAPIReference/API_GetSecurityPolicy.md "../ServerlessAPIReference/API_GetSecurityPolicy.md") request to receive a response with the following policy details: ``` { "securityPolicyDetail": [ { "type": "network", "name": "my-policy", "policyVersion": "MTY2MzY5MTY1MDA3Ml8x", "policy": "[{\"Description\":\"My network policy rule\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection/*\"]}],\"AllowFromPublic\":true}]", "createdDate": 1663691650072, "lastModifiedDate": 1663691650072 } ] } ``` To view detailed information about a specific policy, use the [GetSecurityPolicy](../ServerlessAPIReference/API_GetSecurityPolicy.md "../ServerlessAPIReference/API_GetSecurityPolicy.md") command. ## Updating network policies When you modify the VPC endpoints or public access designation for a network, all associated collections are impacted. To update a network policy in the OpenSearch Serverless console, expand **Network policies**, select the policy to modify, and choose **Edit**. Make your changes and choose **Save**. To update a network policy using the OpenSearch Serverless API, use the [UpdateSecurityPolicy](../ServerlessAPIReference/API_UpdateSecurityPolicy.md "../ServerlessAPIReference/API_UpdateSecurityPolicy.md") command. You must include a policy version in the request. You can retrieve the policy version by using the`ListSecurityPolicies`or`GetSecurityPolicy`commands. Including the most recent policy version ensures that you don't inadvertently override a change made by someone else. The following request updates a network policy with a new policy JSON document: ``` aws opensearchserverless update-security-policy \ --name sales-inventory \ --type network \ --policy-version`MTY2MzY5MTY1MDA3Ml8x` \ --policy file://`my-new-policy.json` ``` ## Deleting network policies Before you can delete a network policy, you must detach it from all collections. To delete a policy in the OpenSearch Serverless console, select the policy and choose **Delete**. You can also use the [DeleteSecurityPolicy](../ServerlessAPIReference/API_DeleteSecurityPolicy.md "../ServerlessAPIReference/API_DeleteSecurityPolicy.md") command: ``` aws opensearchserverless delete-security-policy --name `my-policy` --type network ``` |
+| Element           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Rule name**     | A name that describes the contents of the rule. For example,<br>"VPC access for marketing team".                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Access type**   | Choose either public or private access. Then, select one or<br>both of the following:<br>• **VPC endpoints for access**<br>– Specify one or more [OpenSearch Serverless-managed VPC<br>endpoints](serverless-vpc.md "serverless-vpc.md")–managed VPC<br>endpoints.<br>• **AWS service private access**<br>– Select one or more supported<br>AWS services.                                                                                                                                   |
+| **Resource type** | Select whether to provide access to OpenSearch endpoints<br>(which allows making calls to the OpenSearch API), to<br>OpenSearch Dashboards (which allows access to visualizations and the<br>user interface for OpenSearch plugins), or both.NoteAWS service private access only applies to the<br>collection's OpenSearch endpoint, not to the<br>OpenSearch Dashboards endpoint. Even if you select<br>**OpenSearch Dashboards**,<br>AWS services can only be granted endpoint<br>access. |
+
+For each resource type that you select, you can choose existing collections to
+apply the policy settings to, and/or create one or more resource patterns.
+Resource patterns consist of a prefix and a wildcard (\*), and define which
+collections the policy settings will apply to.
+
+For example, if you include a pattern called `Marketing*`, any new
+or existing collections whose names start with "Marketing" will have the network
+settings in this policy automatically applied to them. A single wildcard
+(`*`) applies the policy to all current and future
+collections.
+
+In addition, you can specify the name of a _future_
+collection without a wildcard, such as `Finance`. OpenSearch Serverless will apply
+the policy settings to any newly created collection with that exact name. 6. When you're satisfied with your policy configuration, choose
+**Create**.
+
+## Creating network policies (AWS CLI)
+
+To create a network policy using the OpenSearch Serverless API operations, you specify rules in JSON
+format. The [CreateSecurityPolicy](../ServerlessAPIReference/API_CreateSecurityPolicy.md "../ServerlessAPIReference/API_CreateSecurityPolicy.md") request accepts both inline policies and .json files.
+All collections and patterns must take the form `collection/<collection
+ name|pattern>`.
+
+###### Note
+
+The resource type `dashboards` only allows permission to
+OpenSearch Dashboards, but in order for OpenSearch Dashboards to function, you must also allow
+collection access from the same sources. See the second policy below for an
+example.
+
+To specify private access, include one or both of the following elements:
+
+- `SourceVPCEs` – Specify one or more OpenSearch Serverless–managed
+  VPC endpoints.
+- `SourceServices` – Specify the identifier of one or more
+  supported AWS services. Currently, the following service identifiers are
+  supported:
+  - `bedrock.amazonaws.com` – Amazon Bedrock
+
+The following sample network policy provides private access, to a VPC endpoint and
+Amazon Bedrock, to collection endpoints only for collections beginning with the prefix
+`log*`. Authenticated users can't sign in to OpenSearch Dashboards; they can
+only access the collection endpoint programmatically.
+
+```
+[
+   {
+      "Description":"Private access for log collections",
+      "Rules":[
+         {
+            "ResourceType":"collection",
+            "Resource":[
+               "collection/`log*`"
+            ]
+         }
+      ],
+      "AllowFromPublic":false,
+      "SourceVPCEs":[
+         "`vpce-050f79086ee71ac05`"
+      ],
+      "SourceServices":[
+         "bedrock.amazonaws.com"
+      ],
+   }
+]
+```
+
+The following policy provides public access to the OpenSearch endpoint
+_and_ OpenSearch Dashboards for a single collection named
+`finance`. If the collection doesn't exist, the network settings will be
+applied to the collection if and when it's created.
+
+```
+[
+   {
+      "Description":"Public access for finance collection",
+      "Rules":[
+         {
+            "ResourceType":"dashboard",
+            "Resource":[
+               "collection/`finance`"
+            ]
+         },
+         {
+            "ResourceType":"collection",
+            "Resource":[
+               "collection/`finance`"
+            ]
+         }
+      ],
+      "AllowFromPublic":true
+   }
+]
+```
+
+The following request creates the above network policy:
+
+```
+aws opensearchserverless create-security-policy \
+    --name `sales-inventory` \
+    --type network \
+    --policy "[{\"Description\":\"Public access for finance collection\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/finance\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/finance\"]}],\"AllowFromPublic\":true}]"
+```
+
+To provide the policy in a JSON file, use the format `--policy
+ file://`my-policy`.json`
+
+## Viewing network policies
+
+Before you create a collection, you might want to preview the existing network
+policies in your account to see which one has a resource pattern that matches your
+collection's name. The following [ListSecurityPolicies](../ServerlessAPIReference/API_ListSecurityPolicies.md "../ServerlessAPIReference/API_ListSecurityPolicies.md") request lists all network policies in your
+account:
+
+```
+aws opensearchserverless list-security-policies --type network
+```
+
+The request returns information about all configured network policies. To view the
+pattern rules defined in the one specific policy, find the policy information in the
+contents of the `securityPolicySummaries` element in the response. Note the
+`name` and `type` of this policy and use these properties in a
+[GetSecurityPolicy](../ServerlessAPIReference/API_GetSecurityPolicy.md "../ServerlessAPIReference/API_GetSecurityPolicy.md") request to receive a response with the following policy
+details:
+
+```
+{
+    "securityPolicyDetail": [
+        {
+            "type": "network",
+            "name": "my-policy",
+            "policyVersion": "MTY2MzY5MTY1MDA3Ml8x",
+            "policy": "[{\"Description\":\"My network policy rule\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection/*\"]}],\"AllowFromPublic\":true}]",
+            "createdDate": 1663691650072,
+            "lastModifiedDate": 1663691650072
+        }
+    ]
+}
+```
+
+To view detailed information about a specific policy, use the [GetSecurityPolicy](../ServerlessAPIReference/API_GetSecurityPolicy.md "../ServerlessAPIReference/API_GetSecurityPolicy.md") command.
+
+## Updating network policies
+
+When you modify the VPC endpoints or public access designation for a network, all
+associated collections are impacted. To update a network policy in the OpenSearch Serverless console,
+expand **Network policies**, select the policy to modify, and choose
+**Edit**. Make your changes and choose
+**Save**.
+
+To update a network policy using the OpenSearch Serverless API, use the [UpdateSecurityPolicy](../ServerlessAPIReference/API_UpdateSecurityPolicy.md "../ServerlessAPIReference/API_UpdateSecurityPolicy.md") command. You must include a policy version in the
+request. You can retrieve the policy version by using the
+`ListSecurityPolicies` or `GetSecurityPolicy` commands.
+Including the most recent policy version ensures that you don't inadvertently override a
+change made by someone else.
+
+The following request updates a network policy with a new policy JSON document:
+
+```
+aws opensearchserverless update-security-policy \
+    --name sales-inventory \
+    --type network \
+    --policy-version `MTY2MzY5MTY1MDA3Ml8x` \
+    --policy file://`my-new-policy.json`
+```
+
+## Deleting network policies
+
+Before you can delete a network policy, you must detach it from all collections. To
+delete a policy in the OpenSearch Serverless console, select the policy and choose
+**Delete**.
+
+You can also use the [DeleteSecurityPolicy](../ServerlessAPIReference/API_DeleteSecurityPolicy.md "../ServerlessAPIReference/API_DeleteSecurityPolicy.md") command:
+
+```
+aws opensearchserverless delete-security-policy --name `my-policy` --type network
+```

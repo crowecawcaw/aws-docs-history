@@ -31,8 +31,227 @@ To work with snapshots, configure the following permissions in your data access 
 For more information about data access policies, see [Data access policies versus IAM
 policies](serverless-data-access.md#serverless-data-access-vs-iam "serverless-data-access.md#serverless-data-access-vs-iam").
 
-| Data Access Policy           | APIs                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| aoss:DescribeSnapshot        | GET /\_cat/snapshotsGET /\_cat/snapshots/aoss-automated/GET \_snapshot/aoss-automated/`snapshot`/ |
-| aoss:RestoreSnapshot         | POST /\_snapshot/aoss-automated/`snapshot`/\_restore                                              |
-| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                                               | You can configure policies using the following AWS CLI commands: 1. [create-access-policy](../../../cli/latest/reference/opensearchserverless/create-access-policy.md "../../../cli/latest/reference/opensearchserverless/create-access-policy.md") 2. [delete-access-policy](../../../cli/latest/reference/opensearchserverless/delete-access-policy.md "../../../cli/latest/reference/opensearchserverless/delete-access-policy.md") 3. [get-access-policy](../../../cli/latest/reference/opensearchserverless/get-access-policy.md "../../../cli/latest/reference/opensearchserverless/get-access-policy.md") 4. [update-access-policy](../../../cli/latest/reference/opensearchserverless/update-access-policy.md "../../../cli/latest/reference/opensearchserverless/update-access-policy.md") Here is a sample CLI command for creating an access policy: ``aws opensearchserverless create-access-policy \ --type data \ --name `AWSExample-data-access-policy` \ --region us-west-2 \ --policy '[ { "Rules": [ { "Resource": [ "collection/`AWSExample-collection`" ], "Permission": [ "aoss:DescribeSnapshot", "aoss:RestoreSnapshot", "aoss:DescribeCollectionItems" ], "ResourceType": "collection" } ], "Principal": [ "arn:aws:iam::`AWSExample-account-ID`:user/`AWSExample-user`" ], "Description": "`Data policy to support snapshot operations.`" } ]'`` ## Working with snapshots By default, when you create a new collection, OpenSearch Serverless automatically creates snapshots every hour. No action is required on your part. Each snapshot includes all indices in the collection. After OpenSearch Serverless creates snapshots, you can list them and view the details of the snapshot using the following commands. **Listing snapshots** Use the following command to list all snapshots in a collection: `GET /_cat/snapshots/aoss-automated/` OpenSearch Serverless returns a response like the following: `id                                 status  start_epoch start_time end_epoch  end_time    duration    indices successful_shards failed_shards total_shards snapshot-AWSExampleSnapshotID1     SUCCESS 1737964331  07:52:11   1737964382 07:53:02    50.4s       1 snapshot-AWSExampleSnapshotID2     SUCCESS 1737967931  08:52:11   1737967979 08:52:59    47.7s       2 snapshot-AWSExampleSnapshotID3     SUCCESS 1737971531  09:52:11   1737971581 09:53:01    49.1s       3 snapshot-AWSExampleSnapshotID4 IN_PROGRESS 1737975131  10:52:11   -          -            4.8d       3` **Get snapshots** Retrieves information about a snapshot. ``GET _snapshot/aoss-automated/`snapshot`/`` Example Request ``GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/`` Example Response ``{ "snapshots": [ { "snapshot": "`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`", "uuid": "`AWSExample-5e01-4423-9833-9e9eb757Example`", "version_id": 136327827, "version": "2.11.0", "remote_store_index_shallow_copy": true, "indices": [ "`AWSExample-index-0117`" ], "data_streams": [], "include_global_state": true, "metadata": {}, "state": "SUCCESS", "start_time": "2025-01-27T09:52:11.953Z", "start_time_in_millis": 1737971531953, "end_time": "2025-01-27T09:53:01.062Z", "end_time_in_millis": 1737971581062, "duration_in_millis": 49109, "failures": [], "shards": { "total": 0, "failed": 0, "successful": 0 } } ] }`` **Understanding snapshot response fields** **id** A unique identifier for the snapshot operation. **status** The current state of the snapshot operation. Possible values include: <br>• `SUCCESS` <br>• `IN_PROGRESS` **duration** The time taken to complete the snapshot operation. **indices** The number of indices included in the snapshot. ## Restoring from a snapshot Restoring from a snapshot allows you to recover data from a previously taken backup. This process is crucial for disaster recovery and data management in OpenSearch Serverless. **Important considerations** 1. Restored indices will have different UUIDs than their original versions. 2. Snapshots can only be restored to their original collection. Cross-collection restoration is not supported. 3. Restore operations may impact cluster performance. Plan accordingly. ###### To restore backed up incidices from a snapshot 1. Run the following command to identify the appropriate snapshot. `GET /_snapshot/aoss-automated/_all` For a smaller list of snapshots, run the following command. `GET /_cat/snapshots/aoss-automated/` 2. Run the following command to verify the details of the snapshot before restoring. ``GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/`` 3. Run the following command to restore from a specific snapshot. ``POST /_snapshot/aoss-automated/`snapshot-ID`/_restore`` You can customize the restore operation by including a request body. Here's an example. ``POST /_snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`/_restore { "indices": "opensearch-dashboards*,my-index*", "ignore_unavailable": true, "include_global_state": false, "include_aliases": false, "rename_pattern": "opensearch-dashboards(.+)", "rename_replacement": "restored-opensearch-dashboards$1" }`` 4. Run the following command to view the restore progress. `GET /_cat/recovery` ###### Note When restoring a snapshot with a command that includes a request body, you can use the following parameters to control the restore behavior: **indices** Specifies which indices to restore. This parameter supports wildcard patterns. **ignore_unavailable** Allows the restore operation to continue even if an index in the snapshot is missing. **include_global_state** Determines whether to restore the cluster state. **include_aliases** Controls whether to restore associated aliases. **rename_pattern and rename_replacement** Allows you to rename indices during the restore operation. |
+| Data Access Policy           | APIs                                                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------- |
+| aoss:DescribeSnapshot        | GET /\_cat/snapshotsGET<br>/\_cat/snapshots/aoss-automated/GET<br>\_snapshot/aoss-automated/`snapshot`/ |
+| aoss:RestoreSnapshot         | POST<br>/\_snapshot/aoss-automated/`snapshot`/\_restore                                                 |
+| aoss:DescribeCollectionItems | GET /\_cat/recovery                                                                                     |
+
+You can configure policies using the following AWS CLI commands:
+
+1. [create-access-policy](../../../cli/latest/reference/opensearchserverless/create-access-policy.md "../../../cli/latest/reference/opensearchserverless/create-access-policy.md")
+2. [delete-access-policy](../../../cli/latest/reference/opensearchserverless/delete-access-policy.md "../../../cli/latest/reference/opensearchserverless/delete-access-policy.md")
+3. [get-access-policy](../../../cli/latest/reference/opensearchserverless/get-access-policy.md "../../../cli/latest/reference/opensearchserverless/get-access-policy.md")
+4. [update-access-policy](../../../cli/latest/reference/opensearchserverless/update-access-policy.md "../../../cli/latest/reference/opensearchserverless/update-access-policy.md")
+
+Here is a sample CLI command for creating an access policy:
+
+```
+aws opensearchserverless create-access-policy \
+--type data \
+--name `AWSExample-data-access-policy` \
+--region us-west-2 \
+--policy '[
+  {
+    "Rules": [
+      {
+        "Resource": [
+          "collection/`AWSExample-collection`"
+        ],
+        "Permission": [
+          "aoss:DescribeSnapshot",
+          "aoss:RestoreSnapshot",
+          "aoss:DescribeCollectionItems"
+        ],
+        "ResourceType": "collection"
+      }
+    ],
+    "Principal": [
+      "arn:aws:iam::`AWSExample-account-ID`:user/`AWSExample-user`"
+    ],
+    "Description": "`Data policy to support snapshot operations.`"
+  }
+]'
+```
+
+## Working with snapshots
+
+By default, when you create a new collection, OpenSearch Serverless automatically creates snapshots every
+hour. No action is required on your part. Each snapshot includes all indices in the
+collection. After OpenSearch Serverless creates snapshots, you can list them and view the details of the
+snapshot using the following commands.
+
+**Listing snapshots**
+
+Use the following command to list all snapshots in a collection:
+
+```
+GET /_cat/snapshots/aoss-automated/
+```
+
+OpenSearch Serverless returns a response like the following:
+
+```
+
+id                                 status  start_epoch start_time end_epoch  end_time    duration    indices successful_shards failed_shards total_shards
+snapshot-AWSExampleSnapshotID1     SUCCESS 1737964331  07:52:11   1737964382 07:53:02    50.4s       1
+snapshot-AWSExampleSnapshotID2     SUCCESS 1737967931  08:52:11   1737967979 08:52:59    47.7s       2
+snapshot-AWSExampleSnapshotID3     SUCCESS 1737971531  09:52:11   1737971581 09:53:01    49.1s       3
+snapshot-AWSExampleSnapshotID4 IN_PROGRESS 1737975131  10:52:11   -          -            4.8d       3
+```
+
+**Get snapshots**
+
+Retrieves information about a snapshot.
+
+```
+GET _snapshot/aoss-automated/`snapshot`/
+```
+
+Example Request
+
+```
+GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/
+```
+
+Example Response
+
+```
+{
+    "snapshots": [
+        {
+            "snapshot": "`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`",
+            "uuid": "`AWSExample-5e01-4423-9833-9e9eb757Example`",
+            "version_id": 136327827,
+            "version": "2.11.0",
+            "remote_store_index_shallow_copy": true,
+            "indices": [
+                "`AWSExample-index-0117`"
+            ],
+            "data_streams": [],
+            "include_global_state": true,
+            "metadata": {},
+            "state": "SUCCESS",
+            "start_time": "2025-01-27T09:52:11.953Z",
+            "start_time_in_millis": 1737971531953,
+            "end_time": "2025-01-27T09:53:01.062Z",
+            "end_time_in_millis": 1737971581062,
+            "duration_in_millis": 49109,
+            "failures": [],
+            "shards": {
+                "total": 0,
+                "failed": 0,
+                "successful": 0
+            }
+        }
+    ]
+}
+```
+
+**Understanding snapshot response fields**
+
+**id**
+
+A unique identifier for the snapshot operation.
+
+**status**
+
+The current state of the snapshot operation. Possible values include:
+
+- `SUCCESS`
+- `IN_PROGRESS`
+
+**duration**
+
+The time taken to complete the snapshot operation.
+
+**indices**
+
+The number of indices included in the snapshot.
+
+## Restoring from a snapshot
+
+Restoring from a snapshot allows you to recover data from a previously taken backup. This
+process is crucial for disaster recovery and data management in OpenSearch Serverless.
+
+**Important considerations**
+
+1. Restored indices will have different UUIDs than their original versions.
+2. Snapshots can only be restored to their original collection. Cross-collection
+   restoration is not supported.
+3. Restore operations may impact cluster performance. Plan accordingly.
+
+###### To restore backed up incidices from a snapshot
+
+1. Run the following command to identify the appropriate snapshot.
+
+```
+GET /_snapshot/aoss-automated/_all
+```
+
+For a smaller list of snapshots, run the following command.
+
+```
+GET /_cat/snapshots/aoss-automated/
+```
+
+2. Run the following command to verify the details of the snapshot before
+   restoring.
+
+```
+GET _snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1`/
+```
+
+3. Run the following command to restore from a specific snapshot.
+
+```
+POST /_snapshot/aoss-automated/`snapshot-ID`/_restore
+```
+
+You can customize the restore operation by including a request body. Here's an
+example.
+
+```
+POST /_snapshot/aoss-automated/`snapshot-AWSExampleSnapshotID1-5e01-4423-9833Example`/_restore
+{
+  "indices": "opensearch-dashboards*,my-index*",
+  "ignore_unavailable": true,
+  "include_global_state": false,
+  "include_aliases": false,
+  "rename_pattern": "opensearch-dashboards(.+)",
+  "rename_replacement": "restored-opensearch-dashboards$1"
+}
+```
+
+4. Run the following command to view the restore progress.
+
+```
+GET /_cat/recovery
+```
+
+###### Note
+
+When restoring a snapshot with a command that includes a request body, you can use the
+following parameters to control the restore behavior:
+
+**indices**
+
+Specifies which indices to restore. This parameter supports wildcard
+patterns.
+
+**ignore_unavailable**
+
+Allows the restore operation to continue even if an index in the snapshot is
+missing.
+
+**include_global_state**
+
+Determines whether to restore the cluster state.
+
+**include_aliases**
+
+Controls whether to restore associated aliases.
+
+**rename_pattern and rename_replacement**
+
+Allows you to rename indices during the restore operation.

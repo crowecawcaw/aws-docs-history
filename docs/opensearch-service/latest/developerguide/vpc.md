@@ -197,6 +197,92 @@ your computer or `123.123.123.0/24` for a range of
 computers. 5. For the security group, specify two inbound rules:
 
 | Type        | Protocol | Port Range | Source                   |
-| ----------- | -------- | ---------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | -------- | ---------- | ------------------------ |
 | SSH (22)    | TCP (6)  | 22         | `your-cidr-block`        |
-| HTTPS (443) | TCP (6)  | 443        | `your-security-group-id` | The first rule lets you SSH into your EC2 instance. The second allows the EC2 instance to communicate with the OpenSearch Service domain over HTTPS. 6. From the terminal, run the following command: ``ssh -i ~/.ssh/`your-key`.pem ec2-user@`your-ec2-instance-public-ip` -N -L 9200:vpc-`domain-name`-identifier.`region`.es.amazonaws.com:443`` This command creates an SSH tunnel that forwards requests to [https://localhost:9200](https://localhost:9200 "https://localhost:9200") to your OpenSearch Service domain through the EC2 instance. Specifying port 9200 in the command simulates a local OpenSearch install, but use whichever port you'd like. OpenSearch Service only accepts connections over port 80 (HTTP) or 443 (HTTPS). The command provides no feedback and runs indefinitely. To stop it, press `Ctrl + C`. 7. Navigate to [https://localhost:9200/\_dashboards/](https://localhost:9200/_plugin/kibana/ "https://localhost:9200/_plugin/kibana/") in your web browser. You might need to acknowledge a security exception. Alternately, you can send requests to [https://localhost:9200](https://localhost:9200 "https://localhost:9200") using [curl](https://curl.haxx.se/ "https://curl.haxx.se/"), [Postman](https://www.getpostman.com/ "https://www.getpostman.com/"), or your favorite programming language. ###### Tip If you encounter curl errors due to a certificate mismatch, try the `--insecure` flag. ### Reserving IP addresses in a VPC subnet OpenSearch Service connects a domain to a VPC by placing network interfaces in a subnet of the VPC (or multiple subnets of the VPC if you enable [multiple Availability Zones](managedomains-multiaz.md "managedomains-multiaz.md")). Each network interface is associated with an IP address. Before you create your OpenSearch Service domain, you must have a sufficient number of IP addresses available in each subnet to accommodate the network interfaces. Here's the basic formula: The number of IP addresses that OpenSearch Service reserves in each subnet is three times the number of data nodes, divided by the number of Availability Zones. **Examples** <br>• If a domain has nine data nodes across three Availability Zones, the IP count per subnet is 9 \* 3 / 3 = 9. <br>• If a domain has eight data nodes across two Availability Zones, the IP count per subnet is 8 \* 3 / 2 = 12. <br>• If a domain has six data nodes in one Availability Zone, the IP count per subnet is 6 \* 3 / 1 = 18. When you create the domain, OpenSearch Service reserves the IP addresses, uses some for the domain, and reserves the rest for [blue/green deployments](managedomains-configuration-changes.md "managedomains-configuration-changes.md"). You can see the network interfaces and their associated IP addresses in the **Network Interfaces** section of the Amazon EC2 console. The **Description** column shows which OpenSearch Service domain the network interface is associated with. ###### Tip We recommend that you create dedicated subnets for the OpenSearch Service reserved IP addresses. By using dedicated subnets, you avoid overlap with other applications and services and ensure that you can reserve additional IP addresses if you need to scale your cluster in the future. To learn more, see [Creating a subnet in your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet"). You may also consider provisioning dedicated coordinator nodes to reduce the number of private IP address reservations required for your VPC domain. OpenSearch attaches an elastic network interface (ENI) to your dedicated coordinator nodes instead of your data nodes. Dedicated coordinator nodes usually represent around 10% of total data nodes. As a result, a smaller number of private IP addresses will be reserved for VPC domains. ### Service-linked role for VPC access A [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") is a unique type of IAM role that delegates permissions to a service so that it can create and manage resources on your behalf. OpenSearch Service requires a service-linked role to access your VPC, create the domain endpoint, and place network interfaces in a subnet of your VPC. OpenSearch Service automatically creates the role when you use the OpenSearch Service console to create a domain within a VPC. For this automatic creation to succeed, you must have permissions for the `iam:CreateServiceLinkedRole` action. To learn more, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_. After OpenSearch Service creates the role, you can view it (`AWSServiceRoleForAmazonOpenSearchService`) using the IAM console. For full information on this role's permissions and how to delete it, see [Using service-linked roles for Amazon OpenSearch Service](slr.md "slr.md"). |
+| HTTPS (443) | TCP (6)  | 443        | `your-security-group-id` |
+
+The first rule lets you SSH into your EC2 instance. The second allows the
+EC2 instance to communicate with the OpenSearch Service domain over HTTPS. 6. From the terminal, run the following command:
+
+```
+ssh -i ~/.ssh/`your-key`.pem ec2-user@`your-ec2-instance-public-ip` -N -L 9200:vpc-`domain-name`-identifier.`region`.es.amazonaws.com:443
+```
+
+This command creates an SSH tunnel that forwards requests to [https://localhost:9200](https://localhost:9200 "https://localhost:9200") to your OpenSearch Service
+domain through the EC2 instance. Specifying port 9200 in the command
+simulates a local OpenSearch install, but use whichever port you'd like. OpenSearch Service
+only accepts connections over port 80 (HTTP) or 443 (HTTPS).
+
+The command provides no feedback and runs indefinitely. To stop it, press
+`Ctrl + C`. 7. Navigate to [https://localhost:9200/\_dashboards/](https://localhost:9200/_plugin/kibana/ "https://localhost:9200/_plugin/kibana/") in your web browser. You
+might need to acknowledge a security exception.
+
+Alternately, you can send requests to [https://localhost:9200](https://localhost:9200 "https://localhost:9200") using [curl](https://curl.haxx.se/ "https://curl.haxx.se/"), [Postman](https://www.getpostman.com/ "https://www.getpostman.com/"), or your favorite
+programming language.
+
+###### Tip
+
+If you encounter curl errors due to a certificate mismatch, try the
+`--insecure` flag.
+
+### Reserving IP addresses in a VPC
+
+subnet
+
+OpenSearch Service connects a domain to a VPC by placing network interfaces in a subnet of the
+VPC (or multiple subnets of the VPC if you enable [multiple Availability Zones](managedomains-multiaz.md "managedomains-multiaz.md")). Each
+network interface is associated with an IP address. Before you create your OpenSearch Service
+domain, you must have a sufficient number of IP addresses available in each subnet
+to accommodate the network interfaces.
+
+Here's the basic formula: The number of IP addresses that OpenSearch Service reserves in each
+subnet is three times the number of data nodes, divided by the number of
+Availability Zones.
+
+**Examples**
+
+- If a domain has nine data nodes across three Availability Zones, the IP
+  count per subnet is 9 \* 3 / 3 = 9.
+- If a domain has eight data nodes across two Availability Zones, the IP
+  count per subnet is 8 \* 3 / 2 = 12.
+- If a domain has six data nodes in one Availability Zone, the IP count per
+  subnet is 6 \* 3 / 1 = 18.
+
+When you create the domain, OpenSearch Service reserves the IP addresses, uses some for the
+domain, and reserves the rest for [blue/green deployments](managedomains-configuration-changes.md "managedomains-configuration-changes.md"). You
+can see the network interfaces and their associated IP addresses in the
+**Network Interfaces** section of the Amazon EC2 console. The
+**Description** column shows which OpenSearch Service domain the network
+interface is associated with.
+
+###### Tip
+
+We recommend that you create dedicated subnets for the OpenSearch Service reserved IP
+addresses. By using dedicated subnets, you avoid overlap with other applications
+and services and ensure that you can reserve additional IP addresses if you need
+to scale your cluster in the future. To learn more, see [Creating a subnet in
+your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet").
+
+You may also consider provisioning dedicated coordinator nodes to reduce the
+number of private IP address reservations required for your VPC domain. OpenSearch
+attaches an elastic network interface (ENI) to your dedicated coordinator nodes
+instead of your data nodes. Dedicated coordinator nodes usually represent around 10%
+of total data nodes. As a result, a smaller number of private IP addresses will be
+reserved for VPC domains.
+
+### Service-linked role for VPC access
+
+A [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") is a unique type of IAM role that delegates
+permissions to a service so that it can create and manage resources on your behalf.
+OpenSearch Service requires a service-linked role to access your VPC, create the domain endpoint,
+and place network interfaces in a subnet of your VPC.
+
+OpenSearch Service automatically creates the role when you use the OpenSearch Service console to create a
+domain within a VPC. For this automatic creation to succeed, you must have
+permissions for the `iam:CreateServiceLinkedRole` action. To learn more,
+see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
+
+After OpenSearch Service creates the role, you can view it (`AWSServiceRoleForAmazonOpenSearchService`) using the
+IAM console.
+
+For full information on this role's permissions and how to delete it, see [Using service-linked roles for Amazon OpenSearch Service](slr.md "slr.md").
