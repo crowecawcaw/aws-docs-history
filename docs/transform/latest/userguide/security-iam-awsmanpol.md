@@ -19,8 +19,56 @@ _IAM User Guide_.
 
 View details about updates to AWS managed policies for AWS Transform since March 1, 2021.
 
-| Change                                                                                                                                                                                    | Description                                                                                                                                                                                           | Date               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                           | Added support for customer managed keys in IAM Identity Center.                                                                                                                                       | September 17, 2025 |
-| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – New policy | Added a new AWS managed policy that enables AWS Transform to deploy transformed .NET applications by creating and managing Amazon EC2 instances, AWS CloudFormation stacks, and associated resources. | August 28, 2025    |
-| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                           | Added a new policy.                                                                                                                                                                                   | May 15, 2025       | ## AWS managed policy: AWSServiceRoleForAWSTransform This policy is attached to the [AWSServiceRoleForAWSTransform](using-service-linked-roles.md "using-service-linked-roles.md") service-linked role (SLR). **Permissions details** To view the policy permission details see [AWSServiceRoleForAWSTransform](../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md") in the AWS Managed Policy Reference Guide. ## AWS managed policy: AWSTransformApplicationDeploymentPolicy This policy enables AWS Transform to deploy transformed .NET applications by creating and managing Amazon EC2 instances, AWS CloudFormation stacks, and associated resources. **Description** This policy includes the following permissions: <br>• **CloudFormation** – Allows creating, updating, deleting, and describing CloudFormation stacks with names that start with AWSTransform-Deploy-Infra-stack. Stack operations are restricted to resources tagged with CreatedBy: AWSTransform and limited to the same AWS account. <br>• **Amazon EC2** – Allows describing VPCs, subnets, security groups, images, and instances. Permits running, starting, stopping, terminating, and modifying EC2 instances, but only when called through CloudFormation. Tag creation is restricted to specific allowed tag keys (Name, CreatedBy, CreatedFor, Environment) and only during instance launch. <br>• **AWS Identity and Access Management (IAM)** – Allows getting and passing the specific IAM role AWSTransform-Deploy-EC2-Instance-Role and accessing the instance profile AWSTransform-Deploy-EC2-Instance-Profile. Access is restricted to resources tagged with CreatedFor: AWSTransform. <br>• **Amazon EC2 Systems Manager (SSM)** – Allows retrieving Amazon Linux AMI parameters from the AWS-managed parameter store. The policy implements least-privilege access through resource-level permissions, tag-based conditions, service control restrictions using `aws:CalledVia`, account-level restrictions, and explicit deny statements to prevent unauthorized tag modifications outside of CloudFormation operations. **Permissions details** To view the policy permission details see [AWSTransformApplicationDeploymentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md") in the AWS Managed Policy Reference Guide. |
+| Change                                                                                                                                                                                       | Description                                                                                                                                                                                                 | Date               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                              | Added support for customer managed keys in IAM Identity Center.                                                                                                                                             | September 17, 2025 |
+| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – New<br>policy | Added a new AWS managed policy that enables AWS Transform to deploy transformed<br>.NET applications by creating and managing Amazon EC2 instances, AWS CloudFormation stacks,<br>and associated resources. | August 28, 2025    |
+| [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                              | Added a new policy.                                                                                                                                                                                         | May 15, 2025       |
+
+## AWS managed
+
+policy: AWSServiceRoleForAWSTransform
+
+This policy is attached to the [AWSServiceRoleForAWSTransform](using-service-linked-roles.md "using-service-linked-roles.md") service-linked role (SLR).
+
+**Permissions details**
+
+To view the policy permission details see [AWSServiceRoleForAWSTransform](../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md") in the AWS Managed Policy Reference
+Guide.
+
+## AWS
+
+managed policy: AWSTransformApplicationDeploymentPolicy
+
+This policy enables AWS Transform to deploy transformed .NET applications by creating and
+managing Amazon EC2 instances, AWS CloudFormation stacks, and associated resources.
+
+**Description**
+
+This policy includes the following permissions:
+
+- **CloudFormation** – Allows creating, updating,
+  deleting, and describing CloudFormation stacks with names that start with
+  AWSTransform-Deploy-Infra-stack. Stack operations are restricted to resources tagged
+  with CreatedBy: AWSTransform and limited to the same AWS account.
+- **Amazon EC2** – Allows describing VPCs, subnets,
+  security groups, images, and instances. Permits running, starting, stopping,
+  terminating, and modifying EC2 instances, but only when called through
+  CloudFormation. Tag creation is restricted to specific allowed tag keys (Name,
+  CreatedBy, CreatedFor, Environment) and only during instance launch.
+- **AWS Identity and Access Management (IAM)** – Allows getting and passing the
+  specific IAM role AWSTransform-Deploy-EC2-Instance-Role and accessing the instance
+  profile AWSTransform-Deploy-EC2-Instance-Profile. Access is restricted to resources
+  tagged with CreatedFor: AWSTransform.
+- **Amazon EC2 Systems Manager (SSM)** – Allows retrieving Amazon Linux
+  AMI parameters from the AWS-managed parameter store.
+
+The policy implements least-privilege access through resource-level permissions,
+tag-based conditions, service control restrictions using `aws:CalledVia`,
+account-level restrictions, and explicit deny statements to prevent unauthorized tag
+modifications outside of CloudFormation operations.
+
+**Permissions details**
+
+To view the policy permission details see [AWSTransformApplicationDeploymentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md") in the AWS Managed Policy Reference
+Guide.

@@ -39,7 +39,7 @@ the scam site (rvtools)(dot)(org).
 
 AWS Transform analyzes your source network data and translates your source
 network to these AWS networking resources as needed: VPCs, subnets, security groups,
-network access control lists (NACLs), NAT gateways, transit gateways, internet
+NAT gateways, transit gateways, internet
 gateways, elastic IPs, routes, and route tables.
 
 If you want the target network to contain different IP ranges than your source
@@ -151,22 +151,33 @@ paths your require.
 
 ## IP migration approaches
 
-AWS Transform offers three IP addressing strategies for your migration:
+The system offers two key network configuration choices for your migration
 
-- **IP Address Retention:** Keep original IP
-  addresses during migration. Ideal for lift-and-shift scenarios with
-  legacy applications that have hard-coded IP dependencies or existing
-  firewall rules.
-- **Static IP Assignment:** You can modify VPC
-  CIDR ranges during migration, and AWS Transform automatically propagates
-  changes to subnets, route tables, and security groups, and then assigns
-  static IPs based on the CIDR. This is best for applications requiring
-  predictable network behavior, DNS management, or IP-based access
-  control. IPs persist across instance restarts using Elastic Network
-  Interfaces (ENIs).
-- **Dynamic IP Assignment (AWS DHCP):** Automatically assign IPs from subnet pools at instance launch.
-  Optimal for cloud-native applications, auto-scaling workloads, and container orchestration (ECS, EKS, ASGs).
-  Reduces operational overhead but requires applications to use DNS or service discovery.
+**Network range selection:**
+
+- **Keep Existing Ranges (IP Address Ranges
+  Retention):** Keep original IP address ranges during
+  migration. Ideal for lift-and-shift scenarios with legacy applications
+  that have hard-coded IP dependencies or existing firewall rules.
+- **Update to new IP ranges (CIDR update):**
+  You can modify each VPC CIDR range during migration, and AWS Transform
+  automatically propagates changes to subnets, route tables, and security
+  groups.
+
+**IP addresses assignment:**
+
+- **Fixed IP addresses (Static):** the system
+  assigns static IPs based on the CIDR. This is best for applications
+  requiring predictable network behavior, DNS management, or IP-based
+  access control. IPs persist across instance restarts using Elastic
+  Network Interfaces (ENIs).
+- **Dynamic IP assignment (AWS DHCP):**
+  Automatically assign IPs from subnet pools at instance launch. Optimal
+  for cloud-native applications and auto-scaling workloads. Reduces
+  operational overhead but requires applications to use DNS or service
+  discovery.
+
+You can combine either range selection with either IP assignment method.
 
 ###### Note
 

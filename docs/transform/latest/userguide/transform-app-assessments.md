@@ -44,6 +44,9 @@ The first step of a migration project is to create an AWS Transform job.
 2. Upload data files that can be used by AWS Transform for the assessment. Make sure the file includes all the servers that
    you want to assess for migration to AWS. You can include 30,000 servers per
    assessment job. The maximum supported file size is 10 MB. These types of files are supported:
+   - The [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") enables you to automatically
+     discover server inventory in your organization in preparation for migration.
+     When you configure OS access the discovery tool can help you obtain database assessment and assist in application dependency mapping and wave planning.
    - RVTools: You can upload either a
      ZIP of .csv files or an excel file that RVTools produces when you
      choose **Export all to Excel** from the RVTools **File** menu.

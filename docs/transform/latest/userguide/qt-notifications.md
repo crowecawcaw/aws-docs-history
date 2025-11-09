@@ -32,7 +32,9 @@ You can modify your email notification preferences in the web application by cli
 The notification settings page provides the following controls:
 
 | Notification Type                 | Description                                                                               | Default Setting |
-| --------------------------------- | ----------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------- | ----------------------------------------------------------------------------------------- | --------------- |
 | Workspace Access Updates          | Receive emails when added to a workspace, or when your role is changed within a workspace | Enabled         |
 | Daily Collaborator Request Digest | Receive a daily digest of open collaborator requests for jobs in accessible workspaces    | Enabled         |
-| Job Completion Updates            | Receive emails when a job is completed or fails                                           | Enabled         | You can use a general setting to enable or disable all notifications, or configure individual notification types separately. |
+| Job Completion Updates            | Receive emails when a job is completed or fails                                           | Enabled         |
+
+You can use a general setting to enable or disable all notifications, or configure individual notification types separately.

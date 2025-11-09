@@ -13,7 +13,7 @@ AWS Transform supports five user roles within each workspace. These roles apply 
 Detailed permissions for each role:
 
 | Action | ResourceType     | Admin | Approver | Contributor | ReadOnly |
-| ------ | ---------------- | ----- | -------- | ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------ | ---------------- | ----- | -------- | ----------- | -------- |
 | Create | Workspace        | ✓     | ✓        | ✓           | ✓        |
 | List   | Workspace        | ✓     | ✓        | ✓           | ✓        |
 | Get    | Workspace        | ✓     | ✓        | ✓           | ✓        |
@@ -43,4 +43,24 @@ Detailed permissions for each role:
 | Create | Connector        | ✓     | ✓        | ✓           | ✗        |
 | Read   | Connector        | ✓     | ✓        | ✓           | ✓        |
 | Update | Connector        | ✓     | ✓        | ✓           | ✗        |
-| Delete | Connector        | ✓     | ✓        | ✓           | ✗        | ## Human-in-the-loop (HITL) actions AWS Transform provides two types of HITL actions - standard and critical: Standard HITL actions These are routine actions that can be performed by users with Contributor, Approver, or Administrator roles. Critical HITL actions These are actions with significant impact, and thus require higher permission levels. Examples include: <br>• Merging code to main branches <br>• Performing graph decomposition <br>• Deploying code to production environments Critical HITL actions can only be performed by users with Approver or Administrator roles. To ensure there's a differentiation between Standard HITL and Critical HITL actions in AuthZ policies, AWS Transform provides two separate HITL APIs, one for completing a standard HITL action, and one for completing a critical HITL action. |
+| Delete | Connector        | ✓     | ✓        | ✓           | ✗        |
+
+## Human-in-the-loop (HITL) actions
+
+AWS Transform provides two types of HITL actions - standard and critical:
+
+Standard HITL actions
+
+These are routine actions that can be performed by users with Contributor, Approver, or Administrator roles.
+
+Critical HITL actions
+
+These are actions with significant impact, and thus require higher permission levels. Examples include:
+
+- Merging code to main branches
+- Performing graph decomposition
+- Deploying code to production environments
+
+Critical HITL actions can only be performed by users with Approver or Administrator roles.
+
+To ensure there's a differentiation between Standard HITL and Critical HITL actions in AuthZ policies, AWS Transform provides two separate HITL APIs, one for completing a standard HITL action, and one for completing a critical HITL action.

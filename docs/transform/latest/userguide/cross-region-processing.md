@@ -31,7 +31,10 @@ where data is stored when you use AWS Transform, see
 The following table describes what Regions your requests may be routed to
 depending on the geography where the request originated.
 
-| **Source Region**                        | **Destination Regions**                                                                                                   |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia) (us-east-1)        | US East (N. Virginia) (us-east-1) US East (Ohio) (us-east-2) US West (Oregon) (us-west-2)                                 |
-| Europe (Frankfurt) Region (eu-central-1) | Europe (Frankfurt) (eu-central-1) Europe (Stockholm) (eu-north-1) Europe (Ireland) (eu-west-1) Europe (Paris) (eu-west-3) | For a complete list of Regions where you can use AWS Transform, see [Supported Regions for AWS Transform](regions.md "regions.md"). |
+| **Source Region**                        | **Destination Regions**                                                                                                            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| US East (N. Virginia) (us-east-1)        | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                    |
+| Europe (Frankfurt) Region (eu-central-1) | Europe (Frankfurt) (eu-central-1)<br>Europe (Stockholm) (eu-north-1)<br>Europe (Ireland) (eu-west-1)<br>Europe (Paris) (eu-west-3) |
+
+For a complete list of Regions where you can use AWS Transform, see
+[Supported Regions for AWS Transform](regions.md "regions.md").

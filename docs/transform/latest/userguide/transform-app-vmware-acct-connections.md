@@ -54,6 +54,7 @@ following AWS Regions for the target account connector:
 - US West (Oregon)
 - Asia Pacific (Mumbai)
 - Asia Pacific (Tokyo)
+- Asia Pacific (Osaka)
 - Asia Pacific (Seoul)
 - Asia Pacific (Sydney)
 - Asia Pacific (Singapore)
