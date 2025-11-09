@@ -3,7 +3,7 @@
 ## Amazon EMR 7.2.0 - Hadoop changes
 
 | Type        | Description                                                                                                                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | New Feature | [HADOOP-18850](https://issues.apache.org/jira/browse/HADOOP-18850 "https://issues.apache.org/jira/browse/HADOOP-18850"): S3A: Enable dual-layer server-side encryption with AWS KMS keys  |
 | New Feature | Support S3 Glacier read restored objects                                                                                                                                                  |
 | Improvement | Dynamically Scaling S3A maximum connections based upon the cores when running Spark Jobs                                                                                                  |
@@ -13,4 +13,13 @@
 | Improvement | Implement ReadFullyIntoBuffers FileSystem API in S3A                                                                                                                                      |
 | Bug Fix     | [HADOOP-18793](https://issues.apache.org/jira/browse/HADOOP-18793 "https://issues.apache.org/jira/browse/HADOOP-18793"): S3A StagingCommitter does not clean up staging-uploads directory |
 | Upgrade     | [HADOOP-19008](https://issues.apache.org/jira/browse/HADOOP-19008 "https://issues.apache.org/jira/browse/HADOOP-19008"): S3A: update aws-sdk version to 2.21.41                           |
-| Upgrade     | [HADOOP-18613](https://issues.apache.org/jira/browse/HADOOP-18613 "https://issues.apache.org/jira/browse/HADOOP-18613"): Upgrade ZooKeeper to version 3.8.3                               | ## Amazon EMR 7.2.0 - Hadoop features See the following list for new Hadoop features in Amazon EMR 7.2.0. <br>• [S3 glacier support to read restored objects](emr-hadoop-read-restore-objects.md "emr-hadoop-read-restore-objects.md") – With Amazon EMR release 7.2.0 and higher, you can read restored Glacier objects from the S3 location of the table with the `S3A` protocol. This read operation ignores archived Glacier files if they still in progress of being restored. <br>• Support concurrent writes with the S3A magic committer – Amazon EMR 7.2.0 introduces support for concurrent writes with the S3A magic committer. This feature was added to the OSS Hadoop community as part of [HADOOP-18797](https://issues.apache.org/jira/browse/HADOOP-18797 "https://issues.apache.org/jira/browse/HADOOP-18797"). |
+| Upgrade     | [HADOOP-18613](https://issues.apache.org/jira/browse/HADOOP-18613 "https://issues.apache.org/jira/browse/HADOOP-18613"): Upgrade ZooKeeper to version 3.8.3                               |
+
+## Amazon EMR 7.2.0 - Hadoop features
+
+See the following list for new Hadoop features in Amazon EMR 7.2.0.
+
+- [S3 glacier support to read restored objects](emr-hadoop-read-restore-objects.md "emr-hadoop-read-restore-objects.md") – With Amazon EMR release 7.2.0 and higher, you can read restored Glacier objects
+  from the S3 location of the table with the `S3A` protocol. This read operation ignores archived Glacier files if they still in progress of being restored.
+- Support concurrent writes with the S3A magic committer – Amazon EMR 7.2.0 introduces support for concurrent writes with the S3A magic committer.
+  This feature was added to the OSS Hadoop community as part of [HADOOP-18797](https://issues.apache.org/jira/browse/HADOOP-18797 "https://issues.apache.org/jira/browse/HADOOP-18797").

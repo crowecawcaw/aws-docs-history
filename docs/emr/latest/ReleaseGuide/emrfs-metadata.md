@@ -61,21 +61,47 @@ threaded. Performance differs greatly based on particular application
 characteristics and it may take experimentation to optimize file system
 operations.
 
-| Operation                                             | Average read-per-second | Average write-per-second |
-| ----------------------------------------------------- | ----------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **create** (object)                                   | 26.79                   | 6.70                     |
-| **delete** (object)                                   | 10.79                   | 10.79                    |
-| **delete** (directory containing 1000 objects)        | 21.79                   | 338.40                   |
-| **getFileStatus** (object)                            | 34.70                   | 0                        |
-| **getFileStatus** (directory)                         | 19.96                   | 0                        |
-| **listStatus** (directory containing 1 object)        | 43.31                   | 0                        |
-| **listStatus** (directory containing 10 objects)      | 44.34                   | 0                        |
-| **listStatus** (directory containing 100 objects)     | 84.44                   | 0                        |
-| **listStatus** (directory containing 1,000 objects)   | 308.81                  | 0                        |
-| **listStatus** (directory containing 10,000 objects)  | 416.05                  | 0                        |
-| **listStatus** (directory containing 100,000 objects) | 823.56                  | 0                        |
-| **listStatus** (directory containing 1M objects)      | 882.36                  | 0                        |
-| **mkdir** (continuous for 120 seconds)                | 24.18                   | 4.03                     |
-| **mkdir**                                             | 12.59                   | 0                        |
-| **rename** (object)                                   | 19.53                   | 4.88                     |
-| **rename** (directory containing 1000 objects)        | 23.22                   | 339.34                   | ###### To submit a step that purges old data from your metadata store Users may wish to remove particular entries in the DynamoDB-based metadata. This can help reduce storage costs associated with the table. Users have the ability to manually or programmatically purge particular entries by using the EMRFS CLI `delete` subcommand. However, if you delete entries from the metadata, EMRFS no longer makes any checks for consistency. Programmatically purging after the completion of a job can be done by submitting a final step to your cluster, which executes a command on the EMRFS CLI. For instance, type the following command to submit a step to your cluster to delete all entries older than two days. ``aws emr add-steps --cluster-id `j-2AL4XXXXXX5T9` --steps Name="emrfsCLI",Jar="command-runner.jar",Args=["emrfs","delete","--time","2","--time-unit","days"] { "StepIds": [ "`s-B12345678902`" ] }`` Use the StepId value returned to check the logs for the result of the operation. |
+| Operation                                                     | Average read-per-second | Average write-per-second |
+| ------------------------------------------------------------- | ----------------------- | ------------------------ |
+| \*_create_<br>• (object)                                      | 26.79                   | 6.70                     |
+| \*_delete_<br>• (object)                                      | 10.79                   | 10.79                    |
+| \*_delete_<br>• (directory containing<br>1000 objects)        | 21.79                   | 338.40                   |
+| \*_getFileStatus_<br>• (object)                               | 34.70                   | 0                        |
+| **getFileStatus**<br>(directory)                              | 19.96                   | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 1 object)        | 43.31                   | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 10 objects)      | 44.34                   | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 100 objects)     | 84.44                   | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 1,000 objects)   | 308.81                  | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 10,000 objects)  | 416.05                  | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 100,000 objects) | 823.56                  | 0                        |
+| \*_listStatus_<br>• (directory<br>containing 1M objects)      | 882.36                  | 0                        |
+| \*_mkdir_<br>• (continuous for 120<br>seconds)                | 24.18                   | 4.03                     |
+| **mkdir**                                                     | 12.59                   | 0                        |
+| \*_rename_<br>• (object)                                      | 19.53                   | 4.88                     |
+| \*_rename_<br>• (directory containing<br>1000 objects)        | 23.22                   | 339.34                   |
+
+###### To submit a step that purges old data from your metadata store
+
+Users may wish to remove particular entries in the DynamoDB-based metadata.
+This can help reduce storage costs associated with the table. Users have the
+ability to manually or programmatically purge particular entries by using
+the EMRFS CLI `delete` subcommand. However, if you delete
+entries from the metadata, EMRFS no longer makes any checks for
+consistency.
+
+Programmatically purging after the completion of a job can be done by submitting a final
+step to your cluster, which executes a command on the EMRFS CLI. For instance, type
+the following command to submit a step to your cluster to delete all entries older
+than two days.
+
+```
+aws emr add-steps --cluster-id `j-2AL4XXXXXX5T9` --steps Name="emrfsCLI",Jar="command-runner.jar",Args=["emrfs","delete","--time","2","--time-unit","days"]
+{
+    "StepIds": [
+        "`s-B12345678902`"
+    ]
+}
+```
+
+Use the StepId value returned to check the logs for the result of the
+operation.

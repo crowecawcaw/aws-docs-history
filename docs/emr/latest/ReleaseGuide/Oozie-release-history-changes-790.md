@@ -5,5 +5,18 @@ Oozie release notes
 **Oozie changes:**
 
 | Type    | Description            |
-| ------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Upgrade | Avro upgrade to 1.11.4 | **Oozie known issues:** <br>• Version Conflict in Oozie Sharelib: + Oozie sharelib contains multiple versions of commons-cli (versions 1.2 and 1.5). + If you encounter compatibility issues, consider either: <br>• Removing commons-cli-1.2 JAR files. <br>• Replacing commons-cli-1.2 with commons-cli-1.5. <br>• Pig JAR Compatibility: + The Pig jar included by default in Oozie sharelib is the open-source jar. This differs from the Pig jar available elsewhere in the EMR cluster, on installing the Pig application, which includes additional EMR-specific enhancements and optimizations. Users should be aware of this difference when developing Pig workflows. |
+| ------- | ---------------------- |
+| Upgrade | Avro upgrade to 1.11.4 |
+
+**Oozie known issues:**
+
+- Version Conflict in Oozie Sharelib:
+  - Oozie sharelib contains multiple versions of commons-cli (versions 1.2 and 1.5).
+  - If you encounter compatibility issues, consider either:
+    - Removing commons-cli-1.2 JAR files.
+    - Replacing commons-cli-1.2 with commons-cli-1.5.
+
+- Pig JAR Compatibility:
+  - The Pig jar included by default in Oozie sharelib is the open-source jar. This differs from the Pig jar available elsewhere in the EMR cluster,
+    on installing the Pig application, which includes additional EMR-specific enhancements and optimizations. Users should be aware of this difference when
+    developing Pig workflows.

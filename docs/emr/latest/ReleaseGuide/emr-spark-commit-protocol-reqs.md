@@ -95,9 +95,97 @@ source default Spark commit protocol,
 `org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`.
 Optimization won't occur in the following situations.
 
-| Situation                                            | Why the commit protocol is not used                                                                                                                                                                           |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| When you write to HDFS                               | The commit protocol only supports writing to Amazon S3 using EMRFS.                                                                                                                                           |
-| When you use the S3A file system                     | The commit protocol only supports EMRFS.                                                                                                                                                                      |
-| When you use MapReduce or Spark's RDD API            | The commit protocol only supports using SparkSQL, DataFrame, or Dataset APIs.                                                                                                                                 |
-| When the dynamic partition overwrite isn't triggered | The commit protocol only optimizes dynamic partition overwrite cases. For other cases, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md"). | The following Scala examples demonstrate some additional situations that the EMRFS S3-optimized commit protocol delegates to `SQLHadoopMapReduceCommitProtocol`. ###### Example – Dynamic partition overwrite mode with custom partition location In this example, the Scala programs overwrites two partitions in dynamic partition overwrite mode. One partition has a custom partition location. The other partition uses the default partition location. The EMRFS S3-optimized commit protocol only improves the partition that uses the default partition location. `val table = "dataset" val inputView = "tempView" val location = "s3://bucket/table" spark.sql(s""" CREATE TABLE $table (id bigint, dt date) USING PARQUET PARTITIONED BY (dt) LOCATION '$location' """) // Add a partition using a custom location val customPartitionLocation = "s3://bucket/custom" spark.sql(s""" ALTER TABLE $table ADD PARTITION (dt='2019-01-28') LOCATION '$customPartitionLocation' """) // Add another partition using default location spark.sql(s"ALTER TABLE $table ADD PARTITION (dt='2019-01-29')") def asDate(text: String) = lit(text).cast("date") spark.range(0, 10) .withColumn("dt", when($"id" > 4, asDate("2019-01-28")).otherwise(asDate("2019-01-29"))) .createTempView(inputView) // Set partition overwrite mode to 'dynamic' spark.sql(s"SET spark.sql.sources.partitionOverwriteMode=dynamic") spark.sql(s"INSERT OVERWRITE TABLE $table SELECT * FROM $inputView")` The Scala code creates the following Amazon S3 objects: `custom/part-00001-035a2a9c-4a09-4917-8819-e77134342402.c000.snappy.parquet custom_$folder$ table/_SUCCESS table/dt=2019-01-29/part-00000-035a2a9c-4a09-4917-8819-e77134342402.c000.snappy.parquet table/dt=2019-01-29_$folder$ table_$folder$` ###### Note Writing to custom partition locations in earlier Spark versions may result in data loss. In this example, partition `dt='2019-01-28'` would be lost. For more details, see [SPARK-35106](https://issues.apache.org/jira/browse/SPARK-35106 "https://issues.apache.org/jira/browse/SPARK-35106"). This is fixed in Amazon EMR release 5.33.0 and later, excluding 6.0.x and 6.1.x. When writing to partitions at custom locations, Spark uses a commit algorithm similar to the previous example, which is outlined below. As with the earlier example, the algorithm results in sequential renames, which may negatively impact performance. The algorithm in Spark 2.4.0 follows these steps: 1. When writing output to a partition at a custom location, tasks write to a file under Spark's staging directory, which is created under the final output location. The name of the file includes a random UUID to protect against file collisions. The task attempt keeps track of each file along with the final desired output path. 2. When a task completes successfully, it provides the driver with the files and their final desired output paths. 3. After all tasks complete, the job commit phase sequentially renames all files that were written for partitions at custom locations to their final output paths. 4. The staging directory is deleted before the job commit phase completes. |
+| Situation                                               | Why the commit protocol is not used                                                                                                                                                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| When you write to HDFS                                  | The commit protocol only supports writing to<br>Amazon S3 using EMRFS.                                                                                                                                              |
+| When you use the S3A file system                        | The commit protocol only supports EMRFS.                                                                                                                                                                            |
+| When you use MapReduce or Spark's RDD API               | The commit protocol only supports using SparkSQL,<br>DataFrame, or Dataset APIs.                                                                                                                                    |
+| When the dynamic partition overwrite isn't<br>triggered | The commit protocol only optimizes dynamic partition<br>overwrite cases. For other cases, see [Use the EMRFS S3-optimized<br>committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md"). |
+
+The following Scala examples demonstrate some additional situations that
+the EMRFS S3-optimized commit protocol delegates to
+`SQLHadoopMapReduceCommitProtocol`.
+
+###### Example – Dynamic partition overwrite mode with custom partition
+
+location
+
+In this example, the Scala programs overwrites two partitions in
+dynamic partition overwrite mode. One partition has a custom partition
+location. The other partition uses the default partition location. The
+EMRFS S3-optimized commit protocol only improves the partition that uses
+the default partition location.
+
+```
+val table = "dataset"
+val inputView = "tempView"
+val location = "s3://bucket/table"
+
+spark.sql(s"""
+  CREATE TABLE $table (id bigint, dt date)
+  USING PARQUET PARTITIONED BY (dt)
+  LOCATION '$location'
+""")
+
+// Add a partition using a custom location
+val customPartitionLocation = "s3://bucket/custom"
+spark.sql(s"""
+  ALTER TABLE $table ADD PARTITION (dt='2019-01-28')
+  LOCATION '$customPartitionLocation'
+""")
+
+// Add another partition using default location
+spark.sql(s"ALTER TABLE $table ADD PARTITION (dt='2019-01-29')")
+
+def asDate(text: String) = lit(text).cast("date")
+
+spark.range(0, 10)
+  .withColumn("dt",
+    when($"id" > 4, asDate("2019-01-28")).otherwise(asDate("2019-01-29")))
+  .createTempView(inputView)
+
+// Set partition overwrite mode to 'dynamic'
+spark.sql(s"SET spark.sql.sources.partitionOverwriteMode=dynamic")
+
+spark.sql(s"INSERT OVERWRITE TABLE $table SELECT * FROM $inputView")
+```
+
+The Scala code creates the following Amazon S3 objects:
+
+```
+custom/part-00001-035a2a9c-4a09-4917-8819-e77134342402.c000.snappy.parquet
+custom_$folder$
+table/_SUCCESS
+table/dt=2019-01-29/part-00000-035a2a9c-4a09-4917-8819-e77134342402.c000.snappy.parquet
+table/dt=2019-01-29_$folder$
+table_$folder$
+```
+
+###### Note
+
+Writing to custom partition locations in earlier Spark versions
+may result in data loss. In this example, partition
+`dt='2019-01-28'` would be lost. For more details,
+see [SPARK-35106](https://issues.apache.org/jira/browse/SPARK-35106 "https://issues.apache.org/jira/browse/SPARK-35106"). This is fixed in Amazon EMR release 5.33.0 and
+later, excluding 6.0.x and 6.1.x.
+
+When writing to partitions at custom locations, Spark uses a commit
+algorithm similar to the previous example, which is outlined below. As with
+the earlier example, the algorithm results in sequential renames, which may
+negatively impact performance.
+
+The algorithm in Spark 2.4.0 follows these steps:
+
+1. When writing output to a partition at a custom location, tasks
+   write to a file under Spark's staging directory, which is created
+   under the final output location. The name of the file includes a
+   random UUID to protect against file collisions. The task attempt
+   keeps track of each file along with the final desired output
+   path.
+2. When a task completes successfully, it provides the driver with
+   the files and their final desired output paths.
+3. After all tasks complete, the job commit phase sequentially
+   renames all files that were written for partitions at custom
+   locations to their final output paths.
+4. The staging directory is deleted before the job commit phase
+   completes.

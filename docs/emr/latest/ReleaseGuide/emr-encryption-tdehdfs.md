@@ -190,15 +190,179 @@ You can configure Hadoop KMS at cluster creation time using the configuration
 API for Amazon EMR releases. The following are the configuration object
 classifications available for Hadoop KMS:
 
-| Hadoop KMS configuration classifications | Classification                                                            | Filename                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
-| hadoop-kms-site                          | `kms-site.xml`                                                            |
-| hadoop-kms-acls                          | `kms-acls.xml`                                                            |
-| hadoop-kms-env                           | `kms-env.sh`                                                              |
-| hadoop-kms-log4j                         | `kms-log4j.properties`                                                    | ###### To set Hadoop KMS ACLs using the CLI <br>• Create a cluster with Hadoop KMS with ACLs using the following command: ``aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \ --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json`` ###### Note Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^). `myConfig.json`: `[ { "Classification": "hadoop-kms-acls", "Properties": { "hadoop.kms.blacklist.CREATE": "hdfs,foo,myBannedUser", "hadoop.kms.acl.ROLLOVER": "myAllowedUser" } } ]` ###### To disable Hadoop KMS cache using the CLI <br>• Create a cluster with Hadoop KMS `hadoop.kms.cache.enable` set to `false`, using the following command: ``aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \ --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json`` ###### Note Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^). `myConfig.json`: `[ { "Classification": "hadoop-kms-site", "Properties": { "hadoop.kms.cache.enable": "false" } } ]` ###### To set environment variables in the `kms-env.sh` script using the CLI <br>• Change settings in `kms-env.sh` via the `hadoop-kms-env` configuration. Create a cluster with Hadoop KMS using the following command: ``aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \ --applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json`` ###### Note Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^). `myConfig.json`: ``[ { "Classification": "hadoop-kms-env", "Properties": {}, "Configurations": [ { "Classification": "export", "Properties": { "JAVA_LIBRARY_PATH": "`/path/to/files`", "KMS_SSL_KEYSTORE_FILE": "`/non/Default/Path/`.keystore", "KMS_SSL_KEYSTORE_PASS": "`myPass`" }, "Configurations": [] } ] } ]`` For information about configuring Hadoop KMS, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html"). ## HDFS transparent encryption on EMR clusters with multiple master nodes [Apache Ranger](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html") KMS is used in an Amazon EMR cluster with multiple primary nodes for transparent encryption in HDFS. Apache Ranger KMS stores its root key and Encryption Zone (EZ) keys in your Amazon RDS for an Amazon EMR cluster with multiple primary nodes. To enable transparent encryption in HDFS on an Amazon EMR cluster with multiple primary nodes, you must provide the following configurations. <br>• Amazon RDS or your own MySQL server connection URL to store the Ranger KMS root key and EZ key <br>• User name and password for MySQL <br>• Password for Ranger KMS root key <br>• Certificate Authority (CA) PEM file for SSL connection to MySQL server. You can download the certificate bundle for your AWS Region from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload"). You can provide these configurations by using `ranger-kms-dbks-site` classification and `ranger-kms-db-ca` classification, as the following example demonstrates. ``[ { "Classification": "ranger-kms-dbks-site", "Properties": { "ranger.ks.jpa.jdbc.url": "`jdbc:log4jdbc:mysql://mysql-host-url.xx-xxx-1.xxx.amazonaws.com:3306/rangerkms`", "ranger.ks.jpa.jdbc.user": "`mysql-user-name`", "ranger.ks.jpa.jdbc.password": "`mysql-password`", "ranger.db.encrypt.key.password": "`password-for-encrypting-a-master-key`" } }, { "Classification": "ranger-kms-db-ca", "Properties": { "ranger.kms.trust.ca.file.s3.url": "<S3-path-of-downloaded-pem-file>" } } ]`` The following are configuration object classifications for Apache Ranger KMS. Hadoop KMS configuration classifications | Classification | Description |
-| ---                                      | ---                                                                       |
-| ranger-kms-dbks-site                     | Change values in dbks-site.xml file of Ranger KMS.                        |
-| ranger-kms-site                          | Change values in ranger-kms-site.xml file of Ranger KMS.                  |
-| ranger-kms-env                           | Change values in the Ranger KMS environment.                              |
-| ranger-kms-log4j                         | Change values in kms-log4j.properties file of Ranger KMS.                 |
-| ranger-kms-db-ca                         | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS. | **Considerations** <br>• It is highly recommended that you encrypt your Amazon RDS instance to improve security. For more information, see [Overview of encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview "../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview"). <br>• It is highly recommended that you use separate MySQL database for each Amazon EMR cluster with multiple primary nodes for high security bar. <br>• To configure transparent encryption in HDFS on an Amazon EMR cluster with multiple primary nodes, you must specify the `hdfs-encryption-zones` classification while creating the cluster. Otherwise, Ranger KMS will not be configured or started. Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications on a running cluster is not supported on Amazon EMR cluster with multiple primary nodes. <br>• The PEM certificate bundle that you downlaod from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple certificates from the PEM file with the configuration `ranger.kms.trust.ca.file.s3.url`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Hadoop KMS configuration classifications | Classification         | Filename |
+| ---------------------------------------- | ---------------------- | -------- |
+| hadoop-kms-site                          | `kms-site.xml`         |
+| hadoop-kms-acls                          | `kms-acls.xml`         |
+| hadoop-kms-env                           | `kms-env.sh`           |
+| hadoop-kms-log4j                         | `kms-log4j.properties` |
+
+###### To set Hadoop KMS ACLs using the CLI
+
+- Create a cluster with Hadoop KMS with ACLs using the following
+  command:
+
+```
+aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+--applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
+```
+
+###### Note
+
+Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+
+`myConfig.json`:
+
+```
+[
+	{
+		"Classification": "hadoop-kms-acls",
+		"Properties": {
+			"hadoop.kms.blacklist.CREATE": "hdfs,foo,myBannedUser",
+			"hadoop.kms.acl.ROLLOVER": "myAllowedUser"
+		}
+	}
+]
+
+```
+
+###### To disable Hadoop KMS cache using the CLI
+
+- Create a cluster with Hadoop KMS `hadoop.kms.cache.enable`
+  set to `false`, using the following command:
+
+```
+aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+--applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
+```
+
+###### Note
+
+Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+
+`myConfig.json`:
+
+```
+[
+	{
+		"Classification": "hadoop-kms-site",
+		"Properties": {
+			"hadoop.kms.cache.enable": "false"
+		}
+	}
+]
+
+```
+
+###### To set environment variables in the `kms-env.sh`
+
+script using the CLI
+
+- Change settings in `kms-env.sh` via the
+  `hadoop-kms-env` configuration. Create a cluster with
+  Hadoop KMS using the following command:
+
+```
+aws emr create-cluster --release-label `emr-7.10.0` --instance-type m5.xlarge --instance-count 2 \
+--applications Name=`App1` Name=`App2` --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
+```
+
+###### Note
+
+Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+
+`myConfig.json`:
+
+```
+[
+	{
+		"Classification": "hadoop-kms-env",
+		"Properties": {},
+		"Configurations": [
+			{
+				"Classification": "export",
+				"Properties": {
+					"JAVA_LIBRARY_PATH": "`/path/to/files`",
+					"KMS_SSL_KEYSTORE_FILE": "`/non/Default/Path/`.keystore",
+					"KMS_SSL_KEYSTORE_PASS": "`myPass`"
+				},
+				"Configurations": []
+			}
+		]
+	}
+]
+
+```
+
+For information about configuring Hadoop KMS, see the [Hadoop KMS
+documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html").
+
+## HDFS transparent encryption on EMR
+
+clusters with multiple master nodes
+
+[Apache
+Ranger](http://hadoop.apache.org/docs/current/hadoop-kms/index.html "http://hadoop.apache.org/docs/current/hadoop-kms/index.html") KMS is used in an Amazon EMR cluster with multiple primary nodes for transparent encryption
+in HDFS.
+
+Apache Ranger KMS stores its root key and Encryption Zone (EZ) keys in your Amazon RDS
+for an Amazon EMR cluster with multiple primary nodes. To enable transparent encryption in HDFS on an
+Amazon EMR cluster with multiple primary nodes, you must provide the following configurations.
+
+- Amazon RDS or your own MySQL server connection URL to store the Ranger KMS root
+  key and EZ key
+- User name and password for MySQL
+- Password for Ranger KMS root key
+- Certificate Authority (CA) PEM file for SSL connection to MySQL
+  server. You can download the certificate bundle for your AWS Region from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload").
+
+You can provide these configurations by using `ranger-kms-dbks-site`
+classification and `ranger-kms-db-ca` classification, as the following
+example demonstrates.
+
+```
+[
+	{
+		"Classification": "ranger-kms-dbks-site",
+		"Properties": {
+			"ranger.ks.jpa.jdbc.url": "`jdbc:log4jdbc:mysql://mysql-host-url.xx-xxx-1.xxx.amazonaws.com:3306/rangerkms`",
+			"ranger.ks.jpa.jdbc.user": "`mysql-user-name`",
+			"ranger.ks.jpa.jdbc.password": "`mysql-password`",
+			"ranger.db.encrypt.key.password": "`password-for-encrypting-a-master-key`"
+		}
+	},
+	{
+		"Classification": "ranger-kms-db-ca",
+		"Properties": {
+			"ranger.kms.trust.ca.file.s3.url": "<S3-path-of-downloaded-pem-file>"
+		}
+	}
+]
+
+```
+
+The following are configuration object classifications for Apache Ranger
+KMS.
+
+| Hadoop KMS configuration classifications | Classification                                                               | Description |
+| ---------------------------------------- | ---------------------------------------------------------------------------- | ----------- |
+| ranger-kms-dbks-site                     | Change values in dbks-site.xml file of Ranger KMS.                           |
+| ranger-kms-site                          | Change values in ranger-kms-site.xml file of Ranger KMS.                     |
+| ranger-kms-env                           | Change values in the Ranger KMS environment.                                 |
+| ranger-kms-log4j                         | Change values in kms-log4j.properties file of Ranger KMS.                    |
+| ranger-kms-db-ca                         | Change values for CA file on S3 for MySQL SSL connection with<br>Ranger KMS. |
+
+**Considerations**
+
+- It is highly recommended that you encrypt your Amazon RDS instance to improve
+  security. For more information, see [Overview of encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview "../../../AmazonRDS/latest/UserGuide/Overview.md#Overview.Encryption.Overview").
+- It is highly recommended that you use separate MySQL database for each
+  Amazon EMR cluster with multiple primary nodes for high security bar.
+- To configure transparent encryption in HDFS on an Amazon EMR cluster with multiple primary nodes, you
+  must specify the `hdfs-encryption-zones` classification while
+  creating the cluster. Otherwise, Ranger KMS will not be configured or
+  started. Reconfiguring `hdfs-encryption-zones` classification or
+  any of the Hadoop KMS configuration classifications on a running cluster is
+  not supported on Amazon EMR cluster with multiple primary nodes.
+- The PEM certificate bundle that you downlaod from [Download certificate bundles for Amazon RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.CertificatesDownload") groups multiple certificates into one file. Amazon EMR 7.3.0 and higher supports importing multiple
+  certificates from the PEM file with the configuration `ranger.kms.trust.ca.file.s3.url`.

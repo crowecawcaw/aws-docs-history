@@ -8,8 +8,14 @@ The following table lists the version of Delta included in the latest release of
 
 For the version of components installed with Delta in this release, see [Release 7.10.0 Component Versions](emr-7100-release.md "emr-7100-release.md").
 
-| Delta version information for emr-7.10.0 | Amazon EMR Release Label | Delta Version  | Components Installed With Delta                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------- | ------------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------- | ------------------------------- |
-| emr-7.10.0                               | Delta 3.3.0-amzn-2       | Not available. | The following table lists the version of Delta included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Delta. For the version of components installed with Delta in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md"). Delta version information for emr-6.15.0 | Amazon EMR Release Label | Delta Version | Components Installed With Delta |
-| ---                                      | ---                      | ---            |
+| Delta version information for emr-7.10.0 | Amazon EMR Release Label | Delta Version  | Components Installed With Delta |
+| ---------------------------------------- | ------------------------ | -------------- | ------------------------------- |
+| emr-7.10.0                               | Delta 3.3.0-amzn-2       | Not available. |
+
+The following table lists the version of Delta included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Delta.
+
+For the version of components installed with Delta in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
+
+| Delta version information for emr-6.15.0 | Amazon EMR Release Label | Delta Version  | Components Installed With Delta |
+| ---------------------------------------- | ------------------------ | -------------- | ------------------------------- |
 | emr-6.15.0                               | Delta 2.4.0              | Not available. |

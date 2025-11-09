@@ -71,7 +71,7 @@ dump B;"
 This example creates a Spark DataFrame from the table created in the first example
 and shows the first 20 lines:
 
-````
+```
 % spark-shell --jars /usr/lib/hive-hcatalog/share/hcatalog/hive-hcatalog-core-1.0.0-amzn-3.jar
 <snip>
 scala> val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc);
@@ -81,7 +81,8 @@ scala> df.show()
 16/03/09 17:18:46 INFO DAGScheduler: ResultStage 0 (show at <console>:32) finished in 10.702 s
 16/03/09 17:18:46 INFO DAGScheduler: Job 0 finished: show at <console>:32, took 10.839905 s
 +----------------+--------------------+--------------------+------------------+--------------------+--------------------+--------------+----------------+
-|requestbegintime|                adid|        impressionid|          referrer|           useragent|          usercookie|            ip|              dt| +----------------+--------------------+--------------------+------------------+--------------------+--------------------+--------------+----------------+
+|requestbegintime|                adid|        impressionid|          referrer|           useragent|          usercookie|            ip|              dt|
++----------------+--------------------+--------------------+------------------+--------------------+--------------------+--------------+----------------+
 |   1239610346000|m9nwdo67Nx6q2kI25...|omkxkaRpNhGPDucAi...|cartoonnetwork.com|Mozilla/4.0 (comp...|wcVWWTascoPbGt6bd...|69.191.224.234|2009-04-13-08-05|
 |   1239611000000|NjriQjdODgWBKnkGJ...|AWtXPkfaWGOaNeL9O...|cartoonnetwork.com|Mozilla/4.0 (comp...|OaMU1F2gE4CtADVHA...| 57.34.133.110|2009-04-13-08-05|
 |   1239610462000|Irpv3oiu0I5QNQiwS...|i1LDq44LRSJF0hbmh...|cartoonnetwork.com|Mozilla/4.0 (comp...|QSb3wkLR4JAIut4Uq...|42.174.193.253|2009-04-13-08-05|
@@ -101,5 +102,11 @@ scala> df.show()
 |   1239610373000|WflsvKIgOqfIE5KwR...|TJHd1VBspNcua0XPn...|       corriere.it|Mozilla/5.0 (Maci...|fj2L1ILTFGMfhdrt3...| 75.117.56.155|2009-04-13-08-05|
 |   1239610768000|4MJR0XxiVCU1ueXKV...|1OhGWmbvKf8ajoU8a...|       corriere.it|Mozilla/5.0 (Maci...|fj2L1ILTFGMfhdrt3...| 75.117.56.155|2009-04-13-08-05|
 |   1239610832000|gWIrpDiN57i3sHatv...|RNL4C7xPi3tdar2Uc...|       corriere.it|Mozilla/5.0 (Maci...|fj2L1ILTFGMfhdrt3...| 75.117.56.155|2009-04-13-08-05|
-|   1239610789000|pTne9k62kJ14QViXI...|RVxJVIQousjxUVI3r...|        pixnet.net|Mozilla/5.0 (Maci...|1bGOKiBD2xmui9OkF...| 33.176.101.80|2009-04-13-08-05| +----------------+--------------------+--------------------+------------------+--------------------+--------------------+--------------+----------------+ only showing top 20 rows scala> ```
-````
+|   1239610789000|pTne9k62kJ14QViXI...|RVxJVIQousjxUVI3r...|        pixnet.net|Mozilla/5.0 (Maci...|1bGOKiBD2xmui9OkF...| 33.176.101.80|2009-04-13-08-05|
++----------------+--------------------+--------------------+------------------+--------------------+--------------------+--------------+----------------+
+only showing top 20 rows
+
+
+scala>
+
+```

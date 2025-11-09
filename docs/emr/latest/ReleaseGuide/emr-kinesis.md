@@ -53,11 +53,47 @@ To enable checkpointing, set the `kinesis.checkpoint.enabled`
 parameter to `true` in your scripts. Also, configure the following
 parameters:
 
-| Configuration setting                        | Description                                                                                                         |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kinesis.checkpoint.metastore.table.name      | DynamoDB table name where checkpoint information will be stored                                                     |
-| kinesis.checkpoint.metastore.hash.key.name   | Hash key name for the DynamoDB table                                                                                |
-| kinesis.checkpoint.metastore.hash.range.name | Range key name for the DynamoDB table                                                                               |
-| kinesis.checkpoint.logical.name              | A logical name for current processing                                                                               |
-| kinesis.checkpoint.iteration.no              | Iteration number for processing associated with the logical name                                                    |
-| kinesis.rerun.iteration.without.wait         | Boolean value that indicates if a failed iteration can be rerun without waiting for timeout; the default is `false` | ### Provisioned IOPS recommendations for Amazon DynamoDB tables The Amazon EMR connector for Amazon Kinesis uses the DynamoDB database as its backing for checkpointing metadata. You must create a table in DynamoDB before consuming data in an Amazon Kinesis stream with an Amazon EMR cluster in checkpointed intervals. The table must be in the same region as your Amazon EMR cluster. The following are general recommendations for the number of IOPS you should provision for your DynamoDB tables; let `j` be the maximum number of Hadoop jobs (with different logical name+iteration number combination) that can run concurrently and `s` be the maximum number of shards that any job will process: For **Read Capacity Units**: `j`\*`s`/`5` For **Write Capacity Units**: `j`\*`s` ## Performance considerations Amazon Kinesis shard throughput is directly proportional to the instance size of nodes in Amazon EMR clusters and record size in the stream. We recommend that you use m5.xlarge or larger instances on master and core nodes. ## Schedule Amazon Kinesis analysis with Amazon EMR When you are analyzing data on an active Amazon Kinesis stream, limited by timeouts and a maximum duration for any iteration, it is important that you run the analysis frequently to gather periodic details from the stream. There are multiple ways to execute such scripts and queries at periodic intervals; we recommend using AWS Data Pipeline for recurrent tasks like these. For more information, see [AWS Data Pipeline PigActivity](../../../datapipeline/latest/DeveloperGuide/dp-object-pigactivity.md "../../../datapipeline/latest/DeveloperGuide/dp-object-pigactivity.md") and [AWS Data Pipeline HiveActivity](../../../datapipeline/latest/DeveloperGuide/dp-object-hiveactivity.md "../../../datapipeline/latest/DeveloperGuide/dp-object-hiveactivity.md") in the _AWS Data Pipeline Developer Guide_. |
+| Configuration setting                        | Description                                                                                                            |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| kinesis.checkpoint.metastore.table.name      | DynamoDB table name where checkpoint information will be<br>stored                                                     |
+| kinesis.checkpoint.metastore.hash.key.name   | Hash key name for the DynamoDB table                                                                                   |
+| kinesis.checkpoint.metastore.hash.range.name | Range key name for the DynamoDB table                                                                                  |
+| kinesis.checkpoint.logical.name              | A logical name for current processing                                                                                  |
+| kinesis.checkpoint.iteration.no              | Iteration number for processing associated with the logical<br>name                                                    |
+| kinesis.rerun.iteration.without.wait         | Boolean value that indicates if a failed iteration can be rerun<br>without waiting for timeout; the default is `false` |
+
+### Provisioned IOPS recommendations for
+
+Amazon DynamoDB tables
+
+The Amazon EMR connector for Amazon Kinesis uses the DynamoDB database as its backing for
+checkpointing metadata. You must create a table in DynamoDB before consuming data
+in an Amazon Kinesis stream with an Amazon EMR cluster in checkpointed intervals. The table
+must be in the same region as your Amazon EMR cluster. The following are general
+recommendations for the number of IOPS you should provision for your DynamoDB
+tables; let `j` be the maximum number of Hadoop jobs (with different
+logical name+iteration number combination) that can run concurrently and
+`s` be the maximum number of shards that any job will
+process:
+
+For **Read Capacity Units**:
+`j`\*`s`/`5`
+
+For **Write Capacity Units**:
+`j`\*`s`
+
+## Performance considerations
+
+Amazon Kinesis shard throughput is directly proportional to the instance size of nodes
+in Amazon EMR clusters and record size in the stream. We recommend that you use
+m5.xlarge or larger instances on master and core nodes.
+
+## Schedule Amazon Kinesis analysis with Amazon EMR
+
+When you are analyzing data on an active Amazon Kinesis stream, limited by timeouts and
+a maximum duration for any iteration, it is important that you run the analysis
+frequently to gather periodic details from the stream. There are multiple ways to
+execute such scripts and queries at periodic intervals; we recommend using AWS Data Pipeline
+for recurrent tasks like these. For more information, see [AWS Data Pipeline PigActivity](../../../datapipeline/latest/DeveloperGuide/dp-object-pigactivity.md "../../../datapipeline/latest/DeveloperGuide/dp-object-pigactivity.md") and
+[AWS Data Pipeline
+HiveActivity](../../../datapipeline/latest/DeveloperGuide/dp-object-hiveactivity.md "../../../datapipeline/latest/DeveloperGuide/dp-object-hiveactivity.md") in the _AWS Data Pipeline Developer Guide_.

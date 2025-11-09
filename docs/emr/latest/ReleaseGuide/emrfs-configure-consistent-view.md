@@ -45,21 +45,21 @@ the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/l
 `emrfs-site.xml` Properties for consistent
 view| Property | Default value | Description |
 | --- | --- | --- |
-| `fs.s3.consistent` | `false` | When set to `true`, this property configures EMRFS to use DynamoDB to provide consistency. |
-| `fs.s3.consistent.retryPolicyType` | `exponential` | This property identifies the policy to use when retrying for consistency issues. Options include: exponential, fixed, or none. |
-| `fs.s3.consistent.retryPeriodSeconds` | `1` | This property sets the length of time to wait between consistency retry attempts. |
-| `fs.s3.consistent.retryCount` | `10` | This property sets the maximum number of retries when inconsistency is detected. |
-| `fs.s3.consistent.throwExceptionOnInconsistency` | `true` | This property determines whether to throw or log a consistency exception. When set to `true`, a `ConsistencyException` is thrown. |
-| `fs.s3.consistent.metadata.autoCreate` | `true` | When set to `true`, this property enables automatic creation of metadata tables. |
-| `fs.s3.consistent.metadata.etag.verification.enabled` | `true` | With Amazon EMR 5.29.0, this property is enabled by default. When enabled, EMRFS uses S3 ETags to verify that objects being read are the latest available version. This feature is helpful for read-after-update use cases in which files on S3 are being overwritten while retaining the same name. This ETag verification capability currently does not work with S3 Select. |
-| `fs.s3.consistent.metadata.tableName` | `EmrFSMetadata` | This property specifies the name of the metadata table in DynamoDB. |
-| `fs.s3.consistent.metadata.read.capacity` | `500` | This property specifies the DynamoDB read capacity to provision when the metadata table is created. |
-| `fs.s3.consistent.metadata.write.capacity` | `100` | This property specifies the DynamoDB write capacity to provision when the metadata table is created. |
-| `fs.s3.consistent.fastList` | `true` | When set to `true`, this property uses multiple threads to list a directory (when necessary). Consistency must be enabled in order to use this property. |
-| `fs.s3.consistent.fastList.prefetchMetadata` | `false` | When set to `true`, this property enables metadata prefetching for directories containing more than 20,000 items. |
-| `fs.s3.consistent.notification.CloudWatch` | `false` | When set to `true`, CloudWatch metrics are enabled for FileSystem API calls that fail due to Amazon S3 eventual consistency issues. |
-| `fs.s3.consistent.notification.SQS` | `false` | When set to `true`, eventual consistency notifications are pushed to an Amazon SQS queue. |
-| `fs.s3.consistent.notification.SQS.queueName` | `EMRFS-Inconsistency-<jobFlowId>` | Changing this property allows you to specify your own SQS queue name for messages regarding Amazon S3 eventual consistency issues. |
-| `fs.s3.consistent.notification.SQS.customMsg` | `none` | This property allows you to specify custom information included in SQS messages regarding Amazon S3 eventual consistency issues. If a value is not specified for this property, the corresponding field in the message is empty. |
-| `fs.s3.consistent.dynamodb.endpoint` | `none` | This property allows you to specify a custom DynamoDB endpoint for your consistent view metadata. |
+| `fs.s3.consistent` | `false` | When set to `true`, this property<br>configures EMRFS to use DynamoDB to provide<br>consistency. |
+| `fs.s3.consistent.retryPolicyType` | `exponential` | This property identifies the policy to use when retrying<br>for consistency issues. Options include: exponential, fixed,<br>or none. |
+| `fs.s3.consistent.retryPeriodSeconds` | `1` | This property sets the length of time to wait between<br>consistency retry attempts. |
+| `fs.s3.consistent.retryCount` | `10` | This property sets the maximum number of retries when<br>inconsistency is detected. |
+| `fs.s3.consistent.throwExceptionOnInconsistency` | `true` | This property determines whether to throw or log a<br>consistency exception. When set to<br>`true`, a<br>`ConsistencyException` is thrown. |
+| `fs.s3.consistent.metadata.autoCreate` | `true` | When set to `true`, this property<br>enables automatic creation of metadata tables. |
+| `fs.s3.consistent.metadata.etag.verification.enabled` | `true` | With Amazon EMR 5.29.0, this property is enabled by default. When enabled, EMRFS uses S3 ETags to<br>verify that objects being read are the latest available version.<br>This feature is helpful for read-after-update use cases in which<br>files on S3 are being overwritten while retaining the same name.<br>This ETag verification capability currently does not work with S3<br>Select. |
+| `fs.s3.consistent.metadata.tableName` | `EmrFSMetadata` | This property specifies the name of the metadata table in<br>DynamoDB. |
+| `fs.s3.consistent.metadata.read.capacity` | `500` | This property specifies the DynamoDB read capacity to<br>provision when the metadata table is created. |
+| `fs.s3.consistent.metadata.write.capacity` | `100` | This property specifies the DynamoDB write capacity to<br>provision when the metadata table is created. |
+| `fs.s3.consistent.fastList` | `true` | When set to `true`, this property<br>uses multiple threads to list a directory (when necessary).<br>Consistency must be enabled in order to use this<br>property. |
+| `fs.s3.consistent.fastList.prefetchMetadata` | `false` | When set to `true`, this property<br>enables metadata prefetching for directories containing more<br>than 20,000 items. |
+| `fs.s3.consistent.notification.CloudWatch` | `false` | When set to `true`, CloudWatch metrics are<br>enabled for FileSystem API calls that fail due to Amazon S3<br>eventual consistency issues. |
+| `fs.s3.consistent.notification.SQS` | `false` | When set to `true`, eventual<br>consistency notifications are pushed to an Amazon SQS<br>queue. |
+| `fs.s3.consistent.notification.SQS.queueName` | `EMRFS-Inconsistency-<jobFlowId>` | Changing this property allows you to specify your own SQS<br>queue name for messages regarding Amazon S3 eventual consistency<br>issues. |
+| `fs.s3.consistent.notification.SQS.customMsg` | `none` | This property allows you to specify custom information<br>included in SQS messages regarding Amazon S3 eventual consistency<br>issues. If a value is not specified for this property, the<br>corresponding field in the message is empty. |
+| `fs.s3.consistent.dynamodb.endpoint` | `none` | This property allows you to specify a custom DynamoDB<br>endpoint for your consistent view metadata. |
 | `fs.s3.useRequesterPaysHeader` | `false` | When set to `true`, this property allows Amazon S3 requests to buckets with the request payer option enabled. |

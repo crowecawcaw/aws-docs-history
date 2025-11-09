@@ -12,30 +12,55 @@ Pig version 0.14.0 on Amazon EMR 4.x release versions uses MapReduce as the defa
 Custom UDFs that were available in Pig on Amazon EMR 4.x release versions were dropped
 beginning with Pig 0.16.0. Most of the UDFs have equivalent functions you can use instead. The following table lists dropped UDFs and equivalent functions. For more information, see [Built-in functions](https://pig.apache.org/docs/r0.16.0/func.html "https://pig.apache.org/docs/r0.16.0/func.html") on the Apache Pig site.
 
-| Dropped UDF                                 | Equivalent function                                                                                                                           |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------- |
-| FORMAT_DT(dtformat, date)                   | GetHour(date), GetMinute(date), GetMonth(date), GetSecond(date), GetWeek(date), GetYear(date), GetDay(date)                                   |
-| EXTRACT(string, pattern)                    | REGEX_EXTRACT_ALL(string, pattern)                                                                                                            |
-| REPLACE(string, pattern, replacement)       | REPLACE(string, pattern, replacement)                                                                                                         |
-| DATE_TIME()                                 | ToDate()                                                                                                                                      |
-| DURATION(dt, dt2)                           | WeeksBetween(dt, dt2), YearsBetween(dt, dt2), SecondsBetween(dt, dt2), MonthsBetween(dt, dt2), MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
-| EXTRACT_DT(format, date)                    | GetHour(date), GetMinute(date), GetMonth(date), GetSecond(date), GetWeek(date), GetYear(date), GetDay(date)                                   |
-| OFFSET_DT(date, duration)                   | AddDuration(date, duration), SubtractDuration(date, duration)                                                                                 |
-| PERIOD(dt, dt2)                             | WeeksBetween(dt, dt2), YearsBetween(dt, dt2), SecondsBetween(dt, dt2), MonthsBetween(dt, dt2), MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
-| CAPITALIZE(string)                          | UCFIRST(string)                                                                                                                               |
-| CONCAT_WITH()                               | CONCAT()                                                                                                                                      |
-| INDEX_OF()                                  | INDEXOF()                                                                                                                                     |
-| LAST_INDEX_OF()                             | LAST_INDEXOF()                                                                                                                                |
-| SPLIT_ON_REGEX()                            | STRSPLT()                                                                                                                                     |
-| UNCAPITALIZE()                              | LCFIRST()                                                                                                                                     | The following UDFs were dropped with no equivalent: FORMAT(), LOCAL_DATE(), LOCAL_TIME(), CENTER(), LEFT_PAD(), REPEAT(), REPLACE_ONCE(), RIGHT_PAD(), STRIP(), STRIP_END(), STRIP_START(), SWAP_CASE(). ## Discontinued Grunt commands Some Grunt commands were discontinued beginning with Pig 0.16.0. The following table lists Grunt commands in Pig 0.14.0 and the equivalent commands in the current version, where applicable. Pig 0.14.0 and equivalent current Grunt commands                                                                                                                                                                                                                                                                                                                                                    | Pig 0.14.0 Grunt command | Pig Grunt command in 0.16.0 and later |
-| ---                                         | ---                                                                                                                                           |
-| cat <non-hdfs-path>)                        | fs -cat <non-hdfs-path>;                                                                                                                      |
-| cd <non-hdfs-path>;                         | No equivalent                                                                                                                                 |
-| ls <non-hdfs-path>;                         | fs -ls <non-hdfs-path>;                                                                                                                       |
-| move <non-hdfs-path> <non-hdfs-path>;       | fs -mv <non-hdfs-path> <non-hdfs-path>;                                                                                                       |
-| copy <non-hdfs-path> <non-hdfs-path>;       | fs -cp <non-hdfs-path> <non-hdfs-path>;                                                                                                       |
-| copyToLocal <non-hdfs-path> <local-path>;   | fs -copyToLocal <non-hdfs-path> <local-path>;                                                                                                 |
-| copyFromLocal <local-path> <non-hdfs-path>; | fs -copyFromLocal <local-path> <non-hdfs-path>;                                                                                               |
-| mkdir <non-hdfs-path>;                      | fs -mkdir <non-hdfs-path>;                                                                                                                    |
-| rm <non-hdfs-path>;                         | fs -rm -r -skipTrash <non-hdfs-path>;                                                                                                         |
-| rmf <non-hdfs-path>;                        | fs -rm -r -skipTrash <non-hdfs-path>;                                                                                                         | ## Capability removed for non-HDFS home directories Pig 0.14.0 on Amazon EMR 4.x release versions has two mechanisms to allow users other than the `hadoop` user, who don't have home directories, to run Pig scripts. The first mechanism is an automatic fallback that sets the initial working directory to the root directory if the home directory doesn't exist. The second is a `pig.initial.fs.name` property that allows you to change the initial working directory. These mechanisms are not available beginning with Amazon EMR version 5.0.0, and users must have a home directory on HDFS. This doesn't apply to the `hadoop` user because a home directory is provisioned at launch. Scripts run using Hadoop jar steps default to the Hadoop user unless another user is explicitly specified using `command-runner.jar`. |
+| Dropped UDF                           | Equivalent function                                                                                                                                 |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FORMAT_DT(dtformat, date)             | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
+| EXTRACT(string, pattern)              | REGEX_EXTRACT_ALL(string, pattern)                                                                                                                  |
+| REPLACE(string, pattern, replacement) | REPLACE(string, pattern, replacement)                                                                                                               |
+| DATE_TIME()                           | ToDate()                                                                                                                                            |
+| DURATION(dt, dt2)                     | WeeksBetween(dt, dt2), YearsBetween(dt, dt2),<br>SecondsBetween(dt, dt2), MonthsBetween(dt, dt2),<br>MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
+| EXTRACT_DT(format, date)              | GetHour(date), GetMinute(date), GetMonth(date),<br>GetSecond(date), GetWeek(date), GetYear(date),<br>GetDay(date)                                   |
+| OFFSET_DT(date, duration)             | AddDuration(date, duration), SubtractDuration(date,<br>duration)                                                                                    |
+| PERIOD(dt, dt2)                       | WeeksBetween(dt, dt2), YearsBetween(dt, dt2),<br>SecondsBetween(dt, dt2), MonthsBetween(dt, dt2),<br>MinutesBetween(dt, dt2), HoursBetween(dt, dt2) |
+| CAPITALIZE(string)                    | UCFIRST(string)                                                                                                                                     |
+| CONCAT_WITH()                         | CONCAT()                                                                                                                                            |
+| INDEX_OF()                            | INDEXOF()                                                                                                                                           |
+| LAST_INDEX_OF()                       | LAST_INDEXOF()                                                                                                                                      |
+| SPLIT_ON_REGEX()                      | STRSPLT()                                                                                                                                           |
+| UNCAPITALIZE()                        | LCFIRST()                                                                                                                                           |
+
+The following UDFs were dropped with no equivalent: FORMAT(), LOCAL_DATE(),
+LOCAL_TIME(), CENTER(), LEFT_PAD(), REPEAT(), REPLACE_ONCE(), RIGHT_PAD(), STRIP(),
+STRIP_END(), STRIP_START(), SWAP_CASE().
+
+## Discontinued Grunt commands
+
+Some Grunt commands were discontinued beginning with Pig 0.16.0. The following table lists
+Grunt commands in Pig 0.14.0 and the equivalent commands in the current version, where
+applicable.
+
+| Pig 0.14.0 and equivalent current Grunt commands | Pig 0.14.0 Grunt command                        | Pig Grunt command in 0.16.0 and later |
+| ------------------------------------------------ | ----------------------------------------------- | ------------------------------------- |
+| cat <non-hdfs-path>)                             | fs -cat <non-hdfs-path>;                        |
+| cd <non-hdfs-path>;                              | No equivalent                                   |
+| ls <non-hdfs-path>;                              | fs -ls <non-hdfs-path>;                         |
+| move <non-hdfs-path> <non-hdfs-path>;            | fs -mv <non-hdfs-path> <non-hdfs-path>;         |
+| copy <non-hdfs-path> <non-hdfs-path>;            | fs -cp <non-hdfs-path> <non-hdfs-path>;         |
+| copyToLocal <non-hdfs-path> <local-path>;        | fs -copyToLocal <non-hdfs-path> <local-path>;   |
+| copyFromLocal <local-path> <non-hdfs-path>;      | fs -copyFromLocal <local-path> <non-hdfs-path>; |
+| mkdir <non-hdfs-path>;                           | fs -mkdir <non-hdfs-path>;                      |
+| rm <non-hdfs-path>;                              | fs -rm -r -skipTrash <non-hdfs-path>;           |
+| rmf <non-hdfs-path>;                             | fs -rm -r -skipTrash <non-hdfs-path>;           |
+
+## Capability removed for non-HDFS home directories
+
+Pig 0.14.0 on Amazon EMR 4.x release versions has two mechanisms to allow users other than the
+`hadoop` user, who don't have home directories, to run Pig scripts. The first mechanism is an automatic fallback that
+sets the initial working directory to the root directory if the home directory
+doesn't exist. The second is a `pig.initial.fs.name` property that allows
+you to change the initial working directory.
+
+These mechanisms are not available beginning with Amazon EMR version 5.0.0, and users must have
+a home directory on HDFS. This doesn't apply to the `hadoop` user because a home
+directory is provisioned at launch. Scripts run using Hadoop jar steps default to the Hadoop
+user unless another user is explicitly specified using `command-runner.jar`.

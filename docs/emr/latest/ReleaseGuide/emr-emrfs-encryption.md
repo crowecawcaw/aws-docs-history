@@ -143,7 +143,7 @@ Example contents of **myConfig.json**:
 
 These properties can be configured using the `emrfs-site` configuration classification. SSE-KMS is available only in Amazon EMR release version 4.5.0 and later.
 
-| Property                               | Default value | Description                                                                                                                         |
-| -------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `fs.s3.enableServerSideEncryption`     | `false`       | When set to `true`, objects stored in Amazon S3 are encrypted using server-side encryption. If no key is specified, SSE-S3 is used. |
-| `fs.s3.serverSideEncryption.kms.keyId` | `n/a`         | Specifies an AWS KMS key ID or ARN. If a key is specified, SSE-KMS is used.                                                         |
+| Property                               | Default value | Description                                                                                                                                  |
+| -------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fs.s3.enableServerSideEncryption`     | `false`       | When set to `true`, objects<br>stored in Amazon S3 are encrypted using server-side<br>encryption. If no key is specified, SSE-S3 is<br>used. |
+| `fs.s3.serverSideEncryption.kms.keyId` | `n/a`         | Specifies an AWS KMS key ID or ARN. If a key is<br>specified, SSE-KMS is used.                                                               |

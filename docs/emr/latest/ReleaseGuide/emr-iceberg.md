@@ -9,8 +9,20 @@ The following table lists the version of Iceberg included in the latest release 
 
 For the version of components installed with Iceberg in this release, see [Release 7.10.0 Component Versions](emr-7100-release.md "emr-7100-release.md").
 
-| Iceberg version information for emr-7.10.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------ | ------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------- | --------------------------------- |
-| emr-7.10.0                                 | Iceberg 1.8.1-amzn-0     | Not available.  | The following table lists the version of Iceberg included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Iceberg. For the version of components installed with Iceberg in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md"). Iceberg version information for emr-6.15.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
-| ---                                        | ---                      | ---             |
-| emr-6.15.0                                 | Iceberg 1.4.0-amzn-0     | Not available.  | ###### Topics <br>• [How Iceberg works](emr-iceberg-how-it-works.md "emr-iceberg-how-it-works.md") <br>• [Use a cluster with Iceberg](emr-iceberg-use-cluster.md "emr-iceberg-use-cluster.md") <br>• [Iceberg release history](Iceberg-release-history.md "Iceberg-release-history.md")                                                                                             |
+| Iceberg version information for emr-7.10.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
+| ------------------------------------------ | ------------------------ | --------------- | --------------------------------- |
+| emr-7.10.0                                 | Iceberg 1.8.1-amzn-0     | Not available.  |
+
+The following table lists the version of Iceberg included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Iceberg.
+
+For the version of components installed with Iceberg in this release, see [Release 6.15.0 Component Versions](emr-6150-release.md "emr-6150-release.md").
+
+| Iceberg version information for emr-6.15.0 | Amazon EMR Release Label | Iceberg Version | Components Installed With Iceberg |
+| ------------------------------------------ | ------------------------ | --------------- | --------------------------------- |
+| emr-6.15.0                                 | Iceberg 1.4.0-amzn-0     | Not available.  |
+
+###### Topics
+
+- [How Iceberg works](emr-iceberg-how-it-works.md "emr-iceberg-how-it-works.md")
+- [Use a cluster with Iceberg](emr-iceberg-use-cluster.md "emr-iceberg-use-cluster.md")
+- [Iceberg release history](Iceberg-release-history.md "Iceberg-release-history.md")

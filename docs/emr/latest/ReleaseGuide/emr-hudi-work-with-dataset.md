@@ -298,19 +298,201 @@ inputDF.write \
 You might see "hoodie" instead of Hudi in code examples and notifications. The
 Hudi codebase widely uses the old "hoodie" spelling.
 
-| DataSourceWriteOptions reference for Hudi | Option                                                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------- |
-| TABLE_NAME                                | The table name under which to register the dataset.                                                                                                                                                                                                 |
-| TABLE_TYPE_OPT_KEY                        | Optional. Specifies whether the dataset is created as `"COPY_ON_WRITE"` or `"MERGE_ON_READ"`. The default is `"COPY_ON_WRITE"`.                                                                                                                     |
-| RECORDKEY_FIELD_OPT_KEY                   | The record key field whose value will be used as the `recordKey` component of `HoodieKey`. Actual value will be obtained by invoking `.toString()` on the field value. Nested fields can be specified using the dot notation, for example, `a.b.c`. |
-| PARTITIONPATH_FIELD_OPT_KEY               | The partition path field whose value will be used as the `partitionPath` component of `HoodieKey`. The actual value will be obtained by invoking `.toString()` on the field value.                                                                  |
-| PRECOMBINE_FIELD_OPT_KEY                  | The field used in pre-combining before actual write. When two records have the same key value, Hudi picks the one with the largest value for the precombine field as determined by `Object.compareTo(..)`.                                          | The following options are required only to register the Hudi dataset table in your metastore. If you do not register your Hudi dataset as a table in the Hive metastore, these options are not required. DataSourceWriteOptions reference for Hive                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Option | Description |
-| ---                                       | ---                                                                                                                                                                                                                                                 |
-| HIVE_DATABASE_OPT_KEY                     | The Hive database to sync to. The default is `"default"`.                                                                                                                                                                                           |
-| HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY    | The class used to extract partition field values into Hive partition columns.                                                                                                                                                                       |
-| HIVE_PARTITION_FIELDS_OPT_KEY             | The field in the dataset to use for determining Hive partition columns.                                                                                                                                                                             |
-| HIVE_SYNC_ENABLED_OPT_KEY                 | When set to `"true"`, registers the dataset with the Apache Hive metastore. The default is `"false"`.                                                                                                                                               |
-| HIVE_TABLE_OPT_KEY                        | Required. The name of the table in Hive to sync to. For example, `"my_hudi_table_cow"`.                                                                                                                                                             |
-| HIVE_USER_OPT_KEY                         | Optional. The Hive user name to use when syncing. For example, `"hadoop"`.                                                                                                                                                                          |
-| HIVE_PASS_OPT_KEY                         | Optional. The Hive password for the user specified by `HIVE_USER_OPT_KEY`.                                                                                                                                                                          |
-| HIVE_URL_OPT_KEY                          | The Hive metastore URL.                                                                                                                                                                                                                             | ## Upsert data The following example demonstrates how to upsert data by writing a DataFrame. Unlike the previous insert example, the `OPERATION_OPT_KEY` value is set to `UPSERT_OPERATION_OPT_VAL`. In addition, `.mode(SaveMode.Append)` is specified to indicate that the record should be appended. ###### Note Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes. ``// Create a new DataFrame from the first row of inputDF with a different creation_date value val updateDF = inputDF.limit(1).withColumn("creation_date", lit("new_value")) (updateDF.write .format("hudi") .options(hudiOptions) .option(DataSourceWriteOptions.OPERATION_OPT_KEY, "upsert") .mode(SaveMode.Append) .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))`` ``// Create a new DataFrame from the first row of inputDF with a different creation_date value val updateDF = inputDF.limit(1).withColumn("creation_date", lit("`new_value`")) (updateDF.write .format("org.apache.hudi") .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL) .options(hudiOptions) .mode(SaveMode.Append) .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))`` ``from pyspark.sql.functions import lit # Create a new DataFrame from the first row of inputDF with a different creation_date value updateDF = inputDF.limit(1).withColumn('creation_date', lit('`new_value`')) updateDF.write \ .format('org.apache.hudi') \ .option('hoodie.datasource.write.operation', 'upsert') \ .options(**hudiOptions) \ .mode('append') \ .save('`s3://amzn-s3-demo-bucket/myhudidataset/`')`` ## Delete a record To hard delete a record, you can upsert an empty payload. In this case, the `PAYLOAD_CLASS_OPT_KEY` option specifies the `EmptyHoodieRecordPayload` class. The example uses the same DataFrame, `updateDF`, used in the upsert example to specify the same record. ###### Note Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes. ``(updateDF.write .format("hudi") .options(hudiOptions) .option(DataSourceWriteOptions.OPERATION_OPT_KEY, "delete") .mode(SaveMode.Append) .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))`` ``(updateDF.write .format("org.apache.hudi") .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL) .option(DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY, "org.apache.hudi.common.model.EmptyHoodieRecordPayload") .mode(SaveMode.Append) .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))`` ``updateDF.write \ .format('org.apache.hudi') \ .option('hoodie.datasource.write.operation', 'upsert') \ .option('hoodie.datasource.write.payload.class', 'org.apache.hudi.common.model.EmptyHoodieRecordPayload') \ .options(**hudiOptions) \ .mode('append') \ .save('`s3://amzn-s3-demo-bucket/myhudidataset/`')`` You can also hard delete data by setting `OPERATION_OPT_KEY` to `DELETE_OPERATION_OPT_VAL` to remove all records in the dataset you submit. For instructions on performing soft deletes, and for more information about deleting data stored in Hudi tables, see [Deletes](https://hudi.apache.org/docs/writing_data.html#deletes "https://hudi.apache.org/docs/writing_data.html#deletes") in the Apache Hudi documentation. ## Read from a Hudi dataset To retrieve data at the present point in time, Hudi performs snapshot queries by default. Following is an example of querying the dataset written to S3 in [Write to a Hudi dataset](#emr-hudi-dataframe "#emr-hudi-dataframe"). Replace `s3://amzn-s3-demo-bucket/myhudidataset` with your table path, and add wildcard asterisks for each partition level, _plus one additional asterisk_. In this example, there is one partition level, so we've added two wildcard symbols. ###### Note Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes. ``val snapshotQueryDF = spark.read .format("hudi") .load(`"s3://amzn-s3-demo-bucket/myhudidataset"`) .show()`` ``(val snapshotQueryDF = spark.read .format("org.apache.hudi") .load("`s3://amzn-s3-demo-bucket/myhudidataset`" + "/*/*")) snapshotQueryDF.show()`` ``snapshotQueryDF = spark.read \ .format('org.apache.hudi') \ .load('`s3://amzn-s3-demo-bucket/myhudidataset`' + '/*/*') snapshotQueryDF.show()`` ### Incremental queries You can also perform incremental queries with Hudi to get a stream of records that have changed since a given commit timestamp. To do so, set the `QUERY_TYPE_OPT_KEY` field to `QUERY_TYPE_INCREMENTAL_OPT_VAL`. Then, add a value for `BEGIN_INSTANTTIME_OPT_KEY` to obtain all records written since the specified time. Incremental queries are typically ten times more efficient than their batch counterparts since they only process changed records. When you perform incremental queries, use the root (base) table path without the wildcard asterisks used for Snapshot queries. ###### Note Presto does not support incremental queries. ``val incQueryDF = spark.read .format("org.apache.hudi") .option(DataSourceReadOptions.QUERY_TYPE_OPT_KEY, DataSourceReadOptions.QUERY_TYPE_INCREMENTAL_OPT_VAL) .option(DataSourceReadOptions.BEGIN_INSTANTTIME_OPT_KEY, `<beginInstantTime>`) .load("`s3://amzn-s3-demo-bucket/myhudidataset`") incQueryDF.show()`` ``readOptions = { 'hoodie.datasource.query.type': 'incremental', 'hoodie.datasource.read.begin.instanttime': `<beginInstantTime>`, } incQueryDF = spark.read \ .format('org.apache.hudi') \ .options(**readOptions) \ .load('`s3://amzn-s3-demo-bucket/myhudidataset`') incQueryDF.show()`` For more information about reading from Hudi datasets, see [Querying Hudi tables](https://hudi.apache.org/docs/querying_data.html "https://hudi.apache.org/docs/querying_data.html") in the Apache Hudi documentation. |
+| DataSourceWriteOptions reference for Hudi | Option                                                                                                                                                                                                                                                             | Description |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| TABLE_NAME                                | The table name under which to register the dataset.                                                                                                                                                                                                                |
+| TABLE_TYPE_OPT_KEY                        | Optional. Specifies whether the dataset is created as<br>`"COPY_ON_WRITE"` or<br>`"MERGE_ON_READ"`. The default is<br>`"COPY_ON_WRITE"`.                                                                                                                           |
+| RECORDKEY_FIELD_OPT_KEY                   | The record key field whose value will be used as<br>the `recordKey` component<br>of `HoodieKey`. Actual value will be obtained by<br>invoking `.toString()` on the field value. Nested<br>fields can be specified using the dot notation, for<br>example, `a.b.c`. |
+| PARTITIONPATH_FIELD_OPT_KEY               | The partition path field whose value will be used as the<br>`partitionPath` component<br>of `HoodieKey`. The actual value will be obtained<br>by invoking `.toString()` on the field value.                                                                        |
+| PRECOMBINE_FIELD_OPT_KEY                  | The field used in pre-combining before actual write. When two<br>records have the same key value, Hudi picks the one with<br>the largest value for the precombine field as determined by<br>`Object.compareTo(..)`.                                                |
+
+The following options are required only to register the Hudi dataset table in
+your metastore. If you do not register your Hudi dataset as a table in the Hive
+metastore, these options are not required.
+
+| DataSourceWriteOptions reference for Hive | Option                                                                                                      | Description |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------- |
+| HIVE_DATABASE_OPT_KEY                     | The Hive database to sync to. The default is<br>`"default"`.                                                |
+| HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY    | The class used to extract partition field values into Hive<br>partition columns.                            |
+| HIVE_PARTITION_FIELDS_OPT_KEY             | The field in the dataset to use for determining Hive partition<br>columns.                                  |
+| HIVE_SYNC_ENABLED_OPT_KEY                 | When set to `"true"`, registers the dataset with<br>the Apache Hive metastore. The default is<br>`"false"`. |
+| HIVE_TABLE_OPT_KEY                        | Required. The name of the table in Hive to sync to. For<br>example, `"my_hudi_table_cow"`.                  |
+| HIVE_USER_OPT_KEY                         | Optional. The Hive user name to use when syncing. For example,<br>`"hadoop"`.                               |
+| HIVE_PASS_OPT_KEY                         | Optional. The Hive password for the user specified by<br>`HIVE_USER_OPT_KEY`.                               |
+| HIVE_URL_OPT_KEY                          | The Hive metastore URL.                                                                                     |
+
+## Upsert data
+
+The following example demonstrates how to upsert data by writing a DataFrame.
+Unlike the previous insert example, the `OPERATION_OPT_KEY` value is set
+to `UPSERT_OPERATION_OPT_VAL`. In addition,
+`.mode(SaveMode.Append)` is specified to indicate that the record
+should be appended.
+
+###### Note
+
+Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes.
+
+```
+// Create a new DataFrame from the first row of inputDF with a different creation_date value
+val updateDF = inputDF.limit(1).withColumn("creation_date", lit("new_value"))
+
+(updateDF.write
+    .format("hudi")
+    .options(hudiOptions)
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, "upsert")
+    .mode(SaveMode.Append)
+    .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))
+
+```
+
+```
+// Create a new DataFrame from the first row of inputDF with a different creation_date value
+val updateDF = inputDF.limit(1).withColumn("creation_date", lit("`new_value`"))
+
+(updateDF.write
+    .format("org.apache.hudi")
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
+    .options(hudiOptions)
+    .mode(SaveMode.Append)
+    .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))
+```
+
+```
+from pyspark.sql.functions import lit
+
+# Create a new DataFrame from the first row of inputDF with a different creation_date value
+updateDF = inputDF.limit(1).withColumn('creation_date', lit('`new_value`'))
+
+updateDF.write \
+    .format('org.apache.hudi') \
+    .option('hoodie.datasource.write.operation', 'upsert') \
+    .options(**hudiOptions) \
+    .mode('append') \
+    .save('`s3://amzn-s3-demo-bucket/myhudidataset/`')
+```
+
+## Delete a record
+
+To hard delete a record, you can upsert an empty payload. In this case, the
+`PAYLOAD_CLASS_OPT_KEY` option specifies the
+`EmptyHoodieRecordPayload` class. The example uses the same
+DataFrame, `updateDF`, used in the upsert example to specify the same
+record.
+
+###### Note
+
+Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes.
+
+```
+(updateDF.write
+    .format("hudi")
+    .options(hudiOptions)
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, "delete")
+    .mode(SaveMode.Append)
+    .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))
+```
+
+```
+(updateDF.write
+    .format("org.apache.hudi")
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
+    .option(DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY, "org.apache.hudi.common.model.EmptyHoodieRecordPayload")
+    .mode(SaveMode.Append)
+    .save("`s3://amzn-s3-demo-bucket/myhudidataset/`"))
+```
+
+```
+updateDF.write \
+    .format('org.apache.hudi') \
+    .option('hoodie.datasource.write.operation', 'upsert') \
+    .option('hoodie.datasource.write.payload.class', 'org.apache.hudi.common.model.EmptyHoodieRecordPayload') \
+    .options(**hudiOptions) \
+    .mode('append') \
+    .save('`s3://amzn-s3-demo-bucket/myhudidataset/`')
+```
+
+You can also hard delete data by setting `OPERATION_OPT_KEY` to
+`DELETE_OPERATION_OPT_VAL` to remove all records in the dataset you
+submit. For instructions on performing soft deletes, and for more information about
+deleting data stored in Hudi tables, see [Deletes](https://hudi.apache.org/docs/writing_data.html#deletes "https://hudi.apache.org/docs/writing_data.html#deletes") in
+the Apache Hudi documentation.
+
+## Read from a Hudi dataset
+
+To retrieve data at the present point in time, Hudi performs snapshot queries by
+default. Following is an example of querying the dataset written to S3 in [Write to a Hudi dataset](#emr-hudi-dataframe "#emr-hudi-dataframe"). Replace
+`s3://amzn-s3-demo-bucket/myhudidataset` with your table
+path, and add wildcard asterisks for each partition level, _plus one additional asterisk_. In this example, there is one
+partition level, so we've added two wildcard symbols.
+
+###### Note
+
+Amazon EMR 6.7.0 uses [Apache Hudi](https://hudi.apache.org/ "https://hudi.apache.org/") 0.11.0-amzn-0, which contains significant improvements over previous Hudi versions. For more information, see the [Apache Hudi 0.11.0 Migration Guide](https://hudi.apache.org/releases/release-0.11.0/#migration-guide "https://hudi.apache.org/releases/release-0.11.0/#migration-guide"). The examples on this tab reflect these changes.
+
+```
+val snapshotQueryDF = spark.read
+    .format("hudi")
+    .load(`"s3://amzn-s3-demo-bucket/myhudidataset"`)
+    .show()
+```
+
+```
+(val snapshotQueryDF = spark.read
+    .format("org.apache.hudi")
+    .load("`s3://amzn-s3-demo-bucket/myhudidataset`" + "/*/*"))
+
+snapshotQueryDF.show()
+```
+
+```
+snapshotQueryDF = spark.read \
+    .format('org.apache.hudi') \
+    .load('`s3://amzn-s3-demo-bucket/myhudidataset`' + '/*/*')
+
+snapshotQueryDF.show()
+```
+
+### Incremental queries
+
+You can also perform incremental queries with Hudi to get a stream of records
+that have changed since a given commit timestamp. To do so, set the
+`QUERY_TYPE_OPT_KEY` field to
+`QUERY_TYPE_INCREMENTAL_OPT_VAL`. Then, add a value for
+`BEGIN_INSTANTTIME_OPT_KEY` to obtain all records written since
+the specified time. Incremental queries are typically ten times more efficient
+than their batch counterparts since they only process changed records.
+
+When you perform incremental queries, use the root (base) table path without
+the wildcard asterisks used for Snapshot queries.
+
+###### Note
+
+Presto does not support incremental queries.
+
+```
+val incQueryDF = spark.read
+    .format("org.apache.hudi")
+    .option(DataSourceReadOptions.QUERY_TYPE_OPT_KEY, DataSourceReadOptions.QUERY_TYPE_INCREMENTAL_OPT_VAL)
+    .option(DataSourceReadOptions.BEGIN_INSTANTTIME_OPT_KEY, `<beginInstantTime>`)
+    .load("`s3://amzn-s3-demo-bucket/myhudidataset`")
+
+incQueryDF.show()
+```
+
+```
+readOptions = {
+  'hoodie.datasource.query.type': 'incremental',
+  'hoodie.datasource.read.begin.instanttime': `<beginInstantTime>`,
+}
+
+incQueryDF = spark.read \
+    .format('org.apache.hudi') \
+    .options(**readOptions) \
+    .load('`s3://amzn-s3-demo-bucket/myhudidataset`')
+
+incQueryDF.show()
+```
+
+For more information about reading from Hudi datasets, see [Querying Hudi
+tables](https://hudi.apache.org/docs/querying_data.html "https://hudi.apache.org/docs/querying_data.html") in the Apache Hudi documentation.

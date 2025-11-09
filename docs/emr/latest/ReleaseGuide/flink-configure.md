@@ -387,7 +387,88 @@ attributes** option as follows. Select
 one.
 
 | Classification | Property                                  | Value                 |
-| -------------- | ----------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ----------------------------------------- | --------------------- |
 | `flink-conf`   | `containerized.taskmanager.env.JAVA_HOME` | `/usr/lib/jvm/jre-11` |
 | `flink-conf`   | `containerized.master.env.JAVA_HOME`      | `/usr/lib/jvm/jre-11` |
-| `flink-conf`   | `env.java.home`                           | `/usr/lib/jvm/jre-11` | 6. Select **Save changes** to add the configurations. AWS CLI ###### To update a running cluster to use Flink and Java 11 runtime from the CLI Use the `modify-instance-groups` command to specify a new configuration for an instance group in a running cluster. 1. First, create a configuration file `configurations.json`that configures Flink to use Java 11. In the following example, replace `ig-1xxxxxxx9` with the ID for the instance group that you want to reconfigure. Save the file in the same directory where you will run the `modify-instance-groups` command. ``[ { "InstanceGroupId":"`ig-1xxxxxxx9`", "Configurations":[ { "Classification":"flink-conf", "Properties":{ "containerized.taskmanager.env.JAVA_HOME":"/usr/lib/jvm/jre-11", "containerized.master.env.JAVA_HOME":"/usr/lib/jvm/jre-11", "env.java.home":"/usr/lib/jvm/jre-11" }, "Configurations":[] } ] } ]`` 2. From the AWS CLI, run the following command. Replace the ID for the instance group that you want to reconfigure: ``aws emr modify-instance-groups --cluster-id `j-2AL4XXXXXX5T9` \ --instance-groups file://configurations.json`` ### Confirm the Java runtime for Flink on a running cluster To determine the Java runtime for a running cluster, log in to the primary node with SSH as described in [Connect to the primary node with SSH](../ManagementGuide/emr-connect-master-node-ssh.md "../ManagementGuide/emr-connect-master-node-ssh.md"). Then run the following command: ``` ps -ef | grep flink ``The `ps` command with the `-ef` option lists all running processes on the system. You can filter that output with `grep` to find mentions of the string `flink`. Review the output for the Java Runtime Environment (JRE) value, `jre-XX`. In the following output, `jre-11` indicates that Java 11 is picked up at runtime for Flink.`` flink 19130 1 0 09:17 ? 00:00:15 /usr/lib/jvm/jre-11/bin/java -Djava.io.tmpdir=/mnt/tmp -Dlog.file=/usr/lib/flink/log/flink-flink-historyserver-0-ip-172-31-32-127.log -Dlog4j.configuration=file:/usr/lib/flink/conf/log4j.properties -Dlog4j.configurationFile=file:/usr/lib/flink/conf/log4j.properties -Dlogback.configurationFile=file:/usr/lib/flink/conf/logback.xml -classpath /usr/lib/flink/lib/flink-cep-1.17.0.jar:/usr/lib/flink/lib/flink-connector-files-1.17.0.jar:/usr/lib/flink/lib/flink-csv-1.17.0.jar:/usr/lib/flink/lib/flink-json-1.17.0.jar:/usr/lib/flink/lib/flink-scala_2.12-1.17.0.jar:/usr/lib/flink/lib/flink-table-api-java-uber-1.17.0.jar:/usr/lib/flink/lib/flink-table-api-scala-bridge_2.12-1.17.0. ``Alternatively, [log in to the primary node with SSH](../ManagementGuide/emr-connect-master-node-ssh.md "../ManagementGuide/emr-connect-master-node-ssh.md") and start a Flink YARN session with command `flink-yarn-session -d`. The output shows the Java Virtual Machine (JVM) for Flink, `java-11-amazon-corretto` in the following example:`` 2023-05-29 10:38:14,129 INFO org.apache.flink.configuration.GlobalConfiguration [] - Loading configuration property: containerized.master.env.JAVA_HOME, /usr/lib/jvm/java-11-amazon-corretto.x86_64 ``` |
+| `flink-conf`   | `env.java.home`                           | `/usr/lib/jvm/jre-11` |
+
+6. Select **Save changes** to add the
+   configurations.
+
+AWS CLI
+
+###### To update a running cluster to use Flink and Java 11
+
+runtime from the CLI
+
+Use the `modify-instance-groups` command to specify
+a new configuration for an instance group in a running
+cluster.
+
+1. First, create a configuration file
+   `configurations.json`that configures Flink to
+   use Java 11. In the following example, replace
+   `ig-1xxxxxxx9` with the ID for
+   the instance group that you want to reconfigure. Save the
+   file in the same directory where you will run the
+   `modify-instance-groups` command.
+
+```
+[
+   {
+      "InstanceGroupId":"`ig-1xxxxxxx9`",
+      "Configurations":[
+         {
+            "Classification":"flink-conf",
+            "Properties":{
+              "containerized.taskmanager.env.JAVA_HOME":"/usr/lib/jvm/jre-11",
+              "containerized.master.env.JAVA_HOME":"/usr/lib/jvm/jre-11",
+              "env.java.home":"/usr/lib/jvm/jre-11"
+            },
+            "Configurations":[]
+         }
+      ]
+   }
+]
+```
+
+2. From the AWS CLI, run the following command. Replace the ID
+   for the instance group that you want to reconfigure:
+
+```
+aws emr modify-instance-groups --cluster-id `j-2AL4XXXXXX5T9` \
+--instance-groups file://configurations.json
+```
+
+### Confirm the Java runtime for
+
+Flink on a running cluster
+
+To determine the Java runtime for a running cluster, log in to the primary
+node with SSH as described in [Connect to the primary
+node with SSH](../ManagementGuide/emr-connect-master-node-ssh.md "../ManagementGuide/emr-connect-master-node-ssh.md"). Then run the following command:
+
+```
+ps -ef | grep flink
+```
+
+The `ps` command with the `-ef` option lists all running
+processes on the system. You can filter that output with `grep` to
+find mentions of the string `flink`. Review the output for the Java
+Runtime Environment (JRE) value, `jre-XX`. In the following output,
+`jre-11` indicates that Java 11 is picked up at runtime for
+Flink.
+
+```
+flink    19130     1  0 09:17 ?        00:00:15 /usr/lib/jvm/jre-11/bin/java -Djava.io.tmpdir=/mnt/tmp -Dlog.file=/usr/lib/flink/log/flink-flink-historyserver-0-ip-172-31-32-127.log -Dlog4j.configuration=file:/usr/lib/flink/conf/log4j.properties -Dlog4j.configurationFile=file:/usr/lib/flink/conf/log4j.properties -Dlogback.configurationFile=file:/usr/lib/flink/conf/logback.xml -classpath /usr/lib/flink/lib/flink-cep-1.17.0.jar:/usr/lib/flink/lib/flink-connector-files-1.17.0.jar:/usr/lib/flink/lib/flink-csv-1.17.0.jar:/usr/lib/flink/lib/flink-json-1.17.0.jar:/usr/lib/flink/lib/flink-scala_2.12-1.17.0.jar:/usr/lib/flink/lib/flink-table-api-java-uber-1.17.0.jar:/usr/lib/flink/lib/flink-table-api-scala-bridge_2.12-1.17.0.
+```
+
+Alternatively, [log
+in to the primary node with SSH](../ManagementGuide/emr-connect-master-node-ssh.md "../ManagementGuide/emr-connect-master-node-ssh.md") and start a Flink YARN session with
+command `flink-yarn-session -d`. The output shows the Java Virtual
+Machine (JVM) for Flink, `java-11-amazon-corretto` in the following
+example:
+
+```
+2023-05-29 10:38:14,129 INFO  org.apache.flink.configuration.GlobalConfiguration           [] - Loading configuration property: containerized.master.env.JAVA_HOME, /usr/lib/jvm/java-11-amazon-corretto.x86_64
+```

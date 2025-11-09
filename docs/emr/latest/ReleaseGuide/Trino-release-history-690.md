@@ -8,9 +8,13 @@ release notes
 
 ## Amazon EMR 6.9.0 - Trino changes
 
-| Amazon EMR 6.9.0 - Trino changes | Type                                                                                                        | Description                                                                                                                                                                                                                                                                                     |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Upgrade                          | Trino Upgrade to 398                                                                                        |
-| Upgrade                          | Support for Hadoop 3.3.3                                                                                    |
-| Feature                          | Tardigrade support: Add support for exchange spooling on HDFS and Amazon S3.                                |
-| Bug fix                          | When Trino Iceberg is used and Glue catalog is enabled, avoid adding metastore uri in `iceberg.properties.` | ## Amazon EMR 6.9.0 - Trino known issues <br>• For Amazon EMR release 6.9.0, Trino does not work on clusters enabled for Apache Ranger. If you need to use Trino with Ranger, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). |
+| Amazon EMR 6.9.0 - Trino changes | Type                                                                                                              | Description |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| Upgrade                          | Trino Upgrade to 398                                                                                              |
+| Upgrade                          | Support for Hadoop 3.3.3                                                                                          |
+| Feature                          | Tardigrade support: Add support for exchange spooling<br>on HDFS and Amazon S3.                                   |
+| Bug fix                          | When Trino Iceberg is used and Glue catalog is<br>enabled, avoid adding metastore uri in<br>`iceberg.properties.` |
+
+## Amazon EMR 6.9.0 - Trino known issues
+
+- For Amazon EMR release 6.9.0, Trino does not work on clusters enabled for Apache Ranger. If you need to use Trino with Ranger, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").

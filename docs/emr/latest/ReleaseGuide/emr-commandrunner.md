@@ -105,9 +105,9 @@ The following table identifies additional tools that you can run using
 
 | Tool name          | Description                                                                                                                                                                  |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hadoop-streaming` | Submits an Hadoop streaming program. In the console and some SDKs, this is a streaming step.                                                                                 |
-| `hive-script`      | Runs a Hive script. In the console and SDKs, this is a Hive step.                                                                                                            |
-| `pig-script`       | Runs a Pig script. In the console and SDKs, this is a Pig step.                                                                                                              |
-| `spark-submit`     | Runs a Spark application. In the console, this is a Spark step.                                                                                                              |
+| `hadoop-streaming` | Submits an Hadoop streaming program. In the console and some SDKs,<br>this is a streaming step.                                                                              |
+| `hive-script`      | Runs a Hive script. In the console and SDKs, this is a Hive<br>step.                                                                                                         |
+| `pig-script`       | Runs a Pig script. In the console and SDKs, this is a Pig<br>step.                                                                                                           |
+| `spark-submit`     | Runs a Spark application. In the console, this is a Spark<br>step.                                                                                                           |
 | `hadoop-lzo`       | Runs the [Hadoop LZO indexer](https://github.com/kevinweil/hadoop-lzo/blob/master/README.md "https://github.com/kevinweil/hadoop-lzo/blob/master/README.md") on a directory. |
-| `s3-dist-cp`       | Distributed copy large amounts of data from Amazon S3 into HDFS. For more information, see [S3DistCp (s3-dist-cp)](UsingEMR_s3distcp.md "UsingEMR_s3distcp.md").             |
+| `s3-dist-cp`       | Distributed copy large amounts of data from Amazon S3 into HDFS. For more<br>information, see [S3DistCp (s3-dist-cp)](UsingEMR_s3distcp.md "UsingEMR_s3distcp.md").          |

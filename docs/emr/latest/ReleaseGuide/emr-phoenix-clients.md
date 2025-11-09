@@ -144,9 +144,10 @@ complete. 7. Inspect the results of the step's `stdout` at the log URI
 that you used when you created the cluster in Step 1. The results should look
 like the following:
 
-````
+```
 +------------------------------------------+-----------------------------------+
-|             CREDIT_CARD_TYPE             |              NUM_CUSTOMERS        | +------------------------------------------+-----------------------------------+
+|             CREDIT_CARD_TYPE             |              NUM_CUSTOMERS        |
++------------------------------------------+-----------------------------------+
 | american_express                         | 5728                              |
 | dankort                                  | 5782                              |
 | diners_club                              | 5795                              |
@@ -158,5 +159,7 @@ like the following:
 | mastercard                               | 5697                              |
 | solo                                     | 5586                              |
 | switch                                   | 5781                              |
-| visa                                     | 5659                              | +------------------------------------------+-----------------------------------+ ```
-````
+| visa                                     | 5659                              |
++------------------------------------------+-----------------------------------+
+
+```

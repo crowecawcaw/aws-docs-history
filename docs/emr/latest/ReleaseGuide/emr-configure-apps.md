@@ -102,6 +102,17 @@ The following is an example of the yarn-env classification.
 The following settings do not belong to a configuration file but are used by Amazon EMR to
 potentially configure multiple settings on your behalf.
 
-| Settings curated by Amazon EMR | Application | Release label classification | Valid properties                                                   | When to use                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------ | ----------- | ---------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Spark                          | `spark`     | `maximizeResourceAllocation` | Configure executors to utilize the maximum resources of each node. | ###### Topics <br>• [Configure applications when you create a cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md") <br>• [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md") <br>• [Store sensitive configuration data in AWS Secrets Manager](storing-sensitive-data.md "storing-sensitive-data.md") <br>• [Configure applications to use a specific Java Virtual Machine](configuring-java8.md "configuring-java8.md") |
+| Settings curated by Amazon EMR | Application | Release label classification | Valid properties                                                      | When to use |
+| ------------------------------ | ----------- | ---------------------------- | --------------------------------------------------------------------- | ----------- |
+| Spark                          | `spark`     | `maximizeResourceAllocation` | Configure executors to utilize the maximum resources of each<br>node. |
+
+###### Topics
+
+- [Configure applications when you
+  create a cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md")
+- [Reconfigure an instance group in a
+  running cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md")
+- [Store sensitive configuration data in
+  AWS Secrets Manager](storing-sensitive-data.md "storing-sensitive-data.md")
+- [Configure applications to use a specific Java
+  Virtual Machine](configuring-java8.md "configuring-java8.md")

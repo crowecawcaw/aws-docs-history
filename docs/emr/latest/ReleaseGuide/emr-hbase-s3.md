@@ -257,16 +257,68 @@ to be renamed. Consider disabling tables instead of dropping.
 
 There is an HBase cleaner process that cleans up old WAL files and store files. With Amazon EMR release version 5.17.0 and later, the cleaner is enabled globally, and the following configuration properties can be used to control cleaner behavior.
 
-| Configuration property                               | Default value                              | Description                                                                                                                                                                                                                                                   |
-| ---------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hbase.regionserver.hfilecleaner.large.thread.count` | 1                                          | The number of threads allocated to clean expired large HFiles.                                                                                                                                                                                                |
-| `hbase.regionserver.hfilecleaner.small.thread.count` | 1                                          | The number of threads allocated to clean expired small HFiles.                                                                                                                                                                                                |
-| `hbase.cleaner.scan.dir.concurrent.size`             | Set to one quarter of all available cores. | The number of threads to scan the oldWALs directories.                                                                                                                                                                                                        |
-| `hbase.oldwals.cleaner.thread.size`                  | 2                                          | The number of threads to clean the WALs under the oldWALs directory.                                                                                                                                                                                          | With Amazon EMR 5.17.0 and earlier, the cleaner operation can affect query performance when running heavy workloads, so we recommend that you enable the cleaner only during off-peak times. The cleaner has the following HBase shell commands: <br>• `cleaner_chore_enabled` queries whether the cleaner is enabled. <br>• `cleaner_chore_run` manually runs the cleaner to remove files. <br>• `cleaner_chore_switch` enables or disables the cleaner and returns the previous state of the cleaner. For example, `cleaner_chore_switch true` enables the cleaner. ### Properties for HBase on Amazon S3 performance tuning The following parameters can be adjusted to tune the performance of your workload when you use HBase on Amazon S3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Configuration property                               | Default value                              | Description                                                                                                                                                                                                                                                   |
-| ---                                                  | ---                                        | ---                                                                                                                                                                                                                                                           |
-| `hbase.bucketcache.size`                             | 8,192                                      | The amount of disk space, in MB, reserved on region server Amazon EC2 instance stores and EBS volumes for BucketCache storage. The setting applies to all region server instances. Larger BucketCache sizes generally correspond to improved performance      |
-| `hbase.hregion.memstore.flush.size`                  | 134217728                                  | The data limit, in bytes, at which a memstore flush to Amazon S3 is triggered.                                                                                                                                                                                |
-| `hbase.hregion.memstore.block.multiplier`            | 4                                          | A multiplier that determines the MemStore upper limit at which updates are blocked. If the MemStore exceeds `hbase.hregion.memstore.flush.size` multiplied by this value, updates are blocked. MemStore flushes and compaction may happen to unblock updates. |
-| `hbase.hstore.blockingStoreFiles`                    | 10                                         | The maximum number of StoreFiles that can exist in a store before updates are blocked.                                                                                                                                                                        |
-| `hbase.hregion.max.filesize`                         | 10737418240                                | The maximum size of a region before the region is split.                                                                                                                                                                                                      | ### Shutting down and restoring a cluster without data loss To shut down an Amazon EMR cluster without losing data that hasn't been written to Amazon S3, you should flush your MemStore cache to Amazon S3 to write new store files. First, you'll need to disable all tables. The following step configuration can be used when you add a step to the cluster. For more information, see [Work with steps using the AWS CLI and console](../ManagementGuide/emr-work-with-steps.md "../ManagementGuide/emr-work-with-steps.md") in the _Amazon EMR Management Guide_. `Name="Disable all tables",Jar="command-runner.jar",Args=["/bin/bash","/usr/lib/hbase/bin/disable_all_tables.sh"]` Alternatively, you can run the following bash command directly. `bash /usr/lib/hbase/bin/disable_all_tables.sh` After disabling all tables, flush the `hbase:meta` table using the HBase shell and the following command. `flush 'hbase:meta'` Then, you can run a shell script provided on the Amazon EMR cluster to flush the MemStore cache. You can either add it as a step or run it directly using the on-cluster AWS CLI. The script disables all HBase tables, which causes the MemStore in each region server to flush to Amazon S3. If the script completes successfully, the data persists in Amazon S3 and the cluster can be terminated. To restart a cluster with the same HBase data, specify the same Amazon S3 location as the previous cluster either in the AWS Management Console or using the `hbase.rootdir` configuration property. |
+| Configuration property                               | Default value                              | Description                                                          |
+| ---------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------- |
+| `hbase.regionserver.hfilecleaner.large.thread.count` | 1                                          | The number of threads allocated to clean expired large HFiles.       |
+| `hbase.regionserver.hfilecleaner.small.thread.count` | 1                                          | The number of threads allocated to clean expired small HFiles.       |
+| `hbase.cleaner.scan.dir.concurrent.size`             | Set to one quarter of all available cores. | The number of threads to scan the oldWALs directories.               |
+| `hbase.oldwals.cleaner.thread.size`                  | 2                                          | The number of threads to clean the WALs under the oldWALs directory. |
+
+With Amazon EMR 5.17.0 and earlier, the cleaner operation can affect query performance when running heavy workloads, so we recommend that you enable the cleaner only during off-peak times. The cleaner has the following HBase shell commands:
+
+- `cleaner_chore_enabled` queries whether the cleaner is enabled.
+- `cleaner_chore_run` manually runs the cleaner to remove files.
+- `cleaner_chore_switch` enables or disables the cleaner and returns the previous state of the cleaner. For example, `cleaner_chore_switch
+true` enables the cleaner.
+
+### Properties for HBase on Amazon S3 performance
+
+tuning
+
+The following parameters can be adjusted to tune the performance of your workload when you
+use HBase on Amazon S3.
+
+| Configuration property                    | Default value | Description                                                                                                                                                                                                                                                   |
+| ----------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hbase.bucketcache.size`                  | 8,192         | The amount of disk space, in MB, reserved on region server Amazon EC2 instance stores and EBS volumes for BucketCache storage. The setting applies to all region server instances. Larger BucketCache sizes generally correspond to improved performance      |
+| `hbase.hregion.memstore.flush.size`       | 134217728     | The data limit, in bytes, at which a memstore flush to Amazon S3 is triggered.                                                                                                                                                                                |
+| `hbase.hregion.memstore.block.multiplier` | 4             | A multiplier that determines the MemStore upper limit at which updates are blocked. If the MemStore exceeds `hbase.hregion.memstore.flush.size` multiplied by this value, updates are blocked. MemStore flushes and compaction may happen to unblock updates. |
+| `hbase.hstore.blockingStoreFiles`         | 10            | The maximum number of StoreFiles that can exist in a store before updates are blocked.                                                                                                                                                                        |
+| `hbase.hregion.max.filesize`              | 10737418240   | The maximum size of a region before the region is split.                                                                                                                                                                                                      |
+
+### Shutting down and restoring a cluster without data
+
+loss
+
+To shut down an Amazon EMR cluster without losing data that hasn't been written to Amazon S3, you
+should flush your MemStore cache to Amazon S3 to write new store files. First, you'll need to disable all tables.
+The following step configuration can be used when you
+add a step to the cluster. For more information, see [Work with steps using the AWS CLI
+and console](../ManagementGuide/emr-work-with-steps.md "../ManagementGuide/emr-work-with-steps.md") in the _Amazon EMR Management Guide_.
+
+```
+Name="Disable all tables",Jar="command-runner.jar",Args=["/bin/bash","/usr/lib/hbase/bin/disable_all_tables.sh"]
+```
+
+Alternatively, you can run the following bash command directly.
+
+```
+bash /usr/lib/hbase/bin/disable_all_tables.sh
+```
+
+After disabling all tables, flush the `hbase:meta` table using the
+HBase shell and the following command.
+
+```
+flush 'hbase:meta'
+```
+
+Then, you can run a shell script provided on the Amazon EMR cluster to flush the
+MemStore cache. You can either add it as a step or run it directly using the
+on-cluster AWS CLI. The script disables all HBase tables, which causes the MemStore
+in each region server to flush to Amazon S3. If the script completes successfully,
+the data persists in Amazon S3 and the cluster can be terminated.
+
+To restart a cluster with the same HBase data, specify the same Amazon S3 location as the
+previous cluster either in the AWS Management Console or using the `hbase.rootdir`
+configuration property.

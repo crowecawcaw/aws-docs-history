@@ -55,9 +55,80 @@ YARN resource to the Hive LLAP daemons.
 You can use the following `hive-site` configurations in the
 classification API to override default LLAP resource settings.
 
-| Property                                | Description                                                             |
-| --------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hive.llap.daemon.yarn.container.mb      | Total LLAP daemon container size (in MB)                                |
-| hive.llap.daemon.memory.per.instance.mb | The total memory used by executors in the LLAP daemon container (in MB) |
-| hive.llap.io.memory.size                | Cache size for LLAP Input/Output                                        |
-| hive.llap.daemon.num.executors          | Number of executors per LLAP daemon                                     | ## Start Hive LLAP on your cluster manually All dependencies and configurations used by LLAP are packaged into the LLAP tar archive as part of cluster startup. If LLAP is enabled using `"hive.llap.enabled": "true"`, we recommend that you use Amazon EMR reconfiguration to make configuration changes to LLAP. Otherwise, for any manual changes to `hive-site.xml`, you must rebuild the LLAP tar archive by using the `hive --service llap` command, as the following example demonstrates. `# Define how many resources you want to allocate to Hive LLAP LLAP_INSTANCES=<how many llap daemons to run on cluster> LLAP_SIZE=<total container size per llap daemon> LLAP_EXECUTORS=<number of executors per daemon> LLAP_XMX=<Memory used by executors> LLAP_CACHE=<Max cache size for IO allocator> yarn app -enableFastLaunch hive --service llap \ --instances $LLAP_INSTANCES \ --size ${LLAP_SIZE}m \ --executors $LLAP_EXECUTORS \ --xmx ${LLAP_XMX}m \ --cache ${LLAP_CACHE}m \ --name llap0 \ --auxhbase=false \ --startImmediately` ## Check Hive LLAP status Use the following command to check the status of Hive LLAP through Hive. `hive --service llapstatus` Use the following command to check the status of Hive LLAP using YARN. ``` yarn app -status (name-of-llap-service) # example: yarn app -status llap0 | jq `## Start or stop Hive LLAP Since Hive LLAP runs as a persistent YARN service, you stop or restart the YARN service to stop or restart Hive LLAP. The following commands demonstrate this.` yarn app -stop llap0 yarn app -start llap0 `## Resize the number of Hive LLAP daemons Use the following command to reduce the number of LLAP instances.` yarn app -flex llap0 -component llap -1 ``` For more information, see [Flex a component of a service](https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/yarn-service/QuickStart.html#Flex_a_component_of_a_service "https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/yarn-service/QuickStart.html#Flex_a_component_of_a_service"). |
+| Property                                | Description                                                                |
+| --------------------------------------- | -------------------------------------------------------------------------- |
+| hive.llap.daemon.yarn.container.mb      | Total LLAP daemon container size (in MB)                                   |
+| hive.llap.daemon.memory.per.instance.mb | The total memory used by executors in the LLAP daemon<br>container (in MB) |
+| hive.llap.io.memory.size                | Cache size for LLAP Input/Output                                           |
+| hive.llap.daemon.num.executors          | Number of executors per LLAP daemon                                        |
+
+## Start Hive LLAP on your cluster manually
+
+All dependencies and configurations used by LLAP are packaged into the LLAP tar
+archive as part of cluster startup. If LLAP is enabled using
+`"hive.llap.enabled": "true"`, we recommend that you use Amazon EMR
+reconfiguration to make configuration changes to LLAP.
+
+Otherwise, for any manual changes to `hive-site.xml`, you must rebuild
+the LLAP tar archive by using the `hive --service llap` command, as the
+following example demonstrates.
+
+```
+# Define how many resources you want to allocate to Hive LLAP
+
+LLAP_INSTANCES=<how many llap daemons to run on cluster>
+LLAP_SIZE=<total container size per llap daemon>
+LLAP_EXECUTORS=<number of executors per daemon>
+LLAP_XMX=<Memory used by executors>
+LLAP_CACHE=<Max cache size for IO allocator>
+
+yarn app -enableFastLaunch
+
+hive --service llap \
+--instances $LLAP_INSTANCES \
+--size ${LLAP_SIZE}m \
+--executors $LLAP_EXECUTORS \
+--xmx ${LLAP_XMX}m \
+--cache ${LLAP_CACHE}m \
+--name llap0 \
+--auxhbase=false \
+--startImmediately
+
+```
+
+## Check Hive LLAP status
+
+Use the following command to check the status of Hive LLAP through Hive.
+
+```
+hive --service llapstatus
+```
+
+Use the following command to check the status of Hive LLAP using YARN.
+
+```
+yarn app -status (name-of-llap-service)
+
+# example:
+yarn app -status llap0 | jq
+```
+
+## Start or stop Hive LLAP
+
+Since Hive LLAP runs as a persistent YARN service, you stop or restart the YARN
+service to stop or restart Hive LLAP. The following commands demonstrate this.
+
+```
+yarn app -stop llap0
+yarn app -start llap0
+```
+
+## Resize the number of Hive LLAP daemons
+
+Use the following command to reduce the number of LLAP instances.
+
+```
+yarn app -flex llap0 -component llap -1
+```
+
+For more information, see [Flex a component of a service](https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/yarn-service/QuickStart.html#Flex_a_component_of_a_service "https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/yarn-service/QuickStart.html#Flex_a_component_of_a_service").
