@@ -30,10 +30,38 @@ configurations, see [Encryption presets in AWS Elemental MediaPackage](drm-conte
 The following table lists the different containers and digital rights management (DRM)
 systems that SPEKE Version 2.0 supports.
 
-| SPEKE Version 2.0 – Support matrix for container and DRM system | Apple FairPlay                       | ClearKey AES-128                     | Google Widevine                      | Microsoft PlayReady                  | Irdeto                               |
-| --------------------------------------------------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **TS container**                                                | √ Supports SAMPLE-AES                | √ Supports AES-128                   | Not supported                        | Not supported                        | Not supported                        |
-| **CMAF container**                                              | √ Supports cbcs encryption           | Not supported                        | √ Supports cbcs and cenc encryption  | √ Supports cbcs and cenc encryption  | √ Supports cenc encryption           | **Supported DRM system IDs** The following table lists the different DRM [system IDs](https://dashif.org/identifiers/content_protection/ "https://dashif.org/identifiers/content_protection/") that MediaPackage supports.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| System IDs – Support matrix for DRM system                      | Apple FairPlay                       | ClearKey AES-128                     | Google Widevine                      | Microsoft PlayReady                  | Irdeto                               |
-| ---                                                             | ---                                  | ---                                  | ---                                  | ---                                  | ---                                  |
-|                                                                 | 94ce86fb-07ff-4f43-adb8-93d2fa968ca2 | 3ea8778f-7742-4bf9-b18b-e834b2acbd47 | edef8ba9-79d6-4ace-a3c8-27dcd51d21ed | 9a04f079-9840-4286-ab92-e65be0885f95 | 80a6be7e-1448-4c37-9e70-d5aebe04c8d2 | ## Deploying SPEKE Your digital rights management (DRM) system provider can help you get set up to use DRM encryption in MediaPackage. Generally, the provider gives you a SPEKE gateway to deploy in your AWS account in the same AWS Region where MediaPackage is running. For information about configuring encryption settings for your endpoint, see [encryption fields](../ug/endpoints-encryption.md "../ug/endpoints-encryption.md"). If you must build your own API Gateway to connect MediaPackage to your key service, you can use the [SPEKE Reference Server](https://github.com/awslabs/speke-reference-server "https://github.com/awslabs/speke-reference-server") available on GitHub as a starting point. The following sections provide guidance on how to implement content encryption using SPEKE for MediaPackage. ###### Topics <br>• [Key rotation](drm-content-key-rotation.md "drm-content-key-rotation.md") <br>• [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md") <br>• [Encryption presets](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md") |
+| SPEKE Version 2.0 – Support matrix for container and DRM system | Apple FairPlay                | ClearKey AES-128      | Google Widevine                        | Microsoft PlayReady                    | Irdeto                        |
+| --------------------------------------------------------------- | ----------------------------- | --------------------- | -------------------------------------- | -------------------------------------- | ----------------------------- |
+| **TS container**                                                | √<br>Supports SAMPLE-AES      | √<br>Supports AES-128 | Not supported                          | Not supported                          | Not supported                 |
+| **CMAF container**                                              | √<br>Supports cbcs encryption | Not supported         | √<br>Supports cbcs and cenc encryption | √<br>Supports cbcs and cenc encryption | √<br>Supports cenc encryption |
+
+**Supported DRM system IDs**
+
+The following table lists the different DRM [system IDs](https://dashif.org/identifiers/content_protection/ "https://dashif.org/identifiers/content_protection/") that
+MediaPackage supports.
+
+| System IDs – Support matrix for DRM system | Apple FairPlay                       | ClearKey AES-128                     | Google Widevine                      | Microsoft PlayReady                  | Irdeto                               |
+| ------------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+|                                            | 94ce86fb-07ff-4f43-adb8-93d2fa968ca2 | 3ea8778f-7742-4bf9-b18b-e834b2acbd47 | edef8ba9-79d6-4ace-a3c8-27dcd51d21ed | 9a04f079-9840-4286-ab92-e65be0885f95 | 80a6be7e-1448-4c37-9e70-d5aebe04c8d2 |
+
+## Deploying SPEKE
+
+Your digital rights management (DRM) system provider can help you get set up to use DRM
+encryption in MediaPackage. Generally, the provider gives you a SPEKE gateway to deploy in
+your AWS account in the same AWS Region where MediaPackage is running.
+For
+information about configuring encryption settings for your endpoint, see [encryption
+fields](../ug/endpoints-encryption.md "../ug/endpoints-encryption.md").
+
+If you must build your own API Gateway to connect MediaPackage to your key service, you can use
+the [SPEKE Reference
+Server](https://github.com/awslabs/speke-reference-server "https://github.com/awslabs/speke-reference-server") available on GitHub as a starting point.
+
+The following sections provide guidance on how to implement content encryption using SPEKE
+for MediaPackage.
+
+###### Topics
+
+- [Key rotation](drm-content-key-rotation.md "drm-content-key-rotation.md")
+- [Managing DRM segment metadata](drm-segment-metadata-management.md "drm-segment-metadata-management.md")
+- [Encryption presets](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md")

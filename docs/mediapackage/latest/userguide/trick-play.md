@@ -11,7 +11,14 @@ supports the following trick-play types:
 **Supported trick-play types for live workflows**
 
 | Streaming protocol     | I-frame only | Image-based |
-| ---------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | ------------ | ----------- |
 | HLS with TS segments   | √            | √           |
 | HLS with CMAF segments | √            | √           |
-| DASH                   | √            | √           | The following sections describe how to enable trick play in MediaPackage. ###### Topics <br>• [Using I-frame playlists](using-i-frame-playlists.md "using-i-frame-playlists.md") <br>• [Using image media playlists](using-image-media-playlists.md "using-image-media-playlists.md") |
+| DASH                   | √            | √           |
+
+The following sections describe how to enable trick play in MediaPackage.
+
+###### Topics
+
+- [Using I-frame playlists](using-i-frame-playlists.md "using-i-frame-playlists.md")
+- [Using image media playlists](using-image-media-playlists.md "using-image-media-playlists.md")

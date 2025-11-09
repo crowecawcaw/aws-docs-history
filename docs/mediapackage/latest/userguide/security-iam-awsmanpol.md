@@ -48,8 +48,8 @@ began tracking these changes. For automatic alerts about changes to this page, s
 the RSS feed on the MediaPackage [Document history](doc-history.md "doc-history.md")
 page.
 
-| Change                                              | Description                                                                                                                                | Date          |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| `AWSElementalMediaPackageV2FullAccess` – New policy | MediaPackage added a new full-access policy for live resources. This policy allows all actions on all live resources in MediaPackage.      | July 25, 2023 |
-| `AWSElementalMediaPackageV2ReadOnly` – New policy   | MediaPackage added a new read-only pollicy for live resources. This policy allows read-only actions on all live resources in MediaPackage. | July 25, 2023 |
-| MediaPackage started tracking changes               | MediaPackage started tracking changes for its AWS managed policies.                                                                        | July 25, 2023 |
+| Change                                                 | Description                                                                                                                                      | Date          |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| `AWSElementalMediaPackageV2FullAccess` – New<br>policy | MediaPackage added a new full-access policy for live resources.<br>This policy allows all actions on all live resources in MediaPackage.         | July 25, 2023 |
+| `AWSElementalMediaPackageV2ReadOnly` – New<br>policy   | MediaPackage added a new read-only pollicy for live resources.<br>This policy allows read-only actions on all live resources in<br>MediaPackage. | July 25, 2023 |
+| MediaPackage started tracking changes                  | MediaPackage started tracking changes for its AWS managed policies.                                                                              | July 25, 2023 |

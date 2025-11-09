@@ -420,10 +420,16 @@ Use this query to view the responses by HTTP status code for a channel. You
 can use this to view HTTP error code responses to help you to troubleshoot
 issues.
 
-````
+```
 fields @timestamp, @message
-| filter `channelId` like `my-channel`
-| stats count() by statusCode ``` ###### Example Get the number of requests per endpoint on a channel ``` fields @timestamp, @message
-| filter `channelId` like `my-channel`
-| stats count() by `endpointId` ```
-````
+                | filter `channelId` like `my-channel`
+                | stats count() by statusCode
+```
+
+###### Example Get the number of requests per endpoint on a channel
+
+```
+fields @timestamp, @message
+                | filter `channelId` like `my-channel`
+                | stats count() by `endpointId`
+```

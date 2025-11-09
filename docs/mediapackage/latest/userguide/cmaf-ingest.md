@@ -59,8 +59,44 @@ manifests.
 The following table compares the capabilities available with each MediaLive output
 group:
 
-| Capability comparison between MediaLive output groups | Capability                                       | CMAF Ingest Output Group                       | MediaPackage Output Group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Capability comparison between MediaLive output groups | Capability                                       | CMAF Ingest Output Group                       | MediaPackage Output Group |
+| ----------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------- | ------------------------- |
 | Stream order preservation                             | Standard (alphabetical order in output manifest) | Enhanced (preserves desired stream ordering)   |
 | Stream metadata passthrough                           | Standard                                         | Enhanced (additional passthrough capabilities) |
-| Setup complexity                                      | Simple                                           | More configuration options                     | ## Enhanced CMAF capabilities with MediaPackage output groups When using the MediaPackage output group in MediaLive, AWS Elemental MediaPackage provides additional passthrough capabilities and desired stream ordering. These enhanced capabilities give you greater control over how streams are presented to viewers in your streaming applications. ### Stream ordering preservation When you choose the MediaPackage output group in MediaLive, the desired stream ordering configured in MediaLive is preserved in the output manifests. This allows you to control how different video, audio, and subtitle streams appear to viewers. Stream ordering preservation helps you: <br>• Ensure viewers start with your intended default streams <br>• Present quality choices in your preferred order <br>• Organize streams logically for better viewer navigation ### Additional passthrough capabilities The MediaPackage output group provides additional passthrough capabilities that enable enhanced stream metadata to be preserved from MediaLive to the output manifests. These capabilities support: <br>• Enhanced stream identification and presentation <br>• Improved viewer experience through better stream organization <br>• More control over how streams appear in player interfaces |
+| Setup complexity                                      | Simple                                           | More configuration options                     |
+
+## Enhanced CMAF capabilities with
+
+MediaPackage output groups
+
+When using the MediaPackage output group in MediaLive, AWS Elemental MediaPackage provides additional
+passthrough capabilities and desired stream ordering. These enhanced capabilities give
+you greater control over how streams are presented to viewers in your streaming
+applications.
+
+### Stream ordering preservation
+
+When you choose the MediaPackage output group in MediaLive, the desired stream
+ordering configured in MediaLive is preserved in the output manifests. This allows you
+to control how different video, audio, and subtitle streams appear to
+viewers.
+
+Stream ordering preservation helps you:
+
+- Ensure viewers start with your intended default streams
+- Present quality choices in your preferred order
+- Organize streams logically for better viewer navigation
+
+### Additional passthrough
+
+capabilities
+
+The MediaPackage output group provides additional passthrough capabilities that
+enable enhanced stream metadata to be preserved from MediaLive to the output
+manifests.
+
+These capabilities support:
+
+- Enhanced stream identification and presentation
+- Improved viewer experience through better stream organization
+- More control over how streams appear in player interfaces
