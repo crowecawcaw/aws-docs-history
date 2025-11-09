@@ -166,7 +166,7 @@ The following table summarizes the result for the combinations of request protoc
 target group protocol version.
 
 | Request protocol | Protocol version | Result                          |
-| ---------------- | ---------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ---------------- | ------------------------------- |
 | HTTP/1.1         | HTTP/1.1         | Success                         |
 | HTTP/2           | HTTP/1.1         | Success                         |
 | gRPC             | HTTP/1.1         | Error                           |
@@ -175,4 +175,23 @@ target group protocol version.
 | gRPC             | HTTP/2           | Success if targets support gRPC |
 | HTTP/1.1         | gRPC             | Error                           |
 | HTTP/2           | gRPC             | Success if a POST request       |
-| gRPC             | gRPC             | Success                         | ###### Considerations for the gRPC protocol version <br>• The only supported listener protocol is HTTPS. <br>• The only supported target types are `INSTANCE` and `IP`. <br>• The service parses gRPC requests and routes the gRPC calls to the appropriate target groups based on the package, service, and method. <br>• You can't use Lambda functions as targets. ###### Considerations for the HTTP/2 protocol version <br>• The only supported listener protocol is HTTPS. You can choose either HTTP or HTTPS for the target group protocol. <br>• The only supported listener rules are forward and fixed response. <br>• The only supported target types are `INSTANCE` and `IP`. <br>• The service supports streaming from clients. The service does not support streaming to the targets. |
+| gRPC             | gRPC             | Success                         |
+
+###### Considerations for the gRPC protocol version
+
+- The only supported listener protocol is HTTPS.
+- The only supported target types are `INSTANCE` and
+  `IP`.
+- The service parses gRPC requests and routes the gRPC calls to the appropriate
+  target groups based on the package, service, and method.
+- You can't use Lambda functions as targets.
+
+###### Considerations for the HTTP/2 protocol version
+
+- The only supported listener protocol is HTTPS. You can choose either HTTP or
+  HTTPS for the target group protocol.
+- The only supported listener rules are forward and fixed response.
+- The only supported target types are `INSTANCE` and
+  `IP`.
+- The service supports streaming from clients. The service does not support
+  streaming to the targets.

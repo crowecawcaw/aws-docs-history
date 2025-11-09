@@ -16,11 +16,11 @@ Amazon VPC Lattice adds the following `x-forwarded` headers:
 
 The source IP address.
 
-`x-forwarded-for-port`
+`x-forwarded-port`
 
 The destination port.
 
-`x-forwarded-for-proto`
+`x-forwarded-proto`
 
 The connection protocol (`http` | `https`).
 

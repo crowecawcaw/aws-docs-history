@@ -67,8 +67,7 @@ sudo route -n add -net `169.254.171.0` `primary-ip-address` 255.255.255.0
 
 To avoid creating a static route, we recommend that you use a service network endpoint in a VPC
 to establish connectivity. For
-more information, see [Manage VPC endpoint
-associations](service-network-associations.md#service-network-vpc-endpoint-associations "service-network-associations.md#service-network-vpc-endpoint-associations").
+more information, see [Manage service network VPC endpoint associations](service-network-associations.md#service-network-vpc-endpoint-associations "service-network-associations.md#service-network-vpc-endpoint-associations") .
 
 ## Security group rules
 
@@ -93,16 +92,134 @@ database resource
 For traffic to flow from resource gateway to resources, you must create outbound
 rules for the open ports and accepted listener protocols for the resources.
 
-| Destination                         | Protocol       | Port range     | Comment                                                |
-| ----------------------------------- | -------------- | -------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CIDR range for resource`           | `TCP`          | `3306`         | Allow traffic from resource gateway to databases       | ###### Recommended inbound rules for service network and VPC associations For traffic to flow from client VPCs to the services associated with the service network, you must create inbound rules for the listener ports and listener protocols for the services.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Destination               | Protocol | Port range | Comment                                          |
+| ------------------------- | -------- | ---------- | ------------------------------------------------ |
+| `CIDR range for resource` | `TCP`    | `3306`     | Allow traffic from resource gateway to databases |
+
+###### Recommended inbound rules for service network and VPC associations
+
+For traffic to flow from client VPCs to the services associated with the service
+network, you must create inbound rules for the listener ports and listener protocols
+for the services.
+
+| Source     | Protocol   | Port range | Comment                                   |
+| ---------- | ---------- | ---------- | ----------------------------------------- |
+| `VPC CIDR` | `listener` | `listener` | Allow traffic from clients to VPC Lattice |
+
+###### Recommended outbound rules for traffic flowing from client instances to
+
+VPC Lattice
+
+By default, security groups allow all outbound traffic. However, if you have
+custom outbound rules, you must allow outbound traffic to VPC Lattice prefix for
+listener ports and protocols so that client instances can connect to all services
+associated with the VPC Lattice service network. You can allow this traffic by
+referencing the ID of the prefix list for VPC Lattice.
+
+| Destination                         | Protocol   | Port range | Comment                                   |
+| ----------------------------------- | ---------- | ---------- | ----------------------------------------- |
+| `ID of the VPC Lattice prefix list` | `listener` | `listener` | Allow traffic from clients to VPC Lattice |
+
+###### Recommended inbound rules for traffic flowing from VPC Lattice to target
+
+instances
+
+You can't use the client security group as a source for your target's security
+groups, because traffic flows from VPC Lattice. You can reference the ID of the prefix
+list for VPC Lattice.
+
 | Source                              | Protocol       | Port range     | Comment                                                |
-| ---                                 | ---            | ---            | ---                                                    |
-| `VPC CIDR`                          | `listener`     | `listener`     | Allow traffic from clients to VPC Lattice              | ###### Recommended outbound rules for traffic flowing from client instances to VPC Lattice By default, security groups allow all outbound traffic. However, if you have custom outbound rules, you must allow outbound traffic to VPC Lattice prefix for listener ports and protocols so that client instances can connect to all services associated with the VPC Lattice service network. You can allow this traffic by referencing the ID of the prefix list for VPC Lattice.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Destination                         | Protocol       | Port range     | Comment                                                |
-| ---                                 | ---            | ---            | ---                                                    |
-| `ID of the VPC Lattice prefix list` | `listener`     | `listener`     | Allow traffic from clients to VPC Lattice              | ###### Recommended inbound rules for traffic flowing from VPC Lattice to target instances You can't use the client security group as a source for your target's security groups, because traffic flows from VPC Lattice. You can reference the ID of the prefix list for VPC Lattice.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Source                              | Protocol       | Port range     | Comment                                                |
-| ---                                 | ---            | ---            | ---                                                    |
+| ----------------------------------- | -------------- | -------------- | ------------------------------------------------------ |
 | `ID of the VPC Lattice prefix list` | `target`       | `target`       | Allow traffic from VPC Lattice to targets              |
-| `ID of the VPC Lattice prefix list` | `health check` | `health check` | Allow health check traffic from VPC Lattice to targets | ## Manage security groups for a VPC association You can use the AWS CLI to view, add, or update security groups on the VPC to service network association. When using the AWS CLI, remember that your commands run in the AWS Region configured for your profile. If you want to run the commands in a different Region, either change the default Region for your profile, or use the `--region` parameter with the command. Before you begin, confirm that you have created the security group in the same VPC as the VPC you want to add to the service network. For more information, see [Control traffic to your resources using security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_ ###### To add a security group when you create a VPC association using the console 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, under **VPC Lattice**, choose **Service networks**. 3. Select the name of the service network to open its details page. 4. On the **VPC associations** tab, choose **Create VPC associations** and then choose **Add VPC association**. 5. Select a VPC and up to five security groups. 6. Choose **Save changes**. ###### To add or update security groups for an existing VPC association using the console 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, under **VPC Lattice**, choose **Service networks**. 3. Select the name of the service network to open its details page. 4. On the **VPC associations** tab, select the check box for the association and then choose **Actions**, **Edit security groups**. 5. Add and remove security groups as needed. 6. Choose **Save changes**. ###### To add a security group when you create a VPC association using the AWS CLI Use the [create-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/create-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/create-service-network-vpc-association.md") command, specifying the ID of the VPC for the VPC association and the ID of the security groups to add. `` aws vpc-lattice create-service-network-vpc-association \ --service-network-identifier `sn-0123456789abcdef0` \ --vpc-identifier `vpc-1a2b3c4d` \ --security-group-ids `sg-7c2270198example` `` If successful, the command returns output similar to the following. ``{ "arn": "`arn`", "createdBy": "464296918874", "id": "snva-0123456789abcdef0", "status": "CREATE_IN_PROGRESS", "securityGroupIds": ["sg-7c2270198example"] }`` ###### To add or update security groups for an existing VPC association using the AWS CLI Use the [update-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md") command, specifying the ID of the service network and the IDs of the security groups. These security groups override any previously associated security groups. Define at least one security group when updating the list. `` aws vpc-lattice update-service-network-vpc-association --service-network-vpc-association-identifier `sn-903004f88example` \ --security-group-ids `sg-7c2270198example` `sg-903004f88example` `` ###### Warning You can't remove all security groups. Instead, you must first delete the VPC association, and then re-create the VPC association without any security groups. Be cautious when deleting the VPC association. This prevents traffic from reaching services that are in that service network. |
+| `ID of the VPC Lattice prefix list` | `health check` | `health check` | Allow health check traffic from VPC Lattice to targets |
+
+## Manage security groups for a VPC
+
+association
+
+You can use the AWS CLI to view, add, or update security groups on the VPC to service
+network association. When using the AWS CLI, remember that your commands run in the
+AWS Region configured for your profile. If you want to run the commands in a different
+Region, either change the default Region for your profile, or use the
+`--region` parameter with the command.
+
+Before you begin, confirm that you have created the security group in the same VPC as
+the VPC you want to add to the service network. For more information, see [Control
+traffic to your resources using security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the
+_Amazon VPC User Guide_
+
+###### To add a security group when you create a VPC association using the
+
+console
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, under **VPC Lattice**, choose
+   **Service networks**.
+3. Select the name of the service network to open its details page.
+4. On the **VPC associations** tab, choose **Create VPC
+   associations** and then choose **Add VPC
+   association**.
+5. Select a VPC and up to five security groups.
+6. Choose **Save changes**.
+
+###### To add or update security groups for an existing VPC association using the
+
+console
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, under **VPC Lattice**, choose
+   **Service networks**.
+3. Select the name of the service network to open its details page.
+4. On the **VPC associations** tab, select the check box for the
+   association and then choose **Actions**, **Edit
+   security groups**.
+5. Add and remove security groups as needed.
+6. Choose **Save changes**.
+
+###### To add a security group when you create a VPC association using the AWS CLI
+
+Use the [create-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/create-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/create-service-network-vpc-association.md") command, specifying the ID of
+the VPC for the VPC association and the ID of the security groups to add.
+
+```
+aws vpc-lattice create-service-network-vpc-association \
+    --service-network-identifier `sn-0123456789abcdef0` \
+    --vpc-identifier `vpc-1a2b3c4d` \
+    --security-group-ids `sg-7c2270198example`
+```
+
+If successful, the command returns output similar to the following.
+
+```
+{
+  "arn": "`arn`",
+  "createdBy": "464296918874",
+  "id": "snva-0123456789abcdef0",
+  "status": "CREATE_IN_PROGRESS",
+  "securityGroupIds": ["sg-7c2270198example"]
+}
+```
+
+###### To add or update security groups for an existing VPC association using the
+
+AWS CLI
+
+Use the [update-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/update-service-network-vpc-association.md") command, specifying the ID of
+the service network and the IDs of the security groups. These security groups
+override any previously associated security groups. Define at least one security
+group when updating the list.
+
+```
+aws vpc-lattice update-service-network-vpc-association
+    --service-network-vpc-association-identifier `sn-903004f88example` \
+    --security-group-ids `sg-7c2270198example` `sg-903004f88example`
+```
+
+###### Warning
+
+You can't remove all security groups. Instead, you must first delete the VPC
+association, and then re-create the VPC association without any security groups. Be
+cautious when deleting the VPC association. This prevents traffic from reaching
+services that are in that service network.

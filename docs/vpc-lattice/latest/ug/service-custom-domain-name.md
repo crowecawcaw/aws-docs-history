@@ -118,13 +118,11 @@ domain name in the VPC Lattice console on your service page.
 AWS CLI ###### To create an alias record in your hosted zone
 
 1. Obtain the VPC Lattice generated domain name for your service (for example,
-   `my-service-02031c045478f6ddf1.7d67968.vpc-lattice-svcs.us-west-2.on.aws`)
-   and the hosted zone ID by running the `get-service`
-   command.
+   `my-service-02031c045478f6ddf1.7d67968.vpc-lattice-svcs.us-west-2.on.aws`).
 2. To set the alias, use following command.
 
 ```
-aws route53 change-resource-record-sets --hosted-zone-id `hosted-zone-id-for-your-service-domain` --change-batch `file://~/Desktop/change-set.json`
+aws route53 change-resource-record-sets --hosted-zone-id `your-hosted-zone-ID` --change-batch `file://~/Desktop/change-set.json`
 ```
 
 For the `change-set.json` file, create a JSON file with the content
@@ -135,7 +133,7 @@ that "Type" in the following JSON can be an A or AAAA record type.
 
 ```
 {
-    "Comment": "my-service-domain.com alias",
+    "Comment": "my-custom-domain-name.com alias",
     "Changes": [
         {
             "Action": "CREATE",
@@ -143,7 +141,7 @@ that "Type" in the following JSON can be an A or AAAA record type.
                 "Name": "`my-custom-domain-name.com`",
                 "Type": "`alias-record-type`",
                 "AliasTarget": {
-                    "HostedZoneId": "`hosted-zone-id-for-your-service-domain`",
+                    "HostedZoneId": "`your-hosted-zone-ID`",
                     "DNSName": "`lattice-generated-domain-name`",
                     "EvaluateTargetHealth": true
                 }

@@ -8,19 +8,27 @@ service and resource configuration. When you connect a VPC with the service netw
 enables all the targets within that VPC to be clients and communicate with other
 services and resource configurations in the service network.
 
+The private DNS enabled property of the service network resource association overrides
+the private DNS enabled property of the service network endpoint and the service network
+VPC association.
+
+If a service network owner creates a service network resource association and doesn't
+enable private DNS, VPC Lattice won’t provision private hosted zones for that resource
+configuration in any VPCs that the service network is connected to, even though private
+DNS is enabled on the service network endpoint or service network VPC associations.
+
 ###### Contents
 
+- [Manage service network
+  service associations](#service-network-service-associations "#service-network-service-associations")
 - [Manage service
-  associations](#service-network-service-associations "#service-network-service-associations")
-- [Manage resource
-  configuration associations](#service-network-resource-config-associations "#service-network-resource-config-associations")
-- [Manage VPC associations](#service-network-vpc-associations "#service-network-vpc-associations")
-- [Manage VPC endpoint
-  associations](#service-network-vpc-endpoint-associations "#service-network-vpc-endpoint-associations")
+  network resource associations](#service-network-resource-config-associations "#service-network-resource-config-associations")
+- [Manage service network VPC associations](#service-network-vpc-associations "#service-network-vpc-associations")
+- [Manage service network VPC endpoint associations](#service-network-vpc-endpoint-associations "#service-network-vpc-endpoint-associations")
 
-## Manage service
+## Manage service network
 
-associations
+service associations
 
 You can associate services that reside in your account or services that are shared
 with you from different accounts. This is an optional step while creating a service
@@ -64,9 +72,9 @@ Use the [create-service-network-service-association](../../../cli/latest/referen
 
 Use the [delete-service-network-service-association](../../../cli/latest/reference/vpc-lattice/delete-service-network-service-association.md "../../../cli/latest/reference/vpc-lattice/delete-service-network-service-association.md") command.
 
-## Manage resource
+## Manage service
 
-configuration associations
+network resource associations
 
 A resource configuration is a logical object that represents either a single
 resource or a group of resources. You can associate resource configurations that
@@ -96,13 +104,16 @@ resource configuration.
    tab.
 5. To create an association, do the following:
    1. Choose **Create associations**.
-   2. Select a resource configuration from **Resource
-      configurations**. Choose **Create an Amazon
-      VPC Lattice resource configuration.**.
-   3. (Optional) To add a tag, expand **Service association
+   2. For **Resource configurations**, select a
+      resource configuration.
+   3. For **DNS name**, select **Private
+      DNS enabled** to allow VPC Lattice to provision a
+      private hosted zone for your resource configuration associations
+      based on the domain name of the resource configuration.
+   4. (Optional) To add a tag, expand **Service association
       tags**, choose **Add new tag**,
       and enter a tag key and tag value.
-   4. Choose **Save changes**.
+   5. Choose **Save changes**.
 
 6. To delete an association, select the check box for the association and
    then choose **Actions**, **Delete**.
@@ -117,7 +128,7 @@ Use the [create-service-network-resource-association](../../../cli/latest/refere
 
 Use the [delete-service-network-resource-association](../../../cli/latest/reference/vpc-lattice/delete-service-network-resource-association.md "../../../cli/latest/reference/vpc-lattice/delete-service-network-resource-association.md") command.
 
-## Manage VPC associations
+## Manage service network VPC associations
 
 Clients can send requests to services and resources specified in resource
 configurations associated with a service network if the client is in VPCs associated
@@ -129,6 +140,10 @@ Associating a VPC is an optional step when you create a service network. Network
 owners can associate VPCs to a service network if their account has the required
 access. For more information, see [Identity-based policy examples
 for VPC Lattice](security_iam_id-based-policies.md#security_iam_id-based-policy-examples "security_iam_id-based-policies.md#security_iam_id-based-policy-examples").
+
+When you create a VPC association to a resource configuration, you can specify the
+private DNS preference. This preference allows VPC Lattice to provision private hosted
+zones on the resource consumer's behalf. For more information, see [Custom domain names for resource providers](resource-configuration.md#custom-domain-name-resource-providers "resource-configuration.md#custom-domain-name-resource-providers").
 
 When you a delete a VPC association, clients in the VPCs can no longer connect to
 services in the service network.
@@ -148,10 +163,25 @@ services in the service network.
       security groups from **Security groups**. To create
       a security group, choose **Create new security
       group**.
-   4. (Optional) To add a tag, expand **VPC association
+   4. (Optional) To allow VPC Lattice to provision a private hosted zone
+      based on the domain name of a resource configuration, for
+      **DNS name**, select **Enable DNS
+      name** and do the following:
+      1. For **Private DNS preference**, select a preference.
+
+      If you choose **All domains**, VPC Lattice
+      provisions a private hosted zone for any custom domain name
+      for a resource configuration. 2. (Optional) If you choose **Verified and specified
+      domains** or **Specified
+      domains**, enter a comma separated list of
+      domains that you want VPC Lattice to provision hosted zones
+      for. VPC Lattice only provisions a hosted zone if it matches
+      your private domains list. You can use wildcard matching.
+
+   5. (Optional) To add a tag, expand **VPC association
       tags**, choose **Add new tag**, and
       enter a tag key and tag value.
-   5. Choose **Save changes**.
+   6. Choose **Save changes**.
 
 6. To edit the security groups for an association, select the check box for
    the association and then chose **Actions**, **Edit
@@ -175,9 +205,7 @@ Use the [update-service-network-vpc-association](../../../cli/latest/reference/v
 
 Use the [delete-service-network-vpc-association](../../../cli/latest/reference/vpc-lattice/delete-service-network-vpc-association.md "../../../cli/latest/reference/vpc-lattice/delete-service-network-vpc-association.md") command.
 
-## Manage VPC endpoint
-
-associations
+## Manage service network VPC endpoint associations
 
 Clients can send requests to services and resources specified in resource configurations over a VPC
 endpoint (powered by AWS PrivateLink) in their VPC. A VPC endpoint of type
@@ -186,6 +214,10 @@ traffic that comes from outside the VPC over a VPC peering connection, Transit
 Gateway, Direct Connect, or VPN can use the VPC endpoint to reach services and
 resource configurations. With VPC endpoints, you can connect a VPC to multiple
 service networks. When you create a VPC endpoint in a VPC, IP addresses from the VPC (and not IP addresses from the [managed prefix list](security-groups.md#managed-prefix-list "security-groups.md#managed-prefix-list")) are used to establish connectivity to the service network.
+
+When you create a VPC association to a resource configuration, you can specify the
+private DNS preference. This preference allows VPC Lattice to provision private hosted
+zones on the resource consumer's behalf. For more information, see [Custom domain names for resource providers](resource-configuration.md#custom-domain-name-resource-providers "resource-configuration.md#custom-domain-name-resource-providers").
 
 ###### To manage VPC endpoint associations using the console
 
@@ -210,10 +242,12 @@ service networks. When you create a VPC endpoint in a VPC, IP addresses from the
    networks**.
 5. Select the service network you want to connect to your VPC.
 6. Select the VPC, subnets and security groups.
-7. (Optional) To add a tag, expand **VPC association tags**,
+7. (Optional) To enable private DNS, choose **Enable private
+   DNS**.
+8. (Optional) To add a tag, expand **VPC association tags**,
    choose **Add new tag**, and enter a tag key and tag
    value.
-8. Choose **Create endpoint**.
+9. Choose **Create endpoint**.
 
 To learn more about VPC endpoint to how to connect to service networks, see [Access
 service networks](../../../vpc/latest/privatelink/privatelink-access-service-networks.md "../../../vpc/latest/privatelink/privatelink-access-service-networks.md") in the _AWS PrivateLink user

@@ -13,7 +13,7 @@ they might build and deploy microservices and resources across multiple accounts
 
 In VPC Lattice, we refer to a microservice as a _service_ and represent a
 resource only as a _resource configuration_. These are the terms that you see
-in the VPC Lattice user guide.
+and will use in the VPC Lattice user guide.
 
 ###### Contents
 

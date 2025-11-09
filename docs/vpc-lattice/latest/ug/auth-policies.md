@@ -394,17 +394,269 @@ You can restrict access to specific resources by creating an auth policy that us
 matching schema with a `<serviceARN>/<path>` pattern and code the
 `Resource` element as shown in the following examples.
 
-| Protocol                                                  | Examples                                                                                                                                                                                                                                                                                                                    |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| HTTP                                                      | <br>• `"Resource": "arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/rates"` <br>• `"Resource": "*/rates"` <br>• `"Resource": "*/*"`                                                                                                                                                                  |
-| gRPC                                                      | <br>• `"Resource": "arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/api.parking/GetRates"` <br>• `"Resource": "arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/api.parking/*"` <br>• `"Resource": "arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/*"` | Use the following Amazon Resource Name (ARN) resource format for `<serviceARN>`: `` arn:aws:vpc-lattice:`region`:`account-id`:service/`service-id` `` For example: `"Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0"` ## Condition keys that can be used in auth policies Access can be further controlled by condition keys in the **Condition** element of auth policies. These condition keys are present for evaluation depending on the protocol and whether the request is signed with [Signature Version 4 (SigV4)](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md") or anonymous. Condition keys are case sensitive. AWS provides global condition keys that you can use to control access, such as `aws:PrincipalOrgID` and `aws:SourceIp`. To see a list of the AWS global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. The following tale lists the VPC Lattice condition keys. For more information, see [Condition keys for Amazon VPC Lattice Services](../../../service-authorization/latest/reference/list_amazonvpclatticeservices.md#amazonvpclatticeservices-policy-keys "../../../service-authorization/latest/reference/list_amazonvpclatticeservices.md#amazonvpclatticeservices-policy-keys") in the _Service Authorization Reference_. |
-| Condition keys                                            | Description                                                                                                                                                                                                                                                                                                                 | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Available for anonymous (unauthenticated) caller? | Available for gRPC? |
-| ---                                                       | ---                                                                                                                                                                                                                                                                                                                         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | ---                                               | ---                 |
-| `vpc-lattice-svcs:Port`                                   | Filters access by the service port the request is made to                                                                                                                                                                                                                                                                   | 80                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Yes                                               | Yes                 |
-| `vpc-lattice-svcs:RequestMethod`                          | Filters access by the method of the request                                                                                                                                                                                                                                                                                 | GET                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Yes                                               | Always POST         |
-| `vpc-lattice-svcs:RequestHeader/`header-name`: `value``   | Filters access by a header name-value pair in the request headers                                                                                                                                                                                                                                                           | content-type: application/json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes                                               | Yes                 |
-| `vpc-lattice-svcs:RequestQueryString/`key-name`: `value`` | Filters access by the query string key-value pairs in the request URL                                                                                                                                                                                                                                                       | quux: [corge, grault]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes                                               | No                  |
-| `vpc-lattice-svcs:ServiceNetworkArn`                      | Filters access by the ARN of the service network of the service that is receiving the request                                                                                                                                                                                                                               | arn:aws:vpc-lattice:us-west-2:123456789012:servicenetwork/sn-0123456789abcdef0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes                                               | Yes                 |
-| `vpc-lattice-svcs:ServiceArn`                             | Filters access by the ARN of the service that is receiving the request                                                                                                                                                                                                                                                      | arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Yes                                               | Yes                 |
-| `vpc-lattice-svcs:SourceVpc`                              | Filters access by the VPC the request is made from                                                                                                                                                                                                                                                                          | vpc-1a2b3c4d                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                               | Yes                 |
-| `vpc-lattice-svcs:SourceVpcOwnerAccount`                  | Filters access by the owning account of the VPC the request is made from                                                                                                                                                                                                                                                    | 123456789012                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                               | Yes                 | ## Resource tags A _tag_ is a metadata label that you assign or that AWS assigns to an AWS resource. Each tag has two parts: <br>• A _tag key_ (for example, `CostCenter`, `Environment`, or `Project`). Tag keys are case sensitive. <br>• An optional field known as a _tag value_ (for example, `111122223333` or `Production`). Omitting the tag value is the same as using an empty string. Like tag keys, tag values are case-sensitive. For more information about tagging, see [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") You can use tags in your auth policies using the `aws:ResourceTag/key` AWS global condition context key. The following example policy grants access to services with the tag `Environment=Gamma`. This policy lets you refer to services without hard‑coding service ARNs or IDs. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowGammaAccess", "Effect": "Allow", "Principal": "*", "Action": "vpc-lattice-svcs:Invoke", "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0124446789abcdef0/*", "Condition": { "StringEquals": { "aws:ResourceTag/Environment": "Gamma", } } } ] }` ## Principal tags You can control access to your services and resources based on the tags attached to the caller's identity. VPC Lattice supports access control based on any principal tags on the user, role, or session tags using the `aws:PrincipalTag/context` variables. For more information, see [Controlling access for IAM principals](../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals "../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals"). The following example policy grants access only to identities with the tag `Team=Payments`. This policy lets you control access without hard‑coding account IDs or role ARNs. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowPaymentsTeam", "Effect": "Allow", "Principal": "*", "Action": "vpc-lattice-svcs:Invoke", "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0/*", "Condition": { "StringEquals": { "aws:PrincipalTag/Team": "Payments", } } } ] }` ## Anonymous (unauthenticated) principals Anonymous principals are callers that don't sign their AWS requests with [Signature Version 4 (SigV4)](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md"), and are within a VPC that is connected to the service network. Anonymous principals can make unauthenticated requests to services in the service network if an auth policy allows it. ## Example auth policies The following are example auth policies that require requests to be made by authenticated principals. All examples use the `us-west-2` Region and contain fictitious account IDs. ###### Example 1: Restrict access to services by a specific AWS organization The following auth policy example grants permissions to any authenticated request to access any services in the service network to which the policy applies. However, the request must originate from principals that belong to the AWS organization specified in the condition. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": "*", "Action": "vpc-lattice-svcs:Invoke", "Resource": "*", "Condition": { "StringEquals": { "aws:PrincipalOrgID": [ "`o-123456example`" ] } } } ] }` `` ###### Example 2: Restrict access to a service by a specific IAM role The following auth policy example grants permissions to any authenticated request that uses the IAM role `rates-client` to make HTTP GET requests on the service specified in the `Resource` element. The resource in the `Resource` element is the same as the service that the policy is attached to. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect": "Allow", "Principal": { "AWS": [ "arn:aws:iam::`123456789012`:role/rates-client" ] }, "Action": "vpc-lattice-svcs:Invoke", "Resource": [ "arn:aws:vpc-lattice:us-west-2:`123456789012`:service/`svc-0123456789abcdef0`/*" ], "Condition": { "StringEquals": { "vpc-lattice-svcs:RequestMethod": "GET" } } } ] }` `` ###### Example 3: Restrict access to services by authenticated principals in a specific VPC The following auth policy example only allows authenticated requests from principals in the VPC whose VPC ID is `vpc-1a2b3c4d`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": "*", "Action": "vpc-lattice-svcs:Invoke", "Resource": "*", "Condition": { "StringNotEquals": { "aws:PrincipalType": "Anonymous" }, "StringEquals": { "vpc-lattice-svcs:SourceVpc": "`vpc-1a2b3c4d`" } } } ] }` `` ## How authorization works When a VPC Lattice service receives a request, the AWS enforcement code evaluates all relevant permissions policies together to determine whether to authorize or deny the request. It evaluates all the IAM identity-based policies and auth policies that are applicable in the request context during authorization. By default, all requests are implicitly denied when the auth type is `AWS_IAM`. An explicit allow from all relevant policies overrides the default. Authorization includes: <br>• Collecting all the relevant IAM identity-based policies and auth policies. <br>• Evaluating the resulting set of policies: + Verifying that the requester (such as an IAM user or role) has permissions to perform the operation from the account to which the requester belongs. If there is no explicit allow statement, AWS does not authorize the request. + Verifying that the request is allowed by the auth policy for the service network. If an auth policy is enabled, but there is no explicit allow statement, AWS does not authorize the request. If there is an explicit allow statement, or the auth type is `NONE`, the code continues. + Verifying that the request is allowed by the auth policy for the service. If an auth policy is enabled, but there is no explicit allow statement, AWS does not authorize the request. If there is an explicit allow statement,or the auth type is `NONE`, then the enforcement code returns a final decision of **Allow**. + An explicit deny in any policy overrides any allows. The diagram shows the authorization workflow. When a request is made, the relevant policies allow or deny the request access to a given service. ![Authorization workflow](images/authpolicy.png) |
+| Protocol | Examples                                                                                                                                                                                                                                                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| HTTP     | • `"Resource":<br>"arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/rates"`<br>• `"Resource": "*/rates"`<br>• `"Resource": "*/*"`                                                                                                                                                                        |
+| gRPC     | • `"Resource":<br>"arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/api.parking/GetRates"`<br>• `"Resource":<br>"arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/api.parking/*"`<br>• `"Resource":<br>"arn:aws:vpc-lattice:us-west-2:1234567890:service/svc-0123456789abcdef0/*"` |
+
+Use the following Amazon Resource Name (ARN) resource format for
+`<serviceARN>`:
+
+```
+arn:aws:vpc-lattice:`region`:`account-id`:service/`service-id`
+```
+
+For example:
+
+```
+"Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0"
+```
+
+## Condition keys that can be used in auth policies
+
+Access can be further controlled by condition keys in the **Condition** element of auth policies. These condition keys are present for
+evaluation depending on the protocol and whether the request is signed with [Signature Version 4 (SigV4)](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md") or
+anonymous. Condition keys are case sensitive.
+
+AWS provides global condition keys that you can use to control access, such
+as `aws:PrincipalOrgID` and `aws:SourceIp`. To see a list
+of the AWS global condition keys, see [AWS global
+condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
+
+The following tale lists the VPC Lattice condition keys. For more information, see [Condition keys for Amazon VPC Lattice Services](../../../service-authorization/latest/reference/list_amazonvpclatticeservices.md#amazonvpclatticeservices-policy-keys "../../../service-authorization/latest/reference/list_amazonvpclatticeservices.md#amazonvpclatticeservices-policy-keys") in the _Service Authorization Reference_.
+
+| Condition keys                                               | Description                                                                                      | Example                                                                        | Available for anonymous (unauthenticated) caller? | Available for gRPC? |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
+| `vpc-lattice-svcs:Port`                                      | Filters access by the service port the request is made to                                        | 80                                                                             | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:RequestMethod`                             | Filters access by the method of the request                                                      | GET                                                                            | Yes                                               | Always POST         |
+| `vpc-lattice-svcs:RequestPath`                               | Filters access by the path portion of the request URL                                            | /path                                                                          | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:RequestHeader/`header-name`:<br>`value``   | Filters access by a header name-value pair in the request<br>headers                             | content-type: application/json                                                 | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:RequestQueryString/`key-name`:<br>`value`` | Filters access by the query string key-value pairs in the request<br>URL                         | quux: [corge, grault]                                                          | Yes                                               | No                  |
+| `vpc-lattice-svcs:ServiceNetworkArn`                         | Filters access by the ARN of the service network of the service that<br>is receiving the request | arn:aws:vpc-lattice:us-west-2:123456789012:servicenetwork/sn-0123456789abcdef0 | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:ServiceArn`                                | Filters access by the ARN of the service that is receiving the<br>request                        | arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0       | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:SourceVpc`                                 | Filters access by the VPC the request is made from                                               | vpc-1a2b3c4d                                                                   | Yes                                               | Yes                 |
+| `vpc-lattice-svcs:SourceVpcOwnerAccount`                     | Filters access by the owning account of the VPC the request is made<br>from                      | 123456789012                                                                   | Yes                                               | Yes                 |
+
+## Resource tags
+
+A _tag_ is a metadata label that you assign or that AWS assigns to an
+AWS resource. Each tag has two parts:
+
+- A _tag key_ (for example, `CostCenter`,
+  `Environment`, or `Project`). Tag keys are case
+  sensitive.
+- An optional field known as a _tag value_ (for example,
+  `111122223333` or `Production`). Omitting the
+  tag value is the same as using an empty string. Like tag keys, tag values are
+  case-sensitive.
+
+For more information about tagging, see [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md")
+
+You can use tags in your auth policies using the `aws:ResourceTag/key`
+AWS global condition context key.
+
+The following example policy grants access to services with the tag
+`Environment=Gamma`. This policy lets you refer to services without
+hard‑coding service ARNs or IDs.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowGammaAccess",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "vpc-lattice-svcs:Invoke",
+      "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0124446789abcdef0/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Environment": "Gamma",
+        }
+      }
+    }
+  ]
+}
+```
+
+## Principal tags
+
+You can control access to your services and resources based on the tags attached to
+the caller's identity. VPC Lattice supports access control based on any principal tags on
+the user, role, or session tags using the `aws:PrincipalTag/context` variables. For more information, see [Controlling access for IAM principals](../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals "../../../IAM/latest/UserGuide/access_iam-tags.md#access_iam-tags_control-principals").
+
+The following example policy grants access only to identities with the tag
+`Team=Payments`. This policy lets you control access without hard‑coding
+account IDs or role ARNs.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPaymentsTeam",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "vpc-lattice-svcs:Invoke",
+      "Resource": "arn:aws:vpc-lattice:us-west-2:123456789012:service/svc-0123456789abcdef0/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalTag/Team": "Payments",
+        }
+      }
+    }
+  ]
+}
+```
+
+## Anonymous (unauthenticated)
+
+principals
+
+Anonymous principals are callers that don't sign their AWS requests with [Signature Version 4 (SigV4)](sigv4-authenticated-requests.md "sigv4-authenticated-requests.md"), and are
+within a VPC that is connected to the service network. Anonymous principals can make
+unauthenticated requests to services in the service network if an auth policy allows
+it.
+
+## Example auth policies
+
+The following are example auth policies that require requests to be made by
+authenticated principals.
+
+All examples use the `us-west-2` Region and contain fictitious account
+IDs.
+
+###### Example 1: Restrict access to services by a specific AWS organization
+
+The following auth policy example grants permissions to any authenticated request
+to access any services in the service network to which the policy applies. However,
+the request must originate from principals that belong to the AWS organization
+specified in the condition.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": "*",
+ "Action": "vpc-lattice-svcs:Invoke",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:PrincipalOrgID": [
+ "`o-123456example`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+###### Example 2: Restrict access to a service by a specific IAM role
+
+The following auth policy example grants permissions to any authenticated request
+that uses the IAM role `rates-client` to make HTTP GET requests on the
+service specified in the `Resource` element. The resource in the
+`Resource` element is the same as the service that the policy is
+attached to.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": [
+ "arn:aws:iam::`123456789012`:role/rates-client"
+ ]
+ },
+ "Action": "vpc-lattice-svcs:Invoke",
+ "Resource": [
+ "arn:aws:vpc-lattice:us-west-2:`123456789012`:service/`svc-0123456789abcdef0`/*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "vpc-lattice-svcs:RequestMethod": "GET"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+###### Example 3: Restrict access to services by authenticated principals in a specific
+
+VPC
+
+The following auth policy example only allows authenticated requests from
+principals in the VPC whose VPC ID is
+`vpc-1a2b3c4d`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": "*",
+ "Action": "vpc-lattice-svcs:Invoke",
+ "Resource": "*",
+ "Condition": {
+ "StringNotEquals": {
+ "aws:PrincipalType": "Anonymous"
+ },
+ "StringEquals": {
+ "vpc-lattice-svcs:SourceVpc": "`vpc-1a2b3c4d`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+## How authorization works
+
+When a VPC Lattice service receives a request, the AWS enforcement code evaluates all
+relevant permissions policies together to determine whether to authorize or deny the
+request. It evaluates all the IAM identity-based policies and auth policies that are
+applicable in the request context during authorization. By default, all requests are
+implicitly denied when the auth type is `AWS_IAM`. An explicit allow from all
+relevant policies overrides the default.
+
+Authorization includes:
+
+- Collecting all the relevant IAM identity-based policies and auth
+  policies.
+- Evaluating the resulting set of policies:
+  - Verifying that the requester (such as an IAM user or role) has
+    permissions to perform the operation from the account to which the
+    requester belongs. If there is no explicit allow statement, AWS does
+    not authorize the request.
+  - Verifying that the request is allowed by the auth policy for the
+    service network. If an auth policy is enabled, but there is no explicit
+    allow statement, AWS does not authorize the request. If there is an
+    explicit allow statement, or the auth type is `NONE`, the
+    code continues.
+  - Verifying that the request is allowed by the auth policy for the
+    service. If an auth policy is enabled, but there is no explicit allow
+    statement, AWS does not authorize the request. If there is an explicit
+    allow statement,or the auth type is `NONE`, then the
+    enforcement code returns a final decision of **Allow**.
+  - An explicit deny in any policy overrides any allows.
+
+The diagram shows the authorization workflow. When a request is made, the relevant
+policies allow or deny the request access to a given service.
+
+![Authorization workflow](images/authpolicy.png)

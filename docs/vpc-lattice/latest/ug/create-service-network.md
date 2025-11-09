@@ -23,8 +23,8 @@ associations, access settings, and access logs.
    service by choosing **Create an VPC Lattice service**.
 
 Alternatively, to associate a service after you've created the service
-network, see [Manage service
-associations](service-network-associations.md#service-network-service-associations "service-network-associations.md#service-network-service-associations"). 6. (Optional) To associate a resource configuration, choose the resource
+network, see [Manage service network
+service associations](service-network-associations.md#service-network-service-associations "service-network-associations.md#service-network-service-associations"). 6. (Optional) To associate a resource configuration, choose the resource
 configuration service from **Resource Configuration
 associations**, **Resource configuration**. The
 list includes resource configurations that are in your account and any resource
@@ -34,8 +34,8 @@ configuration by choosing **Create an Amazon VPC Lattice resource
 configuration**.
 
 Alternatively, to associate a resource configuration after you've created the
-service network, see [Manage resource
-configuration associations](service-network-associations.md#service-network-resource-config-associations "service-network-associations.md#service-network-resource-config-associations"). 7. (Optional) To associate a VPC, choose **Add VPC
+service network, see [Manage service
+network resource associations](service-network-associations.md#service-network-resource-config-associations "service-network-associations.md#service-network-resource-config-associations"). 7. (Optional) To associate a VPC, choose **Add VPC
 association**. Select the VPC to associate from
 **VPC**, and select up to five security groups from
 **Security groups**. To create a security group, choose
