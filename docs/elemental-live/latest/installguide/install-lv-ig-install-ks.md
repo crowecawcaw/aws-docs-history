@@ -19,9 +19,12 @@ system.
    field, using the instructions in the following table as a
    guide.
 
-| Menu Option                                   | Instructions                                                                                                                                                            |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `Set Hostname`                                | Change the hostname to a useful name such as `live-01` or `live-chicago-01`. Do not use `localhost` as the hostname. Do not use periods or underscores in the hostname. |
-| `Disk layout: Auto-detect`                    | Keep this set at Auto-detect.                                                                                                                                           |
-| `Set Key`                                     | Arrow down to skip this option.                                                                                                                                         |
-| `Install and configure base operating system` | Press Enter to begin the OS installation.                                                                                                                               | The operating system is installed. 4. At the `Press return to quit` prompt, press **Enter** to reboot the system. |
+| Menu Option                                      | Instructions                                                                                                                                                                                    |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Set Hostname`                                   | Change the hostname to a useful name<br>such as `live-01`<br>or<br>`live-chicago-01`.<br>Do not use<br>`localhost` as the<br>hostname.<br>Do not use periods or underscores in<br>the hostname. |
+| `Disk layout:<br>Auto-detect`                    | Keep this set at Auto-detect.                                                                                                                                                                   |
+| `Set Key`                                        | Arrow down to skip this option.                                                                                                                                                                 |
+| `Install and configure base<br>operating system` | Press Enter to begin the OS<br>installation.                                                                                                                                                    |
+
+The operating system is installed. 4. At the `Press return to quit` prompt, press
+**Enter** to reboot the system.
