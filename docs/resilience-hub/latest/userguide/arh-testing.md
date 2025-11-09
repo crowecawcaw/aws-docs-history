@@ -18,11 +18,18 @@ The following table lists all the available AWS FIS options from the navigation 
 links to the associated AWS FIS documentation that contains the procedures to start using AWS FIS
 tests from AWS Resilience Hub console.
 
-| AWS FIS navigation menu options and references | AWS FIS navigation menu option                                                                                                                                | AWS FIS documentation                                                                                                                                                                                                                                                                                              |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | --------------------- |
-| **Resilience testing**                         | [Create an experiment template](../../../fis/latest/userguide/create-template.md "../../../fis/latest/userguide/create-template.md")                          |
-| **Scenario library**                           | [AWS FIS library](../../../fis/latest/userguide/scenario-library.md "../../../fis/latest/userguide/scenario-library.md")                                      |
-| **Experiment templates**                       | [Experiment templates for AWS FIS](../../../fis/latest/userguide/manage-experiment-template.md "../../../fis/latest/userguide/manage-experiment-template.md") | The following table lists all the available AWS FIS options from the dropdown menu in **Resilience testing** section and the links to the associated AWS FIS documentation that contains the procedures to start using AWS FIS tests from AWS Resilience Hub console. AWS FIS dropdown menu options and references | AWS FIS dropdown menu option | AWS FIS documentation |
-| ---                                            | ---                                                                                                                                                           |
-| **Create experiment template**                 | [Create an experiment template](../../../fis/latest/userguide/create-template.md "../../../fis/latest/userguide/create-template.md")                          |
-| **Create an experiment from scenario**         | [Using a scenario](../../../fis/latest/userguide/scenario-library.md#using-a-scenario "../../../fis/latest/userguide/scenario-library.md#using-a-scenario")   |
+| AWS FIS navigation menu options and references | AWS FIS navigation menu option                                                                                                                                | AWS FIS documentation |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **Resilience testing**                         | [Create an<br>experiment template](../../../fis/latest/userguide/create-template.md "../../../fis/latest/userguide/create-template.md")                       |
+| **Scenario library**                           | [AWS FIS<br>library](../../../fis/latest/userguide/scenario-library.md "../../../fis/latest/userguide/scenario-library.md")                                   |
+| **Experiment templates**                       | [Experiment templates for AWS FIS](../../../fis/latest/userguide/manage-experiment-template.md "../../../fis/latest/userguide/manage-experiment-template.md") |
+
+The following table lists all the available AWS FIS options from the dropdown menu in
+**Resilience testing** section and the links to the associated AWS FIS
+documentation that contains the procedures to start using AWS FIS tests from AWS Resilience Hub
+console.
+
+| AWS FIS dropdown menu options and references | AWS FIS dropdown menu option                                                                                                                                   | AWS FIS documentation |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| **Create experiment template**               | [Create an<br>experiment template](../../../fis/latest/userguide/create-template.md "../../../fis/latest/userguide/create-template.md")                        |
+| **Create an experiment from scenario**       | [Using a<br>scenario](../../../fis/latest/userguide/scenario-library.md#using-a-scenario "../../../fis/latest/userguide/scenario-library.md#using-a-scenario") |
