@@ -41,14 +41,99 @@ the analyzed period.
 
 The following findings classifications apply to EBS volumes.
 
-| Classification                | Description                                                                                                                                                                                                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Not optimized                 | An EBS volume is considered not optimized when Compute Optimizer has identified a volume type, volume size, or IOPS specification that can provide better performance or cost for your workload.                                                                                                                |
-| Optimized                     | An EBS volume is considered optimized when Compute Optimizer determines that the volume is correctly provisioned to run your workload, based on the chosen volume type, volume size, and IOPS specification. For optimized resources, Compute Optimizer might sometimes recommend a new generation volume type. | ## Estimated monthly savings and savings opportunity **Estimated monthly savings (after discounts)** This column lists the approximate monthly cost savings that you experience by migrating your EBS volumes from the current specifications to the recommended specifications under specific discounts. To receive recommendations with specific discounts, the savings estimation mode preference needs to be activated. For more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md"). ###### Note If you don't activate the savings estimation mode preference, this column displays the default On-Demand pricing discount information. **Estimated monthly savings (On-Demand)** This column lists the approximate monthly cost savings that you will experience by migrating your EBS volumes from the current specifications to the recommended specifications. **Savings opportunity (%)** This column lists the percentage difference between the price of the current EBS volume specification and the price of the recommended volume specification. If savings estimation mode is activated, Compute Optimizer analyzes specific discounts to generate the savings opportunity percentage. If savings estimation mode isn’t activated, Compute Optimizer only uses On-Demand pricing information. For more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md"). ###### Important If you enable Cost Optimization Hub in AWS Cost Explorer, Compute Optimizer uses Cost Optimization Hub data, which includes your specific pricing discounts, to generate your recommendations. If Cost Optimization Hub isn't enabled, Compute Optimizer uses Cost Explorer data and On-Demand pricing information to generate your recommendations. For more information, see [Enabling Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_. ### Estimated monthly savings calculation For each recommendation, we calculate the cost to operate a new EBS volume using the recommended volume specifications. Estimated monthly savings are calculated based on the number of running hours for the current volume and the difference in rates between the current volume specifications and the recommended volume specifications. The estimated monthly savings for EBS volumes displayed on the Compute Optimizer dashboard is a sum of the estimated monthly savings for all EBS volumes in the account with a finding classification of _Not optimized_. ## Performance risk The performance risk columns on the **EBS volume details** page the **EBS volume recommendations** page define the likelihood of the current and recommended EBS volume not meeting your workload requirements. Compute Optimizer calculates an individual performance risk score for each specification of the EBS volume, including volume type, volume size, baseline IOPS, burst IOPS, baseline throughput, and burst throughput. The performance risk of the current and recommended EBS volume is calculated as the maximum performance risk score across the analyzed resource specifications. The values range from very low, low, medium, high, and very high. A performance risk of very low means that the EBS volume is predicted to always provide enough capability. The higher the performance risk means that you should validate whether the volume meets the performance requirements of your workload before migrating your resource. Decide whether to optimize for performance improvement, for cost reduction, or for a combination of these two. For more information, see [Requesting modifications to your EBS Volumes](../../../AWSEC2/latest/UserGuide/requesting-ebs-volume-modifications.md "../../../AWSEC2/latest/UserGuide/requesting-ebs-volume-modifications.md") in the _Amazon Elastic Compute Cloud User Guide_. ###### Note If Compute Optimizer doesn’t display a risk value for your current Amazon EBS volume, this means that the volume is predicted to provide enough performance capability and is considered to have a very low performance risk. ## Utilization graphs The **EBS volume details** page displays utilization metric graphs for your current volume. The graphs display data for the analysis period. Compute Optimizer uses the maximum utilization point within each five-minute time interval to generate EBS volume recommendations. You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks. You can also change the statistic of the graphs between average and maximum. The following utilization graphs are displayed on the details page: |
-| Graph name                    | Description                                                                                                                                                                                                                                                                                                     |
-| ---                           | ---                                                                                                                                                                                                                                                                                                             |
-| Read operations (per second)  | The completed read operations per second for the current EBS volume. For Xen instances, data is reported only when there is read activity on the volume.                                                                                                                                                        |
-| Write operations (per second) | The completed write operations per second to the current EBS volume. For Xen instances, data is reported only when there is write activity on the volume.                                                                                                                                                       |
-| Read bandwidth (KiB/second)   | The read kibibytes (KiB) per second from the current EBS volume.                                                                                                                                                                                                                                                |
-| Write bandwidth (KiB/second)  | The written kibibytes (KiB) per second to the current EBS volume.                                                                                                                                                                                                                                               |
-| Burst balance (percent)       | The percentage of I/O credits remaining in the burst bucket for the current EBS volume. This metric is displayed only for General Purpose SSD (`gp2`) volumes in the Compute Optimizer console.                                                                                                                 |
+| Classification | Description                                                                                                                                                                                                                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Not optimized  | An EBS volume is considered not optimized when Compute Optimizer has identified a volume type,<br>volume size, or IOPS specification that can provide better performance or cost for your<br>workload.                                                                                                                   |
+| Optimized      | An EBS volume is considered optimized when Compute Optimizer determines that the volume is<br>correctly provisioned to run your workload, based on the chosen volume type, volume size,<br>and IOPS specification. For optimized resources, Compute Optimizer might sometimes recommend a new<br>generation volume type. |
+
+## Estimated monthly savings and savings
+
+opportunity
+
+**Estimated monthly savings (after discounts)**
+
+This column lists the approximate monthly cost savings that you experience by migrating your EBS volumes
+from the current specifications to the recommended specifications under specific discounts. To receive
+recommendations with specific discounts, the savings estimation mode preference needs to be activated. For
+more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md").
+
+###### Note
+
+If you don't activate the savings estimation mode preference, this column displays the default
+On-Demand pricing discount information.
+
+**Estimated monthly savings (On-Demand)**
+
+This column lists the approximate monthly cost savings that you will experience by migrating your EBS
+volumes from the current specifications to the recommended specifications.
+
+**Savings opportunity (%)**
+
+This column lists the percentage difference between the price of the current EBS volume specification and
+the price of the recommended volume specification. If savings estimation mode is activated, Compute Optimizer
+analyzes specific discounts to generate the savings opportunity percentage. If savings estimation mode isn’t
+activated, Compute Optimizer only uses On-Demand pricing information. For more information,
+see [Savings estimation
+mode](savings-estimation-mode.md "savings-estimation-mode.md").
+
+###### Important
+
+If you enable Cost Optimization Hub in AWS Cost Explorer, Compute Optimizer uses Cost Optimization Hub data, which includes
+your specific pricing discounts, to generate your recommendations. If Cost Optimization Hub isn't enabled, Compute Optimizer
+uses Cost Explorer data and On-Demand pricing information to generate your recommendations. For more
+information, see [Enabling
+Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_.
+
+### Estimated monthly savings
+
+calculation
+
+For each recommendation, we calculate the cost to operate a new EBS volume using the
+recommended volume specifications. Estimated monthly savings are calculated based on the number
+of running hours for the current volume and the difference in rates between the current volume
+specifications and the recommended volume specifications. The estimated monthly savings for EBS
+volumes displayed on the Compute Optimizer dashboard is a sum of the estimated monthly savings for all EBS
+volumes in the account with a finding classification of _Not
+optimized_.
+
+## Performance risk
+
+The performance risk columns on the **EBS volume details** page the **EBS volume
+recommendations** page define the likelihood of the current and recommended EBS volume not meeting your workload requirements.
+Compute Optimizer calculates an individual performance risk score for each
+specification of the EBS volume, including volume type, volume size, baseline
+IOPS, burst IOPS, baseline throughput, and burst throughput. The performance risk of the current and recommended EBS
+volume is calculated as the maximum performance risk score across the analyzed
+resource specifications.
+
+The values range from very low, low, medium, high, and very high. A performance risk of very
+low means that the EBS volume is predicted to always provide enough capability.
+The higher the performance risk means that you should validate whether the
+volume meets the performance requirements of your workload before migrating your
+resource. Decide whether to optimize for performance improvement, for cost reduction, or for a
+combination of these two. For more information, see [Requesting modifications to your
+EBS Volumes](../../../AWSEC2/latest/UserGuide/requesting-ebs-volume-modifications.md "../../../AWSEC2/latest/UserGuide/requesting-ebs-volume-modifications.md") in the _Amazon Elastic Compute Cloud User Guide_.
+
+###### Note
+
+If Compute Optimizer doesn’t display a risk value for your current Amazon EBS volume, this means that the volume is
+predicted to provide enough performance capability and is considered to have a very low performance risk.
+
+## Utilization graphs
+
+The **EBS volume details** page displays utilization metric graphs for your
+current volume. The graphs display data for the analysis period. Compute Optimizer uses the maximum utilization point
+within each five-minute time interval to generate EBS volume recommendations.
+
+You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks. You can
+also change the statistic of the graphs between average and maximum.
+
+The following utilization graphs are displayed on the details page:
+
+| Graph name                    | Description                                                                                                                                                                                              |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Read operations (per second)  | The completed read operations per second for the current EBS volume.<br>For Xen instances, data is reported only when there is read activity on the<br>volume.                                           |
+| Write operations (per second) | The completed write operations per second to the current EBS volume.<br>For Xen instances, data is reported only when there is write activity on the<br>volume.                                          |
+| Read bandwidth (KiB/second)   | The read kibibytes (KiB) per second from the current EBS volume.                                                                                                                                         |
+| Write bandwidth (KiB/second)  | The written kibibytes (KiB) per second to the current EBS volume.                                                                                                                                        |
+| Burst balance (percent)       | The percentage of I/O credits remaining in the burst bucket for the current EBS<br>volume.<br>This metric is displayed only for General Purpose SSD (`gp2`) volumes in the<br>Compute Optimizer console. |

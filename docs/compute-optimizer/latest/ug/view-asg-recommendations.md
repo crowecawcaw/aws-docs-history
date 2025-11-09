@@ -100,13 +100,189 @@ during the lookback period.
 
 The following findings classifications apply to EC2 Auto Scaling groups.
 
-| Classification                    | Description                                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Not optimized                     | EC2 Auto Scaling groups that maintain a fixed pool of instances are considered not optimized when the group is either oversized or running workloads that might cause performance issues. EC2 Auto Scaling groups that scale dynamically or follow a fixed schedule of scaling events are considered not optimized when there are other instance types that can meet the demand at a lower cost. |
-| Optimized                         | An EC2 Auto Scaling group is considered optimized when all specifications of your group, such as CPU, memory, and network, meet the performance requirements of your workload. For optimized groups, Compute Optimizer might recommend a new generation instance type.                                                                                                                           | ## Allocation strategy The allocation strategy columns on the EC2 Auto Scaling groups recommendations and details pages displays the current and recommended allocation strategy for the EC2 Auto Scaling group. The allocation strategy sets the order in which the EC2 Auto Scaling group deploys its mixed instance types. Compute Optimizer can find an allocation strategy to be one of the following: <br>• **Prioritized** — The EC2 Auto Scaling group prioritizes the instance types based on the order you have listed in your instance type requirements. <br>• **Lowest-price** — The EC2 Auto Scaling group automatically deploys the lowest priced instance types in each Availability Zone based on the current On-Demand price. <br>• **No allocation strategy** — You have not set an allocation strategy for your EC2 Auto Scaling group. <br>• **Not applicable** — An allocation strategy isn’t applicable to an EC2 Auto Scaling group with a single instance type. Compute Optimizer recommends using a **Prioritized** allocation strategy and prioritize our recommended instance types above your current instance types within your instance type requirements. Prioritizing Compute Optimizer’s recommendation enables your EC2 Auto Scaling group to deploy instance types that optimize both cost and performance. We also recommended that you keep your current instance types within your instance type requirements to make sure there is sufficient capacity to support your workloads. You can update your EC2 Auto Scaling groups with our recommended instance types by using an instance refresh. For more information, see [Use an instance refresh to update instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md") in the _Amazon EC2 Auto Scaling_ user guide. For more information about allocation strategies, see [Allocation strategies for multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy "../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy") in the _Amazon EC2 Auto Scaling_ user guide. ## Estimated monthly savings and savings opportunity **Estimated monthly savings (after discounts)** This column lists the estimated monthly savings for the EC2 Auto Scaling group if you had used the recommended instance type(s) during the lookback period. After discount savings consider any Reserved Instances or Savings Plans pricing models that are active in your accounts. To receive recommendations with Savings Plans and Reserved Instances discounts, the savings estimation mode preference needs to be activated. For more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md"). ###### Note If you don't activate the savings estimation mode preference, this column displays the default On-Demand pricing information. **Estimated monthly savings (On-Demand)** This column lists the approximate monthly cost savings for the EC2 Auto Scaling group if you had used Compute Optimizer’s recommendation during the lookback period, and purchased under the On-Demand instance pricing. **Savings opportunity (%)** This column lists the estimated monthly savings percentage of the current monthly cost that you can save by adopting the recommended instance type(s) for your EC2 Auto Scaling group. If savings estimation mode is activated, Compute Optimizer analyzes any Reserved Instances or Savings Plans pricing models that are active in your accounts to generate the savings opportunity percentage. If savings estimation mode isn’t activated, Compute Optimizer only uses On-Demand pricing information. For more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md"). ### Estimated monthly savings calculation For each recommendation, we calculate the cost to operate a new instance using the recommended instance type. Estimated monthly savings are calculated based on the number of running hours for current instances in the EC2 Auto Scaling group and the difference in rates between the current instance type and the recommended instance type. The estimated monthly savings for EC2 Auto Scaling groups displayed on the Compute Optimizer dashboard is a sum of the estimated monthly savings for all over-provisioned instances in EC2 Auto Scaling groups, in the account. ## Idle The **Idle** column on the **EC2 Auto Scaling groups recommendations** page displays whether your EC2 Auto Scaling group is idle or not. **Idle criteria for EC2 Auto Scaling groups** — The group has no instances with more than 5% peak CPU utilization or 5 MB/day network utilization over the 14-day lookback period. **Idle criteria for EC2 Auto Scaling groups that use G or P instance types** — If the group's instances meet the following criteria over the 14-day lookback period: <br>• GPU isn’t actively working for more than 99% of the lookback period <br>• GPU encoder isn't used for 99% or more of the instance's runtime <br>• GPU memory usage at instance level is less than 5% <br>• CPU maximum utilization is less than 5% <br>• Network utilization is less than 5 MB/day ## AWS Graviton-based instance recommendations When viewing EC2 Auto Scaling group recommendations, you can view the price and performance impact of running your workload on AWS Graviton-based instances. To do so, choose **Graviton (aws-arm64)** in the **CPU architecture preference** dropdown. Otherwise, choose **Current** to view recommendations that are based on the same CPU vendor and architecture as the current instance. ###### Note The **Current price**, **Recommended price**, **Price difference**, **Price difference (%)**, and **Estimated monthly savings** columns are updated to provide a price comparison between the current instance type and the instance type of the selected CPU architecture preference. For example, if you choose **Graviton (aws-arm64)**, prices are compared between the current instance type and the recommended Graviton-based instance type. ## Inferred workload types The **Inferred workload types** column on the **EC2 Auto Scaling groups recommendations** page lists the applications that might be running on instances in the EC2 Auto Scaling group as inferred by Compute Optimizer. It does this by analyzing the attributes of instances in the EC2 Auto Scaling group, such as the instance name, tags, and configuration. Compute Optimizer can currently infer if your instances are running Amazon EMR, Apache Cassandra, Apache Hadoop, Memcached, NGINX, PostgreSQL, Redis, Kafka, or SQLServer. By inferring the applications running on your instances, Compute Optimizer is able to identify the effort to migrate your workloads from x86-based instance types to Arm-based AWS Graviton instances types. For more information, see [Migration effort](#asg-migration-effort "#asg-migration-effort"). ###### Note You can't infer the SQLServer application in the Middle East (Bahrain), Africa (Cape Town), Asia Pacific (Hong Kong), Europe (Milan), and Asia Pacific (Jakarta) Regions. ## Migration effort The **Migration effort** column on the **EC2 Auto Scaling groups recommendations** and **EC2 Auto Scaling groups details** pages lists the level of effort that might be required to migrate from the current instance type to the recommended instance type. The following shows examples of the different levels of migration effort. <br>• **Very low** — The recommended instance type has the same CPU architecture as the current instance type. <br>• **Low** — Amazon EMR is the inferred workload type and an AWS Graviton instance type is recommended <br>• **Medium** — A workload type can't be inferred but an AWS Graviton instance type is recommended. <br>• **High** — The recommended instance type has different CPU architecture from the current instance type, and the workload has no known compatible version on the recommended CPU architecture. For more information about migrating from x86-based instance types to Arm-based AWS Graviton instances type, see [Considerations when transitioning workloads to AWS Graviton2 based Amazon EC2 instances](https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md "https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md") in the _AWS Graviton Getting Started GitHub_. ## Performance risk The performance risk columns on the **EC2 Auto Scaling groups details** page and the **EC2 Auto Scaling groups recommendations** page define the likelihood of the current and recommended instance type(s) running in your EC2 Auto Scaling group not meeting your workload requirements. Compute Optimizer calculates an individual performance risk score for each specification of the EC2 Auto Scaling group, including CPU, memory, EBS throughput, EBS IOPS, disk throughput, disk IOPS, network throughput, and network PPS. The performance risk of the current and recommended EC2 Auto Scaling group is calculated as the maximum performance risk score across the analyzed resource specifications. The values range from very low, low, medium, high, and very high. A very low performance risk means that the instance type(s) is predicted to always provide enough capability. A higher the performance risk means that you should validate whether the instance type(s) running in your EC2 Auto Scaling group will meet the performance requirements of your workload before migrating your resource. Decide whether to optimize for performance improvement, for cost reduction, or for a combination of these two. For more information, see [Changing the Instance Type](../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md "../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md") in the _Amazon Elastic Compute Cloud User Guide_. ###### Note In the Compute Optimizer API, the AWS Command Line Interface (AWS CLI), and AWS SDKs, performance risk is measured on a scale of `0` (very low) to `4` (very high). ## Utilization graphs The **EC2 Auto Scaling group details** page displays utilization metric graphs for current instances in the group. The graphs display data for the analysis period. Compute Optimizer uses the maximum utilization point within each five-minute time interval to generate EC2 Auto Scaling group recommendations. You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks. If you activate the [enhanced infrastructure metrics paid feature](enhanced-infrastructure-metrics.md "enhanced-infrastructure-metrics.md"), you can view data from the last three months. The following utilization graphs are displayed on the details page: |
-| Graph name                        | Description                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---                               | ---                                                                                                                                                                                                                                                                                                                                                                                              |
-| Average CPU utilization (percent) | The average percentage of allocated EC2 compute units used by instances in the EC2 Auto Scaling group.                                                                                                                                                                                                                                                                                           |
-| Average network in (MiB/second)   | The number of mebibytes (MiB) per second received on all network interfaces by instances in the EC2 Auto Scaling group.                                                                                                                                                                                                                                                                          |
-| Average network out (MiB/second)  | The number of mebibytes (MiB) per second sent out on all network interfaces by instances in the EC2 Auto Scaling group.                                                                                                                                                                                                                                                                          |
-| Instance capacity                 | This is the number of running instances with an EC2 Auto Scaling group at any given time.                                                                                                                                                                                                                                                                                                        |
+| Classification | Description                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Not optimized  | EC2 Auto Scaling groups that maintain a fixed pool of instances are considered not optimized when the group is either oversized<br>or running workloads that might cause performance issues.<br>EC2 Auto Scaling groups that scale dynamically or follow a fixed schedule of scaling events are considered not optimized when there are other instance types that can meet the demand<br>at a lower cost. |
+| Optimized      | An EC2 Auto Scaling group is considered optimized when all specifications of your group, such as CPU, memory, and network, meet the<br>performance requirements of your workload. For optimized groups, Compute Optimizer might recommend a new generation instance type.                                                                                                                                 |
+
+## Allocation strategy
+
+The allocation strategy columns on the EC2 Auto Scaling groups recommendations and details pages
+displays the current and recommended allocation strategy for the EC2 Auto Scaling group. The allocation
+strategy sets the order in which the EC2 Auto Scaling group deploys its mixed instance types.
+Compute Optimizer can find an allocation strategy to be one of the following:
+
+- **Prioritized** — The EC2 Auto Scaling group prioritizes the instance types
+  based on the order you have listed in your instance type requirements.
+- **Lowest-price** — The EC2 Auto Scaling group automatically deploys the lowest
+  priced instance types in each Availability Zone based on the current On-Demand price.
+- **No allocation strategy** — You have not set an allocation strategy for your EC2 Auto Scaling group.
+- **Not applicable** — An allocation strategy isn’t applicable to an EC2 Auto Scaling
+  group with a single instance type.
+
+Compute Optimizer recommends using a **Prioritized** allocation strategy and prioritize our recommended
+instance types above your current instance types within your instance type requirements. Prioritizing Compute Optimizer’s recommendation
+enables your EC2 Auto Scaling group to deploy instance types that optimize both cost and performance. We also recommended that you keep
+your current instance types within your instance type requirements to make sure there is sufficient capacity to
+support your workloads.
+
+You can update your EC2 Auto Scaling groups with our recommended instance types by using an instance refresh. For more information, see
+[Use an instance refresh to update
+instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-instance-refresh.md "../../../autoscaling/ec2/userguide/asg-instance-refresh.md") in the _Amazon EC2 Auto Scaling_ user guide.
+
+For more information about allocation strategies, see [Allocation strategies
+for multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy "../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy") in the _Amazon EC2 Auto Scaling_ user guide.
+
+## Estimated monthly savings and savings
+
+opportunity
+
+**Estimated monthly savings (after discounts)**
+
+This column lists the estimated monthly savings for the EC2 Auto Scaling group if you had used the recommended
+instance type(s) during the lookback period. After discount savings consider any Reserved Instances or Savings Plans
+pricing models that are active in your accounts.
+To receive recommendations with Savings Plans and Reserved Instances discounts, the savings estimation mode preference
+needs to be activated. For more information, see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md").
+
+###### Note
+
+If you don't activate the savings estimation mode preference, this column displays the default
+On-Demand pricing information.
+
+**Estimated monthly savings (On-Demand)**
+
+This column lists the approximate monthly cost savings for the EC2 Auto Scaling group if you had used Compute Optimizer’s
+recommendation during the lookback period, and purchased under the On-Demand instance pricing.
+
+**Savings opportunity (%)**
+
+This column lists the estimated monthly savings percentage of the current monthly cost that you can save by adopting
+the recommended instance type(s) for your EC2 Auto Scaling group. If savings estimation mode is activated, Compute Optimizer analyzes any
+Reserved Instances or Savings Plans pricing models that are active in your accounts to generate the savings opportunity percentage. If savings
+estimation mode isn’t activated, Compute Optimizer only uses On-Demand pricing information. For more information,
+see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md").
+
+### Estimated monthly savings
+
+calculation
+
+For each recommendation, we calculate the cost to operate a new instance using the
+recommended instance type. Estimated monthly savings are calculated based on the number of
+running hours for current instances in the EC2 Auto Scaling group and the difference in rates between the
+current instance type and the recommended instance type. The estimated monthly savings for EC2 Auto Scaling
+groups displayed on the Compute Optimizer dashboard is a sum of the estimated monthly savings for all
+over-provisioned instances in EC2 Auto Scaling groups, in the account.
+
+## Idle
+
+The **Idle** column on the **EC2 Auto Scaling groups
+recommendations** page displays whether your EC2 Auto Scaling group is idle or not.
+
+**Idle criteria for EC2 Auto Scaling groups** — The group has no
+instances with more than 5% peak CPU utilization or 5 MB/day network utilization
+over the 14-day lookback period.
+
+**Idle criteria for EC2 Auto Scaling groups that use G or P instance types** —
+If the group's instances meet the following criteria over the 14-day lookback period:
+
+- GPU isn’t actively working for more than 99% of the lookback period
+- GPU encoder isn't used for 99% or more of the instance's runtime
+- GPU memory usage at instance level is less than 5%
+- CPU maximum utilization is less than 5%
+- Network utilization is less than 5 MB/day
+
+## AWS Graviton-based instance
+
+recommendations
+
+When viewing EC2 Auto Scaling group recommendations, you can view the price and performance impact of
+running your workload on AWS Graviton-based instances. To do so, choose **Graviton
+(aws-arm64)** in the **CPU architecture preference** dropdown.
+Otherwise, choose **Current** to view recommendations that are based on the same
+CPU vendor and architecture as the current instance.
+
+###### Note
+
+The **Current price**, **Recommended price**,
+**Price difference**, **Price difference (%)**, and
+**Estimated monthly savings** columns are updated to provide a price
+comparison between the current instance type and the instance type of the selected CPU
+architecture preference. For example, if you choose **Graviton (aws-arm64)**,
+prices are compared between the current instance type and the recommended Graviton-based
+instance type.
+
+## Inferred workload types
+
+The **Inferred workload types** column on the **EC2 Auto Scaling groups
+recommendations** page lists the applications that might be running on instances in the
+EC2 Auto Scaling group as inferred by Compute Optimizer. It does this by analyzing the attributes of instances in the EC2 Auto Scaling
+group, such as the instance name, tags, and configuration. Compute Optimizer can currently infer if your
+instances are running Amazon EMR, Apache Cassandra, Apache Hadoop, Memcached, NGINX, PostgreSQL, Redis,
+Kafka, or SQLServer. By inferring the applications running on your instances, Compute Optimizer is able to identify the
+effort to migrate your workloads from x86-based instance types to Arm-based AWS Graviton
+instances types. For more information, see [Migration effort](#asg-migration-effort "#asg-migration-effort").
+
+###### Note
+
+You can't infer the SQLServer application in the Middle East (Bahrain), Africa (Cape Town), Asia Pacific (Hong Kong), Europe (Milan), and
+Asia Pacific (Jakarta) Regions.
+
+## Migration effort
+
+The **Migration effort** column on the **EC2 Auto Scaling groups
+recommendations** and **EC2 Auto Scaling groups details** pages lists the level of
+effort that might be required to migrate from the current instance type to the recommended
+instance type. The following shows examples of the different levels of migration effort.
+
+- **Very low** — The recommended instance type has the same CPU architecture as the
+  current instance type.
+- **Low** — Amazon EMR is the inferred workload type and an AWS Graviton instance
+  type is recommended
+- **Medium** — A workload
+  type can't be inferred but an AWS Graviton instance type is recommended.
+- **High** — The recommended instance type has different CPU architecture from the
+  current instance type, and the workload has no known compatible version on the recommended CPU architecture.
+
+For more information about
+migrating from x86-based instance types to Arm-based AWS Graviton instances type, see [Considerations when transitioning workloads to AWS Graviton2 based Amazon EC2 instances](https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md "https://github.com/aws/aws-graviton-getting-started/blob/main/transition-guide.md")
+in the _AWS Graviton Getting Started GitHub_.
+
+## Performance risk
+
+The performance risk columns on the **EC2 Auto Scaling groups details** page and the **EC2 Auto Scaling groups
+recommendations** page define the likelihood of the current and recommended instance type(s) running in your EC2 Auto Scaling
+group not meeting your workload requirements. Compute Optimizer calculates an individual performance risk score for each specification
+of the EC2 Auto Scaling group, including CPU, memory, EBS throughput, EBS IOPS, disk throughput, disk IOPS, network throughput, and
+network PPS. The performance risk of the current and recommended EC2 Auto Scaling group is calculated as the maximum performance risk
+score across the analyzed resource specifications.
+
+The values range from very low, low, medium, high, and very high. A very low performance risk means that the instance type(s) is
+predicted to always provide enough capability. A higher the performance risk means that you should validate whether the instance
+type(s) running in your EC2 Auto Scaling group will meet the performance requirements of your workload before migrating your resource.
+Decide whether to optimize for performance improvement, for cost reduction, or for a combination of these two. For more information, see [Changing the Instance Type](../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md "../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md") in the
+_Amazon Elastic Compute Cloud User Guide_.
+
+###### Note
+
+In the Compute Optimizer API, the AWS Command Line Interface (AWS CLI), and AWS SDKs, performance risk is measured on a
+scale of `0` (very low) to `4` (very high).
+
+## Utilization graphs
+
+The **EC2 Auto Scaling group details** page displays utilization metric graphs for
+current instances in the group. The graphs display data for the analysis period. Compute Optimizer uses the maximum utilization point
+within each five-minute time interval to generate EC2 Auto Scaling group recommendations.
+
+You can change the graphs to display data for the last 24 hours, three days, one week, or two
+weeks. If you activate the [enhanced
+infrastructure metrics paid feature](enhanced-infrastructure-metrics.md "enhanced-infrastructure-metrics.md"), you can view data from the last three months.
+
+The following utilization graphs are displayed on the details page:
+
+| Graph name                        | Description                                                                                                                |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Average CPU utilization (percent) | The average percentage of allocated EC2 compute units used by instances in the EC2 Auto Scaling<br>group.                  |
+| Average network in (MiB/second)   | The number of mebibytes (MiB) per second received on all network interfaces by<br>instances in the EC2 Auto Scaling group. |
+| Average network out (MiB/second)  | The number of mebibytes (MiB) per second sent out on all network interfaces by<br>instances in the EC2 Auto Scaling group. |
+| Instance capacity                 | This is the number of running instances with an EC2 Auto Scaling group at any given time.                                  |
