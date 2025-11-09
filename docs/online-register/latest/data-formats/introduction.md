@@ -1,6 +1,16 @@
 # Online Register of Data Formats
 
-The Online Register of Data Formats provides an index of all AWS APIs that can retrieve data from AWS services. For each service, a list of APIs is provided, each with a brief description and a data access level. Each API name is linked to its corresponding API reference documentation for detailed information about the data format (structures, data types, and so on).
+Use the Online Register of Data Formats to find AWS APIs that retrieve data from services. The register lists each API with its description, data access level, and a link to reference documentation. The reference documentation provides detailed information about the data format, including structures and data types.
+
+You can also search the AWS documentation website for a product's API reference.
+
+###### To find API documentation:
+
+1. Open the AWS documentation website at [https://docs.aws.amazon.com/](../../../index.md "../../../index.md").
+2. Enter the product name in the search box.
+3. Choose the product's documentation link from the search results.
+4. Choose API Reference from the product's documentation page.
+   To browse this Online Register by service, see the following topics.
 
 ###### Topics
 
