@@ -367,10 +367,16 @@ You cannot change the suffix field except _<file extension>_. When you enable da
 Firehose will append a file extension based on the configuration. The following table explains the default file extension appended by Firehose:
 
 | Configuration                   | File extension |
-| ------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | -------------- |
 | Data Format Conversion: Parquet | .parquet       |
 | Data Format Conversion: ORC     | .orc           |
 | Compression: Gzip               | .gz            |
 | Compression: Zip                | .zip           |
 | Compression: Snappy             | .snappy        |
-| Compression: Hadoop-Snappy      | .hsnappy       | You can also specify a file extension that you prefer in the Firehose console or API. File extension must start with a period (.) and can contain allowed characters: 0-9a-z!-\_.\*‘(). File extension cannot exceed 128 characters. ###### Note When you specify a file extension, it will override the default file extension that Firehose adds when [data format conversion](record-format-conversion.md "record-format-conversion.md") or compression is enabled. |
+| Compression: Hadoop-Snappy      | .hsnappy       |
+
+You can also specify a file extension that you prefer in the Firehose console or API. File extension must start with a period (.) and can contain allowed characters: 0-9a-z!-\_.\*‘(). File extension cannot exceed 128 characters.
+
+###### Note
+
+When you specify a file extension, it will override the default file extension that Firehose adds when [data format conversion](record-format-conversion.md "record-format-conversion.md") or compression is enabled.

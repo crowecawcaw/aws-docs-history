@@ -183,9 +183,33 @@ Firehose sends all delivery errors to CloudWatch Logs, and Amazon S3 error bucke
 
 List of errors:
 
-| **Error Message**          | \***\*Description\*\***                                                                                                            |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Iceberg.NoSuchTable`      | Firehose is writing to a table that doesn't exist, or the table is not in V2 format. Firehose doesn't support tables in V1 format. |
-| `Iceberg.InvalidTableName` | A null or empty table name is passed, or the table is not in V2 format. Firehosedoesn't support tables in V1 format.               |
-| `S3.AccessDenied`          | Ensure that the IAM role created in the prerequisites step has the required permissions, and trust policy.                         |
-| `Glue.AccessDenied`        | Ensure that the IAM role created in the prerequisites step has the required permissions, and trust policy.                         | ## Configure buffer hints Firehose buffers incoming streaming data in memory to a certain size (**Buffering size**) and for a certain period of time (**Buffering interval**) before delivering it to Apache Iceberg Tables. You can choose a buffer size of 1–128 MiBs and a buffer interval of 0–900 seconds. Higher buffer hints results in a lower number of S3 writes, less cost of compaction due to larger data files, and faster query runtime, but with a higher latency. Lower buffer hint values deliver the data with lower latency. ## Configure advanced settings You can configure server-side encryption, error logging, permissions, and tags for your Apache Iceberg Tables. For more information, see [Configure advanced settings](create-configure-advanced.md "create-configure-advanced.md"). You must add the IAM role that you created as part of the [Prerequisites to use Apache Iceberg Tables as a destination](apache-iceberg-prereq.md "apache-iceberg-prereq.md"). Firehose will assume the role to access AWS Glue tables and write to Amazon S3 buckets. Firehose stream creation can take several minutes to complete. After you successfully create the Firehose stream, you can start ingesting data into it and can view the data in Apache Iceberg tables. |
+| **Error Message**          | \***\*Description\*\***                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `Iceberg.NoSuchTable`      | Firehose is writing to a table that doesn't exist, or the table<br>is not in V2 format. Firehose doesn't support tables in V1 format. |
+| `Iceberg.InvalidTableName` | A null or empty table name is passed, or the table is not in<br>V2 format. Firehosedoesn't support tables in V1 format.               |
+| `S3.AccessDenied`          | Ensure that the IAM role created in the prerequisites step has<br>the required permissions, and trust policy.                         |
+| `Glue.AccessDenied`        | Ensure that the IAM role created in the prerequisites step has<br>the required permissions, and trust policy.                         |
+
+## Configure buffer hints
+
+Firehose buffers incoming streaming data in memory to a certain size
+(**Buffering size**) and for a certain period of time
+(**Buffering interval**) before delivering it to Apache Iceberg
+Tables. You can choose a buffer size of 1–128 MiBs and a buffer interval of 0–900
+seconds. Higher buffer hints results in a lower number of S3 writes, less cost of
+compaction due to larger data files, and faster query runtime, but with a higher
+latency. Lower buffer hint values deliver the data with lower latency.
+
+## Configure advanced
+
+settings
+
+You can configure server-side encryption, error logging, permissions, and tags for
+your Apache Iceberg Tables. For more information, see [Configure advanced settings](create-configure-advanced.md "create-configure-advanced.md").
+You must add the IAM role that you created as part of the [Prerequisites to use Apache Iceberg Tables as a
+destination](apache-iceberg-prereq.md "apache-iceberg-prereq.md"). Firehose will assume the role to access AWS Glue
+tables and write to Amazon S3 buckets.
+
+Firehose stream creation can take several minutes to complete. After you successfully
+create the Firehose stream, you can start ingesting data into it and can view the data in
+Apache Iceberg tables.

@@ -26,9 +26,9 @@ by default. For more information, see [Amazon CloudWatch Pricing](https://aws.am
 
 Kinesis Agent sends the following metrics to CloudWatch.
 
-| Metric               | Description                                                                                                                                           |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BytesSent`          | The number of bytes sent to the Firehose stream over the specified time period. Units: Bytes                                                          |
-| `RecordSendAttempts` | The number of records attempted (either first time, or as a retry) in a call to `PutRecordBatch` over the specified time period. Units: Count         |
-| `RecordSendErrors`   | The number of records that returned failure status in a call to `PutRecordBatch`, including retries, over the specified time period. Units: Count     |
-| `ServiceErrors`      | The number of calls to `PutRecordBatch` that resulted in a service error (other than a throttling error) over the specified time period. Units: Count |
+| Metric               | Description                                                                                                                                                    |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BytesSent`          | The number of bytes sent to the Firehose stream over<br>the specified time period.<br>Units: Bytes                                                             |
+| `RecordSendAttempts` | The number of records attempted (either first time, or as<br>a retry) in a call to `PutRecordBatch` over the<br>specified time period.<br>Units: Count         |
+| `RecordSendErrors`   | The number of records that returned failure status in a<br>call to `PutRecordBatch`, including retries, over<br>the specified time period.<br>Units: Count     |
+| `ServiceErrors`      | The number of calls to `PutRecordBatch` that<br>resulted in a service error (other than a throttling error)<br>over the specified time period.<br>Units: Count |

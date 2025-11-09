@@ -112,4 +112,4 @@ For destination specific buffering hint ranges and default values, see the follo
 | newRelic                   | 1-64 (5)                                      | 0-900 (60)                                             |
 | sumoLogic                  | 1-64 (1)                                      | 0-900 (60)                                             |
 | Splunk Observability Cloud | 1-64 (1)                                      | 0-900 (60)                                             |
-| Snowflake                  | 1 - 128 (1)                                   | 0 - 900 (0)                                            |
+| Snowflake                  | 1<br>• 128 (1)                                | 0<br>• 900 (0)                                         |
