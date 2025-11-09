@@ -65,6 +65,10 @@ Contributors to this reference architecture diagram include:
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description                                     | Date           |
-| ------------------- | ----------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------------------------------- | -------------- |
 | Diagram update      | Diagram reviewed and updated for freshness      | July 24, 2023  |
-| Initial publication | Reference architecture diagram first published. | April 12, 2021 | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| Initial publication | Reference architecture diagram first published. | April 12, 2021 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
