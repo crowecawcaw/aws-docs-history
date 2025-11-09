@@ -25,7 +25,7 @@ where :
 4. You are prompted as described in the table below.
 
 | Prompt                                                                             | Action                                                                                                                                     |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Enter this server’s Hostname`                                                     | Accept the suggestion, which is the value that you entered when you installed the OVA.                                                     |
 | `Is eth0 a management interface?`                                                  | Type `Yes`.                                                                                                                                |
 | `Does eth0 use DHCP to get its IP address?`                                        | Accept the suggestion.                                                                                                                     |
@@ -36,4 +36,24 @@ where :
 | `Would you like to configure eth1?`                                                | Type `No`; you can configure eth1 in the next phase of the configuration.                                                                  |
 | `The firewall for this system is currently disabled. Would you like to enable it?` | Skip; you set up the firewall in the next phase of configuration.                                                                          |
 | `Select time zone ('n' for more)`                                                  | Enter the time zone you want to show on the web interface of the nodes. This setting does not affect activity via SSH or via the REST API. |
-| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                                                                                | The software is installed. This message confirms that installation and configuration are complete. `Installation and configuration complete! Please open a web browser and point it to https://xxx.xxx.xxx.xxx to get to the web interface. Enjoy!` 5. Take a snapshot of the KVM, as described in the CentOS 7 Virtual Manager online help. 6. Start a web browser and start the AWS Elemental Conductor File web interface by typing the following: `https://<hostname>` Make sure the web interface displays. |
+| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                                                                                |
+
+The software is installed. This message confirms that installation and
+configuration are complete.
+
+```
+Installation and configuration complete!
+Please open a web browser and point it to https://xxx.xxx.xxx.xxx to get to the web interface.
+Enjoy!
+```
+
+5. Take a snapshot of the KVM, as described in the CentOS 7 Virtual Manager
+   online help.
+6. Start a web browser and start the AWS Elemental Conductor File web interface by typing
+   the following:
+
+```
+https://<hostname>
+```
+
+Make sure the web interface displays.
