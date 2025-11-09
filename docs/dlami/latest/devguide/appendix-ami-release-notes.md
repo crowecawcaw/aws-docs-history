@@ -107,7 +107,6 @@ GPU
 
 - [GPU TensorFlow 2.18 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-tensorflow-2.md "aws-deep-learning-x86-gpu-tensorflow-2.md")
 - [GPU TensorFlow 2.18 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.md "aws-deep-learning-x86-gpu-tensorflow-2.md")
-- [GPU TensorFlow 2.17 (Ubuntu 22.04)](aws-deep-learning-x86-gpu-tensorflow-2.md "aws-deep-learning-x86-gpu-tensorflow-2.md")
 
 **AWS Neuron**
 

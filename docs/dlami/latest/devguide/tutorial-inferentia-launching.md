@@ -29,12 +29,60 @@ neuron-ls
 If your instance has Inferentia devices attached to it, your
 output will look similar to the following:
 
-````
+```
 +--------+--------+--------+-----------+--------------+
 | NEURON | NEURON | NEURON | CONNECTED |     PCI      |
-| DEVICE | CORES  | MEMORY |  DEVICES  |     BDF      | +--------+--------+--------+-----------+--------------+
+| DEVICE | CORES  | MEMORY |  DEVICES  |     BDF      |
++--------+--------+--------+-----------+--------------+
 | 0      | 4      | 8 GB   | 1         | 0000:00:1c.0 |
 | 1      | 4      | 8 GB   | 2, 0      | 0000:00:1d.0 |
 | 2      | 4      | 8 GB   | 3, 1      | 0000:00:1e.0 |
-| 3      | 4      | 8 GB   | 2         | 0000:00:1f.0 | +--------+--------+--------+-----------+--------------+ ``` The supplied output is taken from an Inf1.6xlarge instance and includes the following columns: <br>• NEURON DEVICE: The logical ID assigned to the NeuronDevice. This ID is used when configuring multiple runtimes to use different NeuronDevices. <br>• NEURON CORES: The number of NeuronCores present in the NeuronDevice. <br>• NEURON MEMORY: The amount of DRAM memory in the NeuronDevice. <br>• CONNECTED DEVICES: Other NeuronDevices connected to the NeuronDevice. <br>• PCI BDF: The PCI Bus Device Function (BDF) ID of the NeuronDevice. ## View Resource Usage View useful information about NeuronCore and vCPU utilization, memory usage, loaded models, and Neuron applications with the `neuron-top` command. Launching `neuron-top` with no arguments will show data for all machine learning applications that utilize NeuronCores. ``` neuron-top ``` When an application is using four NeuronCores, the output should look similar to the following image: ![The output of the neuron-top command, with information for one of four NeuronCores highlighted.](images/neuron-top-output.png) For more information on resources to monitor and optimize Neuron-based inference applications, see [Neuron Tools](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/index.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/index.html"). ## Using Neuron Monitor (neuron-monitor) Neuron Monitor collects metrics from the Neuron runtimes running on the system and streams the collected data to stdout in JSON format. These metrics are organized into metric groups that you configure by providing a configuration file. For more information on Neuron Monitor, see the [User Guide for Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/neuron-monitor-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/neuron-monitor-user-guide.html"). ## Upgrading Neuron Software For information on how to update Neuron SDK software within DLAMI, see the AWS Neuron [Setup Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/neuron-install-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/neuron-install-guide.html"). ###### Next Step [Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md "tutorial-inferentia-using.md")
-````
+| 3      | 4      | 8 GB   | 2         | 0000:00:1f.0 |
++--------+--------+--------+-----------+--------------+
+```
+
+The supplied output is taken from an Inf1.6xlarge instance and includes the following
+columns:
+
+- NEURON DEVICE: The logical ID assigned to the NeuronDevice. This ID is
+  used when configuring multiple runtimes to use different NeuronDevices.
+- NEURON CORES: The number of NeuronCores present in the
+  NeuronDevice.
+- NEURON MEMORY: The amount of DRAM memory in the NeuronDevice.
+- CONNECTED DEVICES: Other NeuronDevices connected to the
+  NeuronDevice.
+- PCI BDF: The PCI Bus Device Function (BDF) ID of the NeuronDevice.
+
+## View Resource Usage
+
+View useful information about NeuronCore and vCPU utilization, memory usage,
+loaded models, and Neuron applications with the `neuron-top` command. Launching
+`neuron-top` with no arguments will show data for all machine learning applications
+that utilize NeuronCores.
+
+```
+neuron-top
+```
+
+When an application is using four NeuronCores, the output should look similar to the following image:
+
+![The output of the neuron-top command, with information for one of four NeuronCores highlighted.](images/neuron-top-output.png)
+
+For more information on resources to monitor and optimize Neuron-based inference
+applications, see [Neuron Tools](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/index.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/index.html").
+
+## Using Neuron Monitor (neuron-monitor)
+
+Neuron Monitor collects metrics from the Neuron runtimes running on the system and
+streams the collected data to stdout in JSON format. These metrics are organized into
+metric groups that you configure by providing a configuration file. For more information
+on Neuron Monitor, see the [User Guide for Neuron Monitor](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/neuron-monitor-user-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/neuron-monitor-user-guide.html").
+
+## Upgrading Neuron Software
+
+For information on how to update Neuron SDK software within DLAMI, see the AWS Neuron
+[Setup Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/neuron-install-guide.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-intro/neuron-install-guide.html").
+
+###### Next Step
+
+[Using the DLAMI with AWS Neuron](tutorial-inferentia-using.md "tutorial-inferentia-using.md")
