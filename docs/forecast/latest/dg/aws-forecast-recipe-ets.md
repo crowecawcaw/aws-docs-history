@@ -28,7 +28,7 @@ Amazon Forecast converts the `DataFrequency` parameter specified in the [CreateD
 function using the following table:
 
 | DataFrequency (string) | R ts frequency (integer) |
-| ---------------------- | ------------------------ | ------------------------------------------------------------------------------------- |
+| ---------------------- | ------------------------ |
 | Y                      | 1                        |
 | M                      | 12                       |
 | W                      | 52                       |
@@ -38,4 +38,7 @@ function using the following table:
 | 15min                  | 4                        |
 | 10min                  | 6                        |
 | 5min                   | 12                       |
-| 1min                   | 60                       | Supported data frequencies that aren't in the table default to a `ts` frequency of 1. |
+| 1min                   | 60                       |
+
+Supported data frequencies that aren't in the table default to a `ts` frequency
+of 1.

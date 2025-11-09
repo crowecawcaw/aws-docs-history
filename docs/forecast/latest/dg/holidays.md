@@ -306,4 +306,49 @@ Supported Countries
 | Western Sahara | EH |
 | Yemen | YE |
 | Zambia | ZM |
-| Zimbabwe | ZW | ## Additional Holiday Calendars Amazon Forecast also supports holidays for India, Korea, and United Arab Emirates. Their holidays are listed below. India - "IN" January 26 - Republic Day August 15 - Independence Day October 2 - Gandhi Jayanti Korea - "KR" January 1 - New Year March 1 - Independence Movement Day May 5 - Children's Day June 6 - Memorial Day August 15 - Liberation Day October 3 - National Foundation Day October 9 - Hangul Day December 25 - Christmas Day United Arab Emirates - "AE" January 1 - New Year December 1 - Commemoration Day December 2-3 - National Day Ramadan\* Eid al-Fitr\* Eid al-Adha\* Islamic New Year\* \*Islamic Holidays are determined by lunar cycles.
+| Zimbabwe | ZW |
+
+## Additional Holiday Calendars
+
+Amazon Forecast also supports holidays for India, Korea, and United Arab Emirates. Their holidays are listed below.
+
+India - "IN"
+January 26 - Republic Day
+
+August 15 - Independence Day
+
+October 2 - Gandhi Jayanti
+
+Korea - "KR"
+January 1 - New Year
+
+March 1 - Independence Movement Day
+
+May 5 - Children's Day
+
+June 6 - Memorial Day
+
+August 15 - Liberation Day
+
+October 3 - National Foundation Day
+
+October 9 - Hangul Day
+
+December 25 - Christmas Day
+
+United Arab Emirates - "AE"
+January 1 - New Year
+
+December 1 - Commemoration Day
+
+December 2-3 - National Day
+
+Ramadan\*
+
+Eid al-Fitr\*
+
+Eid al-Adha\*
+
+Islamic New Year\*
+
+\*Islamic Holidays are determined by lunar cycles.

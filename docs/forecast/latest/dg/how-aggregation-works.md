@@ -24,15 +24,22 @@ boundary: Each hour begins at the top of the hour.
 
 **Pre-transformation**
 
-| Time                  | Data  | At Top of the Hour                                    |
-| --------------------- | ----- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `2018-03-03 01:00:00` | `100` | Yes                                                   |
-| `2018-03-03 02:20:00` | `50`  | No                                                    |
-| `2018-03-03 02:45:00` | `20`  | No                                                    |
-| `2018-03-03 04:00:00` | `120` | Yes                                                   | **Post-transformation**                                                                                                                                                                                                        |
+| Time                  | Data  | At Top of the Hour |
+| --------------------- | ----- | ------------------ |
+| `2018-03-03 01:00:00` | `100` | Yes                |
+| `2018-03-03 02:20:00` | `50`  | No                 |
+| `2018-03-03 02:45:00` | `20`  | No                 |
+| `2018-03-03 04:00:00` | `120` | Yes                |
+
+**Post-transformation**
+
 | Time                  | Data  | Notes                                                 |
-| ---                   | ---   | ---                                                   |
+| --------------------- | ----- | ----------------------------------------------------- |
 | `2018-03-03 01:00:00` | `100` |                                                       |
 | `2018-03-03 02:00:00` | `70`  | Sum of the values between 02:00:00-02:59:59 (50 + 20) |
 | `2018-03-03 03:00:00` | Empty | No values between 03:00:00-03:59:59                   |
-| `2018-03-03 04:00:00` | `120` |                                                       | The following figure shows how Forecast transforms data to fit the default weekly time boundary. ![Raw sales data points transformed into a smooth demand time series curve over weekly intervals.](images/data-alignment.png) |
+| `2018-03-03 04:00:00` | `120` |                                                       |
+
+The following figure shows how Forecast transforms data to fit the default weekly time boundary.
+
+![Raw sales data points transformed into a smooth demand time series curve over weekly intervals.](images/data-alignment.png)

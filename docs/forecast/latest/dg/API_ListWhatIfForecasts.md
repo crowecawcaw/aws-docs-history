@@ -72,8 +72,7 @@ Required: No
 
 **[NextToken](#API_ListWhatIfForecasts_RequestSyntax "#API_ListWhatIfForecasts_RequestSyntax")**
 
-If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next
-request. Tokens expire after 24 hours.
+If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.
 
 Type: String
 
@@ -110,8 +109,7 @@ The following data is returned in JSON format by the service.
 
 **[NextToken](#API_ListWhatIfForecasts_ResponseSyntax "#API_ListWhatIfForecasts_ResponseSyntax")**
 
-If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next
-request. Tokens expire after 24 hours.
+If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.
 
 Type: String
 

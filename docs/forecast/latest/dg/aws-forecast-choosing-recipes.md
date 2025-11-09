@@ -77,7 +77,7 @@ series dataset as its prediction, with exponentially decreasing weights over tim
 Use the following table to find the best option for your time series datasets.
 
 |                                                   | Neural Networks | Flexible Local Algorithms | Baseline Algorithms |
-| ------------------------------------------------- | --------------- | ------------------------- | ------------------- | ---- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------- | --------------- | ------------------------- | ------------------- | ---- | ----- | --- |
 |                                                   | CNN-QR          | DeepAR+                   | Prophet             | NPTS | ARIMA | ETS |
 | Computationally intensive training process        | High            | High                      | Medium              | Low  | Low   | Low |
 | Accepts historical related time series\*          |                 |                           |                     |      |       |     |
@@ -86,4 +86,7 @@ Use the following table to find the best option for your time series datasets.
 | Accepts the Weather Index built-in featurization  |                 |                           |                     |      |       |     |
 | Suitable for sparse datasets                      |                 |                           |                     |      |       |     |
 | Performs Hyperparameter Optimization (HPO)        |                 |                           |                     |      |       |     |
-| Allows overriding default hyperparameter values   |                 |                           |                     |      |       |     | \*For more information on related time series, see [Related Time Series](related-time-series-datasets.md "related-time-series-datasets.md"). |
+| Allows overriding default hyperparameter values   |                 |                           |                     |      |       |     |
+
+\*For more information on related time series, see
+[Related Time Series](related-time-series-datasets.md "related-time-series-datasets.md").

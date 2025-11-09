@@ -125,36 +125,69 @@ this example, assume the following:
 A "`…`" row indicates all of the data points in between the previous and
 succeeding rows.
 
-| `timestamp`                         | `item_id`                     | `store`                 | `price`                |
-| ----------------------------------- | ----------------------------- | ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2019-01-01                          | socks                         | NYC                     | 10                     |
-| 2019-01-02                          | socks                         | NYC                     | 10                     |
-| 2019-01-03                          | socks                         | NYC                     | 15                     |
-| `...`                               |
-| 2019-06-01                          | socks                         | NYC                     | 10                     |
-| `...`                               |
-| 2019-07-01                          | socks                         | NYC                     | 10                     |
-| `...`                               |
-| 2019-07-11                          | socks                         | NYC                     | 20                     |
-| 2019-01-05                          | socks                         | SFO                     | 45                     |
-| `...`                               |
-| 2019-06-05                          | socks                         | SFO                     | 10                     |
-| `...`                               |
-| 2019-07-01                          | socks                         | SFO                     | 10                     |
-| `...`                               |
-| 2019-07-11                          | socks                         | SFO                     | 30                     |
-| 2019-02-01                          | shoes                         | ORD                     | 50                     |
-| `...`                               |
-| 2019-07-01                          | shoes                         | ORD                     | 75                     |
-| `...`                               |
-| 2019-07-11                          | shoes                         | ORD                     | 60                     | ## Example: Forecasting Granularity The following table shows compatible data recording frequencies for target time series and related time series to forecast at a weekly granularity. Because data in a related time series dataset can't be aggregated, Forecast accepts only a related time series data frequency that is the same as the chosen forecasting granularity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Target Input Data Frequency         | Related Time Series Frequency | Forecasting Granularity | Supported by Forecast? |
-| ---                                 | ---                           | ---                     | ---                    |
-| Daily                               | Weekly                        | Weekly                  | Yes                    |
-| Weekly                              | Weekly                        | Weekly                  | Yes                    |
-| N/A                                 | Weekly                        | Weekly                  | Yes                    |
-| Daily                               | Daily                         | Weekly                  | No                     | ## Legacy Predictors and Related Time Series ###### Note To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor "howitworks-predictor.md#upgrading-autopredictor") When using a legacy predictor, you can use a related time series dataset when training a predictor with the [CNN-QR](aws-forecast-algo-cnnqr.md "aws-forecast-algo-cnnqr.md"), [DeepAR+](aws-forecast-recipe-deeparplus.md "aws-forecast-recipe-deeparplus.md"), and [Prophet](aws-forecast-recipe-prophet.md "aws-forecast-recipe-prophet.md") algorithms. [NPTS](aws-forecast-recipe-npts.md "aws-forecast-recipe-npts.md"), [ARIMA](aws-forecast-recipe-arima.md "aws-forecast-recipe-arima.md"), and [ETS](aws-forecast-recipe-ets.md "aws-forecast-recipe-ets.md") do not accept related time series data. The following table shows the types of related time series each Amazon Forecast algorithm accepts. |
-|                                     | CNN-QR                        | DeepAR+                 | Prophet                | NPTS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ARIMA | ETS |
-| ---                                 | ---                           | ---                     | ---                    | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | ---   | --- |
-| Historical related time series      |                               |                         |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |       |     |
-| Forward-looking related time series |                               |                         |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |       |     | When using AutoML, you can provide both historical and forward-looking related time series data, and Forecast will only use those time series where applicable. If you provide _forward-looking_ related time series data, Forecast will use the related data with CNN-QR, DeepAR+, and Prophet, and will not use the related data with NPTS, ARIMA and ETS. If provided _historical_ related time series data, Forecast will use the related data with CNN-QR, and will not use the related data with DeepAR+, Prophet, NPTS, ARIMA, and ETS. |
+| `timestamp` | `item_id` | `store` | `price` |
+| ----------- | --------- | ------- | ------- |
+| 2019-01-01  | socks     | NYC     | 10      |
+| 2019-01-02  | socks     | NYC     | 10      |
+| 2019-01-03  | socks     | NYC     | 15      |
+| `...`       |
+| 2019-06-01  | socks     | NYC     | 10      |
+| `...`       |
+| 2019-07-01  | socks     | NYC     | 10      |
+| `...`       |
+| 2019-07-11  | socks     | NYC     | 20      |
+| 2019-01-05  | socks     | SFO     | 45      |
+| `...`       |
+| 2019-06-05  | socks     | SFO     | 10      |
+| `...`       |
+| 2019-07-01  | socks     | SFO     | 10      |
+| `...`       |
+| 2019-07-11  | socks     | SFO     | 30      |
+| 2019-02-01  | shoes     | ORD     | 50      |
+| `...`       |
+| 2019-07-01  | shoes     | ORD     | 75      |
+| `...`       |
+| 2019-07-11  | shoes     | ORD     | 60      |
+
+## Example: Forecasting Granularity
+
+The following table shows compatible data recording frequencies for target time series and
+related time series to forecast at a weekly granularity. Because data in a related time series
+dataset can't be aggregated, Forecast accepts only a related time series data frequency that is
+the same as the chosen forecasting granularity.
+
+| Target Input Data Frequency | Related Time Series Frequency | Forecasting Granularity | Supported by Forecast? |
+| --------------------------- | ----------------------------- | ----------------------- | ---------------------- |
+| Daily                       | Weekly                        | Weekly                  | Yes                    |
+| Weekly                      | Weekly                        | Weekly                  | Yes                    |
+| N/A                         | Weekly                        | Weekly                  | Yes                    |
+| Daily                       | Daily                         | Weekly                  | No                     |
+
+## Legacy Predictors and Related Time
+
+Series
+
+###### Note
+
+To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor "howitworks-predictor.md#upgrading-autopredictor")
+
+When using a legacy predictor, you can use a related time series dataset when training a
+predictor with the [CNN-QR](aws-forecast-algo-cnnqr.md "aws-forecast-algo-cnnqr.md"), [DeepAR+](aws-forecast-recipe-deeparplus.md "aws-forecast-recipe-deeparplus.md"), and [Prophet](aws-forecast-recipe-prophet.md "aws-forecast-recipe-prophet.md") algorithms. [NPTS](aws-forecast-recipe-npts.md "aws-forecast-recipe-npts.md"), [ARIMA](aws-forecast-recipe-arima.md "aws-forecast-recipe-arima.md"), and [ETS](aws-forecast-recipe-ets.md "aws-forecast-recipe-ets.md") do not accept related
+time series data.
+
+The following table shows the types of related time series each Amazon Forecast algorithm
+accepts.
+
+|                                     | CNN-QR | DeepAR+ | Prophet | NPTS | ARIMA | ETS |
+| ----------------------------------- | ------ | ------- | ------- | ---- | ----- | --- |
+| Historical related time series      |        |         |         |      |       |     |
+| Forward-looking related time series |        |         |         |      |       |     |
+
+When using AutoML, you can provide both historical and forward-looking related time
+series data, and Forecast will only use those time series where applicable.
+
+If you provide _forward-looking_ related time series data, Forecast will
+use the related data with CNN-QR, DeepAR+, and Prophet, and will not use the related data with
+NPTS, ARIMA and ETS. If provided _historical_ related time series data,
+Forecast will use the related data with CNN-QR, and will not use the related data with DeepAR+,
+Prophet, NPTS, ARIMA, and ETS.

@@ -73,8 +73,7 @@ Required: No
 
 **[NextToken](#API_ListWhatIfForecastExports_RequestSyntax "#API_ListWhatIfForecastExports_RequestSyntax")**
 
-If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next
-request. Tokens expire after 24 hours.
+If the result of the previous request was truncated, the response includes a `NextToken`. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.
 
 Type: String
 

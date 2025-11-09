@@ -139,11 +139,89 @@ store. The `...` row represents all of the item sales data recorded between the
 first and last entries.
 
 | `timestamp`  | `item_id` | `store` | `demand` |
-| ------------ | --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | --------- | ------- | -------- |
 | `2019-01-01` | `socks`   | `NYC`   | `25`     |
 | `2019-01-05` | `socks`   | `SFO`   | `45`     |
 | `2019-02-01` | `shoes`   | `ORD`   | `10`     |
 | `...`        |
 | `2019-06-01` | `socks`   | `NYC`   | `100`    |
 | `2019-06-05` | `socks`   | `SFO`   | `5`      |
-| `2019-07-01` | `shoes`   | `ORD`   | `50`     | ### Dataset Schema Each dataset requires a schema, a user-provided JSON mapping of the fields in your training data. This is where you list both the required and optional dimensions and features that you want to include in your dataset. If your dataset includes a geolocation attribute, define the attribute within the schema with the attribute type `geolocation`. For more information, see [Adding Geolocation information](weather.md#adding-geolocation "weather.md#adding-geolocation"). In order to apply the [Weather Index](weather.md "weather.md"), you must include a geolocation attribute in your target time series and any related time series datasets. Some domains have optional dimensions that we recommend including. Optional dimensions are listed in the descriptions of each domain later in this guide. For an example, see [RETAIL Domain](retail-domain.md "retail-domain.md"). All optional dimensions take the data type `string`. A schema is required for every dataset. The following is the accompanying schema for the example target time series dataset above. `{ "attributes": [ { "AttributeName": "timestamp", "AttributeType": "timestamp" }, { "AttributeName": "item_id", "AttributeType": "string" }, { "AttributeName": "store", "AttributeType": "string" }, { "AttributeName": "demand", "AttributeType": "float" } ] }` When you upload your training data to the dataset that uses this schema, Forecast assumes that the `timestamp` field is column 1, the `item_id` field is column 2, the `store` field is column 3, and the `demand` field, the _target_ field, is column 4. For the related time series dataset type, all related features must have a float or integer attribute type. For the item metadata dataset type, all features must have a string attribute type. For more information, see [SchemaAttribute](API_SchemaAttribute.md "API_SchemaAttribute.md"). ###### Note An `attributeName` and `attributeType` pair is required for every column in the dataset. Forecast reserves a number of names that can't be used as the name of a schema attribute. For the list of reserved names, see [Reserved Field Names](reserved-field-names.md "reserved-field-names.md"). ## Dataset Groups A _dataset group_ is a collection of one to three complimentary datasets, one of each dataset type. You import datasets to a dataset group, then use the dataset group to train a predictor. Forecast includes the following operations to create dataset groups and add datasets to them: <br>• [CreateDatasetGroup](API_CreateDatasetGroup.md "API_CreateDatasetGroup.md") <br>• [UpdateDatasetGroup](API_UpdateDatasetGroup.md "API_UpdateDatasetGroup.md") ## Resolving Conflicts in Data Collection Frequency Forecast can train predictors with data that doesn't align with the data frequency you specify in the [CreateDataset](API_CreateDataset.md "API_CreateDataset.md") operation. For example, you can import data in recorded in hourly intervals even though some of the data isn't timestamped at the top of the hour (02:20, 02:45). Forecast uses the data frequency you specify to learn about your data. Then Forecast aggregates the data during predictor training. For more information see [Data aggregation for different forecast frequencies](data-aggregation.md "data-aggregation.md"). |
+| `2019-07-01` | `shoes`   | `ORD`   | `50`     |
+
+### Dataset Schema
+
+Each dataset requires a schema, a user-provided JSON mapping of the fields in your
+training data. This is where you list both the required and optional dimensions and features
+that you want to include in your dataset.
+
+If your dataset includes a geolocation attribute, define the attribute within the schema
+with the attribute type `geolocation`. For more information, see [Adding Geolocation information](weather.md#adding-geolocation "weather.md#adding-geolocation"). In order to apply the
+[Weather Index](weather.md "weather.md"), you must include a geolocation attribute in
+your target time series and any related time series datasets.
+
+Some domains have optional dimensions that we recommend including. Optional dimensions
+are listed in the descriptions of each domain later in this guide. For an example, see [RETAIL Domain](retail-domain.md "retail-domain.md"). All optional dimensions take the
+data type `string`.
+
+A schema is required for every dataset. The following is the accompanying schema for the
+example target time series dataset above.
+
+```
+{
+     "attributes": [
+        {
+           "AttributeName": "timestamp",
+           "AttributeType": "timestamp"
+        },
+        {
+           "AttributeName": "item_id",
+           "AttributeType": "string"
+        },
+        {
+           "AttributeName": "store",
+           "AttributeType": "string"
+        },
+        {
+           "AttributeName": "demand",
+           "AttributeType": "float"
+        }
+    ]
+}
+```
+
+When you upload your training data to the dataset that uses this schema, Forecast assumes
+that the `timestamp` field is column 1, the `item_id` field is column
+2, the `store` field is column 3, and the `demand` field, the
+_target_ field, is column 4.
+
+For the related time series dataset type, all related features must have a float or
+integer attribute type. For the item metadata dataset type, all features must have a string
+attribute type. For more information, see [SchemaAttribute](API_SchemaAttribute.md "API_SchemaAttribute.md").
+
+###### Note
+
+An `attributeName` and `attributeType` pair is required for
+every column in the dataset. Forecast reserves a number of names that can't be used as the
+name of a schema attribute. For the list of reserved names, see [Reserved Field Names](reserved-field-names.md "reserved-field-names.md").
+
+## Dataset Groups
+
+A _dataset group_ is a collection of one to three complimentary
+datasets, one of each dataset type. You import datasets to a dataset group, then use the
+dataset group to train a predictor.
+
+Forecast includes the following operations to create dataset groups and add datasets to
+them:
+
+- [CreateDatasetGroup](API_CreateDatasetGroup.md "API_CreateDatasetGroup.md")
+- [UpdateDatasetGroup](API_UpdateDatasetGroup.md "API_UpdateDatasetGroup.md")
+
+## Resolving Conflicts in Data Collection
+
+Frequency
+
+Forecast can train predictors with data that doesn't align with the data frequency you specify in the
+[CreateDataset](API_CreateDataset.md "API_CreateDataset.md") operation. For
+example, you can import data in recorded in hourly intervals even though some of the data
+isn't timestamped at the top of the hour (02:20, 02:45).
+Forecast uses the data frequency you specify to learn about your data. Then Forecast aggregates the data during predictor training. For more information see [Data aggregation for different forecast frequencies](data-aggregation.md "data-aggregation.md").

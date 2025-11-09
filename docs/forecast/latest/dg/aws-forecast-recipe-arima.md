@@ -33,7 +33,7 @@ Amazon Forecast converts the `DataFrequency` parameter specified in the [CreateD
 function using the following table:
 
 | DataFrequency (string) | R ts frequency (integer) |
-| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | ------------------------ |
 | Y                      | 1                        |
 | M                      | 12                       |
 | W                      | 52                       |
@@ -43,4 +43,12 @@ function using the following table:
 | 15min                  | 4                        |
 | 10min                  | 6                        |
 | 5min                   | 12                       |
-| 1min                   | 60                       | For frequencies less than 24 or short time series, the hyperparameters are set using the `auto.arima` function of the `Package 'forecast'` of [CRAN](https://cran.r-project.org "https://cran.r-project.org"). For frequencies greater than or equal to 24 and long time series, we use a Fourier series with K = 4, as described here, [Forecasting with long seasonal periods](https://robjhyndman.com/hyndsight/longseasonality/ "https://robjhyndman.com/hyndsight/longseasonality/"). Supported data frequencies that aren't in the table default to a `ts` frequency of 1. |
+| 1min                   | 60                       |
+
+For frequencies less than 24 or short time series, the hyperparameters are set using the
+`auto.arima` function of the `Package 'forecast'` of [CRAN](https://cran.r-project.org "https://cran.r-project.org"). For frequencies greater than or equal to 24
+and long time series, we use a Fourier series with K = 4, as described here, [Forecasting with long seasonal
+periods](https://robjhyndman.com/hyndsight/longseasonality/ "https://robjhyndman.com/hyndsight/longseasonality/").
+
+Supported data frequencies that aren't in the table default to a `ts` frequency
+of 1.

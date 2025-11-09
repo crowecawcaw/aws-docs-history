@@ -57,7 +57,64 @@ Filling Logic
 You can perform filling on both target time series and related time series datasets.
 Each dataset type has different filling guidelines and restrictions.
 
-| Filling Guidelines      | Dataset type | Filling by default?              | Supported filling methods | Default filling logic                                                                                                                                                                                                                                                                                                     | Accepted filling logic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------- | ------------ | -------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Target time series**  | Yes          | Middle and back filling          | 0                         | <br>• `zero` - 0 filling. <br>• `value` - an integer or float number. <br>• `nan` - not a number. <br>• `mean` - the mean value from the data series. <br>• `median` - the median value from the data series. <br>• `min` - the minimum value from the data series. <br>• `max` - the maximum value from the data series. |
-| **Related time series** | No           | Middle, back, and future filling | No default                | <br>• `zero` - 0 filling. <br>• `value` - an integer or float value. <br>• `mean` - the mean value from the data series. <br>• `median` - the median value from the data series. <br>• `min` - the minimum value from the data series. <br>• `max` - the maximum value from the data series.                              | ###### Important For both target and related time series datasets, `mean`, `median`, `min`, and `max` are calculated based on a rolling window of the 64 most recent data entries before the missing values. ## Missing Value Syntax To perform missing value filling, specify the types of filling to implement when you call the [CreatePredictor](API_CreatePredictor.md "API_CreatePredictor.md") operation. Filling logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md "API_FeaturizationMethod.md") objects. The following excerpt demonstrates a correctly formatted `FeaturizationMethod` object for a target time series attribute and related time series attribute (`target_value` and `price` respectively). To set a filling method to a specific value, set the fill parameter to `value` and define the value in a corresponding `_value` parameter. As shown below, backfilling for the related time series is set to a value of 2 with the following: `"backfill": "value"` and `"backfill_value":"2"`. `[ { "AttributeName": "target_value", "FeaturizationPipeline": [ { "FeaturizationMethodName": "filling", "FeaturizationMethodParameters": { "aggregation": "sum", "middlefill": "zero", "backfill": "zero" } } ] }, { "AttributeName": "price", "FeaturizationPipeline": [ { "FeaturizationMethodName": "filling", "FeaturizationMethodParameters": { "middlefill": "median", "backfill": "value", "backfill_value": "2", "futurefill": "max" } } ] } ]` |
+| Filling Guidelines      | Dataset type | Filling by default?              | Supported filling methods | Default filling logic                                                                                                                                                                                                                                                                                                       | Accepted filling logic |
+| ----------------------- | ------------ | -------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **Target time series**  | Yes          | Middle and back filling          | 0                         | • `zero` - 0 filling.<br>• `value` - an integer or float number.<br>• `nan` - not a number.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series. |
+| **Related time series** | No           | Middle, back, and future filling | No default                | • `zero` - 0 filling.<br>• `value` - an integer or float value.<br>• `mean` - the mean value from the data<br>series.<br>• `median` - the median value from the data<br>series.<br>• `min` - the minimum value from the data<br>series.<br>• `max` - the maximum value from the data<br>series.                             |
+
+###### Important
+
+For both target and related time series datasets, `mean`,
+`median`, `min`, and `max` are calculated based
+on a rolling window of the 64 most recent data entries before the missing
+values.
+
+## Missing Value Syntax
+
+To perform missing value filling, specify the types of filling to implement when you
+call the [CreatePredictor](API_CreatePredictor.md "API_CreatePredictor.md") operation. Filling
+logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md "API_FeaturizationMethod.md")
+objects.
+
+The following excerpt demonstrates a correctly formatted
+`FeaturizationMethod` object for a target time series attribute and
+related time series attribute (`target_value` and `price`
+respectively).
+
+To set a filling method to a specific value, set the fill parameter to
+`value` and define the value in a corresponding `_value`
+parameter. As shown below, backfilling for the related time series is set to a value of
+2 with the following: `"backfill": "value"` and
+`"backfill_value":"2"`.
+
+```
+[
+    {
+        "AttributeName": "target_value",
+        "FeaturizationPipeline": [
+            {
+                "FeaturizationMethodName": "filling",
+                "FeaturizationMethodParameters": {
+                    "aggregation": "sum",
+                    "middlefill": "zero",
+                    "backfill": "zero"
+                }
+            }
+        ]
+    },
+    {
+        "AttributeName": "price",
+        "FeaturizationPipeline": [
+            {
+                "FeaturizationMethodName": "filling",
+                "FeaturizationMethodParameters": {
+                    "middlefill": "median",
+                    "backfill": "value",
+                    "backfill_value": "2",
+                    "futurefill": "max"
+                    }
+            }
+        ]
+    }
+]
+```

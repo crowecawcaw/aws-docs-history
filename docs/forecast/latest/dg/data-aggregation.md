@@ -54,17 +54,103 @@ Note that this aggregation does not require daily data, just that the data is co
 The following table lists the default time alignment boundaries that Forecast uses when aggregating
 data.
 
-| Frequency               | Boundary                                  |
-| ----------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Minute                  | Last top of the minute (45:00, 06:00)     |
-| Hour                    | Last top of the hour (09:00:00, 13:00:00) |
-| Day                     | First hour of the day (hour 0)            |
-| Week                    | Most recent Monday                        |
-| Month                   | First day of the month                    |
-| Year                    | First day of the year (January 1)         | ### Specifying a Time Boundary ###### Note You can only specify a time boundary for an auto predictor. When you create an auto predictor with a daily, weekly, monthly, or yearly forecast frequency, you can specify the time boundary that Forecast uses to aggregate data. You might specify a time boundary if your business calendar doesn't align with the default time boundaries. For example, you might want to generate monthly forecasts where each month begins on the third day of the month. If you don't specify a time boundary, Forecast uses a set of [Default Time Boundaries](#default-time-boundaries "#default-time-boundaries"). The time boundary unit that you specify must be one unit finer than your forecast frequency. The following table lists the time boundary unit and values that you can specify, organized by forecast frequency. You can only specify a `Monthly` time boundary with a boundary value of `28` or less. |
-| Forecast frequency unit | Boundary unit                             | Boundary values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---                     | ---                                       | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Daily                   | Hour                                      | 0–23                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Weekly                  | Day of week                               | Monday through Sunday                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Monthly                 | Day of month                              | 1 through 28                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Yearly                  | Month                                     | January through December                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | You specify a time alignment boundary when you create a predictor as follows. For information on the different time boundary units and boundary values you can specify programmatically, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md"). Console ###### To specify a time alignment boundary for a predictor 1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/"). 2. From **Dataset groups**, choose your dataset group. 3. In the navigation pane, choose **Predictors**. 4. Choose **Train new predictor**. 5. Provide values for the mandatory **Name**, **Forecast frequency**, and **Forecast horizon** fields. 6. For **Time alignment boundary**, specify the time boundary the predictor will use when aggregating your data. The values in this list depend on the **Forecast frequency** you choose. 7. Choose **Start**. Forecast will aggregate data using the time alignment boundary you specify as it creates your predictor. AWS CLI To specify a time alignment boundary for a predictor with the AWS CLI, use the `create-predictor` command. For the `time-alignment-boundary` parameter, provide the unit of time and boundary value. The following code creates an auto predictor that makes predictions for 5 weeks in the future, where each week starts on a Tuesday. `DayOfWeek` and `DayOfMonth` values must be in all uppercase. For information on the different time boundary units and boundary values you can specify, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md"). For information on required and optional parameters, see [CreateAutoPredictor](API_CreateAutoPredictor.md "API_CreateAutoPredictor.md"). ``aws forecast create-predictor \ --predictor-name `predictor_name` \ --data-config DatasetGroupArn="arn:aws:forecast:`region`:`account`:dataset-group/`datasetGroupName`" \ --forecast-horizon 5 \ --forecast-frequency W \ --time-alignment-boundary DayOfWeek=TUESDAY`` Python To specify a time alignment boundary for a predictor with the SDK for Python (Boto3), use the `create_auto_predictor` method. For the `TimeAlignmentBoundary` parameter, provide a dictionary with the unit of time as the key and boundary value as the value. The following code creates an auto predictor that makes predictions for 5 weeks in the future, where each week starts on a Tuesday. `DayOfWeek` and `DayOfMonth` values must be in all uppercase. For information on the different time boundary units and boundary values you can specify, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md"). For information on required and optional parameters, see [CreateAutoPredictor](API_CreateAutoPredictor.md "API_CreateAutoPredictor.md"). ``import boto3 forecast = boto3.client('forecast') create_predictor_response = forecast.create_auto_predictor( PredictorName = '`predictor_name`', ForecastHorizon = 5, ForecastFrequency = 'W', DataConfig = { "DatasetGroupArn": "arn:aws:forecast:`region`:`account`:dataset-group/`datasetGroupName`" }, TimeAlignmentBoundary = { "DayOfWeek": "TUESDAY" } ) print(create_predictor_response['PredictorArn'])`` |
+| Frequency | Boundary                                  |
+| --------- | ----------------------------------------- |
+| Minute    | Last top of the minute (45:00, 06:00)     |
+| Hour      | Last top of the hour (09:00:00, 13:00:00) |
+| Day       | First hour of the day (hour 0)            |
+| Week      | Most recent Monday                        |
+| Month     | First day of the month                    |
+| Year      | First day of the year (January 1)         |
+
+### Specifying a Time Boundary
+
+###### Note
+
+You can only specify a time boundary for an auto predictor.
+
+When you create an auto predictor with a daily, weekly, monthly, or yearly forecast frequency, you can
+specify the time boundary that Forecast uses to aggregate data. You might specify a time boundary if your business
+calendar doesn't align with the default time boundaries. For example, you might want to generate monthly
+forecasts where each month begins on the third day of the month. If you don't specify a time boundary, Forecast
+uses a set of [Default Time Boundaries](#default-time-boundaries "#default-time-boundaries").
+
+The time boundary unit that you specify must be one unit finer than your forecast frequency. The following
+table lists the time boundary unit and values that you can specify, organized by forecast frequency.
+
+You can only specify a `Monthly` time boundary with a boundary value of `28` or
+less.
+
+| Forecast frequency unit | Boundary unit | Boundary values          |
+| ----------------------- | ------------- | ------------------------ |
+| Daily                   | Hour          | 0–23                     |
+| Weekly                  | Day of week   | Monday through Sunday    |
+| Monthly                 | Day of month  | 1 through 28             |
+| Yearly                  | Month         | January through December |
+
+You specify a time alignment boundary when you create a predictor as follows. For information on the
+different time boundary units and boundary values you can specify programmatically, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md").
+
+Console
+
+###### To specify a time alignment boundary for a predictor
+
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
+2. From **Dataset groups**, choose your dataset group.
+3. In the navigation pane, choose **Predictors**.
+4. Choose **Train new predictor**.
+5. Provide values for the mandatory **Name**, **Forecast
+   frequency**, and **Forecast horizon** fields.
+6. For **Time alignment boundary**, specify the time boundary the predictor will
+   use when aggregating your data. The values in this list depend on the **Forecast
+   frequency** you choose.
+7. Choose **Start**. Forecast will aggregate data using the time alignment boundary you
+   specify as it creates your predictor.
+
+AWS CLI
+To specify a time alignment boundary for a predictor with the AWS CLI, use the
+`create-predictor` command. For the `time-alignment-boundary` parameter,
+provide the unit of time and boundary value. The following code creates an auto predictor that makes
+predictions for 5 weeks in the future, where each week starts on a Tuesday.
+
+`DayOfWeek` and `DayOfMonth` values must be in all uppercase. For information on
+the different time boundary units and boundary values you can specify, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md"). For information on
+required and optional parameters, see [CreateAutoPredictor](API_CreateAutoPredictor.md "API_CreateAutoPredictor.md").
+
+```
+aws forecast create-predictor \
+--predictor-name `predictor_name` \
+--data-config DatasetGroupArn="arn:aws:forecast:`region`:`account`:dataset-group/`datasetGroupName`" \
+--forecast-horizon 5 \
+--forecast-frequency W \
+--time-alignment-boundary DayOfWeek=TUESDAY
+```
+
+Python
+To specify a time alignment boundary for a predictor with the SDK for Python (Boto3), use the
+`create_auto_predictor` method. For the `TimeAlignmentBoundary` parameter, provide
+a dictionary with the unit of time as the key and boundary value as the value. The following code creates
+an auto predictor that makes predictions for 5 weeks in the future, where each week starts on a Tuesday.
+
+`DayOfWeek` and `DayOfMonth` values must be in all uppercase. For information on
+the different time boundary units and boundary values you can specify, see [TimeAlignmentBoundary](API_TimeAlignmentBoundary.md "API_TimeAlignmentBoundary.md"). For information on
+required and optional parameters, see [CreateAutoPredictor](API_CreateAutoPredictor.md "API_CreateAutoPredictor.md").
+
+```
+import boto3
+
+forecast = boto3.client('forecast')
+
+create_predictor_response = forecast.create_auto_predictor(
+    PredictorName = '`predictor_name`',
+    ForecastHorizon = 5,
+    ForecastFrequency = 'W',
+    DataConfig = {
+      "DatasetGroupArn": "arn:aws:forecast:`region`:`account`:dataset-group/`datasetGroupName`"
+    },
+    TimeAlignmentBoundary = {
+      "DayOfWeek": "TUESDAY"
+    }
+)
+print(create_predictor_response['PredictorArn'])
+```

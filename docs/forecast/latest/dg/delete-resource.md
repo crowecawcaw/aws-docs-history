@@ -47,12 +47,104 @@ The _dataset_ resource tree includes _dataset import jobs_ as a child resource. 
 jobs_ are part of the _dataset group_
 resource tree.
 
-| Parent Resource      | Child Resources                                                                                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Dataset**          | Dataset import jobs                                                                                                                                                                                   |
-| **Dataset group**    | Predictors, predictor backtest export jobs, predictor explainabilities, predictor explainability exports, forecasts, forecast export jobs, forecast explainabilities, forecast explainability exports |
-| **Predictor**        | Predictor backtest export jobs, predictor explainabilities, predictor explainability exports, forecasts, forecast export jobs, forecast explainabilities, forecast explainability exports             |
-| **Forecast**         | Forecast export jobs, forecast explainabilities, forecast explainability exports, what-if analyses, what-if forecasts, what-if forecast exports                                                       |
-| **Explainability**   | Explainability exports                                                                                                                                                                                |
-| **What-if analysis** | what-if forecasts, what-if forecast exports                                                                                                                                                           |
-| **What-if forecast** | what-if forecast exports                                                                                                                                                                              | If a resource doesn't have any child resources, you can delete it individually. If a resource has child resources, you must delete the entire resource tree. When using the Forecast console, you are automatically prompted to delete the entire resource tree when you delete a resource with child resources. When using the AWS Software Development Kit (SDK), use the [DeleteResourceTree](API_DeleteResourceTree.md "API_DeleteResourceTree.md") operation to delete a resource tree. ## Deleting Individual Resources You can delete an individual resource if it's not associated with any child resources. For example, you can delete an individual predictor that has not been used to create any forecasts or export jobs. You can delete resources using the Amazon Forecast console or the AWS Software Development Kit (SDK). Console **To delete a resource** 1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/"). 2. In the navigation pane, choose the resource type of the resource that you want to delete. 3. Choose the resource and choose **Delete**. 4. In the confirmation field, type `delete`. 5. Choose **Delete**. ![Confirmation dialog for deleting DatasetGroup1, with text field to type "delete" for confirmation.](images/resource-delete.PNG) SDK **To delete a resource** The operation that you use to delete a resource depends on its resource type. Specify the resource Amazon Resource Name (ARN) in the operation for the resource type the you want to delete: <br>• [DeleteDataset](API_DeleteDataset.md "API_DeleteDataset.md") <br>• [DeleteDatasetGroup](API_DeleteDatasetGroup.md "API_DeleteDatasetGroup.md") <br>• [DeleteDatasetImportJob](API_DeleteDatasetImportJob.md "API_DeleteDatasetImportJob.md") <br>• [DeletePredictor](API_DeletePredictor.md "API_DeletePredictor.md") <br>• [DeletePredictorBacktestExportJob](API_DeletePredictorBacktestExportJob.md "API_DeletePredictorBacktestExportJob.md") <br>• [DeleteForecast](API_DeleteForecast.md "API_DeleteForecast.md") <br>• [DeleteForecastExportJob](API_DeleteForecastExportJob.md "API_DeleteForecastExportJob.md") <br>• [DeleteExplainability](API_DeleteExplainability.md "API_DeleteExplainability.md") For example, to delete a predictor with the [DeletePredictor](API_DeletePredictor.md "API_DeletePredictor.md") operation, specify the value of `PredictorArn` to the ARN of the predictor that you want to delete. ``{ "PredictorArn": arn:`partition:service:region:account-id:resource-id` }`` ## Deleting Resource Trees Deleting a resource tree deletes the parent resource and all associated child resources. For example, you can delete a predictor and all child resources — predictor backtest export jobs, forecasts, and forecast export jobs — associated with the predictor. You delete a resource tree by specifying the parent resource. You can delete resource trees using the Amazon Forecast console or the AWS Software Development Kit (SDK). Console **To delete a resource tree** 1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/"). 2. In the navigation pane, choose the resource type of the parent resource. 3. Choose the parent resource that you want to delete. and choose **Delete**. 4. In the confirmation field, type `delete`. 5. Choose **Delete**. ![Confirmation dialog for deleting DatasetGroup1, showing affected resources and input field.](images/resource-tree-delete.PNG) SDK **To delete a resource tree** To delete a resource tree, use the [DeleteResourceTree](API_DeleteResourceTree.md "API_DeleteResourceTree.md") operation. Set the value of `ResourceArn` to the Amazon Resource Name (ARN) of the parent resource. ``{ "ResourceArn": arn:`partition:service:region:account-id:resource-id` }`` |
+| Parent Resource      | Child Resources                                                                                                                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Dataset**          | Dataset import jobs                                                                                                                                                                                            |
+| **Dataset group**    | Predictors, predictor backtest export jobs, predictor<br>explainabilities, predictor explainability exports, forecasts, forecast<br>export jobs, forecast explainabilities, forecast explainability<br>exports |
+| **Predictor**        | Predictor backtest export jobs, predictor explainabilities, predictor<br>explainability exports, forecasts, forecast export jobs, forecast<br>explainabilities, forecast explainability exports                |
+| **Forecast**         | Forecast export jobs, forecast explainabilities, forecast<br>explainability exports, what-if analyses, what-if forecasts, what-if forecast exports                                                             |
+| **Explainability**   | Explainability exports                                                                                                                                                                                         |
+| **What-if analysis** | what-if forecasts, what-if forecast exports                                                                                                                                                                    |
+| **What-if forecast** | what-if forecast exports                                                                                                                                                                                       |
+
+If a resource doesn't have any child resources, you can delete it individually. If a
+resource has child resources, you must delete the entire resource tree.
+
+When using the Forecast console, you are automatically prompted to delete the entire
+resource tree when you delete a resource with child resources. When using the AWS
+Software Development Kit (SDK), use the [DeleteResourceTree](API_DeleteResourceTree.md "API_DeleteResourceTree.md") operation to delete a resource tree.
+
+## Deleting Individual Resources
+
+You can delete an individual resource if it's not associated with any child resources.
+For example, you can delete an individual predictor that has not been used to create any
+forecasts or export jobs.
+
+You can delete resources using the Amazon Forecast console or the AWS Software Development
+Kit (SDK).
+
+Console
+**To delete a resource**
+
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
+2. In the navigation pane, choose the resource type of the resource
+   that you want to delete.
+3. Choose the resource and choose **Delete**.
+4. In the confirmation field, type
+   `delete`.
+5. Choose **Delete**.
+
+![Confirmation dialog for deleting DatasetGroup1, with text field to type "delete" for confirmation.](images/resource-delete.PNG)
+
+SDK
+**To delete a resource**
+
+The operation that you use to delete a resource depends on its resource
+type. Specify the resource Amazon Resource Name (ARN) in the operation for
+the resource type the you want to delete:
+
+- [DeleteDataset](API_DeleteDataset.md "API_DeleteDataset.md")
+- [DeleteDatasetGroup](API_DeleteDatasetGroup.md "API_DeleteDatasetGroup.md")
+- [DeleteDatasetImportJob](API_DeleteDatasetImportJob.md "API_DeleteDatasetImportJob.md")
+- [DeletePredictor](API_DeletePredictor.md "API_DeletePredictor.md")
+- [DeletePredictorBacktestExportJob](API_DeletePredictorBacktestExportJob.md "API_DeletePredictorBacktestExportJob.md")
+- [DeleteForecast](API_DeleteForecast.md "API_DeleteForecast.md")
+- [DeleteForecastExportJob](API_DeleteForecastExportJob.md "API_DeleteForecastExportJob.md")
+- [DeleteExplainability](API_DeleteExplainability.md "API_DeleteExplainability.md")
+
+For example, to delete a predictor with the [DeletePredictor](API_DeletePredictor.md "API_DeletePredictor.md") operation, specify
+the value of `PredictorArn` to the ARN of the predictor that you
+want to delete.
+
+```
+        {
+            "PredictorArn": arn:`partition:service:region:account-id:resource-id`
+        }
+```
+
+## Deleting Resource Trees
+
+Deleting a resource tree deletes the parent resource and all associated child
+resources. For example, you can delete a predictor and all child resources —
+predictor backtest export jobs, forecasts, and forecast export jobs — associated
+with the predictor. You delete a resource tree by specifying the parent resource.
+
+You can delete resource trees using the Amazon Forecast console or the AWS Software
+Development Kit (SDK).
+
+Console
+**To delete a resource tree**
+
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console.aws.amazon.com/forecast/](https://console.aws.amazon.com/forecast/ "https://console.aws.amazon.com/forecast/").
+2. In the navigation pane, choose the resource type of the parent
+   resource.
+3. Choose the parent resource that you want to delete. and choose
+   **Delete**.
+4. In the confirmation field, type
+   `delete`.
+5. Choose **Delete**.
+
+![Confirmation dialog for deleting DatasetGroup1, showing affected resources and input field.](images/resource-tree-delete.PNG)
+
+SDK
+**To delete a resource tree**
+
+To delete a resource tree, use the [DeleteResourceTree](API_DeleteResourceTree.md "API_DeleteResourceTree.md") operation. Set the value of
+`ResourceArn` to the Amazon Resource Name (ARN) of the parent
+resource.
+
+```
+        {
+            "ResourceArn": arn:`partition:service:region:account-id:resource-id`
+        }
+```
