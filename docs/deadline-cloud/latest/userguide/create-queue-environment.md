@@ -60,6 +60,7 @@ Linux
 - Cinema 4D
   - `cinema4d=2025`
   - `cinema4d-openjd`
+  - `cinema4d-c4dtoa=2025`
 
 - Houdini
   - `houdini=19.5`
@@ -103,7 +104,10 @@ Windows
 - Cinema 4D
   - `cinema4d=2024`
   - `cinema4d=2025`
+  - `cinema4d=2026`
   - `cinema4d-openjd`
+  - `cinema4d-c4dtoa=2025`
+  - `cinema4d-c4dtoa=2026`
 
 - KeyShot
   - `keyshot=2024`
@@ -124,8 +128,11 @@ support substance 3D materials. Jobs with this material will fail with the follo
 Commandline: ./modules/io_substance/source/substance_framework/src/details/detailsengine.cpp:794: SubstanceAir::Details::Engine::Context::Context(SubstanceAir::Details::Engine&, SubstanceAir::RenderCallbacks*): Assertion `res==0' failed.
 ```
 
-We recommend that you submit those jobs to Windows instead. For
-**Cinema 4D OpenJD,** to prevent any timeout issues,
+We recommend that you submit those jobs to Windows instead. For **Cinema 4D 2026**,
+the Conda package does not support Pyro scenes and will produce blank output.
+If you use Pyro scenes, we recommend using Cinema 4D 2025 instead.
+
+For **Cinema 4D OpenJD,** to prevent any timeout issues,
 we recommend you set task run timeouts to double their expected render time,
 instead of using the default 2 day timeout.
 
