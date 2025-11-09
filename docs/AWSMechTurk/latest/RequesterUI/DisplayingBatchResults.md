@@ -47,8 +47,38 @@ page.
 5. On the **Configure Data Results** page, do one or more of the
    actions listed in the following table.
 
-| To...                                         | Do This...                                                                            |
-| --------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Add fields listed in the results              | Drag field names from the **Available fields** list into the **Current fields** list. |
-| Remove fields listed in the results           | Drag field names from the **Current fields** list into the **Available fields** list. |
-| Change the order of the fields in the results | Drag the fields up or down the **Current fields** list.                               | 6. Choose **Apply Settings**. ## Filter results You can display a subset of the results by filtering out results based on the amount of time it took to do the assignment, and on the state of the result: submitted, approved, or rejected. By default, only submitted work appears. ###### To filter the results 1. On the Mechanical Turk Requester website [https://requester.mturk.com/](https://requester.mturk.com/ "https://requester.mturk.com/"), choose the **Manage** tab and then click **Results**. 2. Under **Manage Batches**, choose the arrow next to the batch state you want to view. 3. Choose **Review Results** for the batch you want to filter. 4. On the **Review Results** page, choose **Filter Results**. 5. On the **Filter Results** page, choose one or both filters and specify filter criteria as follows: <br>• To show assignments of a specified status, select the **Status Filter** check box, and then choose the state that you want to view from the list. <br>• To show assignments completed in a specified amount of time or less, select the **Velocity Filter** check box and specify a number of seconds. 6. Choose **Apply Filters**. |
+| To...                                         | Do This...                                                                                            |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Add fields listed in the results              | Drag field names from the **Available<br>fields\*<br>• list into the **Current<br>fields\*<br>• list. |
+| Remove fields listed in the results           | Drag field names from the **Current fields**<br>list into the **Available fields**<br>list.           |
+| Change the order of the fields in the results | Drag the fields up or down the \*_Current<br>fields_<br>• list.                                       |
+
+6. Choose **Apply Settings**.
+
+## Filter results
+
+You can display a subset of the results by filtering out results based on the
+amount of time it took to do the assignment, and on the state of the result:
+submitted, approved, or rejected. By default, only submitted work appears.
+
+###### To filter the results
+
+1. On the Mechanical Turk Requester website [https://requester.mturk.com/](https://requester.mturk.com/ "https://requester.mturk.com/"),
+   choose the **Manage** tab and then click
+   **Results**.
+2. Under **Manage Batches**, choose the arrow next to the batch state you want
+   to view.
+3. Choose **Review Results** for the batch you want to
+   filter.
+4. On the **Review Results** page, choose **Filter
+   Results**.
+5. On the **Filter Results** page, choose one or both
+   filters and specify filter criteria as follows:
+   - To show assignments of a specified status, select the **Status
+     Filter** check box, and then choose the state that you
+     want to view from the list.
+   - To show assignments completed in a specified amount of time or less,
+     select the **Velocity Filter** check box and
+     specify a number of seconds.
+
+6. Choose **Apply Filters**.
