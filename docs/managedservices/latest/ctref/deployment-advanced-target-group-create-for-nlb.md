@@ -7,10 +7,237 @@ Use to create a target group for a Network Load Balancer.
 ## Change Type Details
 
 |                             |                  |
-| --------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ----- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------------- |
 | Change type ID              | ct-3t4lifos8tu58 |
 | Current version             | 2.0              |
 | Expected execution duration | 360 minutes      |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
-| Execution mode              | Automated        | ## Additional Information ### Create NLB target group Screenshot of this change type in the AMS console: ![Change type details for creating a target group for Network Load Balancer.](images/guiTarGroupNlbCreateCT.png) How it works: 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**. 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view. <br>• **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create. To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button. <br>• **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page. 3. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC. In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page. How it works: 1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here. 2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID. Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command. To check the change type version, use this command: `` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID` `` ###### Note You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md"). _INLINE CREATE_: Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this: Version 1.0: ``aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3t4lifos8tu58" --change-type-version "1.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-NLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-6pvp2f7cp481g1r46\", \"Name\":\"`TG-NLB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"`` Version 2.0: ``aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3t4lifos8tu58" --change-type-version "2.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-NLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-6pvp2f7cp481g1r47\", \"Name\":\"`TG-NLB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"NetworkLoadBalancerArn\":\"`ARN`\",\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"`` _TEMPLATE CREATE_: 1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it CreateTGNlbParams.json. `aws amscm get-change-type-version --change-type-id "ct-3t4lifos8tu58" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateTGNlbParams.json` 2. Modify and save the CreateTGNlbParams file. For example, you can replace the contents with something like this: Version 1.0: ``{ "Description":      "`Target-Group-NLB-Create`", "VpcId":            "`VPC_ID`", "StackTemplateId":  "stm-6pvp2f7cp481g1r46", "Name":             "`My-NLB-Target-Group`", "Parameters":   { "InstancePort":                          `PORT` } }`` Version 2.0: ``{ "Description":      "`Target-Group-NLB-Create`", "VpcId":            "`VPC_ID`", "StackTemplateId":  "stm-6pvp2f7cp481g1r47", "Name":             "`My-NLB-Target-Group`", "Parameters":   { "NetworkLoadBalancerArn":               `ARN`, "InstancePort":                         `PORT` } }`` 3. Output the RFC template to a file in your current folder named CreateTgNlbRfc.json: `aws amscm create-rfc --generate-cli-skeleton > CreateTgNlbRfc.json` 4. Modify and save the CreateTgNlbRfc.json file. For example, you can replace the contents with something like this: Version 1.0: ``{ "ChangeTypeVersion":    "`1.0`", "ChangeTypeId":         "ct-3t4lifos8tu58", "Title":                "`Target-Group-NLB-Create-RFC`" }`` Version 2.0: ``{ "ChangeTypeVersion":    "`2.0`", "ChangeTypeId":         "ct-3t4lifos8tu58", "Title":                "`Target-Group-NLB-Create-RFC`" }`` 5. Create the RFC, specifying the CreateTgNlbRfc file and the CreateTgNlbParams file: `aws amscm create-rfc --cli-input-json file://CreateTgNlbRfc.json --execution-parameters file://CreateTgNlbParams.json` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. Next Steps: Create a listener for the NLB, see [NLB listeners](../userguide/ex-nlb-listener-listener.md "../userguide/ex-nlb-listener-listener.md"). To open ports and associate security groups, submit a Management | Other | Other | Update change type. For more information, see [Other | Other requests](ex-other-other.md "ex-other-other.md"). ###### Important There is a new version of this change type, v2.0, that uses a different StackTemplateId (stm-6pvp2f7cp481g1r47). This is important if you are submitting the RFC with this change type at the command line. The new version includes a new, required, parameter: **NetworkLoadBalancer**. ## Execution Input Parameters For detailed information about the execution input parameters, see [Schema for Change Type ct-3t4lifos8tu58](schemas.md#ct-3t4lifos8tu58-schema-section "schemas.md#ct-3t4lifos8tu58-schema-section"). ## Example: Required Parameters `{ "Description": "Test description.", "VpcId": "vpc-1234567890abcdef0", "Name": "MyRFCName", "StackTemplateId": "stm-6pvp2f7cp481g1r47", "TimeoutInMinutes": 60, "Parameters": { "InstancePort": "80", "NetworkLoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/my-nlb/abcdefghij" } }` ## Example: All Parameters `{ "Description": "Test description.", "VpcId": "vpc-1234567890abcdef0", "Name": "MyRFCName", "StackTemplateId": "stm-6pvp2f7cp481g1r47", "TimeoutInMinutes": 60, "Parameters": { "NetworkLoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/my-nlb/abcdefghij", "HealthCheckHealthyThreshold": "5", "HealthCheckInterval": 30, "HealthCheckTargetPath": "/healthcheck", "HealthCheckTargetPort": "80", "HealthCheckTargetProtocol": "HTTP", "InstancePort": "80", "Name": "mytargetgroup", "ProxyProtocolV2": "true", "DeregistrationDelayTimeout": "300", "TargetType": "ip", "Target1ID": "192.168.0.1", "Target1Port": "80", "Target1AvailabilityZone": "all", "Target2ID": "192.168.0.2", "Target2Port": "80", "Target2AvailabilityZone": "all", "Target3ID": "10.44.4.125", "Target3Port": "8080", "Target3AvailabilityZone": "", "Target4ID": "10.44.4.126", "Target4Port": "8080", "Target4AvailabilityZone": "", "Target5ID": "192.168.0.127", "Target5Port": "80", "Target5AvailabilityZone": "all", "Target6ID": "192.168.0.128", "Target6Port": "80", "Target6AvailabilityZone": "all", "Target7ID": "192.168.0.129", "Target7Port": "8080", "Target7AvailabilityZone": "", "Target8ID": "192.168.0.130", "Target8Port": "8080", "Target8AvailabilityZone": "" } }` |
+| Execution mode              | Automated        |
+
+## Additional Information
+
+### Create NLB target group
+
+Screenshot of this change type in the AMS console:
+
+![Change type details for creating a target group for Network Load Balancer.](images/guiTarGroupNlbCreateCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+
+Version 1.0:
+
+```
+aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3t4lifos8tu58" --change-type-version "1.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-NLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-6pvp2f7cp481g1r46\", \"Name\":\"`TG-NLB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"
+```
+
+Version 2.0:
+
+```
+aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3t4lifos8tu58" --change-type-version "2.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-NLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-6pvp2f7cp481g1r47\", \"Name\":\"`TG-NLB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"NetworkLoadBalancerArn\":\"`ARN`\",\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it CreateTGNlbParams.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-3t4lifos8tu58" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateTGNlbParams.json
+```
+
+2. Modify and save the CreateTGNlbParams file. For example, you can replace the contents with something like this:
+
+Version 1.0:
+
+```
+{
+"Description":      "`Target-Group-NLB-Create`",
+"VpcId":            "`VPC_ID`",
+"StackTemplateId":  "stm-6pvp2f7cp481g1r46",
+"Name":             "`My-NLB-Target-Group`",
+
+"Parameters":   {
+    "InstancePort":                          `PORT`
+    }
+}
+```
+
+Version 2.0:
+
+```
+{
+"Description":      "`Target-Group-NLB-Create`",
+"VpcId":            "`VPC_ID`",
+"StackTemplateId":  "stm-6pvp2f7cp481g1r47",
+"Name":             "`My-NLB-Target-Group`",
+
+"Parameters":   {
+    "NetworkLoadBalancerArn":               `ARN`,
+    "InstancePort":                         `PORT`
+    }
+}
+```
+
+3. Output the RFC template to a file in your current folder named CreateTgNlbRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > CreateTgNlbRfc.json
+```
+
+4. Modify and save the CreateTgNlbRfc.json file. For example, you can replace the contents with something like this:
+
+Version 1.0:
+
+```
+{
+"ChangeTypeVersion":    "`1.0`",
+"ChangeTypeId":         "ct-3t4lifos8tu58",
+"Title":                "`Target-Group-NLB-Create-RFC`"
+}
+```
+
+Version 2.0:
+
+```
+{
+"ChangeTypeVersion":    "`2.0`",
+"ChangeTypeId":         "ct-3t4lifos8tu58",
+"Title":                "`Target-Group-NLB-Create-RFC`"
+}
+```
+
+5. Create the RFC, specifying the CreateTgNlbRfc file and the CreateTgNlbParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://CreateTgNlbRfc.json --execution-parameters file://CreateTgNlbParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+Next Steps: Create a listener for the NLB, see
+[NLB listeners](../userguide/ex-nlb-listener-listener.md "../userguide/ex-nlb-listener-listener.md").
+To open ports and associate security groups, submit a Management | Other | Other | Update change type.
+For more information, see
+[Other | Other requests](ex-other-other.md "ex-other-other.md").
+
+###### Important
+
+There is a new version of this change type, v2.0, that uses a different StackTemplateId (stm-6pvp2f7cp481g1r47). This is important
+if you are submitting the RFC with this change type at the command line. The new version includes a new, required, parameter:
+**NetworkLoadBalancer**.
+
+## Execution Input Parameters
+
+For detailed information about the execution input parameters, see
+[Schema for Change Type ct-3t4lifos8tu58](schemas.md#ct-3t4lifos8tu58-schema-section "schemas.md#ct-3t4lifos8tu58-schema-section").
+
+## Example: Required Parameters
+
+```
+{
+  "Description": "Test description.",
+  "VpcId": "vpc-1234567890abcdef0",
+  "Name": "MyRFCName",
+  "StackTemplateId": "stm-6pvp2f7cp481g1r47",
+  "TimeoutInMinutes": 60,
+  "Parameters": {
+    "InstancePort": "80",
+    "NetworkLoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/my-nlb/abcdefghij"
+  }
+}
+
+```
+
+## Example: All Parameters
+
+```
+{
+  "Description": "Test description.",
+  "VpcId": "vpc-1234567890abcdef0",
+  "Name": "MyRFCName",
+  "StackTemplateId": "stm-6pvp2f7cp481g1r47",
+  "TimeoutInMinutes": 60,
+  "Parameters": {
+    "NetworkLoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/my-nlb/abcdefghij",
+    "HealthCheckHealthyThreshold": "5",
+    "HealthCheckInterval": 30,
+    "HealthCheckTargetPath": "/healthcheck",
+    "HealthCheckTargetPort": "80",
+    "HealthCheckTargetProtocol": "HTTP",
+    "InstancePort": "80",
+    "Name": "mytargetgroup",
+    "ProxyProtocolV2": "true",
+    "DeregistrationDelayTimeout": "300",
+    "TargetType": "ip",
+    "Target1ID": "192.168.0.1",
+    "Target1Port": "80",
+    "Target1AvailabilityZone": "all",
+    "Target2ID": "192.168.0.2",
+    "Target2Port": "80",
+    "Target2AvailabilityZone": "all",
+    "Target3ID": "10.44.4.125",
+    "Target3Port": "8080",
+    "Target3AvailabilityZone": "",
+    "Target4ID": "10.44.4.126",
+    "Target4Port": "8080",
+    "Target4AvailabilityZone": "",
+    "Target5ID": "192.168.0.127",
+    "Target5Port": "80",
+    "Target5AvailabilityZone": "all",
+    "Target6ID": "192.168.0.128",
+    "Target6Port": "80",
+    "Target6AvailabilityZone": "all",
+    "Target7ID": "192.168.0.129",
+    "Target7Port": "8080",
+    "Target7AvailabilityZone": "",
+    "Target8ID": "192.168.0.130",
+    "Target8Port": "8080",
+    "Target8AvailabilityZone": ""
+  }
+}
+
+```

@@ -7,10 +7,262 @@ Delete Elastic Block Store (EBS) snapshots. Because deleted snapshots cannot be 
 ## Change Type Details
 
 |                             |                  |
-| --------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------------- |
 | Change type ID              | ct-30bfiwxjku1nu |
 | Current version             | 2.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
-| Execution mode              | Automated        | ## Additional Information ### Delete EBS snapshot ![Delete EBS Snapshots operation details, including execution mode, version, and description.](images/guiEbsSnpshtDeleteCT.png) How it works: 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**. 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view. <br>• **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create. To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button. <br>• **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page. 3. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC. In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page. How it works: 1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here. 2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID. Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command. To check the change type version, use this command: `` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID` `` ###### Note You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md"). _INLINE CREATE_: Note that the DocumentName in version 1 is AWSManagedServices-DeleteEBSSnapshot; in version 2 it is AWSManagedServices-DeleteEBSSnapshots. These examples are for version 2. Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this: With only `SnapshotIds` specified: ``aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS snapshot`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"SnapshotIds\":[\"`snap-0123456789abcdef0`\",\"`snap-0123456789abcdef1`\"]}}"`` With up to 1000 snapshots listed in an S3 file specified: ``aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters ""{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"SnapshotIdCsvUrl\":[\"`PRE-SIGNED_S3_URL`\"]}}"`` Delete up to 1000 snapshots older than 2020-01-31 and tagged with Delete:True: ``aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"StartDate\":[\"`2020-01-31`\"],\"Tag\":[{\"Key\":\"`Delete`\",\"Value\":\"`True`\"}]}}"`` Delete up to 1000 snapshots older than 2020-01-31 for which source volumes no longer exist: ``aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"StartDate\":[\"`2020-01-31`\"],\"SnapshotsWithoutVolumes\":[\"True\"]}}"`` _TEMPLATE CREATE_: 1. Output the execution parameters JSON schema for this change type to a file; this example names it DeleteEbsSnpshtParams.json: `aws amscm get-change-type-version --change-type-id "ct-30bfiwxjku1nu" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteEbsSnpshtParams.json` 2. Modify and save the DeleteEbsSnpshtParams file. For example, you can replace the contents with something like this: With only `SnapshotIds` specified: ``{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "`us-east-1`", "Confirmation": "delete permanently", "Parameters" : { "SnapshotIds": [ "`snap-0123456789abcdef0`", "`snap-0123456789abcdef1`" ] } }`` With up to 1000 snapshots listed in an S3 file specified: ``{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "`us-east-1`", "Confirmation": "delete permanently", "Parameters": { "SnapshotIdCsvUrl": [ "`PRE-SIGNED_S3_URL`" ] } }}`` Delete up to 1000 snapshots older than 2020-01-31 and tagged with Delete:True: ``{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "`us-east-1`", "Confirmation": "delete permanently", "Parameters": { "StartDate": [ "`2020-01-31`" ], "Tag": [ {"Key":"`Delete`","Value":"`True`"} ] } }`` Delete up to 1000 snapshots older than 2020-01-31 for which source volumes no longer exist: ``{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "`us-east-1`", "Confirmation": "delete permanently", "Parameters": { "StartDate": [ "`2020-01-31`" ], "SnapshotsWithoutVolumes": [ "True" ] } }`` 3. Output the RFC template JSON file to a file; this example names it DeleteEbsSnpshtRfc.json: `aws amscm create-rfc --generate-cli-skeleton > DeleteEbsSnpshtRfc.json` 4. Modify and save the DeleteEbsSnpshtRfc.json file. For example, you can replace the contents with something like this: ``{ "ChangeTypeVersion":    "`2.0`", "ChangeTypeId":         "ct-30bfiwxjku1nu", "Title":                "`EBS-Snapshot-Delete-RFC`" }`` 5. Create the RFC, specifying the DeleteEbsSnpshtRfc file and the DeleteEbsSnpshtParams file: `aws amscm create-rfc --cli-input-json file://DeleteEbsSnpshtRfc.json  --execution-parameters file://DeleteEbsSnpshtParams.json` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. ###### Note If more than one parameter is used, only snapshots matching all used parameters are deleted. Snapshots created less than 60 days ago cannot be deleted. To delete snapshots less than 60 days old, use the Management | Advanced stack components | EBS Snapshot | Delete (managed automation) (ct-1vrnixswq1uwf) and an AMS engineer will assist you. Additionally, this CT can’t delete snapshots used by AMIs or created by AWS Backup service. ###### Note This change type is now at version 2.0 because new parameters were added to give more flexibility in determining which snapshots would be deleted. The DocumentName in version 1 is AWSManagedServices-DeleteEBSSnapshot; in version 2 it is AWSManagedServices-DeleteEBSSnapshots. To learn more about Amazon EBS snapshots, see [Amazon EBS Snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/latest/UserGuide/EBSSnapshots.md"). ## Execution Input Parameters For detailed information about the execution input parameters, see [Schema for Change Type ct-30bfiwxjku1nu](schemas.md#ct-30bfiwxjku1nu-schema-section "schemas.md#ct-30bfiwxjku1nu-schema-section"). ## Example: Required Parameters `{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "us-east-1", "Confirmation": "delete permanently", "Parameters" : {} }` ## Example: All Parameters `{ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots", "Region": "us-east-1", "Confirmation": "delete permanently", "Parameters": { "SnapshotIds": [ "snap-01234567891234501", "snap-01234567891234502", "snap-01234567891234503", "snap-01234567891234504", "snap-01234567891234505", "snap-01234567891234506", "snap-01234567891234507", "snap-01234567891234508", "snap-01234567891234509", "snap-01234567891234510" ], "SnapshotIdCsvUrl": [ "https://s3.us-east-1.amazonaws.com/my-bucket-0123456789/snapshots.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ABCDEFGHIJKLMNOPRSTU%2F20200821%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200821T000453Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=0123456789uX2VjEGgaCXVzLWVhc3QtMSJGMEQCICDq9VkeEyrvJsAbzTrb7QDMfFHY28C8BxgK0WQyKTzmAiA1fIAoUwqAgIRZAN4NvVztgR6yNDjNXqTmjisUAKxOUSqeAghREAIaDDA4ODg2MDEwMDA5OSIMW3BVuq3o4SXDrKbGKvsB0wQYDEnXKaFPdRkcFt08KkY4EsDlP2oprD2Q1JUrkvnBrU92s%2FNNGywqpsnm8GqkqyYfQlfzzPLhWgt9hMBHnEIkhY4sSGmYrRuwOwB%2B187y3imfCReNYrkhbR2SykMO%2BRgFy2buoGXpWBYmWH2pT9IV2aTlKHj9hk7cdCfGfjpIfPYpdXPEoMY%2F1L8BdT94MgwpOqFvKBCpt%2Fhy%2BG3EP6E1KWZK9Re%2BnIpTTzpKMXSM6HAlnl5JfOHWPm8DK6c4IwTPJtvlrJFSFYwYdFU3tO%2FRQmXdVgS8H1LH3ug8tMN3y1SP0uHGub7pM4dcLqOGOTWN6%2F8cofyB33gw9pz8%2BQU6ngFQqBiQIowdj4y35%2FacxKMQmtR6VR7EbJ1hQTFT5xdeFn%2FAv0yWidW3MiWr%2Bhc4sBSnol%2FjfDoWx4g4LzAyJlaz51UGsCqlqWbxSODyslqu5jSnk0On0gRdHHCi8zSkwn4ornnFzsEuMDaigIFdvbkfF8q7eFMy8QNCPZHd1mrGVan%2FJxxFFh6yI9QF6H4bzIB1UzE0x%2FohCbQBZtda7Q%3D%3D&X-Amz-Signature=01234567890fa9d3ebbf26fb5773017de2cc9bc10b50616f04d7932aad5e5473" ], "SnapshotCreationDate": [ "2020-01-31" ], "SnapshotTag": [ "{\"Key\":\"Delete\",\"Value\":\"True\"}" ], "SnapshotsWithoutVolumes": [ "False" ], "S3Bucket": [ "s3://my-bucket-0123456789" ] } }` |
+| Execution mode              | Automated        |
+
+## Additional Information
+
+### Delete EBS snapshot
+
+![Delete EBS Snapshots operation details, including execution mode, version, and description.](images/guiEbsSnpshtDeleteCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Note that the DocumentName in version 1 is AWSManagedServices-DeleteEBSSnapshot; in version 2 it is
+AWSManagedServices-DeleteEBSSnapshots. These examples are for version 2.
+
+Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+
+With only `SnapshotIds` specified:
+
+```
+aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS snapshot`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"SnapshotIds\":[\"`snap-0123456789abcdef0`\",\"`snap-0123456789abcdef1`\"]}}"
+```
+
+With up to 1000 snapshots listed in an S3 file specified:
+
+```
+aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters ""{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"SnapshotIdCsvUrl\":[\"`PRE-SIGNED_S3_URL`\"]}}"
+```
+
+Delete up to 1000 snapshots older than 2020-01-31 and tagged with Delete:True:
+
+```
+aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"StartDate\":[\"`2020-01-31`\"],\"Tag\":[{\"Key\":\"`Delete`\",\"Value\":\"`True`\"}]}}"
+```
+
+Delete up to 1000 snapshots older than 2020-01-31 for which source volumes no longer exist:
+
+```
+aws amscm create-rfc --change-type-id "ct-30bfiwxjku1nu" --change-type-version "2.0" --title "`Delete EBS Snapshots`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-DeleteEBSSnapshots\",\"Region\":\"`us-east-1`\",\"Confirmation\":\"delete permanently\",\"Parameters\":{\"StartDate\":[\"`2020-01-31`\"],\"SnapshotsWithoutVolumes\":[\"True\"]}}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type to a file; this example names it DeleteEbsSnpshtParams.json:
+
+```
+aws amscm get-change-type-version --change-type-id "ct-30bfiwxjku1nu" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteEbsSnpshtParams.json
+```
+
+2. Modify and save the DeleteEbsSnpshtParams file. For example, you can replace the contents with something like this:
+
+With only `SnapshotIds` specified:
+
+```
+{
+  "DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+  "Region": "`us-east-1`",
+  "Confirmation": "delete permanently",
+  "Parameters" : {
+    "SnapshotIds": [
+      "`snap-0123456789abcdef0`",
+      "`snap-0123456789abcdef1`"
+    ]
+  }
+}
+```
+
+With up to 1000 snapshots listed in an S3 file specified:
+
+```
+{
+ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+ "Region": "`us-east-1`",
+ "Confirmation": "delete permanently",
+ "Parameters": {
+     "SnapshotIdCsvUrl": [
+         "`PRE-SIGNED_S3_URL`"
+     ]
+ }
+}}
+```
+
+Delete up to 1000 snapshots older than 2020-01-31 and tagged with Delete:True:
+
+```
+{
+ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+ "Region": "`us-east-1`",
+ "Confirmation": "delete permanently",
+ "Parameters": {
+      "StartDate": [
+          "`2020-01-31`"
+      ],
+      "Tag": [
+          {"Key":"`Delete`","Value":"`True`"}
+      ]
+ }
+}
+```
+
+Delete up to 1000 snapshots older than 2020-01-31 for which source volumes no longer exist:
+
+```
+{
+ "DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+ "Region": "`us-east-1`",
+ "Confirmation": "delete permanently",
+ "Parameters": {
+      "StartDate": [
+          "`2020-01-31`"
+      ],
+      "SnapshotsWithoutVolumes": [
+          "True"
+      ]
+ }
+}
+```
+
+3. Output the RFC template JSON file to a file; this example names it DeleteEbsSnpshtRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > DeleteEbsSnpshtRfc.json
+```
+
+4. Modify and save the DeleteEbsSnpshtRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+"ChangeTypeVersion":    "`2.0`",
+"ChangeTypeId":         "ct-30bfiwxjku1nu",
+"Title":                "`EBS-Snapshot-Delete-RFC`"
+}
+```
+
+5. Create the RFC, specifying the DeleteEbsSnpshtRfc file and the DeleteEbsSnpshtParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://DeleteEbsSnpshtRfc.json  --execution-parameters file://DeleteEbsSnpshtParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+###### Note
+
+If more than one parameter is used, only snapshots matching all used parameters are deleted.
+
+Snapshots created less than 60 days ago cannot be deleted. To delete snapshots less than 60 days old, use the Management | Advanced stack components | EBS Snapshot | Delete (managed automation) (ct-1vrnixswq1uwf) and an AMS engineer will assist you.
+
+Additionally, this CT can’t delete snapshots used by AMIs or created by AWS Backup service.
+
+###### Note
+
+This change type is now at version 2.0 because new parameters were added to give more flexibility in
+determining which snapshots would be deleted. The DocumentName in version 1 is AWSManagedServices-DeleteEBSSnapshot;
+in version 2 it is AWSManagedServices-DeleteEBSSnapshots.
+
+To learn more about Amazon EBS snapshots, see
+[Amazon EBS Snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/latest/UserGuide/EBSSnapshots.md").
+
+## Execution Input Parameters
+
+For detailed information about the execution input parameters, see
+[Schema for Change Type ct-30bfiwxjku1nu](schemas.md#ct-30bfiwxjku1nu-schema-section "schemas.md#ct-30bfiwxjku1nu-schema-section").
+
+## Example: Required Parameters
+
+```
+{
+  "DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+  "Region": "us-east-1",
+  "Confirmation": "delete permanently",
+  "Parameters" : {}
+}
+```
+
+## Example: All Parameters
+
+```
+{
+	"DocumentName": "AWSManagedServices-DeleteEBSSnapshots",
+	"Region": "us-east-1",
+	"Confirmation": "delete permanently",
+	"Parameters": {
+		"SnapshotIds": [
+			"snap-01234567891234501",
+			"snap-01234567891234502",
+			"snap-01234567891234503",
+			"snap-01234567891234504",
+			"snap-01234567891234505",
+			"snap-01234567891234506",
+			"snap-01234567891234507",
+			"snap-01234567891234508",
+			"snap-01234567891234509",
+			"snap-01234567891234510"
+		],
+		"SnapshotIdCsvUrl": [
+			"https://s3.us-east-1.amazonaws.com/my-bucket-0123456789/snapshots.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ABCDEFGHIJKLMNOPRSTU%2F20200821%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200821T000453Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=0123456789uX2VjEGgaCXVzLWVhc3QtMSJGMEQCICDq9VkeEyrvJsAbzTrb7QDMfFHY28C8BxgK0WQyKTzmAiA1fIAoUwqAgIRZAN4NvVztgR6yNDjNXqTmjisUAKxOUSqeAghREAIaDDA4ODg2MDEwMDA5OSIMW3BVuq3o4SXDrKbGKvsB0wQYDEnXKaFPdRkcFt08KkY4EsDlP2oprD2Q1JUrkvnBrU92s%2FNNGywqpsnm8GqkqyYfQlfzzPLhWgt9hMBHnEIkhY4sSGmYrRuwOwB%2B187y3imfCReNYrkhbR2SykMO%2BRgFy2buoGXpWBYmWH2pT9IV2aTlKHj9hk7cdCfGfjpIfPYpdXPEoMY%2F1L8BdT94MgwpOqFvKBCpt%2Fhy%2BG3EP6E1KWZK9Re%2BnIpTTzpKMXSM6HAlnl5JfOHWPm8DK6c4IwTPJtvlrJFSFYwYdFU3tO%2FRQmXdVgS8H1LH3ug8tMN3y1SP0uHGub7pM4dcLqOGOTWN6%2F8cofyB33gw9pz8%2BQU6ngFQqBiQIowdj4y35%2FacxKMQmtR6VR7EbJ1hQTFT5xdeFn%2FAv0yWidW3MiWr%2Bhc4sBSnol%2FjfDoWx4g4LzAyJlaz51UGsCqlqWbxSODyslqu5jSnk0On0gRdHHCi8zSkwn4ornnFzsEuMDaigIFdvbkfF8q7eFMy8QNCPZHd1mrGVan%2FJxxFFh6yI9QF6H4bzIB1UzE0x%2FohCbQBZtda7Q%3D%3D&X-Amz-Signature=01234567890fa9d3ebbf26fb5773017de2cc9bc10b50616f04d7932aad5e5473"
+		],
+		"SnapshotCreationDate": [
+			"2020-01-31"
+		],
+		"SnapshotTag": [
+			"{\"Key\":\"Delete\",\"Value\":\"True\"}"
+		],
+		"SnapshotsWithoutVolumes": [
+			"False"
+		],
+		"S3Bucket": [
+			"s3://my-bucket-0123456789"
+		]
+	}
+}
+```

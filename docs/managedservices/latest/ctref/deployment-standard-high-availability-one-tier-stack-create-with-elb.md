@@ -7,10 +7,246 @@ Create a stack with an Auto Scaling Group, and an Elastic Load Balancer (ELB) wi
 ## Change Type Details
 
 |                             |                  |
-| --------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------------- |
 | Change type ID              | ct-3w4lxdl3pqxob |
 | Current version             | 1.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
-| Execution mode              | Automated        | ## Additional Information ### High availability one-tier Stacks: Creating (with ELB) ![Change type details for creating an HA One-Tier Stack with ELB, including description and execution mode.](images/guiHa1tCreateWithElbCT.png) How it works: 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**. 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view. <br>• **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create. To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button. <br>• **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page. 3. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC. In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page. How it works: 1. Use the Template Create method (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here. 2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID. Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command. To check the change type version, use this command: `` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID` `` ###### Note You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md"). _INLINE CREATE_: Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this: ``aws amscm  --profile saml --region us-east-1 create-rfc --change-type-id "ct-3w4lxdl3pqxob" --change-type-version "1.0" --title '`Test - HA`' --description "`Test Stack`"  --execution-parameters "{\"Description\":\"`DESCRIPTION`\",\"VpcId\":\"`VPC_ID`\",\"Name\":\"`TestStack`\",\"StackTemplateId\":\"stm-g7rc538l62r4c23nb\",\"TimeoutInMinutes\":`60`,\"AutoScaling\":{\"AmiId\":\"`AMI_ID`\",\"SubnetIds\":[\"`SUBNET_ID`\"]},\"LoadBalancer\":{\"SecurityGroups\":\"`SG_ID`\",\"SubnetIds\":[\"`SUBNET_ID`\"]},\"Listener1\":{\"Port\":\"`443`\",\"Protocol\":\"`HTTPS`\",\"InstancePort\":\"`443`\"}}"`` _TEMPLATE CREATE_: 1. Output the execution parameters JSON schema for this change type to a file in your current folder; this example names it CreateOnetierElbStackParams.json. `aws amscm get-change-type-version --change-type-id "ct-3w4lxdl3pqxob" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateOnetierElbStackParams.json` 2. Modify the schema, replacing the `variables` as appropriate. ``{ "Description" : "`DESCRIPTION`", "VpcId" : "`VPC_ID`", "Name" : "`TestStack`", "StackTemplateId" : "stm-g7rc538l62r4c23nb", "TimeoutInMinutes" : `60`, "AutoScaling" : { "AmiId" : "`AMI_ID`", "SubnetIds": ["`SUBNET_ID`"] }, "LoadBalancer" : { "SecurityGroups" : "`SG_ID`", "SubnetIds" : ["`SUBNET_ID`"] }, "Listener1" : { "Port" : "`443`", "Protocol" : "`HTTPS`", "InstancePort" : "`443`" } }`` 3. Output the CreateRfc JSON template to a file in your current folder; example names it CreateOnetierElbStackRfc.json: `aws amscm create-rfc --generate-cli-skeleton > CreateOnetierElbStackRfc.json` 4. Modify the RFC template as appropriate and save it. Reset the start and end times for a scheduled RFC, or leave off for an ASAP RFC. ``{ "ChangeTypeVersion":    `1.0`", "ChangeTypeId":         "ct-3w4lxdl3pqxob", "Title":                "`HA-One-Tier-ELB-RFC`", "RequestedStartTime":   "`2019-04-28T22:45:00Z`", "RequestedEndTime":     "`2019-04-28T22:45:00Z`" }`` 5. Create the RFC, specifying the CreateOnetierElbStackRfc.json file and the CreateOnetierElbStackParams.json execution parameters file: `aws amscm create-rfc --cli-input-json file://CreateOnetierElbStackRfc.json --execution-parameters file://CreateOnetierElbStackParams.json` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. ###### Note This is a large provisioning of resources, especially if you add UserData. The load balancer Amazon Resource Name (ARN) can be found through the Load Balancer page of the EC2 console by searching with the load balancer stack ID returned in the RFC execution output. ## Execution Input Parameters For detailed information about the execution input parameters, see [Schema for Change Type ct-3w4lxdl3pqxob](schemas.md#ct-3w4lxdl3pqxob-schema-section "schemas.md#ct-3w4lxdl3pqxob-schema-section"). ## Example: Required Parameters `{ "Description" : "Test description", "VpcId" : "vpc-12345678901234567", "Name" : "TestStack", "StackTemplateId" : "stm-g7rc538l62r4c23nb", "TimeoutInMinutes" : 60, "AutoScaling" : { "AmiId" : "ami-12345678901234567", "SubnetIds": ["subnet-12345678"] }, "LoadBalancer" : { "SecurityGroups" : "sg-12345678901234567", "SubnetIds" : ["subnet-12345678901234567"] }, "Listener1" : { "Port" : "443", "Protocol" : "HTTPS", "InstancePort" : "443" } }` ## Example: All Parameters `{ "Description" : "Test description", "VpcId" : "vpc-12345678", "Name" : "TestStack", "Tags" : [ { "Key" : "foo", "Value" : "bar" } ], "StackTemplateId" : "stm-g7rc538l62r4c23nb", "TimeoutInMinutes" : 60, "AutoScaling" : { "AmiId" : "ami-12345678", "InstanceType" : "m4.large", "RootVolumeIops" : "100", "RootVolumeName" : "/dev/xvda", "RootVolumeSize" : 100, "RootVolumeType" : "gp2", "EBSOptimized" : "false", "MaxInstances" : "1", "MinInstances" : "2", "IAMInstanceProfile" : "customer-mc-ec2-instance-profile", "SubnetIds": ["subnet-12345678"], "UserData": ["touch /tmp/test.out"], "MaxBatchSize" : 1, "MinInstancesInService" : 1, "HealthCheckType" : "EC2", "HealthCheckGracePeriod" : "600", "DetailedMonitoring" : "true", "Cooldown" : "300", "ScaleMetricName" : "CPUUtilization", "ScaleUpPolicyCooldown" : "60", "ScaleUpPolicyEvaluationPeriods" : "2", "ScaleUpPolicyPeriod" : "60", "ScaleUpPolicyScalingAdjustment" : "2", "ScaleUpPolicyStatistic" : "Average", "ScaleUpPolicyThreshold" : "75", "ScaleDownPolicyCooldown" : "300", "ScaleDownPolicyEvaluationPeriods" : "4", "ScaleDownPolicyPeriod" : "60", "ScaleDownPolicyScalingAdjustment" : "-1", "ScaleDownPolicyStatistic" : "Average", "ScaleDownPolicyThreshold" : "35" }, "LoadBalancer" : { "Name" : "testLoadBalancer", "Public" : "false", "SecurityGroups" : "sg-12345678", "SubnetIds" : ["subnet-12345678"], "AccessLogInterval" : "60", "ConnectionDrainingTimeout" : 60, "IdleTimeout" : 60, "CrossZone" : "true", "HealthCheckHealthyThreshold" : "2", "HealthCheckInterval" : "10", "HealthCheckTarget" : "TCP:80", "HealthCheckTimeout" : "5", "HealthCheckUnhealthyThreshold" : "10", "LBCookieExpirationPeriod" : "2", "LBCookieStickinessPolicyName" : "LBCOOKIE", "AppCookieName": "APPCookie", "AppCookiePolicyName": "AppCookiePolicy" }, "Listener1" : { "InstancePort" : "80", "InstanceProtocol" : "HTTP", "Port" : "443", "Protocol" : "HTTPS", "SSLCertificateId" : "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012" }, "Listener2" : { "InstancePort" : "8080", "InstanceProtocol" : "HTTP", "Port" : "8443", "Protocol" : "HTTPS", "SSLCertificateId" : "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012" } }` |
+| Execution mode              | Automated        |
+
+## Additional Information
+
+### High availability one-tier Stacks: Creating (with ELB)
+
+![Change type details for creating an HA One-Tier Stack with ELB, including description and execution mode.](images/guiHa1tCreateWithElbCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use the
+   Template Create method (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm  --profile saml --region us-east-1 create-rfc --change-type-id "ct-3w4lxdl3pqxob" --change-type-version "1.0" --title '`Test - HA`' --description "`Test Stack`"  --execution-parameters "{\"Description\":\"`DESCRIPTION`\",\"VpcId\":\"`VPC_ID`\",\"Name\":\"`TestStack`\",\"StackTemplateId\":\"stm-g7rc538l62r4c23nb\",\"TimeoutInMinutes\":`60`,\"AutoScaling\":{\"AmiId\":\"`AMI_ID`\",\"SubnetIds\":[\"`SUBNET_ID`\"]},\"LoadBalancer\":{\"SecurityGroups\":\"`SG_ID`\",\"SubnetIds\":[\"`SUBNET_ID`\"]},\"Listener1\":{\"Port\":\"`443`\",\"Protocol\":\"`HTTPS`\",\"InstancePort\":\"`443`\"}}"
+```
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type to a file in your current folder; this example names it CreateOnetierElbStackParams.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-3w4lxdl3pqxob" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateOnetierElbStackParams.json
+```
+
+2. Modify the schema, replacing the `variables` as appropriate.
+
+```
+{
+  "Description" : "`DESCRIPTION`",
+  "VpcId" : "`VPC_ID`",
+  "Name" : "`TestStack`",
+  "StackTemplateId" : "stm-g7rc538l62r4c23nb",
+  "TimeoutInMinutes" : `60`,
+  "AutoScaling" : {
+    "AmiId" : "`AMI_ID`",
+    "SubnetIds": ["`SUBNET_ID`"]
+  },
+  "LoadBalancer" : {
+    "SecurityGroups" : "`SG_ID`",
+    "SubnetIds" : ["`SUBNET_ID`"]
+  },
+  "Listener1" : {
+    "Port" : "`443`",
+    "Protocol" : "`HTTPS`",
+    "InstancePort" : "`443`"
+  }
+}
+```
+
+3. Output the CreateRfc JSON template to a file in your current folder; example names it CreateOnetierElbStackRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > CreateOnetierElbStackRfc.json
+```
+
+4. Modify the RFC template as appropriate and save it. Reset the start and end times for a scheduled RFC, or leave off for an ASAP RFC.
+
+```
+{
+"ChangeTypeVersion":    `1.0`",
+"ChangeTypeId":         "ct-3w4lxdl3pqxob",
+"Title":                "`HA-One-Tier-ELB-RFC`",
+"RequestedStartTime":   "`2019-04-28T22:45:00Z`",
+"RequestedEndTime":     "`2019-04-28T22:45:00Z`"
+}
+```
+
+5. Create the RFC, specifying the CreateOnetierElbStackRfc.json file and the CreateOnetierElbStackParams.json execution parameters file:
+
+```
+aws amscm create-rfc --cli-input-json file://CreateOnetierElbStackRfc.json --execution-parameters file://CreateOnetierElbStackParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+###### Note
+
+This is a large provisioning of resources, especially if you add UserData. The load balancer
+Amazon Resource Name (ARN) can be found through the Load Balancer page of
+the EC2 console by searching with the load balancer stack ID returned in the
+RFC execution output.
+
+## Execution Input Parameters
+
+For detailed information about the execution input parameters, see
+[Schema for Change Type ct-3w4lxdl3pqxob](schemas.md#ct-3w4lxdl3pqxob-schema-section "schemas.md#ct-3w4lxdl3pqxob-schema-section").
+
+## Example: Required Parameters
+
+```
+{
+  "Description" : "Test description",
+  "VpcId" : "vpc-12345678901234567",
+  "Name" : "TestStack",
+  "StackTemplateId" : "stm-g7rc538l62r4c23nb",
+  "TimeoutInMinutes" : 60,
+  "AutoScaling" : {
+    "AmiId" : "ami-12345678901234567",
+    "SubnetIds": ["subnet-12345678"]
+  },
+  "LoadBalancer" : {
+    "SecurityGroups" : "sg-12345678901234567",
+    "SubnetIds" : ["subnet-12345678901234567"]
+  },
+  "Listener1" : {
+    "Port" : "443",
+    "Protocol" : "HTTPS",
+    "InstancePort" : "443"
+  }
+}
+```
+
+## Example: All Parameters
+
+```
+{
+  "Description" : "Test description",
+  "VpcId" : "vpc-12345678",
+  "Name" : "TestStack",
+  "Tags" : [
+    {
+      "Key" : "foo",
+      "Value" : "bar"
+    }
+  ],
+  "StackTemplateId" : "stm-g7rc538l62r4c23nb",
+  "TimeoutInMinutes" : 60,
+  "AutoScaling" : {
+    "AmiId" : "ami-12345678",
+    "InstanceType" : "m4.large",
+    "RootVolumeIops" : "100",
+    "RootVolumeName" : "/dev/xvda",
+    "RootVolumeSize" : 100,
+    "RootVolumeType" : "gp2",
+    "EBSOptimized" : "false",
+    "MaxInstances" : "1",
+    "MinInstances" : "2",
+    "IAMInstanceProfile" : "customer-mc-ec2-instance-profile",
+    "SubnetIds": ["subnet-12345678"],
+    "UserData": ["touch /tmp/test.out"],
+    "MaxBatchSize" : 1,
+    "MinInstancesInService" : 1,
+    "HealthCheckType" : "EC2",
+    "HealthCheckGracePeriod" : "600",
+    "DetailedMonitoring" : "true",
+    "Cooldown" : "300",
+    "ScaleMetricName" : "CPUUtilization",
+    "ScaleUpPolicyCooldown" : "60",
+    "ScaleUpPolicyEvaluationPeriods" : "2",
+    "ScaleUpPolicyPeriod" : "60",
+    "ScaleUpPolicyScalingAdjustment" : "2",
+    "ScaleUpPolicyStatistic" : "Average",
+    "ScaleUpPolicyThreshold" : "75",
+    "ScaleDownPolicyCooldown" : "300",
+    "ScaleDownPolicyEvaluationPeriods" : "4",
+    "ScaleDownPolicyPeriod" : "60",
+    "ScaleDownPolicyScalingAdjustment" : "-1",
+    "ScaleDownPolicyStatistic" : "Average",
+    "ScaleDownPolicyThreshold" : "35"
+  },
+  "LoadBalancer" : {
+    "Name" : "testLoadBalancer",
+    "Public" : "false",
+    "SecurityGroups" : "sg-12345678",
+    "SubnetIds" : ["subnet-12345678"],
+    "AccessLogInterval" : "60",
+    "ConnectionDrainingTimeout" : 60,
+    "IdleTimeout" : 60,
+    "CrossZone" : "true",
+    "HealthCheckHealthyThreshold" : "2",
+    "HealthCheckInterval" : "10",
+    "HealthCheckTarget" : "TCP:80",
+    "HealthCheckTimeout" : "5",
+    "HealthCheckUnhealthyThreshold" : "10",
+    "LBCookieExpirationPeriod" : "2",
+    "LBCookieStickinessPolicyName" : "LBCOOKIE",
+    "AppCookieName": "APPCookie",
+    "AppCookiePolicyName": "AppCookiePolicy"
+  },
+  "Listener1" : {
+    "InstancePort" : "80",
+    "InstanceProtocol" : "HTTP",
+    "Port" : "443",
+    "Protocol" : "HTTPS",
+    "SSLCertificateId" : "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+  },
+  "Listener2" : {
+    "InstancePort" : "8080",
+    "InstanceProtocol" : "HTTP",
+    "Port" : "8443",
+    "Protocol" : "HTTPS",
+    "SSLCertificateId" : "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+  }
+}
+```

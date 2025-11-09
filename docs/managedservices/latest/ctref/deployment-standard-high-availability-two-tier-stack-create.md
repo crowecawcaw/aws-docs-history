@@ -7,10 +7,247 @@ Creates a stack consisting of an Auto Scaling group, an RDS DB instance, and a l
 ## Change Type Details
 
 |                             |                  |
-| --------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------------- |
 | Change type ID              | ct-06mjngx5flwto |
 | Current version             | 3.0              |
 | Expected execution duration | 60 minutes       |
 | AWS approval                | Required         |
 | Customer approval           | Not required     |
-| Execution mode              | Automated        | ## Additional Information ### Create high availability two-tier stacks ![Change type details for creating a high availability two-tier stack with configurable parameters.](images/guiHa2tCreateCT.png) How it works: 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**. 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view. <br>• **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create. To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button. <br>• **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page. 3. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC. In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page. How it works: 1. Use the Template Create method (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here. 2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID. Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command. To check the change type version, use this command: `` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID` `` ###### Note You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md"). _TEMPLATE CREATE_: 1. Output the execution parameters JSON schema for this change type to a file in your current folder; this example names it Create2tierStackParams.json. `aws amscm get-change-type-version --change-type-id "ct-06mjngx5flwto" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > Create2tierStackParams.json` 2. Modify the schema, replacing the `variables` as appropriate. ``{ "Description":        "`HA two tier stack`", "Name":               "`Two-Tier-Stack`", "TimeoutInMinutes":   `360`, "VpcId":              "`VPC-ID`", "AutoScalingGroup": { "AmiId":            "`AMI-ID`", "SubnetIds": [ "`Subnet-ID`", "`Subnet-ID`" ] }, "Database": { "DBName":           "`DB_Name`", "DBEngine":         "`postgres`", "EngineVersion":    "`9.6.3`", "LicenseModel":     "`postgresql-license`", "MasterUsername":   "`masterusername`", "SubnetIds": [ "`Subnet-ID`", "`Subnet-ID`" ] }, "LoadBalancer": { "SubnetIds": [ "`Subnet-ID`", "`Subnet-ID`" ] } }`` 3. Output the CreateRfc JSON template to a file in your current folder; example names it Create2tierStackRfc.json: `aws amscm create-rfc --generate-cli-skeleton > Create2tierStackRfc.json` 4. Modify the RFC template as appropriate and save it. Reset the start and end times for a scheduled RFC, or leave off for an ASAP RFC. ``{ "ChangeTypeVersion":    `3.0`", "ChangeTypeId":         "ct-06mjngx5flwto", "Title":                "`HA-2-Tier-RFC`", "RequestedStartTime":   "`2019-04-28T22:45:00Z`", "RequestedEndTime":     "`2019-04-28T22:45:00Z`" }`` 5. Create the RFC, specifying the Create2tierStackRfc.json file and the Create2tierStackParams.json execution parameters file: `aws amscm create-rfc --cli-input-json file://Create2tierStackRfc.json --execution-parameters file://Create2tierStackParams.json` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. ###### Note This is a large provisioning of resources, especially if you add UserData. The load balancer Amazon resource name (ARN) can be found through the Load Balancer page of the EC2 console by searching with the load balancer stack ID returned in the RFC execution output. ## Execution Input Parameters For detailed information about the execution input parameters, see [Schema for Change Type ct-06mjngx5flwto](schemas.md#ct-06mjngx5flwto-schema-section "schemas.md#ct-06mjngx5flwto-schema-section"). ## Example: Required Parameters `{ "Description": "My stack", "TimeoutInMinutes": 60, "VpcId": "vpc-01234567890abcdef", "Name": "MyStack", "AutoScalingGroup": { "AmiId" : "ami-01234567890abcdef", "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"] }, "LoadBalancer": { "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"] }, "Database": { "DBName": "main", "DBEngine": "MySQL", "EngineVersion": "4.5.6", "LicenseModel": "general-public-license", "MasterUsername": "admin", "MasterUserPassword": "adminpass", "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"] } }` ## Example: All Parameters ``` { "Description": "My stack", "VpcId": "vpc-12345678", "TimeoutInMinutes": 60, "Name": "MyStack", "Tags": [ { "Key": "Foo", "Value": "Bar" } ], "AutoScalingGroup": { "AmiId": "ami-12341234", "Cooldown": 120, "DesiredCapacity": 1, "EBSOptimized": false, "HealthCheckGracePeriod": 600, "IAMInstanceProfile": "foo", "InstanceDetailedMonitoring": true, "InstanceRootVolumeIops": 0, "InstanceRootVolumeName": "/dev/xvda", "InstanceRootVolumeSize": 30, "InstanceRootVolumeType": "gp2", "InstanceType": "m3.medium", "MaxInstances": 1, "MinInstances": 1, "ScaleDownPolicyCooldown": 300, "ScaleDownPolicyEvaluationPeriods": 4, "ScaleDownPolicyPeriod": 60, "ScaleDownPolicyScalingAdjustment": -1, "ScaleDownPolicyStatistic": "Average", "ScaleDownPolicyThreshold": 35, "ScaleMetricName": "CPUUtilization", "ScaleUpPolicyCooldown": 60, "ScaleUpPolicyEvaluationPeriods": 2, "ScaleUpPolicyPeriod": 60, "ScaleUpPolicyScalingAdjustment": 2, "ScaleUpPolicyStatistic": "Average", "ScaleUpPolicyThreshold": 75, "SubnetIds": ["subnet-a0b1c2d3", "subnet-e4f5g6h7"], "UserData": ["#!/bin/bash","echo hello"] }, "LoadBalancer": { "SubnetIds": ["subnet-a0b1c2d3", "subnet-a0b2c9d8"], "HealthCheckInterval": 10, "HealthCheckTarget": "HTTP:80/index.html", "HealthCheckTimeout": 10, "Public": false, "AccessCIDRRange": "1.2.3.4/0" }, "Database": { "AllocatedStorage": 100, "BackupRetentionPeriod": 7, "Backups": true, "DBEngine": "postgres", "DBName": "my_db", "EngineVersion": "9.5.2", "InstanceType": "db.m3.medium", "IOPS": 0, "LicenseModel": "postgresql-license", "MasterUsername": "myadminuser", "MasterUserPassword": "!#$%&')*+,-.0:;=>?AZ[\\^_`a{ | ~", "MultiAZ": false, "Port": 5432, "PreferredBackupWindow": "22:00-23:00", "PreferredMaintenanceWindow": "wed:03:32-wed:04:02", "StorageEncrypted": false, "StorageType": "gp2", "SubnetIds": ["subnet-a0b1c2d3", "subnet-a0b2c9d8"] }, "Application": { "ApplicationName": "MyApplication", "DeploymentConfigName": "CodeDeployDefault.OneAtATime" }, "EnforceIMDSv2": "optional" } ``` |
+| Execution mode              | Automated        |
+
+## Additional Information
+
+### Create high availability two-tier stacks
+
+![Change type details for creating a high availability two-tier stack with configurable parameters.](images/guiHa2tCreateCT.png)
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use the
+   Template Create method (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_TEMPLATE CREATE_:
+
+1. Output the execution parameters JSON schema for this change type to a file in your current folder; this example names it Create2tierStackParams.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-06mjngx5flwto" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > Create2tierStackParams.json
+```
+
+2. Modify the schema, replacing the `variables` as appropriate.
+
+```
+{
+  "Description":        "`HA two tier stack`",
+  "Name":               "`Two-Tier-Stack`",
+  "TimeoutInMinutes":   `360`,
+  "VpcId":              "`VPC-ID`",
+  "AutoScalingGroup": {
+    "AmiId":            "`AMI-ID`",
+    "SubnetIds": [
+                "`Subnet-ID`",
+                "`Subnet-ID`"
+    ]
+  },
+  "Database": {
+    "DBName":           "`DB_Name`",
+    "DBEngine":         "`postgres`",
+    "EngineVersion":    "`9.6.3`",
+    "LicenseModel":     "`postgresql-license`",
+    "MasterUsername":   "`masterusername`",
+    "SubnetIds": [
+                "`Subnet-ID`",
+                "`Subnet-ID`"
+    ]
+  },
+  "LoadBalancer": {
+    "SubnetIds": [
+                "`Subnet-ID`",
+                "`Subnet-ID`"
+    ]
+  }
+}
+```
+
+3. Output the CreateRfc JSON template to a file in your current folder; example names it Create2tierStackRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > Create2tierStackRfc.json
+```
+
+4. Modify the RFC template as appropriate and save it. Reset the start and end times for a scheduled RFC, or leave off for an ASAP RFC.
+
+```
+{
+"ChangeTypeVersion":    `3.0`",
+"ChangeTypeId":         "ct-06mjngx5flwto",
+"Title":                "`HA-2-Tier-RFC`",
+"RequestedStartTime":   "`2019-04-28T22:45:00Z`",
+"RequestedEndTime":     "`2019-04-28T22:45:00Z`"
+}
+```
+
+5. Create the RFC, specifying the Create2tierStackRfc.json file and the Create2tierStackParams.json execution parameters file:
+
+```
+aws amscm create-rfc --cli-input-json file://Create2tierStackRfc.json --execution-parameters file://Create2tierStackParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+###### Note
+
+This is a large provisioning of resources, especially if you add UserData. The load balancer Amazon resource name (ARN) can be found through
+the Load Balancer page of the EC2 console by searching with the load balancer stack ID returned in the RFC execution output.
+
+## Execution Input Parameters
+
+For detailed information about the execution input parameters, see
+[Schema for Change Type ct-06mjngx5flwto](schemas.md#ct-06mjngx5flwto-schema-section "schemas.md#ct-06mjngx5flwto-schema-section").
+
+## Example: Required Parameters
+
+```
+{
+  "Description": "My stack",
+  "TimeoutInMinutes": 60,
+  "VpcId": "vpc-01234567890abcdef",
+  "Name": "MyStack",
+  "AutoScalingGroup": {
+    "AmiId" : "ami-01234567890abcdef",
+    "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"]
+  },
+  "LoadBalancer": {
+    "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"]
+  },
+  "Database": {
+    "DBName": "main",
+    "DBEngine": "MySQL",
+    "EngineVersion": "4.5.6",
+    "LicenseModel": "general-public-license",
+    "MasterUsername": "admin",
+    "MasterUserPassword": "adminpass",
+    "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"]
+  }
+}
+
+```
+
+## Example: All Parameters
+
+```
+{
+  "Description": "My stack",
+  "VpcId": "vpc-12345678",
+  "TimeoutInMinutes": 60,
+  "Name": "MyStack",
+  "Tags": [
+    {
+      "Key": "Foo",
+      "Value": "Bar"
+    }
+  ],
+  "AutoScalingGroup": {
+    "AmiId": "ami-12341234",
+    "Cooldown": 120,
+    "DesiredCapacity": 1,
+    "EBSOptimized": false,
+    "HealthCheckGracePeriod": 600,
+    "IAMInstanceProfile": "foo",
+    "InstanceDetailedMonitoring": true,
+    "InstanceRootVolumeIops": 0,
+    "InstanceRootVolumeName": "/dev/xvda",
+    "InstanceRootVolumeSize": 30,
+    "InstanceRootVolumeType": "gp2",
+    "InstanceType": "m3.medium",
+    "MaxInstances": 1,
+    "MinInstances": 1,
+    "ScaleDownPolicyCooldown": 300,
+    "ScaleDownPolicyEvaluationPeriods": 4,
+    "ScaleDownPolicyPeriod": 60,
+    "ScaleDownPolicyScalingAdjustment": -1,
+    "ScaleDownPolicyStatistic": "Average",
+    "ScaleDownPolicyThreshold": 35,
+    "ScaleMetricName": "CPUUtilization",
+    "ScaleUpPolicyCooldown": 60,
+    "ScaleUpPolicyEvaluationPeriods": 2,
+    "ScaleUpPolicyPeriod": 60,
+    "ScaleUpPolicyScalingAdjustment": 2,
+    "ScaleUpPolicyStatistic": "Average",
+    "ScaleUpPolicyThreshold": 75,
+    "SubnetIds": ["subnet-a0b1c2d3", "subnet-e4f5g6h7"],
+    "UserData": ["#!/bin/bash","echo hello"]
+  },
+  "LoadBalancer": {
+    "SubnetIds": ["subnet-a0b1c2d3", "subnet-a0b2c9d8"],
+    "HealthCheckInterval": 10,
+    "HealthCheckTarget": "HTTP:80/index.html",
+    "HealthCheckTimeout": 10,
+    "Public": false,
+    "AccessCIDRRange": "1.2.3.4/0"
+  },
+  "Database": {
+    "AllocatedStorage": 100,
+    "BackupRetentionPeriod": 7,
+    "Backups": true,
+    "DBEngine": "postgres",
+    "DBName": "my_db",
+    "EngineVersion": "9.5.2",
+    "InstanceType": "db.m3.medium",
+    "IOPS": 0,
+    "LicenseModel": "postgresql-license",
+    "MasterUsername": "myadminuser",
+    "MasterUserPassword": "!#$%&')*+,-.0:;=>?AZ[\\^_`a{|~",
+    "MultiAZ": false,
+    "Port": 5432,
+    "PreferredBackupWindow": "22:00-23:00",
+    "PreferredMaintenanceWindow": "wed:03:32-wed:04:02",
+    "StorageEncrypted": false,
+    "StorageType": "gp2",
+    "SubnetIds": ["subnet-a0b1c2d3", "subnet-a0b2c9d8"]
+  },
+  "Application": {
+    "ApplicationName": "MyApplication",
+    "DeploymentConfigName": "CodeDeployDefault.OneAtATime"
+  },
+  "EnforceIMDSv2": "optional"
+}
+
+```

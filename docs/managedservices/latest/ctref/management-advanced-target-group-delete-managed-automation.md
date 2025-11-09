@@ -7,10 +7,179 @@ Delete target groups that are not attached to any load balancer. Before deleting
 ## Change Type Details
 
 |                             |                           |
-| --------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ------------------------- |
 | Change type ID              | ct-0akjahmgqhu4u          |
 | Current version             | 1.0                       |
 | Expected execution duration | 240 minutes               |
 | AWS approval                | Required                  |
 | Customer approval           | Not required if submitter |
-| Execution mode              | Manual                    | ## Additional Information ### Delete target groups (Managed Automation) Screenshot of this change type in the AMS console: ![](images/guiTargetGroupDeleteCT.png) ###### Note When using manual CTs, AMS recommends that you use the ASAP **Scheduling** option (choose **ASAP** in the console, leave start and end time blank in the API/CLI) as these CTs require an AMS operator to examine the RFC, and possibly communicate with you before it can be approved and run. If you schedule these RFCs, be sure to allow at least 24 hours. If approval does not happen before the scheduled start time, the RFC is rejected automatically. How it works: 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**. 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view. <br>• **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create. To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button. <br>• **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page. 3. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC. In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page. How it works: 1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here. 2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID. Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command. To check the change type version, use this command: `` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID` `` ###### Note You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md"). _INLINE CREATE_: Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this: ``aws amscm create-rfc --change-type-id "ct-0akjahmgqhu4u" --change-type-version "1.0" --title "`Delete Target Group`" --execution-parameters "{\"Region\":\"`us-west-2`\",\"TargetGroupArns\":[\"`arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067`\"],\"Priority\":\"`High`\"}"`` TEMPLATE CREATE: 1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it TgDeleteParams.json. `aws amscm get-change-type-version --change-type-id "ct-0akjahmgqhu4u" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > TgDeleteParams.json` 2. Modify and save the TgDeleteParams file. For example, you can replace the contents with something like this: ``{ "Region": "`us-west-2`", "TargetGroupArns": "`arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067`" "Priority": "`High`" }`` 3. Output the RFC template to a file in your current folder named TgDeleteRfc.json: `aws amscm create-rfc --generate-cli-skeleton > TgDeleteRfc.json` 4. Modify and save the TgDeleteRfc.json file. For example, you can replace the contents with something like this: ``{ "ChangeTypeVersion": "1.0", "ChangeTypeId": "ct-0akjahmgqhu4u", "Title": "`Delete Target Group`" }`` 5. Create the RFC, specifying the TgDeleteRfc file and the TgDeleteParams file: `aws amscm create-rfc --cli-input-json file://TgDeleteRfc.json --execution-parameters file://TgDeleteParams.json` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC, be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically. <br>• Deleting a target group also deletes any associated health checks. <br>• Deleting a target group does not affect its registered targets. <br>• For information about target groups, see [ELB Target Groups](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md"). ## Execution Input Parameters For detailed information about the execution input parameters, see [Schema for Change Type ct-0akjahmgqhu4u](schemas.md#ct-0akjahmgqhu4u-schema-section "schemas.md#ct-0akjahmgqhu4u-schema-section"). ## Example: Required Parameters `{ "Region": "us-east-1", "TargetGroupArns": [ "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/my-targets/73e2d6bc24d8a067", "arn:aws-cn:elasticloadbalancing:cn-north-1:123456789012:targetgroup/cn-targets/73e2d6bc24d8a067", "arn:aws-us-gov:elasticloadbalancing:us-gov-west-1:123456789012:targetgroup/gov-targets/73e2d6bc24d8a067" ] }` ## Example: All Parameters `{ "Region": "us-east-1", "TargetGroupArns": [ "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-01/abcdef123456", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-02/bcdef234567", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-03/cdef3456789", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-04/def45678901", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-05/ef567890123", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-06/f6789012345", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-07/78901234567", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-08/89012345678", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-09/90123456789", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-10/01234567890", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-11/abcdef123457", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-12/bcdef234568", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-13/cdef3456790", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-14/def45678902", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-15/ef567890124", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-16/f6789012346", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-17/78901234568", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-18/89012345679", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-19/90123456780", "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-20/01234567891" ], "Priority": "High" }` |
+| Execution mode              | Manual                    |
+
+## Additional Information
+
+### Delete target groups (Managed Automation)
+
+Screenshot of this change type in the AMS console:
+
+![](images/guiTargetGroupDeleteCT.png)
+
+###### Note
+
+When using manual CTs, AMS recommends that you use the ASAP **Scheduling** option
+(choose **ASAP** in the console, leave start and end time blank in the API/CLI) as these CTs require an AMS operator to examine the RFC, and
+possibly communicate with you before it can be approved and run. If you schedule these RFCs, be sure to allow at least 24 hours. If approval does not
+happen before the scheduled start time, the RFC is rejected automatically.
+
+How it works:
+
+1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
+2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
+   **Choose by category** view.
+   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
+     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+
+   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
+   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
+   a **Create with older version** option appears next to the **Create RFC** button.
+   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
+     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+
+3. On the **Run RFC** page, open the CT name area to see the CT details box.
+   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
+   **Additional configuration** area to add information about the RFC.
+
+In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
+optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
+page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
+Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+How it works:
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
+   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
+   command with the two files as input. Both methods are described here.
+2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+
+Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+To check the change type version, use this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+```
+
+###### Note
+
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
+change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
+RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
+[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+
+_INLINE CREATE_:
+
+Issue the create RFC command with execution parameters provided inline
+(escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+
+```
+aws amscm create-rfc --change-type-id "ct-0akjahmgqhu4u" --change-type-version "1.0" --title "`Delete Target Group`" --execution-parameters "{\"Region\":\"`us-west-2`\",\"TargetGroupArns\":[\"`arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067`\"],\"Priority\":\"`High`\"}"
+```
+
+TEMPLATE CREATE:
+
+1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it
+   TgDeleteParams.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-0akjahmgqhu4u" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > TgDeleteParams.json
+```
+
+2. Modify and save the TgDeleteParams file. For example, you can replace the contents with something like this:
+
+```
+{
+"Region": "`us-west-2`",
+"TargetGroupArns": "`arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067`"
+"Priority": "`High`"
+}
+```
+
+3. Output the RFC template to a file in your current folder named TgDeleteRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > TgDeleteRfc.json
+```
+
+4. Modify and save the TgDeleteRfc.json file. For example, you can replace the contents with something like this:
+
+```
+{
+"ChangeTypeVersion": "1.0",
+"ChangeTypeId": "ct-0akjahmgqhu4u",
+"Title": "`Delete Target Group`"
+}
+```
+
+5. Create the RFC, specifying the TgDeleteRfc file and the TgDeleteParams file:
+
+```
+aws amscm create-rfc --cli-input-json file://TgDeleteRfc.json --execution-parameters file://TgDeleteParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer
+to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC,
+be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
+
+- Deleting a target group also deletes any associated health checks.
+- Deleting a target group does not affect its registered targets.
+- For information about target groups, see
+  [ELB Target Groups](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md").
+
+## Execution Input Parameters
+
+For detailed information about the execution input parameters, see
+[Schema for Change Type ct-0akjahmgqhu4u](schemas.md#ct-0akjahmgqhu4u-schema-section "schemas.md#ct-0akjahmgqhu4u-schema-section").
+
+## Example: Required Parameters
+
+```
+{
+  "Region": "us-east-1",
+  "TargetGroupArns": [
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+    "arn:aws-cn:elasticloadbalancing:cn-north-1:123456789012:targetgroup/cn-targets/73e2d6bc24d8a067",
+    "arn:aws-us-gov:elasticloadbalancing:us-gov-west-1:123456789012:targetgroup/gov-targets/73e2d6bc24d8a067"
+  ]
+}
+
+```
+
+## Example: All Parameters
+
+```
+{
+  "Region": "us-east-1",
+  "TargetGroupArns": [
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-01/abcdef123456",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-02/bcdef234567",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-03/cdef3456789",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-04/def45678901",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-05/ef567890123",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-06/f6789012345",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-07/78901234567",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-08/89012345678",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-09/90123456789",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-10/01234567890",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-11/abcdef123457",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-12/bcdef234568",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-13/cdef3456790",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-14/def45678902",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-15/ef567890124",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-16/f6789012346",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-17/78901234568",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-18/89012345679",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-19/90123456780",
+    "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/tg-20/01234567891"
+  ],
+  "Priority": "High"
+}
+
+```
