@@ -28,8 +28,10 @@ WHERE sites.flaggedActivity.isNew = true
 
 It returns:
 
-````
+```
 +------------------------+
-| hostname       | isnew | +------------------------+
-| aws.amazon.com | true  | +------------------------+ ```
-````
+| hostname       | isnew |
++------------------------+
+| aws.amazon.com | true  |
++------------------------+
+```

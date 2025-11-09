@@ -72,23 +72,51 @@ ORDER BY  cnt DESC
 
 This query returns:
 
-````
+```
 +------------------------+
-| name             | cnt | +------------------------+
-| Kern             | 36  | +------------------------+
-| San Bernardino   | 35  | +------------------------+
-| Imperial         | 28  | +------------------------+
-| Inyo             | 20  | +------------------------+
-| Los Angeles      | 18  | +------------------------+
-| Riverside        | 14  | +------------------------+
-| Monterey         | 14  | +------------------------+
-| Santa Clara      | 12  | +------------------------+
-| San Benito       | 11  | +------------------------+
-| Fresno           | 11  | +------------------------+
-| San Diego        | 7   | +------------------------+
-| Santa Cruz       | 5   | +------------------------+
-| Ventura          | 3   | +------------------------+
-| San Luis Obispo  | 3   | +------------------------+
-| Orange           | 2   | +------------------------+
-| San Mateo        | 1   | +------------------------+ ``` ## Additional resources For additional examples of geospatial queries, see the following blog posts: <br>• [Extend geospatial queries in Amazon Athena with UDFs and AWS Lambda](https://aws.amazon.com/blogs/big-data/extend-geospatial-queries-in-amazon-athena-with-udfs-and-aws-lambda/ "https://aws.amazon.com/blogs/big-data/extend-geospatial-queries-in-amazon-athena-with-udfs-and-aws-lambda/") <br>• [Visualize over 200 years of global climate data using Amazon Athena and Amazon Quick Suite](https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/"). <br>• [Querying OpenStreetMap with Amazon Athena](https://aws.amazon.com/blogs/big-data/querying-openstreetmap-with-amazon-athena/ "https://aws.amazon.com/blogs/big-data/querying-openstreetmap-with-amazon-athena/")
-````
+| name             | cnt |
++------------------------+
+| Kern             | 36  |
++------------------------+
+| San Bernardino   | 35  |
++------------------------+
+| Imperial         | 28  |
++------------------------+
+| Inyo             | 20  |
++------------------------+
+| Los Angeles      | 18  |
++------------------------+
+| Riverside        | 14  |
++------------------------+
+| Monterey         | 14  |
++------------------------+
+| Santa Clara      | 12  |
++------------------------+
+| San Benito       | 11  |
++------------------------+
+| Fresno           | 11  |
++------------------------+
+| San Diego        | 7   |
++------------------------+
+| Santa Cruz       | 5   |
++------------------------+
+| Ventura          | 3   |
++------------------------+
+| San Luis Obispo  | 3   |
++------------------------+
+| Orange           | 2   |
++------------------------+
+| San Mateo        | 1   |
++------------------------+
+```
+
+## Additional
+
+resources
+
+For additional examples of geospatial queries, see the following blog posts:
+
+- [Extend geospatial queries in Amazon Athena with UDFs and AWS Lambda](https://aws.amazon.com/blogs/big-data/extend-geospatial-queries-in-amazon-athena-with-udfs-and-aws-lambda/ "https://aws.amazon.com/blogs/big-data/extend-geospatial-queries-in-amazon-athena-with-udfs-and-aws-lambda/")
+- [Visualize over 200 years of global climate data using Amazon Athena and
+  Amazon Quick Suite](https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/").
+- [Querying OpenStreetMap with Amazon Athena](https://aws.amazon.com/blogs/big-data/querying-openstreetmap-with-amazon-athena/ "https://aws.amazon.com/blogs/big-data/querying-openstreetmap-with-amazon-athena/")

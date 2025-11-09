@@ -20,9 +20,39 @@ athena:DeletePreparedStatement
 
 Use these permissions as shown in the following table.
 
-| To do this                                                        | Use these permissions                                         |
-| ----------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Run a `PREPARE` query                                             | `athena:StartQueryExecution` `athena:CreatePreparedStatement` |
-| Re-run a `PREPARE` query to update an existing prepared statement | `athena:StartQueryExecution` `athena:UpdatePreparedStatement` |
-| Run an `EXECUTE` query                                            | `athena:StartQueryExecution` `athena:GetPreparedStatement`    |
-| Run a `DEALLOCATE PREPARE` query                                  | `athena:StartQueryExecution` `athena:DeletePreparedStatement` | ## Example The following example IAM policy grants permissions to manage and run prepared statements on a specified account ID and workgroup. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "athena:StartQueryExecution", "athena:CreatePreparedStatement", "athena:UpdatePreparedStatement", "athena:GetPreparedStatement", "athena:DeletePreparedStatement", "athena:ListPreparedStatements" ], "Resource": [ "arn:aws:athena:*:`111122223333`:workgroup/`<workgroup-name>`" ] } ] }` `` |
+| To do this                                                           | Use these permissions                                            |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Run a `PREPARE` query                                                | `athena:StartQueryExecution`<br>`athena:CreatePreparedStatement` |
+| Re-run a `PREPARE` query to update an existing prepared<br>statement | `athena:StartQueryExecution`<br>`athena:UpdatePreparedStatement` |
+| Run an `EXECUTE` query                                               | `athena:StartQueryExecution`<br>`athena:GetPreparedStatement`    |
+| Run a `DEALLOCATE PREPARE` query                                     | `athena:StartQueryExecution`<br>`athena:DeletePreparedStatement` |
+
+## Example
+
+The following example IAM policy grants permissions to manage and run prepared
+statements on a specified account ID and workgroup.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "athena:StartQueryExecution",
+ "athena:CreatePreparedStatement",
+ "athena:UpdatePreparedStatement",
+ "athena:GetPreparedStatement",
+ "athena:DeletePreparedStatement",
+ "athena:ListPreparedStatements"
+ ],
+ "Resource": [
+ "arn:aws:athena:*:`111122223333`:workgroup/`<workgroup-name>`"
+ ]
+ }
+ ]
+}`
+
+```

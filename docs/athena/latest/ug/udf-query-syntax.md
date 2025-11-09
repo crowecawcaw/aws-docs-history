@@ -34,7 +34,7 @@ supported Athena data types listed in the following table and map to the
 corresponding Java data type.
 
 | Athena data type             | Java data type                |
-| ---------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------- | ----------------------------- |
 | TIMESTAMP                    | java.time.LocalDateTime (UTC) |
 | DATE                         | java.time.LocalDate (UTC)     |
 | TINYINT                      | java.lang.Byte                |
@@ -48,4 +48,34 @@ corresponding Java data type.
 | VARBINARY                    | byte[]                        |
 | BOOLEAN                      | java.lang.Boolean             |
 | ARRAY                        | java.util.List                |
-| ROW                          | java.util.Map<String, Object> | **RETURNS `data_type`** `data_type` specifies the SQL data type that the UDF returns as output. Athena data types listed in the table above are supported. For the `DECIMAL` data type, use the syntax `RETURNS DECIMAL(`precision`, `scale`)` where `precision` and `scale` are integers. **LAMBDA '`lambda_function`'** `lambda_function` specifies the name of the Lambda function to be invoked when running the UDF. **SELECT [...] `UDF_name`(`expression`) [...]** The `SELECT` query that passes values to the UDF and returns a result. `UDF_name` specifies the UDF to use, followed by an `expression` that is evaluated to pass values. Values that are passed and returned must match the corresponding data types specified for the UDF in the `USING EXTERNAL FUNCTION` clause. ### Examples For example queries based on the [AthenaUDFHandler.java](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/src/main/java/com/amazonaws/athena/connectors/udfs/AthenaUDFHandler.java "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/src/main/java/com/amazonaws/athena/connectors/udfs/AthenaUDFHandler.java") code on GitHub, see the GitHub [Amazon Athena UDF connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-udfs "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-udfs") page. |
+| ROW                          | java.util.Map<String, Object> |
+
+**RETURNS `data_type`**
+
+`data_type` specifies the SQL data type that the UDF
+returns as output. Athena data types listed in the table above are
+supported. For the `DECIMAL` data type, use the syntax
+`RETURNS DECIMAL(`precision`,
+ `scale`)` where
+`precision` and
+`scale` are integers.
+
+**LAMBDA '`lambda_function`'**
+
+`lambda_function` specifies the name of the
+Lambda function to be invoked when running the UDF.
+
+**SELECT [...]
+`UDF_name`(`expression`)
+[...]**
+
+The `SELECT` query that passes values to the UDF and
+returns a result. `UDF_name` specifies the UDF
+to use, followed by an `expression` that is
+evaluated to pass values. Values that are passed and returned must match
+the corresponding data types specified for the UDF in the `USING
+ EXTERNAL FUNCTION` clause.
+
+### Examples
+
+For example queries based on the [AthenaUDFHandler.java](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/src/main/java/com/amazonaws/athena/connectors/udfs/AthenaUDFHandler.java "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/src/main/java/com/amazonaws/athena/connectors/udfs/AthenaUDFHandler.java") code on GitHub, see the GitHub [Amazon Athena UDF connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-udfs "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-udfs") page.

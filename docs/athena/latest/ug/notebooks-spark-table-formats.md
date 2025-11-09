@@ -30,7 +30,20 @@ The following table shows supported non-Hive table versions in Amazon Athena for
 Spark.
 
 | Table format                | Supported version |
-| --------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ----------------- |
 | Apache Iceberg              | 1.2.1             |
 | Apache Hudi                 | 0.13              |
-| Linux Foundation Delta Lake | 2.0.2             | In Athena for Spark, these table format `.jar` files and their dependencies are loaded onto the classpath for Spark drivers and executors. For an _AWS Big Data Blog_ post that shows how to work with Iceberg, Hudi, and Delta Lake table formats using Spark SQL in Amazon Athena notebooks, see [Use Amazon Athena with Spark SQL for your open-source transactional table formats](https://aws.amazon.com/blogs/big-data/use-amazon-athena-with-spark-sql-for-your-open-source-transactional-table-formats/ "https://aws.amazon.com/blogs/big-data/use-amazon-athena-with-spark-sql-for-your-open-source-transactional-table-formats/"). ###### Topics <br>• [Iceberg](notebooks-spark-table-formats-apache-iceberg.md "notebooks-spark-table-formats-apache-iceberg.md") <br>• [Hudi](notebooks-spark-table-formats-apache-hudi.md "notebooks-spark-table-formats-apache-hudi.md") <br>• [Delta Lake](notebooks-spark-table-formats-linux-foundation-delta-lake.md "notebooks-spark-table-formats-linux-foundation-delta-lake.md") |
+| Linux Foundation Delta Lake | 2.0.2             |
+
+In Athena for Spark, these table format `.jar` files and their
+dependencies are loaded onto the classpath for Spark drivers and executors.
+
+For an _AWS Big Data Blog_ post that shows how to work with Iceberg,
+Hudi, and Delta Lake table formats using Spark SQL in Amazon Athena notebooks, see [Use Amazon Athena with Spark SQL for your open-source transactional table
+formats](https://aws.amazon.com/blogs/big-data/use-amazon-athena-with-spark-sql-for-your-open-source-transactional-table-formats/ "https://aws.amazon.com/blogs/big-data/use-amazon-athena-with-spark-sql-for-your-open-source-transactional-table-formats/").
+
+###### Topics
+
+- [Iceberg](notebooks-spark-table-formats-apache-iceberg.md "notebooks-spark-table-formats-apache-iceberg.md")
+- [Hudi](notebooks-spark-table-formats-apache-hudi.md "notebooks-spark-table-formats-apache-hudi.md")
+- [Delta Lake](notebooks-spark-table-formats-linux-foundation-delta-lake.md "notebooks-spark-table-formats-linux-foundation-delta-lake.md")

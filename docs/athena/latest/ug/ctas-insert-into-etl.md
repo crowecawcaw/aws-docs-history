@@ -318,10 +318,47 @@ GROUP BY 1 ORDER BY 1 DESC
    and cheaper than the query on the old table.
 
 | Table    | Runtime       | Data scanned |
-| -------- | ------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | ------------- | ------------ |
 | Original | 16.88 seconds | 11.35 GB     |
-| New      | 3.79 seconds  | 428.05 MB    | 5. Run the following sample query on the original table. The query calculates the average maximum temperature (Celsius), average minimum temperature (Celsius), and average rainfall (mm) for the Earth in 2018. `SELECT element, round(avg(CAST(datavalue AS real)/10),2) AS value FROM original_csv WHERE element IN ('TMIN', 'TMAX', 'PRCP') AND substr("date",1,4) = '2018' GROUP BY 1` 6. Note the time that the query ran and the amount of data scanned. 7. Run the same query on the new table, noting the query runtime and amount of data scanned. `SELECT element, round(avg(CAST(datavalue AS real)/10),2) AS value FROM new_parquet WHERE element IN ('TMIN', 'TMAX', 'PRCP') and year = '2018' GROUP BY 1` 8. Compare the results and calculate the performance and cost difference. The following sample results show that the test query on the new table was faster and cheaper than the query on the old table. |
+| New      | 3.79 seconds  | 428.05 MB    |
+
+5. Run the following sample query on the original table. The query calculates the
+   average maximum temperature (Celsius), average minimum temperature (Celsius),
+   and average rainfall (mm) for the Earth in 2018.
+
+```
+SELECT element, round(avg(CAST(datavalue AS real)/10),2) AS value
+FROM original_csv
+WHERE element IN ('TMIN', 'TMAX', 'PRCP') AND substr("date",1,4) = '2018'
+GROUP BY 1
+```
+
+6. Note the time that the query ran and the amount of data scanned.
+7. Run the same query on the new table, noting the query runtime and amount of
+   data scanned.
+
+```
+SELECT element, round(avg(CAST(datavalue AS real)/10),2) AS value
+FROM new_parquet
+WHERE element IN ('TMIN', 'TMAX', 'PRCP') and year = '2018'
+GROUP BY 1
+```
+
+8. Compare the results and calculate the performance and cost difference. The
+   following sample results show that the test query on the new table was faster
+   and cheaper than the query on the old table.
+
 | Table    | Runtime       | Data scanned |
-| ---      | ---           | ---          |
+| -------- | ------------- | ------------ |
 | Original | 18.65 seconds | 11.35 GB     |
-| New      | 1.92 seconds  | 68 MB        | ## Summary This topic showed you how to perform ETL operations using CTAS and INSERT INTO statements in Athena. You performed the first set of transformations using a CTAS statement that converted data to the Parquet format with Snappy compression. The CTAS statement also converted the dataset from non-partitioned to partitioned. This reduced its size and lowered the costs of running the queries. When new data becomes available, you can use an INSERT INTO statement to transform and load the data into the table that you created with the CTAS statement.                                                                                                                                                                                                                                                                                                                                                     |
+| New      | 1.92 seconds  | 68 MB        |
+
+## Summary
+
+This topic showed you how to perform ETL operations using CTAS and INSERT INTO
+statements in Athena. You performed the first set of transformations using a CTAS
+statement that converted data to the Parquet format with Snappy compression. The CTAS
+statement also converted the dataset from non-partitioned to partitioned. This reduced
+its size and lowered the costs of running the queries. When new data becomes available,
+you can use an INSERT INTO statement to transform and load the data into the table that
+you created with the CTAS statement.

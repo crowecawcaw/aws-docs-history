@@ -15,8 +15,12 @@ CROSS JOIN UNNEST(items) AS t(i)
 
 This query returns:
 
-````
+```
 +--------------------+
-| array_items        | +--------------------+
-| [1, 2, 3, 4, 5, 6] | +--------------------+ ``` For information about expanding an array into multiple rows, see [Flatten nested arrays](flattening-arrays.md "flattening-arrays.md").
-````
+| array_items        |
++--------------------+
+| [1, 2, 3, 4, 5, 6] |
++--------------------+
+```
+
+For information about expanding an array into multiple rows, see [Flatten nested arrays](flattening-arrays.md "flattening-arrays.md").

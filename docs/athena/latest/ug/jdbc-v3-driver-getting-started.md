@@ -195,6 +195,21 @@ The following table shows the differences in the `LogLevel` parameters
 in the JDBC version 2 and version 3 drivers.
 
 | JDBC driver version | Parameter name | Parameter type | Default value | Possible values                      | Connection string example |
-| ------------------- | -------------- | -------------- | ------------- | ------------------------------------ | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------- | -------------- | -------------- | ------------- | ------------------------------------ | ------------------------- |
 | v2                  | `LogLevel`     | Optional       | 0             | 0-6                                  | `LogLevel=6;`             |
-| v3                  | `LogLevel`     | Optional       | TRACE         | OFF, ERROR, WARN, INFO, DEBUG, TRACE | `LogLevel=INFO;`          | ### Query ID retrieval In the version 2 driver, you unwrap a `Statement` instance to `com.interfaces.core.IStatementQueryInfoProvider`, an interface that has two methods: `#getPReparedQueryId` and `#getQueryId`. You can use these methods to obtain the query execution ID of a query that has run. In the version 3 driver, you unwrap `Statement`, `PreparedStatement`, and `ResultSet` instances to the `com.amazon.athena.jdbc.AthenaResultSet` interface. The interface has one method: `#getQueryExecutionId`. |
+| v3                  | `LogLevel`     | Optional       | TRACE         | OFF, ERROR, WARN, INFO, DEBUG, TRACE | `LogLevel=INFO;`          |
+
+### Query ID
+
+retrieval
+
+In the version 2 driver, you unwrap a `Statement` instance to
+`com.interfaces.core.IStatementQueryInfoProvider`, an interface that
+has two methods: `#getPReparedQueryId` and `#getQueryId`. You
+can use these methods to obtain the query execution ID of a query that has
+run.
+
+In the version 3 driver, you unwrap `Statement`,
+`PreparedStatement`, and `ResultSet` instances to the
+`com.amazon.athena.jdbc.AthenaResultSet` interface. The interface has
+one method: `#getQueryExecutionId`.

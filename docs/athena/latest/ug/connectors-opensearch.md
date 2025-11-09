@@ -224,7 +224,7 @@ convert the definitions to Apache Arrow data types, including the points noted i
 the section that follows.
 
 | OpenSearch                                                                                                                                                                                                                     | Apache Arrow | AWS Glue          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- |
 | text, keyword, binary                                                                                                                                                                                                          | VARCHAR      | string            |
 | long                                                                                                                                                                                                                           | BIGINT       | bigint            |
 | scaled_float                                                                                                                                                                                                                   | BIGINT       | SCALED_FLOAT(...) |
@@ -236,4 +236,131 @@ the section that follows.
 | boolean                                                                                                                                                                                                                        | BIT          | boolean           |
 | date, date_nanos                                                                                                                                                                                                               | DATEMILLI    | timestamp         |
 | JSON structure                                                                                                                                                                                                                 | STRUCT       | STRUCT            |
-| \_meta (for information, see the section [Defining metadata for arrays in OpenSearch](#connectors-opensearch-defining-metadata-for-arrays-in-opensearch "#connectors-opensearch-defining-metadata-for-arrays-in-opensearch").) | LIST         | ARRAY             | #### Notes on data types <br>• Currently, the connector supports only the OpenSearch and AWS Glue data-types listed in the preceding table. <br>• A `scaled_float` is a floating-point number scaled by a fixed double scaling factor and represented as a `BIGINT` in Apache Arrow. For example, 0.756 with a scaling factor of 100 is rounded to 76. <br>• To define a `scaled_float` in AWS Glue, you must select the `array` column type and declare the field using the format SCALED_FLOAT(`scaling_factor`). The following examples are valid: `SCALED_FLOAT(10.51) SCALED_FLOAT(100) SCALED_FLOAT(100.0)` The following examples are not valid: `SCALED_FLOAT(10.) SCALED_FLOAT(.5)` <br>• When converting from `date_nanos` to `DATEMILLI`, nanoseconds are rounded to the nearest millisecond. Valid values for `date` and `date_nanos` include, but are not limited to, the following formats: `"2020-05-18T10:15:30.123456789" "2020-05-15T06:50:01.123Z" "2020-05-15T06:49:30.123-05:00" 1589525370001 (epoch milliseconds)` <br>• An OpenSearch `binary` is a string representation of a binary value encoded using `Base64` and is converted to a `VARCHAR`. ## Running SQL queries The following are examples of DDL queries that you can use with this connector. In the examples, `function_name` corresponds to the name of your Lambda function, `domain` is the name of the domain that you want to query, and `index` is the name of your index. ``` SHOW DATABASES in `lambda:`function_name`` ``` ``` SHOW TABLES in `lambda:`function_name``.`domain` ``` ``` DESCRIBE `lambda:`function_name``.`domain`.`index` ``` ## Performance The Athena OpenSearch connector supports shard-based parallel scans. The connector uses cluster health information retrieved from the OpenSearch instance to generate multiple requests for a document search query. The requests are split for each shard and run concurrently. The connector also pushes down predicates as part of its document search queries. The following example query and predicate shows how the connector uses predicate push down. **Query** `SELECT * FROM "lambda:elasticsearch".movies.movies WHERE year >= 1955 AND year <= 1962 OR year = 1996` **Predicate** `(_exists_:year) AND year:([1955 TO 1962] OR 1996)` ## Passthrough queries The OpenSearch connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and uses the Query DSL language. For more information about querying with Query DSL, see [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html") in the Elasticsearch documentation or [Query DSL](https://opensearch.org/docs/latest/query-dsl/ "https://opensearch.org/docs/latest/query-dsl/") in the OpenSearch documentation. To use passthrough queries with the OpenSearch connector, use the following syntax: ``SELECT * FROM TABLE( system.query( schema => '`schema_name`', index => '`index_name`', query => "{`query_string`}" ))`` The following OpenSearch example passthrough query filters for employees with active employment status in the `employee` index of the `default` schema. `SELECT * FROM TABLE( system.query( schema => 'default', index => 'employee', query => "{ ''bool'':{''filter'':{''term'':{''status'': ''active''}}}}" ))` ## Additional resources <br>• For an article on using the Amazon Athena OpenSearch connector to query data in Amazon OpenSearch Service and Amazon S3 in a single query, see [Query data in Amazon OpenSearch Service using SQL from Amazon Athena](https://aws.amazon.com/blogs/big-data/query-data-in-amazon-opensearch-service-using-sql-from-amazon-athena/ "https://aws.amazon.com/blogs/big-data/query-data-in-amazon-opensearch-service-using-sql-from-amazon-athena/") in the _AWS Big Data Blog_. <br>• For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-elasticsearch "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-elasticsearch") on GitHub.com. |
+| \_meta (for information, see the section [Defining metadata for arrays in OpenSearch](#connectors-opensearch-defining-metadata-for-arrays-in-opensearch "#connectors-opensearch-defining-metadata-for-arrays-in-opensearch").) | LIST         | ARRAY             |
+
+#### Notes on data types
+
+- Currently, the connector supports only the OpenSearch and AWS Glue
+  data-types listed in the preceding table.
+- A `scaled_float` is a floating-point number scaled by a
+  fixed double scaling factor and represented as a `BIGINT` in
+  Apache Arrow. For example, 0.756 with a scaling factor of 100 is rounded
+  to 76.
+- To define a `scaled_float` in AWS Glue, you must select the
+  `array` column type and declare the field using the
+  format SCALED_FLOAT(`scaling_factor`).
+
+The following examples are valid:
+
+```
+SCALED_FLOAT(10.51)
+SCALED_FLOAT(100)
+SCALED_FLOAT(100.0)
+```
+
+The following examples are not valid:
+
+```
+SCALED_FLOAT(10.)
+SCALED_FLOAT(.5)
+```
+
+- When converting from `date_nanos` to
+  `DATEMILLI`, nanoseconds are rounded to the nearest
+  millisecond. Valid values for `date` and
+  `date_nanos` include, but are not limited to, the
+  following formats:
+
+```
+"2020-05-18T10:15:30.123456789"
+"2020-05-15T06:50:01.123Z"
+"2020-05-15T06:49:30.123-05:00"
+1589525370001 (epoch milliseconds)
+```
+
+- An OpenSearch `binary` is a string representation of a
+  binary value encoded using `Base64` and is converted to a
+  `VARCHAR`.
+
+## Running SQL queries
+
+The following are examples of DDL queries that you can use with this connector. In the
+examples, `function_name` corresponds to the name of your Lambda
+function, `domain` is the name of the domain that you want to
+query, and `index` is the name of your index.
+
+```
+SHOW DATABASES in `lambda:`function_name``
+```
+
+```
+SHOW TABLES in `lambda:`function_name``.`domain`
+```
+
+```
+DESCRIBE `lambda:`function_name``.`domain`.`index`
+```
+
+## Performance
+
+The Athena OpenSearch connector supports shard-based parallel scans. The connector
+uses cluster health information retrieved from the OpenSearch instance to generate
+multiple requests for a document search query. The requests are split for each shard and
+run concurrently.
+
+The connector also pushes down predicates as part of its document search queries. The
+following example query and predicate shows how the connector uses predicate push
+down.
+
+**Query**
+
+```
+SELECT * FROM "lambda:elasticsearch".movies.movies
+WHERE year >= 1955 AND year <= 1962 OR year = 1996
+```
+
+**Predicate**
+
+```
+(_exists_:year) AND year:([1955 TO 1962] OR 1996)
+```
+
+## Passthrough
+
+queries
+
+The OpenSearch connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and uses the
+Query DSL language. For more information about querying with Query DSL, see [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html") in the Elasticsearch documentation or [Query DSL](https://opensearch.org/docs/latest/query-dsl/ "https://opensearch.org/docs/latest/query-dsl/") in the
+OpenSearch documentation.
+
+To use passthrough queries with the OpenSearch connector, use the following
+syntax:
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            schema => '`schema_name`',
+            index => '`index_name`',
+            query => "{`query_string`}"
+        ))
+```
+
+The following OpenSearch example passthrough query filters for employees with active
+employment status in the `employee` index of the `default`
+schema.
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            schema => 'default',
+            index => 'employee',
+            query => "{ ''bool'':{''filter'':{''term'':{''status'': ''active''}}}}"
+        ))
+```
+
+## Additional resources
+
+- For an article on using the Amazon Athena OpenSearch connector to query data in
+  Amazon OpenSearch Service and Amazon S3 in a single query, see [Query data in Amazon OpenSearch Service using SQL from Amazon Athena](https://aws.amazon.com/blogs/big-data/query-data-in-amazon-opensearch-service-using-sql-from-amazon-athena/ "https://aws.amazon.com/blogs/big-data/query-data-in-amazon-opensearch-service-using-sql-from-amazon-athena/") in the
+  _AWS Big Data Blog_.
+- For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-elasticsearch "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-elasticsearch") on GitHub.com.

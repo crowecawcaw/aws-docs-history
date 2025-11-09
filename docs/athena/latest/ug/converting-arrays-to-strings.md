@@ -17,8 +17,10 @@ FROM dataset
 
 This query returns:
 
-````
+```
 +---------------------+
-| welcome_msg         | +---------------------+
-| hello amazon athena | +---------------------+ ```
-````
+| welcome_msg         |
++---------------------+
+| hello amazon athena |
++---------------------+
+```

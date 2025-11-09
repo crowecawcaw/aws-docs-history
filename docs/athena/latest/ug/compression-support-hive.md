@@ -14,14 +14,14 @@ where noted. For the purposes of this table, CREATE TABLE, CTAS, and INSERT INTO
 considered write operations. For more information about using ZSTD compression levels in
 Athena, see [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md").
 
-|         | Avro | Ion                   | ORC | Parquet               | Text file             |
-| ------- | ---- | --------------------- | --- | --------------------- | --------------------- |
-| BZIP2   | Yes  | Yes                   | No  | No                    | Yes                   |
-| DEFLATE | Yes  | No                    | No  | No                    | No                    |
-| GZIP    | No   | Yes                   | No  | Yes                   | Yes                   |
-| LZ4     | No   | Yes                   | Yes | Write - No Read - Yes | Yes                   |
-| LZO     | No   | Write - No Read - Yes | No  | Write - No Read - Yes | Write - No Read - Yes |
-| SNAPPY  | Yes  | Yes                   | Yes | Yes                   | Yes                   |
-| ZLIB    | No   | No                    | Yes | No                    | No                    |
-| ZSTD    | Yes  | Yes                   | Yes | Yes                   | Yes                   |
-| NONE    | Yes  | Yes                   | Yes | Yes                   | Yes                   |
+|         | Avro | Ion                            | ORC | Parquet                        | Text file                      |
+| ------- | ---- | ------------------------------ | --- | ------------------------------ | ------------------------------ |
+| BZIP2   | Yes  | Yes                            | No  | No                             | Yes                            |
+| DEFLATE | Yes  | No                             | No  | No                             | No                             |
+| GZIP    | No   | Yes                            | No  | Yes                            | Yes                            |
+| LZ4     | No   | Yes                            | Yes | Write<br>• No<br>Read<br>• Yes | Yes                            |
+| LZO     | No   | Write<br>• No<br>Read<br>• Yes | No  | Write<br>• No<br>Read<br>• Yes | Write<br>• No<br>Read<br>• Yes |
+| SNAPPY  | Yes  | Yes                            | Yes | Yes                            | Yes                            |
+| ZLIB    | No   | No                             | Yes | No                             | No                             |
+| ZSTD    | Yes  | Yes                            | Yes | Yes                            | Yes                            |
+| NONE    | Yes  | Yes                            | Yes | Yes                            | Yes                            |

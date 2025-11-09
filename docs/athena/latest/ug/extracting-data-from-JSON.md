@@ -47,12 +47,95 @@ FROM dataset
 
 The returned value is a JSON-encoded string, and not a native Athena data type.
 
-````
+```
 +-----------------------------------------------------------------------------------------------+
-| name           | projects                                                                     | +-----------------------------------------------------------------------------------------------+
-| "Susan Smith"  | [{"name":"project1","completed":false},{"name":"project2","completed":true}] | +-----------------------------------------------------------------------------------------------+ ``` To extract the scalar value from the JSON string, use the `json_extract_scalar(`json`, `json_path`)` function. It is similar to `json_extract`, but returns a `varchar` string value instead of a JSON-encoded string. The value for the `json_path` parameter must be a scalar (a Boolean, number, or string). ###### Note Do not use the `json_extract_scalar` function on arrays, maps, or structs. ``` WITH dataset AS ( SELECT '{"name": "Susan Smith", "org": "engineering", "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}' AS myblob ) SELECT json_extract_scalar(myblob, '$.name') AS name, json_extract_scalar(myblob, '$.projects') AS projects FROM dataset ``` This query returns: ``` +---------------------------+
-| name           | projects | +---------------------------+
-| Susan Smith    |          | +---------------------------+ ``` To obtain the first element of the `projects` property in the example array, use the `json_array_get` function and specify the index position. ``` WITH dataset AS ( SELECT '{"name": "Bob Smith", "org": "engineering", "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}' AS myblob ) SELECT json_array_get(json_extract(myblob, '$.projects'), 0) AS item FROM dataset ``` It returns the value at the specified index position in the JSON-encoded array. ``` +---------------------------------------+
-| item                                  | +---------------------------------------+ | {"name":"project1","completed":false} | +---------------------------------------+ ``` To return an Athena string type, use the `[]` operator inside a `JSONPath` expression, then Use the `json_extract_scalar` function. For more information about `[]`, see [Access array elements](accessing-array-elements.md "accessing-array-elements.md"). ``` WITH dataset AS ( SELECT '{"name": "Bob Smith", "org": "engineering", "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}' AS myblob ) SELECT json_extract_scalar(myblob, '$.projects[0].name') AS project_name FROM dataset ``` It returns this result: ``` +--------------+
-| project_name | +--------------+ | project1     | +--------------+ ```
-````
+| name           | projects                                                                     |
++-----------------------------------------------------------------------------------------------+
+| "Susan Smith"  | [{"name":"project1","completed":false},{"name":"project2","completed":true}] |
++-----------------------------------------------------------------------------------------------+
+```
+
+To extract the scalar value from the JSON string, use the
+`json_extract_scalar(`json`,
+ `json_path`)` function. It is similar to
+`json_extract`, but returns a `varchar` string value instead
+of a JSON-encoded string. The value for the `json_path`
+parameter must be a scalar (a Boolean, number, or string).
+
+###### Note
+
+Do not use the `json_extract_scalar` function on arrays, maps, or
+structs.
+
+```
+WITH dataset AS (
+  SELECT '{"name": "Susan Smith",
+           "org": "engineering",
+           "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}'
+    AS myblob
+)
+SELECT
+  json_extract_scalar(myblob, '$.name') AS name,
+  json_extract_scalar(myblob, '$.projects') AS projects
+FROM dataset
+```
+
+This query returns:
+
+```
++---------------------------+
+| name           | projects |
++---------------------------+
+| Susan Smith    |          |
++---------------------------+
+```
+
+To obtain the first element of the `projects` property in the example
+array, use the `json_array_get` function and specify the index
+position.
+
+```
+WITH dataset AS (
+  SELECT '{"name": "Bob Smith",
+           "org": "engineering",
+           "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}'
+    AS myblob
+)
+SELECT json_array_get(json_extract(myblob, '$.projects'), 0) AS item
+FROM dataset
+```
+
+It returns the value at the specified index position in the JSON-encoded array.
+
+```
++---------------------------------------+
+| item                                  |
++---------------------------------------+
+| {"name":"project1","completed":false} |
++---------------------------------------+
+```
+
+To return an Athena string type, use the `[]` operator inside a
+`JSONPath` expression, then Use the `json_extract_scalar`
+function. For more information about `[]`, see [Access array elements](accessing-array-elements.md "accessing-array-elements.md").
+
+```
+WITH dataset AS (
+   SELECT '{"name": "Bob Smith",
+             "org": "engineering",
+             "projects": [{"name":"project1", "completed":false},{"name":"project2", "completed":true}]}'
+     AS myblob
+)
+SELECT json_extract_scalar(myblob, '$.projects[0].name') AS project_name
+FROM dataset
+```
+
+It returns this result:
+
+```
++--------------+
+| project_name |
++--------------+
+| project1     |
++--------------+
+```

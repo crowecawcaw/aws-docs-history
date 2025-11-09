@@ -3834,8 +3834,131 @@ Added an Amazon Athena API and AWS CLI support for Athena; updated JDBC driver t
   deprecated actions with the appropriate API actions as listed or errors will
   occur:
 
-| Deprecated Policy-Specific Action | Corresponding Athena API Action |
-| --------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `athena:RunQuery`                 | `athena:StartQueryExecution`    |
-| `athena:CancelQueryExecution`     | `athena:StopQueryExecution`     |
-| `athena:GetQueryExecutions`       | `athena:ListQueryExecutions`    | #### Improvements <br>• Increased the query string length limit to 256 KB. #### Bug Fixes <br>• Fixed an issue that caused query results to look malformed when scrolling through results in the console. <br>• Fixed an issue where a `\u0000` character string in Amazon S3 data files would cause errors. <br>• Fixed an issue that caused requests to cancel a query made through the JDBC driver to fail. <br>• Fixed an issue that caused the AWS CloudTrail SerDe to fail with Amazon S3 data in US East (Ohio). <br>• Fixed an issue that caused `DROP TABLE` to fail on a partitioned table. ### April 4, 2017 Published on _2017-04-04_ Added support for Amazon S3 data encryption and released JDBC driver update (version 1.0.1) with encryption support, improvements, and bug fixes. #### Features <br>• Added the following encryption features: + Support for querying encrypted data in Amazon S3. + Support for encrypting Athena query results. <br>• A new version of the driver supports new encryption features, adds improvements, and fixes issues. <br>• Added the ability to add, replace, and change columns using `ALTER TABLE`. For more information, see [Alter Column](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn") in the Hive documentation. <br>• Added support for querying LZO-compressed data. For more information, see [Encryption at rest](encryption.md "encryption.md"). #### Improvements <br>• Better JDBC query performance with page-size improvements, returning 1,000 rows instead of 100. <br>• Added ability to cancel a query using the JDBC driver interface. <br>• Added ability to specify JDBC options in the JDBC connection URL. See [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md") for the most current JDBC driver. <br>• Added PROXY setting in the driver, which can now be set using [ClientConfiguration](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.md") in the AWS SDK for Java. #### Bug Fixes Fixed the following bugs: <br>• Throttling errors would occur when multiple queries were issued using the JDBC driver interface. <br>• The JDBC driver would stop when projecting a decimal data type. <br>• The JDBC driver would return every data type as a string, regardless of how the data type was defined in the table. For example, selecting a column defined as an `INT` data type using `resultSet.GetObject()` would return a `STRING` data type instead of `INT`. <br>• The JDBC driver would verify credentials at the time a connection was made, rather than at the time a query would run. <br>• Queries made through the JDBC driver would fail when a schema was specified along with the URL. ### March 24, 2017 Published on _2017-03-24_ Added the AWS CloudTrail SerDe, improved performance, fixed partition issues. #### Features <br>• Added the AWS CloudTrail SerDe, which has since been superseded by the [Hive JSON SerDe](hive-json-serde.md "hive-json-serde.md") for reading CloudTrail logs. For information about querying CloudTrail logs, see [Query AWS CloudTrail logs](cloudtrail-logs.md "cloudtrail-logs.md"). #### Improvements <br>• Improved performance when scanning a large number of partitions. <br>• Improved performance on `MSCK Repair Table` operation. <br>• Added ability to query Amazon S3 data stored in regions other than your primary Region. Standard inter-region data transfer rates for Amazon S3 apply in addition to standard Athena charges. #### Bug Fixes <br>• Fixed a bug where a "table not found error" might occur if no partitions are loaded. <br>• Fixed a bug to avoid throwing an exception with `ALTER TABLE ADD PARTITION IF NOT EXISTS` queries. <br>• Fixed a bug in `DROP PARTITIONS`. ### February 20, 2017 Published on _2017-02-20_ Added support for AvroSerDe and OpenCSVSerDe, US East (Ohio) Region, and bulk editing columns in the console wizard. Improved performance on large Parquet tables. #### Features <br>• **Introduced support for new SerDes:** + [Avro SerDe](avro-serde.md "avro-serde.md") + [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md") <br>• **US East (Ohio)** Region (**us-east-2**) launch. You can now run queries in this region. <br>• You can now use the **Create Table From S3 bucket data** form to define table schema in bulk. In the query editor, choose **Create**, **S3 bucket data**, and then choose **Bulk add columns** in the **Column details** section. ![The Bulk add columns option.](images/bulk-add.png) Type name value pairs in the text box and choose **Add**. ![The Bulk add columns text box.](images/bulk_column.png) #### Improvements <br>• Improved performance on large Parquet tables. |
+| Deprecated Policy-Specific Action     | Corresponding Athena API Action      |
+| ------------------------------------- | ------------------------------------ |
+| `<br>athena:RunQuery<br>`             | `<br>athena:StartQueryExecution<br>` |
+| `<br>athena:CancelQueryExecution<br>` | `<br>athena:StopQueryExecution<br>`  |
+| `<br>athena:GetQueryExecutions<br>`   | `<br>athena:ListQueryExecutions<br>` |
+
+#### Improvements
+
+- Increased the query string length limit to 256 KB.
+
+#### Bug Fixes
+
+- Fixed an issue that caused query results to look malformed when scrolling
+  through results in the console.
+- Fixed an issue where a `\u0000` character string in Amazon S3 data
+  files would cause errors.
+- Fixed an issue that caused requests to cancel a query made through the
+  JDBC driver to fail.
+- Fixed an issue that caused the AWS CloudTrail SerDe to fail with Amazon S3 data in
+  US East (Ohio).
+- Fixed an issue that caused `DROP TABLE` to fail on a
+  partitioned table.
+
+### April 4, 2017
+
+Published on _2017-04-04_
+
+Added support for Amazon S3 data encryption and released JDBC driver update (version 1.0.1)
+with encryption support, improvements, and bug fixes.
+
+#### Features
+
+- Added the following encryption features:
+  - Support for querying encrypted data in Amazon S3.
+  - Support for encrypting Athena query results.
+
+- A new version of the driver supports new encryption features, adds
+  improvements, and fixes issues.
+- Added the ability to add, replace, and change columns using `ALTER
+TABLE`. For more information, see [Alter Column](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn") in the Hive documentation.
+- Added support for querying LZO-compressed data.
+
+For more information, see [Encryption at rest](encryption.md "encryption.md").
+
+#### Improvements
+
+- Better JDBC query performance with page-size improvements, returning 1,000
+  rows instead of 100.
+- Added ability to cancel a query using the JDBC driver interface.
+- Added ability to specify JDBC options in the JDBC connection URL. See
+  [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md")
+  for the most current JDBC driver.
+- Added PROXY setting in the driver, which can now be set using [ClientConfiguration](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/ClientConfiguration.md") in the AWS SDK for Java.
+
+#### Bug Fixes
+
+Fixed the following bugs:
+
+- Throttling errors would occur when multiple queries were issued using the
+  JDBC driver interface.
+- The JDBC driver would stop when projecting a decimal data type.
+- The JDBC driver would return every data type as a string, regardless of
+  how the data type was defined in the table. For example, selecting a column
+  defined as an `INT` data type using
+  `resultSet.GetObject()` would return a `STRING`
+  data type instead of `INT`.
+- The JDBC driver would verify credentials at the time a connection was
+  made, rather than at the time a query would run.
+- Queries made through the JDBC driver would fail when a schema was
+  specified along with the URL.
+
+### March 24, 2017
+
+Published on _2017-03-24_
+
+Added the AWS CloudTrail SerDe, improved performance, fixed partition issues.
+
+#### Features
+
+- Added the AWS CloudTrail SerDe, which has since been superseded by the [Hive JSON SerDe](hive-json-serde.md "hive-json-serde.md") for reading
+  CloudTrail logs. For information about querying CloudTrail logs, see [Query AWS CloudTrail logs](cloudtrail-logs.md "cloudtrail-logs.md").
+
+#### Improvements
+
+- Improved performance when scanning a large number of partitions.
+- Improved performance on `MSCK Repair Table` operation.
+- Added ability to query Amazon S3 data stored in regions other than your primary
+  Region. Standard inter-region data transfer rates for Amazon S3 apply in addition
+  to standard Athena charges.
+
+#### Bug Fixes
+
+- Fixed a bug where a "table not found error" might occur if no partitions
+  are loaded.
+- Fixed a bug to avoid throwing an exception with `ALTER TABLE ADD
+PARTITION IF NOT EXISTS` queries.
+- Fixed a bug in `DROP PARTITIONS`.
+
+### February 20, 2017
+
+Published on _2017-02-20_
+
+Added support for AvroSerDe and OpenCSVSerDe, US East (Ohio) Region, and bulk
+editing columns in the console wizard. Improved performance on large Parquet
+tables.
+
+#### Features
+
+- **Introduced support for new SerDes:**
+  - [Avro SerDe](avro-serde.md "avro-serde.md")
+  - [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md")
+
+- **US East (Ohio)** Region (**us-east-2**) launch. You can now run queries in
+  this region.
+- You can now use the **Create Table From S3 bucket
+  data** form to define table schema in bulk. In the query
+  editor, choose **Create**, **S3 bucket data**, and then choose **Bulk add columns** in the **Column
+  details** section.
+
+![The Bulk add columns option.](images/bulk-add.png)
+
+Type name value pairs in the text box and choose **Add**.
+
+![The Bulk add columns text box.](images/bulk_column.png)
+
+#### Improvements
+
+- Improved performance on large Parquet tables.

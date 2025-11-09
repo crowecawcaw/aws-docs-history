@@ -274,7 +274,7 @@ belonging to one of the following data types. The table shows the corresponding 
 types for Amazon DocumentDB, Java, and Apache Arrow.
 
 | Apache Arrow | Java or DocDB |
-| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | ------------- |
 | VARCHAR      | String        |
 | INT          | Integer       |
 | BIGINT       | Long          |
@@ -284,15 +284,93 @@ types for Amazon DocumentDB, Java, and Apache Arrow.
 | TIMESTAMPSEC | Date          |
 | VARCHAR      | ObjectId      |
 | LIST         | List          |
-| STRUCT       | Document      | ### AWS Glue data types If you use AWS Glue for supplemental metadata, you can configure the following data types. The table shows the corresponding data types for AWS Glue and Apache Arrow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| AWS Glue     | Apache Arrow  |
-| ---          | ---           |
-| int          | INT           |
-| bigint       | BIGINT        |
-| double       | FLOAT8        |
-| float        | FLOAT4        |
-| boolean      | BIT           |
-| binary       | VARBINARY     |
-| string       | VARCHAR       |
-| List         | LIST          |
-| Struct       | STRUCT        | ## Required Permissions For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-docdb.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-docdb/athena-docdb.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-docdb/athena-docdb.yaml") file. The following list summarizes the required permissions. <br>• Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries. <br>• Athena GetQueryExecution – The connector uses this permission to fast-fail when the upstream Athena query has terminated. <br>• AWS Glue Data Catalog – The DocumentDB connector requires read only access to the AWS Glue Data Catalog to obtain schema information. <br>• CloudWatch Logs – The connector requires access to CloudWatch Logs for storing logs. <br>• AWS Secrets Manager read access – If you choose to store DocumentDB endpoint details in Secrets Manager, you must grant the connector access to those secrets. <br>• VPC access – The connector requires the ability to attach and detach interfaces to your VPC so that it can connect to it and communicate with your DocumentDB instances. ## Performance The Athena Amazon DocumentDB connector does not currently support parallel scans but attempts to push down predicates as part of its DocumentDB queries, and predicates against indexes on your DocumentDB collection result in significantly less data scanned. The Lambda function performs projection pushdown to decrease the data scanned by the query. However, selecting a subset of columns sometimes results in a longer query execution runtime. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. ## Passthrough queries The Athena Amazon DocumentDB connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL based. For information about querying Amazon DocumentDB, see [Querying](../../../documentdb/latest/developerguide/querying.md "../../../documentdb/latest/developerguide/querying.md") in the _Amazon DocumentDB Developer Guide_. To use passthrough queries with Amazon DocumentDB, use the following syntax: ``SELECT * FROM TABLE( system.query( database => '`database_name`', collection => '`collection_name`', filter => '{`query_syntax`}' ))`` The following example queries the `example` database within the `TPCDS` collection, filtering on all books with the title _Bill of Rights_. `SELECT * FROM TABLE( system.query( database => 'example', collection => 'tpcds', filter => '{title: "Bill of Rights"}' ))` ## Additional resources <br>• For an article on using [Amazon Athena Federated Query](federated-queries.md "federated-queries.md") to connect a MongoDB database to [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to build dashboards and visualizations, see [Visualize MongoDB data from Quick Suite using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/") in the _AWS Big Data Blog_. <br>• For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb") on GitHub.com. |
+| STRUCT       | Document      |
+
+### AWS Glue data types
+
+If you use AWS Glue for supplemental metadata, you can configure the following data
+types. The table shows the corresponding data types for AWS Glue and Apache
+Arrow.
+
+| AWS Glue | Apache Arrow |
+| -------- | ------------ |
+| int      | INT          |
+| bigint   | BIGINT       |
+| double   | FLOAT8       |
+| float    | FLOAT4       |
+| boolean  | BIT          |
+| binary   | VARBINARY    |
+| string   | VARCHAR      |
+| List     | LIST         |
+| Struct   | STRUCT       |
+
+## Required Permissions
+
+For full details on the IAM policies that this
+connector requires, review the `Policies` section of the [athena-docdb.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-docdb/athena-docdb.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-docdb/athena-docdb.yaml") file. The following list summarizes the required permissions.
+
+- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
+- Athena GetQueryExecution – The connector
+  uses this permission to fast-fail when the upstream Athena query has
+  terminated.
+- AWS Glue Data Catalog – The DocumentDB connector
+  requires read only access to the AWS Glue Data Catalog to obtain schema
+  information.
+- CloudWatch Logs – The connector requires access to
+  CloudWatch Logs for storing logs.
+- AWS Secrets Manager read access – If you choose to
+  store DocumentDB endpoint details in Secrets Manager, you must grant the connector
+  access to those secrets.
+- VPC access – The connector requires the
+  ability to attach and detach interfaces to your VPC so that it can connect to it
+  and communicate with your DocumentDB instances.
+
+## Performance
+
+The Athena Amazon DocumentDB connector does not currently support parallel scans but attempts to
+push down predicates as part of its DocumentDB queries, and predicates against indexes
+on your DocumentDB collection result in significantly less data scanned.
+
+The Lambda function performs projection pushdown to decrease the data scanned by the query. However, selecting a subset of columns sometimes results in a longer query execution runtime. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data.
+
+## Passthrough
+
+queries
+
+The Athena Amazon DocumentDB connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL
+based. For information about querying Amazon DocumentDB, see [Querying](../../../documentdb/latest/developerguide/querying.md "../../../documentdb/latest/developerguide/querying.md") in the
+_Amazon DocumentDB Developer Guide_.
+
+To use passthrough queries with Amazon DocumentDB, use the following syntax:
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            database => '`database_name`',
+            collection => '`collection_name`',
+            filter => '{`query_syntax`}'
+        ))
+```
+
+The following example queries the `example` database within the
+`TPCDS` collection, filtering on all books with the title _Bill
+of Rights_.
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            database => 'example',
+            collection => 'tpcds',
+            filter => '{title: "Bill of Rights"}'
+        ))
+```
+
+## Additional
+
+resources
+
+- For an article on using [Amazon Athena Federated Query](federated-queries.md "federated-queries.md") to connect a
+  MongoDB database to [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to
+  build dashboards and visualizations, see [Visualize MongoDB data from Quick Suite using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/") in the
+  _AWS Big Data Blog_.
+- For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb") on GitHub.com.

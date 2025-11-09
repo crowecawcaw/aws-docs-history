@@ -115,25 +115,49 @@ shortcuts are available after pressing `ESC` to enter command mode.
 To see a full list of commands available in the editor, press `ESC +
  H`.
 
-| Key                          | Action                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `1 - 6`                      | Change the cell type to markdown and set the heading level to the number typed                   |
-| `a`                          | Create a cell above the current cell                                                             |
-| `b`                          | Create a cell below the current cell                                                             |
-| `c`                          | Copy the current cell to memory                                                                  |
-| `d d`                        | Delete the current cell                                                                          |
-| `h`                          | Display the keyboard shortcut help screen                                                        |
-| `j`                          | Go one cell down                                                                                 |
-| `k`                          | Go one cell up                                                                                   |
-| `m`                          | Change the current cell format to markdown                                                       |
-| `r`                          | Change the current cell format to raw                                                            |
-| `s`                          | Save the notebook                                                                                |
-| `v`                          | Paste memory contents under the current cell                                                     |
-| `x`                          | Cut the selected cell or cells                                                                   |
-| `y`                          | Change the cell format to code                                                                   |
-| `z`                          | Undo                                                                                             |
-| `Ctrl+Enter`                 | Run the current cell and enter command mode                                                      |
-| `Shift+Enter` or `Alt+Enter` | Run the current cell and create a new cell below the output, and enter the new cell in edit mode |
-| `Space`                      | Page down                                                                                        |
-| `Shift+Space`                | Page up                                                                                          |
-| `Shift + L`                  | Toggle the visibility of line numbers in cells                                                   | ## Customize command mode shortcuts The notebook editor has an option to customize command mode keyboard shortcuts. ###### To edit command mode shortcuts 1. From the notebook editor menu, the choose the **Command palette**. 2. From the command palette, choose the **Edit command mode keyboard shortcuts** command. 3. Use the **Edit command mode shortcuts** interface to map or remap commands that you want to the keyboard. To see instructions for editing command mode shortcuts, scroll to the bottom of the **Edit command mode shortcuts** screen. For information about using magic commands in Athena for Apache Spark, see [Use magic commands](notebooks-spark-magics.md "notebooks-spark-magics.md"). ###### Topics <br>• [Use magic commands](notebooks-spark-magics.md "notebooks-spark-magics.md") |
+| Key                             | Action                                                                                              |
+| ------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `1<br>• 6`                      | Change the cell type to markdown and set the heading level to the<br>number typed                   |
+| `a`                             | Create a cell above the current cell                                                                |
+| `b`                             | Create a cell below the current cell                                                                |
+| `c`                             | Copy the current cell to memory                                                                     |
+| `d d`                           | Delete the current cell                                                                             |
+| `h`                             | Display the keyboard shortcut help screen                                                           |
+| `j`                             | Go one cell down                                                                                    |
+| `k`                             | Go one cell up                                                                                      |
+| `m`                             | Change the current cell format to markdown                                                          |
+| `r`                             | Change the current cell format to raw                                                               |
+| `s`                             | Save the notebook                                                                                   |
+| `v`                             | Paste memory contents under the current cell                                                        |
+| `x`                             | Cut the selected cell or cells                                                                      |
+| `y`                             | Change the cell format to code                                                                      |
+| `z`                             | Undo                                                                                                |
+| `Ctrl+Enter`                    | Run the current cell and enter command mode                                                         |
+| `Shift+Enter` or<br>`Alt+Enter` | Run the current cell and create a new cell below the output, and<br>enter the new cell in edit mode |
+| `Space`                         | Page down                                                                                           |
+| `Shift+Space`                   | Page up                                                                                             |
+| `Shift + L`                     | Toggle the visibility of line numbers in cells                                                      |
+
+## Customize command mode
+
+shortcuts
+
+The notebook editor has an option to customize command mode keyboard shortcuts.
+
+###### To edit command mode shortcuts
+
+1. From the notebook editor menu, the choose the **Command
+   palette**.
+2. From the command palette, choose the **Edit command mode keyboard
+   shortcuts** command.
+3. Use the **Edit command mode shortcuts** interface to map or
+   remap commands that you want to the keyboard.
+
+To see instructions for editing command mode shortcuts, scroll to the bottom
+of the **Edit command mode shortcuts** screen.
+
+For information about using magic commands in Athena for Apache Spark, see [Use magic commands](notebooks-spark-magics.md "notebooks-spark-magics.md").
+
+###### Topics
+
+- [Use magic commands](notebooks-spark-magics.md "notebooks-spark-magics.md")

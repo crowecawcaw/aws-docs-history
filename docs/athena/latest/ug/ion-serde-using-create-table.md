@@ -44,7 +44,34 @@ Ion class path values for the `ROW FORMAT SERDE`, `INPUTFORMAT`,
 and `OUTPUTFORMAT` clauses as follows.
 
 | Parameter               | Ion class path                                      |
-| ----------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | --------------------------------------------------- |
 | `ROW FORMAT SERDE`      | `'com.amazon.ionhiveserde.IonHiveSerDe'`            |
 | `STORED AS INPUTFORMAT` | `'com.amazon.ionhiveserde.formats.IonInputFormat'`  |
-| `OUTPUTFORMAT`          | `'com.amazon.ionhiveserde.formats.IonOutputFormat'` | The following DDL query uses this technique to create the same external table as in the previous example. `CREATE EXTERNAL TABLE flights_ion ( yr INT, quarter INT, month INT, dayofmonth INT, dayofweek INT, flightdate STRING, uniquecarrier STRING, airlineid INT, ) ROW FORMAT SERDE 'com.amazon.ionhiveserde.IonHiveSerDe' STORED AS INPUTFORMAT 'com.amazon.ionhiveserde.formats.IonInputFormat' OUTPUTFORMAT 'com.amazon.ionhiveserde.formats.IonOutputFormat' LOCATION 's3://amzn-s3-demo-bucket/'` For information about the SerDe properties for `CREATE TABLE` statements in Athena, see [Amazon Ion SerDe property reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md"). |
+| `OUTPUTFORMAT`          | `'com.amazon.ionhiveserde.formats.IonOutputFormat'` |
+
+The following DDL query uses this technique to create the same external table as in
+the previous example.
+
+```
+CREATE EXTERNAL TABLE flights_ion (
+    yr INT,
+    quarter INT,
+    month INT,
+    dayofmonth INT,
+    dayofweek INT,
+    flightdate STRING,
+    uniquecarrier STRING,
+    airlineid INT,
+)
+ROW FORMAT SERDE
+ 'com.amazon.ionhiveserde.IonHiveSerDe'
+STORED AS INPUTFORMAT
+ 'com.amazon.ionhiveserde.formats.IonInputFormat'
+OUTPUTFORMAT
+ 'com.amazon.ionhiveserde.formats.IonOutputFormat'
+LOCATION 's3://amzn-s3-demo-bucket/'
+```
+
+For information about the SerDe properties for `CREATE TABLE` statements in
+Athena, see [Amazon Ion SerDe property
+reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md").

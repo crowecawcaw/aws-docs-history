@@ -16,6 +16,6 @@ provider
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `InstanceProfile`.
 
-| Parameter name      | Alias                                      | Parameter type | Default value | Value to use      |
-| ------------------- | ------------------------------------------ | -------------- | ------------- | ----------------- |
-| CredentialsProvider | _AWSCredentialsProviderClass (deprecated)_ | Required       | none          | `InstanceProfile` |
+| Parameter name      | Alias                                         | Parameter type | Default value | Value to use      |
+| ------------------- | --------------------------------------------- | -------------- | ------------- | ----------------- |
+| CredentialsProvider | _AWSCredentialsProviderClass<br>(deprecated)_ | Required       | none          | `InstanceProfile` |

@@ -15,11 +15,35 @@ LIMIT 2;
 
 This query returns:
 
-````
+```
 +--------------+
-| newid        | +--------------+
-| 112233445566 | +--------------+
-| 998877665544 | +--------------+ ``` To query an array of values, issue this query: ``` WITH dataset AS ( SELECT ARRAY[ CAST(ROW('Bob', 38) AS ROW(name VARCHAR, age INTEGER)), CAST(ROW('Alice', 35) AS ROW(name VARCHAR, age INTEGER)), CAST(ROW('Jane', 27) AS ROW(name VARCHAR, age INTEGER)) ] AS users ) SELECT * FROM dataset ``` It returns this result: ``` +-----------------------------------------------------------------+
-| users                                                           | +-----------------------------------------------------------------+
-| [{NAME=Bob, AGE=38}, {NAME=Alice, AGE=35}, {NAME=Jane, AGE=27}] | +-----------------------------------------------------------------+ ```
-````
+| newid        |
++--------------+
+| 112233445566 |
++--------------+
+| 998877665544 |
++--------------+
+```
+
+To query an array of values, issue this query:
+
+```
+WITH dataset AS (
+  SELECT ARRAY[
+    CAST(ROW('Bob', 38) AS ROW(name VARCHAR, age INTEGER)),
+    CAST(ROW('Alice', 35) AS ROW(name VARCHAR, age INTEGER)),
+    CAST(ROW('Jane', 27) AS ROW(name VARCHAR, age INTEGER))
+  ] AS users
+)
+SELECT * FROM dataset
+```
+
+It returns this result:
+
+```
++-----------------------------------------------------------------+
+| users                                                           |
++-----------------------------------------------------------------+
+| [{NAME=Bob, AGE=38}, {NAME=Alice, AGE=35}, {NAME=Jane, AGE=27}] |
++-----------------------------------------------------------------+
+```

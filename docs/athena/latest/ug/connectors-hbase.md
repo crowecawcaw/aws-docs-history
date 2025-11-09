@@ -217,11 +217,89 @@ you defined your tables in AWS Glue Data Catalog, it maps the values into one of
 Arrow data types in the following table.
 
 | AWS Glue data type | Apache Arrow data type |
-| ------------------ | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ---------------------- |
 | int                | INT                    |
 | bigint             | BIGINT                 |
 | double             | FLOAT8                 |
 | float              | FLOAT4                 |
 | boolean            | BIT                    |
 | binary             | VARBINARY              |
-| string             | VARCHAR                | ###### Note If you do not use AWS Glue to supplement your metadata, the connector's schema inferencing uses only the data types `BIGINT`, `FLOAT8`, and `VARCHAR`. ## Required Permissions For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-hbase.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-hbase/athena-hbase.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-hbase/athena-hbase.yaml") file. The following list summarizes the required permissions. <br>• Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries. <br>• Athena GetQueryExecution – The connector uses this permission to fast-fail when the upstream Athena query has terminated. <br>• AWS Glue Data Catalog – The HBase connector requires read only access to the AWS Glue Data Catalog to obtain schema information. <br>• CloudWatch Logs – The connector requires access to CloudWatch Logs for storing logs. <br>• AWS Secrets Manager read access – If you choose to store HBase endpoint details in Secrets Manager, you must grant the connector access to those secrets. <br>• VPC access – The connector requires the ability to attach and detach interfaces to your VPC so that it can connect to it and communicate with your HBase instances. ## Performance The Athena HBase connector attempts to parallelize queries against your HBase instance by reading each region server in parallel. The Athena HBase connector performs predicate pushdown to decrease the data scanned by the query. The Lambda function also performs _projection_ pushdown to decrease the data scanned by the query. However, selecting a subset of columns sometimes results in a longer query execution runtime. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. HBase is prone to query failures and variable query execution times. You might have to retry your queries multiple times for them to succeed. The HBase connector is resilient to throttling due to concurrency. ## Passthrough queries The HBase connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL based. For information about querying Apache HBase using filtering, see [Filter language](https://hbase.apache.org/book.html#thrift.filter_language "https://hbase.apache.org/book.html#thrift.filter_language") in the Apache documentation. To use passthrough queries with HBase, use the following syntax: ``SELECT * FROM TABLE( system.query( database => '`database_name`', collection => '`collection_name`', filter => '{`query_syntax`}' ))`` The following example HBase passthrough query filters for employees aged 24 or 30 within the `employee` collection of the `default` database. ``` SELECT \* FROM TABLE( system.query( DATABASE => 'default', COLLECTION => 'employee', FILTER => 'SingleColumnValueFilter(''personaldata'', ''age'', =, ''binary:30'')' |     | ' OR SingleColumnValueFilter(''personaldata'', ''age'', =, ''binary:24'')' )) ``` ## License information The Amazon Athena HBase connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html"). ## Additional resources For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-hbase "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-hbase") on GitHub.com. |
+| string             | VARCHAR                |
+
+###### Note
+
+If you do not use AWS Glue to supplement your metadata, the connector's schema
+inferencing uses only the data types `BIGINT`, `FLOAT8`, and
+`VARCHAR`.
+
+## Required Permissions
+
+For full details on the IAM policies that this
+connector requires, review the `Policies` section of the [athena-hbase.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-hbase/athena-hbase.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-hbase/athena-hbase.yaml") file. The following list summarizes the required permissions.
+
+- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
+- Athena GetQueryExecution – The connector
+  uses this permission to fast-fail when the upstream Athena query has
+  terminated.
+- AWS Glue Data Catalog – The HBase connector
+  requires read only access to the AWS Glue Data Catalog to obtain schema
+  information.
+- CloudWatch Logs – The connector requires access to
+  CloudWatch Logs for storing logs.
+- AWS Secrets Manager read access – If you choose to
+  store HBase endpoint details in Secrets Manager, you must grant the connector
+  access to those secrets.
+- VPC access – The connector requires the
+  ability to attach and detach interfaces to your VPC so that it can connect to it
+  and communicate with your HBase instances.
+
+## Performance
+
+The Athena HBase connector attempts to parallelize queries against your HBase instance
+by reading each region server in parallel. The Athena HBase connector performs predicate pushdown to decrease the data scanned by the query.
+
+The Lambda function also performs _projection_ pushdown to decrease
+the data scanned by the query. However, selecting a subset of columns sometimes results in a longer query execution runtime. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data.
+
+HBase is prone to query failures and variable query execution times. You might have to
+retry your queries multiple times for them to succeed. The HBase connector is resilient to throttling due to concurrency.
+
+## Passthrough
+
+queries
+
+The HBase connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL
+based. For information about querying Apache HBase using filtering, see [Filter
+language](https://hbase.apache.org/book.html#thrift.filter_language "https://hbase.apache.org/book.html#thrift.filter_language") in the Apache documentation.
+
+To use passthrough queries with HBase, use the following syntax:
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            database => '`database_name`',
+            collection => '`collection_name`',
+            filter => '{`query_syntax`}'
+        ))
+```
+
+The following example HBase passthrough query filters for employees aged 24 or 30
+within the `employee` collection of the `default` database.
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            DATABASE => 'default',
+            COLLECTION => 'employee',
+            FILTER => 'SingleColumnValueFilter(''personaldata'', ''age'', =, ''binary:30'')' ||
+                       ' OR SingleColumnValueFilter(''personaldata'', ''age'', =, ''binary:24'')'
+        ))
+```
+
+## License information
+
+The Amazon Athena HBase connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html").
+
+## Additional resources
+
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-hbase "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-hbase") on GitHub.com.

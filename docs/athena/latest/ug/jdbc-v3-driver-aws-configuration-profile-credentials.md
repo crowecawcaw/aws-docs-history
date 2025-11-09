@@ -13,8 +13,21 @@ profiles](../../../sdk-for-java/latest/developer-guide/credentials-profiles.md "
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `ProfileCredentials`.
 
-| Parameter name      | Alias                                      | Parameter type | Default value | Value to use                                                                                                                                      |
-| ------------------- | ------------------------------------------ | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --- | --- | --- |
-| CredentialsProvider | _AWSCredentialsProviderClass (deprecated)_ | Required       | none          | `ProfileCredentials`                                                                                                                              | ## Profile name The name of the AWS configuration profile whose credentials should be used to authenticate the request to Athena. |
-| Parameter name      | Alias                                      | Parameter type | Default value |                                                                                                                                                   | ---                                                                                                                               | --- | --- | --- |
-| ProfileName         | none                                       | Required       | none          | ###### Note The profile name can also be specified as the value of the `CredentialsProviderArguments` parameter, although this use is deprecated. |
+| Parameter name      | Alias                                         | Parameter type | Default value | Value to use         |
+| ------------------- | --------------------------------------------- | -------------- | ------------- | -------------------- |
+| CredentialsProvider | _AWSCredentialsProviderClass<br>(deprecated)_ | Required       | none          | `ProfileCredentials` |
+
+## Profile name
+
+The name of the AWS configuration profile whose credentials should be used to
+authenticate the request to Athena.
+
+| Parameter name | Alias | Parameter type | Default value |
+| -------------- | ----- | -------------- | ------------- |
+| ProfileName    | none  | Required       | none          |
+
+###### Note
+
+The profile name can also be specified as the value of the
+`CredentialsProviderArguments` parameter, although this use is
+deprecated.

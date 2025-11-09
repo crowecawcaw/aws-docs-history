@@ -7,21 +7,66 @@ This parameter corresponds to the `ClientConfiguration.proxyHost` parameter
 in the AWS SDK. For more information, see [AWS Client
 configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.
 
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| ProxyHost                  | Optional           | `none`            | `ProxyHost=127.0.0.1;`        |
+
+## Proxy port
+
+Use this parameter to set the proxy port. This parameter corresponds to the
+`ClientConfiguration.proxyPort` parameter in the AWS SDK. For more
+information, see [AWS Client
+configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| ProxyPort                  | Optional           | `none`            | `ProxyPort=8888;`             |
+
+## Proxy user
+
+name
+
+Use this parameter to set the proxy user name. This parameter corresponds to the
+`ClientConfiguration.proxyUserName` parameter in the AWS SDK. For more
+information, see [AWS Client
+configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| ProxyUID                   | Optional           | `none`            | `ProxyUID=username;`          |
+
+## Proxy password
+
+Use this parameter to set the proxy password. This parameter corresponds to the
+`ClientConfiguration.proxyPassword` parameter in the AWS SDK. For more
+information, see [AWS Client
+configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| ProxyPWD                   | Optional           | `none`            | `ProxyPWD=password;`          |
+
+## Non proxy host
+
+Use this optional parameter to specify a host that the driver connects to without
+using a proxy. This parameter corresponds to the
+`ClientConfiguration.nonProxyHosts` parameter in the AWS SDK. For more
+information, see [AWS Client
+configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.
+
+The `NonProxyHost` connection parameter is passed to the
+`CURLOPT_NOPROXY` curl option. For information about the
+`CURLOPT_NOPROXY` format, see [CURLOPT_NOPROXY](https://curl.se/libcurl/c/CURLOPT_NOPROXY.html "https://curl.se/libcurl/c/CURLOPT_NOPROXY.html") in the
+curl documentation.
+
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ProxyHost                  | Optional           | `none`            | `ProxyHost=127.0.0.1;`                                             | ## Proxy port Use this parameter to set the proxy port. This parameter corresponds to the `ClientConfiguration.proxyPort` parameter in the AWS SDK. For more information, see [AWS Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.                                                                                                                                                                                                                                                                                                                                                              |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| ---                        | ---                | ---               | ---                                                                |
-| ProxyPort                  | Optional           | `none`            | `ProxyPort=8888;`                                                  | ## Proxy user name Use this parameter to set the proxy user name. This parameter corresponds to the `ClientConfiguration.proxyUserName` parameter in the AWS SDK. For more information, see [AWS Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.                                                                                                                                                                                                                                                                                                                                                |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| ---                        | ---                | ---               | ---                                                                |
-| ProxyUID                   | Optional           | `none`            | `ProxyUID=username;`                                               | ## Proxy password Use this parameter to set the proxy password. This parameter corresponds to the `ClientConfiguration.proxyPassword` parameter in the AWS SDK. For more information, see [AWS Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_.                                                                                                                                                                                                                                                                                                                                                  |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| ---                        | ---                | ---               | ---                                                                |
-| ProxyPWD                   | Optional           | `none`            | `ProxyPWD=password;`                                               | ## Non proxy host Use this optional parameter to specify a host that the driver connects to without using a proxy. This parameter corresponds to the `ClientConfiguration.nonProxyHosts` parameter in the AWS SDK. For more information, see [AWS Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../../sdk-for-cpp/v1/developer-guide/client-config.md") in the _AWS SDK for C++ Developer Guide_. The `NonProxyHost` connection parameter is passed to the `CURLOPT_NOPROXY` curl option. For information about the `CURLOPT_NOPROXY` format, see [CURLOPT_NOPROXY](https://curl.se/libcurl/c/CURLOPT_NOPROXY.html "https://curl.se/libcurl/c/CURLOPT_NOPROXY.html") in the curl documentation. |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| ---                        | ---                | ---               | ---                                                                |
-| NonProxyHost               | Optional           | `none`            | `NonProxyHost=.amazonaws.com,localhost,.example.net,.example.com;` | ## Use proxy Enables user traffic through the specified proxy.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                      |
-| ---                        | ---                | ---               | ---                                                                |
-| UseProxy                   | Optional           | `none`            | `UseProxy=1;`                                                      |
+| -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------------ |
+| NonProxyHost               | Optional           | `none`            | `NonProxyHost=.amazonaws.com,localhost,.example.net,.example.com;` |
+
+## Use proxy
+
+Enables user traffic through the specified proxy.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| UseProxy                   | Optional           | `none`            | `UseProxy=1;`                 |

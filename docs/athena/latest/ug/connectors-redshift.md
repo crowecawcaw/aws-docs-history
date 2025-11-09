@@ -139,32 +139,204 @@ You can use a multiplexer to connect to multiple database instances with a singl
 Lambda function. Requests are routed by catalog name. Use the following classes in
 Lambda.
 
-| Handler                               | Class                                                                                                                                                                                                                                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Composite handler                     | `RedshiftMuxCompositeHandler`                                                                                                                                                                                                                                                         |
-| Metadata handler                      | `RedshiftMuxMetadataHandler`                                                                                                                                                                                                                                                          |
-| Record handler                        | `RedshiftMuxRecordHandler`                                                                                                                                                                                                                                                            | ##### Multiplexing handler parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Parameter                             | Description                                                                                                                                                                                                                                                                           |
-| ---                                   | ---                                                                                                                                                                                                                                                                                   |
-| `$`catalog`_connection_string`        | Required. A database instance connection string. Prefix the environment variable with the name of the catalog used in Athena. For example, if the catalog registered with Athena is `myredshiftcatalog`, then the environment variable name is `myredshiftcatalog_connection_string`. |
-| `default`                             | Required. The default connection string. This string is used when the catalog is `lambda:${``AWS_LAMBDA_FUNCTION_NAME``}`.                                                                                                                                                            | The following example properties are for a Redshift MUX Lambda function that supports two database instances: `redshift1` (the default), and `redshift2`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Property                              | Value                                                                                                                                                                                                                                                                                 |
-| ---                                   | ---                                                                                                                                                                                                                                                                                   |
-| `default`                             | `redshift://jdbc:redshift://redshift1.host:5439/dev?user=sample2&password=sample2`                                                                                                                                                                                                    |
-| `redshift_catalog1_connection_string` | `redshift://jdbc:redshift://redshift1.host:3306/default?${Test/RDS/Redshift1}`                                                                                                                                                                                                        |
-| `redshift_catalog2_connection_string` | `redshift://jdbc:redshift://redshift2.host:3333/default?user=sample2&password=sample2`                                                                                                                                                                                                | ##### Providing credentials To provide a user name and password for your database in your JDBC connection string, you can use connection string properties or AWS Secrets Manager. <br>• Connection String – A user name and password can be specified as properties in the JDBC connection string. ###### Important As a security best practice, don't use hardcoded credentials in your environment variables or connection strings. For information about moving your hardcoded secrets to AWS Secrets Manager, see [Move hardcoded secrets to AWS Secrets Manager](../../../secretsmanager/latest/userguide/hardcoded.md "../../../secretsmanager/latest/userguide/hardcoded.md") in the _AWS Secrets Manager User Guide_. <br>• AWS Secrets Manager – To use the Athena Federated Query feature with AWS Secrets Manager, the VPC connected to your Lambda function should have [internet access](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/ "https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/") or a [VPC endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md") to connect to Secrets Manager. You can put the name of a secret in AWS Secrets Manager in your JDBC connection string. The connector replaces the secret name with the `username` and `password` values from Secrets Manager. For Amazon RDS database instances, this support is tightly integrated. If you use Amazon RDS, we highly recommend using AWS Secrets Manager and credential rotation. If your database does not use Amazon RDS, store the credentials as JSON in the following format: `{"username": "${username}", "password": "${password}"}` ###### Example connection string with secret name The following string has the secret name ${Test/RDS/ `Redshift1`}. ``` redshift://jdbc:redshift://redshift1.host:3306/default?...&${Test/RDS/Redshift1}&... `The connector uses the secret name to retrieve secrets and provide the user name and password, as in the following example.` redshift://jdbc:redshift://redshift1.host:3306/default?...&user=sample2&password=sample2&... ```Currently, the Redshift connector recognizes the`user`and`password` JDBC properties. ## Data type support The following table shows the corresponding data types for JDBC and Apache Arrow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| JDBC                                  | Arrow                                                                                                                                                                                                                                                                                 |
-| ---                                   | ---                                                                                                                                                                                                                                                                                   |
-| Boolean                               | Bit                                                                                                                                                                                                                                                                                   |
-| Integer                               | Tiny                                                                                                                                                                                                                                                                                  |
-| Short                                 | Smallint                                                                                                                                                                                                                                                                              |
-| Integer                               | Int                                                                                                                                                                                                                                                                                   |
-| Long                                  | Bigint                                                                                                                                                                                                                                                                                |
-| float                                 | Float4                                                                                                                                                                                                                                                                                |
-| Double                                | Float8                                                                                                                                                                                                                                                                                |
-| Date                                  | DateDay                                                                                                                                                                                                                                                                               |
-| Timestamp                             | DateMilli                                                                                                                                                                                                                                                                             |
-| String                                | Varchar                                                                                                                                                                                                                                                                               |
-| Bytes                                 | Varbinary                                                                                                                                                                                                                                                                             |
-| BigDecimal                            | Decimal                                                                                                                                                                                                                                                                               |
-| ARRAY                                 | List                                                                                                                                                                                                                                                                                  | ## Partitions and splits Redshift does not support external partitions. For information about performance related issues, see [Performance](#connectors-redshift-performance "#connectors-redshift-performance"). ## Performance The Athena Redshift connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, `ORDER BY` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time. However, selecting a subset of columns sometimes results in a longer query execution runtime. Amazon Redshift is particularly susceptible to query execution slowdown when you run multiple queries concurrently. ### LIMIT clauses A `LIMIT N` statement reduces the data scanned by the query. With `LIMIT N` pushdown, the connector returns only `N` rows to Athena. ### Top N queries A top `N` query specifies an ordering of the result set and a limit on the number of rows returned. You can use this type of query to determine the top `N` max values or top `N` min values for your datasets. With top `N` pushdown, the connector returns only `N` ordered rows to Athena. ### Predicates A predicate is an expression in the `WHERE` clause of a SQL query that evaluates to a Boolean value and filters rows based on multiple conditions. The Athena Redshift connector can combine these expressions and push them directly to Redshift for enhanced functionality and to reduce the amount of data scanned. The following Athena Redshift connector operators support predicate pushdown: <br>• Boolean: AND, OR, NOT <br>• Equality: EQUAL, NOT_EQUAL, LESS_THAN, LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL, IS_DISTINCT_FROM, NULL_IF, IS_NULL <br>• Arithmetic: ADD, SUBTRACT, MULTIPLY, DIVIDE, MODULUS, NEGATE <br>• Other: LIKE_PATTERN, IN ### Combined pushdown example For enhanced querying capabilities, combine the pushdown types, as in the following example: `SELECT * FROM my_table WHERE col_a > 10 AND ((col_a + col_b) > (col_c % col_d)) AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%') ORDER BY col_a DESC LIMIT 10;` For an article on using predicate pushdown to improve performance in federated queries, including Amazon Redshift, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the _AWS Big Data Blog_. ## Passthrough queries The Redshift connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough queries use a table function to push your full query down to the data source for execution. To use passthrough queries with Redshift, you can use the following syntax: ``SELECT * FROM TABLE( system.query( query => '`query string`' ))`` The following example query pushes down a query to a data source in Redshift. The query selects all columns in the `customer` table, limiting the results to 10. `SELECT * FROM TABLE( system.query( query => 'SELECT * FROM customer LIMIT 10' ))` ## Additional resources For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redshift/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redshift/pom.xml") file for the Redshift connector on GitHub.com. For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redshift "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redshift") on GitHub.com. |
+| Handler           | Class                         |
+| ----------------- | ----------------------------- |
+| Composite handler | `RedshiftMuxCompositeHandler` |
+| Metadata handler  | `RedshiftMuxMetadataHandler`  |
+| Record handler    | `RedshiftMuxRecordHandler`    |
+
+##### Multiplexing handler parameters
+
+| Parameter                      | Description                                                                                                                                                                                                                                                                                          |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$`catalog`_connection_string` | Required. A database instance connection string. Prefix the<br>environment variable with the name of the catalog used in Athena. For example,<br>if the catalog registered with Athena is<br>`myredshiftcatalog`, then the environment<br>variable name is<br>`myredshiftcatalog_connection_string`. |
+| `default`                      | Required. The default connection string. This string is used<br>when the catalog is<br>`lambda:${``AWS_LAMBDA_FUNCTION_NAME``}`.                                                                                                                                                                     |
+
+The following example properties are for a Redshift MUX Lambda function
+that supports two database instances: `redshift1` (the
+default), and `redshift2`.
+
+| Property                              | Value                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------- |
+| `default`                             | `redshift://jdbc:redshift://redshift1.host:5439/dev?user=sample2&password=sample2`     |
+| `redshift_catalog1_connection_string` | `redshift://jdbc:redshift://redshift1.host:3306/default?${Test/RDS/Redshift1}`         |
+| `redshift_catalog2_connection_string` | `redshift://jdbc:redshift://redshift2.host:3333/default?user=sample2&password=sample2` |
+
+##### Providing
+
+credentials
+
+To provide a user name and password for your database in your JDBC connection
+string, you can use connection string properties or AWS Secrets Manager.
+
+- Connection String – A user name
+  and password can be specified as properties in the JDBC connection
+  string.
+
+###### Important
+
+As a security best practice, don't use hardcoded credentials in your
+environment variables or connection strings. For information about moving
+your hardcoded secrets to AWS Secrets Manager, see [Move hardcoded
+secrets to AWS Secrets Manager](../../../secretsmanager/latest/userguide/hardcoded.md "../../../secretsmanager/latest/userguide/hardcoded.md") in the
+_AWS Secrets Manager User Guide_.
+
+- AWS Secrets Manager – To use the Athena
+  Federated Query feature with AWS Secrets Manager, the VPC connected to your Lambda
+  function should have [internet access](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/ "https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/") or a [VPC
+  endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md") to connect to Secrets Manager.
+
+You can put the name of a secret in AWS Secrets Manager in your JDBC connection
+string. The connector replaces the secret name with the
+`username` and `password` values from
+Secrets Manager.
+
+For Amazon RDS database instances, this support is tightly integrated. If
+you use Amazon RDS, we highly recommend using AWS Secrets Manager and credential
+rotation. If your database does not use Amazon RDS, store the credentials as
+JSON in the following format:
+
+```
+{"username": "${username}", "password": "${password}"}
+```
+
+###### Example connection string with secret name
+
+The following string has the secret name ${Test/RDS/
+`Redshift1`}.
+
+```
+redshift://jdbc:redshift://redshift1.host:3306/default?...&${Test/RDS/Redshift1}&...
+```
+
+The connector uses the secret name to retrieve secrets and provide the user name and password, as in the following example.
+
+```
+redshift://jdbc:redshift://redshift1.host:3306/default?...&user=sample2&password=sample2&...
+```
+
+Currently, the Redshift connector recognizes the `user` and
+`password` JDBC properties.
+
+## Data type support
+
+The following table shows the corresponding data types for JDBC and Apache
+Arrow.
+
+| JDBC       | Arrow     |
+| ---------- | --------- |
+| Boolean    | Bit       |
+| Integer    | Tiny      |
+| Short      | Smallint  |
+| Integer    | Int       |
+| Long       | Bigint    |
+| float      | Float4    |
+| Double     | Float8    |
+| Date       | DateDay   |
+| Timestamp  | DateMilli |
+| String     | Varchar   |
+| Bytes      | Varbinary |
+| BigDecimal | Decimal   |
+| ARRAY      | List      |
+
+## Partitions and
+
+splits
+
+Redshift does not support external partitions. For information about performance
+related issues, see [Performance](#connectors-redshift-performance "#connectors-redshift-performance").
+
+## Performance
+
+The Athena Redshift connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, `ORDER BY` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time. However, selecting a subset of columns sometimes results in a longer query execution runtime.
+Amazon Redshift is particularly susceptible to query execution slowdown when you run multiple
+queries concurrently.
+
+### LIMIT
+
+clauses
+
+A `LIMIT N` statement reduces the data scanned by the query. With
+`LIMIT N` pushdown, the connector returns only `N` rows to
+Athena.
+
+### Top N
+
+queries
+
+A top `N` query specifies an ordering of the result set and a limit on
+the number of rows returned. You can use this type of query to determine the top
+`N` max values or top `N` min values for your datasets.
+With top `N` pushdown, the connector returns only `N` ordered
+rows to Athena.
+
+### Predicates
+
+A predicate is an expression in the `WHERE` clause of a SQL query that
+evaluates to a Boolean value and filters rows based on multiple conditions. The
+Athena Redshift connector can combine these expressions and push them directly to
+Redshift for enhanced functionality and to reduce the amount of data scanned.
+
+The following Athena Redshift connector operators support predicate
+pushdown:
+
+- Boolean: AND, OR, NOT
+- Equality: EQUAL, NOT_EQUAL, LESS_THAN,
+  LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL, IS_DISTINCT_FROM,
+  NULL_IF, IS_NULL
+- Arithmetic: ADD, SUBTRACT, MULTIPLY,
+  DIVIDE, MODULUS, NEGATE
+- Other: LIKE_PATTERN, IN
+
+### Combined
+
+pushdown example
+
+For enhanced querying capabilities, combine the pushdown types, as in the following example:
+
+```
+SELECT *
+FROM my_table
+WHERE col_a > 10
+    AND ((col_a + col_b) > (col_c % col_d))
+    AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%')
+ORDER BY col_a DESC
+LIMIT 10;
+```
+
+For an article on using predicate pushdown to improve performance in federated
+queries, including Amazon Redshift, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the
+_AWS Big Data Blog_.
+
+## Passthrough
+
+queries
+
+The Redshift connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
+queries use a table function to push your full query down to the data source for
+execution.
+
+To use passthrough queries with Redshift, you can use the following syntax:
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            query => '`query string`'
+        ))
+```
+
+The following example query pushes down a query to a data source in Redshift. The query
+selects all columns in the `customer` table, limiting the results to 10.
+
+```
+SELECT * FROM TABLE(
+        system.query(
+            query => 'SELECT * FROM customer LIMIT 10'
+        ))
+```
+
+## Additional resources
+
+For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redshift/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redshift/pom.xml") file for the Redshift connector on GitHub.com.
+
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redshift "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redshift") on GitHub.com.

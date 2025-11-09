@@ -234,11 +234,204 @@ be created. Iceberg supports a wide variety of partition
 transforms and partition evolution. Partition transforms are
 summarized in the following table.
 
-| Transform             | Description                                                                                                                                                |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `year(ts)`            | Creates a partition for each year. The partition value is the integer difference in years between `ts` and January 1, 1970.                                |
-| `month(ts)`           | Creates a partition for each month of each year. The partition value is the integer difference in months between `ts` and January 1, 1970.                 |
-| `day(ts)`             | Creates a partition for each day of each year. The partition value is the integer difference in days between `ts` and January 1, 1970.                     |
-| `hour(ts)`            | Creates a partition for each hour of each day. The partition value is a timestamp with the minutes and seconds set to zero.                                |
-| `bucket(x, nbuckets)` | Hashes the data into the specified number of buckets. The partition value is an integer hash of `x`, with a value between 0 and `nbuckets - 1`, inclusive. |
-| `truncate(s, nchars)` | Makes the partition value the first `nchars` characters of `s`.                                                                                            | Example: `WITH (partitioning = ARRAY['month(order_date)', 'bucket(account_number, 10)', 'country']))` `optimize_rewrite_min_data_file_size_bytes = [long]` Optional. Data optimization specific configuration. Files smaller than the specified value are included for optimization. The default is 0.75 times the value of `write_target_data_file_size_bytes`. This property applies only to Iceberg tables. For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md"). Example: `WITH (optimize_rewrite_min_data_file_size_bytes = 402653184)` `optimize_rewrite_max_data_file_size_bytes = [long]` Optional. Data optimization specific configuration. Files larger than the specified value are included for optimization. The default is 1.8 times the value of `write_target_data_file_size_bytes`. This property applies only to Iceberg tables. For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md"). Example: `WITH (optimize_rewrite_max_data_file_size_bytes = 966367641)` `optimize_rewrite_data_file_threshold = [int]` Optional. Data optimization specific configuration. If there are fewer data files that require optimization than the given threshold, the files are not rewritten. This allows the accumulation of more data files to produce files closer to the target size and skip unnecessary computation for cost savings. The default is 5. This property applies only to Iceberg tables. For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md"). Example: `WITH (optimize_rewrite_data_file_threshold = 5)` `optimize_rewrite_delete_file_threshold = [int]` Optional. Data optimization specific configuration. If there are fewer delete files associated with a data file than the threshold, the data file is not rewritten. This allows the accumulation of more delete files for each data file for cost savings. The default is 2. This property applies only to Iceberg tables. For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md"). Example: `WITH (optimize_rewrite_delete_file_threshold = 2)` `vacuum_min_snapshots_to_keep = [int]` Optional. Vacuum specific configuration. The minimum number of most recent snapshots to retain. The default is 1. This property applies only to Iceberg tables. For more information, see [VACUUM](vacuum-statement.md "vacuum-statement.md"). ###### Note The `vacuum_min_snapshots_to_keep` property requires Athena engine version 3. Example: `WITH (vacuum_min_snapshots_to_keep = 1)` `vacuum_max_snapshot_age_seconds = [long]` Optional. Vacuum specific configuration. A period in seconds that represents the age of the snapshots to retain. The default is 432000 (5 days). This property applies only to Iceberg tables. For more information, see [VACUUM](vacuum-statement.md "vacuum-statement.md"). ###### Note The `vacuum_max_snapshot_age_seconds` property requires Athena engine version 3. Example: `WITH (vacuum_max_snapshot_age_seconds = 432000)` `write_compression = [compression_format]` The compression type to use for any storage format that allows compression to be specified. The `compression_format` value specifies the compression to be used when the data is written to the table. You can specify compression for the `TEXTFILE`, `JSON`, `PARQUET`, and `ORC` file formats. For example, if the `format` property specifies `PARQUET` as the storage format, the value for `write_compression` specifies the compression format for Parquet. In this case, specifying a value for `write_compression` is equivalent to specifying a value for `parquet_compression`. Similarly, if the `format` property specifies `ORC` as the storage format, the value for `write_compression` specifies the compression format for ORC. In this case, specifying a value for `write_compression` is equivalent to specifying a value for `orc_compression`. Multiple compression format table properties cannot be specified in the same CTAS query. For example, you cannot specify both `write_compression` and `parquet_compression` in the same query. The same applies for `write_compression` and `orc_compression`. For information about the compression types that are supported for each file format, see [Use compression in Athena](compression-formats.md "compression-formats.md"). `orc_compression = [compression_format]` The compression type to use for the `ORC` file format when `ORC` data is written to the table. For example, `WITH (orc_compression = 'ZLIB')`. Chunks within the `ORC` file (except the `ORC` Postscript) are compressed using the compression that you specify. If omitted, ZLIB compression is used by default for `ORC`. ###### Note For consistency, we recommend that you use the `write_compression` property instead of `orc_compression`. Use the `format` property to specify the storage format as `ORC`, and then use the `write_compression` property to specify the compression format that `ORC` will use. `parquet_compression = [compression_format]` The compression type to use for the Parquet file format when Parquet data is written to the table. For example, `WITH (parquet_compression = 'SNAPPY')`. This compression is applied to column chunks within the Parquet files. If omitted, GZIP compression is used by default for Parquet. ###### Note For consistency, we recommend that you use the `write_compression` property instead of `parquet_compression`. Use the `format` property to specify the storage format as `PARQUET`, and then use the `write_compression` property to specify the compression format that `PARQUET` will use. `compression_level = [compression_level]` The compression level to use. This property applies only to ZSTD compression. Possible values are from 1 to 22. The default value is 3. For more information, see [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md"). ## Examples For examples of CTAS queries, consult the following resources. <br>• [Examples of CTAS queries](ctas-examples.md "ctas-examples.md") <br>• [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md") <br>• [Use CTAS statements with Amazon Athena to reduce cost and improve performance](https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/ "https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/") <br>• [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md") |
+| Transform             | Description                                                                                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `year(ts)`            | Creates a partition for each year. The<br>partition value is the integer difference in years<br>between `ts` and January 1,<br>1970.                                   |
+| `month(ts)`           | Creates a partition for each month of each<br>year. The partition value is the integer<br>difference in months between `ts` and<br>January 1, 1970.                    |
+| `day(ts)`             | Creates a partition for each day of each<br>year. The partition value is the integer<br>difference in days between `ts` and<br>January 1, 1970.                        |
+| `hour(ts)`            | Creates a partition for each hour of each<br>day. The partition value is a timestamp with the<br>minutes and seconds set to zero.                                      |
+| `bucket(x, nbuckets)` | Hashes the data into the specified number of<br>buckets. The partition value is an integer hash of<br>`x`, with a value between 0 and<br>`nbuckets<br>• 1`, inclusive. |
+| `truncate(s, nchars)` | Makes the partition value the first<br>`nchars` characters of<br>`s`.                                                                                                  |
+
+Example:
+
+```
+ WITH (partitioning = ARRAY['month(order_date)',
+                            'bucket(account_number, 10)',
+                            'country']))
+```
+
+`optimize_rewrite_min_data_file_size_bytes = [long]`
+
+Optional. Data optimization specific configuration. Files
+smaller than the specified value are included for optimization.
+The default is 0.75 times the value of
+`write_target_data_file_size_bytes`. This
+property applies only to Iceberg tables. For more information,
+see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+
+Example:
+
+```
+WITH (optimize_rewrite_min_data_file_size_bytes = 402653184)
+```
+
+`optimize_rewrite_max_data_file_size_bytes = [long]`
+
+Optional. Data optimization specific configuration. Files
+larger than the specified value are included for optimization.
+The default is 1.8 times the value of
+`write_target_data_file_size_bytes`. This
+property applies only to Iceberg tables. For more information,
+see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+
+Example:
+
+```
+WITH (optimize_rewrite_max_data_file_size_bytes = 966367641)
+```
+
+`optimize_rewrite_data_file_threshold = [int]`
+
+Optional. Data optimization specific configuration. If there
+are fewer data files that require optimization than the given
+threshold, the files are not rewritten. This allows the
+accumulation of more data files to produce files closer to the
+target size and skip unnecessary computation for cost savings.
+The default is 5. This property applies only to Iceberg tables.
+For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+
+Example:
+
+```
+WITH (optimize_rewrite_data_file_threshold = 5)
+```
+
+`optimize_rewrite_delete_file_threshold = [int]`
+
+Optional. Data optimization specific configuration. If there
+are fewer delete files associated with a data file than the
+threshold, the data file is not rewritten. This allows the
+accumulation of more delete files for each data file for cost
+savings. The default is 2. This property applies only to Iceberg
+tables. For more information, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md").
+
+Example:
+
+```
+WITH (optimize_rewrite_delete_file_threshold = 2)
+```
+
+`vacuum_min_snapshots_to_keep = [int]`
+
+Optional. Vacuum specific configuration. The minimum number of
+most recent snapshots to retain. The default is 1. This property
+applies only to Iceberg tables. For more information, see [VACUUM](vacuum-statement.md "vacuum-statement.md").
+
+###### Note
+
+The `vacuum_min_snapshots_to_keep` property
+requires Athena engine version 3.
+
+Example:
+
+```
+WITH (vacuum_min_snapshots_to_keep = 1)
+```
+
+`vacuum_max_snapshot_age_seconds = [long]`
+
+Optional. Vacuum specific configuration. A period in seconds
+that represents the age of the snapshots to retain. The default
+is 432000 (5 days). This property applies only to Iceberg
+tables. For more information, see [VACUUM](vacuum-statement.md "vacuum-statement.md").
+
+###### Note
+
+The `vacuum_max_snapshot_age_seconds` property
+requires Athena engine version 3.
+
+Example:
+
+```
+WITH (vacuum_max_snapshot_age_seconds = 432000)
+```
+
+`write_compression = [compression_format]`
+
+The compression type to use for any storage format that allows
+compression to be specified. The `compression_format`
+value specifies the compression to be used when the data is
+written to the table. You can specify compression for the
+`TEXTFILE`, `JSON`,
+`PARQUET`, and `ORC` file formats.
+
+For example, if the `format` property specifies
+`PARQUET` as the storage format, the value for
+`write_compression` specifies the compression
+format for Parquet. In this case, specifying a value for
+`write_compression` is equivalent to specifying a
+value for `parquet_compression`.
+
+Similarly, if the `format` property specifies
+`ORC` as the storage format, the value for
+`write_compression` specifies the compression
+format for ORC. In this case, specifying a value for
+`write_compression` is equivalent to specifying a
+value for `orc_compression`.
+
+Multiple compression format table properties cannot be
+specified in the same CTAS query. For example, you cannot
+specify both `write_compression` and
+`parquet_compression` in the same query. The same
+applies for `write_compression` and
+`orc_compression`. For information about the
+compression types that are supported for each file format, see
+[Use compression in Athena](compression-formats.md "compression-formats.md").
+
+`orc_compression = [compression_format]`
+
+The compression type to use for the `ORC` file
+format when `ORC` data is written to the table. For
+example, `WITH (orc_compression = 'ZLIB')`. Chunks
+within the `ORC` file (except the `ORC`
+Postscript)
+are compressed using the compression that you specify. If
+omitted, ZLIB compression is used by default for
+`ORC`.
+
+###### Note
+
+For consistency, we recommend that you use the
+`write_compression` property instead of
+`orc_compression`. Use the
+`format` property to specify the storage
+format as `ORC`, and then use the
+`write_compression` property to specify the
+compression format that `ORC` will use.
+
+`parquet_compression = [compression_format]`
+
+The compression type to use for the Parquet file format when
+Parquet data is written to the table. For example, `WITH
+ (parquet_compression = 'SNAPPY')`. This compression is
+applied to column chunks within the Parquet files. If omitted,
+GZIP compression is used by default for Parquet.
+
+###### Note
+
+For consistency, we recommend that you use the
+`write_compression` property instead of
+`parquet_compression`. Use the
+`format` property to specify the storage
+format as `PARQUET`, and then use the
+`write_compression` property to specify the
+compression format that `PARQUET` will use.
+
+`compression_level = [compression_level]`
+
+The compression level to use. This property applies only to
+ZSTD compression. Possible values are from 1 to 22. The default
+value is 3. For more information, see [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md").
+
+## Examples
+
+For examples of CTAS queries, consult the following resources.
+
+- [Examples of CTAS queries](ctas-examples.md "ctas-examples.md")
+- [Use CTAS and INSERT INTO for ETL and data
+  analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md")
+- [Use CTAS statements with Amazon Athena to reduce cost and improve
+  performance](https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/ "https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/")
+- [Use CTAS and INSERT INTO to work around the 100 partition
+  limit](ctas-insert-into.md "ctas-insert-into.md")

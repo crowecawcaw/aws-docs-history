@@ -418,11 +418,11 @@ Select 'O''Reilly'
 For more information about using `SELECT` statements in Athena, see the
 following resources.
 
-| For information about this                              | See this                                                                                  |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Running queries in Athena                               | [Run SQL queries in Amazon Athena](querying-athena-tables.md "querying-athena-tables.md") |
-| Using `SELECT` to create a table                        | [Create a table from query results (CTAS)](ctas.md "ctas.md")                             |
-| Inserting data from a `SELECT` query into another table | [INSERT INTO](insert-into.md "insert-into.md")                                            |
-| Using built-in functions in `SELECT` statements         | [Functions in Amazon Athena](functions.md "functions.md")                                 |
-| Using user defined functions in `SELECT` statements     | [Query with user defined functions](querying-udf.md "querying-udf.md")                    |
-| Querying Data Catalog metadata                          | [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")    |
+| For information about this                                 | See this                                                                                  |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Running queries in Athena                                  | [Run SQL queries in Amazon Athena](querying-athena-tables.md "querying-athena-tables.md") |
+| Using `SELECT` to create a table                           | [Create a table from query results (CTAS)](ctas.md "ctas.md")                             |
+| Inserting data from a `SELECT` query into another<br>table | [INSERT INTO](insert-into.md "insert-into.md")                                            |
+| Using built-in functions in `SELECT` statements            | [Functions in Amazon Athena](functions.md "functions.md")                                 |
+| Using user defined functions in `SELECT`<br>statements     | [Query with user defined functions](querying-udf.md "querying-udf.md")                    |
+| Querying Data Catalog metadata                             | [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")    |

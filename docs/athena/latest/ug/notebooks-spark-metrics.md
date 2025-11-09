@@ -49,10 +49,13 @@ Athena publishes the following metric to the CloudWatch console under the
   the following metric to CloudWatch per workgroup. The metric uses the
   `AmazonAthenaForApacheSpark` namespace.
 
-| Metric name | Description                                                                                                                                                                                                       |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| DPUCount    | Number of DPUs (data processing units) consumed during the session to execute the calculations. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. | This metric has the following dimensions. |
-| Dimension   | Description                                                                                                                                                                                                       |
-| ---         | ---                                                                                                                                                                                                               |
-| SessionId   | The ID of the session in which the calculations are submitted.                                                                                                                                                    |
-| WorkGroup   | The name of the workgroup.                                                                                                                                                                                        |
+| Metric name | Description                                                                                                                                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DPUCount    | Number of DPUs (data processing units) consumed during the<br>session to execute the calculations. A DPU is a relative measure of<br>processing power that consists of 4 vCPUs of compute capacity and 16<br>GB of memory. |
+
+This metric has the following dimensions.
+
+| Dimension | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| SessionId | The ID of the session in which the calculations are<br>submitted. |
+| WorkGroup | The name of the workgroup.                                        |

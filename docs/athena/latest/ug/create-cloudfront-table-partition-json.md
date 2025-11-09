@@ -108,6 +108,19 @@ Including empty partitions, such as those for future dates (example: 2025-2040),
   partitioning structure and S3 path.
 
 | Parameter                         | Pattern                                                                                                        |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | CloudFront partitioning structure | `AWSLogs/{`AWS_ACCOUNT_ID`}/CloudFront/{`DistributionId`}/folder2/{yyyy}/{MM}/{dd}/{HH}/folder3`               |
-| S3 path                           | `s3://`amzn-s3-demo-bucket`/AWSLogs/`AWS_ACCOUNT_ID`/CloudFront/E2Oxxxxxxxxxxx/folder2/2025/01/25/03/folder3/` | After you confirm that the CloudFront partitioning structure and S3 structure match the required patterns, update the `storage.location.template` as follows: ``'storage.location.template'='s3://`amzn-s3-demo-bucket`/AWSLogs/`account_id`/CloudFront/${`distributionid`}/folder2/${year}/${month}/${day}/${hour}/folder3/'`` ###### Note Proper configuration of the `storage.location.template` is crucial for ensuring correct data storage and retrieval. |
+| S3 path                           | `s3://`amzn-s3-demo-bucket`/AWSLogs/`AWS_ACCOUNT_ID`/CloudFront/E2Oxxxxxxxxxxx/folder2/2025/01/25/03/folder3/` |
+
+After you confirm that the CloudFront partitioning structure and S3 structure match
+the required patterns, update the `storage.location.template` as
+follows:
+
+```
+'storage.location.template'='s3://`amzn-s3-demo-bucket`/AWSLogs/`account_id`/CloudFront/${`distributionid`}/folder2/${year}/${month}/${day}/${hour}/folder3/'
+```
+
+###### Note
+
+Proper configuration of the `storage.location.template` is
+crucial for ensuring correct data storage and retrieval.

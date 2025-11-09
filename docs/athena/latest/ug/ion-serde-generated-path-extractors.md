@@ -42,8 +42,8 @@ second extracts the `alias` field to the `alias` column.
 
 The following example shows the extracted table.
 
-````
+```
 |                  identification                    |  alias   |
 |----------------------------------------------------|----------|
-|{["name", "driver_license"],["John Smith", "XXXX"]} | "Johnny" | ```
-````
+|{["name", "driver_license"],["John Smith", "XXXX"]} | "Johnny" |
+```

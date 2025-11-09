@@ -50,9 +50,44 @@ LOCATION 's3://amzn-s3-demo-bucket/path_extraction2/'
 
 The following example shows the extracted data.
 
-````
+```
 -- Extracted Table
 | name         |   nickname   |
 |--------------|--------------|
-| "John Smith" |  "Johnny"    | ``` For more information about search paths and additional search path examples, see the [Ion Java Path Extraction](https://github.com/amzn/ion-java-path-extraction "https://github.com/amzn/ion-java-path-extraction") page on GitHub. ## Extract flight data to text format The following example `CREATE TABLE` query uses `WITH SERDEPROPERTIES` to add path extractors to extract flight data and specify the output encoding as Amazon Ion text. The example uses the `STORED AS ION` syntax. ``` CREATE EXTERNAL TABLE flights_ion ( yr INT, quarter INT, month INT, dayofmonth INT, dayofweek INT, flightdate STRING, uniquecarrier STRING, airlineid INT, ) ROW FORMAT SERDE 'com.amazon.ionhiveserde.IonHiveSerDe' WITH SERDEPROPERTIES ( 'ion.encoding' = 'TEXT', 'ion.yr.path_extractor'='(year)', 'ion.quarter.path_extractor'='(results quarter)', 'ion.month.path_extractor'='(date month)') STORED AS ION LOCATION 's3://amzn-s3-demo-bucket/' ```
-````
+| "John Smith" |  "Johnny"    |
+```
+
+For more information about search paths and additional search path examples, see
+the [Ion Java Path
+Extraction](https://github.com/amzn/ion-java-path-extraction "https://github.com/amzn/ion-java-path-extraction") page on GitHub.
+
+## Extract flight
+
+data to text format
+
+The following example `CREATE TABLE` query uses `WITH
+ SERDEPROPERTIES` to add path extractors to extract flight data and specify
+the output encoding as Amazon Ion text. The example uses the `STORED AS
+ ION` syntax.
+
+```
+CREATE EXTERNAL TABLE flights_ion (
+    yr INT,
+    quarter INT,
+    month INT,
+    dayofmonth INT,
+    dayofweek INT,
+    flightdate STRING,
+    uniquecarrier STRING,
+    airlineid INT,
+)
+ROW FORMAT SERDE
+ 'com.amazon.ionhiveserde.IonHiveSerDe'
+WITH SERDEPROPERTIES (
+ 'ion.encoding' = 'TEXT',
+ 'ion.yr.path_extractor'='(year)',
+ 'ion.quarter.path_extractor'='(results quarter)',
+ 'ion.month.path_extractor'='(date month)')
+STORED AS ION
+LOCATION 's3://amzn-s3-demo-bucket/'
+```

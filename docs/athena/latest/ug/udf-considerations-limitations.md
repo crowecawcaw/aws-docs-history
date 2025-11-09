@@ -24,9 +24,14 @@ Athena.
   perform functions against data records, but a UDF without arguments takes in no
   data, so an exception occurs.
 - **Java runtime support** – Currently,
-  Athena UDFs support the Java 8 and Java 11 runtimes for Lambda. For more
+  Athena UDFs support the Java 8, Java 11, and Java 17 runtimes for Lambda. For more
   information, see [Building Lambda functions with
   Java](../../../lambda/latest/dg/lambda-java.md "../../../lambda/latest/dg/lambda-java.md") in the _AWS Lambda Developer Guide_.
+
+###### Note
+
+For Java 17, you must set the value of `JAVA_TOOL_OPTIONS` environment variable as `--add-opens=java.base/java.nio=ALL-UNNAMED` in your Lambda.
+
 - **IAM permissions** – To run and create
   UDF query statements in Athena, the IAM principal running the query must be
   allowed to perform actions in addition to Athena functions. For more information,

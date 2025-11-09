@@ -19,10 +19,32 @@ SELECT user FROM dataset
 
 This query returns:
 
-````
+```
 +---------------------------------+
-| user                            | +---------------------------------+
-| {last=Smith, first=Bob, age=35} | +---------------------------------+ ``` You can retrieve `Map` values by selecting the field name followed by `[key_name]`, as in this example: ``` WITH dataset AS ( SELECT MAP( ARRAY['first', 'last', 'age'], ARRAY['Bob', 'Smith', '35'] ) AS user ) SELECT user['first'] AS first_name FROM dataset ``` This query returns: ``` +------------+
-| first_name | +------------+
-| Bob        | +------------+ ```
-````
+| user                            |
++---------------------------------+
+| {last=Smith, first=Bob, age=35} |
++---------------------------------+
+```
+
+You can retrieve `Map` values by selecting the field name followed by `[key_name]`, as in this example:
+
+```
+WITH dataset AS (
+ SELECT MAP(
+   ARRAY['first', 'last', 'age'],
+   ARRAY['Bob', 'Smith', '35']
+ ) AS user
+)
+SELECT user['first'] AS first_name FROM dataset
+```
+
+This query returns:
+
+```
++------------+
+| first_name |
++------------+
+| Bob        |
++------------+
+```

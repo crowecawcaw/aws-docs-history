@@ -6,6 +6,6 @@ Default Credential Provider Chain](../../../sdk-for-java/v1/developer-guide/cred
 
 ## Authentication type
 
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**             |
-| -------------------------- | ------------------ | ----------------- | ----------------------------------------- |
-| AuthenticationType         | Required           | `IAM Credentials` | `AuthenticationType=Default Credentials;` |
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                |
+| -------------------------- | ------------------ | ----------------- | -------------------------------------------- |
+| AuthenticationType         | Required           | `IAM Credentials` | `AuthenticationType=Default<br>Credentials;` |

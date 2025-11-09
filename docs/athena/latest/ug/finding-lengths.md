@@ -8,8 +8,10 @@ SELECT cardinality(ARRAY[1,2,3,4]) AS item_count
 
 This query returns:
 
-````
+```
 +------------+
-| item_count | +------------+
-| 4          | +------------+ ```
-````
+| item_count |
++------------+
+| 4          |
++------------+
+```

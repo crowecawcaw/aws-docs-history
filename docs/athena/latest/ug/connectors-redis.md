@@ -139,7 +139,7 @@ converted to one of the following Apache Arrow data types based on how your tabl
 defined in the AWS Glue Data Catalog.
 
 | AWS Glue data type | Apache Arrow data type |
-| ------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ---------------------- |
 | int                | INT                    |
 | string             | VARCHAR                |
 | bigint             | BIGINT                 |
@@ -148,4 +148,72 @@ defined in the AWS Glue Data Catalog.
 | smallint           | SMALLINT               |
 | tinyint            | TINYINT                |
 | boolean            | BIT                    |
-| binary             | VARBINARY              | ## Required Permissions For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-redis.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redis/athena-redis.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redis/athena-redis.yaml") file. The following list summarizes the required permissions. <br>• Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries. <br>• Athena GetQueryExecution – The connector uses this permission to fast-fail when the upstream Athena query has terminated. <br>• AWS Glue Data Catalog – The Redis connector requires read only access to the AWS Glue Data Catalog to obtain schema information. <br>• CloudWatch Logs – The connector requires access to CloudWatch Logs for storing logs. <br>• AWS Secrets Manager read access – If you choose to store Redis endpoint details in Secrets Manager, you must grant the connector access to those secrets. <br>• VPC access – The connector requires the ability to attach and detach interfaces to your VPC so that it can connect to it and communicate with your Redis instances. ## Performance The Athena Redis OSS connector attempts to parallelize queries against your Redis OSS instance according to the type of table that you have defined (for example, zset keys or prefix keys). The Athena Redis connector performs predicate pushdown to decrease the data scanned by the query. However, queries containing a predicate against the primary key fail with timeout. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The Redis connector is resilient to throttling due to concurrency. ## Passthrough queries The Redis connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). You can use this feature to run queries that use Lua script on Redis databases. To create passthrough queries with Redis, use the following syntax: ``` SELECT \* FROM TABLE( system.script( script => 'return redis.[call | pcall](`query_script`)', keys => '[`key_pattern`]', argv => '[`script_arguments`]' )) ``The following example runs a Lua script to get the value at key `l:a`.`` SELECT \* FROM TABLE( system.script( script => 'return redis.call("GET", KEYS[1])', keys => '[l:a]', argv => '[]' )) ``` ## License information The Amazon Athena Redis connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html"). ## Additional resources For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redis "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redis") on GitHub.com. |
+| binary             | VARBINARY              |
+
+## Required Permissions
+
+For full details on the IAM policies that this
+connector requires, review the `Policies` section of the [athena-redis.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redis/athena-redis.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-redis/athena-redis.yaml") file. The following list summarizes the required permissions.
+
+- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
+- Athena GetQueryExecution – The connector
+  uses this permission to fast-fail when the upstream Athena query has
+  terminated.
+- AWS Glue Data Catalog – The Redis connector
+  requires read only access to the AWS Glue Data Catalog to obtain schema
+  information.
+- CloudWatch Logs – The connector requires access to
+  CloudWatch Logs for storing logs.
+- AWS Secrets Manager read access – If you choose to
+  store Redis endpoint details in Secrets Manager, you must grant the connector
+  access to those secrets.
+- VPC access – The connector requires the
+  ability to attach and detach interfaces to your VPC so that it can connect to it
+  and communicate with your Redis instances.
+
+## Performance
+
+The Athena Redis OSS connector attempts to parallelize queries against your Redis OSS
+instance according to the type of table that you have defined (for example, zset keys or
+prefix keys).
+
+The Athena Redis connector performs predicate pushdown to decrease the data scanned by the query. However, queries containing a predicate against the primary key
+fail with timeout. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The Redis connector is resilient to throttling due to concurrency.
+
+## Passthrough
+
+queries
+
+The Redis connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). You can use
+this feature to run queries that use Lua script on Redis databases.
+
+To create passthrough queries with Redis, use the following syntax:
+
+```
+SELECT * FROM TABLE(
+        system.script(
+            script => 'return redis.[call|pcall](`query_script`)',
+            keys => '[`key_pattern`]',
+            argv => '[`script_arguments`]'
+))
+```
+
+The following example runs a Lua script to get the value at key
+`l:a`.
+
+```
+SELECT * FROM TABLE(
+        system.script(
+            script => 'return redis.call("GET", KEYS[1])',
+            keys => '[l:a]',
+            argv => '[]'
+))
+```
+
+## License information
+
+The Amazon Athena Redis connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html").
+
+## Additional resources
+
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redis "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-redis") on GitHub.com.

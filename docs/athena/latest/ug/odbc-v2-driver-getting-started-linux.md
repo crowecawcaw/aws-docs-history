@@ -165,7 +165,7 @@ Setup=/opt/athena/odbc/lib/libathena-odbc.so
    `isql` command-line tool to verify the connection, as in
    the following example.
 
-````
+```
 `username` % isql -v "athena_odbc_test"
 +---------------------------------------+
 | Connected!                            |
@@ -173,5 +173,42 @@ Setup=/opt/athena/odbc/lib/libathena-odbc.so
 | sql-statement                         |
 | help [tablename]                      |
 | quit                                  |
-|                                       | +---------------------------------------+ SQL> ``` ## Verify the ODBC driver signature ###### Important We recommend verifying the Athena ODBC driver RPM signature before installing it on your machine. Follow these steps to verify the signature of the Athena ODBC driver RPM package: 1. **Prepare the templates** Prepare the commands with appropriate public key, RPM signature, and the corresponding access link to the RPM scripts hosted in Amazon S3 buckets. You must download the following to your device. <br>• [Athena ODBC driver](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm") <br>• [Public Key](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem") <br>• [Athena ODBC RPM signature](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin") 2. Download the Athena ODBC driver, public key, and Athena ODBC RPM signature to your device. 3. Run the following command to verify ODBC driver signature: ``` openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.0.4.0.rpm ``` If verification passes, you will see a message similar to `Verified OK`. This means you can now proceed to install the Athena ODBC driver. If it fails with a message `Verification Failure`, it means that the signature on RPM has been tampered. Ensure that all the three files mentioned in step 1 are present, the paths are correctly specified ,and the files haven't been modified since download and then retry the verification process.
-````
+|                                       |
++---------------------------------------+
+SQL>
+```
+
+## Verify the ODBC driver signature
+
+###### Important
+
+We recommend verifying the Athena ODBC driver RPM signature before installing it on your machine.
+
+Follow these steps to verify the signature of the Athena ODBC driver RPM package:
+
+1. **Prepare the templates**
+
+Prepare the commands with appropriate public key, RPM signature, and the
+corresponding access link to the RPM scripts hosted in Amazon S3 buckets. You must
+download the following to your device.
+
+    * [Athena ODBC driver](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/AmazonAthenaODBC-2.0.4.0.rpm")
+    * [Public Key](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/public_key.pem")
+    * [Athena ODBC RPM signature](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.0.4.0/Linux/signature.bin")
+
+2. Download the Athena ODBC driver, public key, and Athena ODBC RPM signature to
+   your device.
+3. Run the following command to verify ODBC driver signature:
+
+```
+openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.0.4.0.rpm
+```
+
+If verification passes, you will see a message similar to `Verified
+ OK`. This means you can now proceed to install the Athena ODBC driver.
+
+If it fails with a message `Verification Failure`, it means that
+the signature on RPM has been tampered. Ensure that all the three files
+mentioned in step 1 are present, the paths are correctly specified ,and the
+files haven't been modified since download and then retry the verification
+process.

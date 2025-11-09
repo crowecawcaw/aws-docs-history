@@ -48,11 +48,39 @@ compatible data types
 Whenever possible, use compatible data types. The following table lists data types
 that can be treated as other data types:
 
-| Original data type | Available target data types                    |
-| ------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `STRING`           | `BYTE`, `TINYINT`, `SMALLINT`, `INT`, `BIGINT` |
-| `BYTE`             | `TINYINT`, `SMALLINT`, `INT`, `BIGINT`         |
-| `TINYINT`          | `SMALLINT`, `INT`, `BIGINT`                    |
-| `SMALLINT`         | `INT`, `BIGINT`                                |
-| `INT`              | `BIGINT`                                       |
-| `FLOAT`            | `DOUBLE`                                       | The following example uses the `CREATE TABLE` statement for the original `orders_json` table to create a new table called `orders_json_bigint`. The new table uses `BIGINT` instead of `INT` as the data type for the `o_shippriority` column. ``CREATE EXTERNAL TABLE orders_json_bigint ( `o_orderkey` int, `o_custkey` int, `o_orderstatus` string, `o_totalprice` double, `o_orderdate` string, `o_orderpriority` string, `o_clerk` string, `o_shippriority` BIGINT ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe' LOCATION 's3://amzn-s3-demo-bucket/orders_json';`` The following query runs successfully, similar to the original `SELECT` query, before the data type change: `Select * from orders_json LIMIT 10;` |
+| Original data type | Available target data types                       |
+| ------------------ | ------------------------------------------------- |
+| `STRING`           | `BYTE`, `TINYINT`, `SMALLINT`,<br>`INT`, `BIGINT` |
+| `BYTE`             | `TINYINT`, `SMALLINT`, `INT`,<br>`BIGINT`         |
+| `TINYINT`          | `SMALLINT`, `INT`,<br>`BIGINT`                    |
+| `SMALLINT`         | `INT`, `BIGINT`                                   |
+| `INT`              | `BIGINT`                                          |
+| `FLOAT`            | `DOUBLE`                                          |
+
+The following example uses the `CREATE TABLE` statement for the
+original `orders_json` table to create a new table called
+`orders_json_bigint`. The new table uses `BIGINT` instead
+of `INT` as the data type for the `o_shippriority` column.
+
+```
+CREATE EXTERNAL TABLE orders_json_bigint (
+   `o_orderkey` int,
+   `o_custkey` int,
+   `o_orderstatus` string,
+   `o_totalprice` double,
+   `o_orderdate` string,
+   `o_orderpriority` string,
+   `o_clerk` string,
+   `o_shippriority` BIGINT
+)
+ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+LOCATION 's3://amzn-s3-demo-bucket/orders_json';
+```
+
+The following query runs successfully, similar to the original `SELECT`
+query, before the data type change:
+
+```
+Select * from orders_json
+LIMIT 10;
+```

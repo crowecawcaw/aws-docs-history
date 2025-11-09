@@ -17,8 +17,17 @@ SELECT * FROM dataset
 
 This query returns:
 
-````
+```
 +--------------------+
-| users              | +--------------------+
-| {NAME=Bob, AGE=38} | +--------------------+ ``` ###### Note In the example above, you declare `name` as a `VARCHAR` because this is its type in Presto. If you declare this `STRUCT` inside a `CREATE TABLE` statement, use `String` type because Hive defines this data type as `String`.
-````
+| users              |
++--------------------+
+| {NAME=Bob, AGE=38} |
++--------------------+
+```
+
+###### Note
+
+In the example above, you declare `name` as a `VARCHAR`
+because this is its type in Presto. If you declare this `STRUCT` inside a
+`CREATE TABLE` statement, use `String` type because Hive
+defines this data type as `String`.

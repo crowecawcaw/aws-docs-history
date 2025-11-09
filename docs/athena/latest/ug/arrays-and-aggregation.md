@@ -54,10 +54,12 @@ FROM item;
 Either query returns the following results. The order of returned results is not
 guaranteed.
 
-````
+```
 +----------------------+
-| array_items  | total | +----------------------+
+| array_items  | total |
++----------------------+
 | [1, 2, 3, 4] | 10    |
 | [5, 6, 7, 8] | 26    |
-| [9, 0]       | 9     | +----------------------+ ```
-````
+| [9, 0]       | 9     |
++----------------------+
+```

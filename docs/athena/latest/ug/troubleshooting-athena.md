@@ -733,9 +733,65 @@ If your queries exceed the limits of dependent services such as Amazon S3, AWS K
 AWS Lambda, the following messages can be expected. To resolve these issues, reduce the
 number of concurrent calls that originate from the same account.
 
-| Service    | Error message                                                                                   |
-| ---------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Glue   | **`AWSGlueException: Rate exceeded.`**                                                          |
-| AWS KMS    | **`You have exceeded the rate at which you may call KMS. Reduce the frequency of your calls.`** |
-| AWS Lambda | **`Rate exceeded`** **`TooManyRequestsException`**                                              |
-| Amazon S3  | **`AmazonS3Exception: Please reduce your request rate.`**                                       | For information about ways to prevent Amazon S3 throttling when you use Athena, see [Prevent Amazon S3 throttling](performance-tuning-s3-throttling.md "performance-tuning-s3-throttling.md"). ## Views ### Views created in Apache Hive shell do not work in Athena Because of their fundamentally different implementations, views created in Apache Hive shell are not compatible with Athena. To resolve this issue, re-create the views in Athena. ### View is stale; it must be re-created You can receive this error if the table that underlies a view has altered or dropped. The resolution is to recreate the view. For more information, see [How can I resolve the "view is stale; it must be re-created" error in Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/athena-view-is-stale-error/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-view-is-stale-error/") in the AWS Knowledge Center. ## Workgroups For information about troubleshooting workgroup issues, see [Troubleshoot workgroup errors](workgroups-troubleshooting.md "workgroups-troubleshooting.md"). ## Additional resources The following pages provide additional information for troubleshooting issues with Amazon Athena. <br>• [Athena error catalog](error-reference.md "error-reference.md") <br>• [Service Quotas](service-limits.md "service-limits.md") <br>• [Considerations and limitations for SQL queries in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md") <br>• [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md") <br>• [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md") <br>• [Data types in Amazon Athena](data-types.md "data-types.md") <br>• [Choose a SerDe for your data](supported-serdes.md "supported-serdes.md") <br>• [Use compression in Athena](compression-formats.md "compression-formats.md") <br>• [Escape reserved keywords in queries](reserved-words.md "reserved-words.md") <br>• [Troubleshoot workgroup errors](workgroups-troubleshooting.md "workgroups-troubleshooting.md") The following AWS resources can also be of help: <br>• [Athena topics in the AWS knowledge center](https://aws.amazon.com/premiumsupport/knowledge-center/#Amazon_Athena "https://aws.amazon.com/premiumsupport/knowledge-center/#Amazon_Athena") <br>• [Amazon Athena questions on AWS re:Post](https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena "https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena") <br>• [Athena posts in the AWS big data blog](https://aws.amazon.com/blogs/big-data/tag/amazon-athena/ "https://aws.amazon.com/blogs/big-data/tag/amazon-athena/") Troubleshooting often requires iterative query and discovery by an expert or from a community of helpers. If you continue to experience issues after trying the suggestions on this page, contact AWS Support (in the AWS Management Console, click **Support**, **Support Center**) or ask a question on [AWS re:Post](https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena "https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena") using the **Amazon Athena** tag. |
+| Service    | Error message                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------------------- |
+| AWS Glue   | **`AWSGlueException: Rate exceeded.`**                                                             |
+| AWS KMS    | **`You have exceeded the rate at which you may call KMS.<br>Reduce the frequency of your calls.`** |
+| AWS Lambda | **`Rate exceeded`**<br>**`TooManyRequestsException`**                                              |
+| Amazon S3  | **`AmazonS3Exception: Please reduce your request<br>rate.`**                                       |
+
+For information about ways to prevent Amazon S3 throttling when you use Athena, see [Prevent Amazon S3 throttling](performance-tuning-s3-throttling.md "performance-tuning-s3-throttling.md").
+
+## Views
+
+### Views created in Apache Hive shell do not work in Athena
+
+Because of their fundamentally different implementations, views created in Apache
+Hive shell are not compatible with Athena. To resolve this issue, re-create the views
+in Athena.
+
+### View is
+
+stale; it must be re-created
+
+You can receive this error if the table that underlies a view has altered or
+dropped. The resolution is to recreate the view. For more information, see [How can I
+resolve the "view is stale; it must be re-created" error in Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/athena-view-is-stale-error/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-view-is-stale-error/") in
+the AWS Knowledge Center.
+
+## Workgroups
+
+For information about troubleshooting workgroup issues, see [Troubleshoot workgroup errors](workgroups-troubleshooting.md "workgroups-troubleshooting.md").
+
+## Additional
+
+resources
+
+The following pages provide additional information for troubleshooting issues with
+Amazon Athena.
+
+- [Athena error catalog](error-reference.md "error-reference.md")
+- [Service Quotas](service-limits.md "service-limits.md")
+- [Considerations and limitations for SQL queries
+  in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md")
+- [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md")
+- [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md")
+- [Data types in Amazon Athena](data-types.md "data-types.md")
+- [Choose a SerDe for your data](supported-serdes.md "supported-serdes.md")
+- [Use compression in Athena](compression-formats.md "compression-formats.md")
+- [Escape reserved keywords in queries](reserved-words.md "reserved-words.md")
+- [Troubleshoot workgroup errors](workgroups-troubleshooting.md "workgroups-troubleshooting.md")
+
+The following AWS resources can also be of help:
+
+- [Athena topics in the AWS knowledge center](https://aws.amazon.com/premiumsupport/knowledge-center/#Amazon_Athena "https://aws.amazon.com/premiumsupport/knowledge-center/#Amazon_Athena")
+- [Amazon Athena
+  questions on AWS re:Post](https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena "https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena")
+- [Athena posts in the
+  AWS big data blog](https://aws.amazon.com/blogs/big-data/tag/amazon-athena/ "https://aws.amazon.com/blogs/big-data/tag/amazon-athena/")
+
+Troubleshooting often requires iterative query and discovery by an expert or from a
+community of helpers. If you continue to experience issues after trying the suggestions
+on this page, contact AWS Support (in the AWS Management Console, click **Support**,
+**Support Center**) or ask a question on [AWS re:Post](https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena "https://repost.aws/tags/TA78iVOM7gR62_QqDe2-CmiA/amazon-athena")
+using the **Amazon Athena** tag.

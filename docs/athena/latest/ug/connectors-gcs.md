@@ -258,24 +258,72 @@ The following tables show the supported data types for CSV and for Parquet.
 
 ### CSV
 
-| **Nature of data**                                           | **Inferred Data Type**                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data looks like a number                                     | BIGINT                                                                    |
-| Data looks like a string                                     | VARCHAR                                                                   |
-| Data looks like a floating point (float, double, or decimal) | DOUBLE                                                                    |
-| Data looks like a Date                                       | Timestamp                                                                 |
-| Data that contains true/false values                         | BOOL                                                                      | ### Parquet                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **PARQUET**                                                  | **Athena (Arrow)**                                                        |
-| ---                                                          | ---                                                                       |
-| BINARY                                                       | VARCHAR                                                                   |
-| BOOLEAN                                                      | BOOL                                                                      |
-| DOUBLE                                                       | DOUBLE                                                                    |
-| ENUM                                                         | VARCHAR                                                                   |
-| FIXED_LEN_BYTE_ARRAY                                         | DECIMAL                                                                   |
-| FLOAT                                                        | FLOAT (32-bit)                                                            |
-| INT32                                                        | 1. INT32 2. DATEDAY (when the Parquet column logical type is DATE)        |
-| INT64                                                        | 1. INT64 2. TIMESTAMP (when the Parquet column logical type is TIMESTAMP) |
-| INT96                                                        | Timestamp                                                                 |
-| MAP                                                          | MAP                                                                       |
-| STRUCT                                                       | STRUCT                                                                    |
-| LIST                                                         | LIST                                                                      | ## Required Permissions For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-gcs.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/athena-gcs.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/athena-gcs.yaml") file. The following list summarizes the required permissions. <br>• Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries. <br>• Athena GetQueryExecution – The connector uses this permission to fast-fail when the upstream Athena query has terminated. <br>• AWS Glue Data Catalog – The GCS connector requires read only access to the AWS Glue Data Catalog to obtain schema information. <br>• CloudWatch Logs – The connector requires access to CloudWatch Logs for storing logs. ## Performance When the table schema contains partition fields and the `partition.pattern` table property is configured correctly, you can include the partition field in the `WHERE` clause of your queries. For such queries, the GCS connector uses the partition columns to refine the GCS folder path and avoid scanning unneeded files in GCS folders. For Parquet datasets, selecting a subset of columns results in fewer data being scanned. This usually results in a shorter query execution runtime when column projection is applied. For CSV datasets, column projection is not supported and does not reduce the amount of data being scanned. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The GCS connector scans more data for larger datasets than for smaller datasets, regardless of the `LIMIT` clause applied. For example, the query `SELECT * LIMIT 10000` scans more data for a larger underlying dataset than a smaller one. ### License information By using this connector, you acknowledge the inclusion of third party components, a list of which can be found in the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/pom.xml") file for this connector, and agree to the terms in the respective third party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/LICENSE.txt "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/LICENSE.txt") file on GitHub.com. ### Additional resources For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-gcs "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-gcs") on GitHub.com. |
+| **Nature of data**                                              | **Inferred Data Type** |
+| --------------------------------------------------------------- | ---------------------- |
+| Data looks like a number                                        | BIGINT                 |
+| Data looks like a string                                        | VARCHAR                |
+| Data looks like a floating point (float, double, or<br>decimal) | DOUBLE                 |
+| Data looks like a Date                                          | Timestamp              |
+| Data that contains true/false values                            | BOOL                   |
+
+### Parquet
+
+| **PARQUET**          | **Athena (Arrow)**                                                              |
+| -------------------- | ------------------------------------------------------------------------------- |
+| BINARY               | VARCHAR                                                                         |
+| BOOLEAN              | BOOL                                                                            |
+| DOUBLE               | DOUBLE                                                                          |
+| ENUM                 | VARCHAR                                                                         |
+| FIXED_LEN_BYTE_ARRAY | DECIMAL                                                                         |
+| FLOAT                | FLOAT (32-bit)                                                                  |
+| INT32                | 1. INT32<br>2. DATEDAY (when the Parquet column logical type is<br>DATE)        |
+| INT64                | 1. INT64<br>2. TIMESTAMP (when the Parquet column logical type is<br>TIMESTAMP) |
+| INT96                | Timestamp                                                                       |
+| MAP                  | MAP                                                                             |
+| STRUCT               | STRUCT                                                                          |
+| LIST                 | LIST                                                                            |
+
+## Required Permissions
+
+For full details on the IAM policies that this
+connector requires, review the `Policies` section of the [athena-gcs.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/athena-gcs.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/athena-gcs.yaml") file. The following list summarizes the required permissions.
+
+- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
+- Athena GetQueryExecution – The connector
+  uses this permission to fast-fail when the upstream Athena query has
+  terminated.
+- AWS Glue Data Catalog – The GCS connector
+  requires read only access to the AWS Glue Data Catalog to obtain schema
+  information.
+- CloudWatch Logs – The connector requires access to
+  CloudWatch Logs for storing logs.
+
+## Performance
+
+When the table schema contains partition fields and the `partition.pattern`
+table property is configured correctly, you can include the partition field in the
+`WHERE` clause of your queries. For such queries, the GCS connector uses
+the partition columns to refine the GCS folder path and avoid scanning unneeded files in
+GCS folders.
+
+For Parquet datasets, selecting a subset of columns results in fewer data being
+scanned. This usually results in a shorter query execution runtime when column
+projection is applied.
+
+For CSV datasets, column projection is not supported and does not reduce the amount of
+data being scanned.
+
+`LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The GCS connector scans more data for larger datasets than for
+smaller datasets, regardless of the `LIMIT` clause applied. For example, the
+query `SELECT * LIMIT 10000` scans more data for a larger underlying dataset
+than a smaller one.
+
+### License information
+
+By using this connector, you acknowledge the inclusion of third party components, a list
+of which can be found in the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/pom.xml") file for this connector, and agree to the terms in the respective third
+party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/LICENSE.txt "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-gcs/LICENSE.txt") file on GitHub.com.
+
+### Additional resources
+
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-gcs "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-gcs") on GitHub.com.

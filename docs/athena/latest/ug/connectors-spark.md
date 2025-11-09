@@ -8,8 +8,111 @@ Following are the currently available DSV2 connectors, their Spark `.format()`
 class name, and links to their corresponding Amazon Athena Federated Query documentation:
 
 | DSV2 connector                 | Spark .format() class name                                                               | Documentation                                                           |
-| ------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | athena-cloudwatch-dsv2         | `com.amazonaws.athena.connectors.dsv2.cloudwatch.CloudwatchTableProvider`                | [CloudWatch](connectors-cloudwatch.md "connectors-cloudwatch.md")       |
 | athena-cloudwatch-metrics-dsv2 | `com.amazonaws.athena.connectors.dsv2.cloudwatch.metrics.CloudwatchMetricsTableProvider` | [CloudWatch metrics](connectors-cwmetrics.md "connectors-cwmetrics.md") |
 | athena-aws-cmdb-dsv2           | `com.amazonaws.athena.connectors.dsv2.aws.cmdb.AwsCmdbTableProvider`                     | [CMDB](connectors-cmdb.md "connectors-cmdb.md")                         |
-| athena-dynamodb-dsv2           | `com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider`                         | [DynamoDB](connectors-dynamodb.md "connectors-dynamodb.md")             | To download `.jar` files for the DSV2 connectors, visit the [Amazon Athena Query Federation DSV2](https://github.com/awslabs/aws-athena-query-federation-dsv2 "https://github.com/awslabs/aws-athena-query-federation-dsv2") GitHub page and see the **Releases**, **Release `<version>`**, **Assets** section. ## Specify the jar to Spark To use the Athena DSV2 connectors with Spark, you submit the `.jar` file for the connector to the Spark environment that you are using. The following sections describe specific cases. ### Athena for Spark For information on adding custom `.jar` files and custom configuration to Amazon Athena for Apache Spark, see [Use Spark properties to specify custom configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md"). ### General Spark To pass in the connector `.jar` file to Spark, use the `spark-submit` command and specify the `.jar` file in the `--jars` option, as in the following example: ``spark-submit \ --deploy-mode cluster \ --jars https://github.com/awslabs/aws-athena-query-federation-dsv2/releases/download/`some_version`/athena-dynamodb-dsv2-`some_version`.jar`` ### Amazon EMR Spark In order to run a `spark-submit` command with the `--jars` parameter on Amazon EMR, you must add a step to your Amazon EMR Spark cluster. For details on how to use `spark-submit` on Amazon EMR, see [Add a Spark step](../../../emr/latest/ReleaseGuide/emr-spark-submit-step.md "../../../emr/latest/ReleaseGuide/emr-spark-submit-step.md") in the _Amazon EMR Release Guide_. ### AWS Glue ETL Spark For AWS Glue ETL, you can pass in the `.jar` file's GitHub.com URL to the `--extra-jars` argument of the `aws glue start-job-run` command. The AWS Glue documentation describes the `--extra-jars` parameter as taking an Amazon S3 path, but the parameter can also take an HTTPS URL. For more information, see [Job parameter reference](../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11 "../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11") in the _AWS Glue Developer Guide_. ## Query the connector on Spark To submit the equivalent of your existing Athena federated query on Apache Spark, use the `spark.sql()` function. For example, suppose you have the following Athena query that you want to use on Apache Spark. `SELECT somecola, somecolb, somecolc FROM ddb_datasource.some_schema_or_glue_database.some_ddb_or_glue_table WHERE somecola > 1` To perform the same query on Spark using the Amazon Athena DynamoDB DSV2 connector, use the following code: `dynamoDf = (spark.read .option("athena.connectors.schema", "some_schema_or_glue_database") .option("athena.connectors.table", "some_ddb_or_glue_table") .format("com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider") .load()) dynamoDf.createOrReplaceTempView("ddb_spark_table") spark.sql(''' SELECT somecola, somecolb, somecolc FROM ddb_spark_table WHERE somecola > 1 ''')` ## Specify parameters The DSV2 versions of the Athena data source connectors use the same parameters as the corresponding Athena data source connectors. For parameter information, refer to the documentation for the corresponding Athena data source connector. In your PySpark code, use the following syntax to configure your parameters. ``spark.read.option("athena.connectors.conf.`parameter`", "`value`")`` For example, the following code sets the Amazon Athena DynamoDB connector `disable_projection_and_casing` parameter to `always`. `dynamoDf = (spark.read .option("athena.connectors.schema", "some_schema_or_glue_database") .option("athena.connectors.table", "some_ddb_or_glue_table") .option("athena.connectors.conf.disable_projection_and_casing", "always") .format("com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider") .load())` |
+| athena-dynamodb-dsv2           | `com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider`                         | [DynamoDB](connectors-dynamodb.md "connectors-dynamodb.md")             |
+
+To download `.jar` files for the DSV2 connectors, visit the [Amazon Athena Query
+Federation DSV2](https://github.com/awslabs/aws-athena-query-federation-dsv2 "https://github.com/awslabs/aws-athena-query-federation-dsv2") GitHub page and see the **Releases**,
+**Release `<version>`**,
+**Assets** section.
+
+## Specify the jar to
+
+Spark
+
+To use the Athena DSV2 connectors with Spark, you submit the `.jar`
+file for the connector to the Spark environment that you are using. The following
+sections describe specific cases.
+
+### Athena for Spark
+
+For information on adding custom `.jar` files and custom
+configuration to Amazon Athena for Apache Spark, see [Use Spark properties to specify custom
+configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md").
+
+### General Spark
+
+To pass in the connector `.jar` file to Spark, use the
+`spark-submit` command and specify the `.jar` file
+in the `--jars` option, as in the following example:
+
+```
+spark-submit \
+  --deploy-mode cluster \
+  --jars https://github.com/awslabs/aws-athena-query-federation-dsv2/releases/download/`some_version`/athena-dynamodb-dsv2-`some_version`.jar
+```
+
+### Amazon EMR Spark
+
+In order to run a `spark-submit` command with the `--jars`
+parameter on Amazon EMR, you must add a step to your Amazon EMR Spark cluster. For details on
+how to use `spark-submit` on Amazon EMR, see [Add a Spark
+step](../../../emr/latest/ReleaseGuide/emr-spark-submit-step.md "../../../emr/latest/ReleaseGuide/emr-spark-submit-step.md") in the _Amazon EMR Release Guide_.
+
+### AWS Glue ETL Spark
+
+For AWS Glue ETL, you can pass in the `.jar` file's GitHub.com URL
+to the `--extra-jars` argument of the `aws glue start-job-run`
+command. The AWS Glue documentation describes the `--extra-jars` parameter
+as taking an Amazon S3 path, but the parameter can also take an HTTPS URL. For more
+information, see [Job parameter reference](../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11 "../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11") in the _AWS Glue Developer Guide_.
+
+## Query the connector on
+
+Spark
+
+To submit the equivalent of your existing Athena federated query on Apache Spark, use
+the `spark.sql()` function. For example, suppose you have the following Athena
+query that you want to use on Apache Spark.
+
+```
+SELECT somecola, somecolb, somecolc
+FROM ddb_datasource.some_schema_or_glue_database.some_ddb_or_glue_table
+WHERE somecola > 1
+```
+
+To perform the same query on Spark using the Amazon Athena DynamoDB DSV2 connector, use the
+following code:
+
+```
+dynamoDf = (spark.read
+    .option("athena.connectors.schema", "some_schema_or_glue_database")
+    .option("athena.connectors.table", "some_ddb_or_glue_table")
+    .format("com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider")
+    .load())
+
+dynamoDf.createOrReplaceTempView("ddb_spark_table")
+
+spark.sql('''
+SELECT somecola, somecolb, somecolc
+FROM ddb_spark_table
+WHERE somecola > 1
+''')
+```
+
+## Specify parameters
+
+The DSV2 versions of the Athena data source connectors use the same parameters as the
+corresponding Athena data source connectors. For parameter information, refer to the
+documentation for the corresponding Athena data source connector.
+
+In your PySpark code, use the following syntax to configure your parameters.
+
+```
+spark.read.option("athena.connectors.conf.`parameter`", "`value`")
+```
+
+For example, the following code sets the Amazon Athena DynamoDB connector
+`disable_projection_and_casing` parameter to `always`.
+
+```
+dynamoDf = (spark.read
+    .option("athena.connectors.schema", "some_schema_or_glue_database")
+    .option("athena.connectors.table", "some_ddb_or_glue_table")
+    .option("athena.connectors.conf.disable_projection_and_casing", "always")
+    .format("com.amazonaws.athena.connectors.dsv2.dynamodb.DDBTableProvider")
+    .load())
+```

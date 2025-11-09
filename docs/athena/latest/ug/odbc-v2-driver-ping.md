@@ -4,30 +4,88 @@ Ping is a SAML based plugin that works with the [PingFederate](https://www.pingi
 
 ## Authentication type
 
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| AuthenticationType         | Required           | `IAM Credentials` | `AuthenticationType=Ping;`    |
+
+## User ID
+
+The user name for the PingFederate server.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**  |
+| -------------------------- | ------------------ | ----------------- | ------------------------------ |
+| UID                        | Required           | `none`            | `UID=pingusername@domain.com;` |
+
+## Password
+
+The password for the PingFederate server.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| PWD                        | Required           | `none`            | `PWD=pingpassword;`           |
+
+## Preferred role
+
+The Amazon Resource Name (ARN) of the role to assume. If your SAML assertion has
+multiple roles, you can specify this parameter to choose the role to be assumed. This
+role should be present in the SAML assertion. For more information about ARN roles, see
+[AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
+| -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
+| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:iam::123456789012:id/user1;` |
+
+## Session duration
+
+The duration, in seconds, of the role session. For more information about session
+duration, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
+_AWS Security Token Service API Reference_.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| duration                   | Optional           | `900`             | `duration=900;`               |
+
+## IdP host
+
+The address for your Ping server. To find your address, visit the following URL and
+view the **SSO Application Endpoint** field.
+
+```
+https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections
+```
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                      |
+| -------------------------- | ------------------ | ----------------- | -------------------------------------------------- |
+| idp_host                   | Required           | `none`            | `idp_host=ec2-1-83-65-12.compute-1.amazonaws.com;` |
+
+## IdP port
+
+The port number to use to connect to your IdP host.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
+| -------------------------- | ------------------ | ----------------- | ----------------------------- |
+| idp_port                   | Required           | `None`            | `idp_port=443;`               |
+
+## Partner SPID
+
+The service provider address. To find the service provider address, visit the
+following URL and view the **SSO Application Endpoint** field.
+
+```
+https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections
+```
+
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| -------------------------- | ------------------ | ----------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AuthenticationType         | Required           | `IAM Credentials` | `AuthenticationType=Ping;`                                                  | ## User ID The user name for the PingFederate server.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| UID                        | Required           | `none`            | `UID=pingusername@domain.com;`                                              | ## Password The password for the PingFederate server.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| PWD                        | Required           | `none`            | `PWD=pingpassword;`                                                         | ## Preferred role The Amazon Resource Name (ARN) of the role to assume. If your SAML assertion has multiple roles, you can specify this parameter to choose the role to be assumed. This role should be present in the SAML assertion. For more information about ARN roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_. |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:iam::123456789012:id/user1;`                        | ## Session duration The duration, in seconds, of the role session. For more information about session duration, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.                                                                                                                                                              |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| duration                   | Optional           | `900`             | `duration=900;`                                                             | ## IdP host The address for your Ping server. To find your address, visit the following URL and view the **SSO Application Endpoint** field. ``https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections``                                                                                                                                                                                                                                  |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| idp_host                   | Required           | `none`            | `idp_host=ec2-1-83-65-12.compute-1.amazonaws.com;`                          | ## IdP port The port number to use to connect to your IdP host.                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| idp_port                   | Required           | `None`            | `idp_port=443;`                                                             | ## Partner SPID The service provider address. To find the service provider address, visit the following URL and view the **SSO Application Endpoint** field. ``https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections``                                                                                                                                                                                                                  |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| partner_spid               | Required           | `None`            | `partner_spid=https://us-east-1.signin.aws.amazon.com/platform/saml/<...>;` | ## Ping URI param Passes a URI argument for an authentication request to Ping. Use this parameter to bypass the Lake Formation single role limitation. Configure Ping to recognize the passed parameter, and verify that the role passed exists in the list of roles assigned to the user. Then, send a single role in the SAML assertion.                                                                                                                |
-| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
-| ---                        | ---                | ---               | ---                                                                         |
-| ping_uri_param             | Optional           | `None`            | `ping_uri_param=role=my_iam_role;`                                          |
+| -------------------------- | ------------------ | ----------------- | --------------------------------------------------------------------------- |
+| partner_spid               | Required           | `None`            | `partner_spid=https://us-east-1.signin.aws.amazon.com/platform/saml/<...>;` |
+
+## Ping URI param
+
+Passes a URI argument for an authentication request to Ping. Use this parameter to
+bypass the Lake Formation single role limitation. Configure Ping to recognize the passed parameter, and verify that the role passed exists in
+the list of roles assigned to the user. Then, send a single role in the SAML
+assertion.
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example**      |
+| -------------------------- | ------------------ | ----------------- | ---------------------------------- |
+| ping_uri_param             | Optional           | `None`            | `ping_uri_param=role=my_iam_role;` |

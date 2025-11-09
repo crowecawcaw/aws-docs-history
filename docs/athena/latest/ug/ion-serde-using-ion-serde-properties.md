@@ -113,7 +113,7 @@ alias: STRING
 The following example shows SerDe properties and the resulting extracted
 table when case sensitivity is set to `false`:
 
-````
+```
 -- Serde properties
 'ion.alias.path_extractor' = '(alias)'
 'ion.path_extractor.case_sensitive' = 'false'
@@ -122,8 +122,121 @@ table when case sensitivity is set to `false`:
 | alias    |
 |----------|
 | "value1" |
-| "value2" | ``` The following example shows SerDe properties and the resulting extracted table when case sensitivity is set to `true`: ``` -- Serde properties 'ion.alias.path_extractor' = '(alias)' 'ion.path_extractor.case_sensitive' = 'true' --Extracted Table
+| "value2" |
+```
+
+The following example shows SerDe properties and the resulting extracted
+table when case sensitivity is set to `true`:
+
+```
+-- Serde properties
+'ion.alias.path_extractor' = '(alias)'
+'ion.path_extractor.case_sensitive' = 'true'
+
+--Extracted Table
 | alias    |
 |----------|
-| "value2" | ``` In the second case, `value1` for the `ALIAS` field is ignored when case sensitivity is set to `true` and the path extractor is specified as `alias`. **ion.`<column>`.path\_extractor** Optional Default: NA Values: String with search path Creates a path extractor with the specified search path for the given column. Path extractors map Amazon Ion fields to Hive columns. If no path extractors are specified, Athena dynamically creates path extractors at run time based on column names. The following example path extractor maps the `example_ion_field` to the `example_hive_column`. ``` 'ion.example_hive_column.path_extractor' = '(example_ion_field)' ``` For more information about path extractors and search paths, see [Use path extractors](ion-serde-using-path-extractors.md "ion-serde-using-path-extractors.md"). **ion.timestamp.serialization\_offset** Optional Default: `'Z'` Values: `OFFSET`, where `OFFSET` is represented as ``<signal>`hh:mm`. Example values: `01:00`, `+01:00`, `-09:30`, `Z` (UTC, same as 00:00) Unlike Apache Hive [timestamps](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp"), which have no built-in time zone and are stored as an offset from the UNIX epoch, Amazon Ion timestamps do have an offset. Use this property to specify the offset when you serialize to Amazon Ion. The following example adds an offset of one hour. ``` 'ion.timestamp.serialization_offset' = '+01:00' ``` **ion.serialize\_null** Optional Default: `OMIT` Values: `OMIT`, `UNTYPED`, `TYPED` The Amazon Ion SerDe can be configured to either serialize or omit columns that have null values. You can choose to write out strongly typed nulls (`TYPED`) or untyped nulls (`UNTYPED`). Strongly typed nulls are determined based on the default Amazon Ion to Hive type mapping. The following example specifies strongly typed nulls. ``` 'ion.serialize_null'='TYPED' ``` **ion.ignore\_malformed** Optional Default: `false` Values: `true`, `false` When `true`, ignores malformed entries or the whole file if the SerDe is unable to read it. For more information, see [Ignore malformed](https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed "https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed") in the documentation on GitHub. **ion.`<column>`.serialize\_as** Optional Default: Default type for the column. Values: String containing Amazon Ion type Determines the Amazon Ion data type in which a value is serialized. Because Amazon Ion and Hive types do not always have a direct mapping, a few Hive types have multiple valid data types for serialization. To serialize data as a non-default data type, use this property. For more information about type mapping, see the Amazon Ion [Type mapping](https://github.com/amzn/ion-hive-serde/blob/master/docs/type-mapping.md "https://github.com/amzn/ion-hive-serde/blob/master/docs/type-mapping.md") page on GitHub. By default, binary Hive columns are serialized as Amazon Ion blobs, but they can also be serialized as an [Amazon Ion clob](https://amzn.github.io/ion-docs/docs/stringclob.html#ion-clob "https://amzn.github.io/ion-docs/docs/stringclob.html#ion-clob") (character large object). The following example serializes the column `example_hive_binary_column` as a clob. ``` 'ion.example_hive_binary_column.serialize_as' = 'clob' ```
-````
+| "value2" |
+```
+
+In the second case, `value1` for the `ALIAS` field
+is ignored when case sensitivity is set to `true` and the path
+extractor is specified as `alias`.
+
+**ion.`<column>`.path_extractor**
+
+Optional
+
+Default: NA
+
+Values: String with search path
+
+Creates a path extractor with the specified search path for the given
+column. Path extractors map Amazon Ion fields to Hive columns. If no path
+extractors are specified, Athena dynamically creates path extractors at run
+time based on column names.
+
+The following example path extractor maps the
+`example_ion_field` to the
+`example_hive_column`.
+
+```
+'ion.example_hive_column.path_extractor' = '(example_ion_field)'
+```
+
+For more information about path extractors and search paths, see [Use path extractors](ion-serde-using-path-extractors.md "ion-serde-using-path-extractors.md").
+
+**ion.timestamp.serialization_offset**
+
+Optional
+
+Default: `'Z'`
+
+Values: `OFFSET`, where `OFFSET` is represented as
+``<signal>`hh:mm`. Example
+ values: `01:00`, `+01:00`, `-09:30`,
+ `Z` (UTC, same as 00:00)
+
+Unlike Apache Hive [timestamps](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp"), which have no built-in time zone and are stored as
+an offset from the UNIX epoch, Amazon Ion timestamps do have an offset. Use
+this property to specify the offset when you serialize to Amazon Ion.
+
+The following example adds an offset of one hour.
+
+```
+'ion.timestamp.serialization_offset' = '+01:00'
+```
+
+**ion.serialize_null**
+
+Optional
+
+Default: `OMIT`
+
+Values: `OMIT`, `UNTYPED`, `TYPED`
+
+The Amazon Ion SerDe can be configured to either serialize or omit columns
+that have null values. You can choose to write out strongly typed nulls
+(`TYPED`) or untyped nulls (`UNTYPED`). Strongly
+typed nulls are determined based on the default Amazon Ion to Hive type
+mapping.
+
+The following example specifies strongly typed nulls.
+
+```
+'ion.serialize_null'='TYPED'
+```
+
+**ion.ignore_malformed**
+
+Optional
+
+Default: `false`
+
+Values: `true`, `false`
+
+When `true`, ignores malformed entries or the whole file if the
+SerDe is unable to read it. For more information, see [Ignore malformed](https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed "https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed") in the documentation on GitHub.
+
+**ion.`<column>`.serialize_as**
+
+Optional
+
+Default: Default type for the column.
+
+Values: String containing Amazon Ion type
+
+Determines the Amazon Ion data type in which a value is serialized.
+Because Amazon Ion and Hive types do not always have a direct mapping, a few
+Hive types have multiple valid data types for serialization. To serialize
+data as a non-default data type, use this property. For more information
+about type mapping, see the Amazon Ion [Type mapping](https://github.com/amzn/ion-hive-serde/blob/master/docs/type-mapping.md "https://github.com/amzn/ion-hive-serde/blob/master/docs/type-mapping.md") page on GitHub.
+
+By default, binary Hive columns are serialized as Amazon Ion blobs, but
+they can also be serialized as an [Amazon Ion clob](https://amzn.github.io/ion-docs/docs/stringclob.html#ion-clob "https://amzn.github.io/ion-docs/docs/stringclob.html#ion-clob") (character large object). The following example
+serializes the column `example_hive_binary_column` as a
+clob.
+
+```
+'ion.example_hive_binary_column.serialize_as' = 'clob'
+```

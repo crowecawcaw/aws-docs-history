@@ -38,8 +38,50 @@ Athena assigns to each query when it runs.
 
 The following file types are saved:
 
-| File type                | File naming patterns                              | Description                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Query results files**  | ``QueryID`.csv` ``QueryID`.txt`                   | DML query results files are saved in comma-separated values (CSV) format. DDL query results are saved as plain text files. You can download results files from the console from the **Results** pane when using the console or from the query **History**. For more information, see [Download query results files using the Athena console](saving-query-results.md "saving-query-results.md"). |
-| **Query metadata files** | ``QueryID`.csv.metadata` ``QueryID`.txt.metadata` | DML and DDL query metadata files are saved in binary format and are not human readable. The file extension corresponds to the related query results file. Athena uses the metadata when reading query results using the `GetQueryResults` action. Although these files can be deleted, we do not recommend it because important information about the query is lost.                             |
-| **Data manifest files**  | ``QueryID`-manifest.csv`                          | Data manifest files are generated to track files that Athena creates in Amazon S3 data source locations when an [INSERT INTO](insert-into.md "insert-into.md") query runs. If a query fails, the manifest also tracks files that the query intended to write. The manifest is useful for identifying orphaned files resulting from a failed query.                                               | To use the AWS CLI to identify the query output location and result files, run the `aws athena get-query-execution` command, as in the following example. Replace `abc1234d-5efg-67hi-jklm-89n0op12qr34` with the query ID. `` aws athena get-query-execution --query-execution-id `abc1234d-5efg-67hi-jklm-89n0op12qr34` `` The command returns output similar to the following. For descriptions of each output parameter, see [get-query-execution](../../../cli/latest/reference/athena/get-query-execution.md "../../../cli/latest/reference/athena/get-query-execution.md") in the _AWS CLI Command Reference_. `{ "QueryExecution": { "Status": { "SubmissionDateTime": 1565649050.175, "State": "SUCCEEDED", "CompletionDateTime": 1565649056.6229999 }, "Statistics": { "DataScannedInBytes": 5944497, "DataManifestLocation": "s3://amzn-s3-demo-bucket/athena-query-results-123456789012-us-west-1/MyInsertQuery/2019/08/12/abc1234d-5efg-67hi-jklm-89n0op12qr34-manifest.csv", "EngineExecutionTimeInMillis": 5209 }, "ResultConfiguration": { "EncryptionConfiguration": { "EncryptionOption": "SSE_S3" }, "OutputLocation": "s3://amzn-s3-demo-bucket/athena-query-results-123456789012-us-west-1/MyInsertQuery/2019/08/12/abc1234d-5efg-67hi-jklm-89n0op12qr34" }, "QueryExecutionId": "abc1234d-5efg-67hi-jklm-89n0op12qr34", "QueryExecutionContext": {}, "Query": "INSERT INTO mydb.elb_log_backup SELECT * FROM mydb.elb_logs LIMIT 100", "StatementType": "DML", "WorkGroup": "primary" } }` |
+| File type                | File naming patterns                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Query results files**  | ``QueryID`.csv`<br>``QueryID`.txt`                   | DML query results files are saved in comma-separated values<br>(CSV) format.<br>DDL query results are saved as plain text files.<br>You can download results files from the console from the<br>**Results\*<br>• pane when using the console or<br>from the query **History\*\*. For more<br>information, see [Download query results files using the Athena<br>console](saving-query-results.md "saving-query-results.md"). |
+| **Query metadata files** | ``QueryID`.csv.metadata`<br>``QueryID`.txt.metadata` | DML and DDL query metadata files are saved in binary format<br>and are not human readable. The file extension corresponds to<br>the related query results file. Athena uses the metadata when<br>reading query results using the `GetQueryResults`<br>action. Although these files can be deleted, we do not recommend<br>it because important information about the query is lost.                                          |
+| **Data manifest files**  | ``QueryID`-manifest.csv`                             | Data manifest files are generated to track files that Athena<br>creates in Amazon S3 data source locations when an [INSERT INTO](insert-into.md "insert-into.md") query<br>runs. If a query fails, the manifest also tracks files that the<br>query intended to write. The manifest is useful for identifying<br>orphaned files resulting from a failed query.                                                               |
+
+To use the AWS CLI to identify the query output location and result files, run
+the `aws athena get-query-execution` command, as in the following
+example. Replace `abc1234d-5efg-67hi-jklm-89n0op12qr34`
+with the query ID.
+
+```
+aws athena get-query-execution --query-execution-id `abc1234d-5efg-67hi-jklm-89n0op12qr34`
+```
+
+The command returns output similar to the following. For descriptions of each
+output parameter, see [get-query-execution](../../../cli/latest/reference/athena/get-query-execution.md "../../../cli/latest/reference/athena/get-query-execution.md") in the
+_AWS CLI Command Reference_.
+
+```
+{
+    "QueryExecution": {
+        "Status": {
+            "SubmissionDateTime": 1565649050.175,
+            "State": "SUCCEEDED",
+            "CompletionDateTime": 1565649056.6229999
+        },
+        "Statistics": {
+            "DataScannedInBytes": 5944497,
+            "DataManifestLocation": "s3://amzn-s3-demo-bucket/athena-query-results-123456789012-us-west-1/MyInsertQuery/2019/08/12/abc1234d-5efg-67hi-jklm-89n0op12qr34-manifest.csv",
+            "EngineExecutionTimeInMillis": 5209
+        },
+        "ResultConfiguration": {
+            "EncryptionConfiguration": {
+                "EncryptionOption": "SSE_S3"
+            },
+            "OutputLocation": "s3://amzn-s3-demo-bucket/athena-query-results-123456789012-us-west-1/MyInsertQuery/2019/08/12/abc1234d-5efg-67hi-jklm-89n0op12qr34"
+        },
+        "QueryExecutionId": "abc1234d-5efg-67hi-jklm-89n0op12qr34",
+        "QueryExecutionContext": {},
+        "Query": "INSERT INTO mydb.elb_log_backup SELECT * FROM mydb.elb_logs LIMIT 100",
+        "StatementType": "DML",
+        "WorkGroup": "primary"
+    }
+}
+
+```

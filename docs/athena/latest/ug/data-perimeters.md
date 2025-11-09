@@ -13,6 +13,6 @@ permissions, identity used by Athena, and the features that rely on the S3 bucke
 access, replace `<region>` in the bucket ARN with your actual AWS Region and
 allowlist this bucket based on your Amazon S3 access controls.
 
-| Data perimeters that Athena uses        | Resource ARN              | Required permissions                | Identity used for access                                                                                 | Access scenarios |
-| --------------------------------------- | ------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------- |
-| `arn:aws:s3:::athena-examples-<region>` | s3:GetObjects3:ListBucket | The IAM principal accessing Athena. | <br>• Running example queries in the Athena console <br>• Exploring sample datasets that Athena provides |
+| Data perimeters that Athena uses        | Resource ARN              | Required permissions                | Identity used for access                                                                            | Access scenarios |
+| --------------------------------------- | ------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------- | ---------------- |
+| `arn:aws:s3:::athena-examples-<region>` | s3:GetObjects3:ListBucket | The IAM principal accessing Athena. | • Running example queries in the Athena console<br>• Exploring sample datasets that Athena provides |

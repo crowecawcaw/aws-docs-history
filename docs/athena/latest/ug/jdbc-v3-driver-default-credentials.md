@@ -11,6 +11,6 @@ _AWS SDK for Java Developer Guide_.
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `DefaultChain`.
 
-| Parameter name      | Alias                                      | Parameter type | Default value | Value to use   |
-| ------------------- | ------------------------------------------ | -------------- | ------------- | -------------- |
-| CredentialsProvider | _AWSCredentialsProviderClass (deprecated)_ | Required       | none          | `DefaultChain` |
+| Parameter name      | Alias                                         | Parameter type | Default value | Value to use   |
+| ------------------- | --------------------------------------------- | -------------- | ------------- | -------------- |
+| CredentialsProvider | _AWSCredentialsProviderClass<br>(deprecated)_ | Required       | none          | `DefaultChain` |
