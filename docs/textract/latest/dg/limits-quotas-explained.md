@@ -216,9 +216,9 @@ Some increases in quota values may need manual review.
 The following table lists the different types of quotas and the effects
 modifying them will have.
 
-| Quota Value to Increase          | Effect of Increase                                                                                                                                |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Synchronous operation TPS        | Increases how often you can request that Textract process a new document using a given synchronous operation, measured in transactions per second |
-| Asynchronous Start operation TPS | Increases how often you can request that Textract begin the asynchronous processing of an input document, measured in transactions per second     |
-| Asynchronous Get operation TPS   | Increases how often you can request that Textract return the results of a given asynchronous analysis job, measured in transactions per second    |
-| Asynchronous Concurrent jobs     | Increases the total number of documents that you can have processing in parallel.                                                                 |
+| Quota Value to Increase          | Effect of Increase                                                                                                                                      |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Synchronous operation TPS        | Increases how often you can request that Textract process<br>a new document using a given synchronous operation, measured<br>in transactions per second |
+| Asynchronous Start operation TPS | Increases how often you can request that Textract begin<br>the asynchronous processing of an input document, measured<br>in transactions per second     |
+| Asynchronous Get operation TPS   | Increases how often you can request that Textract return<br>the results of a given asynchronous analysis job, measured in<br>transactions per second    |
+| Asynchronous Concurrent jobs     | Increases the total number of documents that you can have<br>processing in parallel.                                                                    |

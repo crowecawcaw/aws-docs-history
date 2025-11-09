@@ -66,10 +66,102 @@ following table shows the input parameters and response parameters that aren't l
 each Amazon Textract operation.
 
 | Operation                  | Request Parameters | Response Fields |
-| -------------------------- | ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------- | ------------------ | --------------- |
 | AnalyzeDocument            | `Bytes`            | All             |
 | DetectDocumentText         | `Bytes`            | All             |
 | StartDocumentAnalysis      | None               | None            |
 | GetDocumentAnalysis        | None               | All             |
 | StartDocumentTextDetection | None               | None            |
-| GetDocumentTextDetection   | None               | All             | ## Understanding Amazon Textract Log File Entries A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. The following example shows a CloudTrail log entry that demonstrates the `AnalyzeDocument` operation. The image bytes for the input `document` and the analysis results (`responseElements`) aren't logged. `{ "eventVersion": "1.05", "userIdentity": { "type": "IAMUser", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::111111111111:user/janedoe", "accountId": "111111111111", "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE", "userName": "janedoe" }, "eventTime": "2019-04-03T23:56:31Z", "eventSource": "textract.amazonaws.com", "eventName": "AnalyzeDocument", "awsRegion": "us-east-1", "sourceIPAddress": "198.51.100.0", "userAgent": "", "requestParameters": { "document": {}, "featureTypes": [ "TABLES" ] }, "responseElements": null, "requestID": "e387676b-d1f0-4ea7-85d6-f5a344052dce", "eventID": "c5db79ce-e4ea-4401-8517-784481d559f7", "eventType": "AwsApiCall", "recipientAccountId": "111111111111" }` The following example shows a CloudTrail log entry for the `StartDocumentAnalysis` operation. The log entry includes the Amazon S3 bucket name and image file name in `documentLocation`. The log also includes the operation response. `{ "Records": [ { "eventVersion": "1.05", "userIdentity": { "type": "IAMUser", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::111111111111:user/janedoe", "accountId": "11111111111", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "userName": "janedoe" }, "eventTime": "2019-04-04T01:42:24Z", "eventSource": "textract.amazonaws.com", "eventName": "StartDocumentAnalysis", "awsRegion": "us-east-1", "sourceIPAddress": "198.51.100.0", "userAgent": "", "requestParameters": { "documentLocation": { "s3Object": { "bucket": "bucket", "name": "document.png" } }, "featureTypes": [ "TABLES" ] }, "responseElements": { "jobId": "f3c718b444fa603d5d625ab967008f4b620d4650c9db8ca1cae01ef7efe51373" }, "requestID": "9ae352e8-9de1-41ad-b77b-85aa348c2e82", "eventID": "f741bca0-c3cb-4805-82ea-baf76439deef", "eventType": "AwsApiCall", "recipientAccountId": "111111111111" } ] }` |
+| GetDocumentTextDetection   | None               | All             |
+
+## Understanding Amazon Textract Log File
+
+Entries
+
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
+that you specify. CloudTrail log files contain one or more log entries. An event represents a single
+request from any source and includes information about the requested operation, the date and
+time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack
+trace of the public API calls, so they don't appear in any specific order.
+
+The following example shows a CloudTrail log entry that demonstrates the
+`AnalyzeDocument` operation. The image bytes for the input `document`
+and the analysis results (`responseElements`) aren't logged.
+
+```
+{
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+        "arn": "arn:aws:iam::111111111111:user/janedoe",
+        "accountId": "111111111111",
+        "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE",
+        "userName": "janedoe"
+    },
+    "eventTime": "2019-04-03T23:56:31Z",
+    "eventSource": "textract.amazonaws.com",
+    "eventName": "AnalyzeDocument",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "198.51.100.0",
+    "userAgent": "",
+    "requestParameters": {
+        "document": {},
+        "featureTypes": [
+            "TABLES"
+        ]
+    },
+    "responseElements": null,
+    "requestID": "e387676b-d1f0-4ea7-85d6-f5a344052dce",
+    "eventID": "c5db79ce-e4ea-4401-8517-784481d559f7",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "111111111111"
+}
+```
+
+The following example shows a CloudTrail log entry for the `StartDocumentAnalysis`
+operation. The log entry includes the Amazon S3 bucket name and image file name in
+`documentLocation`. The log also includes the operation response.
+
+```
+{
+    "Records": [
+        {
+            "eventVersion": "1.05",
+            "userIdentity": {
+                "type": "IAMUser",
+                "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+                "arn": "arn:aws:iam::111111111111:user/janedoe",
+                "accountId": "11111111111",
+                "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+                "userName": "janedoe"
+            },
+            "eventTime": "2019-04-04T01:42:24Z",
+            "eventSource": "textract.amazonaws.com",
+            "eventName": "StartDocumentAnalysis",
+            "awsRegion": "us-east-1",
+            "sourceIPAddress": "198.51.100.0",
+            "userAgent": "",
+            "requestParameters": {
+                "documentLocation": {
+                    "s3Object": {
+                        "bucket": "bucket",
+                        "name": "document.png"
+                    }
+                },
+                "featureTypes": [
+                    "TABLES"
+                ]
+            },
+            "responseElements": {
+                "jobId": "f3c718b444fa603d5d625ab967008f4b620d4650c9db8ca1cae01ef7efe51373"
+            },
+            "requestID": "9ae352e8-9de1-41ad-b77b-85aa348c2e82",
+            "eventID": "f741bca0-c3cb-4805-82ea-baf76439deef",
+            "eventType": "AwsApiCall",
+            "recipientAccountId": "111111111111"
+        }
+
+    ]
+}
+```
