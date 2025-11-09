@@ -1,23 +1,33 @@
-# Endpoint groups for custom routing accelerators in Global Accelerator
+#
 
-With a custom routing accelerator in AWS Global Accelerator, an endpoint group defines the ports and protocols that destination Amazon EC2
-instances in your virtual private cloud (VPC) subnets accept traffic on.
+Add an endpoint group for a custom routing accelerator in Global Accelerator
 
-You create an endpoint group for your custom routing accelerator for each AWS Region in which your VPC subnets and EC2
-instances are located. Each endpoint group in a custom routing accelerator can have multiple VPC subnet endpoints. Similarly, you
-can add each VPC to multiple endpoint groups, but the endpoint groups must be associated with different
-listeners.
+You work with an endpoint group for your custom routing accelerator on the AWS Global Accelerator console or by using an
+API operation. You can add or remove VPC subnet endpoints from an endpoint group at any time.
 
-For each endpoint group, you specify a set of one or more port ranges that include the ports that you want to direct traffic
-to on the EC2 instances in the Region. For each endpoint group port range, you specify the protocol to use:
-UDP, TCP, or both UDP and TCP. This provides maximum flexibility for you, without having to duplicate sets of
-port ranges for each protocol. For example, you might have a game server with gaming traffic running over
-UDP on ports 8080-8090 while you also have a server listening for chat messages over TCP on port 80.
+This section explains how to create endpoint groups for your custom routing accelerator on
+the AWS Global Accelerator console. To learn about using API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").
 
-To learn more, see [How custom routing accelerators work in Global Accelerator](about-custom-routing-how-it-works.md "about-custom-routing-how-it-works.md").
+# To add an endpoint group for a custom routing accelerator
 
-###### Contents
+1.  Open the Global Accelerator console at [https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:](https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome: "https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:").
+2.  On the **Accelerators** page, choose a custom routing accelerator.
+3.  In the **Listeners** section, for **Listener ID**,
+    choose the ID of the listener that you want to add an endpoint group to.
+4.  Choose **Add endpoint group**.
+5.  In the section for a listener, specify a Region for the endpoint group.
+6.  For **Ports and protocols sets**, enter port ranges and protocols for
+    your Amazon EC2 instances.
 
-- [Add endpoint group](about-custom-routing-endpoint-groups.md "about-custom-routing-endpoint-groups.md")
-- [Edit endpoint group](about-custom-routing-endpoint-groups.md "about-custom-routing-endpoint-groups.md")
-- [Remove endpoint group](about-custom-routing-endpoint-groups.md "about-custom-routing-endpoint-groups.md")
+        * Enter a **From port** and a **To port**
+         to specify a range of ports.
+        * For each port range, specify the protocol or protocols for that range.
+
+    The port range doesn't have to be a subset of your listener port range, but there must be enough
+    total ports in the listener port range to support the total number of ports that you specify for the
+    endpoint groups in your custom routing accelerator.
+
+7.  Choose **Save**.
+8.  Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener. You
+    can also choose another listener and add endpoint groups.
+9.  Choose **Add endpoint group**.
