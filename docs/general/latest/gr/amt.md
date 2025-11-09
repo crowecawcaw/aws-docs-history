@@ -11,10 +11,13 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region                                                  | Endpoint                                        | Protocol                                                                                                                                                                                                                     |
-| ------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| Sandbox endpoint for Amazon Mechanical Turk actions.    | mturk-requester-sandbox.us-east-1.amazonaws.com | HTTPS                                                                                                                                                                                                                        |
-| Production endpoint for Amazon Mechanical Turk actions. | mturk-requester.us-east-1.amazonaws.com         | HTTPS                                                                                                                                                                                                                        | ## Service quotas                |
-| Name                                                    | Default                                         | Adjustable                                                                                                                                                                                                                   | Description                      |
-| ---                                                     | ---                                             | ---                                                                                                                                                                                                                          | ---                              |
-| Monthly Usage                                           | Each supported Region: 0.02                     | [Yes](https://console.aws.amazon.com/servicequotas/home/services/crowdscale-usagelimitservice/quotas/L-EC45676A "https://console.aws.amazon.com/servicequotas/home/services/crowdscale-usagelimitservice/quotas/L-EC45676A") | The maximum monthly spend in USD |
+| Region                                                  | Endpoint                                        | Protocol |
+| ------------------------------------------------------- | ----------------------------------------------- | -------- |
+| Sandbox endpoint for Amazon Mechanical Turk actions.    | mturk-requester-sandbox.us-east-1.amazonaws.com | HTTPS    |
+| Production endpoint for Amazon Mechanical Turk actions. | mturk-requester.us-east-1.amazonaws.com         | HTTPS    |
+
+## Service quotas
+
+| Name          | Default                     | Adjustable                                                                                                                                                                                                                   | Description                      |
+| ------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Monthly Usage | Each supported Region: 0.02 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/crowdscale-usagelimitservice/quotas/L-EC45676A "https://console.aws.amazon.com/servicequotas/home/services/crowdscale-usagelimitservice/quotas/L-EC45676A") | The maximum monthly spend in USD |

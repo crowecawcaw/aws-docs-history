@@ -12,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name               | Region         | Endpoint                                          | Protocol |
-| ------------------------- | -------------- | ------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------- | -------------- | ------------------------------------------------- | -------- |
 | US East (Ohio)            | us-east-2      | ec2-instance-connect.us-east-2.amazonaws.com      | HTTPS    |
 | US East (N. Virginia)     | us-east-1      | ec2-instance-connect.us-east-1.amazonaws.com      | HTTPS    |
 | US West (N. California)   | us-west-1      | ec2-instance-connect.us-west-1.amazonaws.com      | HTTPS    |
@@ -46,4 +46,15 @@ The following are the service endpoints and service quotas for this service.
 | Middle East (UAE)         | me-central-1   |                                                   |          |
 | South America (São Paulo) | sa-east-1      | ec2-instance-connect.sa-east-1.amazonaws.com      | HTTPS    |
 | AWS GovCloud (US-East)    | us-gov-east-1  | ec2-instance-connect.us-gov-east-1.amazonaws.com  | HTTPS    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | ec2-instance-connect.us-gov-west-1.amazonaws.com  | HTTPS    | ## Service quotas EC2 Instance Connect has no service quotas. ###### Note EC2 Instance Connect should not be confused with EC2 Instance Connect Endpoint, which is a separate service with its own quotas. For more information, see [Quotas for EC2 Instance Connect Endpoint](../../../AWSEC2/latest/UserGuide/eice-quotas.md "../../../AWSEC2/latest/UserGuide/eice-quotas.md") in the _Amazon EC2 User Guide_. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | ec2-instance-connect.us-gov-west-1.amazonaws.com  | HTTPS    |
+
+## Service quotas
+
+EC2 Instance Connect has no service quotas.
+
+###### Note
+
+EC2 Instance Connect should not be confused with EC2 Instance Connect Endpoint,
+which is a separate service with its own quotas. For more information, see [Quotas for
+EC2 Instance Connect Endpoint](../../../AWSEC2/latest/UserGuide/eice-quotas.md "../../../AWSEC2/latest/UserGuide/eice-quotas.md") in the _Amazon EC2
+User Guide_.

@@ -11,11 +11,14 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name                                         | Region                             | Endpoint                                                                                                                                                                                 | Protocol                                                                         |
-| --------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------- |
-| US West (Oregon)                                    | us-west-2                          | devicefarm.us-west-2.amazonaws.com                                                                                                                                                       | HTTPS                                                                            | ## Service quotas |
+| Region Name      | Region    | Endpoint                           | Protocol |
+| ---------------- | --------- | ---------------------------------- | -------- |
+| US West (Oregon) | us-west-2 | devicefarm.us-west-2.amazonaws.com | HTTPS    |
+
+## Service quotas
+
 | Name                                                | Default                            | Adjustable                                                                                                                                                                               | Description                                                                      |
-| ---                                                 | ---                                | ---                                                                                                                                                                                      | ---                                                                              |
+| --------------------------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | Concurrency for automation tests on metered devices | Each supported Region: 5           | [Yes](https://console.aws.amazon.com/servicequotas/home/services/devicefarm/quotas/L-681D859E "https://console.aws.amazon.com/servicequotas/home/services/devicefarm/quotas/L-681D859E") | The maximum number of concurrent metered devices running automation tests.       |
 | Concurrency for remote access on metered devices    | Each supported Region: 2           | [Yes](https://console.aws.amazon.com/servicequotas/home/services/devicefarm/quotas/L-F73D98D4 "https://console.aws.amazon.com/servicequotas/home/services/devicefarm/quotas/L-F73D98D4") | The maximum number of concurrent metered devices running remote access sessions. |
 | Remote access session length in minutes             | Each supported Region: 150         | No                                                                                                                                                                                       | The maximum length of a remote access session per device in minutes.             |

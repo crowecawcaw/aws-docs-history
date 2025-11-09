@@ -15,6 +15,13 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name      | Region    | Endpoint                    | Protocol |
-| ---------------- | --------- | --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------- | --------------------------- | -------- |
 | US West (Oregon) | us-west-2 | appstudio.us-west-2.api.aws | HTTPS    |
-| Europe (Ireland) | eu-west-1 | appstudio.eu-west-1.api.aws | HTTPS    | ## Service quotas For information on quotas, see [Quotas for AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the _AWS App Studio User Guide_. |
+| Europe (Ireland) | eu-west-1 | appstudio.eu-west-1.api.aws | HTTPS    |
+
+## Service quotas
+
+For information on quotas, see [Quotas for
+
+AWS App Studio](../../../appstudio/latest/userguide/quotas.md "../../../appstudio/latest/userguide/quotas.md") in the _AWS App Studio
+User Guide_.

@@ -11,14 +11,17 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name                | Region                    | Endpoint                               | Protocol                                                                                                                |
-| -------------------------- | ------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| US East (N. Virginia)      | us-east-1                 | appfabric.us-east-1.amazonaws.com      | HTTPS                                                                                                                   |
-| Asia Pacific (Tokyo)       | ap-northeast-1            | appfabric.ap-northeast-1.amazonaws.com | HTTPS                                                                                                                   |
-| Europe (Ireland)           | eu-west-1                 | appfabric.eu-west-1.amazonaws.com      | HTTPS                                                                                                                   | ## Service quotas |
-| Name                       | Default                   | Adjustable                             | Description                                                                                                             |
-| ---                        | ---                       | ---                                    | ---                                                                                                                     |
-| Application authorizations | Each supported Region: 50 | No                                     | The maximum number of application authorizations that you can create in an account in the current AWS Region.           |
-| Application bundles        | Each supported Region: 1  | No                                     | The maximum number of application bundles that you can create in an account in the current AWS Region.                  |
-| Ingestion destinations     | Each supported Region: 5  | No                                     | The maximum number of ingestion destinations that you can create per ingestion in an account in the current AWS Region. |
-| Ingestions                 | Each supported Region: 50 | No                                     | The maximum number of ingestions that you can create in an account in the current AWS Region.                           |
+| Region Name           | Region         | Endpoint                               | Protocol |
+| --------------------- | -------------- | -------------------------------------- | -------- |
+| US East (N. Virginia) | us-east-1      | appfabric.us-east-1.amazonaws.com      | HTTPS    |
+| Asia Pacific (Tokyo)  | ap-northeast-1 | appfabric.ap-northeast-1.amazonaws.com | HTTPS    |
+| Europe (Ireland)      | eu-west-1      | appfabric.eu-west-1.amazonaws.com      | HTTPS    |
+
+## Service quotas
+
+| Name                       | Default                   | Adjustable | Description                                                                                                             |
+| -------------------------- | ------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Application authorizations | Each supported Region: 50 | No         | The maximum number of application authorizations that you can create in an account in the current AWS Region.           |
+| Application bundles        | Each supported Region: 1  | No         | The maximum number of application bundles that you can create in an account in the current AWS Region.                  |
+| Ingestion destinations     | Each supported Region: 5  | No         | The maximum number of ingestion destinations that you can create per ingestion in an account in the current AWS Region. |
+| Ingestions                 | Each supported Region: 50 | No         | The maximum number of ingestions that you can create in an account in the current AWS Region.                           |

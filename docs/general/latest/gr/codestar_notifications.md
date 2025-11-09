@@ -12,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name               | Region         | Endpoint                                            | Protocol |
-| ------------------------- | -------------- | --------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------- | -------------- | --------------------------------------------------- | -------- |
 | US East (Ohio)            | us-east-2      | codestar-notifications.us-east-2.amazonaws.com      | HTTPS    |
 | US East (N. Virginia)     | us-east-1      | codestar-notifications.us-east-1.amazonaws.com      | HTTPS    |
 | US West (N. California)   | us-west-1      | codestar-notifications.us-west-1.amazonaws.com      | HTTPS    |
@@ -30,4 +30,8 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Paris)            | eu-west-3      | codestar-notifications.eu-west-3.amazonaws.com      | HTTPS    |
 | Europe (Stockholm)        | eu-north-1     | codestar-notifications.eu-north-1.amazonaws.com     | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | codestar-notifications.me-south-1.amazonaws.com     | HTTPS    |
-| South America (São Paulo) | sa-east-1      | codestar-notifications.sa-east-1.amazonaws.com      | HTTPS    | ## Service quotas For a list of quotas, see [Quotas for notifications](../../../dtconsole/latest/userguide/limits.md "../../../dtconsole/latest/userguide/limits.md") in the _Developer Tools console User Guide_. |
+| South America (São Paulo) | sa-east-1      | codestar-notifications.sa-east-1.amazonaws.com      | HTTPS    |
+
+## Service quotas
+
+For a list of quotas, see [Quotas for notifications](../../../dtconsole/latest/userguide/limits.md "../../../dtconsole/latest/userguide/limits.md") in the _Developer Tools console User Guide_.

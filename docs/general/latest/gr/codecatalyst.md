@@ -12,6 +12,11 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name      | Region    | Endpoint                    | Protocol |
-| ---------------- | --------- | --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------- | --------------------------- | -------- |
 | US West (Oregon) | us-west-2 | codecatalyst.global.api.aws | HTTPS    |
-| Europe (Ireland) | eu-west-1 | codecatalyst.global.api.aws | HTTPS    | ## Service quotas For information on quotas, see [Quotas for Amazon CodeCatalyst](../../../codecatalyst/latest/userguide/quotas.md "../../../codecatalyst/latest/userguide/quotas.md") in the _Amazon CodeCatalyst User Guide_. |
+| Europe (Ireland) | eu-west-1 | codecatalyst.global.api.aws | HTTPS    |
+
+## Service quotas
+
+For information on quotas, see [Quotas for
+Amazon CodeCatalyst](../../../codecatalyst/latest/userguide/quotas.md "../../../codecatalyst/latest/userguide/quotas.md") in the _Amazon CodeCatalyst User Guide_.

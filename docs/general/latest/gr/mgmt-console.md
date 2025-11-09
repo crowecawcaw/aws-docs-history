@@ -15,7 +15,7 @@ The table below lists the name, code, and endpoint of each AWS Region.
 ## Service endpoints
 
 | Region Name                | Region         | Endpoint                                   | Protocol |
-| -------------------------- | -------------- | ------------------------------------------ | -------- | --------------------------------------------- |
+| -------------------------- | -------------- | ------------------------------------------ | -------- |
 | US East (Ohio)             | us-east-2      | us-east-2.console.aws.amazon.com           | HTTPS    |
 | US East (N. Virginia)      | us-east-1      | us-east-1.console.aws.amazon.com           | HTTPS    |
 | US West (N. California)    | us-west-1      | us-west-1.console.aws.amazon.com           | HTTPS    |
@@ -51,4 +51,8 @@ The table below lists the name, code, and endpoint of each AWS Region.
 | Middle East (UAE)          | me-central-1   | me-central-1.console.aws.amazon.com        | HTTPS    |
 | South America (São Paulo)  | sa-east-1      | sa-east-1.console.aws.amazon.com           | HTTPS    |
 | AWS GovCloud (US-East)     | us-gov-east-1  | us-gov-east-1.console.amazonaws-us-gov.com | HTTPS    |
-| AWS GovCloud (US-West)     | us-gov-west-1  | us-gov-west-1.console.amazonaws-us-gov.com | HTTPS    | ## Service quotas This service has no quotas. |
+| AWS GovCloud (US-West)     | us-gov-west-1  | us-gov-west-1.console.amazonaws-us-gov.com | HTTPS    |
+
+## Service quotas
+
+This service has no quotas.

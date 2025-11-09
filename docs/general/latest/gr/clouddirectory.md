@@ -12,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name              | Region         | Endpoint                                    | Protocol |
-| ------------------------ | -------------- | ------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | -------------- | ------------------------------------------- | -------- |
 | US East (Ohio)           | us-east-2      | clouddirectory.us-east-2.amazonaws.com      | HTTPS    |
 | US East (N. Virginia)    | us-east-1      | clouddirectory.us-east-1.amazonaws.com      | HTTPS    |
 | US West (Oregon)         | us-west-2      | clouddirectory.us-west-2.amazonaws.com      | HTTPS    |
@@ -22,4 +22,8 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Frankfurt)       | eu-central-1   | clouddirectory.eu-central-1.amazonaws.com   | HTTPS    |
 | Europe (Ireland)         | eu-west-1      | clouddirectory.eu-west-1.amazonaws.com      | HTTPS    |
 | Europe (London)          | eu-west-2      | clouddirectory.eu-west-2.amazonaws.com      | HTTPS    |
-| AWS GovCloud (US-West)   | us-gov-west-1  | clouddirectory.us-gov-west-1.amazonaws.com  | HTTPS    | ## Service quotas For more information, see [Amazon Cloud Directory quotas](../../../clouddirectory/latest/developerguide/limits.md "../../../clouddirectory/latest/developerguide/limits.md"). |
+| AWS GovCloud (US-West)   | us-gov-west-1  | clouddirectory.us-gov-west-1.amazonaws.com  | HTTPS    |
+
+## Service quotas
+
+For more information, see [Amazon Cloud Directory quotas](../../../clouddirectory/latest/developerguide/limits.md "../../../clouddirectory/latest/developerguide/limits.md").

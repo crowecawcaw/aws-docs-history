@@ -11,6 +11,10 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-| Region Name           | Region    | Endpoint                                                                    | Protocol    |
-| --------------------- | --------- | --------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia) | us-east-1 | billingconductor.us-east-1.amazonaws.com billingconductor.us-east-1.api.aws | HTTPS HTTPS | ## Service quotas For more information about AWS Billing Conductor service quotas and restrictions, see [Quotas and restrictions](../../../billingconductor/latest/userguide/limits.md "../../../billingconductor/latest/userguide/limits.md") in the _AWS Billing Conductor User Guide_. |
+| Region Name           | Region    | Endpoint                                                                       | Protocol       |
+| --------------------- | --------- | ------------------------------------------------------------------------------ | -------------- |
+| US East (N. Virginia) | us-east-1 | billingconductor.us-east-1.amazonaws.com<br>billingconductor.us-east-1.api.aws | HTTPS<br>HTTPS |
+
+## Service quotas
+
+For more information about AWS Billing Conductor service quotas and restrictions, see [Quotas and restrictions](../../../billingconductor/latest/userguide/limits.md "../../../billingconductor/latest/userguide/limits.md") in the _AWS Billing Conductor User Guide_.

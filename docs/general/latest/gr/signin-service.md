@@ -12,7 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ## Service endpoints
 
 | Region Name                | Region         | Endpoint                                  | Protocol |
-| -------------------------- | -------------- | ----------------------------------------- | -------- | -------------------------------------------------------- |
+| -------------------------- | -------------- | ----------------------------------------- | -------- |
 | US East (Ohio)             | us-east-2      | us-east-2.signin.aws.amazon.com           | HTTPS    |
 | US East (N. Virginia)      | us-east-1      | signin.aws.amazon.com                     | HTTPS    |
 | US West (N. California)    | us-west-1      | us-west-1.signin.aws.amazon.com           | HTTPS    |
@@ -48,4 +48,8 @@ The following are the service endpoints and service quotas for this service.
 | Middle East (UAE)          | me-central-1   | me-central-1.signin.aws.amazon.com        | HTTPS    |
 | South America (São Paulo)  | sa-east-1      | sa-east-1.signin.aws.amazon.com           | HTTPS    |
 | AWS GovCloud (US-East)     | us-gov-east-1  | us-gov-east-1.signin.amazonaws-us-gov.com | HTTPS    |
-| AWS GovCloud (US-West)     | us-gov-west-1  | signin.amazonaws-us-gov.com               | HTTPS    | ## Service quotas AWS Sign-In has no increasable quotas. |
+| AWS GovCloud (US-West)     | us-gov-west-1  | signin.amazonaws-us-gov.com               | HTTPS    |
+
+## Service quotas
+
+AWS Sign-In has no increasable quotas.
