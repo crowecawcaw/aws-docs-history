@@ -37,9 +37,9 @@ These fields work with the Rate Control Mode field, which is discussed in [Encod
 
 ## Location of Fields
 
-| Location of Field on Web Interface               | Location of Tag in XML                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Streams – Video > Advanced > Bitrate             | stream_assembly/video_description/`codec`/bitrate where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings`      |
-| Streams – Video > Advanced > Buffer Size         | stream_assembly/video_description/`codec`/buf_size where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings`     |
-| Streams – Video > Advanced > Max Bitrate         | stream_assembly/video_description/`codec`/max_bitrate where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings`  |
-| Streams – Video > Advanced > Initial Buffer Fill | stream_assembly/video_description/`codec`/buf_fill_pct where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings` |
+| Location of Field on Web Interface                  | Location of Tag in XML                                                                                                                                                               |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Streams – Video > Advanced > Bitrate                | stream_assembly/video_description/`codec`/bitrate<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings`      |
+| Streams – Video > Advanced > Buffer Size            | stream_assembly/video_description/`codec`/buf_size<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings`     |
+| Streams – Video > Advanced > Max Bitrate            | stream_assembly/video_description/`codec`/max_bitrate<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings`  |
+| Streams – Video > Advanced > Initial Buffer<br>Fill | stream_assembly/video_description/`codec`/buf_fill_pct<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |

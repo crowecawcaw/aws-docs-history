@@ -39,16 +39,51 @@ and video quality is not.
 
 ### Location of Fields
 
-| Stream – Video > Resolution                                                          | stream_assembly/video_description/resolution                                                 |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Stream – Video > Stretch to output                                                   | stream_assembly/video_description/stretch_to_output                                          |
-| Stream – Video > Anti-alias                                                          | stream_assembly/video_description/anti_alias                                                 | ## Image Processing – Color Correction ### Description In some situations, color correction can be used to adjust the visual color representation of content: <br>• **Brightness / Contrast / Hue / Saturation**: Provide basic pixel luma and chroma adjustment. <br>• **Video Range**: Expands the pixel value range from 16-235 vs 0-255 (full-swing encoding). Set to true to set to full-swing encoding or set to false to pass through the encoding. Set to "true" only if you are sure the range of the input is not full-swing. If it is full-swing and you choose "true", the blacks and whites in the output are clipped. <br>• **Color Space Conversion**: Adjusts pixel values from input to output color space (e.g. REC-601). + Set to "None" to perform no conversion. + Set to "Force 601" or "Force 709" to convert inputs with differing colorspaces. When choosing either of these options, either the metadata must specify the colorspace of the input or you must manually specify that colorspace via the Color Space field in the Video Selector section. If the input colorspace is not specified in one of these ways, the encoder ignores the selected value and does not do any conversion. ### Recommendations Color adjustment does not affect output quality so there are no specific recommendations. ### Location of Fields The following table lists each field by its location on the web interface and shows the location of the corresponding tag in the XML. |
-| Location of Field on Web Interface                                                   | Location of Tag in XML                                                                       |
-| ---                                                                                  | ---                                                                                          |
-| Input > Video Selector > Color Space                                                 | input/video_selector/color_space                                                             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Brightness             | stream_assembly/video_description/video_preprocessor/ color_corrector/brightness             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Contrast               | stream_assembly/video_description/video_preprocessor/ color_corrector/contrast               |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Hue                    | stream_assembly/video_description/video_preprocessor/ color_corrector/hue                    |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Saturation             | stream_assembly/video_description/video_preprocessor/ color_corrector/saturation             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Video Range            | stream_assembly/video_description/video_preprocessor/ color_corrector/full_swing             |
-| Stream – Video > Advanced > Preprocessors > Color Corrector > Color Space Conversion | stream_assembly/video_description/video_preprocessor/ color_corrector/color_space_conversion |
+| Stream – Video > Resolution        | stream_assembly/video_description/resolution        |
+| ---------------------------------- | --------------------------------------------------- |
+| Stream – Video > Stretch to output | stream_assembly/video_description/stretch_to_output |
+| Stream – Video > Anti-alias        | stream_assembly/video_description/anti_alias        |
+
+## Image Processing – Color Correction
+
+### Description
+
+In some situations, color correction can be used to adjust the visual color representation
+of content:
+
+- **Brightness / Contrast / Hue / Saturation**: Provide basic
+  pixel luma and chroma adjustment.
+- **Video Range**: Expands the pixel value range from 16-235
+  vs 0-255 (full-swing encoding). Set to true to set to full-swing encoding or set to false to
+  pass through the encoding.
+
+Set to "true" only if you are sure the range of the input is not full-swing. If it is
+full-swing and you choose "true", the blacks and whites in the output are clipped.
+
+- **Color Space Conversion**: Adjusts pixel values from input
+  to output color space (e.g. REC-601).
+  - Set to "None" to perform no conversion.
+  - Set to "Force 601" or "Force 709" to convert inputs with differing colorspaces. When
+    choosing either of these options, either the metadata must specify the colorspace of the
+    input or you must manually specify that colorspace via the Color Space field in the Video
+    Selector section. If the input colorspace is not specified in one of these ways, the
+    encoder ignores the selected value and does not do any conversion.
+
+### Recommendations
+
+Color adjustment does not affect output quality so there are no specific recommendations.
+
+### Location of Fields
+
+The following table lists each field by its location on the web interface and shows the
+location of the corresponding tag in the XML.
+
+| Location of Field on Web Interface                                                      | Location of Tag in XML                                                                          |
+| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Input > Video Selector > Color Space                                                    | input/video_selector/color_space                                                                |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Brightness                | stream_assembly/video_description/video_preprocessor/<br>color_corrector/brightness             |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Contrast                  | stream_assembly/video_description/video_preprocessor/<br>color_corrector/contrast               |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Hue                       | stream_assembly/video_description/video_preprocessor/<br>color_corrector/hue                    |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Saturation                | stream_assembly/video_description/video_preprocessor/<br>color_corrector/saturation             |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Video Range               | stream_assembly/video_description/video_preprocessor/<br>color_corrector/full_swing             |
+| Stream – Video > Advanced > Preprocessors > Color Corrector > Color Space<br>Conversion | stream_assembly/video_description/video_preprocessor/<br>color_corrector/color_space_conversion |

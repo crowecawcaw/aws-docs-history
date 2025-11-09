@@ -108,11 +108,14 @@ Performance screen on the web interface.
 **Event or Profile API**
 
 | Location of Field on Web Interface       | Location of Tag in XML                        |
-| ---------------------------------------- | --------------------------------------------- | ------------ |
+| ---------------------------------------- | --------------------------------------------- |
 | Streams – Video > Advanced > Bitrate     | stream_assembly/video_description/bitrate     |
 | Streams – Video > Advanced > Min Bitrate | stream_assembly/video_description/min_bitrate |
-| Streams – Video > Advanced > Max Bitrate | stream_assembly/video_description/max_bitrate | **MPTS API** |
-| Location of Field on Web Interface       | Location of Tag in XML                        |
-| ---                                      | ---                                           |
-| MPTS > Transportation Stream Bitrate     | bitrate                                       |
-| MPTS > Video Allocation                  | video_allocation                              |
+| Streams – Video > Advanced > Max Bitrate | stream_assembly/video_description/max_bitrate |
+
+**MPTS API**
+
+| Location of Field on Web Interface   | Location of Tag in XML |
+| ------------------------------------ | ---------------------- |
+| MPTS > Transportation Stream Bitrate | bitrate                |
+| MPTS > Video Allocation              | video_allocation       |

@@ -51,9 +51,9 @@ into the engine.
 
 ## Location of Fields
 
-| Location of Field on Web Interface             | Location of Tag in XML                                                                                                                                                                     |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Streams – Video > Advanced > Rate Control Mode | stream_assembly/video_description/`codec`/rate_control_mode where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings` |
-| Streams – Video > Advanced > Start QP          | stream_assembly/video_description/`codec`/qp where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings`                                      |
-| Streams – Video > Advanced > Min QP            | stream_assembly/video_description/`codec`/min_qp where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings`                                  |
-| Streams – Video > Advanced > Max QP            | stream_assembly/video_description/`codec`/max_qp where `codec` is one of the following: <br>• `h265_settings` <br>• `vc1_settings` <br>• `mpeg2_settings`                                  |
+| Location of Field on Web Interface             | Location of Tag in XML                                                                                                                                                                    |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Streams – Video > Advanced > Rate Control Mode | stream_assembly/video_description/`codec`/rate_control_mode<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
+| Streams – Video > Advanced > Start QP          | stream_assembly/video_description/`codec`/qp<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`                                     |
+| Streams – Video > Advanced > Min QP            | stream_assembly/video_description/`codec`/min_qp<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`                                 |
+| Streams – Video > Advanced > Max QP            | stream_assembly/video_description/`codec`/max_qp<br>where `codec` is one of the following:<br>• `h265_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`                                 |

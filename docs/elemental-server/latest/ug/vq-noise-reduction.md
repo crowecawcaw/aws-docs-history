@@ -35,7 +35,7 @@ option.
 
 ## Location of Fields
 
-| Location of Field on Web Interface                           | Location of Tag in XML                                                        |
-| ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| Streams > Advanced >Preprocessors > Noise Reducer > Filter   | stream_assembly/video_description/video_preprocessors/ noise_reducer/filter   |
-| Streams > Advanced >Preprocessors > Noise Reducer > Strength | stream_assembly/video_description/video_preprocessors/ noise_reducer/strength |
+| Location of Field on Web Interface                           | Location of Tag in XML                                                           |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Streams > Advanced >Preprocessors > Noise Reducer > Filter   | stream_assembly/video_description/video_preprocessors/<br>noise_reducer/filter   |
+| Streams > Advanced >Preprocessors > Noise Reducer > Strength | stream_assembly/video_description/video_preprocessors/<br>noise_reducer/strength |

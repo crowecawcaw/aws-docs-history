@@ -47,8 +47,8 @@ the perceptual variation between frames.
 
 ## Location of Fields
 
-| Location of Field on Web Interface                 | Location of Tag in XML                                                                                                                                                                         |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Streams – Video > Advanced > Adaptive Quantization | stream_assembly/video_description/`codec`/adaptive_quantization where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings` |
-| Streams – Video > Advanced > Framing Quantization  | stream_assembly/video_description/`codec`/framing_quantization where `codec` is: `meg2_settings`                                                                                               |
-| Streams – Video > Advanced > Softness              | stream_assembly/video_description/`codec`/softness where `codec` is one of the following: <br>• `h264_settings` <br>• `mpeg2_settings`                                                         |
+| Location of Field on Web Interface                    | Location of Tag in XML                                                                                                                                                                        |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Streams – Video > Advanced > Adaptive<br>Quantization | stream_assembly/video_description/`codec`/adaptive_quantization<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
+| Streams – Video > Advanced > Framing<br>Quantization  | stream_assembly/video_description/`codec`/framing_quantization<br>where `codec` is:<br>`meg2_settings`                                                                                        |
+| Streams – Video > Advanced > Softness                 | stream_assembly/video_description/`codec`/softness<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `mpeg2_settings`                                                       |

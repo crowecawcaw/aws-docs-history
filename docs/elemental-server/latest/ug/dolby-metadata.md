@@ -62,17 +62,42 @@ The metadata that AWS Elemental Server emits can come from one of two sources:
   include this metadata. Different Dolby codecs include different categories of metadata as shown
   in this table.
 
-| Codec                                       | Categories Present                                                                              |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Dolby Digital or Dolby Digital Plus         | Delivered only                                                                                  |
-| Dolby E                                     | Delivered and Encoder Control                                                                   | <br>• Metadata that is specified by completing metadata fields in the profile or event. You can specify this metadata in any audio whose output codec is a Dolby codec. In other words, you can add it when the audio source is not a Dolby codec as long as the output audio uses a Dolby codec. Both categories of metadata can be specified when specifying this source. You specify the source when setting up the profile or event. ## Impact of the Metadata on the Output Audio Regardless of the source of the metadata, it affects the audio (either by manipulating encoder control or by being included in the output metadata) but only if the output codec is Dolby Digital or Dolby Digital Plus. ## Combinations of Input and Output Codec The possible input and output codec combinations (in which at least one codec is a Dolby codec) are as follows. All these combinations support including metadata in the output. |
-| Input Codec                                 | Output Codec                                                                                    |
-| ---                                         | ---                                                                                             |
-| Dolby Digital or Dolby Digital Plus         | Dolby Digital or Dolby Digital Plus                                                             |
-| Dolby Digital                               | Dolby Digital Passthrough (so Dolby Digital audio is passed through; it is not transcoded)      |
-| Dolby Digital Plus                          | Dolby Digital Passthrough (so Dolby Digital Plus audio is passed through; it is not transcoded) |
-| Mix of Dolby Digital Plus and another codec | Dolby Digital Plus (with the Automatic Passthrough field checked)                               |
-| Dolby E                                     | Dolby Digital                                                                                   |
-| Dolby E                                     | Dolby Digital Plus                                                                              |
-| Dolby E                                     | Dolby E (passthrough )                                                                          |
-| A non-Dolby codec                           | Dolby Digital or Dolby Digital Plus                                                             | The sample rate when encoding with a Dolby codec is always 48000.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Codec                               | Categories Present            |
+| ----------------------------------- | ----------------------------- |
+| Dolby Digital or Dolby Digital Plus | Delivered only                |
+| Dolby E                             | Delivered and Encoder Control |
+
+- Metadata that is specified by completing metadata fields in the profile or event.
+  You can specify this metadata in any audio whose output codec is a Dolby codec. In other words,
+  you can add it when the audio source is not a Dolby codec as long as the output audio uses a
+  Dolby codec.
+
+Both categories of metadata can be specified when specifying this source.
+
+You specify the source when setting up the profile or event.
+
+## Impact of the Metadata on the Output Audio
+
+Regardless of the source of the metadata, it affects the audio (either by manipulating
+encoder control or by being included in the output metadata) but only if the output codec is
+Dolby Digital or Dolby Digital Plus.
+
+## Combinations of Input and
+
+Output Codec
+
+The possible input and output codec combinations (in which at least one codec is a Dolby
+codec) are as follows. All these combinations support including metadata in the output.
+
+| Input Codec                                 | Output Codec                                                                                       |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Dolby Digital or Dolby Digital Plus         | Dolby Digital or Dolby Digital Plus                                                                |
+| Dolby Digital                               | Dolby Digital Passthrough (so Dolby Digital audio is passed through; it is not<br>transcoded)      |
+| Dolby Digital Plus                          | Dolby Digital Passthrough (so Dolby Digital Plus audio is passed through; it is not<br>transcoded) |
+| Mix of Dolby Digital Plus and another codec | Dolby Digital Plus (with the Automatic Passthrough field checked)                                  |
+| Dolby E                                     | Dolby Digital                                                                                      |
+| Dolby E                                     | Dolby Digital Plus                                                                                 |
+| Dolby E                                     | Dolby E (passthrough )                                                                             |
+| A non-Dolby codec                           | Dolby Digital or Dolby Digital Plus                                                                |
+
+The sample rate when encoding with a Dolby codec is always 48000.

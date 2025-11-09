@@ -48,13 +48,19 @@ The following table specifies how a message (containing a specific combination o
 message type and segmentation type) is treated, depending on the mode that is specified.
 Each message is treated as either an ad avail, a non-ad avail, or as “other."
 
-| Mode                   | Message Type ID        | Segmentation Type ID               | Ad Avail Event | Not an Ad Avail Event | Other Event               |
-| ---------------------- | ---------------------- | ---------------------------------- | -------------- | --------------------- | ------------------------- | ------------------------- | --- | --- | --- |
-| Splice Insert mode     | Splice Insert          | No segmentation descriptor present | X              |                       |                           |
-| Provider advertisement | X                      |                                    |                |                       | Distributor advertisement | X                         |     |     |
-| Placement opportunity  | X                      |                                    |                |                       | Other type                |                           |     | X   |
-| Time signal            | Provider advertisement | X                                  |                |                       |                           | Distributor advertisement | X   |     |     |
-| Placement opportunity  | X                      |                                    |                |                       | Other type                |                           |     | X   |
-| Time signal APOS mode  | Splice insert          | Any                                |                | X                     |                           |
-| Time signal            | Provider advertisement |                                    | X              |                       |                           | Distributor advertisement |     | X   |     |
-| Placement opportunity  | X                      |                                    |                |                       | Other type                |                           |     | X   |
+| Mode                      | Message Type ID        | Segmentation Type ID               | Ad Avail Event | Not an Ad Avail Event | Other Event |
+| ------------------------- | ---------------------- | ---------------------------------- | -------------- | --------------------- | ----------- |
+| Splice Insert mode        | Splice Insert          | No segmentation descriptor present | X              |                       |             |
+| Provider advertisement    | X                      |                                    |                |
+| Distributor advertisement | X                      |                                    |                |
+| Placement opportunity     | X                      |                                    |                |
+| Other type                |                        |                                    | X              |
+| Time signal               | Provider advertisement | X                                  |                |                       |
+| Distributor advertisement | X                      |                                    |                |
+| Placement opportunity     | X                      |                                    |                |
+| Other type                |                        |                                    | X              |
+| Time signal APOS mode     | Splice insert          | Any                                |                | X                     |             |
+| Time signal               | Provider advertisement |                                    | X              |                       |
+| Distributor advertisement |                        | X                                  |                |
+| Placement opportunity     | X                      |                                    |                |
+| Other type                |                        |                                    | X              |

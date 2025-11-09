@@ -31,7 +31,7 @@ to be analyzed by the encoding engine.
 
 ## Location of Fields
 
-| Location of Field on Web Interface     | Location of Tag in XML                                                                                                                                                                           |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Streams – Video > Advanced > Passes    | stream_assembly/video_description/`codec`/passes where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings`                  |
-| Streams – Video > Advanced > Lookahead | stream_assembly/video_description/`codec`/look_ahead_rate_control where `codec` is one of the following: <br>• `h264_settings` <br>• `vc1_settings` <br>• `mpeg2_settings` <br>• `h265_settings` |
+| Location of Field on Web Interface     | Location of Tag in XML                                                                                                                                                                          |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Streams – Video > Advanced > Passes    | stream_assembly/video_description/`codec`/passes<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings`                  |
+| Streams – Video > Advanced > Lookahead | stream_assembly/video_description/`codec`/look_ahead_rate_control<br>where `codec` is one of the following:<br>• `h264_settings`<br>• `vc1_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
