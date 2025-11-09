@@ -16,7 +16,7 @@ You must specify the output PID.
   control** and **ARIB captions PID** as shown in the
   following table.
 
-| ARIB Captions PID Control | ARIB Captions PID              | Result                                                                           |
-| ------------------------- | ------------------------------ | -------------------------------------------------------------------------------- |
-| Auto                      | Ignore                         | A PID is automatically assigned during encoding. This value could be any number. |
-| Use Configured            | Enter a decimal or hexadecimal | This PID is used for the captions.                                               |
+| ARIB Captions PID Control | ARIB Captions PID              | Result                                                                              |
+| ------------------------- | ------------------------------ | ----------------------------------------------------------------------------------- |
+| Auto                      | Ignore                         | A PID is automatically assigned during encoding. This value could be any<br>number. |
+| Use Configured            | Enter a decimal or hexadecimal | This PID is used for the captions.                                                  |

@@ -11,9 +11,9 @@ examples:
 
 Where:
 
-| Element                                             | Description                                                                                                        |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `mz82o4-1` and `mz82o4-2`                           | Indicate that the two endpoints are for a redundant channel in MediaPackage. The prefixes are always `-1` and `-2` |
-| `mediapackagev2`                                    | Indicates that the input endpoints uses version 2 of the MediaPackage API                                          |
-| `live-sports/1/curling` and `live-sports/2/curling` | Folders for the redundant ingests. One folder always includes `/1/`, and the other folder always includes `/2/`    |
-| `index`                                             | Always appears at the end of the URL. It is the base filename for all the files for this destination.              |
+| Element                                                | Description                                                                                                              |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `mz82o4-1` and<br>`mz82o4-2`                           | Indicate that the two endpoints are for a redundant<br>channel in MediaPackage. The prefixes are always<br>`-1` and `-2` |
+| `mediapackagev2`                                       | Indicates that the input endpoints uses version 2 of<br>the MediaPackage API                                             |
+| `live-sports/1/curling` and<br>`live-sports/2/curling` | Folders for the redundant ingests. One folder always<br>includes `/1/`, and the other folder always<br>includes `/2/`    |
+| `index`                                                | Always appears at the end of the URL. It is the base<br>filename for all the files for this destination.                 |

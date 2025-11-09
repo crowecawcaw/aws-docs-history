@@ -12,6 +12,6 @@ For example, your deployment might use files in the following ways:
   they use the regular MediaLive console to specify a MediaStore container in a
   channel.
 
-| Permissions                                                                                                                                                                                                  | Service name in IAM | Actions                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | ------------------------------------ |
-| Use the workflow wizard to create a MediaStore container, if your organization supports MediaStore as an output destination.Use the workflow wizard, to delete a workflow that includes a MediaStore output. | MediaStore          | `List*``Describe*``Create*``Delete*` |
+| Permissions                                                                                                                                                                                                           | Service name in IAM | Actions                              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------ |
+| Use the workflow wizard to create a MediaStore container, if your<br>organization supports MediaStore as an output destination.Use the<br>workflow wizard, to delete a workflow that includes a MediaStore<br>output. | MediaStore          | `List*``Describe*``Create*``Delete*` |

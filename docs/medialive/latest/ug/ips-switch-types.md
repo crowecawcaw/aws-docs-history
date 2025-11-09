@@ -45,10 +45,33 @@ are these types of switches:
 The following table summarizes the inputs and start types.
 
 | Current Input | Next Input | Possible Start Type |
-| ------------- | ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ---------- | ------------------- |
 | File          | File       | Fixed or Immediate  |
 | File          | File       | Follow              |
 | File          | Live       | Fixed or Immediate  |
 | File          | Live       | Follow              |
 | Live          | File       | Fixed or Immediate  |
-| Live          | Live       | Fixed or Immediate  | ## Follow chains A series of follow input switches is called a _follow chain_. When each input ends, MediaLive automatically starts ingesting the next input. Here is a diagram of a follow chain: `Input A    Fixed or Immediate   File Input B  Follow               File Input C  Follow               File Input D  Follow               File or Live Input E    Fixed or Immediate   File or Live` The follow chain starts with the _reference action_—the input above the first follow. It ends with the last follow input. In the preceding example, the chain starts with the reference action input A and ends with input D. Inputs A, B, and C must be files because they must have a defined ending so that the next input can successfully follow. Input E breaks the chain because it is fixed or immediate. |
+| Live          | Live       | Fixed or Immediate  |
+
+## Follow chains
+
+A series of follow input switches is called a _follow
+chain_. When each input ends, MediaLive automatically starts ingesting the next input.
+Here is a diagram of a follow chain:
+
+```
+
+   Input A    Fixed or Immediate   File
+     Input B  Follow               File
+     Input C  Follow               File
+     Input D  Follow               File or Live
+   Input E    Fixed or Immediate   File or Live
+
+```
+
+The follow chain starts with the _reference
+action_—the input above the first follow. It ends with the last follow input.
+In the preceding example, the chain starts with the reference action input A and ends with
+input D. Inputs A, B, and C must be files because they must have a defined ending so that the
+next input can successfully follow. Input E breaks the chain because it is fixed or
+immediate.

@@ -31,7 +31,87 @@ resources in MediaConnect and in Secrets Manager:
   to read the encryption key that is stored in a secret.
   This table specifies the required operations and resources.
 
-| Permissions                                                                      | Service name in IAM | Actions          | Resources                                                                          |
-| -------------------------------------------------------------------------------- | ------------------- | ---------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| View the details of a flow                                                       | mediaconnect        | `DescribeFlow`   | All resources                                                                      |
-| Obtain the encryption key from the secret. See the explanation after this table. | secretsmanager      | `GetSecretValue` | The ARN of each secret that holds an encryption key that MediaLive needs to access | ###### Topics <br>• [Step 1: Create the IAM policy](#device-iam-medialive-policy "#device-iam-medialive-policy") <br>• [Step 2: Set up the trusted entity role](#device-iam-medialive-role "#device-iam-medialive-role") ## Step 1: Create the IAM policy In this step, you create a policy that makes the statement "Let a principal have access to the specified Secrets Manager actions on the specified resource". Note that the policy doesn't specify a principal. You specify the principal in the next step, when you set up the trusted entity role. 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the navigation pane on the left, choose **Policies**. Choose **Create Policy**, then choose the **JSON** tab. 3. In the **Policy editor**, clear the sample content and paste the following: 4. In the **Resource** section for **secretsmanager**, replace the Region, account, and secret name with real values. 5. Add more lines in the **Resources** section or `secretsmanager`, one for each secret. Make sure you include a comma at the end of all lines except the last line. For example: `"Resource": [ "arn:aws:secretsmanager:us-west-2:111122223333:secret:emx_special_skating-KM19jL", "arn:aws:secretsmanager:us-west-2:111122223333:secret:aes-":secret:emx_weekly_live_poetry-3ASA30", "arn:aws:secretsmanager:us-west-2:111122223333:secret:aes-":secret:emx_tuesday_night_curling-AMcb01" ]` 6. Give the policy a name that makes it clear that this policy is for Link and a flow. For example, `medialiveForLinkFlowAccess`. 7. Choose **Create policy**. ## Step 2: Set up the trusted entity role In this step, you create a role that consists of a trust policy ("let MediaLive call the `AssumeRole` action") and a policy (the policy that you just created). In this way, MediaLive has permission to assume the role. When it assumes the role, it acquires the permissions specified in the policy. 1. On the IAM console, in the navigation pane on the left, choose **Roles**, then **Create Role**. The **Create role** wizard appears. This wizard walks you through the steps of setting up a trusted entity, and adding permissions (by adding a policy). 2. On the **Select trusted entity** page, choose the **Custom trust policy** card. The **Custom trust policy** section appears, with a sample policy. 3. Erase the sample, copy the following text, and paste the text in the **Custom trust policy** section. The **Custom trust policy** section now looks like this: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "medialive.amazonaws.com" }, "Action": "sts:AssumeRole" } ] }` `` 4. Choose **Next**. 5. On the **Add Permissions** page, find the policy that you created (for example, `medialiveForLinkFlowAccess`), and select the checkbox. Then choose **Next**. 6. On the review page, enter a name for the role. For example, `medialiveRoleForLinkFlowAccess`. 7. Choose **Create role**. |
+| Permissions                                                                         | Service name in IAM | Actions          | Resources                                                                             |
+| ----------------------------------------------------------------------------------- | ------------------- | ---------------- | ------------------------------------------------------------------------------------- |
+| View the details of a flow                                                          | mediaconnect        | `DescribeFlow`   | All resources                                                                         |
+| Obtain the encryption key from the secret. See the explanation after this<br>table. | secretsmanager      | `GetSecretValue` | The ARN of each secret that holds an encryption key that MediaLive needs to<br>access |
+
+###### Topics
+
+- [Step 1: Create the IAM policy](#device-iam-medialive-policy "#device-iam-medialive-policy")
+- [Step 2: Set up the trusted entity role](#device-iam-medialive-role "#device-iam-medialive-role")
+
+## Step 1: Create the IAM policy
+
+In this step, you create a policy that makes the statement "Let a principal have
+access to the specified Secrets Manager actions on the specified resource". Note that the policy
+doesn't specify a principal. You specify the principal in the next step, when you set up
+the trusted entity role.
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane on the left, choose **Policies**. Choose
+   **Create Policy**, then choose the **JSON**
+   tab.
+3. In the **Policy editor**, clear the sample content and paste the
+   following:
+4. In the **Resource** section for
+   **secretsmanager**, replace the Region, account, and secret name
+   with real values.
+5. Add more lines in the **Resources** section or
+   `secretsmanager`, one for each secret. Make sure you include a comma at
+   the end of all lines except the last line. For example:
+
+```
+      "Resource": [
+        "arn:aws:secretsmanager:us-west-2:111122223333:secret:emx_special_skating-KM19jL",
+        "arn:aws:secretsmanager:us-west-2:111122223333:secret:aes-":secret:emx_weekly_live_poetry-3ASA30",
+        "arn:aws:secretsmanager:us-west-2:111122223333:secret:aes-":secret:emx_tuesday_night_curling-AMcb01"
+      ]
+```
+
+6. Give the policy a name that makes it clear that this policy is for Link and
+   a flow. For example, `medialiveForLinkFlowAccess`.
+7. Choose **Create policy**.
+
+## Step 2: Set up the trusted entity role
+
+In this step, you create a role that consists of a trust policy ("let MediaLive call the
+`AssumeRole` action") and a policy (the policy that you just created). In
+this way, MediaLive has permission to assume the role. When it assumes the role, it acquires
+the permissions specified in the policy.
+
+1. On the IAM console, in the navigation pane on the left, choose
+   **Roles**, then **Create Role**. The
+   **Create role** wizard appears. This wizard walks you through the
+   steps of setting up a trusted entity, and adding permissions (by adding a
+   policy).
+2. On the **Select trusted entity** page, choose the
+   **Custom trust policy** card. The **Custom trust policy** section appears, with a sample policy.
+3. Erase the sample, copy the following text, and paste the text in the
+   **Custom trust policy** section. The **Custom trust policy** section now looks like this:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "medialive.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+4. Choose **Next**.
+5. On the **Add Permissions** page, find the policy that you created
+   (for example, `medialiveForLinkFlowAccess`), and select the checkbox. Then
+   choose **Next**.
+6. On the review page, enter a name for the role. For example,
+   `medialiveRoleForLinkFlowAccess`.
+7. Choose **Create role**.

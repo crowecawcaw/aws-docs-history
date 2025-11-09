@@ -62,15 +62,47 @@ for H.264
 The **Profile** field sets the profile, chroma
 sampling, and bit depth.
 
-| Value in **Profile** field | Profile  | Chroma Sampling | Bit Depth |
-| -------------------------- | -------- | --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Baseline**               | Baseline | 4:2:0           | 8-bit     |
-| **Main**                   | Main     | 4:2:0           | 8-bit     |
-| **High**                   | High     | 4:2:0           | 8-bit     |
-| **High 10bit**             | High     | 4:2:0           | 10-bit    |
-| **High 422**               | High     | 4:2:2           | 8-bit     |
-| **High 422 10bit**         | High     | 4:2:2           | 10-bit    | ### Profile field for H.265 The **Profile** field sets the profile, chroma sampling, and bit depth.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Value in Profile field     | Profile  | Chroma Sampling | Bit Depth |
-| ---                        | ---      | ---             | ---       |
-| **Main**                   | Main     | 4:2:0           | 8-bit     |
-| **Main_10BIT**             | Main     | 4:2:0           | 10-bit    | ### Level field for AV1 The **Level** field sets the level. Other encoding schemes are hard-coded. For more information, see Level field for AV1. ## Timecode For information about the **Timecode** fields, see [Working with timecodes and timestamps](timecode.md "timecode.md"). ## Color space For information about the **Color space** fields, see [Handling complex color space conversions](color-space.md "color-space.md"). ## Additional encoding settings For information about the **Additional encoding setting**s fields, see [Setting up enhanced VQ mode](video-enhancedvq.md "video-enhancedvq.md") |
+| Value in \*_Profile_<br>• field | Profile  | Chroma Sampling | Bit Depth |
+| ------------------------------- | -------- | --------------- | --------- |
+| **Baseline**                    | Baseline | 4:2:0           | 8-bit     |
+| **Main**                        | Main     | 4:2:0           | 8-bit     |
+| **High**                        | High     | 4:2:0           | 8-bit     |
+| **High 10bit**                  | High     | 4:2:0           | 10-bit    |
+| **High 422**                    | High     | 4:2:2           | 8-bit     |
+| **High 422 10bit**              | High     | 4:2:2           | 10-bit    |
+
+### Profile field
+
+for H.265
+
+The **Profile** field sets the profile, chroma
+sampling, and bit depth.
+
+| Value in Profile field | Profile | Chroma Sampling | Bit Depth |
+| ---------------------- | ------- | --------------- | --------- |
+| **Main**               | Main    | 4:2:0           | 8-bit     |
+| **Main_10BIT**         | Main    | 4:2:0           | 10-bit    |
+
+### Level field for
+
+AV1
+
+The **Level** field sets the level. Other encoding
+schemes are hard-coded. For more information, see Level field for
+AV1.
+
+## Timecode
+
+For information about the **Timecode** fields, see [Working with timecodes and timestamps](timecode.md "timecode.md").
+
+## Color space
+
+For information about the **Color space** fields, see
+[Handling complex color space conversions](color-space.md "color-space.md").
+
+## Additional encoding
+
+settings
+
+For information about the **Additional encoding
+setting**s fields, see [Setting up enhanced VQ mode](video-enhancedvq.md "video-enhancedvq.md")

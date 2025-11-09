@@ -9,6 +9,6 @@ Users need permissions to perform actions in MediaConnect when they use the
 MediaLive workflow wizard. Users don't need special permissions when they use the
 regular MediaLive console to specify a MediaConnect flow in an input or channel.
 
-| Permissions                                                                                                                                                                                           | Service name in IAM | Actions                              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------ |
-| Use the workflow wizard to create a MediaConnect flow, if your organization supports sources from MediaConnect.Use the workflow wizard to delete a workflow that includes a source from MediaConnect. | MediaConnect        | `List*``Describe*``Create*``Delete*` |
+| Permissions                                                                                                                                                                                                 | Service name in IAM | Actions                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------ |
+| Use the workflow wizard to create a MediaConnect flow, if your<br>organization supports sources from MediaConnect.Use the workflow wizard<br>to delete a workflow that includes a source from MediaConnect. | MediaConnect        | `List*``Describe*``Create*``Delete*` |

@@ -24,18 +24,26 @@ You don't specify a time.
   column, then read across the row for the applicable types of
   timing.
 
-| Type of action                                | Supported types of timing |
-| --------------------------------------------- | ------------------------- | --------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                               | Fixed                     | Follow (Note A) | Immediate |
-| Switch the input (perform an input switch)    | Yes                       | Yes             | Yes       |
-| Prepare the input (perform an input prepare)  | Yes                       | Yes             | Yes       |
-| Activate a global static image overlay        | Yes                       |                 | Yes       |
-| Activate a per-outputs static image overlay   | Yes                       |                 | Yes       |
-| Activate a motion graphics overlay            | Yes                       |                 | Yes       |
-| Deactivate a global static image overlay      | Yes                       |                 | Yes       |
-| Deactivate a per-outputs static image overlay | Yes                       |                 | Yes       |
-| Deactivate a motion graphics overlay          | Yes                       |                 | Yes       |
-| Insert a SCTE 35 message                      | Yes                       | Yes             | Yes       |
-| Insert ID3 metadata                           | Yes                       |                 | Yes       |
-| Insert an ID3 segment tag                     | Yes                       |                 | Yes       |
-| Pause or unpause one or both pipelines        | Yes                       |                 | Yes       | ###### Note A With a follow, the applicable action can follow an input switch. It can't follow other types of actions. Therefore, the action that is _being followed_ is always an input switch. The action that does the follow is an input switch, an input prepare, or a SCTE 35 message. |
+| Type of action                                | Supported types of<br>timing |
+| --------------------------------------------- | ---------------------------- | --------------- | --------- |
+|                                               | Fixed                        | Follow (Note A) | Immediate |
+| Switch the input (perform an input switch)    | Yes                          | Yes             | Yes       |
+| Prepare the input (perform an input prepare)  | Yes                          | Yes             | Yes       |
+| Activate a global static image overlay        | Yes                          |                 | Yes       |
+| Activate a per-outputs static image overlay   | Yes                          |                 | Yes       |
+| Activate a motion graphics overlay            | Yes                          |                 | Yes       |
+| Deactivate a global static image overlay      | Yes                          |                 | Yes       |
+| Deactivate a per-outputs static image overlay | Yes                          |                 | Yes       |
+| Deactivate a motion graphics overlay          | Yes                          |                 | Yes       |
+| Insert a SCTE 35 message                      | Yes                          | Yes             | Yes       |
+| Insert ID3 metadata                           | Yes                          |                 | Yes       |
+| Insert an ID3 segment tag                     | Yes                          |                 | Yes       |
+| Pause or unpause one or both pipelines        | Yes                          |                 | Yes       |
+
+###### Note A
+
+With a follow, the applicable action can follow an input
+switch. It can't follow other types of actions. Therefore, the
+action that is _being followed_ is always an input switch. The action that does the
+follow is an input switch, an input prepare, or a SCTE 35
+message.

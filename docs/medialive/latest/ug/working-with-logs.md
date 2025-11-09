@@ -84,8 +84,20 @@ read across to identify the message severities that will
 appear in the logs with this logging level.
 
 | Level   | Debug messages | Info messages | Warning messages | Critical messages | Fatal messages |
-| ------- | -------------- | ------------- | ---------------- | ----------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | -------------- | ------------- | ---------------- | ----------------- | -------------- |
 | DEBUG   | Yes            | Yes           | Yes              | Yes               | Yes            |
 | INFO    |                | Yes           | Yes              | Yes               | Yes            |
 | WARNING |                |               | Yes              | Yes               | Yes            |
-| ERROR   |                |               |                  | Yes               | Yes            | ## Managing log storage When you delete a channel, the associated logs remain in CloudWatch Logs. You will continue to be charged for their storage until you delete them. To delete logs, change the log data retention. All the data that is older than the retention setting that you specify will be deleted. For more information, see [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md"). The **Log group** for the logs is **ElementalMediaLive**. |
+| ERROR   |                |               |                  | Yes               | Yes            |
+
+## Managing log
+
+storage
+
+When you delete a channel, the associated logs remain in
+CloudWatch Logs. You will continue to be charged for their storage
+until you delete them. To delete logs, change the log data
+retention. All the data that is older than the retention
+setting that you specify will be deleted. For more
+information, see [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md"). The **Log group** for the logs is
+**ElementalMediaLive**.

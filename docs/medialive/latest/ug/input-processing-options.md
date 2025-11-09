@@ -15,14 +15,14 @@ SCTE 35 messages can appear only in the following types of MediaLive inputs:
   MediaLive handles that information. To read the table, find an input in the first
   column, then read across in the row.
 
-| Input                      | Interpret SCTE 35 messages in the source stream                 | Interpret ad avail information in the input manifest |
-| -------------------------- | --------------------------------------------------------------- | ---------------------------------------------------- |
-| Elemental Link             | Yes                                                             | Not applicable                                       |
-| HLS                        | Yes                                                             | Yes                                                  |
-| MediaConnect               | Yes                                                             | Not applicable                                       |
-| RTMP                       | No                                                              | Not applicable                                       |
-| RTP                        | Yes                                                             | Not applicable                                       |
-| SMPTE 2110                 | Yes (interpret SCTE 104 messages in the ancillary data packets) | Not applicable                                       |
-| SRT Caller                 | Yes                                                             | No applicable                                        |
-| Transport Stream (TS) file | Yes                                                             | Not applicable                                       |
-| AWS CDI                    | Yes                                                             | Not applicable                                       |
+| Input                      | Interpret SCTE 35 messages in the<br>source<br>stream              | Interpret ad avail information in the input manifest |
+| -------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------- |
+| Elemental Link             | Yes                                                                | Not applicable                                       |
+| HLS                        | Yes                                                                | Yes                                                  |
+| MediaConnect               | Yes                                                                | Not applicable                                       |
+| RTMP                       | No                                                                 | Not applicable                                       |
+| RTP                        | Yes                                                                | Not applicable                                       |
+| SMPTE 2110                 | Yes (interpret SCTE 104 messages in the ancillary data<br>packets) | Not applicable                                       |
+| SRT Caller                 | Yes                                                                | No applicable                                        |
+| Transport Stream (TS) file | Yes                                                                | Not applicable                                       |
+| AWS CDI                    | Yes                                                                | Not applicable                                       |

@@ -30,10 +30,92 @@ MediaLive features. Read this information as follows:
 You must assign permissions for actions in several services, as described in the
 following table.
 
-| Permissions                                                                                                                                                                                    | Service name in IAM | Actions                                                                                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| View, configure, and manage a Link device                                                                                                                                                      | medialive           | `DescribeInputDevice` `DescribeInputDeviceThumbnail` `ListInputDevices` `RebootInputDevice` `StartInputDeviceMaintenanceWindow` `StartInputDevice` `StopInputDevice` `UpdateInputDevice` |
-| Handle transfers of Link devices                                                                                                                                                               | medialive           | `AcceptInputDeviceTransfer` `CancelInputDeviceTransfer` `ClaimDevice` `ListInputDeviceTransfers` `RejectInputDeviceTransfer` `TransferInputDevice`                                       |
-| On the MediaLive console, view MediaConnect flows in the dropdown list. This dropdown list appears in the **Flow ARN** field in the **Attachments** tab on the **Device details** page.        | mediaconnect        | `ListFlows`                                                                                                                                                                              |
-| On the MediaLive console, view Secrets Manager secrets in the dropdown list. This dropdown list appears in the **Secret ARN** field in the **Attachments** tab on the **Device details** page. | secretsmanager      | `ListSecrets`                                                                                                                                                                            |
-| On the MediaLive console, view IAM roles in the dropdown list. This dropdown list appears in the **Role ARN** field in the **Attachments** tab on the **Device details** page.                 | iam                 | `ListRoles`                                                                                                                                                                              | ## Creating the policy 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the navigation pane on the left, choose **Policies**. Choose **Create Policy**, then choose the **JSON** tab. 3. In the **Policy editor**, clear the sample content and paste the policy that appears after this procedure. 4. Give the policy a name that makes it clear that this policy is for using Link. For example, `ElementalLinkAccess`. 5. Choose **Create policy**. Sample policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "medialive:DescribeInputDevice", "medialive:DescribeInputDeviceThumbnail", "medialive:ListInputDevices", "medialive:RebootInputDevice", "medialive:StartInputDeviceMaintenanceWindow", "medialive:StartInputDevice", "medialive:StopInputDevice", "medialive:UpdateInputDevice" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "medialive:AcceptInputDeviceTransfer", "medialive:CancelInputDeviceTransfer", "medialive:ClaimDevice", "medialive:ListInputDeviceTransfers", "medialive:RejectInputDeviceTransfer", "medialive:TransferInputDevice" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "mediaconnect:ListFlows" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "secretsmanager:ListSecrets" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "iam:ListRoles" ], "Resource": [ "*" ] } ] }` `` |
+| Permissions                                                                                                                                                                                                            | Service name in IAM | Actions                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| View, configure, and manage a Link device                                                                                                                                                                              | medialive           | `DescribeInputDevice`<br>`DescribeInputDeviceThumbnail`<br>`ListInputDevices`<br>`RebootInputDevice`<br>`StartInputDeviceMaintenanceWindow`<br>`StartInputDevice`<br>`StopInputDevice`<br>`UpdateInputDevice` |
+| Handle transfers of Link devices                                                                                                                                                                                       | medialive           | `AcceptInputDeviceTransfer`<br>`CancelInputDeviceTransfer`<br>`ClaimDevice`<br>`ListInputDeviceTransfers`<br>`RejectInputDeviceTransfer`<br>`TransferInputDevice`                                             |
+| On the MediaLive console, view MediaConnect flows in the dropdown list. This dropdown<br>list appears in the **Flow ARN\*<br>• field in the<br>**Attachments*<br>• tab on the \*\*Device<br>details*<br>• page.        | mediaconnect        | `ListFlows`                                                                                                                                                                                                   |
+| On the MediaLive console, view Secrets Manager secrets in the dropdown list. This dropdown<br>list appears in the **Secret ARN\*<br>• field in the<br>**Attachments*<br>• tab on the \*\*Device<br>details*<br>• page. | secretsmanager      | `ListSecrets`                                                                                                                                                                                                 |
+| On the MediaLive console, view IAM roles in the dropdown list. This dropdown<br>list appears in the **Role ARN\*<br>• field in the<br>**Attachments*<br>• tab on the \*\*Device<br>details*<br>• page.                 | iam                 | `ListRoles`                                                                                                                                                                                                   |
+
+## Creating the policy
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane on the left, choose **Policies**. Choose
+   **Create Policy**, then choose the **JSON**
+   tab.
+3. In the **Policy editor**, clear the sample content and paste the
+   policy that appears after this procedure.
+4. Give the policy a name that makes it clear that this policy is for using
+   Link. For example, `ElementalLinkAccess`.
+5. Choose **Create policy**.
+
+Sample policy:
+
+JSON
+
+```
+ `{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "medialive:DescribeInputDevice",
+ "medialive:DescribeInputDeviceThumbnail",
+ "medialive:ListInputDevices",
+ "medialive:RebootInputDevice",
+ "medialive:StartInputDeviceMaintenanceWindow",
+ "medialive:StartInputDevice",
+ "medialive:StopInputDevice",
+ "medialive:UpdateInputDevice"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "medialive:AcceptInputDeviceTransfer",
+ "medialive:CancelInputDeviceTransfer",
+ "medialive:ClaimDevice",
+ "medialive:ListInputDeviceTransfers",
+ "medialive:RejectInputDeviceTransfer",
+ "medialive:TransferInputDevice"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "mediaconnect:ListFlows"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:ListSecrets"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:ListRoles"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```

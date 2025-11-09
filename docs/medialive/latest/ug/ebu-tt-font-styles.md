@@ -19,10 +19,10 @@ specify some of this information.
 
 The XML file for the captions includes the following style information:
 
-| Style information                                                | Value in XML file for Include option                               | Value in XML file for Exclude option    |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------- |
-| Font style information (position, alignment, italics, and so on) | Set to match the source captions.                                  | Left blank.                             |
-| Font color and background color                                  | Set to match the source captions.                                  | Set to white font and black background. |
-| Font size                                                        | Set to 100%.                                                       | Set to 100%.                            |
-| Font family                                                      | Set to the value that you specified in **Font family**.            | Set to **monospaced**.                  |
-| Line gap                                                         | Set up to match the value that you specified in **Fill line gap**. | Set up to leave the gap unfilled.       |
+| Style information                                                | Value in XML file for Include option                                  | Value in XML file for Exclude option    |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------- |
+| Font style information (position, alignment, italics, and so on) | Set to match the source captions.                                     | Left blank.                             |
+| Font color and background color                                  | Set to match the source captions.                                     | Set to white font and black background. |
+| Font size                                                        | Set to 100%.                                                          | Set to 100%.                            |
+| Font family                                                      | Set to the value that you specified in **Font<br>family**.            | Set to **monospaced**.                  |
+| Line gap                                                         | Set up to match the value that you specified in **Fill line<br>gap**. | Set up to leave the gap unfilled.       |

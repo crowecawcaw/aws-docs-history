@@ -58,7 +58,7 @@ View details about updates to AWS managed policies for MediaLive since this serv
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on the MediaLive [document history](doc-history.md "doc-history.md") page.
 
-| Change                                                                   | Description                                                                                   | Date          |
-| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ------------- |
-| The MediaLive managed policy **MediaLiveReadOnlyPolicy** has been added. | This policy grants permission to register MediaLive Gateway Instances to a MediaLive Gateway. | July 12, 2024 |
-| MediaLive started tracking changes                                       | MediaLive started tracking changes for its AWS managed policies.                              | July 12, 2024 |
+| Change                                                                      | Description                                                                                      | Date          |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------- |
+| The MediaLive managed policy **MediaLiveReadOnlyPolicy**<br>has been added. | This policy grants permission to register MediaLive Gateway Instances to<br>a MediaLive Gateway. | July 12, 2024 |
+| MediaLive started tracking changes                                          | MediaLive started tracking changes for its AWS managed policies.                                 | July 12, 2024 |

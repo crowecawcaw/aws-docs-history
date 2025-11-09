@@ -14,7 +14,7 @@ feature, see [Delivering outputs via your VPC](delivery-out-vpc.md "delivery-out
 The following table shows the actions in IAM that relate to access
 for populating the dropdowns.
 
-| Permissions                                                                                                                                    | Service name in IAM | Actions                                   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------- |
-| View the VPC subnets and VPC security groups on the MediaLive console.                                                                         | **EC2**             | `DescribeSubnets``DescribeSecurityGroups` |
-| View the Elastic IP addresses on the console. The console finds the Elastic IP addresses that have been allocated for use in your AWS account. | **EC2**             | `DescribeAddresses`                       |
+| Permissions                                                                                                                                          | Service name in IAM | Actions                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------- |
+| View the VPC subnets and VPC security groups on the MediaLive<br>console.                                                                            | **EC2**             | `DescribeSubnets``DescribeSecurityGroups` |
+| View the Elastic IP addresses on the console. The console finds<br>the Elastic IP addresses that have been allocated for use in your AWS<br>account. | **EC2**             | `DescribeAddresses`                       |

@@ -14,6 +14,6 @@ see [Creating an input](create-input.md "create-input.md").
 The following table shows the actions in IAM that relate to access
 for populating the dropdown.
 
-| Permissions                                                           | Service name in IAM | Actions                                   |
-| --------------------------------------------------------------------- | ------------------- | ----------------------------------------- |
-| View the VPC subnets and VPC security groups on the MediaLive console | **EC2**             | `DescribeSubnets``DescribeSecurityGroups` |
+| Permissions                                                              | Service name in IAM | Actions                                   |
+| ------------------------------------------------------------------------ | ------------------- | ----------------------------------------- |
+| View the VPC subnets and VPC security groups on the MediaLive<br>console | **EC2**             | `DescribeSubnets``DescribeSecurityGroups` |

@@ -77,7 +77,109 @@ and **Quality level** for your most important viewing devices. See the
 following table for suggestions.
 
 | Viewing Device | Quality Level | Max Bitrate            |
-| -------------- | ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------- | ---------------------- |
 | Primary Screen | 8 to 10       | 4,000,000 to 6,000,000 |
 | PC or Tablet   | 7             | 1,500,000 to 3,000,000 |
-| Smartphone     | 6             | 1,000,000 to 1,500,000 | **How it works:** The bitrate can change with each frame (in order to obtain at least the specified quality), but it can't exceed the maximum bitrate. The encoder does not attempt to maintain an average bitrate. It always reaches the maximum bitrate if that is necessary to obtain the specified quality. On the other hand, if the quality can be obtained with lower bitrates, the encoder doesn't use a higher bitrate. ### Option 2: Letting MediaLive determine the quality level To set up in QVBR mode with a target quality that MediaLive determines, complete the fields as follows: <br>• **QVBR quality level**: Leave the field empty. <br>• **Max bitrate**: Enter the maximum rate you want the output to use. <br>• Bitrate (H.264 and H.265 only): Enter the same value as you enter in **Max bitrate**. This field has no effect on quality level in QVBR mode, but MediaLive does use it for calculating the output charges for this output. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/"). If you leave **Bitrate** empty, MediaLive calculates charges using the value in the **Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the channel configuration. <br>• **Buffer size**: Set to twice the maximum bitrate. <br>• **Buffer fill percentage** (H.264 and H.265 only): Set to 90%. **How it works:** You don't specify a target quality. Instead, MediaLive infers the quality you want based on the following fields you completed: <br>• The output video resolution (the values in the **Height** and **Width** fields that are also in this Video section). <br>• The maximum bitrate. The bitrate can change with each frame (in order to obtain at least the quality that MediaLive has identified), but it can't exceed the maximum bitrate. The encoder does not attempt to maintain an average bitrate. It always reaches the maximum bitrate if that is necessary to obtain the identified quality. On the other hand, if the quality can be obtained with lower bitrates, the encoder doesn't use a higher bitrate. ## Variable bitrate mode (VBR) This mode doesn't apply to AV1. With variable bitrate mode (VBR), you specify an average bitrate and a maximum bitrate. Video quality and bitrate vary, depending on the video complexity. Choose VBR instead of QVBR if you want to maintain a specific average bitrate over the duration of the channel. If bitrate does not need to be constrained, then consider using QVBR. To set up VBR mode, complete the fields as follows: <br>• **Bitrate** (average bitrate). Try to assess the expected complexity of the video, and set a suitable average bitrate. If you leave **Bitrate** empty, MediaLive sets the average bitrate to 5 Mbps. The value you enter in **Bitrate** also affects the output charges for this output. If you leave **Bitrate** empty, MediaLive calculates charges using the value in the **Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the channel configuration. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/"). <br>• **Max bitrate**: Set a value that accommodates expected spikes. <br>• **Buffer size**:Set to twice the maximum bitrate. <br>• **Buffer fill percentage**: Set to 90%. <br>• Ignore the other fields in this section. They aren't used for VBR. **How it works:** The bitrate can change with each frame (in order to obtain the best quality) but it can't exceed the specified maximum bitrate. The encoder also ensures that as the channel progresses, the stream meets the specified average bitrate. This mode is useful when you expect short spikes in the complexity of the video. The encoder aims for the average bitrate but spikes to the maximum bitrate for a short time when necessary. ## Constant bitrate mode (CBR) With constant bitrate mode (CBR), you specify a bitrate. Video quality varies, depending on the video complexity. Choose CBR only if you distribute your assets to devices that cannot handle variable bitrates. But if it's acceptable for the bitrate to occasionally differ from a specified rate, then consider using VBR or QVBR. Over the duration of the channel, you might obtain both a lower bitrate and better quality with VBR or QVBR. To set up CBR mode, complete the fields as follows: <br>• **Bitrate**: Set the **Bitrate** to balance the video quality and the output bitrate. If you leave this field empty, MediaLive sets the bitrate to 5 Mbps. The value you enter in **Bitrate** also affects the output charges for this output. If you leave **Bitrate** empty, MediaLive calculates charges using the value in the **Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the channel configuration. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/"). <br>• **Buffer size**: Set to twice the bitrate. <br>• **Buffer fill percentage**: Set to 90%. <br>• Ignore the other fields in this section. They aren't used for CBR. **How it works:** The output always matches the specified bitrate. Sometimes that bitrate results in higher-quality video, and sometimes it results in lower-quality video. |
+| Smartphone     | 6             | 1,000,000 to 1,500,000 |
+
+**How it works:** The bitrate can change with each frame (in
+order to obtain at least the specified quality), but it can't exceed the maximum bitrate. The
+encoder does not attempt to maintain an average bitrate. It always reaches the maximum bitrate
+if that is necessary to obtain the specified quality. On the other hand, if the quality can be
+obtained with lower bitrates, the encoder doesn't use a higher bitrate.
+
+### Option 2: Letting MediaLive determine the quality level
+
+To set up in QVBR mode with a target quality that MediaLive determines, complete the fields as
+follows:
+
+- **QVBR quality level**: Leave the field empty.
+- **Max bitrate**: Enter the maximum rate you want the output to use.
+- Bitrate (H.264 and H.265 only): Enter the same value as you enter in
+  **Max bitrate**.
+
+This field has no effect on quality level in QVBR mode, but MediaLive does use it for
+calculating the output charges for this output. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/"). If you leave
+**Bitrate** empty, MediaLive calculates charges using the value in the
+**Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the channel
+configuration.
+
+- **Buffer size**: Set to twice the maximum bitrate.
+- **Buffer fill percentage** (H.264 and H.265 only): Set to 90%.
+
+**How it works:** You don't specify a target quality. Instead,
+MediaLive infers the quality you want based on the following fields you completed:
+
+- The output video resolution (the values in the **Height** and
+  **Width** fields that are also in this Video section).
+- The maximum bitrate.
+
+The bitrate can change with each frame (in order to obtain at least the quality that MediaLive
+has identified), but it can't exceed the maximum bitrate. The encoder does not attempt to
+maintain an average bitrate. It always reaches the maximum bitrate if that is necessary to
+obtain the identified quality. On the other hand, if the quality can be obtained with lower
+bitrates, the encoder doesn't use a higher bitrate.
+
+## Variable bitrate mode (VBR)
+
+This mode doesn't apply to AV1. With variable bitrate mode (VBR), you specify an average
+bitrate and a maximum bitrate. Video quality and bitrate vary, depending on the video
+complexity.
+
+Choose VBR instead of QVBR if you want to maintain a specific average bitrate over the
+duration of the channel. If bitrate does not need to be constrained, then consider using
+QVBR.
+
+To set up VBR mode, complete the fields as follows:
+
+- **Bitrate** (average bitrate). Try to assess the expected complexity of
+  the video, and set a suitable average bitrate.
+
+If you leave **Bitrate** empty, MediaLive sets the average bitrate to 5 Mbps.
+
+The value you enter in **Bitrate** also affects the output charges for
+this output. If you leave **Bitrate** empty, MediaLive calculates charges using
+the value in the **Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the
+channel configuration. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/").
+
+- **Max bitrate**: Set a value that accommodates expected spikes.
+- **Buffer size**:Set to twice the maximum bitrate.
+- **Buffer fill percentage**: Set to 90%.
+- Ignore the other fields in this section. They aren't used for VBR.
+
+**How it works:** The bitrate can change with each frame (in
+order to obtain the best quality) but it can't exceed the specified maximum bitrate. The encoder
+also ensures that as the channel progresses, the stream meets the specified average bitrate. This
+mode is useful when you expect short spikes in the complexity of the video. The encoder aims for
+the average bitrate but spikes to the maximum bitrate for a short time when necessary.
+
+## Constant bitrate mode (CBR)
+
+With constant bitrate mode (CBR), you specify a bitrate. Video quality varies, depending on
+the video complexity.
+
+Choose CBR only if you distribute your assets to devices that cannot handle variable
+bitrates.
+
+But if it's acceptable for the bitrate to occasionally differ from a specified rate, then
+consider using VBR or QVBR. Over the duration of the channel, you might obtain both a lower
+bitrate and better quality with VBR or QVBR.
+
+To set up CBR mode, complete the fields as follows:
+
+- **Bitrate**: Set the **Bitrate** to balance the video
+  quality and the output bitrate. If you leave this field empty, MediaLive sets the bitrate to 5
+  Mbps.
+
+The value you enter in **Bitrate** also affects the output charges for
+this output. If you leave **Bitrate** empty, MediaLive calculates charges using
+the value in the **Max input** bitrate in the [Input specifications](input-specification.md "input-specification.md") section of the
+channel configuration. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialive/pricing/").
+
+- **Buffer size**: Set to twice the bitrate.
+- **Buffer fill percentage**: Set to 90%.
+- Ignore the other fields in this section. They aren't used for CBR.
+
+**How it works:** The output always matches the specified
+bitrate. Sometimes that bitrate results in higher-quality video, and sometimes it results in
+lower-quality video.

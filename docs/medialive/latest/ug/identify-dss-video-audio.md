@@ -64,8 +64,8 @@ groups you will create, and you will know which video and audio codecs those
 output groups can support. Therefore, you should have output information
 that looks like this example.
 
-| Example | Output group      | Downstream system                                                                   | Video codecs supported by downstream system                                         | Audio codecs supported by downstream system |
-| ------- | ----------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------- |
-| HLS     | MediaPackage      | AVC                                                                                 | AAC 2.0, Dolby Digital Plus                                                         |
-| RTMP    | social media site | AVC                                                                                 | AAC 2.0                                                                             |
-| Archive | Amazon S3         | The downstream system doesn't dictate the codec—you choose the codec that you want. | The downstream system doesn't dictate the codec—you choose the codec that you want. |
+| Example | Output group      | Downstream system                                                                      | Video codecs supported by downstream system                                            | Audio codecs supported by downstream system |
+| ------- | ----------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------- |
+| HLS     | MediaPackage      | AVC                                                                                    | AAC 2.0, Dolby Digital Plus                                                            |
+| RTMP    | social media site | AVC                                                                                    | AAC 2.0                                                                                |
+| Archive | Amazon S3         | The downstream system doesn't dictate the codec—you<br>choose the codec that you want. | The downstream system doesn't dictate the codec—you<br>choose the codec that you want. |

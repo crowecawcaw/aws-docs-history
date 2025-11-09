@@ -48,9 +48,15 @@ Dolby Vision 8.1 can be set up only in the following output group types:
 The following table specifies the supported codecs for the MediaLive output color spaces.
 
 | Output color space | AV1 | AVC (H.264) | HEVC (H.265) |
-| ------------------ | --- | ----------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | --- | ----------- | ------------ |
 | Rec. 601           |     | Yes         | Yes          |
 | Rec. 709           |     | Yes         | Yes          |
 | HDR10              |     |             | Yes          |
 | HLG                |     |             | Yes          |
-| Dolby Vision 8.1   |     |             | Yes          | **Supported video profile for HDR10 or Dolby Vision 8.1 outputs** For HDR10 or Dolby Vision 8.1 outputs, the video profile must include the term _10BIT_. |
+| Dolby Vision 8.1   |     |             | Yes          |
+
+**Supported video profile for HDR10 or Dolby Vision 8.1
+outputs**
+
+For HDR10 or Dolby Vision 8.1 outputs, the video profile must include the term
+_10BIT_.

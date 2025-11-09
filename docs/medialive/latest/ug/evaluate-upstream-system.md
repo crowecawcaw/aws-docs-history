@@ -33,11 +33,18 @@ you will have identified the following:
 - The information that you need to extract the video, audio, and captions from the source
   (from the MediaLive input). For example:
 
-| Information                                         | Format                           | Characteristics                                                                                                                                                                                                                                                                                                               |
-| --------------------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Source formats and packaging                        | RTP                              | with FEC                                                                                                                                                                                                                                                                                                                      |
-| Supported video codecs                              | HEVC                             | 1920x1080 5 Mbps maximum                                                                                                                                                                                                                                                                                                      |
-| Supported audio codecs, coding modes, and languages | Dolby Digital 5.1                | English, Spanish                                                                                                                                                                                                                                                                                                              |
+| Information                                         | Format                           | Characteristics                  |
+| --------------------------------------------------- | -------------------------------- | -------------------------------- |
+| Source formats and packaging                        | RTP                              | with FEC                         |
+| Supported video codecs                              | HEVC                             | 1920x1080<br>5 Mbps maximum      |
+| Supported audio codecs, coding modes, and languages | Dolby Digital 5.1                | English, Spanish                 |
 | AAC 2.0                                             | English, Spanish, French, German |
-| Supported captions formats                          | Embedded                         | English, Spanish, French, German                                                                                                                                                                                                                                                                                              |
-| Teletext                                            | 10 languages                     | ###### Topics <br>• [Assess source formats and packaging](uss-obtain-info.md "uss-obtain-info.md") <br>• [Assess video content](assess-uss-source.md "assess-uss-source.md") <br>• [Assess audio content](assess-uss-audio.md "assess-uss-audio.md") <br>• [Assess captions](assess-uss-captions.md "assess-uss-captions.md") |
+| Supported captions formats                          | Embedded                         | English, Spanish, French, German |
+| Teletext                                            | 10 languages                     |
+
+###### Topics
+
+- [Assess source formats and packaging](uss-obtain-info.md "uss-obtain-info.md")
+- [Assess video content](assess-uss-source.md "assess-uss-source.md")
+- [Assess audio content](assess-uss-audio.md "assess-uss-audio.md")
+- [Assess captions](assess-uss-captions.md "assess-uss-captions.md")
