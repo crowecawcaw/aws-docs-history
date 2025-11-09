@@ -26,7 +26,7 @@ Where:
 4. You are prompted as described in the table below.
 
 | Prompt                                                                             | Action                                                                                 |
-| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `Enter this server’s Hostname`                                                     | Accept the suggestion, which is the value that you entered when you installed the OVA. |
 | `Does eth0 use DHCP to get its IP address?`                                        | Accept the suggestion.                                                                 |
 | `Enter eth0's IP address:`                                                         | If the prompt appears, accept the suggestion.                                          |
@@ -36,4 +36,24 @@ Where:
 | `Would you like to configure eth1?`                                                | Type `No`; you can configure eth1 in the next phase of the configuration.              |
 | `The firewall for this system is currently disabled. Would you like to enable it?` | Skip; you set up the firewall in the next phase of configuration.                      |
 | `For security purposes, we require that you change the default password.`          | This prompt is shown if you are still using the default password.                      |
-| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                            | The software is installed. This message confirms both installation and configuration are complete: `Installation and configuration complete! Please open a web browser and point it to https://xxx.xxx.xxx.xxx to get to the web interface. Enjoy!` 5. Take a snapshot of the VM as described in the CentOS 7 Virtual Manager online help. 6. Start a web browser and start the Conductor Live web interface by typing: `https://<hostname>` Make sure the web interface displays. |
+| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                            |
+
+The software is installed. This message confirms both installation and
+configuration are complete:
+
+```
+Installation and configuration complete!
+Please open a web browser and point it to https://xxx.xxx.xxx.xxx to get to the web interface.
+Enjoy!
+```
+
+5. Take a snapshot of the VM as described in the CentOS 7 Virtual Manager online
+   help.
+6. Start a web browser and start the Conductor Live web interface by
+   typing:
+
+```
+https://<hostname>
+```
+
+Make sure the web interface displays.
