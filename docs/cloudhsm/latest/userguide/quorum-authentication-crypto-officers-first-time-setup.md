@@ -267,7 +267,21 @@ service_ whose quorum minimum value you are setting.
 The following table lists the HSM service identifiers along with their names,
 descriptions, and the commands that are included in the service.
 
-| Service Identifier | Service Name | Service Description      | HSM Commands                                                                                                                     |
-| ------------------ | ------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3                  | `USER_MGMT`  | HSM user management      | <br>• **createUser** <br>• **deleteUser** <br>• **changePswd** (applies only when changing the password of a different HSM user) |
-| 4                  | `MISC_CO`    | Miscellaneous CO service | <br>• **setMValue**                                                                                                              | To get the quorum minimum value for a service, use the **getMValue** command, as in the following example. ``` `aws-cloudhsm >` `getMValue 3``MValue of service 3[USER_MGMT] on server 0 : [2] MValue of service 3[USER_MGMT] on server 1 : [2]` ``` The output from the preceding **getMValue** command shows that the quorum minimum value for HSM user management operations (service 3) is now two. After you complete these steps, see [User management with quorum authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md"). |
+| Service Identifier | Service Name | Service Description      | HSM Commands                                                                                                                  |
+| ------------------ | ------------ | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| 3                  | `USER_MGMT`  | HSM user management      | • **createUser**<br>• **deleteUser**<br>• **changePswd** (applies only when changing the password of a<br>different HSM user) |
+| 4                  | `MISC_CO`    | Miscellaneous CO service | • **setMValue**                                                                                                               |
+
+To get the quorum minimum value for a service, use the **getMValue**
+command, as in the following example.
+
+```
+`aws-cloudhsm >` `getMValue 3``MValue of service 3[USER_MGMT] on server 0 : [2]
+MValue of service 3[USER_MGMT] on server 1 : [2]`
+```
+
+The output from the preceding **getMValue** command shows that the quorum
+minimum value for HSM user management operations (service 3) is now two.
+
+After you complete these steps, see [User management with quorum
+authentication enabled for AWS CloudHSM Management Utility](quorum-authentication-crypto-officers.md "quorum-authentication-crypto-officers.md").

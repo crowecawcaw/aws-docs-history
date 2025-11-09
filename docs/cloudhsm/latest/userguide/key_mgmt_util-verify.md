@@ -90,7 +90,7 @@ An integer that represents the proposed signing mechanism that is used to sign
 the file. The possible mechanisms correspond to the follow integers:
 
 | Signing Mechanism     | Corresponding Integer |
-| --------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | --------------------- |
 | `SHA1_RSA_PKCS`       | 0                     |
 | `SHA256_RSA_PKCS`     | 1                     |
 | `SHA384_RSA_PKCS`     | 2                     |
@@ -105,4 +105,12 @@ the file. The possible mechanisms correspond to the follow integers:
 | `ECDSA_SHA224`        | 16                    |
 | `ECDSA_SHA256`        | 17                    |
 | `ECDSA_SHA384`        | 18                    |
-| `ECDSA_SHA512`        | 19                    | Required: Yes ## Related topics <br>• [sign](key_mgmt_util-sign.md "key_mgmt_util-sign.md") <br>• [getCert](key_mgmt_util-genECCKeyPair.md "key_mgmt_util-genECCKeyPair.md") <br>• [Generate Keys](generate-keys.md "generate-keys.md") |
+| `ECDSA_SHA512`        | 19                    |
+
+Required: Yes
+
+## Related topics
+
+- [sign](key_mgmt_util-sign.md "key_mgmt_util-sign.md")
+- [getCert](key_mgmt_util-genECCKeyPair.md "key_mgmt_util-genECCKeyPair.md")
+- [Generate Keys](generate-keys.md "generate-keys.md")

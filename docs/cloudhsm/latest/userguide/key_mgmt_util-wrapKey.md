@@ -98,20 +98,86 @@ Required: Yes
 
 The value representing the wrapping mechanism. CloudHSM supports the following mechanisms:
 
-| **Mechanism**                                                                                                                                                       | **Value** |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AES_KEY_WRAP_PAD_PKCS5`                                                                                                                                            | 4         |
-| `NIST_AES_WRAP_NO_PAD`                                                                                                                                              | 5         |
-| `NIST_AES_WRAP_PAD`                                                                                                                                                 | 6         |
-| `RSA_AES`                                                                                                                                                           | 7         |
-| `RSA_OAEP` (for maximum data size, see the note later in this section)                                                                                              | 8         |
-| `AES_GCM`                                                                                                                                                           | 10        |
-| `CLOUDHSM_AES_GCM`                                                                                                                                                  | 11        |
-| `RSA_PKCS` (for maximum data size, see the note later in this section). See note [1](#wrapKey-params-note-1 "#wrapKey-params-note-1") below for an upcoming change. | 12        | Required: Yes ###### Note When using the `RSA_OAEP` wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key and the length of the specified hash as follows: Maximum key size = (modulusLengthInBytes-2\*hashLengthInBytes-2). When using the RSA_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11). **-t** The value representing the hash algorithm. CloudHSM supports the following algorithms:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Hash algorithm**                                                                                                                                                  | **Value** |
-| ---                                                                                                                                                                 | ---       |
-| `SHA1`                                                                                                                                                              | 2         |
-| `SHA256`                                                                                                                                                            | 3         |
-| `SHA384`                                                                                                                                                            | 4         |
-| `SHA512`                                                                                                                                                            | 5         |
-| `SHA224` (valid for `RSA_AES` and `RSA_OAEP` mechanisms)                                                                                                            | 6         | Required: No **-aad** The file name containing `AAD`. ###### Note Valid only for `AES_GCM` and `CLOUDHSM_AES_GCM` mechanisms. Required: No **-noheader** Omits the header that specifies CloudHSM-specific [key attributes](key_mgmt_util-reference.md "key_mgmt_util-reference.md"). Use this parameter _only_ if you want to unwrap the key with tools outside of key_mgmt_util. Required: No **-i** The initialization vector (IV) (hex value). ###### Note Valid only when passed with the `-noheader` parameter for `CLOUDHSM_AES_KEY_WRAP`, and `NIST_AES_WRAP` mechanisms. Required: No **-iv_file** The file in which you want to write the IV value obtained in response. ###### Note Valid only when passed with the `-noheader` parameter for `AES_GCM` mechanism. Required: No **-tag_size** The size of tag to be saved along with wrapped blob. ###### Note Valid only when passed with the `-noheader` parameter for `AES_GCM` and `CLOUDHSM_AES_GCM` mechanisms. Minimum tag size is eight. Required: No [1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details. ## Related topics <br>• [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") <br>• [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md") <br>• [unWrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md") |
+| **Mechanism**                                                                                                                                                          | **Value** |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `AES_KEY_WRAP_PAD_PKCS5`                                                                                                                                               | 4         |
+| `NIST_AES_WRAP_NO_PAD`                                                                                                                                                 | 5         |
+| `NIST_AES_WRAP_PAD`                                                                                                                                                    | 6         |
+| `RSA_AES`                                                                                                                                                              | 7         |
+| `RSA_OAEP` (for maximum data size, see the<br>note later in this section)                                                                                              | 8         |
+| `AES_GCM`                                                                                                                                                              | 10        |
+| `CLOUDHSM_AES_GCM`                                                                                                                                                     | 11        |
+| `RSA_PKCS` (for maximum data size, see the<br>note later in this section). See note [1](#wrapKey-params-note-1 "#wrapKey-params-note-1") below for an upcoming change. | 12        |
+
+Required: Yes
+
+###### Note
+
+When using the `RSA_OAEP` wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key and the length of the specified hash as follows: Maximum key size = (modulusLengthInBytes-2\*hashLengthInBytes-2).
+
+When using the RSA_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11).
+
+**-t**
+
+The value representing the hash algorithm. CloudHSM supports the following algorithms:
+
+| **Hash algorithm**                                       | **Value** |
+| -------------------------------------------------------- | --------- |
+| `SHA1`                                                   | 2         |
+| `SHA256`                                                 | 3         |
+| `SHA384`                                                 | 4         |
+| `SHA512`                                                 | 5         |
+| `SHA224` (valid for `RSA_AES` and `RSA_OAEP` mechanisms) | 6         |
+
+Required: No
+
+**-aad**
+The file name containing `AAD`.
+
+###### Note
+
+Valid only for `AES_GCM` and `CLOUDHSM_AES_GCM` mechanisms.
+
+Required: No
+
+**-noheader**
+
+Omits the header that specifies CloudHSM-specific [key attributes](key_mgmt_util-reference.md "key_mgmt_util-reference.md"). Use this parameter _only_ if you want to unwrap the key with tools outside of
+key_mgmt_util.
+
+Required: No
+
+**-i**
+The initialization vector (IV) (hex value).
+
+###### Note
+
+Valid only when passed with the `-noheader` parameter for `CLOUDHSM_AES_KEY_WRAP`, and `NIST_AES_WRAP` mechanisms.
+
+Required: No
+
+**-iv_file**
+The file in which you want to write the IV value obtained in response.
+
+###### Note
+
+Valid only when passed with the `-noheader` parameter for `AES_GCM` mechanism.
+
+Required: No
+
+**-tag_size**
+The size of tag to be saved along with wrapped blob.
+
+###### Note
+
+Valid only when passed with the `-noheader` parameter for `AES_GCM` and `CLOUDHSM_AES_GCM` mechanisms. Minimum tag size is eight.
+
+Required: No
+
+[1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
+
+## Related topics
+
+- [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md")
+- [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md")
+- [unWrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md")

@@ -71,7 +71,7 @@ An integer that represents the signing mechanism to be used for signing.
 The possible mechanisms correspond to the follow integers:
 
 | Signing Mechanism     | Corresponding Integer |
-| --------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | --------------------- |
 | `SHA1_RSA_PKCS`       | 0                     |
 | `SHA256_RSA_PKCS`     | 1                     |
 | `SHA384_RSA_PKCS`     | 2                     |
@@ -86,4 +86,21 @@ The possible mechanisms correspond to the follow integers:
 | `ECDSA_SHA224`        | 16                    |
 | `ECDSA_SHA256`        | 17                    |
 | `ECDSA_SHA384`        | 18                    |
-| `ECDSA_SHA512`        | 19                    | Required: Yes **`-out`** The name of the file to which the signed file will be saved. Required: Yes ## Related topics <br>• [verify](key_mgmt_util-verify.md "key_mgmt_util-verify.md") <br>• [importPrivateKey](key_mgmt_util-importPrivateKey.md "key_mgmt_util-importPrivateKey.md") <br>• [genRSAKeyPair](key_mgmt_util-genRSAKeyPair.md "key_mgmt_util-genRSAKeyPair.md") <br>• [genECCKeyPair](key_mgmt_util-genECCKeyPair.md "key_mgmt_util-genECCKeyPair.md") <br>• [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md") <br>• [Generate Keys](generate-keys.md "generate-keys.md") |
+| `ECDSA_SHA512`        | 19                    |
+
+Required: Yes
+
+**`-out`**
+
+The name of the file to which the signed file will be saved.
+
+Required: Yes
+
+## Related topics
+
+- [verify](key_mgmt_util-verify.md "key_mgmt_util-verify.md")
+- [importPrivateKey](key_mgmt_util-importPrivateKey.md "key_mgmt_util-importPrivateKey.md")
+- [genRSAKeyPair](key_mgmt_util-genRSAKeyPair.md "key_mgmt_util-genRSAKeyPair.md")
+- [genECCKeyPair](key_mgmt_util-genECCKeyPair.md "key_mgmt_util-genECCKeyPair.md")
+- [genSymKey](key_mgmt_util-genSymKey.md "key_mgmt_util-genSymKey.md")
+- [Generate Keys](generate-keys.md "generate-keys.md")

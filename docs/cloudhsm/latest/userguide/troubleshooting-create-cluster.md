@@ -72,26 +72,15 @@ command in the AWS CLI.
 
 ```
 `$`  `aws iam get-role --role-name AWSServiceRoleForCloudHSM`
-`{
+ `{
  "Role": {
  "Description": "Role for CloudHSM service operations",
- "AssumeRolePolicyDocument": {
- "Version": "2012-10-17",
- "Statement": [
- {
- "Action": "sts:AssumeRole",
- "Effect": "Allow",
- "Principal": {
- "Service": "cloudhsm.amazonaws.com"
- }
- }
- ]
- },
+ `role policy statement`
  "RoleId": "AROAJ4I6WN5QVGG5G7CBY",
  "CreateDate": "2017-12-19T20:53:12Z",
  "RoleName": "AWSServiceRoleForCloudHSM",
  "Path": "/aws-service-role/cloudhsm.amazonaws.com/",
  "Arn": "arn:aws:iam::111122223333:role/aws-service-role/cloudhsm.amazonaws.com/AWSServiceRoleForCloudHSM"
  }
-}`
+ }`
 ```

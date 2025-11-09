@@ -29,7 +29,7 @@ Windows
 2. Once you enable your clear key extraction, the following methods are enabled for extracting private keys into memory.
 
 | Class            | Method               | Format (getEncoded) |
-| ---------------- | -------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | -------------------- | ------------------- |
 | Key              | getEncoded()         | RAW                 |
 | ECPrivateKey     | getEncoded()         | PKCS#8              |
 |                  | getS()               | N/A                 |
@@ -39,4 +39,20 @@ Windows
 |                  | getPrimeQ()          | N/A                 |
 |                  | getPrimeExponentP()  | N/A                 |
 |                  | getPrimeExponentQ()  | N/A                 |
-|                  | getCrtCoefficient()  | N/A                 | If you want restore the default behavior and not allow JCE to export keys in clear, run the following command: Linux `` `$` `/opt/cloudhsm/bin/configure-jce --disable-clear-key-extraction-in-software` `` Windows `` `PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe" --disable-clear-key-extraction-in-software` `` |
+|                  | getCrtCoefficient()  | N/A                 |
+
+If you want restore the default behavior and not allow JCE to export keys in clear, run the following command:
+
+Linux
+
+```
+
+`$` `/opt/cloudhsm/bin/configure-jce --disable-clear-key-extraction-in-software`
+```
+
+Windows
+
+```
+
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe" --disable-clear-key-extraction-in-software`
+```

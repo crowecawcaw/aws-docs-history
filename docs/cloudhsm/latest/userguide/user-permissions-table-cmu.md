@@ -4,7 +4,7 @@ The following table lists hardware security module (HSM( operations sorted by th
 can perform the operation in AWS CloudHSM.
 
 |                                 | Crypto officer (CO) | Crypto User (CU) | Appliance User (AU) | Unauthenticated Session |
-| ------------------------------- | ------------------- | ---------------- | ------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | ------------------- | ---------------- | ------------------- | ----------------------- |
 | Get basic cluster info¹         | Yes                 | Yes              | Yes                 | Yes                     |
 | Change own password             | Yes                 | Yes              | Yes                 | Not applicable          |
 | Change any user's password      | Yes                 | No               | No                  | No                      |
@@ -14,4 +14,16 @@ can perform the operation in AWS CloudHSM.
 | Key management functions⁴       | No                  | Yes              | No                  | No                      |
 | Encrypt, decrypt                | No                  | Yes              | No                  | No                      |
 | Sign, verify                    | No                  | Yes              | No                  | No                      |
-| Generate digests and HMACs      | No                  | Yes              | No                  | No                      | <br>• [1] Basic cluster information includes the number of HSMs in the cluster and each HSM's IP address, model, serial number, device ID, firmware ID, etc. <br>• [2] The user can get a set of digests (hashes) that correspond to the keys on the HSM. An application can compare these sets of digests to understand the synchronization status of HSMs in a cluster. <br>• [3] Masked objects are keys that are encrypted before they leave the HSM. They cannot be decrypted outside of the HSM. They are only decrypted after they are inserted into an HSM that is in the same cluster as the HSM from which they were extracted. An application can extract and insert masked objects to synchronize the HSMs in a cluster. <br>• [4] Key management functions include creating, deleting, wrapping, unwrapping, and modifying the attributes of keys. |
+| Generate digests and HMACs      | No                  | Yes              | No                  | No                      |
+
+- [1] Basic cluster information includes the number of HSMs in the cluster and each
+  HSM's IP address, model, serial number, device ID, firmware ID, etc.
+- [2] The user can get a set of digests (hashes) that correspond to the keys on the
+  HSM. An application can compare these sets of digests to understand the synchronization
+  status of HSMs in a cluster.
+- [3] Masked objects are keys that are encrypted before they leave the HSM. They cannot
+  be decrypted outside of the HSM. They are only decrypted after they are inserted into an
+  HSM that is in the same cluster as the HSM from which they were extracted. An application
+  can extract and insert masked objects to synchronize the HSMs in a cluster.
+- [4] Key management functions include creating, deleting, wrapping, unwrapping, and
+  modifying the attributes of keys.

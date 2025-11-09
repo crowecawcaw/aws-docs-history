@@ -44,18 +44,25 @@ signature.
 Flags to modify the function's behavior. The allowed flags depend on your
 key type. Use one of these values:
 
-| Value                 | Meaning                                                                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| NCRYPT_PAD_PKCS1_FLAG | Indicates the signature used PKCS1 padding. Set `pPaddingInfo` to point to a `BCRYPT_PKCS1_PADDING_INFO` structure.                              |
-| NCRYPT_PAD_PSS_FLAG   | Indicates the signature used Probabilistic Signature Scheme (PSS) padding. Set `pPaddingInfo` to point to a `BCRYPT_PSS_PADDING_INFO` structure. |
-| NCRYPT_SILENT_FLAG    | This flag has no effect.                                                                                                                         | ## Return Value The function returns a status code to indicate success or failure. Common return codes include: |
-| Return code           | Description                                                                                                                                      |
-| ---                   | ---                                                                                                                                              |
-| ERROR_SUCCESS         | The operation completed successfully.                                                                                                            |
-| NTE_INVALID_PARAMETER | One or more parameters are not valid.                                                                                                            |
-| NTE_FAIL              | The operation couldn't complete.                                                                                                                 |
-| NTE_INVALID_HANDLE    | The handle in `hKey` is not valid.                                                                                                               |
-| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid value.                                                                                               |
-| NTE_BAD_SIGNATURE     | The signature was not verified.                                                                                                                  |
-| NTE_BAD_KEY_STATE     | The key state is not valid.                                                                                                                      |
-| NTE_INTERNAL_ERROR    | An internal error happened while verifying the signature.                                                                                        |
+| Value                 | Meaning                                                                                                                                                   |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NCRYPT_PAD_PKCS1_FLAG | Indicates the signature used PKCS1 padding. Set<br>`pPaddingInfo` to point to a<br>`BCRYPT_PKCS1_PADDING_INFO`<br>structure.                              |
+| NCRYPT_PAD_PSS_FLAG   | Indicates the signature used Probabilistic Signature<br>Scheme (PSS) padding. Set `pPaddingInfo` to<br>point to a `BCRYPT_PSS_PADDING_INFO`<br>structure. |
+| NCRYPT_SILENT_FLAG    | This flag has no effect.                                                                                                                                  |
+
+## Return Value
+
+The function returns a status code to indicate success or failure.
+
+Common return codes include:
+
+| Return code           | Description                                               |
+| --------------------- | --------------------------------------------------------- |
+| ERROR_SUCCESS         | The operation completed successfully.                     |
+| NTE_INVALID_PARAMETER | One or more parameters are not valid.                     |
+| NTE_FAIL              | The operation couldn't complete.                          |
+| NTE_INVALID_HANDLE    | The handle in `hKey` is not valid.                        |
+| NTE_BAD_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.     |
+| NTE_BAD_SIGNATURE     | The signature was not verified.                           |
+| NTE_BAD_KEY_STATE     | The key state is not valid.                               |
+| NTE_INTERNAL_ERROR    | An internal error happened while verifying the signature. |

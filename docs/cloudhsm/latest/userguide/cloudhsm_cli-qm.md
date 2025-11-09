@@ -18,10 +18,19 @@ which includes users that the key is shared with and the key owner.
 
 Each service type is further broken down into a qualifying service name, which contains a specific set of quorum supported service operations that can be performed.
 
-| Service name   | Service type | Service operations                                                                                                     |
-| -------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user           | Admin        | <br>• user create <br>• user delete <br>• user change-password <br>• user change-mfa                                   |
-| quorum         | Admin        | <br>• quorum token-sign set-quorum-value                                                                               |
-| cluster1       | Admin        | <br>• cluster mtls register-trust-anchor <br>• cluster mtls deregister-trust-anchor <br>• cluster mtls set-enforcement |
-| key-management | Crypto User  | <br>• key wrap <br>• key unwrap <br>• key share <br>• key unshare <br>• key set-attribute                              |
-| key-usage      | Crypto User  | <br>• key sign                                                                                                         | [1] Cluster service is exclusively available on hsm2m.medium ## Related topics <br>• [Set up quorum authentication for AWS CloudHSM admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md") <br>• [Manage quorum authentication (M of N access control) using CloudHSM CLI](quorum-auth-chsm-cli.md "quorum-auth-chsm-cli.md") |
+| Service name   | Service type | Service operations                                                                                               |
+| -------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| user           | Admin        | • user create<br>• user delete<br>• user change-password<br>• user change-mfa                                    |
+| quorum         | Admin        | • quorum token-sign set-quorum-value                                                                             |
+| cluster1       | Admin        | • cluster mtls register-trust-anchor<br>• cluster mtls deregister-trust-anchor<br>• cluster mtls set-enforcement |
+| key-management | Crypto User  | • key wrap<br>• key unwrap<br>• key share<br>• key unshare<br>• key set-attribute                                |
+| key-usage      | Crypto User  | • key sign                                                                                                       |
+
+[1] Cluster service is exclusively available on hsm2m.medium
+
+## Related topics
+
+- [Set up quorum authentication for AWS CloudHSM
+  admins using CloudHSM CLI](quorum-auth-chsm-cli-first-time.md "quorum-auth-chsm-cli-first-time.md")
+- [Manage quorum authentication (M of N access control) using
+  CloudHSM CLI](quorum-auth-chsm-cli.md "quorum-auth-chsm-cli.md")

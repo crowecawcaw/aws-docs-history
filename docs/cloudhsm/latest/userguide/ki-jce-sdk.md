@@ -131,14 +131,26 @@ happening at the same time: Reached max number of sessions in session pool: 1000
 
 Depending on the operation, a completion method may be needed.
 
-| Operation        | Completion method(s)                                                                   |
-| ---------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cipher           | `doFinal()` in encrypt or decrypt mode `wrap()` in wrap mode `unwrap()` in unwrap mode |
-| KeyAgreement     | `generateSecret()` or `generateSecret(String)`                                         |
-| KeyPairGenerator | `generateKeyPair()`, `genKeyPair()`, or `reset()`                                      |
-| KeyStore         | No method needed                                                                       |
-| MAC              | `doFinal()` or `reset()`                                                               |
-| MessageDigest    | `digest()` or `reset()`                                                                |
-| SecretKeyFactory | No method needed                                                                       |
-| SecureRandom     | No method needed                                                                       |
-| Signature        | `sign()` in sign mode `verify()` in verify mode                                        | **Resolution status:** We have resolved this issue in Client SDK 5.9.0 and later. To fix this issue, upgrade your Client SDK to one of these versions. ## Issue: Client SDK 5 memory leak with getKey operations <br>• **Impact:** The API `getKey` operation has a memory leak in JCE in Client SDK versions 5.10.0 and earlier. If you’re using the `getKey` API multiple times in your application, it will lead to increased memory growth and consequently increase the memory footprint in your application. Over time this may cause throttling errors or require the application to be restarted. <br>• **Workaround:** We recommend upgrading to Client SDK 5.11.0. If this can't be done, we recommend not calling the `getKey` API multiple times in your application. Rather, reuse the previously returned key from the prior `getKey` operation as much as possible. <br>• **Resolution status:** Upgrade your client SDK version to 5.11.0 or later, which includes a fix for this issue. |
+| Operation        | Completion method(s)                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| Cipher           | `doFinal()` in encrypt or decrypt mode<br>`wrap()` in wrap mode<br>`unwrap()` in unwrap mode |
+| KeyAgreement     | `generateSecret()` or `generateSecret(String)`                                               |
+| KeyPairGenerator | `generateKeyPair()`, `genKeyPair()`, or `reset()`                                            |
+| KeyStore         | No method needed                                                                             |
+| MAC              | `doFinal()` or `reset()`                                                                     |
+| MessageDigest    | `digest()` or `reset()`                                                                      |
+| SecretKeyFactory | No method needed                                                                             |
+| SecureRandom     | No method needed                                                                             |
+| Signature        | `sign()` in sign mode<br>`verify()` in verify mode                                           |
+
+**Resolution status:** We have resolved this issue in Client SDK 5.9.0 and later. To fix this issue, upgrade your Client SDK to one of these versions.
+
+## Issue: Client SDK 5 memory leak with getKey operations
+
+- **Impact:** The API `getKey` operation has a memory leak in JCE in Client SDK versions 5.10.0 and earlier.
+  If you’re using the `getKey` API multiple times in your application, it will lead to increased memory growth and consequently increase the memory footprint in your application.
+  Over time this may cause throttling errors or require the application to be restarted.
+- **Workaround:** We recommend upgrading to Client SDK 5.11.0.
+  If this can't be done, we recommend not calling the `getKey` API multiple times in your application.
+  Rather, reuse the previously returned key from the prior `getKey` operation as much as possible.
+- **Resolution status:** Upgrade your client SDK version to 5.11.0 or later, which includes a fix for this issue.

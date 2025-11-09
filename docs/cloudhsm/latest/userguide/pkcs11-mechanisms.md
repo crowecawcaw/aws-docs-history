@@ -151,8 +151,8 @@ For additional information regarding AES key wrapping, see [AES Key Wrapping](ma
 
 The following table lists the maximum data size set for each mechanism:
 
-| Maximum data set size  | **Mechanism** | **Maximum data size in bytes**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Maximum data set size  | **Mechanism** | **Maximum data size in bytes** |
+| ---------------------- | ------------- | ------------------------------ |
 | `CKM_SHA_1_HMAC`       | 16288         |
 | `CKM_SHA224_HMAC`      | 16256         |
 | `CKM_SHA256_HMAC`      | 16288         |
@@ -161,4 +161,64 @@ The following table lists the maximum data size set for each mechanism:
 | `CKM_AES_CBC`          | 16272         |
 | `CKM_AES_GCM`          | 16224         |
 | `CKM_CLOUDHSM_AES_GCM` | 16224         |
-| `CKM_DES3_CBC`         | 16280         | ## Mechanism annotations <br>• [1] When performing AES-GCM encryption, the HSM does not accept initialization vector (IV) data from the application. You must use an IV that it generates. The 12-byte IV provided by the HSM is written into the memory reference pointed to by the pIV element of the `CK_GCM_PARAMS` parameters structure that you supply. To prevent user confusion, PKCS #11 SDK in version 1.1.1 and later ensures that pIV points to a zeroized buffer when AES-GCM encryption is initialized. [Show moreShow less](# "#") <br>• [2] When operating on data by using any of the following mechanisms, if the data buffer exceeds the maximum data size, the operation results in an error. For these mechanisms, all the data processing must occur inside the HSM. For information on maximum data size sets for each mechanism, refer to [Maximum data size for each mechanism](#pkcs11-mech-max "#pkcs11-mech-max"). [Show moreShow less](# "#") <br>• [3] Vendor-defined mechanism. In order to use the CloudHSM vendor defined mechanisms, PKCS#11 applications must include `/opt/cloudhsm/include/pkcs11t.h` during compilation. `**CKM\_CLOUDHSM\_AES\_GCM**`: This proprietary mechanism is a programmatically safer alternative to the standard `CKM_AES_GCM`. It prepends the IV generated by the HSM to the ciphertext instead of writing it back into the `CK_GCM_PARAMS` structure that is provided during cipher initialization. You can use this mechanism with `C_Encrypt`, `C_WrapKey`, `C_Decrypt`, and `C_UnwrapKey` functions. When using this mechanism, the pIV variable in the `CK_GCM_PARAMS` struct must be set to `NULL`. When using this mechanism with `C_Decrypt` and `C_UnwrapKey`, the IV is expected to be prepended to the ciphertext that is being unwrapped. `**CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_PKCS5\_PAD**`: AES Key Wrap with PKCS #5 Padding. `**CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_ZERO\_PAD**`: AES Key Wrap with Zero Padding. <br>• [4] The following `CK_MECHANISM_TYPE` and `CK_RSA_PKCS_MGF_TYPE` are supported as `CK_RSA_PKCS_OAEP_PARAMS` for `CKM_RSA_PKCS_OAEP`: + `CKM_SHA_1` using `CKG_MGF1_SHA1` + `CKM_SHA224` using `CKG_MGF1_SHA224` + `CKM_SHA256` using `CKG_MGF1_SHA256` + `CKM_SHA384` using `CKM_MGF1_SHA384` + `CKM_SHA512` using `CKM_MGF1_SHA512` [Show moreShow less](# "#") <br>• [5] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details. [Show moreShow less](# "#") <br>• [6] Vendor defined types. In order to use CloudHSM vendor defined types, PKCS#11 applications must include `cloudhsm_pkcs11_vendor_defs.h` during compilation. This is found in `/opt/cloudhsm/include/pkcs11/cloudhsm_pkcs11_vendor_defs.h` for Linux based platforms and `C:\Program Files\Amazon\CloudHSM\include\pkcs11\cloudhsm_pkcs11_vendor_defs.h` for Windows based platforms [Show moreShow less](# "#") <br>• [7] Key derivation functions (KDFs) are specified in [RFC 8418, Section 2.1](https://datatracker.ietf.org/doc/html/rfc8418 "https://datatracker.ietf.org/doc/html/rfc8418"). [Show moreShow less](# "#") |
+| `CKM_DES3_CBC`         | 16280         |
+
+## Mechanism annotations
+
+- [1] When performing AES-GCM encryption, the HSM does not
+  accept initialization vector (IV) data from the application. You must use an IV that it generates.
+  The 12-byte IV provided by the HSM is written into the memory reference pointed to by the pIV element of
+  the `CK_GCM_PARAMS` parameters structure that you supply. To prevent user confusion, PKCS #11 SDK in
+  version 1.1.1 and later ensures that pIV points to a zeroized buffer when AES-GCM encryption is initialized.
+
+[Show moreShow less](# "#")
+
+- [2] When operating on data by using any of
+  the following mechanisms, if the data buffer exceeds the maximum data size, the
+  operation results in an error. For these mechanisms, all the data processing must occur inside the HSM.
+  For information on maximum data size sets for each mechanism, refer to [Maximum data size for each mechanism](#pkcs11-mech-max "#pkcs11-mech-max").
+
+[Show moreShow less](# "#")
+
+- [3] Vendor-defined mechanism. In order to use the CloudHSM
+  vendor defined mechanisms, PKCS#11 applications must include `/opt/cloudhsm/include/pkcs11t.h` during compilation.
+
+`**CKM\_CLOUDHSM\_AES\_GCM**`: This proprietary
+mechanism is a programmatically safer alternative to the standard
+`CKM_AES_GCM`. It prepends the IV generated by the HSM to the ciphertext
+instead of writing it back into the `CK_GCM_PARAMS` structure that is
+provided during cipher initialization. You can use this mechanism with
+`C_Encrypt`, `C_WrapKey`, `C_Decrypt`, and
+`C_UnwrapKey` functions. When using this mechanism, the pIV variable in the
+`CK_GCM_PARAMS` struct must be set to `NULL`. When using this
+mechanism with `C_Decrypt` and `C_UnwrapKey`, the IV is expected
+to be prepended to the ciphertext that is being unwrapped.
+
+`**CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_PKCS5\_PAD**`: AES Key Wrap with PKCS #5 Padding.
+
+`**CKM\_CLOUDHSM\_AES\_KEY\_WRAP\_ZERO\_PAD**`: AES Key Wrap with Zero Padding.
+
+- [4] The following `CK_MECHANISM_TYPE`
+  and `CK_RSA_PKCS_MGF_TYPE` are supported as
+  `CK_RSA_PKCS_OAEP_PARAMS` for `CKM_RSA_PKCS_OAEP`:
+
+      + `CKM_SHA_1` using `CKG_MGF1_SHA1`
+      + `CKM_SHA224` using `CKG_MGF1_SHA224`
+      + `CKM_SHA256` using `CKG_MGF1_SHA256`
+      + `CKM_SHA384` using `CKM_MGF1_SHA384`
+      + `CKM_SHA512` using `CKM_MGF1_SHA512`
+
+  [Show moreShow less](# "#")
+
+- [5] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
+
+[Show moreShow less](# "#")
+
+- [6] Vendor defined types. In order to use CloudHSM vendor defined types, PKCS#11 applications must include `cloudhsm_pkcs11_vendor_defs.h` during compilation. This is found in `/opt/cloudhsm/include/pkcs11/cloudhsm_pkcs11_vendor_defs.h` for Linux based platforms
+  and `C:\Program Files\Amazon\CloudHSM\include\pkcs11\cloudhsm_pkcs11_vendor_defs.h` for Windows based platforms
+
+[Show moreShow less](# "#")
+
+- [7] Key derivation functions (KDFs) are specified in [RFC 8418, Section 2.1](https://datatracker.ietf.org/doc/html/rfc8418 "https://datatracker.ietf.org/doc/html/rfc8418").
+
+[Show moreShow less](# "#")

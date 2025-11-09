@@ -8,6 +8,10 @@ AWS CloudHSM API. You can create an HSM from the [AWS CloudHSM
 console](https://console.aws.amazon.com/cloudhsm/ "https://console.aws.amazon.com/cloudhsm/"), the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), or the AWS CloudHSM
 API.
 
+###### Important
+
+Only create one HSM while your cluster is in the uninitialized state.
+
 Console###### To create an HSM (console)
 
 1. Open the AWS CloudHSM console at

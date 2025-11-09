@@ -183,20 +183,107 @@ Required: No
 
 The value representing the wrapping mechanism. CloudHSM supports the following mechanisms:
 
-| **Mechanism**                                                                                                                                                           | **Value** |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AES_KEY_WRAP_PAD_PKCS5`                                                                                                                                                | 4         |
-| `NIST_AES_WRAP_NO_PAD`                                                                                                                                                  | 5         |
-| `NIST_AES_WRAP_PAD`                                                                                                                                                     | 6         |
-| `RSA_AES`                                                                                                                                                               | 7         |
-| `RSA_OAEP` (for maximum data size, see the note later in this section)                                                                                                  | 8         |
-| `AES_GCM`                                                                                                                                                               | 10        |
-| `CLOUDHSM_AES_GCM`                                                                                                                                                      | 11        |
-| `RSA_PKCS` (for maximum data size, see the note later in this section). See note [1](#unwrapKey-params-note-1 "#unwrapKey-params-note-1") below for an upcoming change. | 12        | Required: Yes ###### Note When using the `RSA_OAEP` wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key and the length of the specified hash as follows: Maximum key size = modulusLengthInBytes-(2\*hashLengthInBytes)-2. When using the RSA_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11). **-t**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Hash algorithm**                                                                                                                                                      | **Value** |
-| ---                                                                                                                                                                     | ---       |
-| `SHA1`                                                                                                                                                                  | 2         |
-| `SHA256`                                                                                                                                                                | 3         |
-| `SHA384`                                                                                                                                                                | 4         |
-| `SHA512`                                                                                                                                                                | 5         |
-| `SHA224` (valid for `RSA_AES` and `RSA_OAEP` mechanisms)                                                                                                                | 6         | Required: No **-noheader** If you are unwrapping a key that was wrapped outside of key_mgmt_util, you must specify this parameter and all other associated parameters. Required: No ###### Note If you specify this parameter, you **must** also specify the following `-noheader` parameters: <br>• **-l** Specifies the label to be added to the unwrapped key. Required: Yes <br>• **-kc** Specifies the class of the key to be unwrapped. The following are acceptable values: 3 = private key from a public-private key pair 4 = secret (symmetric) key Required: Yes <br>• **-kt** Specifies the type of key to be unwrapped. The following are acceptable values: 0 = `RSA` 1 = `DSA` 3 = `ECC` 16 = `GENERIC_SECRET` 21 = `DES3` 31 = `AES` Required: Yes You can also **optionally** specify the following `-noheader` parameters: <br>• **-id** The ID to be added to the unwrapped key. Required: No <br>• **-i** The unwrapping initialization vector (IV) to be used. Required: No [1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details. ## Related topics <br>• [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") <br>• [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") <br>• [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md") |
+| **Mechanism**                                                                                                                                                              | **Value** |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `AES_KEY_WRAP_PAD_PKCS5`                                                                                                                                                   | 4         |
+| `NIST_AES_WRAP_NO_PAD`                                                                                                                                                     | 5         |
+| `NIST_AES_WRAP_PAD`                                                                                                                                                        | 6         |
+| `RSA_AES`                                                                                                                                                                  | 7         |
+| `RSA_OAEP` (for maximum data size, see the note later in this<br>section)                                                                                                  | 8         |
+| `AES_GCM`                                                                                                                                                                  | 10        |
+| `CLOUDHSM_AES_GCM`                                                                                                                                                         | 11        |
+| `RSA_PKCS` (for maximum data size, see the<br>note later in this section). See note [1](#unwrapKey-params-note-1 "#unwrapKey-params-note-1") below for an upcoming change. | 12        |
+
+Required: Yes
+
+###### Note
+
+When using the `RSA_OAEP` wrapping mechanism, the maximum key size that
+you can wrap is determined by the modulus of the RSA key and the length of the
+specified hash as follows: Maximum key size =
+modulusLengthInBytes-(2\*hashLengthInBytes)-2.
+
+When using the RSA_PKCS wrapping mechanism, the maximum key size that you can wrap is determined by the modulus of the RSA key as follows: Maximum key size = (modulusLengthInBytes -11).
+
+**-t**
+
+| **Hash algorithm**                                       | **Value** |
+| -------------------------------------------------------- | --------- |
+| `SHA1`                                                   | 2         |
+| `SHA256`                                                 | 3         |
+| `SHA384`                                                 | 4         |
+| `SHA512`                                                 | 5         |
+| `SHA224` (valid for `RSA_AES` and `RSA_OAEP` mechanisms) | 6         |
+
+Required: No
+
+**-noheader**
+
+If you are unwrapping a key that was wrapped outside of key_mgmt_util, you must specify this
+parameter and all other associated parameters.
+
+Required: No
+
+###### Note
+
+If you specify this parameter, you **must** also
+specify the following `-noheader` parameters:
+
+- **-l**
+
+Specifies the label to be added to the unwrapped key.
+
+Required: Yes
+
+- **-kc**
+
+Specifies the class of the key to be unwrapped. The following are acceptable
+values:
+
+3 = private key from a public-private key pair
+
+4 = secret (symmetric) key
+
+Required: Yes
+
+- **-kt**
+
+Specifies the type of key to be unwrapped. The following are acceptable
+values:
+
+0 = `RSA`
+
+1 = `DSA`
+
+3 = `ECC`
+
+16 = `GENERIC_SECRET`
+
+21 = `DES3`
+
+31 = `AES`
+
+Required: Yes
+
+You can also **optionally** specify the following
+`-noheader` parameters:
+
+- **-id**
+
+The ID to be added to the unwrapped key.
+
+Required: No
+
+- **-i**
+
+The unwrapping initialization vector (IV) to be used.
+
+Required: No
+
+[1] In accordance with NIST guidance, this is disallowed for clusters in FIPS mode after 2023. For clusters in non-FIPS mode, it is still allowed after 2023. See [FIPS 140 Compliance: 2024 Mechanism Deprecation](compliance-dep-notif.md#compliance-dep-notif-1 "compliance-dep-notif.md#compliance-dep-notif-1") for details.
+
+## Related topics
+
+- [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md")
+- [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md")
+- [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md")
