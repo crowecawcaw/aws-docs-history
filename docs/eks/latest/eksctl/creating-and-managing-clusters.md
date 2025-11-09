@@ -101,8 +101,41 @@ The path to the kubeconfig file can be overridden using the `--kubeconfig` flag.
 Other flags that can change how the kubeconfig file is written:
 
 | flag                     | type   | use                                                                                                             | default value                 |
-| ------------------------ | ------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------ | --------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | --kubeconfig             | string | path to write kubeconfig (incompatible with --auto-kubeconfig)                                                  | $KUBECONFIG or ~/.kube/config |
 | --set-kubeconfig-context | bool   | if true then current-context will be set in kubeconfig; if a context is already set then it will be overwritten | true                          |
 | --auto-kubeconfig        | bool   | save kubeconfig file by cluster name                                                                            | true                          |
-| --write-kubeconfig       | bool   | toggle writing of kubeconfig                                                                                    | true                          | ## Delete cluster To delete this cluster, run: `eksctl delete cluster -f cluster.yaml` ###### Warning Use the `--wait` flag with delete operations to ensure deletion errors are properly reported. Without the `--wait` flag, eksctl will only issue a delete operation to the cluster’s CloudFormation stack and won’t wait for its deletion. In some cases, AWS resources using the cluster or its VPC may cause cluster deletion to fail. If your delete fails or you forget the wait flag, you may have to go to the CloudFormation GUI and delete the eks stacks from there. ###### Warning PDB policies may block node removal during cluster deletion. When deleting a cluster with nodegroups, Pod Disruption Budget (PDB) policies can prevent nodes from being removed successfully. For example, clusters with `aws-ebs-csi-driver` installed typically have two pods with a PDB policy allowing only one pod to be unavailable at a time, making the other pod unevictable during deletion. To successfully delete the cluster in these scenarios, use the `disable-nodegroup-eviction` flag to bypass PDB policy checks: `eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction` See the [`examples/`](https://github.com/eksctl-io/eksctl/tree/master/examples "https://github.com/eksctl-io/eksctl/tree/master/examples") directory in the eksctl GitHub repo for more sample config files. ## Dry Run The dry-run feature enables generating a ClusterConfig file that skips cluster creation and outputs a ClusterConfig file that represents the supplied CLI options and contains the default values set by eksctl. More info can be found on the [Dry Run](dry-run.md "dry-run.md") page. |
+| --write-kubeconfig       | bool   | toggle writing of kubeconfig                                                                                    | true                          |
+
+## Delete cluster
+
+To delete this cluster, run:
+
+```
+eksctl delete cluster -f cluster.yaml
+```
+
+###### Warning
+
+Use the `--wait` flag with delete operations to ensure deletion errors are properly reported.
+
+Without the `--wait` flag, eksctl will only issue a delete operation to the cluster’s CloudFormation stack and won’t wait for its deletion. In some cases, AWS resources using the cluster or its VPC may cause cluster deletion to fail. If your delete fails or you forget the wait flag, you may have to go to the CloudFormation GUI and delete the eks stacks from there.
+
+###### Warning
+
+PDB policies may block node removal during cluster deletion.
+
+When deleting a cluster with nodegroups, Pod Disruption Budget (PDB) policies can prevent nodes from being removed successfully. For example, clusters with `aws-ebs-csi-driver` installed typically have two pods with a PDB policy allowing only one pod to be unavailable at a time, making the other pod unevictable during deletion. To successfully delete the cluster in these scenarios, use the `disable-nodegroup-eviction` flag to bypass PDB policy checks:
+
+```
+eksctl delete cluster -f cluster.yaml --disable-nodegroup-eviction
+```
+
+See the [`examples/`](https://github.com/eksctl-io/eksctl/tree/master/examples "https://github.com/eksctl-io/eksctl/tree/master/examples") directory in the eksctl GitHub repo for more sample config files.
+
+## Dry Run
+
+The dry-run feature enables generating a ClusterConfig file that skips cluster creation and outputs a ClusterConfig file that
+represents the supplied CLI options and contains the default values set by eksctl.
+
+More info can be found on the [Dry Run](dry-run.md "dry-run.md") page.

@@ -27,10 +27,27 @@ You’ll see a name similar to `eksctl-CLUSTER_NAME-nodegroup-NODEGROUP_NAME`.
 
 You can execute the following to get the userdata. Note the final line which decodes from base64 and decompresses the gzipped data.
 
-````
+```
 NG_STACK=eksctl-scrumptious-monster-1595247364-nodegroup-ng-29b8862f # your stack here
 LAUNCH_TEMPLATE_ID=$(aws cloudformation describe-stack-resources --stack-name $NG_STACK \
 | jq -r '.StackResources | map(select(.LogicalResourceId == "NodeGroupLaunchTemplate") \
-| .PhysicalResourceId)[0]') aws ec2 describe-launch-template-versions --launch-template-id $LAUNCH_TEMPLATE_ID \ | jq -r '.LaunchTemplateVersions[0].LaunchTemplateData.UserData' \
-| base64 -d | gunzip ``` ## Ingress **How do I set up ingress with `eksctl`?** We recommend using the [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller "https://github.com/kubernetes-sigs/aws-load-balancer-controller"). Documentation on how to deploy the controller to your cluster, as well as how to migrate from the old ALB Ingress Controller, can be found [here](../userguide/alb-ingress.md "../userguide/alb-ingress.md"). For the Nginx Ingress Controller, setup would be the same as [any on other Kubernetes cluster](https://kubernetes.github.io/ingress-nginx/deploy/#aws "https://kubernetes.github.io/ingress-nginx/deploy/#aws"). ## Kubectl **I’m using an HTTPS proxy and cluster certificate validation fails, how can I use the system CAs?** Set the environment variable `KUBECONFIG_USE_SYSTEM_CA` to make `kubeconfig` respect the system certificate authorities.
-````
+| .PhysicalResourceId)[0]')
+aws ec2 describe-launch-template-versions --launch-template-id $LAUNCH_TEMPLATE_ID \
+| jq -r '.LaunchTemplateVersions[0].LaunchTemplateData.UserData' \
+| base64 -d | gunzip
+```
+
+## Ingress
+
+**How do I set up ingress with `eksctl`?**
+
+We recommend using the [AWS Load Balancer Controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller "https://github.com/kubernetes-sigs/aws-load-balancer-controller").
+Documentation on how to deploy the controller to your cluster, as well as how to migrate from the old ALB Ingress Controller, can be found [here](../userguide/alb-ingress.md "../userguide/alb-ingress.md").
+
+For the Nginx Ingress Controller, setup would be the same as [any on other Kubernetes cluster](https://kubernetes.github.io/ingress-nginx/deploy/#aws "https://kubernetes.github.io/ingress-nginx/deploy/#aws").
+
+## Kubectl
+
+**I’m using an HTTPS proxy and cluster certificate validation fails, how can I use the system CAs?**
+
+Set the environment variable `KUBECONFIG_USE_SYSTEM_CA` to make `kubeconfig` respect the system certificate authorities.
