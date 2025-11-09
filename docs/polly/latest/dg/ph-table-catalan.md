@@ -26,7 +26,7 @@ corresponding visemes for the Catalan voice of Arlet that is supported by Amazon
 | z                      | z   | voiced alveolar fricative                              | cal**z**es    | s       |
 | ʃ                      | S   | voiceless postalveolar fricative                       | gui**x**      | S       |
 | ʒ                      | Z   | voiced postalveolar fricative                          | col·le**g**i  | S       |
-| t͡ʃ                     | tS  | voiceless postalveolar affricate                       | co**tx**e     | S       |
+| t͡ʃ                     | tS  | voiceless postalveolar affricate                       | co**tx**e     | S       |
 | d͡ʒ                     | dZ  | voiced postalveolar affricate                          | pla**tj**a    | S       |
 | β                      | B   | voiced bilabial approximant                            | o**b**ert     | B       |
 | ð                      | D   | voiced dental approximant                              | be**d**oll    | T       |

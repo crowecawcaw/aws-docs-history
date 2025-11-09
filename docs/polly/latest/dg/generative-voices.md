@@ -32,19 +32,60 @@ Amazon Polly currently offers 27 voices in a generative
 variant. These generative voices are also available in a conversational NTTS
 variant.
 
-|     | Language                    | Language code | Name/ID                                    | Gender                                |
-| --- | --------------------------- | ------------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **English (Australian)**    | en-AU         | Olivia                                     | Female                                |
-| 2   | **English (Indian)**        | en-IN         | Kajal                                      | Female                                |
-| 3   | **English (South African)** | en-ZA         | Ayanda                                     | Female                                |
-| 4   | **English (UK)**            | en-GB         | Amy                                        | Female                                |
-| 5   | **English (US)**            | en-US         | Danielle Joanna Matthew Ruth Salli Stephen | Female Female Male Female Female Male |
-| 6   | **French (Belgian)**        | fr-BE         | Isabelle                                   | Female                                |
-| 7   | **French (Canadian)**       | fr-CA         | Gabrielle Liam                             | Female Male                           |
-| 8   | **French (France)**         | fr-FR         | Céline Léa Rémi                            | Female Female Male                    |
-| 9   | **German (Germany)**        | de-DE         | Daniel Vicki                               | Male Female                           |
-| 10  | **Italian (Italy)**         | it-IT         | Bianca                                     | Female                                |
-| 11  | **Polish (Poland)**         | pl-PL         | Ewa Ola                                    | Female Female                         |
-| 12  | **Spanish (Mexican)**       | es-MX         | Andrés Mía                                 | Male Female                           |
-| 13  | **Spanish (Spain)**         | es-ES         | Lucia Sergio                               | Female Male                           |
-| 14  | **Spanish (US)**            | es-US         | Lupe Pedro                                 | Female Male                           | ###### Note Generative voices cost is specified on the [Amazon Polly pricing information page](https://aws.amazon.com/polly/pricing/ "https://aws.amazon.com/polly/pricing/"). ## Feature and region compatibility Amazon Polly generative voices are available in the following regions: <br>• US East (N. Virginia): us-east-1 <br>• Europe (Frankfurt): eu-central-1 <br>• US West (Oregon): us-west-2 <br>• Other Regions are not available **The following features are supported for generative voices:** <br>• Real-time and asynchronous speech synthesis operations. <br>• Newscaster speaking style is not supported in the **Generative** engine. <br>• Many (but not all) SSML tags are supported by Amazon Polly. For more information about NTTS-supported SSML tags, see [Supported SSML tags](supportedtags.md "supportedtags.md") <br>• As with standard voices, you can choose from various sampling rates to optimize the bandwidth and audio quality for your application. Valid sampling rates for standard and neural voices are 8 kHz, 16 kHz, 22 kHz, or 24 kHz. The default for standard voices is 22 kHz. The default for generative voices is 24 kHz. Amazon Polly supports MP3, OGG (Vorbis), and raw PCM audio stream formats. _Support for generating speech marks is currently not available._ ###### Note In the unlikely event of model hallucination, (and with the Generative engine's model behavior of rendering the speech token by token) an imposed emergency stop mechanism is in place. The built-in mechanism stops the model from rendering speech any further. This safety feature is based on data analysis where the model has the potential to hallucinate, usually at the end of the sentence. There could be cases where the model thinks it is going to hallucinate and then might end up cutting a word during a generation step, thus rendering half the word. This could potentially generate inappropriate results. |
+|     | Language                    | Language code | Name/ID                                                   | Gender                                               |
+| --- | --------------------------- | ------------- | --------------------------------------------------------- | ---------------------------------------------------- |
+| 1   | **English (Australian)**    | en-AU         | Olivia                                                    | Female                                               |
+| 2   | **English (Indian)**        | en-IN         | Kajal                                                     | Female                                               |
+| 3   | **English (South African)** | en-ZA         | Ayanda                                                    | Female                                               |
+| 4   | **English (UK)**            | en-GB         | Amy                                                       | Female                                               |
+| 5   | **English (US)**            | en-US         | Danielle<br>Joanna<br>Matthew<br>Ruth<br>Salli<br>Stephen | Female<br>Female<br>Male<br>Female<br>Female<br>Male |
+| 6   | **French (Belgian)**        | fr-BE         | Isabelle                                                  | Female                                               |
+| 7   | **French (Canadian)**       | fr-CA         | Gabrielle<br>Liam                                         | Female<br>Male                                       |
+| 8   | **French (France)**         | fr-FR         | Céline<br>Léa<br>Rémi                                     | Female<br>Female<br>Male                             |
+| 9   | **German (Germany)**        | de-DE         | Daniel<br>Vicki                                           | Male<br>Female                                       |
+| 10  | **Italian (Italy)**         | it-IT         | Bianca                                                    | Female                                               |
+| 11  | **Polish (Poland)**         | pl-PL         | Ewa<br>Ola                                                | Female<br>Female                                     |
+| 12  | **Spanish (Mexican)**       | es-MX         | Andrés<br>Mía                                             | Male<br>Female                                       |
+| 13  | **Spanish (Spain)**         | es-ES         | Lucia<br>Sergio                                           | Female<br>Male                                       |
+| 14  | **Spanish (US)**            | es-US         | Lupe<br>Pedro                                             | Female<br>Male                                       |
+
+###### Note
+
+Generative voices cost is specified on the [Amazon Polly pricing information page](https://aws.amazon.com/polly/pricing/ "https://aws.amazon.com/polly/pricing/").
+
+## Feature and region compatibility
+
+Amazon Polly generative voices are available in the following regions:
+
+- US East (N. Virginia): us-east-1
+- Europe (Frankfurt): eu-central-1
+- US West (Oregon): us-west-2
+- Other Regions are not available
+
+**The following features are supported for generative
+voices:**
+
+- Real-time and asynchronous speech synthesis operations.
+- Newscaster speaking style is not supported in the **Generative** engine.
+- Many (but not all) SSML tags are supported by Amazon Polly. For more
+  information about NTTS-supported SSML tags, see [Supported SSML tags](supportedtags.md "supportedtags.md")
+- As with standard voices, you can choose from various sampling rates to
+  optimize the bandwidth and audio quality for your application. Valid
+  sampling rates for standard and neural voices are 8 kHz, 16 kHz, 22 kHz, or
+  24 kHz. The default for standard voices is 22 kHz. The default for
+  generative voices is 24 kHz. Amazon Polly supports MP3, OGG (Vorbis), and raw PCM
+  audio stream formats.
+
+_Support for generating speech marks is currently not available._
+
+###### Note
+
+In the unlikely event of model hallucination, (and with the Generative engine's model
+behavior of rendering the speech token by token) an imposed emergency stop mechanism is
+in place. The built-in mechanism stops the model from rendering
+speech any further. This safety feature is based on data analysis
+where the model has the potential to hallucinate, usually at the end of the sentence.
+
+There could be cases where the model thinks it is going to hallucinate and then might
+end up cutting a word during a generation step, thus rendering half the word. This could
+potentially generate inappropriate results.

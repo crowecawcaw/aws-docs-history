@@ -58,12 +58,130 @@ The following table defines throttle rates per Amazon Polly operation.
 You can use the AWS Management Console to request quota increases
 for the adjustable quotas when needed.
 
-| Operation                                                | Limit                                                                                                                                                                             |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Lexicon**                                              |                                                                                                                                                                                   |
-| `DeleteLexicon` `PutLexicon` `GetLexicon` `ListLexicons` | Any 2 transactions per second (tps) from these operations combined.Maximum allowed burst of 4 tps.                                                                                |
-| **Speech**                                               |                                                                                                                                                                                   |
-| `DescribeVoices`                                         | 80 tps with a burst limit of 100 tps                                                                                                                                              |
-| `SynthesizeSpeech`                                       | Generative voice: 8 tps Long-form voice: 8 tps with a burst limit of 10 tps Neural voice: 8 tps with a burst limit of 10 tps Standard voice: 80 tps with a burst limit of 100 tps |
-| `StartSpeechSynthesisTask`                               | Generative voice: 1 tps Long-form voice: 1 tps Neural voice: 10 tps Standard voice: 10 tps with a burst limit of 12 tps                                                           |
-| `GetSynthesizeSpeechTask` and `ListSynthesizeSpeechTask` | Maximum allowed 10 tps combined                                                                                                                                                   | ### Concurrent requests For **generative voice**, Amazon Polly supports up to 26 concurrent requests. For **long-form voice**, Amazon Polly supports up to 26 concurrent requests. For **neural voice**, Amazon Polly supports 8 tps with a burst limit of 10 tps, for up to 18 concurrent requests. Amazon Polly also supports limits for concurrent requests. For **standard voice**, Amazon Polly supports 80 tps for up to 80 concurrent requests. ### Best practices to mitigate throttling <br>• **Retry throttles with backoff and jitter** so you can spread the load over a short period of time, and handle unexpected peaks in usage without compromising availability. AWS Code Sample Catalog is already configured to do this by default in many programming languages. Visit [feature retry behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") to see the details. <br>• **Use [Amazon Polly metrics](cloud-watch.md#polly-metrics.html "cloud-watch.md#polly-metrics.html")**. Amazon Polly automatically publishes to CloudWatch to analyze your current usage and forecast usage growth. ###### Note Before requesting a quota increase (where applicable), calculate your tps needs following the guidelines on this page. Amazon Polly secures only the required computational resources according to customer demand in order to keep your costs low. ## Pronunciation lexicons <br>• You can store up to 100 lexicons per account. <br>• Lexicon names can be an alphanumeric string up to 20 characters long. <br>• Each lexicon can be up to 40,000 characters in size. (Note that the size of the lexicon affects the latency of the SynthesizeSpeech operation.) <br>• You can specify up to 100 characters for each <phoneme> or <alias> replacement in a lexicon. For information about using lexicons, see [Managing lexicons](managing-lexicons.md "managing-lexicons.md"). ## SynthesizeSpeech API operations When estimating the usage of `SynthesizeSpeech`, keep in mind that the audio produced by Amazon Polly, especially for interactive applications, usually takes at least several seconds to be played. This reduces the rate of requests to `SynthesizeSpeech`, even for a large number of concurrent consumers. Additionally, Amazon Polly throttles `SynthesizeSpeech` requests by the number of concurrent requests that it synthesizes. There is no separate setting for concurrent requests. The concurrent requests limit has always the same value as the number of tps allowed and scales with it. **Short story example application**. You can use Amazon Polly to build an application that plays a series of short stories. With this kind of app, the first story would start playing, and then the next, and so on, until a user quit the application. Each story would take around 0.5 seconds to synthesize and 10 seconds to play. In this scenario, you could expect one call to `SynthesizeSpeech` for every 10 seconds that the customer spent using the application. This would translate to one call per second for every 10 customers who were concurrently using the application. If you had 1000 customers concurrently using the application, you could expect an average call rate to `SynthesizeSpeech` of only 100 transactions per second. Note the following limits related to using the `SynthesizeSpeech` API operation: <br>• The size of the input text can be up to 3000 billed characters (6000 total characters). SSML tags are not counted as billed characters. <br>• You can specify up to five lexicons to apply to the input text. <br>• The output audio stream (synthesis) is limited to 10 minutes. After this is reached, any remaining speech is cut off. For more information, see [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md"). ###### Note Some limitations of the `SynthesizeSpeech` API operation can be bypassed using the `StartSythensizeSpeechTask` API operation. For more information, see [Long audio files](asynchronous.md "asynchronous.md"). ## SpeechSynthesisTask API operations Note the following limit relating to using the `StartSpeechSynthesisTask`, `GetSpeechSynthesisTask`, and `ListSpeechSynthesisTasks` API operations: <br>• The size of the input text can be up to 100,000 billed characters (200,000 total characters). SSML tags are not counted as billed characters. <br>• You can specify up to five lexicons to apply to the input text. ## Speech Synthesis Markup Language (SSML) Note the following limits related to using SSML: <br>• The `<audio>`, `<lexicon>`, `<lookup>`, and `<voice>` tags are not supported. <br>• `<break>` elements can specify a maximum duration of 10 seconds each. <br>• The `<prosody>` tag doesn't support values for the rate attribute lower than -80%. For more information, see [Generating speech from SSML documents](ssml.md "ssml.md"). |
+| Operation                                                         | Limit                                                                                                                                                                                      |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Lexicon**                                                       |                                                                                                                                                                                            |
+| `DeleteLexicon`<br>`PutLexicon`<br>`GetLexicon`<br>`ListLexicons` | Any 2 transactions per second (tps) from these operations combined.Maximum allowed burst of 4 tps.                                                                                         |
+| **Speech**                                                        |                                                                                                                                                                                            |
+| `DescribeVoices`                                                  | 80 tps with a burst limit of 100 tps                                                                                                                                                       |
+| `SynthesizeSpeech`                                                | Generative voice: 8 tps<br>Long-form voice: 8 tps with a burst limit of 10 tps<br>Neural voice: 8 tps with a burst limit of 10 tps<br>Standard voice: 80 tps with a burst limit of 100 tps |
+| `StartSpeechSynthesisTask`                                        | Generative voice: 1 tps<br>Long-form voice: 1 tps<br>Neural voice: 10 tps<br>Standard voice: 10 tps with a burst limit of 12 tps                                                           |
+| `GetSynthesizeSpeechTask` and<br>`ListSynthesizeSpeechTask`       | Maximum allowed 10 tps combined                                                                                                                                                            |
+
+### Concurrent requests
+
+For **generative voice**,
+Amazon Polly supports up to 26 concurrent requests.
+For **long-form voice**,
+Amazon Polly supports up to 26 concurrent requests.
+For **neural voice**,
+Amazon Polly supports 8 tps with a burst limit of 10 tps,
+for up to 18 concurrent requests.
+Amazon Polly also supports limits for concurrent requests.
+For **standard voice**,
+Amazon Polly supports 80 tps for up to 80 concurrent requests.
+
+### Best practices to mitigate throttling
+
+- **Retry throttles with backoff and jitter** so you can
+  spread the load over a short period of time, and handle
+  unexpected peaks in usage without compromising availability.
+  AWS Code Sample Catalog is already configured to do this by default
+  in many programming languages. Visit
+
+[feature retry behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md")
+to see the details.
+
+- **Use [Amazon Polly metrics](cloud-watch.md#polly-metrics.html "cloud-watch.md#polly-metrics.html")**.
+  Amazon Polly automatically publishes to CloudWatch to analyze your current usage and forecast usage growth.
+
+###### Note
+
+Before requesting a quota increase (where applicable),
+calculate your tps needs following the guidelines on this page.
+Amazon Polly secures only the required computational resources
+according to customer demand in order to keep your costs low.
+
+## Pronunciation lexicons
+
+- You can store up to 100 lexicons per account.
+- Lexicon names can be an alphanumeric string up to 20 characters long.
+- Each lexicon can be up to 40,000 characters in size. (Note that the size of the
+  lexicon affects the latency of the SynthesizeSpeech operation.)
+- You can specify up to 100 characters for each <phoneme> or <alias>
+  replacement in a lexicon.
+
+For information about using lexicons,
+see [Managing lexicons](managing-lexicons.md "managing-lexicons.md").
+
+## SynthesizeSpeech API operations
+
+When estimating the usage of `SynthesizeSpeech`,
+keep in mind that the audio produced by Amazon Polly,
+especially for interactive applications,
+usually takes at least several seconds to be played.
+This reduces the rate of requests
+to `SynthesizeSpeech`, even
+for a large number of concurrent consumers.
+Additionally, Amazon Polly throttles `SynthesizeSpeech` requests
+by the number of concurrent requests that it synthesizes.
+There is no separate setting for concurrent requests.
+The concurrent requests limit has always the same value
+as the number of tps allowed and scales with it.
+
+**Short story example application**.
+You can use Amazon Polly to build an application that plays
+a series of short stories. With this kind of app,
+the first story would start playing, and then the next,
+and so on, until a user quit the application.
+Each story would take around 0.5 seconds to synthesize
+and 10 seconds to play. In this scenario, you could
+expect one call to `SynthesizeSpeech` for every
+10 seconds that the customer spent using the application.
+This would translate to one call per second
+for every 10 customers who were concurrently
+using the application. If you had 1000
+customers concurrently using the application,
+you could expect an average call rate
+to `SynthesizeSpeech` of only 100 transactions per second.
+
+Note the following limits related to using the `SynthesizeSpeech` API operation:
+
+- The size of the input text can be up to 3000 billed characters (6000 total
+  characters). SSML tags are not counted as billed characters.
+- You can specify up to five lexicons to apply to the input text.
+- The output audio stream (synthesis) is limited to 10 minutes. After this is
+  reached, any remaining speech is cut off.
+
+For more information,
+see [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md").
+
+###### Note
+
+Some limitations of the `SynthesizeSpeech` API operation can be bypassed using the `StartSythensizeSpeechTask`
+API operation. For more information, see [Long audio files](asynchronous.md "asynchronous.md").
+
+## SpeechSynthesisTask API operations
+
+Note the following limit relating to using the `StartSpeechSynthesisTask`,
+`GetSpeechSynthesisTask`, and `ListSpeechSynthesisTasks` API
+operations:
+
+- The size of the input text can be up to 100,000 billed characters (200,000 total
+  characters). SSML tags are not counted as billed characters.
+- You can specify up to five lexicons to apply to the input text.
+
+## Speech Synthesis Markup Language (SSML)
+
+Note the following limits related to using SSML:
+
+- The `<audio>`,
+  `<lexicon>`,
+  `<lookup>`, and
+  `<voice>` tags are not
+  supported.
+- `<break>` elements can specify a maximum duration of 10 seconds each.
+- The `<prosody>` tag doesn't support values for the rate attribute lower than -80%.
+
+For more information,
+see [Generating speech from SSML documents](ssml.md "ssml.md").

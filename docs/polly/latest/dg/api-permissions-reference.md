@@ -23,11 +23,23 @@ operation name (for example, `polly:GetLexicon`).
 
 Use the scroll bars to see the rest of the table.
 
-| Amazon Polly API and Required Permissions for Actions                 | Amazon Polly API Operations | Required Permissions (API Actions)                          | Resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Polly API and Required Permissions for Actions                 | Amazon Polly API Operations | Required Permissions (API Actions)                          | Resources |
+| --------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------- | --------- |
 | [DeleteLexicon](API_DeleteLexicon.md "API_DeleteLexicon.md")          | `polly:DeleteLexicon`       | `arn:aws:polly:`region`:`account-id`:lexicon/`LexiconName`` |
 | [DescribeVoices](API_DescribeVoices.md "API_DescribeVoices.md")       | `polly:DescribeVoices`      | `*`                                                         |
 | [GetLexicon](API_GetLexicon.md "API_GetLexicon.md")                   | `polly:GetLexicon`          | `arn:aws:polly:`region`:`account-id`:lexicon/`LexiconName`` |
 | [ListLexicons](API_ListLexicons.md "API_ListLexicons.md")             | `polly:ListLexicons`        | `arn:aws:polly:`region`:`account-id`:lexicon/*`             |
 | [PutLexicon](API_PutLexicon.md "API_PutLexicon.md")                   | `polly:PutLexicon`          | `*`                                                         |
-| [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") | `polly:SynthesizeSpeech`    | `*`                                                         | Amazon Polly supports Identity-based policies for actions at the resource-level. Therefore, the `Resource` value is indicated by the ARN. For example: `arn:aws:polly:`us-east-2`:`account-id`:lexicon/*` as the `Resource` value specifies permissions on all owned lexicons within the `us-east-2` Region. Because Amazon Polly doesn't support permissions for actions at the resource-level, most policies specify a wildcard character (\*) as the `Resource` value. However, if it is necessary to limit permissions to a specific Region this wildcard character is replaced with the appropriate ARN: `arn:aws:polly:`region`:`account-id`:lexicon/*.` |
+| [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") | `polly:SynthesizeSpeech`    | `*`                                                         |
+
+Amazon Polly supports Identity-based policies for actions at the resource-level. Therefore, the
+`Resource` value is indicated by the ARN. For example:
+`arn:aws:polly:`us-east-2`:`account-id`:lexicon/*`
+as the `Resource` value specifies permissions on all owned lexicons within the
+`us-east-2` Region.
+
+Because Amazon Polly doesn't support permissions for actions at the resource-level, most
+policies specify a wildcard character (\*) as the `Resource` value. However, if
+it is necessary to limit permissions to a specific Region this wildcard character is
+replaced with the appropriate ARN:
+`arn:aws:polly:`region`:`account-id`:lexicon/*.`

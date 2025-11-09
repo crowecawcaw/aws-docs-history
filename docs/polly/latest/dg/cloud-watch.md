@@ -62,13 +62,19 @@ _Amazon CloudWatch API Reference_.
 Amazon Polly produces the following metrics for each request.
 These metrics are aggregated and in one minute intervals sent to CloudWatch where they are available.
 
-| Metric              | Description                                                                                                                                                                                                    |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `RequestCharacters` | The number of characters in the request. This is billable characters only and does not include SSML tags. Valid Dimension: Operation Valid Statistics: Minimum, Maximum, Average, SampleCount, Sum Unit: Count |
-| `ResponseLatency`   | The latency between when the request was made and the start of the streaming response. Valid Dimensions: Operation Valid Statistics: Minimum, Maximum, Average, SampleCount Unit: microseconds                 |
-| `2XXCount`          | HTTP 200 level code returned upon a successful response. Valid Dimensions: Operation Valid Statistics: Average, SampleCount, Sum Unit: Count                                                                   |
-| `4XXCount`          | HTTP 400 level error code returned upon an error. For each successful response, a zero (0) is emitted. Valid Dimensions: Operation Valid Statistics: Average, SampleCount, Sum Unit: Count                     |
-| `5XXCount`          | HTTP 500 level error code returned upon an error. For each successful response, a zero (0) is emitted. Valid Dimensions: Operation Valid Statistics: Average, SampleCount, Sum Unit: Count                     | ## Dimensions for Amazon Polly Metrics Amazon Polly metrics use the AWS/Polly namespace and provide metrics for the following dimension: |
-| Dimension           | Description                                                                                                                                                                                                    |
-| ---                 | ---                                                                                                                                                                                                            |
-| `Operation`         | Metrics are grouped by the API method they refer to. Possible values are `SynthesizeSpeech`, `PutLexicon`, `DescribeVoices`, etc.                                                                              |
+| Metric              | Description                                                                                                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RequestCharacters` | The number of characters in the request. This is billable characters only and does not include SSML tags.<br>Valid Dimension: Operation<br>Valid Statistics: Minimum, Maximum, Average, SampleCount, Sum<br>Unit: Count |
+| `ResponseLatency`   | The latency between when the request was made and the start of the streaming response.<br>Valid Dimensions: Operation<br>Valid Statistics: Minimum, Maximum, Average, SampleCount<br>Unit: microseconds                 |
+| `2XXCount`          | HTTP 200 level code returned upon a successful response.<br>Valid Dimensions: Operation<br>Valid Statistics: Average, SampleCount, Sum<br>Unit: Count                                                                   |
+| `4XXCount`          | HTTP 400 level error code returned upon an error.<br>For each successful response, a zero (0) is emitted.<br>Valid Dimensions: Operation<br>Valid Statistics: Average, SampleCount, Sum<br>Unit: Count                  |
+| `5XXCount`          | HTTP 500 level error code returned upon an error.<br>For each successful response, a zero (0) is emitted.<br>Valid Dimensions: Operation<br>Valid Statistics: Average, SampleCount, Sum<br>Unit: Count                  |
+
+## Dimensions for Amazon Polly Metrics
+
+Amazon Polly metrics use the AWS/Polly namespace and provide metrics for the following
+dimension:
+
+| Dimension   | Description                                                                                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Operation` | Metrics are grouped by the API method they refer to.<br>Possible values are<br>`SynthesizeSpeech`,<br>`PutLexicon`,<br>`DescribeVoices`, etc. |
