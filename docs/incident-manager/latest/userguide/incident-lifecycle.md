@@ -1,5 +1,4 @@
-AWS Systems Manager Incident Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Incident Manager,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
 # Incident lifecycle in Incident Manager
@@ -66,10 +65,70 @@ Your organization can define the exact scope of each impact rating however you c
 The following table provides examples of how each impact level might typically be
 defined.
 
-| Impact code | Impact name | Sample defined scope                                                             |
-| ----------- | ----------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `1`         | `Critical`  | Full application failure that impacts most customers.                            |
-| `2`         | `High`      | Full application failure that impacts a subset of customers.                     |
-| `3`         | `Medium`    | Partial application failure that is customer-impacting.                          |
-| `4`         | `Low`       | Intermittent failures that have limited impact on customers.                     |
-| `5`         | `No Impact` | Customers aren't currently impacted but urgent action is needed to avoid impact. | ## Investigation and mitigation The _incident_ details view provides your team with runbooks, timelines, and metrics. To see how you can work with an incident, see the [Viewing incident details in the console](tracking.md#tracking-details "tracking.md#tracking-details"). _Runbooks_ commonly provide investigation steps and can automatically pull data or attempt commonly used solutions. Runbooks also provide clear, repeatable steps that your team has found to be useful in mitigating incidents. The runbook tab focuses on the current runbook step and shows past and future steps. Incident Manager integrates with Systems Manager Automation to build runbooks. Use runbooks to do any of the following: <br>• Manage instances and AWS resources <br>• Automatically run scripts <br>• Manage AWS CloudFormation resources For more information about the supported action types, see [Systems Manager Automation actions reference](../../../systems-manager/latest/userguide/automation-actions.md "../../../systems-manager/latest/userguide/automation-actions.md") in the _AWS Systems Manager User Guide_. The **Timeline** tab shows what actions have been taken. The timeline records each with a timestamp and automatically created details. To add custom events to the timeline, see the [Timeline](tracking.md#tracking-details-timeline "tracking.md#tracking-details-timeline") section in the _Incident details_ page of this user guide. The **Diagnosis** tab shows automatically populated metrics and manually added metrics. This view provides valuable information into the activities of your application during an incident. The **Engagements** tab allows you to add additional contacts to the incident and helps provide the resources for the engaged contact to get up to speed quickly once involved in the incident. Contacts are engaged through defined escalation plans or personal engagement plans. Using a _chat channel_, you can directly interact with your incident and other responders on your team. Using Amazon Q Developer in chat applications, you can configure chat channels in. Slack, Microsoft Teams, and Amazon Chime. In Slack and Microsoft Teams channels, responders can interact with incidents directly from the chat channel using a number of `ssm-incidents` commands. For more information, see [Interacting through the chat channel](chat.md#chat-interact "chat.md#chat-interact"). ## Post-incident analysis Incident Manager provides a framework for reflecting on an incident, taking steps needed to prevent the incident from occurring again in the future, and to improve incident response activities overall. Improvements can include: <br>• Changes to the applications involved in an incident. Your team can use this time to improve the system and make it more fault tolerant. <br>• Changes to an incident response plan. Take the time to incorporate learned lessons. <br>• Changes to runbooks. Your team can dive deep into steps needed for resolution and the steps that you can automate. <br>• Changes to alerting. After an incident, your team might have noticed critical points in the metrics you can use to alert the team sooner about an incident. Incident Manager facilitates these potential improvements by using a set of post-incident analysis questions and action items alongside the incident timeline. To learn more about improvement through analysis, see [Performing a post-incident analysis in Incident Manager](analysis.md "analysis.md"). |
+| Impact code | Impact name | Sample defined scope                                                                |
+| ----------- | ----------- | ----------------------------------------------------------------------------------- |
+| `1`         | `Critical`  | Full application failure that impacts most customers.                               |
+| `2`         | `High`      | Full application failure that impacts a subset of<br>customers.                     |
+| `3`         | `Medium`    | Partial application failure that is customer-impacting.                             |
+| `4`         | `Low`       | Intermittent failures that have limited impact on<br>customers.                     |
+| `5`         | `No Impact` | Customers aren't currently impacted but urgent action is needed to<br>avoid impact. |
+
+## Investigation and mitigation
+
+The _incident_ details view provides your team with runbooks,
+timelines, and metrics. To see how you can work with an incident, see the [Viewing incident details in the console](tracking.md#tracking-details "tracking.md#tracking-details").
+
+_Runbooks_ commonly provide investigation steps and can
+automatically pull data or attempt commonly used solutions. Runbooks also provide clear,
+repeatable steps that your team has found to be useful in mitigating incidents. The
+runbook tab focuses on the current runbook step and shows past and future steps.
+
+Incident Manager integrates with Systems Manager Automation to build runbooks. Use runbooks to do any
+of the following:
+
+- Manage instances and AWS resources
+- Automatically run scripts
+- Manage AWS CloudFormation resources
+
+For more information about the supported action types, see [Systems Manager Automation
+actions reference](../../../systems-manager/latest/userguide/automation-actions.md "../../../systems-manager/latest/userguide/automation-actions.md") in the _AWS Systems Manager User Guide_.
+
+The **Timeline** tab shows what actions have been taken. The timeline
+records each with a timestamp and automatically created details. To add custom events to
+the timeline, see the [Timeline](tracking.md#tracking-details-timeline "tracking.md#tracking-details-timeline") section in the _Incident
+details_ page of this user guide.
+
+The **Diagnosis** tab shows automatically populated metrics and
+manually added metrics. This view provides valuable information into the activities of
+your application during an incident.
+
+The **Engagements** tab allows you to add additional contacts to the
+incident and helps provide the resources for the engaged contact to get up to speed
+quickly once involved in the incident. Contacts are engaged through defined escalation
+plans or personal engagement plans.
+
+Using a _chat channel_, you can directly interact with your
+incident and other responders on your team. Using Amazon Q Developer in chat applications, you can configure chat
+channels in. Slack, Microsoft Teams, and Amazon Chime. In
+Slack and Microsoft Teams channels, responders can
+interact with incidents directly from the chat channel using a number of
+`ssm-incidents` commands. For more information, see [Interacting through the chat channel](chat.md#chat-interact "chat.md#chat-interact").
+
+## Post-incident analysis
+
+Incident Manager provides a framework for reflecting on an incident, taking steps needed to
+prevent the incident from occurring again in the future, and to improve incident
+response activities overall. Improvements can include:
+
+- Changes to the applications involved in an incident. Your team can use this
+  time to improve the system and make it more fault tolerant.
+- Changes to an incident response plan. Take the time to incorporate learned
+  lessons.
+- Changes to runbooks. Your team can dive deep into steps needed for resolution
+  and the steps that you can automate.
+- Changes to alerting. After an incident, your team might have noticed critical
+  points in the metrics you can use to alert the team sooner about an incident.
+
+Incident Manager facilitates these potential improvements by using a set of post-incident
+analysis questions and action items alongside the incident timeline. To learn more about
+improvement through analysis, see [Performing a post-incident analysis in Incident Manager](analysis.md "analysis.md").

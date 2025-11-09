@@ -1,5 +1,4 @@
-AWS Systems Manager Incident Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Incident Manager,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
 # Monitoring metrics in Incident Manager with
@@ -39,17 +38,45 @@ such as by using an SDK or the AWS CLI.
 
 Incident Manager sends the following metrics to CloudWatch.
 
-| Metric                                | Description                                                                                                                                                                                                                                                            |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `NumberOfCreateIncidents`             | Number of incidents created. Valid Dimensions: [](Empty dimension), [`ResponsePlan`], [`Impact`], [`Source`], [`ResponsePlan`, `Impact`], [`ResponsePlan`, `Source`] Unit: Count                                                                                       |
-| `NumberOfResolveIncidents`            | Number of incidents resolved. Valid Dimensions: [](Empty dimension), [`ResponsePlan`], [`Impact`], [`Source`], [`ResponsePlan`, `Impact`], [`ResponsePlan`, `Source`] Unit: Count                                                                                      |
-| `TimeToFirstAcknowledgement`          | Time difference between the incident create time and the time the first acknowledgment was made to the incident. Valid Dimensions: [](Empty dimension), [`ResponsePlan`], [`Impact`], [`Source`], [`ResponsePlan`, `Impact`], [`ResponsePlan`, `Source`] Unit: Seconds |
-| `TimeToResolveIncident`               | Time difference between when the incident was created and when it was resolved. Valid Dimensions: ](Empty dimension), [`ResponsePlan`], [`Impact`], [`Source`], [`ResponsePlan`, `Impact`], [`ResponsePlan`, `Source`] Unit: Seconds                                   | ## Viewing Incident Manager metrics on the CloudWatch console ###### To view Incident Manager metrics in the CloudWatch console 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. Select the `IncidentManager` namespace. 4. On the **Metrics** tab, choose a dimension, and then choose a metric. For more information about working with CloudWatch metrics, see the following topics in the _Amazon CloudWatch User Guide_: <br>• [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric") <br>• [Using Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") ## Dimensions for Metrics Incident Manager metrics use the `IncidentManager` namespace and provide metrics for the following dimension(s): |
-| Dimension                             | Description                                                                                                                                                                                                                                                            |
-| ---                                   | ---                                                                                                                                                                                                                                                                    |
-| `By Response Plan`                    | View aggregate metrics by response plan.                                                                                                                                                                                                                               |
-| `By Impact Level`                     | View aggregate metrics by the level of severity.                                                                                                                                                                                                                       |
-| `By Source`                           | View metrics for incidents created manually, by CloudWatch alarm, or EventBridge event.                                                                                                                                                                                |
-| `Across All Incidents`                | View aggregate metrics for all incidents in the current AWS Region.                                                                                                                                                                                                    |
-| `Response Plan name and Source`       | View aggregate metrics for each combination of response plan and source.                                                                                                                                                                                               |
-| `Response Plan Name and Impact Level` | View aggregate metrics for each combination of response plan and level of severity.                                                                                                                                                                                    |
+| Metric                       | Description                                                                                                                                                                                                                                                                              |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NumberOfCreateIncidents`    | Number of incidents created.<br>Valid Dimensions: [](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Count                                                                                          |
+| `NumberOfResolveIncidents`   | Number of incidents resolved.<br>Valid Dimensions: [](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Count                                                                                         |
+| `TimeToFirstAcknowledgement` | Time difference between the incident create time and the time the<br>first acknowledgment was made to the incident.<br>Valid Dimensions: [](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Seconds |
+| `TimeToResolveIncident`      | Time difference between when the incident was created and when it was<br>resolved.<br>Valid Dimensions: ](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Seconds                                   |
+
+## Viewing Incident Manager metrics on the CloudWatch
+
+console
+
+###### To view Incident Manager metrics in the CloudWatch console
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. Select the `IncidentManager` namespace.
+4. On the **Metrics** tab, choose a dimension, and then choose a
+   metric.
+
+For more information about working with CloudWatch metrics, see the following topics in the
+_Amazon CloudWatch User Guide_:
+
+- [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric")
+- [Using
+  Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
+
+## Dimensions for
+
+Metrics
+
+Incident Manager metrics use the `IncidentManager` namespace and provide metrics
+for the following dimension(s):
+
+| Dimension                             | Description                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `By Response Plan`                    | View aggregate metrics by response plan.                                                   |
+| `By Impact Level`                     | View aggregate metrics by the level of severity.                                           |
+| `By Source`                           | View metrics for incidents created manually, by CloudWatch alarm, or<br>EventBridge event. |
+| `Across All Incidents`                | View aggregate metrics for all incidents in the current AWS<br>Region.                     |
+| `Response Plan name and Source`       | View aggregate metrics for each combination of response plan and<br>source.                |
+| `Response Plan Name and Impact Level` | View aggregate metrics for each combination of response plan and<br>level of severity.     |
