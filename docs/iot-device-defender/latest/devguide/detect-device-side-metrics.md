@@ -618,37 +618,292 @@ Units: connections
 
 ## Device metrics document specification
 
-| Overall structure       | Long name | Short name              | Required | Type         | Constraints                                                                   | Notes                                  |
-| ----------------------- | --------- | ----------------------- | -------- | ------------ | ----------------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------- | -------------- | ----------- | ----------- | ----------- | ----- |
-| header                  | hed       | Y                       | Object   |              | Complete block required for well-formed report.                               |
-| metrics                 | met       | Y                       | Object   |              | A report can have both or at least one `metrics` or `custom_metrics` block.   |
-| custom_metrics          | cmet      | Y                       | Object   |              | A report can have both or at least one `metrics` or `custom_metrics` block.   | Header block                           | Long name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Short name | Required       | Type           | Constraints | Notes       |
-| ---                     | ---       | ---                     | ---      | ---          | ---                                                                           |
-| report_id               | rid       | Y                       | Integer  |              | Monotonically increasing value. Epoch timestamp recommended.                  |
-| version                 | v         | Y                       | String   | Major.Minor  | Minor increments with addition of field. Major increments if metrics removed. | **Metrics block:** TCP connections     | Long name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Short name | Parent element | Required       | Type        | Constraints | Notes       |
-| ---                     | ---       | ---                     | ---      | ---          | ---                                                                           | ---                                    |
-| tcp_connections         | tc        | metrics                 | N        | Object       |                                                                               |                                        |
-| established_connections | ec        | tcp_connections         | N        | Object       |                                                                               | Established TCP state                  |
-| connections             | cs        | established_connections | N        | List<Object> |                                                                               |                                        |
-| remote_addr             | rad       | connections             | Y        | Number       | ip:port                                                                       | IP can be IPv6 or IPv4                 |
-| local_port              | lp        | connections             | N        | Number       | >= 0                                                                          |                                        |
-| local_interface         | li        | connections             | N        | String       |                                                                               | Interface name                         |
-| total                   | t         | established_connections | N        | Number       | >= 0                                                                          | Number of established connections      | Listening TCP ports                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Long name  | Short name     | Parent element | Required    | Type        | Constraints | Notes |
-| ---                     | ---       | ---                     | ---      | ---          | ---                                                                           | ---                                    |
-| listening_tcp_ports     | tp        | metrics                 | N        | Object       |                                                                               |                                        |
-| ports                   | pts       | listening_tcp_ports     | N        | List<Object> | > 0                                                                           |                                        |
-| port                    | pt        | ports                   | N        | Number       | > 0                                                                           | ports should be numbers greater than 0 |
-| interface               | if        | ports                   | N        | String       |                                                                               | Interface name                         |
-| total                   | t         | listening_tcp_ports     | N        | Number       | >= 0                                                                          |                                        | Listening UDP ports                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Long name  | Short name     | Parent element | Required    | Type        | Constraints | Notes |
-| ---                     | ---       | ---                     | ---      | ---          | ---                                                                           | ---                                    |
-| listening_udp_ports     | up        | metrics                 | N        | Object       |                                                                               |                                        |
-| ports                   | pts       | listening_udp_ports     | N        | List<Port>   | > 0                                                                           |                                        |
-| port                    | pt        | ports                   | N        | Number       | > 0                                                                           | Ports should be numbers greater than 0 |
-| interface               | if        | ports                   | N        | String       |                                                                               | Interface name                         |
-| total                   | t         | listening_udp_ports     | N        | Number       | >= 0                                                                          |                                        | Network statistics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Long name  | Short name     | Parent element | Required    | Type        | Constraints | Notes |
-| ---                     | ---       | ---                     | ---      | ---          | ---                                                                           | ---                                    |
-| network_stats           | ns        | metrics                 | N        | Object       |                                                                               |                                        |
-| bytes_in                | bi        | network_stats           | N        | Number       | Delta Metric, >= 0                                                            |                                        |
-| bytes_out               | bo        | network_stats           | N        | Number       | Delta Metric, >= 0                                                            |                                        |
-| packets_in              | pi        | network_stats           | N        | Number       | Delta Metric, >= 0                                                            |                                        |
-| packets_out             | po        | network_stats           | N        | Number       | Delta Metric, >= 0                                                            |                                        | ###### Example The following JSON structure uses long names. `{ "header": { "report_id": 1530304554, "version": "1.0" }, "metrics": { "listening_tcp_ports": { "ports": [ { "interface": "eth0", "port": 24800 }, { "interface": "eth0", "port": 22 }, { "interface": "eth0", "port": 53 } ], "total": 3 }, "listening_udp_ports": { "ports": [ { "interface": "eth0", "port": 5353 }, { "interface": "eth0", "port": 67 } ], "total": 2 }, "network_stats": { "bytes_in": 29358693495, "bytes_out": 26485035, "packets_in": 10013573555, "packets_out": 11382615 }, "tcp_connections": { "established_connections": { "connections": [ { "local_interface": "eth0", "local_port": 80, "remote_addr": "192.168.0.1:8000" }, { "local_interface": "eth0", "local_port": 80, "remote_addr": "192.168.0.1:8000" } ], "total": 2 } } }, "custom_metrics": { "MyMetricOfType_Number": [ { "number": 1 } ], "MyMetricOfType_NumberList": [ { "number_list": [ 1, 2, 3 ] } ], "MyMetricOfType_StringList": [ { "string_list": [ "value_1", "value_2" ] } ], "MyMetricOfType_IpList": [ { "ip_list": [ "172.0.0.0", "172.0.0.10" ] } ] } }` ###### Example JSON structure using short names `{ "hed": { "rid": 1530305228, "v": "1.0" }, "met": { "tp": { "pts": [ { "if": "eth0", "pt": 24800 }, { "if": "eth0", "pt": 22 }, { "if": "eth0", "pt": 53 } ], "t": 3 }, "up": { "pts": [ { "if": "eth0", "pt": 5353 }, { "if": "eth0", "pt": 67 } ], "t": 2 }, "ns": { "bi": 29359307173, "bo": 26490711, "pi": 10014614051, "po": 11387620 }, "tc": { "ec": { "cs": [ { "li": "eth0", "lp": 80, "rad": "192.168.0.1:8000" }, { "li": "eth0", "lp": 80, "rad": "192.168.0.1:8000" } ], "t": 2 } } }, "cmet": { "MyMetricOfType_Number": [ { "number": 1 } ], "MyMetricOfType_NumberList": [ { "number_list": [ 1, 2, 3 ] } ], "MyMetricOfType_StringList": [ { "string_list": [ "value_1", "value_2" ] } ], "MyMetricOfType_IpList": [ { "ip_list": [ "172.0.0.0", "172.0.0.10" ] } ] } }` ## Sending metrics from devices AWS IoT Device Defender Detect can collect, aggregate, and monitor metrics data generated by AWS IoT devices to identify devices that exhibit abnormal behavior. This section shows you how to send metrics from a device to AWS IoT Device Defender. You must securely deploy the AWS IoT SDK version two on your AWS IoT connected devices or device gateways to collect device-side metrics. See the full list of SDKs [here](../../../iot/latest/developerguide/iot-sdks.md "../../../iot/latest/developerguide/iot-sdks.md"). You can use AWS IoT Device Client to publish metrics as it provides a single agent that covers the features present in both AWS IoT Device Defender and AWS IoT Device Management. These features include jobs, secure tunneling, AWS IoT Device Defender metrics publishing, and more. You publish device-side metrics to the [reserved topic](../../../iot/latest/developerguide/reserved-topics.md#reserved-topics-device-defender "../../../iot/latest/developerguide/reserved-topics.md#reserved-topics-device-defender") in AWS IoT for AWS IoT Device Defender to collect and evaluate. ### Using the AWS IoT Device Client to publish metrics To install AWS IoT Device Client, you can download it from [Github](https://github.com/awslabs/aws-iot-device-client "https://github.com/awslabs/aws-iot-device-client"). After you've installed the AWS IoT Device Client on the device for which you want to collect device-side data, you must configure it to send device-side metrics to AWS IoT Device Defender. Verify that the AWS IoT Device Client [configuration file](https://github.com/awslabs/aws-iot-device-client/blob/main/config-template.json "https://github.com/awslabs/aws-iot-device-client/blob/main/config-template.json") has the following parameters set in the `device-defender` section: `"device-defender":    { "enabled":    true, "interval-in-seconds": 300 }` ###### Warning You should set the time interval to a minimum of 300 seconds. If you set the time interval to anything less than 300 seconds, your metric data may be throttled. After you've updated your configuration, you can create security profiles and behaviors in the AWS IoT Device Defender console to monitor the metrics that your devices publish to the cloud. You can find published metrics in the AWS IoT Core console by choosing Defend, Detect, and then Metrics. |
+| Overall structure | Long name | Short name | Required | Type | Constraints                                                                 | Notes |
+| ----------------- | --------- | ---------- | -------- | ---- | --------------------------------------------------------------------------- | ----- |
+| header            | hed       | Y          | Object   |      | Complete block required for well-formed report.                             |
+| metrics           | met       | Y          | Object   |      | A report can have both or at least one `metrics` or `custom_metrics` block. |
+| custom_metrics    | cmet      | Y          | Object   |      | A report can have both or at least one `metrics` or `custom_metrics` block. |
+
+| Header block | Long name | Short name | Required | Type        | Constraints                                                                      | Notes |
+| ------------ | --------- | ---------- | -------- | ----------- | -------------------------------------------------------------------------------- | ----- |
+| report_id    | rid       | Y          | Integer  |             | Monotonically increasing value. Epoch timestamp recommended.                     |
+| version      | v         | Y          | String   | Major.Minor | Minor increments with addition of field. Major increments if metrics<br>removed. |
+
+**Metrics block:**
+
+| TCP connections         | Long name | Short name              | Parent element | Required     | Type    | Constraints                       | Notes |
+| ----------------------- | --------- | ----------------------- | -------------- | ------------ | ------- | --------------------------------- | ----- |
+| tcp_connections         | tc        | metrics                 | N              | Object       |         |                                   |
+| established_connections | ec        | tcp_connections         | N              | Object       |         | Established TCP state             |
+| connections             | cs        | established_connections | N              | List<Object> |         |                                   |
+| remote_addr             | rad       | connections             | Y              | Number       | ip:port | IP can be IPv6 or IPv4            |
+| local_port              | lp        | connections             | N              | Number       | >= 0    |                                   |
+| local_interface         | li        | connections             | N              | String       |         | Interface name                    |
+| total                   | t         | established_connections | N              | Number       | >= 0    | Number of established connections |
+
+| Listening TCP ports | Long name | Short name          | Parent element | Required     | Type | Constraints                            | Notes |
+| ------------------- | --------- | ------------------- | -------------- | ------------ | ---- | -------------------------------------- | ----- |
+| listening_tcp_ports | tp        | metrics             | N              | Object       |      |                                        |
+| ports               | pts       | listening_tcp_ports | N              | List<Object> | > 0  |                                        |
+| port                | pt        | ports               | N              | Number       | > 0  | ports should be numbers greater than 0 |
+| interface           | if        | ports               | N              | String       |      | Interface name                         |
+| total               | t         | listening_tcp_ports | N              | Number       | >= 0 |                                        |
+
+| Listening UDP ports | Long name | Short name          | Parent element | Required   | Type | Constraints                            | Notes |
+| ------------------- | --------- | ------------------- | -------------- | ---------- | ---- | -------------------------------------- | ----- |
+| listening_udp_ports | up        | metrics             | N              | Object     |      |                                        |
+| ports               | pts       | listening_udp_ports | N              | List<Port> | > 0  |                                        |
+| port                | pt        | ports               | N              | Number     | > 0  | Ports should be numbers greater than 0 |
+| interface           | if        | ports               | N              | String     |      | Interface name                         |
+| total               | t         | listening_udp_ports | N              | Number     | >= 0 |                                        |
+
+| Network statistics | Long name | Short name    | Parent element | Required | Type               | Constraints | Notes |
+| ------------------ | --------- | ------------- | -------------- | -------- | ------------------ | ----------- | ----- |
+| network_stats      | ns        | metrics       | N              | Object   |                    |             |
+| bytes_in           | bi        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
+| bytes_out          | bo        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
+| packets_in         | pi        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
+| packets_out        | po        | network_stats | N              | Number   | Delta Metric, >= 0 |             |
+
+###### Example
+
+The following JSON structure uses long names.
+
+```
+{
+  "header": {
+    "report_id": 1530304554,
+    "version": "1.0"
+  },
+  "metrics": {
+    "listening_tcp_ports": {
+      "ports": [
+        {
+          "interface": "eth0",
+          "port": 24800
+        },
+        {
+          "interface": "eth0",
+          "port": 22
+        },
+        {
+          "interface": "eth0",
+          "port": 53
+        }
+      ],
+      "total": 3
+    },
+    "listening_udp_ports": {
+      "ports": [
+        {
+          "interface": "eth0",
+          "port": 5353
+        },
+        {
+          "interface": "eth0",
+          "port": 67
+        }
+      ],
+      "total": 2
+    },
+    "network_stats": {
+      "bytes_in": 29358693495,
+      "bytes_out": 26485035,
+      "packets_in": 10013573555,
+      "packets_out": 11382615
+    },
+    "tcp_connections": {
+      "established_connections": {
+        "connections": [
+          {
+            "local_interface": "eth0",
+            "local_port": 80,
+            "remote_addr": "192.168.0.1:8000"
+          },
+          {
+            "local_interface": "eth0",
+            "local_port": 80,
+            "remote_addr": "192.168.0.1:8000"
+          }
+        ],
+        "total": 2
+      }
+    }
+  },
+  "custom_metrics": {
+    "MyMetricOfType_Number": [
+      {
+        "number": 1
+      }
+    ],
+    "MyMetricOfType_NumberList": [
+      {
+        "number_list": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "MyMetricOfType_StringList": [
+      {
+        "string_list": [
+          "value_1",
+          "value_2"
+        ]
+      }
+    ],
+    "MyMetricOfType_IpList": [
+      {
+        "ip_list": [
+          "172.0.0.0",
+          "172.0.0.10"
+        ]
+      }
+    ]
+  }
+}
+```
+
+###### Example JSON structure using short names
+
+```
+{
+  "hed": {
+    "rid": 1530305228,
+    "v": "1.0"
+  },
+  "met": {
+    "tp": {
+      "pts": [
+        {
+          "if": "eth0",
+          "pt": 24800
+        },
+        {
+          "if": "eth0",
+          "pt": 22
+        },
+        {
+          "if": "eth0",
+          "pt": 53
+        }
+      ],
+      "t": 3
+    },
+    "up": {
+      "pts": [
+        {
+          "if": "eth0",
+          "pt": 5353
+        },
+        {
+          "if": "eth0",
+          "pt": 67
+        }
+      ],
+      "t": 2
+    },
+    "ns": {
+      "bi": 29359307173,
+      "bo": 26490711,
+      "pi": 10014614051,
+      "po": 11387620
+    },
+    "tc": {
+      "ec": {
+        "cs": [
+          {
+            "li": "eth0",
+            "lp": 80,
+            "rad": "192.168.0.1:8000"
+          },
+          {
+            "li": "eth0",
+            "lp": 80,
+            "rad": "192.168.0.1:8000"
+          }
+        ],
+        "t": 2
+      }
+    }
+  },
+  "cmet": {
+    "MyMetricOfType_Number": [
+      {
+        "number": 1
+      }
+    ],
+    "MyMetricOfType_NumberList": [
+      {
+        "number_list": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "MyMetricOfType_StringList": [
+      {
+        "string_list": [
+          "value_1",
+          "value_2"
+        ]
+      }
+    ],
+    "MyMetricOfType_IpList": [
+      {
+        "ip_list": [
+          "172.0.0.0",
+          "172.0.0.10"
+        ]
+      }
+    ]
+  }
+}
+```
+
+## Sending metrics from devices
+
+AWS IoT Device Defender Detect can collect, aggregate, and monitor metrics data generated by AWS IoT devices
+to identify devices that exhibit abnormal behavior. This section shows you how to send metrics
+from a device to AWS IoT Device Defender.
+
+You must securely deploy the AWS IoT SDK version two on your AWS IoT connected devices or device gateways
+to collect device-side metrics. See the full list of SDKs [here](../../../iot/latest/developerguide/iot-sdks.md "../../../iot/latest/developerguide/iot-sdks.md").
+
+You can use AWS IoT Device Client to publish metrics as it provides a single agent
+that covers the features present in both AWS IoT Device Defender and AWS IoT Device Management. These features
+include jobs, secure tunneling, AWS IoT Device Defender metrics publishing, and more.
+
+You publish device-side metrics to the
+[reserved topic](../../../iot/latest/developerguide/reserved-topics.md#reserved-topics-device-defender "../../../iot/latest/developerguide/reserved-topics.md#reserved-topics-device-defender") in AWS IoT for AWS IoT Device Defender to collect and evaluate.
+
+### Using the AWS IoT Device Client to publish metrics
+
+To install
+AWS IoT Device Client, you can download it from [Github](https://github.com/awslabs/aws-iot-device-client "https://github.com/awslabs/aws-iot-device-client"). After
+you've
+installed the AWS IoT Device Client on the device for which you want to collect device-side
+data, you must configure it to send device-side metrics to AWS IoT Device Defender. Verify that the AWS IoT
+Device Client [configuration file](https://github.com/awslabs/aws-iot-device-client/blob/main/config-template.json "https://github.com/awslabs/aws-iot-device-client/blob/main/config-template.json") has the following parameters set in the
+`device-defender` section:
+
+```
+
+  "device-defender":    {
+        "enabled":    true,
+        "interval-in-seconds": 300
+    }
+
+```
+
+###### Warning
+
+You should set the time interval to a minimum of 300 seconds. If you set the time
+interval to anything less than 300 seconds, your metric data may be throttled.
+
+After you've updated your configuration, you can create security profiles and behaviors
+in the AWS IoT Device Defender console to monitor the metrics that your devices publish to the cloud. You can
+find published metrics in the AWS IoT Core console by choosing Defend, Detect, and then
+Metrics.

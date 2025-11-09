@@ -148,7 +148,7 @@ run on your AWS IoT devices. Suppressions are only applicable to the audit
 findings.
 
 | `check-name`                                            | `resource-identifier`     |
-| ------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------- | ------------------------- |
 | `AUTHENTICATE_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`     | `cognitoIdentityPoolId`   |
 | `CA_CERT_APPROACHING_EXPIRATION_CHECK`                  | `caCertificateId`         |
 | `CA_CERTIFICATE_KEY_QUALITY_CHECK`                      | `caCertificateId`         |
@@ -162,4 +162,37 @@ findings.
 | `LOGGING_DISABLED_CHECK`                                | `account`                 |
 | `REVOKED_CA_CERT_CHECK`                                 | `caCertificateId`         |
 | `REVOKED_DEVICE_CERT_CHECK`                             | `deviceCertificateId`     |
-| `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`  | `cognitoIdentityPoolId`   | ###### To create and apply an audit finding suppression The following procedure shows you how to create an audit finding suppression in the AWS CLI. <br>• Use the `create-audit-suppression` command to create an audit finding suppression. The following example creates an audit finding suppression for AWS account `123456789012` on the basis of the check **Logging disabled**. ``aws iot create-audit-suppression \ --check-name `LOGGING_DISABLED_CHECK` \ --resource-identifier account=`123456789012` \ --client-request-token `28ac32c3-384c-487a-a368-c7bbd481f554` \ --suppress-indefinitely \ --description "`Suppresses logging disabled check because I don't want to enable logging for now.`"`` There is no output for this command. ## Audit finding suppressions APIs The following APIs can be used to create and manage audit finding suppressions. <br>• [CreateAuditSuppression](../../../iot/latest/apireference/API_CreateAuditSuppression.md "../../../iot/latest/apireference/API_CreateAuditSuppression.md") <br>• [DescribeAuditSuppression](../../../iot/latest/apireference/API_DescribeAuditSuppression.md "../../../iot/latest/apireference/API_DescribeAuditSuppression.md") <br>• [UpdateAuditSuppression](../../../iot/latest/apireference/API_UpdateAuditSuppression.md "../../../iot/latest/apireference/API_UpdateAuditSuppression.md") <br>• [DeleteAuditSuppression](../../../iot/latest/apireference/API_DeleteAuditSuppression.md "../../../iot/latest/apireference/API_DeleteAuditSuppression.md") <br>• [ListAuditSuppressions](../../../iot/latest/apireference/API_ListAuditSuppressions.md "../../../iot/latest/apireference/API_ListAuditSuppressions.md") To filter _for_ specific audit findings, you can use the [ListAuditFindings](../../../iot/latest/apireference/API_ListAuditFindings.md "../../../iot/latest/apireference/API_ListAuditFindings.md") API. |
+| `UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK`  | `cognitoIdentityPoolId`   |
+
+###### To create and apply an audit finding suppression
+
+The following procedure shows you how to create an audit finding suppression in
+the AWS CLI.
+
+- Use the `create-audit-suppression` command to create an audit
+  finding suppression. The following example creates an audit finding suppression
+  for AWS account `123456789012` on the basis of the
+  check **Logging disabled**.
+
+```
+aws iot create-audit-suppression \
+    --check-name `LOGGING_DISABLED_CHECK` \
+    --resource-identifier account=`123456789012` \
+    --client-request-token `28ac32c3-384c-487a-a368-c7bbd481f554` \
+    --suppress-indefinitely \
+    --description "`Suppresses logging disabled check because I don't want to enable logging for now.`"
+```
+
+There is no output for this command.
+
+## Audit finding suppressions APIs
+
+The following APIs can be used to create and manage audit finding suppressions.
+
+- [CreateAuditSuppression](../../../iot/latest/apireference/API_CreateAuditSuppression.md "../../../iot/latest/apireference/API_CreateAuditSuppression.md")
+- [DescribeAuditSuppression](../../../iot/latest/apireference/API_DescribeAuditSuppression.md "../../../iot/latest/apireference/API_DescribeAuditSuppression.md")
+- [UpdateAuditSuppression](../../../iot/latest/apireference/API_UpdateAuditSuppression.md "../../../iot/latest/apireference/API_UpdateAuditSuppression.md")
+- [DeleteAuditSuppression](../../../iot/latest/apireference/API_DeleteAuditSuppression.md "../../../iot/latest/apireference/API_DeleteAuditSuppression.md")
+- [ListAuditSuppressions](../../../iot/latest/apireference/API_ListAuditSuppressions.md "../../../iot/latest/apireference/API_ListAuditSuppressions.md")
+
+To filter _for_ specific audit findings, you can use the [ListAuditFindings](../../../iot/latest/apireference/API_ListAuditFindings.md "../../../iot/latest/apireference/API_ListAuditFindings.md") API.
