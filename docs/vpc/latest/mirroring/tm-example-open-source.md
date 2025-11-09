@@ -68,17 +68,23 @@ For more information, see [Create or delete a traffic mirror target](create-traf
 Create a traffic mirror filter (Filter 1) with the following inbound rule. For more
 information, see [Create, modify, or delete a traffic mirror filter](create-traffic-mirroring-filter.md "create-traffic-mirroring-filter.md").
 
-| Option                     | Value                                                           |
-| -------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Rule action**            | Accept                                                          |
-| **Protocol**               | TCP                                                             |
-| **Source port range**      |                                                                 |
-| **Destination port range** |                                                                 |
-| **Source CIDR block**      | 0.0.0.0/0                                                       |
-| **Destination CIDR block** | 0.0.0.0/0                                                       |
-| **Description**            | TCP Rule                                                        | ## Step 4: Create a traffic mirror session Create and configure a traffic mirror session with the following options. For more information, see [Create, modify, or delete a traffic mirror session](create-traffic-mirroring-session.md "create-traffic-mirroring-session.md"). |
-| Option                     | Value                                                           |
-| ---                        | ---                                                             |
-| **Mirror source**          | The network interface of the instance that you want to monitor. |
-| **Mirror target**          | Target A                                                        |
-| **Filter**                 | Filter 1                                                        |
+| Option                     | Value     |
+| -------------------------- | --------- |
+| **Rule action**            | Accept    |
+| **Protocol**               | TCP       |
+| **Source port range**      |           |
+| **Destination port range** |           |
+| **Source CIDR block**      | 0.0.0.0/0 |
+| **Destination CIDR block** | 0.0.0.0/0 |
+| **Description**            | TCP Rule  |
+
+## Step 4: Create a traffic mirror session
+
+Create and configure a traffic mirror session with the following options. For more
+information, see [Create, modify, or delete a traffic mirror session](create-traffic-mirroring-session.md "create-traffic-mirroring-session.md").
+
+| Option            | Value                                                           |
+| ----------------- | --------------------------------------------------------------- |
+| **Mirror source** | The network interface of the instance that you want to monitor. |
+| **Mirror target** | Target A                                                        |
+| **Filter**        | Filter 1                                                        |

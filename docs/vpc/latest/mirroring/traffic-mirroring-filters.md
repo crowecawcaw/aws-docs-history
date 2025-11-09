@@ -14,10 +14,16 @@ For example, in the following set of filter rules, rule 10 ensures that SSH traf
 network to my VPC is not mirrored and rule 20 mirrors all other IPv4 TCP traffic.
 
 | Number | Rule action | Protocol | Source port range | Destination port range | Source CIDR block | Destination CIDR block |
-| ------ | ----------- | -------- | ----------------- | ---------------------- | ----------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------ | ----------- | -------- | ----------------- | ---------------------- | ----------------- | ---------------------- |
 | 10     | reject      | TCP (6)  |                   | 22                     | `my-network`      | `vpc-cidr`             |
-| 20     | accept      | TCP (6)  |                   |                        | 0.0.0.0/0         | 0.0.0.0/0              | In the following set of filter rules, rule 10 mirrors HTTPS traffic from all IPv4 addresses and rule 20 mirrors HTTPS traffic from all IPv6 addresses. |
+| 20     | accept      | TCP (6)  |                   |                        | 0.0.0.0/0         | 0.0.0.0/0              |
+
+In the following set of filter rules, rule 10 mirrors HTTPS traffic from all IPv4 addresses
+and rule 20 mirrors HTTPS traffic from all IPv6 addresses.
+
 | Number | Rule action | Protocol | Source port range | Destination port range | Source CIDR block | Destination CIDR block |
-| ---    | ---         | ---      | ---               | ---                    | ---               | ---                    |
+| ------ | ----------- | -------- | ----------------- | ---------------------- | ----------------- | ---------------------- |
 | 10     | accept      | TCP (6)  |                   | 443                    | 0.0.0.0/0         | 0.0.0.0/0              |
-| 20     | accept      | TCP (6)  |                   | 443                    | ::/0              | ::/0                   | Note that if you don't add outbound rules, then no outbound traffic is mirrored.                                                                       |
+| 20     | accept      | TCP (6)  |                   | 443                    | ::/0              | ::/0                   |
+
+Note that if you don't add outbound rules, then no outbound traffic is mirrored.
