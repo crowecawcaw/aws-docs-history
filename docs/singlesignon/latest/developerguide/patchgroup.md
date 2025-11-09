@@ -26,11 +26,152 @@ operation.
 The following IAM Identity Center SCIM implementation errors are common for this API
 operation.
 
-| Error                       | Condition                                                                                                                         | HTTP Status Code |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ValidationException`       | Request cannot be parsed, is syntactically incorrect, or violates schema. This error also occurs if the operation is unsupported. | 400              |
-| `UnauthorizedException`     | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect.                                 | 401              |
-| `AccessDeniedException`     | Operation is not permitted based on the supplied authorization.                                                                   | 403              |
-| `ResourceNotFoundException` | Specified group does not exist.                                                                                                   | 404              |
-| `ThrottlingException`       | Too many requests exceeded the limits.                                                                                            | 429              |
-| `InternalServerException`   | Service failed to process the request.                                                                                            | 500              | ## Examples Following are example requests and responses for this API operation. ###### Example Request `PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d User-Agent: Mozilla/5.0 Authorization: Bearer <bearer_token> { "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"], "Operations": [{ "op": "replace", "value": { "id": "9067729b3d-07124c20-d960-4a47-93ff-460d76461f81", "displayName": "Group Foo New" } }] }` ###### Example Response `HTTP/1.1 204 Date: Tue, 07 Apr 2020 23:59:09 GMT Content-Type: application/json x-amzn-RequestId: dad0c91c-1ea8-4b36-9fdb-4f099b59c1c9` ## Member operations examples The following member operations are supported using the patch operation for a group. <br>• Add members to a group <br>• Remove members from a group These member operations can be applied using the examples below. ### Add members to a group In the value field, provide a list of objects containing the value of the user **id**. Multiple members can be added at a time. For example, if you have a user with the **id** `906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c` that you want to add to the group with an **id** of `9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d`, use the following call: ###### Example Request `PATCH  https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d User-Agent: Mozilla/5.0 Authorization: Bearer <bearer_token> { "schemas":[ "urn:ietf:params:scim:api:messages:2.0:PatchOp" ], "Operations":[ { "op":"add", "path":"members", "value":[ { "value":"906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c" } ] } ] }` ###### Example Response `HTTP/1.1  204 Date: Mon, 21 Sep 2020 16:39:26 GMT Content-Type: application/json x-amzn-RequestId: 1e9abe4c-b6e1-4d3b-bb86-73ca6187e08b` ### Remove members from a group In the value field, provide a list of objects containing the value of the user id. Multiple members can be removed at a time, but you can remove up to 100 members in one API call, and providing an empty list in the request (with the intent of deleting all) is not supported. For example, if you want to remove two users, one with the **id** `906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb` and another with the **id** `906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d`, use the following call: ###### Example Request `PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d User-Agent: Mozilla/5.0 Authorization: Bearer <bearer_token> { "schemas":[ "urn:ietf:params:scim:api:messages:2.0:PatchOp" ], "Operations":[ { "op":"remove", "path":"members", "value":[ { "value":"906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb" }, { "value":"906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d" } ] } ] }` ###### Example Response `HTTP/1.1  204 Date: Mon, 21 Sep 2020 17:03:29 GMT Content-Type: application/json x-amzn-RequestId: 3f89b66d-77e1-4128-a0c3-a890e72f5d4c` |
+| Error                       | Condition                                                                                                                               | HTTP Status Code |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `ValidationException`       | Request cannot be parsed, is syntactically incorrect, or violates<br>schema. This error also occurs if the operation is<br>unsupported. | 400              |
+| `UnauthorizedException`     | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect.                                    | 401              |
+| `AccessDeniedException`     | Operation is not permitted based on the supplied<br>authorization.                                                                      | 403              |
+| `ResourceNotFoundException` | Specified group does not exist.                                                                                                         | 404              |
+| `ThrottlingException`       | Too many requests exceeded the limits.                                                                                                  | 429              |
+| `InternalServerException`   | Service failed to process the request.                                                                                                  | 500              |
+
+## Examples
+
+Following are example requests and responses for this API operation.
+
+###### Example Request
+
+```
+PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
+User-Agent: Mozilla/5.0
+Authorization: Bearer <bearer_token>
+
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path":  "displayName",
+            "value": "Developers"
+        }
+    ]
+}
+```
+
+###### Example Response
+
+```
+HTTP/1.1 204
+Date: Tue, 07 Apr 2020 23:59:09 GMT
+Content-Type: application/json
+x-amzn-RequestId: dad0c91c-1ea8-4b36-9fdb-4f099b59c1c9
+```
+
+## Member operations examples
+
+The following member operations are supported using the patch
+operation for a group.
+
+- Add members to a group
+- Remove members from a group
+
+These member operations can be applied using the examples below.
+
+### Add members to a
+
+group
+
+In the value field, provide a list of objects containing the value of the user
+**id**. Multiple members can be added at a time. For
+example, if you have a user with the **id**
+`906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c` that you want to
+add to the group with an **id** of
+`9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d`, use the
+following call:
+
+###### Example Request
+
+```
+PATCH  https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
+User-Agent: Mozilla/5.0
+Authorization: Bearer <bearer_token>
+
+{
+   "schemas":[
+      "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+   ],
+   "Operations":[
+      {
+         "op":"add",
+         "path":"members",
+         "value":[
+            {
+               "value":"906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c"
+            }
+         ]
+      }
+   ]
+}
+```
+
+###### Example Response
+
+```
+HTTP/1.1  204
+Date: Mon, 21 Sep 2020 16:39:26 GMT
+Content-Type: application/json
+x-amzn-RequestId: 1e9abe4c-b6e1-4d3b-bb86-73ca6187e08b
+```
+
+### Remove members from a
+
+group
+
+In the value field, provide a list of objects containing the value of the user
+id. Multiple members can be removed at a time, but you can remove up to 100 members in one API call,
+and providing an empty list in the request (with the intent of deleting all) is not supported.
+
+For example, if you want to remove two users, one with the
+**id**
+`906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb` and another with
+the **id**
+`906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d`, use the following
+call:
+
+###### Example Request
+
+```
+PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
+User-Agent: Mozilla/5.0
+Authorization: Bearer <bearer_token>
+
+{
+   "schemas":[
+      "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+   ],
+   "Operations":[
+      {
+         "op":"remove",
+         "path":"members",
+         "value":[
+            {
+               "value":"906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb"
+            },
+            {
+               "value":"906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d"
+            }
+         ]
+      }
+   ]
+}
+```
+
+###### Example Response
+
+```
+HTTP/1.1  204
+Date: Mon, 21 Sep 2020 17:03:29 GMT
+Content-Type: application/json
+x-amzn-RequestId: 3f89b66d-77e1-4128-a0c3-a890e72f5d4c
+```
