@@ -134,8 +134,41 @@ The following table shows the format of the control plane and data plane endpoin
 AWS IoT Wireless when using IPv4 and the dual-stack modes. For more information about these
 endpoints, see [AWS IoT Wireless endpoints](../../../general/latest/gr/iot-lorawan.md#iot-wireless_region "../../../general/latest/gr/iot-lorawan.md#iot-wireless_region").
 
-| Dual-stack endpoints for AWS IoT Wireless | Endpoint                                         | IPv4 address                                     | Dual-stack mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------------------- | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dual-stack endpoints for AWS IoT Wireless | Endpoint                                         | IPv4 address                                     | Dual-stack mode |
+| ----------------------------------------- | ------------------------------------------------ | ------------------------------------------------ | --------------- |
 | Control plane                             | api.iotwireless.`<region>`.amazonaws.com         | api.iotwireless.`<region>`.api.aws               |
 | LNS (Data plane)                          | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com  | `<prefix>`.lns.lorawan.`<region>`.amazonaws.com  |
-| CUPS (Data plane)                         | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com | When using the AWS CLI and AWS SDKs, you can use a `AWS_USE_DUALSTACK_ENDPOINT` environment variable, or the `use_dualstack_endpoint` parameter, which is a shared config file setting, to change to a dual-stack endpoint. You can also specify the dual-stack endpoint directly as an override of the AWS IoT Wireless endpoint in the config file. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). When you use the AWS CLI, you can set the configuration value `use_dualstack_endpoint` as `true` in a profile in your AWS Config file. This will direct all AWS IoT Wireless requests made by the commands to the dual-stack endpoint for the specified region. You specify the region in the config file or in a command using the `--region` option. `$ aws configure set default.iotwireless.use_dualstack_endpoint true` Instead of using the dual-stack endpoints for all commands, to use these endpoints for specific commands: <br>• You can use the dual-stack endpoint for specific commands by setting the `--endpoint-url` parameter for those commands. For example, in the following command, you can replace the `<endpoint-url>` to `api.iotwireless.`<region>`.api.aws`. `` aws iotwireless list-service-profiles \ --endpoint-url `<endpoint-url>` `` <br>• You can set up separate profiles in your AWS Config file. For example, create one profile that sets `use_dualstack_endpoint` to true, and a profile that does not set `use_dualstack_endpoint`. When you run a command, specify which profile you want to use, depending upon whether or not you want to use the dual-stack endpoint. |
+| CUPS (Data plane)                         | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com | `<prefix>`.cups.lorawan.`<region>`.amazonaws.com |
+
+When using the AWS CLI and AWS SDKs, you can use a `AWS_USE_DUALSTACK_ENDPOINT` environment
+variable, or the `use_dualstack_endpoint` parameter, which is a shared config file setting, to
+change to a dual-stack endpoint. You can also specify the dual-stack endpoint directly as an override of the
+AWS IoT Wireless endpoint in the config file. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").
+
+When you use the AWS CLI, you can set the configuration value `use_dualstack_endpoint` as
+`true` in a profile in your AWS Config file. This will direct all AWS IoT Wireless requests
+made by the commands to the dual-stack endpoint for the specified region. You specify the region in the
+config file or in a command using the `--region` option.
+
+```
+$ aws configure set default.iotwireless.use_dualstack_endpoint true
+```
+
+Instead of using the dual-stack endpoints for all commands, to use these endpoints for specific
+commands:
+
+- You can use the dual-stack endpoint for specific commands by setting the `--endpoint-url`
+  parameter for those commands. For example, in the following command, you can replace the
+  `<endpoint-url>` to
+  `api.iotwireless.`<region>`.api.aws`.
+
+```
+aws iotwireless list-service-profiles \
+  --endpoint-url `<endpoint-url>`
+```
+
+- You can set up separate profiles in your AWS Config file. For example, create
+  one profile that sets `use_dualstack_endpoint` to true, and a profile that
+  does not set `use_dualstack_endpoint`. When you run a command, specify
+  which profile you want to use, depending upon whether or not you want to use the
+  dual-stack endpoint.
