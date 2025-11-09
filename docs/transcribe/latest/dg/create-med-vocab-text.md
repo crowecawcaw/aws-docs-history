@@ -171,18 +171,20 @@ ALL[TAB][TAB]eɪ ɛ l ɛ l[TAB]A.L.L.
 For reading ease, the following tables show the preceding examples more clearly in
 html format. They are meant only to illustrate the examples.
 
-| Phrase                                       | IPA                                                           | SoundsLike                                                    | DisplayAs                                    |
-| -------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------- |
-| acute-respiratory-distress-syndrome          |                                                               |                                                               | acute respiratory distress syndrome          |
-| A.L.L.                                       | eɪ ɛ l ɛ l                                                    |                                                               | ALL                                          |
-| atrioventricular-nodal-reentrant-tachycardia |                                                               | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |                                              |
-| Phrase                                       | SoundsLike                                                    | IPA                                                           | DisplayAs                                    |
-| ---                                          | ---                                                           | ---                                                           | ---                                          |
-| acute-respiratory-distress-syndrome          |                                                               |                                                               | acute respiratory distress syndrome          |
-| atrioventricular-nodal-reentrant-tachycardia | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |                                                               |                                              |
-| A.L.L.                                       |                                                               | eɪ ɛ l ɛ l                                                    | ALL                                          |
-| DisplayAs                                    | SoundsLike                                                    | IPA                                                           | Phrase                                       |
-| ---                                          | ---                                                           | ---                                                           | ---                                          |
-| acute respiratory distress syndrome          |                                                               |                                                               | acute-respiratory-distress-syndrome          |
-| ALL                                          |                                                               | eɪ ɛ l ɛ l                                                    | A.L.L.                                       |
-|                                              | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |                                                               | atrioventricular-nodal-reentrant-tachycardia |
+| Phrase                                       | IPA        | SoundsLike                                                    | DisplayAs                           |
+| -------------------------------------------- | ---------- | ------------------------------------------------------------- | ----------------------------------- |
+| acute-respiratory-distress-syndrome          |            |                                                               | acute respiratory distress syndrome |
+| A.L.L.                                       | eɪ ɛ l ɛ l |                                                               | ALL                                 |
+| atrioventricular-nodal-reentrant-tachycardia |            | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |                                     |
+
+| Phrase                                       | SoundsLike                                                    | IPA        | DisplayAs                           |
+| -------------------------------------------- | ------------------------------------------------------------- | ---------- | ----------------------------------- |
+| acute-respiratory-distress-syndrome          |                                                               |            | acute respiratory distress syndrome |
+| atrioventricular-nodal-reentrant-tachycardia | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |            |                                     |
+| A.L.L.                                       |                                                               | eɪ ɛ l ɛ l | ALL                                 |
+
+| DisplayAs                           | SoundsLike                                                    | IPA        | Phrase                                       |
+| ----------------------------------- | ------------------------------------------------------------- | ---------- | -------------------------------------------- |
+| acute respiratory distress syndrome |                                                               |            | acute-respiratory-distress-syndrome          |
+| ALL                                 |                                                               | eɪ ɛ l ɛ l | A.L.L.                                       |
+|                                     | ay-tree-o-ven-trick-u-lar-node-al-re-entr-ant-tack-ih-card-ia |            | atrioventricular-nodal-reentrant-tachycardia |

@@ -53,7 +53,7 @@ For cost information for each AWS Region, refer to
 Amazon Transcribe is supported in the following AWS Regions:
 
 | **Region**                        | **Transcription type** |
-| --------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------------------------- | ---------------------- |
 | af-south-1 (Cape Town)            | batch, streaming       |
 | ap-east-1 (Hong Kong)             | batch                  |
 | ap-northeast-1 (Tokyo)            | batch, streaming       |
@@ -74,4 +74,18 @@ Amazon Transcribe is supported in the following AWS Regions:
 | us-gov-east-1 (GovCloud, US-East) | batch, streaming       |
 | us-gov-west-1 (GovCloud, US-West) | batch, streaming       |
 | us-west-1 (San Francisco)         | batch                  |
-| us-west-2 (Oregon)                | batch, streaming       | ###### Important Region support differs for Amazon Transcribe, [Amazon Transcribe Medical](transcribe-medical.md#med-regions "transcribe-medical.md#med-regions"), and [Call Analytics](call-analytics.md#tca-regions "call-analytics.md#tca-regions"). To get the endpoints for each supported Region, see [Service endpoints](../../../general/latest/gr/transcribe.md#transcribe_region "../../../general/latest/gr/transcribe.md#transcribe_region") in the _AWS General Reference_. For a list of quotas that pertain to your transcriptions, refer to the [Service quotas](../../../general/latest/gr/transcribe.md#limits-amazon-transcribe "../../../general/latest/gr/transcribe.md#limits-amazon-transcribe") in the _AWS General Reference_. Some quotas can be changed upon request. If the **Adjustable** column contains '**Yes**', you can request an increase. To do so, select the provided link. |
+| us-west-2 (Oregon)                | batch, streaming       |
+
+###### Important
+
+Region support differs for Amazon Transcribe,
+[Amazon Transcribe Medical](transcribe-medical.md#med-regions "transcribe-medical.md#med-regions"), and
+[Call Analytics](call-analytics.md#tca-regions "call-analytics.md#tca-regions").
+
+To get the endpoints for each supported Region, see [Service endpoints](../../../general/latest/gr/transcribe.md#transcribe_region "../../../general/latest/gr/transcribe.md#transcribe_region") in the
+_AWS General Reference_.
+
+For a list of quotas that pertain to your transcriptions, refer to the [Service quotas](../../../general/latest/gr/transcribe.md#limits-amazon-transcribe "../../../general/latest/gr/transcribe.md#limits-amazon-transcribe") in the
+_AWS General Reference_. Some quotas can be
+changed upon request. If the **Adjustable** column contains
+'**Yes**', you can request an increase. To do so, select the provided link.

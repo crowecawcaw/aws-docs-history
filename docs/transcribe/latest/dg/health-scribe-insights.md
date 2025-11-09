@@ -46,51 +46,91 @@ For information on how to set up the medical scribe context, see [MedicalScribeC
 
 The HISTORY_AND_PHYSICAL insights template includes the following sections.
 
-| Section                    | Description                                                                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| CHIEF COMPLAINT            | Brief description for the patient's reason for visiting the clinician.                                                                                       |
-| HISTORY OF PRESENT ILLNESS | Notes that provide information on patient's illness, including reference to severity, onset, timing of symptoms, current treatments, and the affected areas. |
-| REVIEW OF SYSTEMS          | Patient-reported evaluation of symptoms across different body systems.                                                                                       |
-| PAST MEDICAL HISTORY       | Details a patient's previous medical conditions, surgeries, and treatments.                                                                                  |
-| ASSESSMENT                 | Notes that provide information on clinician's assessment of patient's health.                                                                                |
-| PLAN                       | Notes that reference any medical treatments, lifestyle adjustments, and further appointments.                                                                |
-| PHYSICAL_EXAMINATION       | Documentation of clinician's findings from physical examination of patient's body systems and vital signs.                                                   |
-| PAST_FAMILY_HISTORY        | Information about health conditions that run in the patient's family.                                                                                        |
-| PAST_SOCIAL_HISTORY        | Details about patient's social life, habits, occupation, and environmental factors affecting health.                                                         |
-| DIAGNOSTIC_TESTING         | Results and interpretation of laboratory tests, imaging studies, and other diagnostic procedures.                                                            | Each sentence present in the `Summary` includes `EvidenceLinks` that provide the `SegmentId` for the relevant dialogues in the transcript that were summarized. This helps users validate accuracy of the summary in your application. Like explainability, providing traceability and transparency for AI-generated insights is consistent with Responsible AI principles. Providing these references along with the summary notes to clinicians or medical scribes helps foster trust and encourage the safe use of AI in the clinical settings. For an example of a Clinical Documentation file from a transcription job, see the a Clinical Documentation file example in [Transcription job output examples](starting-health-scribe-job.md#health-scribe-output-example "starting-health-scribe-job.md#health-scribe-output-example"). For an example of a Clinical Documentation file from streaming, see the a Clinical Documentation file example in [Streaming transcription output examples](health-scribe-streaming-setting-up.md#health-scribe-streaming-output-example "health-scribe-streaming-setting-up.md#health-scribe-streaming-output-example"). ## GIRPP template sections The GIRPP insights template includes the following sections. |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Goal                       | The identified problem, challenge, or behavior that needs to be addressed through treatment.                                                                 |
-| Intervention               | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal.                                          |
-| Response                   | How the patient responded to the intervention, including their participation level, reactions, and feedback.                                                 |
-| Progress                   | The clinician's assessment of movement toward treatment goals, including observations of patient improvement or barriers.                                    |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            | ## BIRP template sections The BIRP insights template includes the following sections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Behavior                   | The problems that the patient presents and their response to the treatment.                                                                                  |
-| Intervention               | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal.                                          |
-| Response                   | How the patient responded to the intervention, including their participation level, reactions, and feedback.                                                 |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            | ## SIRP template sections The SIRP insights template includes the following sections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Situation                  | The problem that the patient presents and their goal for seeking therapy.                                                                                    |
-| Intervention               | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal.                                          |
-| Response                   | How the patient responded to the intervention, including their participation level, reactions, and feedback.                                                 |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            | ## DAP template sections The DAP insights template includes the following sections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Data                       | The patient's reasons for seeking treatment and information about the patient.                                                                               |
-| Assessment                 | The clinician's diagnosis of the patient's situation.                                                                                                        |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            | ## BH_SOAP template sections The BH_SOAP insights template includes the following sections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Subjective                 | The client's goals for treatment and their experiences, as well as existing and past issues.                                                                 |
-| Objective                  | Data and facts about the client.                                                                                                                             |
-| Assessment                 | The clinician's diagnosis of the patient's situation.                                                                                                        |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            | ## PH_SOAP template sections The PH_SOAP insights template includes the following sections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Section                    | Description                                                                                                                                                  |
-| ---                        | ---                                                                                                                                                          |
-| Subjective                 | The client's goals for treatment and their experiences, as well as existing and past issues.                                                                 |
-| Objective                  | Data and facts about the client.                                                                                                                             |
-| Assessment                 | The clinician's diagnosis of the patient's situation.                                                                                                        |
-| Plan                       | The next steps in treatment, including future interventions, homework assignments, and referrals.                                                            |
+| Section                    | Description                                                                                                                                                     |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CHIEF COMPLAINT            | Brief description for the patient's reason for visiting the clinician.                                                                                          |
+| HISTORY OF PRESENT ILLNESS | Notes that provide information on patient's illness, including reference to severity, onset, timing of<br>symptoms, current treatments, and the affected areas. |
+| REVIEW OF SYSTEMS          | Patient-reported evaluation of symptoms across different body systems.                                                                                          |
+| PAST MEDICAL HISTORY       | Details a patient's previous medical conditions, surgeries, and treatments.                                                                                     |
+| ASSESSMENT                 | Notes that provide information on clinician's assessment of patient's health.                                                                                   |
+| PLAN                       | Notes that reference any medical treatments, lifestyle adjustments, and further appointments.                                                                   |
+| PHYSICAL_EXAMINATION       | Documentation of clinician's findings from physical examination of patient's body systems and vital signs.                                                      |
+| PAST_FAMILY_HISTORY        | Information about health conditions that run in the patient's family.                                                                                           |
+| PAST_SOCIAL_HISTORY        | Details about patient's social life, habits, occupation, and environmental factors affecting health.                                                            |
+| DIAGNOSTIC_TESTING         | Results and interpretation of laboratory tests, imaging studies, and other diagnostic procedures.                                                               |
+
+Each sentence present in the `Summary` includes `EvidenceLinks` that provide the
+`SegmentId` for the relevant dialogues in the
+transcript that were summarized. This helps users validate accuracy of the summary in your application. Like explainability, providing
+traceability and transparency for AI-generated insights is consistent with Responsible AI principles.
+Providing these references along with the summary notes to clinicians or medical scribes helps foster trust and encourage the
+safe use of AI in the clinical settings.
+
+For an example of a Clinical Documentation file from a transcription job, see the a Clinical Documentation file example in [Transcription job output examples](starting-health-scribe-job.md#health-scribe-output-example "starting-health-scribe-job.md#health-scribe-output-example").
+For an example of a Clinical Documentation file from streaming, see the a Clinical Documentation file example in [Streaming transcription output examples](health-scribe-streaming-setting-up.md#health-scribe-streaming-output-example "health-scribe-streaming-setting-up.md#health-scribe-streaming-output-example").
+
+## GIRPP template sections
+
+The GIRPP insights template includes the following sections.
+
+| Section      | Description                                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Goal         | The identified problem, challenge, or behavior that needs to be addressed through treatment.                              |
+| Intervention | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal.       |
+| Response     | How the patient responded to the intervention, including their participation level, reactions, and feedback.              |
+| Progress     | The clinician's assessment of movement toward treatment goals, including observations of patient improvement or barriers. |
+| Plan         | The next steps in treatment, including future interventions, homework assignments, and referrals.                         |
+
+## BIRP template sections
+
+The BIRP insights template includes the following sections.
+
+| Section      | Description                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Behavior     | The problems that the patient presents and their response to the treatment.                                         |
+| Intervention | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal. |
+| Response     | How the patient responded to the intervention, including their participation level, reactions, and feedback.        |
+| Plan         | The next steps in treatment, including future interventions, homework assignments, and referrals.                   |
+
+## SIRP template sections
+
+The SIRP insights template includes the following sections.
+
+| Section      | Description                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Situation    | The problem that the patient presents and their goal for seeking therapy.                                           |
+| Intervention | The specific treatment, method, or technique used by the clinician to help the patient address the identified goal. |
+| Response     | How the patient responded to the intervention, including their participation level, reactions, and feedback.        |
+| Plan         | The next steps in treatment, including future interventions, homework assignments, and referrals.                   |
+
+## DAP template sections
+
+The DAP insights template includes the following sections.
+
+| Section    | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| Data       | The patient's reasons for seeking treatment and information about the patient.                    |
+| Assessment | The clinician's diagnosis of the patient's situation.                                             |
+| Plan       | The next steps in treatment, including future interventions, homework assignments, and referrals. |
+
+## BH_SOAP template sections
+
+The BH_SOAP insights template includes the following sections.
+
+| Section    | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| Subjective | The client's goals for treatment and their experiences, as well as existing and past issues.      |
+| Objective  | Data and facts about the client.                                                                  |
+| Assessment | The clinician's diagnosis of the patient's situation.                                             |
+| Plan       | The next steps in treatment, including future interventions, homework assignments, and referrals. |
+
+## PH_SOAP template sections
+
+The PH_SOAP insights template includes the following sections.
+
+| Section    | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| Subjective | The client's goals for treatment and their experiences, as well as existing and past issues.      |
+| Objective  | Data and facts about the client.                                                                  |
+| Assessment | The clinician's diagnosis of the patient's situation.                                             |
+| Plan       | The next steps in treatment, including future interventions, homework assignments, and referrals. |

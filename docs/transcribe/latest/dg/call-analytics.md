@@ -132,7 +132,7 @@ to Word document](https://github.com/aws-samples/amazon-transcribe-output-word-d
 Call Analytics is supported in the following AWS Regions:
 
 | **Region**                     | **Transcription type** |
-| ------------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ---------------------- |
 | ap-northeast-1 (Tokyo)         | post-call, real-time   |
 | ap-northeast-2 (Seoul)         | post-call, real-time   |
 | ap-south-1 (Mumbai)            | post-call              |
@@ -142,4 +142,15 @@ Call Analytics is supported in the following AWS Regions:
 | eu-central-1 (Frankfurt)       | post-call, real-time   |
 | eu-west-2 (London)             | post-call, real-time   |
 | us-east-1 (N. Virginia)        | post-call, real-time   |
-| us-west-2 (Oregon)             | post-call, real-time   | Note that Region support differs for [Amazon Transcribe](what-is.md#tsc-regions "what-is.md#tsc-regions"), [Amazon Transcribe Medical](transcribe-medical.md#med-regions "transcribe-medical.md#med-regions"), and Call Analytics. To get the endpoints for each supported Region, see [Service endpoints](../../../general/latest/gr/transcribe.md#transcribe_region "../../../general/latest/gr/transcribe.md#transcribe_region") in the _AWS General Reference_. For a list of quotas that pertain to your transcriptions, refer to the [Service quotas](../../../general/latest/gr/transcribe.md#limits-amazon-transcribe "../../../general/latest/gr/transcribe.md#limits-amazon-transcribe") in the _AWS General Reference_. Some quotas can be changed upon request. If the **Adjustable** column contains '**Yes**', you can request an increase. To do so, select the provided link. |
+| us-west-2 (Oregon)             | post-call, real-time   |
+
+Note that Region support differs for [Amazon Transcribe](what-is.md#tsc-regions "what-is.md#tsc-regions"),
+[Amazon Transcribe Medical](transcribe-medical.md#med-regions "transcribe-medical.md#med-regions"), and Call Analytics.
+
+To get the endpoints for each supported Region, see [Service endpoints](../../../general/latest/gr/transcribe.md#transcribe_region "../../../general/latest/gr/transcribe.md#transcribe_region") in the
+_AWS General Reference_.
+
+For a list of quotas that pertain to your transcriptions, refer to the [Service quotas](../../../general/latest/gr/transcribe.md#limits-amazon-transcribe "../../../general/latest/gr/transcribe.md#limits-amazon-transcribe") in the
+_AWS General Reference_. Some quotas can be
+changed upon request. If the **Adjustable** column contains
+'**Yes**', you can request an increase. To do so, select the provided link.
