@@ -32,11 +32,52 @@ targets on a [best-effort basis](../../../eventbridge/latest/userguide/eb-servic
 For more information, see [EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md")
 in the _Amazon EventBridge User Guide._
 
-| Event detail type                                                                                                                                                           | Description                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Budget Threshold Reached](events-detail-reference.md#event-detail-budget-threshold-reached "events-detail-reference.md#event-detail-budget-threshold-reached")             | Sent when a queue reaches a percentage of its assigned budget.          |
-| [Job Lifecycle Status Change](events-detail-reference.md#event-detail-job-lifecycle-status-change "events-detail-reference.md#event-detail-job-lifecycle-status-change")    | Sent when there is a change to the lifecycle status of a job.           |
-| [Job Run Status Change](events-detail-reference.md#event-detail-job-run-status-change "events-detail-reference.md#event-detail-job-run-status-change")                      | Sent when the overall status of the tasks in a job changes.             |
-| [Step Lifecycle Status Change](events-detail-reference.md#event-detail-step-lifecycle-status-change "events-detail-reference.md#event-detail-step-lifecycle-status-change") | Sent when there is a change to the lifecycle status of a step in a job. |
-| [Step Run Status Change](events-detail-reference.md#event-detail-step-run-status-change "events-detail-reference.md#event-detail-step-run-status-change")                   | Sent when the overall status of the tasks in a step changes.            |
-| [Task Run Status Change](events-detail-reference.md#event-detail-task-run-status-change "events-detail-reference.md#event-detail-task-run-status-change")                   | Sent when the status of a task changes.                                 | ## Delivering Deadline Cloud events using EventBridge rules To have the EventBridge default event bus send Deadline Cloud events to a target, you must create a rule. Each rule contains an event pattern, which EventBridge matches against each event received on the event bus. If the event data matches the specified event pattern, EventBridge delivers that event to the rule's target(s). For comprehensive instructions on creating event bus rules, see [Creating rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User Guide_. ### Creating event patterns that match Deadline Cloud events Each event pattern is a JSON object that contains: <br>• A `source` attribute that identifies the service sending the event. For Deadline Cloud events, the source is `aws.deadline`. <br>• (Optional): A `detail-type` attribute that contains an array of the event types to match. <br>• (Optional): A `detail` attribute containing any other event data on which to match. For example, the following event pattern matches against all Fleet Size Recommendation Change events for the specified `farmId` for Deadline Cloud: `{ "source": ["aws.deadline"], "detail-type": ["Fleet Size Recommendation Change"], "detail": { "farmId": "farm-12345678900000000000000000000000" } }` For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _EventBridge User Guide_. |
+| Event detail type                                                                                                                                                           | Description                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [Budget Threshold Reached](events-detail-reference.md#event-detail-budget-threshold-reached "events-detail-reference.md#event-detail-budget-threshold-reached")             | Sent when a queue reaches a percentage of its assigned<br>budget.          |
+| [Job Lifecycle Status Change](events-detail-reference.md#event-detail-job-lifecycle-status-change "events-detail-reference.md#event-detail-job-lifecycle-status-change")    | Sent when there is a change to the lifecycle status of a<br>job.           |
+| [Job Run Status Change](events-detail-reference.md#event-detail-job-run-status-change "events-detail-reference.md#event-detail-job-run-status-change")                      | Sent when the overall status of the tasks in a job<br>changes.             |
+| [Step Lifecycle Status Change](events-detail-reference.md#event-detail-step-lifecycle-status-change "events-detail-reference.md#event-detail-step-lifecycle-status-change") | Sent when there is a change to the lifecycle status of a step in a<br>job. |
+| [Step Run Status Change](events-detail-reference.md#event-detail-step-run-status-change "events-detail-reference.md#event-detail-step-run-status-change")                   | Sent when the overall status of the tasks in a step<br>changes.            |
+| [Task Run Status Change](events-detail-reference.md#event-detail-task-run-status-change "events-detail-reference.md#event-detail-task-run-status-change")                   | Sent when the status of a task changes.                                    |
+
+## Delivering Deadline Cloud events using EventBridge rules
+
+To have the EventBridge default event bus send Deadline Cloud events to a target, you
+must create a rule. Each rule contains an event pattern, which EventBridge matches
+against each event received on the event bus. If the event data matches the specified
+event pattern, EventBridge delivers that event to the rule's target(s).
+
+For comprehensive instructions on creating event bus rules, see [Creating
+rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User
+Guide_.
+
+### Creating event patterns
+
+that match Deadline Cloud events
+
+Each event pattern is a JSON object that contains:
+
+- A `source` attribute that identifies the service sending the
+  event. For Deadline Cloud events, the source is
+  `aws.deadline`.
+- (Optional): A `detail-type` attribute that contains an array of
+  the event types to match.
+- (Optional): A `detail` attribute containing any other event
+  data on which to match.
+
+For example, the following event pattern matches against all Fleet Size Recommendation Change events
+for the specified `farmId` for Deadline Cloud:
+
+```
+{
+  "source": ["aws.deadline"],
+  "detail-type": ["Fleet Size Recommendation Change"],
+  "detail": {
+     "farmId": "farm-12345678900000000000000000000000"
+  }
+}
+```
+
+For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
+in the _EventBridge User Guide_.

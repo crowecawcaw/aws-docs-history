@@ -159,13 +159,59 @@ Each worker provisions a dedicated log stream, for example `worker-123456789012`
 
 CloudWatch Logs Insights offers advanced capabilities to analyze log information. For example, the following Log Insights query parses for the host configuration exit code, sorted by time:
 
-````
+```
 fields @timestamp, @message, @logStream, @log
 | filter @message like /Finished running Host Configuration Script/
 | parse @message /exit code: (?<exit_code>\d+)/
 | display @timestamp, exit_code
-| sort @timestamp desc ``` For more information about CloudWatch Logs Insights, see [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md "../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md") in the *Amazon CloudWatch Logs User Guide*. ##### Worker agent structured logging Deadline Cloud's worker agent publishes structured JSON logs to CloudWatch. The worker agent offers a wide array of structured logs for analyzing worker health. For more information, see [Deadline Cloud worker agent logging](https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md "https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md") on GitHub. The attributes of the structured logs are unpacked to fields in Log Insights. You can use this CloudWatch capability to count and analyze host configuration startup failures. For example, a count and bin query can be used to determine how often failures occur: ``` fields @timestamp, @message, @logStream, @log
+| sort @timestamp desc
+```
+
+For more information about CloudWatch Logs Insights, see [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md "../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md") in the _Amazon CloudWatch Logs User Guide_.
+
+##### Worker agent structured logging
+
+Deadline Cloud's worker agent publishes structured JSON logs to CloudWatch. The worker agent offers a wide array of structured logs for analyzing worker health. For more information, see [Deadline Cloud worker agent logging](https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md "https://github.com/aws-deadline/deadline-cloud-worker-agent/blob/mainline/docs/logging.md") on GitHub.
+
+The attributes of the structured logs are unpacked to fields in Log Insights. You can use this CloudWatch capability to count and analyze host configuration startup failures. For example, a count and bin query can be used to determine how often failures occur:
+
+```
+fields @timestamp, @message, @logStream, @log
 | sort @timestamp desc
 | filter message like /Worker Agent host configuration failed with exit code/
-| stats count(*) by exit_code, bin(1h) ``` #### CloudWatch metric filters for metrics and alarming You can set up CloudWatch metric filters to generate CloudWatch metrics from logs. This lets you create alarms and dashboards for monitoring host configuration script execution. ###### To create a metric filter 1. Open the CloudWatch console. 2. In the navigation pane, choose **Logs**, then **Log groups**. 3. Select your fleet's log group. 4. Choose **Create metric filter**. 5. Define your filter pattern using one of the following: <br>• **For success metrics:** ``` {$.message = "*Worker Agent host configuration succeeded.*"} ``` <br>• **For failure metrics:** ``` {$.exit_code != 0 && $.message = "*Worker Agent host configuration failed with exit code*"} ``` 6. Choose **Next** to create a metric with the following values: <br>• **Metric namespace:** Your metric namespace (for example, `MyDeadlineFarm`) <br>• **Metric name:** Your requested metric name (for example, `host_config_failure`) <br>• **Metric value:** `1` (each instance is a count of 1) <br>• **Default value:** Leave empty <br>• **Unit:** `Count` After creating metric filters, you can configure standard CloudWatch alarms to take action on elevated host configuration failure rates, or add the metrics to a CloudWatch dashboard for day-to-day operations and monitoring. For more details, see [Filter and pattern syntax](../../../AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.md "../../../AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.md") in the *Amazon CloudWatch Logs User Guide*.
-````
+| stats count(*) by exit_code, bin(1h)
+```
+
+#### CloudWatch metric filters for metrics and alarming
+
+You can set up CloudWatch metric filters to generate CloudWatch metrics from logs. This lets you create alarms and dashboards for monitoring host configuration script execution.
+
+###### To create a metric filter
+
+1. Open the CloudWatch console.
+2. In the navigation pane, choose **Logs**, then **Log groups**.
+3. Select your fleet's log group.
+4. Choose **Create metric filter**.
+5. Define your filter pattern using one of the following:
+   - **For success metrics:**
+
+   ```
+   {$.message = "*Worker Agent host configuration succeeded.*"}
+   ```
+
+   - **For failure metrics:**
+
+   ```
+   {$.exit_code != 0 && $.message = "*Worker Agent host configuration failed with exit code*"}
+   ```
+
+6. Choose **Next** to create a metric with the following values:
+   - **Metric namespace:** Your metric namespace (for example, `MyDeadlineFarm`)
+   - **Metric name:** Your requested metric name (for example, `host_config_failure`)
+   - **Metric value:** `1` (each instance is a count of 1)
+   - **Default value:** Leave empty
+   - **Unit:** `Count`
+
+After creating metric filters, you can configure standard CloudWatch alarms to take action on elevated host configuration failure rates, or add the metrics to a CloudWatch dashboard for day-to-day operations and monitoring.
+
+For more details, see [Filter and pattern syntax](../../../AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.md "../../../AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.md") in the _Amazon CloudWatch Logs User Guide_.

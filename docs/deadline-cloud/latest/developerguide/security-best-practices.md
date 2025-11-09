@@ -245,7 +245,7 @@ JSON
 
 You can add the following statement to your `Queue Role` to access custom
 software in your Amazon S3 bucket. In the following example, replace
-`SOFTWARE_BUCKET_NAME` with the name of your S3 bucket.
+`SOFTWARE_BUCKET_NAME` with the name of your S3 bucket and `BUCKET_ACCOUNT_OWNER` with the AWS account ID that owns the bucket.
 
 ```
 "Statement": [
@@ -258,7 +258,12 @@ software in your Amazon S3 bucket. In the following example, replace
         "Resource": [
             "arn:aws:s3:::`SOFTWARE_BUCKET_NAME`",
             "arn:aws:s3:::`SOFTWARE_BUCKET_NAME`/*"
-        ]
+        ],
+        "Condition": {
+         "StringEquals": {
+            "aws:ResourceAccount": "BUCKET_ACCOUNT_OWNER"
+         }
+      }
     }
 ]
 ```

@@ -170,10 +170,11 @@ production queue. For a service-managed queue, use the following procedure:
 default: "s3://amzn-s3-demo-bucket/Conda/Default deadline-cloud"
 ```
 
-Service-managed fleets enable strict channel priority for conda by default, using the
-new S3 channel stops conda from using the `deadline-cloud` channel. Any job that
-successfully completed using `blender=3.6` from the `deadline-cloud`
-channel will fail now that you are using Blender 4.2.
+Service-managed fleets enable flexible channel priority for conda by default. For a
+job requesting `blender=4.2` if Blender 4.2 is in both the new channel and the
+`deadline-cloud` channel, the package will be pulled from whichever channel
+is first in the channel list. If a specified package version is not found in the first
+channel then subsequent channels will be checked in order for the package version.
 
 For customer-managed fleets, you can enable the use of conda packages by using one of
 the [Conda queue environment samples](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/README.md") in the Deadline Cloud samples GitHub repository.

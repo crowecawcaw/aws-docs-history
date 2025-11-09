@@ -67,9 +67,73 @@ deadline bundle submit --farm-id $FARM_ID --queue-id $QUEUE1_ID job_attachments_
 Deadline Cloud uploads two files to Amazon S3 when you submit the job. You can download the manifest
 objects for the job from S3 to see the uploaded files:
 
-````
+```
 for manifest in $( \
   aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID \
     --query 'attachments.manifests[].inputManifestPath' \
-| jq -r '.[]' ); do echo "Manifest object: $manifest" aws s3 cp --quiet s3://$Q1_S3_BUCKET/DeadlineCloud/Manifests/$manifest /dev/stdout | jq . done ``` In this example, there is a single manifest file with the following contents: ``` { "hashAlg": "xxh128", "manifestVersion": "2023-03-03", "paths": [ { "hash": "87cb19095dd5d78fcaf56384ef0e6241", "mtime": 1721147454416085, "path": "home/cloudshell-user/job_attachments_devguide/script.sh", "size": 39 }, { "hash": "af5a605a3a4e86ce7be7ac5237b51b79", "mtime": 1721163773582362, "path": "shared/projects/project2/file.txt", "size": 44 } ], "totalSize": 83 } ``` Use the [GetJob operation](../APIReference/API_GetJob.md "../APIReference/API_GetJob.md") for the manifest to see that the `rootPath` is "/". ``` aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID --query 'attachments.manifests[*]' ``` The root path for set of input files is always the longest common subpath of those files. If your job was submitted from Windows instead and there are input files with no common subpath because they were on different drives, you see a separate root path on each drive. The paths in a manifest are always relative to the root path of the manifest, so the input files that were uploaded are: <br>• `/home/cloudshell-user/job_attachments_devguide/script.sh` – The script file in the job bundle. <br>• `/shared/projects/project2/file.txt` – The file in a `SHARED` file system location in the `WSAll` storage profile that is **not** in the list of required file system locations for queue `Q1`. The files in file system locations `FSCommon` (`/shared/common/file.txt`) and `FS1` (`/shared/projects/project1/file.txt`) are not in the list. This is because those file system locations are `SHARED` in the `WSAll` storage profile and they both are in the list of required file system locations in queue `Q1`. You can see the file system locations considered `SHARED` for a job that is submitted with a particular storage profile with the [GetStorageProfileForQueue operation](../APIReference/API_GetStorageProfileForQueue.md "../APIReference/API_GetStorageProfileForQueue.md"). To query for storage profile `WSAll` for queue `Q1` use the following command: ``` aws deadline get-storage-profile --farm-id $FARM_ID --storage-profile-id $WSALL_ID aws deadline get-storage-profile-for-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID --storage-profile-id $WSALL_ID ```
-````
+    | jq -r '.[]'
+); do
+  echo "Manifest object: $manifest"
+  aws s3 cp --quiet s3://$Q1_S3_BUCKET/DeadlineCloud/Manifests/$manifest /dev/stdout | jq .
+done
+```
+
+In this example, there is a single manifest file with the following contents:
+
+```
+{
+    "hashAlg": "xxh128",
+    "manifestVersion": "2023-03-03",
+    "paths": [
+        {
+            "hash": "87cb19095dd5d78fcaf56384ef0e6241",
+            "mtime": 1721147454416085,
+            "path": "home/cloudshell-user/job_attachments_devguide/script.sh",
+            "size": 39
+        },
+        {
+            "hash": "af5a605a3a4e86ce7be7ac5237b51b79",
+            "mtime": 1721163773582362,
+            "path": "shared/projects/project2/file.txt",
+            "size": 44
+        }
+    ],
+    "totalSize": 83
+}
+```
+
+Use the [GetJob operation](../APIReference/API_GetJob.md "../APIReference/API_GetJob.md") for the
+manifest to see that the `rootPath` is "/".
+
+```
+aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID --query 'attachments.manifests[*]'
+```
+
+The root path for set of input files is always the longest common subpath of those
+files. If your job was submitted from Windows instead and there are input files with no
+common subpath because they were on different drives, you see a separate root path on each
+drive. The paths in a manifest are always relative to the root path of the manifest, so the
+input files that were uploaded are:
+
+- `/home/cloudshell-user/job_attachments_devguide/script.sh` – The script
+  file in the job bundle.
+- `/shared/projects/project2/file.txt` – The file in a
+  `SHARED` file system location in the `WSAll` storage profile
+  that is **not** in the list of required file system
+  locations for queue `Q1`.
+  The files in file system locations `FSCommon`
+  (`/shared/common/file.txt`) and `FS1`
+  (`/shared/projects/project1/file.txt`) are not in the list. This is because
+  those file system locations are `SHARED` in the `WSAll` storage
+  profile and they both are in the list of required file system locations in queue
+  `Q1`.
+
+You can see the file system locations considered `SHARED` for a job that is
+submitted with a particular storage profile with the [GetStorageProfileForQueue operation](../APIReference/API_GetStorageProfileForQueue.md "../APIReference/API_GetStorageProfileForQueue.md"). To query for storage profile
+`WSAll` for queue `Q1` use the following command:
+
+```
+aws deadline get-storage-profile --farm-id $FARM_ID --storage-profile-id $WSALL_ID
+
+aws deadline get-storage-profile-for-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID --storage-profile-id $WSALL_ID
+```

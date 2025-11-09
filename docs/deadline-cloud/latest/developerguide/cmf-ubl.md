@@ -17,8 +17,8 @@ traffic for third-party licenses.
 - [Step 1: Create a security group](#cmf-ubl-step-1 "#cmf-ubl-step-1")
 - [Step 2: Set up the license endpoint](#cmf-ubl-step-2 "#cmf-ubl-step-2")
 - [Step 3: Connect a rendering application to an
-  endpoint](#w49aac32c15c15 "#w49aac32c15c15")
-- [Step 4: Delete a license endpoint](#w49aac32c15c17 "#w49aac32c15c17")
+  endpoint](#w53aac35c15c15 "#w53aac35c15c15")
+- [Step 4: Delete a license endpoint](#w53aac35c15c17 "#w53aac35c15c17")
 
 ## Step 1: Create a security group
 

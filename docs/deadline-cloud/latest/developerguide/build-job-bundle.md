@@ -62,12 +62,20 @@ When your job is running on a Deadline Cloud worker, it has access to environmen
 provide it with information about the job. The environment variables are:
 
 | Variable name             | Available    |
-| ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------- | ------------ |
 | DEADLINE_FARM_ID          | All actions  |
 | DEADLINE_FLEET_ID         | All actions  |
 | DEADLINE_WORKER_ID        | All actions  |
 | DEADLINE_QUEUE_ID         | All actions  |
 | DEADLINE_JOB_ID           | All actions  |
+| DEADLINE_STEP_ID          | Task actions |
 | DEADLINE_SESSION_ID       | All actions  |
+| DEADLINE_TASK_ID          | Task actions |
 | DEADLINE_SESSIONACTION_ID | All actions  |
-| DEADLINE_TASK_ID          | Task actions | ###### Topics <br>• [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md") <br>• [Parameter values elements for job bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md") <br>• [Asset references elements for job bundles](build-job-bundle-assets.md "build-job-bundle-assets.md") |
+
+###### Topics
+
+- [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md")
+- [Parameter values elements for job
+  bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
+- [Asset references elements for job bundles](build-job-bundle-assets.md "build-job-bundle-assets.md")
