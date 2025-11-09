@@ -12,8 +12,8 @@ and Lambda. EC2 Instance Savings Plans offer savings up to 72 percent off of On-
 Standard RIs. They also automatically save you money on any instance usage within a given EC2
 instance family in your Region of choice. For more information, see [Savings Plans types](plan-types.md "plan-types.md").
 
-| Comparing Savings Plans and RIs                                  |                  | Compute Savings Plans | EC2 Instance Savings Plans | Convertible RIs\* | Standard RIs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------- | ---------------- | --------------------- | -------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Comparing Savings Plans and RIs                                  |                  | Compute Savings Plans | EC2 Instance Savings Plans | Convertible RIs\* | Standard RIs |
+| ---------------------------------------------------------------- | ---------------- | --------------------- | -------------------------- | ----------------- | ------------ |
 | Savings over On-Demand                                           | Up to 66 percent | Up to 72 percent      | Up to 66 percent           | Up to 72 percent  |
 | Lower price in exchange for monetary commitment                  | ✓                | ✓                     | —                          | —                 |
 | Automatically applies pricing to any instance family             | ✓                | —                     | —                          | —                 |
@@ -22,4 +22,25 @@ instance family in your Region of choice. For more information, see [Savings Pla
 | Automatically applies to Amazon ECS and Amazon EKS using Fargate | ✓                | —                     | —                          | —                 |
 | Automatically applies to Lambda                                  | ✓                | —                     | —                          | —                 |
 | Automatically applies pricing across AWS Regions                 | ✓                | —                     | —                          | —                 |
-| Term length options of 1 or 3 years                              | ✓                | ✓                     | ✓                          | ✓                 | **\*** Convertible RIs can be changed across instance family, instance size, OS, and tenancy, but requires you to manually perform exchanges. **\*\*** Regional convertible RIs and Regional standard RIs provide instance size flexibility. ###### Note Savings Plans doesn't provide capacity reservations, but you can allocate On-Demand Capacity Reservation (ODCR) for your needs and your Savings Plans will apply. Savings Plans prices for instances running SUSE Linux Enterprise Server (SLES) are different compared to the corresponding RI price. Savings Plans prices do not change based on the amount of hourly commitment. Savings Plans doesn't apply to spot usage or usage covered by RIs. Savings Plans offer lower prices compared to On-Demand pricing in exchange for a commitment, and can't be cancelled during the term. |
+| Term length options of 1 or 3 years                              | ✓                | ✓                     | ✓                          | ✓                 |
+
+**\*** Convertible RIs can be changed across instance family,
+instance size, OS, and tenancy, but requires you to manually perform exchanges.
+
+**\*\*** Regional convertible RIs and Regional standard RIs
+provide instance size flexibility.
+
+###### Note
+
+Savings Plans doesn't provide capacity reservations, but you can allocate On-Demand Capacity
+Reservation (ODCR) for your needs and your Savings Plans will apply.
+
+Savings Plans prices for instances running SUSE Linux Enterprise Server (SLES) are different
+compared to the corresponding RI price.
+
+Savings Plans prices do not change based on the amount of hourly commitment.
+
+Savings Plans doesn't apply to spot usage or usage covered by RIs.
+
+Savings Plans offer lower prices compared to On-Demand pricing in exchange for a commitment, and
+can't be cancelled during the term.
