@@ -94,14 +94,38 @@ in the _Amazon VPC User Guide_.
 The following table provides information about the VPC route table updates to make
 after you modify the VPN gateway target.
 
-| Existing gateway                               | New gateway                                    | VPC route table change                                                                                             |
-| ---------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Virtual private gateway with propagated routes | Transit gateway                                | Add a route that contains the ID of the transit gateway.                                                           |
-| Virtual private gateway with propagated routes | Virtual private gateway with propagated routes | There is no action required.                                                                                       |
-| Virtual private gateway with propagated routes | Virtual private gateway with static route      | Add a route that contains the ID of the new virtual private gateway.                                               |
-| Virtual private gateway with static routes     | Transit gateway                                | Update the route that contains the ID of the virtual private gateway to the ID of the transit gateway.             |
-| Virtual private gateway with static routes     | Virtual private gateway with static routes     | Update the route that contains the ID of the virtual private gateway to the ID of the new virtual private gateway. |
-| Virtual private gateway with static routes     | Virtual private gateway with propagated routes | Delete the route that contains the ID of the virtual private gateway.                                              |
-| Transit gateway                                | Virtual private gateway with static routes     | Update the route that contains the ID of the transit gateway to the ID of the virtual private gateway.             |
-| Transit gateway                                | Virtual private gateway with propagated routes | Delete the route that contains the ID of the transit gateway.                                                      |
-| Transit gateway                                | Transit gateway                                | Update the route that contains the ID of the transit gateway to the ID of the new transit gateway.                 | ## Step 5: Update the target gateway routing (conditional) When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the Site-to-Site VPN. For more information, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md") in _Amazon VPC Transit Gateways_. If you deleted VPN static routes, you must add the static routes to the transit gateway route table. Unlike a virtual private gateway, a transit gateway sets the same value for the multi-exit discriminator (MED) across all the tunnels on a VPN attachment. If you are migrating from a virtual private gateway to a transit gateway and relied on the MED value for tunnel selection, we recommend that you make routing changes to avoid connection issues. For example, you can advertise more specific routes on your transit gateway. For more information, see [Route tables and AWS Site-to-Site VPN route priority](vpn-route-priority.md "vpn-route-priority.md"). ## Step 6: Update the customer gateway ASN (conditional) When the new gateway has a different ASN from the old gateway, you must update the ASN on your customer gateway device to point to the new ASN. See [Customer gateway options for your AWS Site-to-Site VPN connection](cgw-options.md "cgw-options.md") for more information. |
+| Existing gateway                               | New gateway                                    | VPC route table change                                                                                                |
+| ---------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Virtual private gateway with propagated routes | Transit gateway                                | Add a route that contains the ID of the transit gateway.                                                              |
+| Virtual private gateway with propagated routes | Virtual private gateway with propagated routes | There is no action required.                                                                                          |
+| Virtual private gateway with propagated routes | Virtual private gateway with static route      | Add a route that contains the ID of the new virtual private gateway.                                                  |
+| Virtual private gateway with static routes     | Transit gateway                                | Update the route that contains the ID of the virtual private gateway to the ID of the<br>transit gateway.             |
+| Virtual private gateway with static routes     | Virtual private gateway with static routes     | Update the route that contains the ID of the virtual private gateway to the ID of the<br>new virtual private gateway. |
+| Virtual private gateway with static routes     | Virtual private gateway with propagated routes | Delete the route that contains the ID of the virtual private gateway.                                                 |
+| Transit gateway                                | Virtual private gateway with static routes     | Update the route that contains the ID of the transit gateway to the ID of the virtual private<br>gateway.             |
+| Transit gateway                                | Virtual private gateway with propagated routes | Delete the route that contains the ID of the transit gateway.                                                         |
+| Transit gateway                                | Transit gateway                                | Update the route that contains the ID of the transit gateway to the ID of the new transit gateway.                    |
+
+## Step 5: Update the target gateway routing
+
+(conditional)
+
+When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic
+between the VPC and the Site-to-Site VPN. For more information, see [Transit gateway route tables](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md") in _Amazon VPC Transit Gateways_.
+
+If you deleted VPN static routes, you must add the static routes to the transit gateway
+route table.
+
+Unlike a virtual private gateway, a transit gateway sets the same value for the multi-exit
+discriminator (MED) across all the tunnels on a VPN attachment. If you are migrating from
+a virtual private gateway to a transit gateway and relied on the MED value for tunnel
+selection, we recommend that you make routing changes to avoid connection issues. For example,
+you can advertise more specific routes on your transit gateway. For more information, see
+[Route tables and AWS Site-to-Site VPN route priority](vpn-route-priority.md "vpn-route-priority.md").
+
+## Step 6: Update the customer gateway ASN
+
+(conditional)
+
+When the new gateway has a different ASN from the old gateway, you must update the ASN on
+your customer gateway device to point to the new ASN. See [Customer gateway options for your AWS Site-to-Site VPN connection](cgw-options.md "cgw-options.md") for more information.

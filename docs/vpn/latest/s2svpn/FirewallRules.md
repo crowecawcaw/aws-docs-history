@@ -25,7 +25,9 @@ Inbound (from the internet)| Input rule I1 |
 | Input rule I4 |
 | Source IP | Tunnel2 Outside IP |
 | Dest IP | Customer Gateway |
-| Protocol | IP 50 (ESP) | Outbound (to the internet)| Output rule O1 |
+| Protocol | IP 50 (ESP) |
+
+Outbound (to the internet)| Output rule O1 |
 | Source IP | Customer Gateway |
 | Dest IP | Tunnel1 Outside IP |
 | Protocol | UDP |
@@ -44,4 +46,13 @@ Inbound (from the internet)| Input rule I1 |
 | Output rule O4 |
 | Source IP | Customer Gateway |
 | Dest IP | Tunnel2 Outside IP |
-| Protocol | IP 50 (ESP) | Rules I1, I2, O1, and O2 enable the transmission of IKE packets. Rules I3, I4, O3, and O4 enable the transmission of IPsec packets that contain the encrypted network traffic. ###### Note If you are using NAT traversal (NAT-T) on your device, ensure that UDP traffic on port 4500 is also allowed to pass between your network and the AWS Site-to-Site VPN endpoints. Check if your device is advertising NAT-T.
+| Protocol | IP 50 (ESP) |
+
+Rules I1, I2, O1, and O2 enable the transmission of IKE packets. Rules I3, I4, O3, and
+O4 enable the transmission of IPsec packets that contain the encrypted network
+traffic.
+
+###### Note
+
+If you are using NAT traversal (NAT-T) on your device, ensure that UDP traffic on port 4500 is
+also allowed to pass between your network and the AWS Site-to-Site VPN endpoints. Check if your device is advertising NAT-T.

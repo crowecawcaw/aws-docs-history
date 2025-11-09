@@ -27,7 +27,7 @@ TCP packets are often the most common type of packet across IPsec tunnels. Site-
 Use the following table to set your MTU/MSS to avoid fragmentation and achieve optimal performance:
 
 | Encryption Algorithm | Hashing Algorithm | NAT-Traversal | MTU  | MSS (IPv4) | MSS (IPv6-in-IPv4) |
-| -------------------- | ----------------- | ------------- | ---- | ---------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------- | ------------- | ---- | ---------- | ------------------ |
 | AES-GCM-16           | N/A               | disabled      | 1446 | 1406       | 1386               |
 | AES-GCM-16           | N/A               | enabled       | 1438 | 1398       | 1378               |
 | AES-CBC              | SHA1/SHA2-256     | disabled      | 1438 | 1398       | 1378               |
@@ -35,4 +35,12 @@ Use the following table to set your MTU/MSS to avoid fragmentation and achieve o
 | AES-CBC              | SHA2-384          | disabled      | 1422 | 1382       | 1362               |
 | AES-CBC              | SHA2-384          | enabled       | 1422 | 1382       | 1362               |
 | AES-CBC              | SHA2-512          | disabled      | 1422 | 1382       | 1362               |
-| AES-CBC              | SHA2-512          | enabled       | 1406 | 1366       | 1346               | ###### Note The AES-GCM algorithms cover both encryption and authentication, so there is no distinct authentication algorithm choice which would affect MTU. ###### Disable IKE unique IDs Some customer gateway devices support a setting which ensures that at most, one Phase 1 security association exists per tunnel configuration. This setting can result in inconsistent Phase 2 states between VPN peers. If your customer gateway device supports this setting, we recommend disabling it. |
+| AES-CBC              | SHA2-512          | enabled       | 1406 | 1366       | 1346               |
+
+###### Note
+
+The AES-GCM algorithms cover both encryption and authentication, so there is no distinct authentication algorithm choice which would affect MTU.
+
+###### Disable IKE unique IDs
+
+Some customer gateway devices support a setting which ensures that at most, one Phase 1 security association exists per tunnel configuration. This setting can result in inconsistent Phase 2 states between VPN peers. If your customer gateway device supports this setting, we recommend disabling it.

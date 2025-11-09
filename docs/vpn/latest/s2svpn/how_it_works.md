@@ -47,7 +47,7 @@ The following diagram shows a VPN connection between multiple VPCs and your
 on-premises network using a transit gateway. The transit gateway has three VPC
 attachments and a VPN attachment.
 
-![A transit gateway with three VPC attachments and one VPN attachment.](/images/vpn/latest/s2svpn/images/vpn-how-it-works-tgw.png)
+![A transit gateway with three VPC attachments and one VPN attachment.](images/vpn-how-it-works-tgw.png)
 
 Your Site-to-Site VPN connection on a transit gateway can support IPv4 or IPv6 traffic inside the VPN tunnels (inner IP addresses).
 Additionally, transit gateways support IPv6 addresses for the outer tunnel IP addresses. For more information, see [IPv4 and IPv6 traffic in AWS Site-to-Site VPN](ipv4-ipv6.md "ipv4-ipv6.md").

@@ -18,7 +18,7 @@ includes a customer gateway device, which you must configure to enable the VPN
 connection. You must update the VPC route tables so that any traffic from the VPC bound
 for your network goes to the virtual private gateway.
 
-![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](/images/vpn/latest/s2svpn/images/vpn-how-it-works-vgw.png)
+![A VPC with an attached virtual private gateway and a VPN connection to your on-premises network.](images/vpn-how-it-works-vgw.png)
 
 For steps to set up this scenario, see [Get started with AWS Site-to-Site VPN](SetUpVPNConnections.md "SetUpVPNConnections.md").
 

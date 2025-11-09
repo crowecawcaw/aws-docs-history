@@ -41,6 +41,6 @@ policies
 View details about updates to AWS managed policies for Site-to-Site VPN since this service began
 tracking these changes in May 2025.
 
-| Change                                                                                                                                       | Description                                                                                                                               | Date         |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [AWSVPCS2SVpnServiceRolePolicy](#security-iam-AWSVPCS2SVpnServiceRolePolicy "#security-iam-AWSVPCS2SVpnServiceRolePolicy") - Updated policy. | New permissions added to the policy allowing Site-to-Site VPN to manage the VPN connection's AWS Secrets Manager `s2svpn`-managed secret. | May 14, 2025 |
+| Change                                                                                                                                          | Description                                                                                                                                  | Date         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [AWSVPCS2SVpnServiceRolePolicy](#security-iam-AWSVPCS2SVpnServiceRolePolicy "#security-iam-AWSVPCS2SVpnServiceRolePolicy")<br>• Updated policy. | New permissions added to the policy allowing Site-to-Site VPN to manage the VPN<br>connection's AWS Secrets Manager `s2svpn`-managed secret. | May 14, 2025 |

@@ -28,7 +28,72 @@ overlapping or matching routes, the following rules apply:
   route and therefore takes priority over the propagated route.
 
 | Destination   | Target                             |
-| ------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------- | ---------------------------------- |
 | 10.0.0.0/16   | Local                              |
 | 172.31.0.0/24 | vgw-11223344556677889 (propagated) |
-| 172.31.0.0/24 | igw-12345678901234567 (static)     | Only IP prefixes that are known to the virtual private gateway, whether through BGP advertisements or a static route entry, can receive traffic from your VPC. The virtual private gateway does not route any other traffic destined outside of received BGP advertisements, static route entries, or its attached VPC CIDR. Virtual private gateways do not support IPv6 traffic. When a virtual private gateway receives routing information, it uses path selection to determine how to route traffic. Longest prefix match applies, if all endpoints are healthy. The health of a tunnel endpoint takes precedence over other routing attributes. This precedence applies to VPNs on virtual private gateways and Transit Gateways. If the prefixes are the same, then the virtual private gateway prioritizes routes as follows, from most preferred to least preferred: <br>• BGP propagated routes from an AWS Direct Connect connection Blackhole routes are not propagated to a Site-to-Site VPN customer gateway via BGP. <br>• Manually added static routes for a Site-to-Site VPN connection <br>• BGP propagated routes from a Site-to-Site VPN connection <br>• For matching prefixes where each Site-to-Site VPN connection uses BGP, the AS PATH is compared and the prefix with the shortest AS PATH is preferred. ###### Note AWS strongly recommends using customer gateway devices that support asymmetric routing. For customer gateway devices that support asymmetric routing, we _do not_ recommend using AS PATH prepending, to ensure that both tunnels have equal AS PATH. This helps to ensure that the multi-exit discriminator (MED) value that we set on a tunnel during [VPN tunnel endpoint updates](routing-vpn-tunnel-updates.md "routing-vpn-tunnel-updates.md") is used to determine tunnel priority. For customer gateway devices that do not support asymmetric routing, you can use AS PATH prepending and Local Preference to prefer one tunnel over the other. However, when the egress path changes, this may cause traffic to drop. <br>• When the AS PATHs are the same length and if the first AS in the AS_SEQUENCE is the same across multiple paths, multi-exit discriminators (MEDs) are compared. The path with the lowest MED value is preferred. Route priority is affected during [VPN tunnel endpoint updates](routing-vpn-tunnel-updates.md "routing-vpn-tunnel-updates.md"). On a Site-to-Site VPN connection, AWS selects one of the two redundant tunnels as the primary egress path. This selection may change at times, and we strongly recommend that you configure both tunnels for high availability, and allow asymmetric routing. The health of a tunnel endpoint takes precedence over other routing attributes. This precedence applies to VPNs on virtual private gateways and Transit Gateways. For a virtual private gateway, one tunnel across all Site-to-Site VPN connections on the gateway will be selected. To use more than one tunnel, we recommend exploring Equal Cost Multipath (ECMP), which is supported for Site-to-Site VPN connections on a transit gateway. For more information, see [Transit gateways](../../../vpc/latest/tgw/tgw-transit-gateways.md "../../../vpc/latest/tgw/tgw-transit-gateways.md") in _Amazon VPC Transit Gateways_. ECMP is not supported for Site-to-Site VPN connections on a virtual private gateway. For Site-to-Site VPN connections that use BGP, the primary tunnel can be identified by the multi-exit discriminator (MED) value. We recommend advertising more specific BGP routes to influence routing decisions. For Site-to-Site VPN connections that use static routing, the primary tunnel can be identified by traffic statistics or metrics. |
+| 172.31.0.0/24 | igw-12345678901234567 (static)     |
+
+Only IP prefixes that are known to the virtual private gateway, whether through BGP
+advertisements or a static route entry, can receive traffic from your VPC. The virtual
+private gateway does not route any other traffic destined outside of received BGP
+advertisements, static route entries, or its attached VPC CIDR. Virtual private gateways
+do not support IPv6 traffic.
+
+When a virtual private gateway receives routing information, it uses path selection to
+determine how to route traffic. Longest prefix match applies, if all endpoints are
+healthy. The health of a tunnel endpoint takes precedence over other routing attributes.
+This precedence applies to VPNs on virtual private gateways and Transit Gateways. If the
+prefixes are the same, then the virtual private gateway prioritizes routes as follows,
+from most preferred to least preferred:
+
+- BGP propagated routes from an AWS Direct Connect connection
+
+Blackhole routes are not propagated to a Site-to-Site VPN customer gateway via BGP.
+
+- Manually added static routes for a Site-to-Site VPN connection
+- BGP propagated routes from a Site-to-Site VPN connection
+- For matching prefixes where each Site-to-Site VPN connection uses BGP, the AS PATH is
+  compared and the prefix with the shortest AS PATH is preferred.
+
+###### Note
+
+AWS strongly recommends using customer gateway devices that support
+asymmetric routing.
+
+For customer gateway devices that support asymmetric routing, we
+_do not_ recommend using AS PATH prepending, to
+ensure that both tunnels have equal AS PATH. This helps to ensure that the
+multi-exit discriminator (MED) value that we set on a
+tunnel during [VPN tunnel endpoint
+updates](routing-vpn-tunnel-updates.md "routing-vpn-tunnel-updates.md") is used to determine tunnel priority.
+
+For customer gateway devices that do not support asymmetric routing, you
+can use AS PATH prepending and Local Preference to prefer one tunnel over
+the other. However, when the egress path changes, this may cause traffic to
+drop.
+
+- When the AS PATHs are the same length and if the first AS in the AS_SEQUENCE
+  is the same across multiple paths, multi-exit discriminators
+  (MEDs) are compared. The path with the lowest MED value is preferred.
+  Route priority is affected during [VPN
+  tunnel endpoint updates](routing-vpn-tunnel-updates.md "routing-vpn-tunnel-updates.md").
+
+On a Site-to-Site VPN connection, AWS selects one of the two redundant tunnels as the primary
+egress path. This selection may change at times, and we strongly recommend that you
+configure both tunnels for high availability, and allow asymmetric routing. The health
+of a tunnel endpoint takes precedence over other routing attributes. This precedence
+applies to VPNs on virtual private gateways and Transit Gateways.
+
+For a virtual private gateway, one tunnel across all Site-to-Site VPN connections on the gateway
+will be selected. To use more than one tunnel, we recommend exploring Equal Cost
+Multipath (ECMP), which is supported for Site-to-Site VPN connections on a transit gateway. For
+more information, see [Transit gateways](../../../vpc/latest/tgw/tgw-transit-gateways.md "../../../vpc/latest/tgw/tgw-transit-gateways.md") in
+_Amazon VPC Transit Gateways_. ECMP is not supported for Site-to-Site VPN connections on
+a virtual private gateway.
+
+For Site-to-Site VPN connections that use BGP, the primary tunnel can be identified by the
+multi-exit discriminator (MED) value. We recommend advertising more
+specific BGP routes to influence routing decisions.
+
+For Site-to-Site VPN connections that use static routing, the primary tunnel can be identified by
+traffic statistics or metrics.
