@@ -257,15 +257,20 @@ information:
     	+ **DNS server IP addresses**
     	 – The IPv4 or IPv6 addresses of the Domain Name
     	 System (DNS) servers for your domain.
-    	+ **Service account username**
-    	 – The user name of the service account in
-    	 your existing Active Directory. Do not include a
-    	 domain prefix or suffix.
-    	+ **Service account password**
-    	 – The password for the service
-    	 account.
-    	+ **Confirm password** – The
-    	 password for the service account.
+    	+ **Service account credentials** – Choose how to provide your service account credentials:
+
+
+
+
+    		- **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+    		- **Option 2**: Plaintext credentials
+
+
+
+
+    			* **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+    			* **Service account password** – The password for the service account.
+    			* **Confirm password** – The password for the service account.
     	+ (Optional) **Organizational Unit
     	 (OU)** – The distinguished path
     	 name of the organizational unit to which you want to

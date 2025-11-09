@@ -30,20 +30,18 @@ When creating an SVM, you define the following properties:
    machines**.
 3. Choose **Create new storage virtual
    machine**.
-
-The **Create new storage virtual machine** dialog
-box appears.
-
-![The Create new storage virtual machine dialog box.](images/create-svm.png) 4. For **File system**, choose the file system to
-create the storage virtual machine on. 5. In the **Storage virtual machine name** field,
-provide a name for the storage virtual machine. You can use a
-maximum of 47 alphanumeric characters, plus the underscore (\_)
-special character. 6. For **SVM administrative password**, you can
-optionally choose **Specify a password** and
-provide a password for this SVM's `vsadmin` user.
-You can use the `vsadmin` user to administer the SVM
-using the ONTAP CLI or REST API. For more information about the
-`vsadmin` user, see [Managing SVMs with the ONTAP CLI](managing-resources-ontap-apps.md#vsadmin-ontap-cli "managing-resources-ontap-apps.md#vsadmin-ontap-cli").
+4. For **File system**, choose the file system to
+   create the storage virtual machine on.
+5. In the **Storage virtual machine name** field,
+   provide a name for the storage virtual machine. You can use a
+   maximum of 47 alphanumeric characters, plus the underscore (\_)
+   special character.
+6. For **SVM administrative password**, you can
+   optionally choose **Specify a password** and
+   provide a password for this SVM's `vsadmin` user.
+   You can use the `vsadmin` user to administer the SVM
+   using the ONTAP CLI or REST API. For more information about the
+   `vsadmin` user, see [Managing SVMs with the ONTAP CLI](managing-resources-ontap-apps.md#vsadmin-ontap-cli "managing-resources-ontap-apps.md#vsadmin-ontap-cli").
 
 If you choose **Don't specify a password**
 (the default), you can still use the file system's
@@ -71,15 +69,20 @@ options:
     	+ The fully qualified domain name (FQDN) of your Active
     	 Directory. The FQDN cannot exceed 255 characters.
     	+ **DNS server IP addresses** – The IPv4 or IPv6 addresses of the DNS servers for your domain.
-    	+ **Service account username** – The
-    	 username of the service account in your existing Active
-    	 Directory. Do not include a domain prefix or suffix. For
-    	 `EXAMPLE\ADMIN`, use `ADMIN`.
-    	+ **Service account password**
-    	 – The password for the service
-    	 account.
-    	+ **Confirm password** – The
-    	 password for the service account.
+    	+ **Service account credentials** – Choose how to provide your service account credentials:
+
+
+
+
+    		- **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+    		- **Option 2**: Plaintext credentials
+
+
+
+
+    			* **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+    			* **Service account password** – The password for the service account.
+    			* **Confirm password** – The password for the service account.
     	+ (Optional) **Organizational Unit
     	 (OU)** – The distinguished path
     	 name of the organizational unit to which you want to

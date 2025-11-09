@@ -32,13 +32,40 @@ protection again.
 You can specify the retention period using several different units of time. The
 following table lists the specific ranges that are supported.
 
-| Type         | Value      | Notes                                                                                                             |
-| ------------ | ---------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Seconds      | 0 - 65,535 |                                                                                                                   |
-| Minutes      | 0 - 65,535 |                                                                                                                   |
-| Hours        | 0 - 24     |                                                                                                                   |
-| Days         | 0 - 365    |                                                                                                                   |
-| Months       | 0 -12      |                                                                                                                   |
-| Years        | 0 - 100    |                                                                                                                   |
-| Infinite     | -          | Retains the files forever. Available for **Default retention**, **Maximum retention**, and **Minimum retention**. |
-| Unspecified1 | -          | Retains the files until you set a retention period. Available for **Default retention** only.                     | ###### Note 1When you transition files to WORM with an unspecified retention period, they are given the minimum retention period that is configured for the SnapLock volume. When you transition the WORM-protected files to an absolute retention time, the new retention period must be greater than the minimum period that you set on the files previously. ## Expired retention period After a WORM file's retention period expires, you can delete the file or set a new retention period to turn WORM protection back on. WORM files aren't automatically deleted after their retention period expires. You still can't modify the content of a WORM file, even after its retention period has expired. ## Setting the retention period of a SnapLock volume You can set the retention period of a SnapLock volume with the Amazon FSx console, the AWS CLI, the Amazon FSx API, and the ONTAP CLI and REST API. To set the retention period with the Amazon FSx API, use the [`SnaplockRetentionPeriod`](../APIReference/API_SnaplockRetentionPeriod.md "../APIReference/API_SnaplockRetentionPeriod.md") configuration. In the Amazon FSx console, for **Retention period**, enter values for **Default retention**, **Minimum retention**, and **Maximum retention**. Then choose a corresponding **Unit** for each. |
+| Type         | Value         | Notes                                                                                                                      |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Seconds      | 0<br>• 65,535 |                                                                                                                            |
+| Minutes      | 0<br>• 65,535 |                                                                                                                            |
+| Hours        | 0<br>• 24     |                                                                                                                            |
+| Days         | 0<br>• 365    |                                                                                                                            |
+| Months       | 0 -12         |                                                                                                                            |
+| Years        | 0<br>• 100    |                                                                                                                            |
+| Infinite     | -             | Retains the files forever.<br>Available for **Default retention**,<br>**Maximum retention**, and<br>**Minimum retention**. |
+| Unspecified1 | -             | Retains the files until you set a retention period.<br>Available for \*_Default retention_<br>• only.                      |
+
+###### Note
+
+1When you transition files to WORM with an unspecified
+retention period, they are given the minimum retention period that is configured for
+the SnapLock volume. When you transition the WORM-protected files to an absolute
+retention time, the new retention period must be greater than the minimum period
+that you set on the files previously.
+
+## Expired retention period
+
+After a WORM file's retention period expires, you can delete the file or set a new
+retention period to turn WORM protection back on. WORM files aren't automatically
+deleted after their retention period expires.
+You still can't modify the content of a WORM file, even after its retention period has expired.
+
+## Setting the retention period of a SnapLock
+
+volume
+
+You can set the retention period of a SnapLock volume with the Amazon FSx console, the
+AWS CLI, the Amazon FSx API, and the ONTAP CLI and REST API.
+
+To set the retention period with the Amazon FSx API, use the [`SnaplockRetentionPeriod`](../APIReference/API_SnaplockRetentionPeriod.md "../APIReference/API_SnaplockRetentionPeriod.md") configuration. In the Amazon FSx console, for **Retention period**, enter values for
+**Default retention**, **Minimum
+retention**, and **Maximum retention**. Then
+choose a corresponding **Unit** for each.

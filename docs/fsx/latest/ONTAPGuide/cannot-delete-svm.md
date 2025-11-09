@@ -38,9 +38,7 @@ If you attempt to delete a resource and its `Lifecycle` state transitions from
 to `DELETING` and then back to `CREATED`, this behavior indicates that the
 resource didn't successfully delete. In this case, Amazon FSx reports an alert icon in the console
 next to the `CREATED` Lifecycle state. Choosing the alert icon displays the reason
-for the unsuccessful deletion, as shown in the following example.
-
-![Image of an FSx for ONTAP resource Lifecycle state of CREATED with an alert, and the alert message, as seen in the Amazon FSx console.](images/troubleshoot-lifecycle-state.png)
+for the unsuccessful deletion.
 
 The most common reasons why Amazon FSx prevents SVM and volume deletion are provided in the
 following sections, with step-by-step instructions on how to resolve these issues.
@@ -60,9 +58,7 @@ see the following `LifecycleTransitionReason`:
  Please contact Support.`
 
 You can find your file system's route tables in the Amazon FSx console by navigating to the
-file system's summary page, under the **Network & security** tab:
-
-![The Network & security tab in the Amazon FSx console.](images/troubleshoot-network-security.png)
+file system's summary page, under the **Network & security** tab.
 
 Choosing the route tables link takes you to your route tables. Next, verify that each of
 the route tables associated with your file system is tagged with this key-value pair:
@@ -71,8 +67,6 @@ the route tables associated with your file system is tagged with this key-value 
 Key: AmazonFSx
 Value: ManagedByAmazonFSx
 ```
-
-![The Tags panel in the Amazon FSx console displaying keys and their associated values.](images/troubleshoot-route-table-tags.png)
 
 If this tag isn't present, recreate it, and then try to delete the SVM again.
 

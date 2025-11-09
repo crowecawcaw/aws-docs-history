@@ -55,10 +55,10 @@ The following tabs provide detailed configuration information and editing for pr
 You can view the status of an Amazon FSx file system by using the Amazon FSx console, the AWS CLI
 command [describe-file-systems](../../../cli/latest/reference/fsx/describe-file-systems.md "../../../cli/latest/reference/fsx/describe-file-systems.md"), or the API operation [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md").
 
-| File system status | Description                                                                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AVAILABLE          | The file system has been successfully created and is available for use.                                                                             |
-| CREATING           | Amazon FSx is creating a new file system.                                                                                                           |
-| DELETING           | Amazon FSx is deleting an existing file system.                                                                                                     |
-| MISCONFIGURED      | The file system is in a misconfigured but recoverable state.                                                                                        |
-| FAILED             | 1. The file system has failed and Amazon FSx can't recover it. 2. When creating new file system, Amazon FSx was unable to create a new file system. |
+| File system status | Description                                                                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AVAILABLE          | The file system has been successfully created and is available for<br>use.                                                                                   |
+| CREATING           | Amazon FSx is creating a new file system.                                                                                                                    |
+| DELETING           | Amazon FSx is deleting an existing file system.                                                                                                              |
+| MISCONFIGURED      | The file system is in a misconfigured but recoverable<br>state.                                                                                              |
+| FAILED             | 1. The file system has failed and Amazon FSx can't recover<br>it.<br>2. When creating new file system, Amazon FSx was unable to create<br>a new file system. |

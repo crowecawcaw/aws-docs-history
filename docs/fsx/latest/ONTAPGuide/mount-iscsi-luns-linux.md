@@ -289,13 +289,188 @@ policies. There should be an equal number of devices that are listed as `active`
 In the output, the disk name is formatted as `dm-xyz`, where `xyz` is an integer. If there are no other
 multipath disks, this value is `dm-0`.
 
-````
+```
 `3600a09806c5742314e5d52766e79614f `dm-xyz` NETAPP ,LUN C-Mode
 size=10G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='0' wp=rw
 |-+- policy='service-time 0' prio=50 status=active
 | |- 0:0:0:1 sda 8:0 active ready running
 | |- 1:0:0:1 sdc 8:32 active ready running
 | |- 3:0:0:1 sdg 8:96 active ready running
-| `- 4:0:0:1 sdh 8:112 active ready running `-+- policy='service-time 0' prio=10 status=enabled |- 2:0:0:1 sdb 8:16 active ready running
-|- 7:0:0:1 sdf 8:80 active ready running |- 6:0:0:1 sde 8:64 active ready running `- 5:0:0:1 sdd 8:48 active ready running` ``` Your block device is now connected to your Linux client. It is located under the path `/dev/`dm-xyz``. You should not use this path for administrative purposes; instead, use the symbolic link that is under the path `/dev/mapper/`wwid``, where ``wwid`` is a unique identifier for your LUN that is consistent across devices. In the next step, you’ll provide a friendly name for the ``wwid`` so you can distinguish it from other multipathed disks. ###### To assign the block device a friendly name 1. To provide your device a friendly name, create an alias in the `/etc/multipath.conf` file. To do this, add the following entry to the file using your preferred text editor, replacing the following placeholders: <br>• Replace `serial_hex` with the value the you saved in the [Configure iSCSI on the FSx for ONTAP file system](#configure-iscsi-on-fsx-ontap "#configure-iscsi-on-fsx-ontap") procedure. <br>• Add the prefix `3600a0980` to the `serial_hex` value as shown in the example. This is a unique preamble for the NetApp ONTAP distribution that Amazon FSx for NetApp ONTAP uses. <br>• Replace `device_name` with the friendly name you want to use for your device. ``` multipaths { multipath { wwid 3600a0980`serial_hex` alias `device_name` } } ``` As an alternative, you can copy and save the following script as a bash file, such as `multipath_alias.sh`. You can run the script with sudo privileges, replacing ``serial_hex`` (without the 3600a0980 prefix) and ``device_name`` with your respective serial number and the desired friendly name. This script searches for an uncommented `multipaths` section in the `/etc/multipath.conf` file. If one exists, it appends a `multipath` entry to that section; otherwise, it will create a new `multipaths` section with a `multipath` entry for your block device. ``` #!/bin/bash SN=serial_hex ALIAS=device_name CONF=/etc/multipath.conf grep -q '^multipaths {' $CONF UNCOMMENTED=$? if [ $UNCOMMENTED -eq 0 ] then sed -i '/^multipaths {/a\\tmultipath {\n\t\twwid 3600a0980'"${SN}"'\n\t\talias '"${ALIAS}"'\n\t}\n' $CONF else printf "multipaths {\n\tmultipath {\n\t\twwid 3600a0980$SN\n\t\talias $ALIAS\n\t}\n}" >> $CONF fi ``` 2. Restart the `multipathd` service for the changes to `/etc/multipathd.conf` take effect. ``` `~$` systemctl restart multipathd.service ``` ###### To partition the LUN The next step is to format and partition your LUN using `fdisk`. 1. Use the following command to verify that the path to your `device_name` is present. ``` `~$` `ls /dev/mapper/`device_name`` ``` ``` /dev/`device_name` ``` 2. Partition the disk using `fdisk`. You’ll enter an interactive prompt. Enter the options in the order shown. You can make multiple partitions by using a value smaller than the last sector (`20971519` in this example). ###### Note The `Last sector` value will vary depending on the size of your iSCSI LUN (10GB in this example). ``` `~$` `sudo fdisk /dev/mapper/`device_name`` ``` The `fsdisk` interactive prompt starts. ``` `Welcome to fdisk (util-linux 2.30.2). Changes will remain in memory only, until you decide to write them. Be careful before using the write command. Device does not contain a recognized partition table. Created a new DOS disklabel with disk identifier 0x66595cb0. Command (m for help):` `n` `Partition type p primary (0 primary, 0 extended, 4 free) e extended (container for logical partitions) Select (default p):` `p` `Partition number (1-4, default 1):` `1` `First sector (2048-20971519, default 2048):` `2048` `Last sector, +sectors or +size{K,M,G,T,P} (2048-20971519, default 20971519):` `20971519` `Created a new partition 1 of type 'Linux' and of size 512 B. Command (m for help):` `w` `The partition table has been altered. Calling ioctl() to re-read partition table. Syncing disks.` ``` After entering `w`, your new partition `/dev/mapper/`partition_name`` becomes available. The `partition_name` has the format `<device_name>``<partition_number>`. `1` was used as the partition number used in the `fdisk` command in the previous step. 3. Create your file system using `/dev/mapper/`partition_name`` as the path. ``` `~$` `sudo mkfs.ext4 /dev/mapper/`partition_name`` ``` The system responds with the following output: ``` `mke2fs 1.42.9 (28-Dec-2013) Discarding device blocks: done Filesystem label= OS type: Linux Block size=4096 (log=2) Fragment size=4096 (log=2) Stride=0 blocks, Stripe width=16 blocks 655360 inodes, 2621184 blocks 131059 blocks (5.00%) reserved for the super user First data block=0 Maximum filesystem blocks=2151677952 80 block groups 32768 blocks per group, 32768 fragments per group 8192 inodes per group Superblock backups stored on blocks: 32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632 Allocating group tables: done Writing inode tables: done Creating journal (32768 blocks): done Writing superblocks and filesystem accounting information: done` ``` ###### To mount the LUN on the Linux client 1. Create a directory `directory_path` as the mount point for your file system. ``` `~$` `sudo mkdir /`directory_path`/`mount_point`` ``` 2. Mount the file system using the following command. ``` `~$` `sudo mount -t ext4 /dev/mapper/`partition_name` /`directory_path`/`mount_point`` ``` 3. (Optional) If you want to give a specific user ownership of the mount directory, replace ``username`` with the owner's username. ``` `~$` `sudo chown `username`:`username` /`directory_path`/`mount_point`` ``` 4. (Optional) Verify that you can read from and write data to the file system. ``` `~$` `echo "Hello world!" > /`directory_path`/`mount_point`/HelloWorld.txt` `~$` `cat `directory_path`/HelloWorld.txt` `Hello world!` ``` You have successfully created and mounted an iSCSI LUN on your Linux client.
-````
+| `- 4:0:0:1 sdh 8:112 active ready running
+`-+- policy='service-time 0' prio=10 status=enabled
+ |- 2:0:0:1 sdb 8:16 active ready running
+ |- 7:0:0:1 sdf 8:80 active ready running
+ |- 6:0:0:1 sde 8:64 active ready running
+ `- 5:0:0:1 sdd 8:48 active ready running`
+```
+
+Your block device is now connected to your Linux client. It is located under the path `/dev/`dm-xyz``. 
+ You should not use this path for administrative purposes; instead, use the symbolic link that is under the path 
+ `/dev/mapper/`wwid``, where `wwid` is a unique identifier for
+your LUN that is consistent across devices. In the next step, you’ll provide a friendly name for the `wwid`
+so you can distinguish it from other multipathed disks.
+
+###### To assign the block device a friendly name
+
+1. To provide your device a friendly name, create an alias in the `/etc/multipath.conf` file.
+   To do this, add the following entry to the file using your preferred text editor, replacing the following
+   placeholders:
+   - Replace `serial_hex` with the value the you saved in the
+     [Configure iSCSI on the FSx for ONTAP file system](#configure-iscsi-on-fsx-ontap "#configure-iscsi-on-fsx-ontap") procedure.
+   - Add the prefix `3600a0980` to the `serial_hex` value as shown in the example. This is a unique
+     preamble for the NetApp ONTAP distribution that Amazon FSx for NetApp ONTAP uses.
+   - Replace `device_name` with the friendly name you want to use for your device.
+
+```
+multipaths {
+    multipath {
+        wwid 3600a0980`serial_hex`
+        alias `device_name`
+    }
+}
+```
+
+As an alternative, you can copy and save the following script as a bash file, such as `multipath_alias.sh`.
+You can run the script with sudo privileges, replacing `serial_hex` (without the 3600a0980 prefix)
+and `device_name` with your respective serial number and the desired friendly name.
+This script searches for an uncommented `multipaths` section in the `/etc/multipath.conf` file.
+If one exists, it appends a `multipath` entry to that section; otherwise, it will create a new `multipaths` section
+with a `multipath` entry for your block device.
+
+```
+#!/bin/bash
+SN=serial_hex
+ALIAS=device_name
+CONF=/etc/multipath.conf
+grep -q '^multipaths {' $CONF
+UNCOMMENTED=$?
+if [ $UNCOMMENTED -eq 0 ]
+then
+        sed -i '/^multipaths {/a\\tmultipath {\n\t\twwid 3600a0980'"${SN}"'\n\t\talias '"${ALIAS}"'\n\t}\n' $CONF
+else
+        printf "multipaths {\n\tmultipath {\n\t\twwid 3600a0980$SN\n\t\talias $ALIAS\n\t}\n}" >> $CONF
+fi
+```
+
+2. Restart the `multipathd` service for the changes to `/etc/multipathd.conf` take effect.
+
+```
+`~$` systemctl restart multipathd.service
+```
+
+###### To partition the LUN
+
+The next step is to format and partition your LUN using `fdisk`.
+
+1. Use the following command to verify that the path to your `device_name` is present.
+
+```
+`~$` `ls /dev/mapper/`device_name``
+```
+
+```
+/dev/`device_name`
+```
+
+2. Partition the disk using `fdisk`. You’ll enter an interactive prompt. Enter the options in the order shown.
+   You can make multiple partitions by using a value smaller than the last sector (`20971519` in this example).
+
+###### Note
+
+The `Last sector` value will vary depending on the size of your iSCSI LUN (10GB in this example).
+
+```
+`~$` `sudo fdisk /dev/mapper/`device_name``
+```
+
+The `fsdisk` interactive prompt starts.
+
+```
+`Welcome to fdisk (util-linux 2.30.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0x66595cb0.
+
+Command (m for help):` `n`
+`Partition type
+ p primary (0 primary, 0 extended, 4 free)
+ e extended (container for logical partitions)
+Select (default p):` `p`
+`Partition number (1-4, default 1):` `1`
+`First sector (2048-20971519, default 2048):` `2048`
+`Last sector, +sectors or +size{K,M,G,T,P} (2048-20971519, default 20971519):` `20971519`
+ `Created a new partition 1 of type 'Linux' and of size 512 B.
+Command (m for help):` `w`
+`The partition table has been altered.
+Calling ioctl() to re-read partition table.
+Syncing disks.`
+```
+
+After entering `w`, your new partition `/dev/mapper/`partition_name``
+ becomes available. The `partition_name` has the format `<device_name>``<partition_number>`.
+ `1`was used as the partition number used in the`fdisk`command in the previous step.
+3. Create your file system using`/dev/mapper/`partition_name``
+as the path.
+
+```
+`~$` `sudo mkfs.ext4 /dev/mapper/`partition_name``
+```
+
+The system responds with the following output:
+
+```
+`mke2fs 1.42.9 (28-Dec-2013)
+Discarding device blocks: done
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=16 blocks
+655360 inodes, 2621184 blocks
+131059 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=2151677952
+80 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+ 32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information: done`
+```
+
+###### To mount the LUN on the Linux client
+
+1. Create a directory `directory_path` as the mount point for your file system.
+
+```
+`~$` `sudo mkdir /`directory_path`/`mount_point``
+```
+
+2. Mount the file system using the following command.
+
+```
+`~$` `sudo mount -t ext4 /dev/mapper/`partition_name` /`directory_path`/`mount_point``
+```
+
+3. (Optional) If you want to give a specific user ownership of the mount directory, replace `username`
+   with the owner's username.
+
+```
+`~$` `sudo chown `username`:`username` /`directory_path`/`mount_point``
+```
+
+4. (Optional) Verify that you can read from and write data to the file system.
+
+```
+`~$` `echo "Hello world!" > /`directory_path`/`mount_point`/HelloWorld.txt`
+`~$` `cat `directory_path`/HelloWorld.txt`
+`Hello world!`
+```
+
+You have successfully created and mounted an iSCSI LUN on your Linux client.

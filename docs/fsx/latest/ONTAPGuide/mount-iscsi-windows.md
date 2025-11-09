@@ -26,7 +26,7 @@ You may be using a different Microsoft Windows AMI in your set up.
 We recommend that the EC2 instance be in the same availability zone
 as your file system's preferred subnet, as shown in the following graphic.
 
-![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](images/fsx-ontap-iscsi-mnt-client.png)
+![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](/images/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
 
 ###### Topics
 

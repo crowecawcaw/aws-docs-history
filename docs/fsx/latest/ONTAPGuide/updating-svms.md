@@ -6,7 +6,7 @@ the Amazon FSx console, AWS CLI, and Amazon FSx API:
 - SVM administrative account password.
 - SVM Active Directory (AD) configuration – You can join an SVM to an AD, or
   modify the AD configuration of an SVM already joined to an AD. For more information,
-  see [Managing SVM Active Directory configurations](manage-svm-ad-config.md "manage-svm-ad-config.md").
+  see [Managing SVM Microsoft Active Directory configurations](manage-svm-ad-config-secrets-manager.md "manage-svm-ad-config-secrets-manager.md").
 
 ###### To update the SVM administrator account credentials (console)
 

@@ -32,22 +32,25 @@ In this procedure, the SVM is _not_ already joined to an Active Directory.
       characters.
     - The **fully qualified domain name (FQDN)** of your Active Directory. The domain name can't exceed 255 characters.
     - **DNS server IP addresses** – The IPv4 or IPv6 addresses of the DNS servers for your domain.
-    - **Service account username** – The user name of the service
-      account in your existing Active Directory. Don't include a domain prefix or suffix.
-      For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
-    - **Service account password** – The password for the service account.
-    - **Confirm password** – The password for the service account.
-    - (Optional) **Organizational Unit (OU)** – The distinguished
-      path name of the organizational unit you want to join your SVM to.
-    - **Delegated file system administrators group** – The name of the group
-      in your Active Directory that can administer your file system.
+    - **Service account credentials** – Choose how to provide your service account credentials:
+      - **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+      - **Option 2**: Plaintext credentials
+        - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+        - **Service account password** – The password for the service account.
+        - **Confirm password** – The password for the service account.
 
-    If you are using AWS Managed Microsoft AD, you must specify a group such as AWS Delegated FSx
-    Administrators, AWS Delegated Administrators, or a custom group with delegated
-    permissions to the OU.
+      - **Managed in Secrets Manager** (default) – Provide the ARN of an Secrets Manager secret that contains your service account credentials. The secret must contain the key-value pairs `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` and `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD`.
+      - (Optional) **Organizational Unit (OU)** – The distinguished
+        path name of the organizational unit you want to join your SVM to.
+      - **Delegated file system administrators group** – The name of the group
+        in your Active Directory that can administer your file system.
 
-    If you are joining to a self-managed Active Directory, use the name of the group in your Active Directory. The default group is
-    `Domain Admins`.
+      If you are using AWS Managed Microsoft AD, you must specify a group such as AWS Delegated FSx
+      Administrators, AWS Delegated Administrators, or a custom group with delegated
+      permissions to the OU.
+
+      If you are joining to a self-managed Active Directory, use the name of the group in your Active Directory. The default group is
+      `Domain Admins`.
 
 5.  Choose **Join Active Directory** to join the SVM to the Active Directory using
     the configuration you provided.

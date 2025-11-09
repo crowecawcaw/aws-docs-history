@@ -60,7 +60,7 @@ Group Rules](../../../AWSEC2/latest/UserGuide/using-network-security.md#security
      NetApp Console).
 
 | Protocol | Ports   | Role                                                                                           |
-| -------- | ------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | ------- | ---------------------------------------------------------------------------------------------- |
 | All ICMP | All     | Pinging the instance                                                                           |
 | SSH      | 22      | SSH access to the IP address of the cluster management LIF or a node management LIF            |
 | TCP      | 111     | Remote procedure call for NFS                                                                  |
@@ -75,7 +75,7 @@ Group Rules](../../../AWSEC2/latest/UserGuide/using-network-security.md#security
 | TCP      | 3260    | iSCSI access through the iSCSI data LIF                                                        |
 | TCP      | 4045    | NFS lock daemon                                                                                |
 | TCP      | 4046    | Network status monitor for NFS                                                                 |
-| TCP      | 10000   | Network data management protocol (NDMP) and NetApp SnapMirror intercluster communication       |
+| TCP      | 10000   | Network data management protocol (NDMP) and NetApp SnapMirror intercluster<br>communication    |
 | TCP      | 11104   | Management of NetApp SnapMirror intercluster communication                                     |
 | TCP      | 11105   | SnapMirror data transfer using intercluster LIFs                                               |
 | UDP      | 111     | Remote procedure call for NFS                                                                  |
@@ -87,4 +87,11 @@ Group Rules](../../../AWSEC2/latest/UserGuide/using-network-security.md#security
 | UDP      | 2049    | NFS server daemon                                                                              |
 | UDP      | 4045    | NFS lock daemon                                                                                |
 | UDP      | 4046    | Network status monitor for NFS                                                                 |
-| UDP      | 4049    | NFS quota protocol                                                                             | 8. Add the security group to the file system's elastic network interface. #### Disallow access to a file system To temporarily disallow network access to your file system from all clients, you can remove all the security groups associated with your file system's elastic network interface(s) and replace them with a group that has no inbound/outbound rules. |
+| UDP      | 4049    | NFS quota protocol                                                                             |
+
+8. Add the security group to the file system's elastic network interface.
+
+#### Disallow access to a file system
+
+To temporarily disallow network access to your file system from all clients, you can remove all the security groups associated with your
+file system's elastic network interface(s) and replace them with a group that has no inbound/outbound rules.

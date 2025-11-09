@@ -51,10 +51,63 @@ interfaces (LIFs)) on the SVM.
 The role of each port is described in the following table.
 
 | Protocol | Ports | Role                                                       |
-| -------- | ----- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | ----- | ---------------------------------------------------------- |
 | TCP/UDP  | 53    | Domain Name System (DNS)                                   |
 | TCP/UDP  | 88    | Kerberos authentication                                    |
 | TCP/UDP  | 389   | Lightweight Directory Access Protocol (LDAP)               |
 | TCP      | 445   | Directory Services SMB file sharing                        |
 | TCP/UDP  | 464   | Change/Set password                                        |
-| TCP      | 636   | Lightweight Directory Access Protocol over TLS/SSL (LDAPS) | <br>• These traffic rules should also be mirrored on the firewalls that apply to each of the Active Directory domain controllers, DNS servers, FSx clients, and FSx administrators. ###### Important While Amazon VPC security groups require ports to be opened only in the direction that network traffic is initiated, most Windows firewalls and VPC network ACLs require ports to be open in both directions. ## Active Directory service account requirements Make sure that you have a service account in your self-managed Microsoft AD that has delegated permissions to join computers to the domain. A _service account_ is a user account in your self-managed Active Directory that has been delegated certain tasks. At a minimum, the service account must be delegated the following permissions in the OU to which you're joining the SVM: <br>• Ability to reset passwords <br>• Ability to restrict accounts from reading and writing data <br>• Ability to set the `msDS-SupportedEncryptionTypes` property on computer objects <br>• Validated ability to write to the DNS hostname <br>• Validated ability to write to the service principal name <br>• Ability to create and delete computer objects <br>• Validated ability to read and write Account Restrictions These represent the minimum set of permissions that are required to join computer objects to your Active Directory. For more information, see the Windows Server documentation topic [Error: Access is denied when non-administrator users who have been delegated control try to join computers to a domain controller](https://support.microsoft.com/en-us/help/932455/error-message-when-non-administrator-users-who-have-been-delegated-con "https://support.microsoft.com/en-us/help/932455/error-message-when-non-administrator-users-who-have-been-delegated-con"). To learn more about creating a service account with the correct permissions, see [Delegating permissions to your Amazon FSx service account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges"). ###### Important Amazon FSx requires a valid service account throughout the lifetime of your Amazon FSx file system. Amazon FSx must be able to fully manage the file system and perform tasks that require it to unjoin and rejoin resources to your Active Directory domain. These tasks include replacing a failed file system or SVM, or patching NetApp ONTAP software. Keep your Active Directory configuration information up to date with Amazon FSx, including the service account credentials. To learn more, see [Keeping your Active Directory configuration updated with Amazon FSx](self-managed-AD-best-practices.md#keep-ad-config-updated "self-managed-AD-best-practices.md#keep-ad-config-updated"). If this is your first time using AWS and FSx for ONTAP, make sure that you complete the initial setup steps before starting your Active Directory integration. For more information, see [Setting up FSx for ONTAP](getting-started.md#setting-up "getting-started.md#setting-up"). ###### Important Don't move computer objects that Amazon FSx creates in the OU after your SVMs are created, or delete your Active Directory while your SVM is joined to it. Doing so will cause your SVMs to become misconfigured. |
+| TCP      | 636   | Lightweight Directory Access Protocol over TLS/SSL (LDAPS) |
+
+- These traffic rules should also be mirrored on the firewalls that apply to each of the
+  Active Directory domain controllers, DNS servers, FSx clients, and FSx administrators.
+
+###### Important
+
+While Amazon VPC security groups require ports to be opened only in the direction that network traffic is initiated,
+most Windows firewalls and VPC network ACLs require ports to be open in both directions.
+
+## Active Directory service account requirements
+
+Make sure that you have a service account in your self-managed Microsoft AD that has delegated permissions to join
+computers to the domain. A _service account_ is a user
+account in your self-managed Active Directory that has been delegated certain tasks.
+
+At a minimum, the service account must be delegated the following permissions in the OU to
+which you're joining the SVM:
+
+- Ability to reset passwords
+- Ability to restrict accounts from reading and writing data
+- Ability to set the `msDS-SupportedEncryptionTypes` property on computer objects
+- Validated ability to write to the DNS hostname
+- Validated ability to write to the service principal name
+- Ability to create and delete computer objects
+- Validated ability to read and write Account Restrictions
+
+These represent the minimum set of permissions that are required to join computer objects
+to your Active Directory. For more information, see the Windows Server documentation topic [Error: Access is denied when non-administrator users who have been delegated control try
+to join computers to a domain controller](https://support.microsoft.com/en-us/help/932455/error-message-when-non-administrator-users-who-have-been-delegated-con "https://support.microsoft.com/en-us/help/932455/error-message-when-non-administrator-users-who-have-been-delegated-con").
+
+You can store your Active Directory service account credentials in AWS Secrets Manager (recommended) and provide Amazon FSx with a secret ARN to join your Active Directory, or you can provide plaintext credentials.
+
+To learn more about creating a service account with the correct permissions, see
+[Delegating permissions to your Amazon FSx service
+account](self-managed-AD-best-practices.md#connect_delegate_privileges "self-managed-AD-best-practices.md#connect_delegate_privileges").
+
+###### Important
+
+Amazon FSx requires a valid service account throughout the lifetime of your Amazon FSx file system.
+Amazon FSx must be able to fully manage the file system and perform tasks that require it to
+unjoin and rejoin resources to your Active Directory domain. These tasks include replacing a failed file
+system or SVM, or patching NetApp ONTAP software. Keep your Active Directory configuration information up
+to date with Amazon FSx, including the service account credentials. To learn more, see [Keeping your Active Directory configuration updated with
+Amazon FSx](self-managed-AD-best-practices.md#keep-ad-config-updated "self-managed-AD-best-practices.md#keep-ad-config-updated").
+
+If this is your first time using AWS and FSx for ONTAP, make sure that you complete the
+initial setup steps before starting your Active Directory integration. For more information, see [Setting up FSx for ONTAP](getting-started.md#setting-up "getting-started.md#setting-up").
+
+###### Important
+
+Don't move computer objects that Amazon FSx creates in the OU after your SVMs are created, or
+delete your Active Directory while your SVM is joined to it. Doing so will cause your SVMs to become
+misconfigured.

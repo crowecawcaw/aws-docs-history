@@ -79,7 +79,7 @@ FsxId0ae30e5b7f1a50b6a-02
 
 ## Modify an Active Directory configuration using the ONTAP CLI
 
-You can use the ONTAP CLI to modify an existing Active Directory configuration.
+You can use the ONTAP CLI to modify an existing Active Directory configuration. 
 
 1. To access the ONTAP CLI, establish an SSH session on the management port of the
    Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
@@ -90,13 +90,13 @@ You can use the ONTAP CLI to modify an existing Active Directory configuration.
 `[~]$` `ssh fsxadmin@`management_endpoint_ip``
 ```
 
-For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Run the following command to temporarily bring down the SVM's CIFS server:
+For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Run the following command to temporarily bring down the SVM's CIFS server: 
 
 ```
 `FsxId0123456789a::>``vserver cifs modify -vserver `svm_name` -status-admin down`
 ```
 
-3. If you need to modify the DNS entries of your Active Directory, run the following command:
+3. If you need to modify the DNS entries of your Active Directory, run the following command: 
 
 ```
 `::>``vserver services name-service dns modify -vserver `svm_name` -domains `corp.example.com` -name-servers `dns_ip_1`,`dns_ip_2``
@@ -153,13 +153,13 @@ The NetApp ONTAP CLI can also be used to unjoin your SVM from an Active Director
 
 For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli "managing-resources-ontap-apps.md#fsxadmin-ontap-cli"). 2. Delete the CIFS server that unjoined your device from the Active Directory by running the following
 command. For ONTAP to delete the machine account for your SVM, provide the credentials that
-you originally used to join the SVM to the Active Directory.
+you originally used to join the SVM to the Active Directory.  
 
 ```
 `FsxId0123456789a::>``vserver cifs modify -vserver `svm_name` -status-admin down`
 ```
 
-3. If you need to modify the DNS entries of your Active Directory, run the following command:
+3. If you need to modify the DNS entries of your Active Directory, run the following command: 
 
 ```
 `FsxId0123456789a::``vserver cifs delete -vserver `svm_name``

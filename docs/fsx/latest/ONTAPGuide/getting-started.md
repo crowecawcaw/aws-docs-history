@@ -207,6 +207,33 @@ pool storage). The default snapshot policy gets assigned to the
 default volume. The file system data is encrypted at rest using your default service
 managed AWS KMS key.
 
+### Creating a Microsoft Active Directory-joined SVM
+
+After creating your file system, you can create additional SVMs joined to Microsoft Active Directory
+to enable SMB access from Windows and macOS clients. FSx for ONTAP integrates with AWS Secrets Manager
+to securely manage your Microsoft Active Directory domain join service account credentials.
+
+###### To create a Microsoft Active Directory-joined SVM
+
+1. In the Amazon FSx console, choose **Storage virtual machines** from the left navigation pane.
+2. Choose **Create storage virtual machine**.
+3. For **File system**, select the file system you created.
+4. For **Storage virtual machine name**, enter a name for your SVM.
+5. For **Microsoft Active Directory configuration**, choose **Join a Microsoft Active Directory**.
+6. For **Domain join service account credentials**, choose
+   **Managed in Secrets Manager** (default) to use Secrets Manager for secure credential management.
+
+###### Note
+
+Using Secrets Manager eliminates the need to store plaintext credentials and provides
+centralized credential management. For more information, see
+[Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager"). 7. For **Secret**, choose an existing secret from Secrets Manager that contains
+your domain join service account credentials, or choose **Create new secret**
+to create one. 8. Complete the remaining Microsoft Active Directory configuration fields as needed for your environment. 9. Choose **Create storage virtual machine**.
+
+Your SVM will be created and joined to Microsoft Active Directory using the credentials stored in Secrets Manager.
+You can now create SMB shares and volumes on this SVM for Windows and macOS client access.
+
 ## Mounting your file system from an Amazon EC2 Linux
 
 instance

@@ -57,9 +57,12 @@ range, except:
      of AWS IP addresses by Region, see the [AWS IP address ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md").
     + IP addresses in the following CIDR block range: 198.19.0.0/16
 
-- Username and password for a service account on your Active Directory domain for Amazon FSx to use when
-  joining the SVM to the Active Directory domain. For more information about service account
-  requirements, see [Active Directory service account requirements](self-manage-prereqs.md#ontap-ad-service-account-prereqs "self-manage-prereqs.md#ontap-ad-service-account-prereqs").
+- Credentials for an Active Directory service account that Amazon FSx uses to join the SVM to your domain. You can provide these as either:
+  - **Option 1:** AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+  - **Option 2:** Plaintext credentials
+    - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+    - **Service account password** – The password for the service account.
+
 - (Optional) The Organizational Unit (OU) in the domain that you join the SVM to.
 
 ###### Note

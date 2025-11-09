@@ -12,6 +12,7 @@ messages generated for each circumstance.
 - [The SVM is already joined to another Active Directory](#join-svm-ad-fails-already-joined "#join-svm-ad-fails-already-joined")
 - [Amazon FSx can't connect to your Active Directory domain controllers
   because the SVM's NetBIOS name is already in use](#join-svm-ad-fails-netbios-name-in-use "#join-svm-ad-fails-netbios-name-in-use")
+- [Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager](#join-svm-ad-service-account-creds-inaccessible "#join-svm-ad-service-account-creds-inaccessible")
 - [Amazon FSx can't communicate with your Active Directory domain controllers](#join-svm-ad-fails-no-port-traffic "#join-svm-ad-fails-no-port-traffic")
 - [Amazon FSx can't connect to your
   Active Directory due to unmet port requirements or service account permissions](#join-svm-ad-fails-ports-or-permissions "#join-svm-ad-fails-ports-or-permissions")
@@ -39,7 +40,7 @@ Joining an SVM to your self-managed Active Directory fails with the following er
  choose a NetBIOS name for your SVM that is different from the NetBIOS name of the home domain. Then 
  reattempt to join your SVM to your Active Directory.`**
 
-To resolve this issue, follow the procedure described in [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") to reattempt joining your SVM to your AD. Ensure that you use
+To resolve this issue, follow the procedure described in [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") to reattempt joining your SVM to your Active Directory. Ensure that you use
 a NetBIOS name for your SVM that's different than the NetBIOS name of the Active Directory's
 home domain.
 
@@ -56,13 +57,13 @@ To resolve the issue, do the following:
 1. Use the NetApp ONTAP CLI to unjoin the SVM from its current Active Directory. For more
    information, see [Unjoin an Active Directory from your SVM using the NetApp ONTAP CLI](manage-svm-ad-config-ontap-cli.md#using-ontap-cli-to-unjoin-ad "manage-svm-ad-config-ontap-cli.md#using-ontap-cli-to-unjoin-ad").
 2. Follow the procedure described in
-   [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") to reattempt joining your SVM to the new AD.
+   [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") to reattempt joining your SVM to the new Active Directory.
 
 ## Amazon FSx can't connect to your Active Directory domain controllers
 
 because the SVM's NetBIOS name is already in use
 
-Creating an SVM joined to your self-managed AD fails with the following error message:
+Creating an SVM joined to your self-managed Active Directory fails with the following error message:
 
 **`Amazon FSx is unable to establish a connection with your Active Directory. This is because the NetBIOS (computer) name you specified 
  is already in-use in your Active Directory. To fix this problem, pick a NetBIOS name for your SVM that is not in use in your Active Directory., specifying a NetBIOS (computer)
@@ -72,9 +73,57 @@ To resolve this issue, follow the procedure described in [Joining SVMs to Active
 a NetBIOS name for your SVM that's unique and not already in use in your Active
 Directory.
 
+## Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager
+
+The following sections describe common issues and how to resolve them.
+
+**Joining an SVM to your self-managed Active Directory fails with the following error message:**
+
+`You can't provide both username/password and a domain join service account secret to connect to your Active Directory. Provide only one set of credentials.`
+
+###### To resolve this issue
+
+1. Choose whether you want to provide credentials stored in a Secrets Manager secret, or in plaintext.
+2. When joining an Active Directory, only provide one of those parameters and not both.
+
+**Joining an SVM to your self-managed Active Directory fails with the following error message:**
+
+`The domain join service account secret ARN format you entered isn't valid. Use the format: arn:partition:secretsmanager:region:account-id:secret:secret-name-6chars`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+2. Verify that the ARN format you are entering is correct. A correct format example is `arn:aws:secretsmanager:us-east-1:123456789012:secret:MyDatabaseSecret-Ab3d5f`.
+
+**Joining an SVM to your self-managed Active Directory fails with the following error message:**
+
+`Amazon FSx can't access the domain join service account secret [ARN]. Add a resource permission to the secret that grants the FSx service principal (fsx.amazonaws.com) permission to access it.`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+2. Verify that the Secrets Manager secret you are providing has the correct policies that allow Amazon FSx to use the secret.
+
+**Joining an SVM to your self-managed Active Directory fails with the following error message:**
+
+`You don't have permission to access the domain join service account secret [ARN]. A resource permission needs to be added to the secret to grant you access.`
+
+###### To resolve this issue
+
+- The Secrets Manager secret owner or administrator needs to give your account access to use this secret. For more information, see [Identity-based policies](../../../secretsmanager/latest/userguide/auth-and-access_iam-policies.md "../../../secretsmanager/latest/userguide/auth-and-access_iam-policies.md").
+
+**Joining an SVM to your self-managed Active Directory fails with the following error message:**
+
+`The domain join service account secret format or content isn't valid. Make sure the secret includes both CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME and CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD fields with non-empty values.`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
+2. Verify that the Secrets Manager secret you are providing has both of the required fields.
+
 ## Amazon FSx can't communicate with your Active Directory domain controllers
 
-Joining an SVM to your self-managed AD fails with the following error message:
+Joining an SVM to your self-managed Active Directory fails with the following error message:
 
 **`Amazon FSx is unable to communicate with your Active Directory. 
  To fix this problem, ensure that network traffic is allowed between Amazon FSx and your domain controllers. 
@@ -92,7 +141,7 @@ To resolve this issue, do the following:
 
 Active Directory due to unmet port requirements or service account permissions
 
-Joining an SVM to your self-managed AD fails with the following error message:
+Joining an SVM to your self-managed Active Directory fails with the following error message:
 
 **`Amazon FSx is unable to establish a connection with your Active Directory. This is due to either the port 
  requirements for your Active Directory not being met, or the service account provided not having permissions 
@@ -108,7 +157,7 @@ To resolve this issue, do the following:
 2. Review the service account requirements described in
    [Active Directory service account requirements](self-manage-prereqs.md#ontap-ad-service-account-prereqs "self-manage-prereqs.md#ontap-ad-service-account-prereqs"). Ensure that
    service account has the delegated permissions necessary to join your SVM to the
-   AD domain using the specified organizational unit.
+   Active Directory domain using the specified organizational unit.
 3. Once you have made changes to the port permissions or the service account, follow the procedure described in
    [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") and reattempt joining your SVM to your AD.
 
@@ -236,7 +285,7 @@ To resolve this issue, use the following procedure:
 3.  Review the [information you need to have](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") when joining an SVM to an AD.
 4.  Review the [networking requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs") when joining an SVM to an AD.
 5.  Use the procedure described in [Network configuration requirements](self-manage-prereqs.md#ontap-ad-network-configs "self-manage-prereqs.md#ontap-ad-network-configs")
-    to update your SVM's AD configuration using the correct IP addresses for your AD DNS servers.
+    to update your SVM's Active Directory configuration using the correct IP addresses for your Active Directory DNS servers.
 
 ## Amazon FSx can't communicate with your Active
 
@@ -251,9 +300,9 @@ To resolve this issue, use the following procedure:
 
 1. Review the on-premises Active Directory domain name requirements described in
    [Information needed when joining an SVM to an Active Directory](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") Make sure that the
-   AD you are attempting to join meets that requirement.
+   Active Directory you are attempting to join meets that requirement.
 2. Use the procedure described in [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md")
-   and reattempt joining your SVM to an AD. Be sure to use the correct format for the AD domain's FQDN.
+   and reattempt joining your SVM to an Active Directory. Be sure to use the correct format for the Active Directory domain's FQDN.
 
 ## The service account can't access the administrators group specified in the SVM Active Directory configuration
 
@@ -267,7 +316,7 @@ Joining an SVM to your self-managed Active Directory fails with the following er
 To resolve this issue, do the following:
 
 1. Review the information about [providing a domain group](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") to perform administrative actions on your SVM. Make sure
-   that you are using the correct name of the AD domain administrators group.
+   that you are using the correct name of the Active Directory domain administrators group.
 2. Use the procedure described in [Joining SVMs to Active Directory using the AWS Management Console, AWS CLI and API](join-svm-to-ad.md "join-svm-to-ad.md") and reattempt joining your SVM to an AD.
 
 ## Amazon FSx can't connect to the Active
@@ -286,4 +335,4 @@ To resolve this issue, do the following:
 
 1. Review the [prerequisites for joining an SVM to an AD](self-manage-prereqs.md "self-manage-prereqs.md").
 2. Review the [information that you need to have](self-managed-AD-join.md#ad-info-for-svm-join "self-managed-AD-join.md#ad-info-for-svm-join") when joining an SVM to an AD.
-3. Reattempt joining the SVM to the AD using [this procedure](join-svm-to-ad.md "join-svm-to-ad.md") with the correct organization unit.
+3. Reattempt joining the SVM to the Active Directory using [this procedure](join-svm-to-ad.md "join-svm-to-ad.md") with the correct organization unit.

@@ -216,12 +216,114 @@ the method you use to access your file system data. Single-AZ file systems do
 not require Transit Gateway. The following table describes when you will need to use AWS Transit Gateway
 to access Multi-AZ file systems.
 
-| Data access                                                                       | Requires Transit Gateway?                                                                                                                                               |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Accessing FSx over NFS, SMB, or the NetApp ONTAP REST API, CLI. or NetApp Console | Only if: <br>• Accessing from a peered (on-premises, for example) network, and <br>• You are not accessing FSx through a NetApp FlexCache or Global File Cache instance |
-| Accessing data over iSCSI                                                         | No                                                                                                                                                                      |
-| Accessing data over NVMe                                                          | No                                                                                                                                                                      |
-| Joining an SVM to an Active Directory                                             | No                                                                                                                                                                      |
-| SnapMirror                                                                        | No                                                                                                                                                                      |
-| FlexCache Caching                                                                 | No                                                                                                                                                                      |
-| Global File Cache                                                                 | No                                                                                                                                                                      | #### Accessing NVMe, iSCSI and inter-cluster endpoints outside of the deployment VPC You can use either VPC Peering or AWS Transit Gateway to access your file system's NVMe, iSCSI, and inter-cluster endpoints from outside of the file system's deployment VPC. You can use VPC Peering to route NVMe, iSCSI, and inter-cluster traffic between VPCs. A VPC peering connection is a networking connection between two VPCs, and is used to route traffic between them using private IPv4 or IPv6 addresses. You can use VPC peering to connect VPCs within the same AWS Region or between different AWS Regions. For more information on VPC peering, see [What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the _Amazon VPC Peering Guide_. ## Accessing data from on-premises You can access your FSx for ONTAP file systems from on-premises using [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") and [AWS Direct Connect](https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/ "https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/"); more specific use case guidelines are available in the following sections. In addition to any requirements listed below for accessing different FSx for ONTAP resources from on-premises, you also need to ensure that your file system's VPC security group allows data to flow between your file system and clients; for a list of required ports, see [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups"). ### Accessing NFS, SMB, and ONTAP CLI and REST API endpoints from on-premises This section describes how to access the NFS, SMB, and ONTAP management ports on FSx for ONTAP file systems from on-premises networks. #### Accessing Multi-AZ file systems from on-premises Amazon FSx requires that you use AWS Transit Gateway or that you configure remote NetApp Global File Cache or NetApp FlexCache to access Multi-AZ file systems from an on-premises network. In order to support failover across availability zones for Multi-AZ file systems, Amazon FSx uses floating IP addresses for the interfaces used for NFS, SMB, and ONTAP management endpoints. Because the NFS, SMB, and management endpoints use floating IP addresses, you must use [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") in conjunction with AWS Direct Connect or AWS VPN to access these interfaces from an on-premises network. The floating IP addresses used for these interfaces are within the `EndpointIPv4AddressRange` or `EndpointIPv6AddressRange` you specify when creating your Multi-AZ file system. The endpoint IP address range uses the following address ranges, depending on how a file system is created: <br>• Multi-AZ dual-stack file systems created with the Amazon FSx console or Amazon FSx API by default use an available /118 IP address range selected by Amazon FSx from one of the VPC's CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed in the same VPC/route tables, as long as they don't overlap with any subnet. <br>• Multi-AZ IPv4-only file systems created using the Amazon FSx console use the last 64 IP addresses in the VPC's primary CIDR range for the file system's endpoint IP address range by default. Multi-AZ IPv4-only file systems created using the AWS CLI or Amazon FSx API use an IP address range within the `198.19.0.0/16` address block for the endpoint IP address range by default. <br>• For either network type, you can also specify your own IP address range when you use the **Standard create** option. The IP address range that you choose can either be inside or outside the VPC’s IP address range, as long as it doesn't overlap with any subnet, and as long as it isn't already used by another file system with the same VPC and route tables. For this option we recommend using a range that is inside the VPC's IP address range. The floating IP addresses are used to enable a seamless transition of your clients to the standby file system in the event a failover is required. For more information, see [Failover process for FSx for ONTAP](high-availability-AZ.md#Failover "high-availability-AZ.md#Failover"). ###### Important To access a Multi-AZ file system using a Transit Gateway, each of the Transit Gateway's attachments must be created in a subnet whose route table is associated with your file system. For more information, see [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md"). #### Accessing Single-AZ file systems from on-premises The requirement to use AWS Transit Gateway to access data from an on-premises network doesn’t exist for Single-AZ file systems. Single-AZ file systems are deployed in a single subnet, and a floating IP address is not required to provide failover between nodes. Instead, the IP addresses you access on Single-AZ file systems are implemented as secondary IP addresses within the file system’s VPC CIDR range, enabling you to access your data from another network without requiring AWS Transit Gateway. ### Accessing inter-cluster endpoints from on-premises FSx for ONTAP’s inter-cluster endpoints are dedicated to replication traffic between NetApp ONTAP file systems, including between on-premises NetApp deployments and FSx for ONTAP. Replication traffic includes SnapMirror, FlexCache, and FlexClone relationships between storage virtual machines (SVMs) and volumes across different file systems, and NetApp Global File Cache. The inter-cluster endpoints are also used for Active Directory traffic. Because a file system's inter-cluster endpoints use IP addresses that are within the CIDR range of the VPC you provide when you create your FSx for ONTAP file system, you are not required to use a Transit Gateway for routing inter-cluster traffic between on-premises and the AWS Cloud. However, on-premises clients still must use AWS VPN or AWS Direct Connect to establish a secure connection to your VPC. For more information, see [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md"). |
+| Data access                                                                          | Requires Transit Gateway?                                                                                                                                                   |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Accessing FSx over NFS, SMB, or the NetApp ONTAP REST<br>API, CLI. or NetApp Console | Only if:<br>• Accessing from a peered (on-premises, for<br>example) network, and<br>• You are not accessing FSx through a NetApp<br>FlexCache or Global File Cache instance |
+| Accessing data over iSCSI                                                            | No                                                                                                                                                                          |
+| Accessing data over NVMe                                                             | No                                                                                                                                                                          |
+| Joining an SVM to an Active Directory                                                | No                                                                                                                                                                          |
+| SnapMirror                                                                           | No                                                                                                                                                                          |
+| FlexCache Caching                                                                    | No                                                                                                                                                                          |
+| Global File Cache                                                                    | No                                                                                                                                                                          |
+
+#### Accessing NVMe, iSCSI and inter-cluster endpoints outside of the deployment
+
+VPC
+
+You can use either VPC Peering or AWS Transit Gateway to access your file system's NVMe, iSCSI, and inter-cluster endpoints
+from outside of the file system's deployment VPC. You can use VPC Peering to route NVMe, iSCSI,
+and inter-cluster traffic between VPCs. A VPC peering connection is a
+networking connection between two VPCs, and is used
+to route traffic between them using private IPv4 or IPv6 addresses. You can use VPC
+peering to connect VPCs within the same AWS Region or between different AWS Regions.
+For more information on VPC peering, see
+[What is VPC peering?](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the _Amazon VPC
+Peering Guide_.
+
+## Accessing data from on-premises
+
+You can access your FSx for ONTAP file systems from on-premises using [AWS VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") and [AWS Direct Connect](https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/ "https://aws.amazon.com/getting-started/projects/connect-data-center-to-aws/"); more specific use case guidelines are available in the following
+sections. In addition to any requirements listed below for accessing different
+FSx for ONTAP resources from on-premises, you also need to ensure that your file system's
+VPC security group allows data to flow between your file system and clients; for a list
+of required ports, see [Amazon VPC security groups](limit-access-security-groups.md#fsx-vpc-security-groups "limit-access-security-groups.md#fsx-vpc-security-groups").
+
+### Accessing
+
+NFS, SMB, and ONTAP CLI and REST API endpoints from on-premises
+
+This section describes how to access the NFS, SMB, and ONTAP management ports on FSx for ONTAP file systems
+from on-premises networks.
+
+#### Accessing Multi-AZ file systems from on-premises
+
+Amazon FSx requires that you use AWS Transit Gateway or that you configure remote NetApp
+Global File Cache or NetApp FlexCache to access Multi-AZ file systems from an
+on-premises network. In order to support failover across availability zones for Multi-AZ file
+systems, Amazon FSx uses floating IP addresses for the interfaces used for NFS, SMB,
+and ONTAP management endpoints.
+
+Because the NFS, SMB, and management endpoints use floating IP addresses, you must use
+[AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/transit-gateway/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc") in conjunction with AWS Direct Connect or AWS VPN to access
+these interfaces from an on-premises network. The floating IP addresses used for
+these interfaces are within the `EndpointIPv4AddressRange` or `EndpointIPv6AddressRange` you specify
+when creating your Multi-AZ file system. The endpoint IP address range uses the
+following address ranges, depending on how a file system is created:
+
+- Multi-AZ dual-stack file systems created with the Amazon FSx console or Amazon FSx API by default
+  use an available /118 IP address range selected by Amazon FSx from one of the VPC's
+  CIDR ranges. You can have overlapping endpoint IP addresses for file systems deployed in
+  the same VPC/route tables, as long as they don't overlap with any subnet.
+- Multi-AZ IPv4-only file systems created using the Amazon FSx console use the last
+  64 IP addresses in the VPC's primary CIDR range for the file system's
+  endpoint IP address range by default.
+
+Multi-AZ IPv4-only file systems created using the AWS CLI or Amazon FSx API use
+an IP address range within the `198.19.0.0/16` address block
+for the endpoint IP address range by default.
+
+- For either network type, you can also specify your own IP address range when you use the
+  **Standard create** option. The IP address range that you choose can either be
+  inside or outside the VPC’s IP address range, as long as it doesn't overlap with any subnet, and
+  as long as it isn't already used by another file system with the same VPC and route tables.
+  For this option we recommend using a range that is inside the VPC's IP address range.
+
+The floating IP addresses are used to enable a seamless transition of your clients to the
+standby file system in the event a failover is required. For more information,
+see [Failover process for FSx for ONTAP](high-availability-AZ.md#Failover "high-availability-AZ.md#Failover").
+
+###### Important
+
+To access a Multi-AZ file system using a Transit Gateway, each of the Transit Gateway's attachments
+must be created in a subnet whose route table is associated with your file system.
+
+For more information, see [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md").
+
+#### Accessing Single-AZ file systems from on-premises
+
+The requirement to use AWS Transit Gateway to access data from an on-premises network
+doesn’t exist for Single-AZ file systems. Single-AZ file systems are deployed in a
+single subnet, and a floating IP address is not required to provide failover
+between nodes. Instead, the IP addresses you access on Single-AZ file systems are
+implemented as secondary IP addresses within the file system’s VPC CIDR range,
+enabling you to access your data from another network without requiring
+AWS Transit Gateway.
+
+### Accessing
+
+inter-cluster endpoints from on-premises
+
+FSx for ONTAP’s inter-cluster endpoints are dedicated to replication traffic between
+NetApp ONTAP file systems, including between on-premises NetApp deployments and
+FSx for ONTAP. Replication traffic includes SnapMirror, FlexCache, and FlexClone
+relationships between storage virtual machines (SVMs) and volumes across different
+file systems, and NetApp Global File Cache. The inter-cluster endpoints are also
+used for Active Directory traffic.
+
+Because a file system's inter-cluster endpoints use IP addresses that are within the CIDR
+range of the VPC you provide when you create your FSx for ONTAP file system, you are not required
+to use a Transit Gateway for routing inter-cluster traffic between on-premises and
+the AWS Cloud. However, on-premises clients still must use AWS VPN or AWS Direct Connect to
+establish a secure connection to your VPC.
+
+For more information, see [Configure routing to access Multi-AZ file systems from on-premises](configure-routing-maz-on-prem.md "configure-routing-maz-on-prem.md").
