@@ -34,11 +34,38 @@ explicitly with the settings **Resolution** and **Frame
 rate**, or you can choose the value **Follow source**
 and use an input that has an allowed value.
 
-| Setting                                                                                                                                                                               | Allowed values for D10 profile                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Combination of: **Resolution** (wxh), **Frame rate**, **Interlace mode**                                                                                                              | Allowed combinations: <br>• 720x512, 29.97, interlaced <br>• 720x486, 29.97, interlaced <br>• 720x486, 29.97, interlaced <br>• 720x608, 25, interlaced <br>• 720x576, 25, interlaced |
-| **GOP size**                                                                                                                                                                          | 1 frame                                                                                                                                                                              |
-| **Profile**, for your video codec                                                                                                                                                     | 4:2:2                                                                                                                                                                                |
-| **Syntax** This setting is visible on the MediaConvert console when you choose MXF for your container, MPEG-2 for your video codec, and 4:2:2 for your codec profile.                 | D10                                                                                                                                                                                  |
-| Number of audio tracks Each output track is represented on the MediaConvert console as one **Audio** tab and in your JSON job specification as a direct child of `AudioDescriptions`. | <br>• 0 (no audio) <br>• 1                                                                                                                                                           |
-| Captions type You specify this on the MediaConvert console with the setting **Destination type**.                                                                                     | <br>• Burn in <br>• Embedded                                                                                                                                                         | This excerpt from a JSON job specification shows the same settings as you would submit them programmatically: `{ "height": 512, "width": 720, "codecSettings": { "codec": "MPEG2", "mpeg2Settings": { "bitrate": 30000000, "syntax": "D_10", "framerateDenominator": 1001, "framerateControl": "SPECIFIED", "framerateNumerator": 30000, "numberBFramesBetweenReferenceFrames": 0, "gopSize": 1.0, "gopSizeUnits": "FRAMES", "codecLevel": "MAIN", "codecProfile": "PROFILE_422", "rateControlMode": "CBR", "interlaceMode": "TOP_FIELD" } } }` |
+| Setting                                                                                                                                                                                                | Allowed values for D10 profile                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Combination of:<br>**Resolution\*<br>• (wxh), **Frame<br>rate**, **Interlace mode\*\*                                                                                                                  | Allowed combinations:<br>• 720x512, 29.97, interlaced<br>• 720x486, 29.97, interlaced<br>• 720x486, 29.97, interlaced<br>• 720x608, 25, interlaced<br>• 720x576, 25, interlaced |
+| **GOP size**                                                                                                                                                                                           | 1 frame                                                                                                                                                                         |
+| **Profile**, for your video codec                                                                                                                                                                      | 4:2:2                                                                                                                                                                           |
+| **Syntax**<br>This setting is visible on the MediaConvert console when you choose MXF for<br>your container, MPEG-2 for your video codec, and 4:2:2 for your<br>codec profile.                         | D10                                                                                                                                                                             |
+| Number of audio tracks<br>Each output track is represented on the MediaConvert console as one<br>\*_Audio_<br>• tab and in your JSON job<br>specification as a direct child of<br>`AudioDescriptions`. | • 0 (no audio)<br>• 1                                                                                                                                                           |
+| Captions type<br>You specify this on the MediaConvert console with the setting<br>**Destination type**.                                                                                                | • Burn in<br>• Embedded                                                                                                                                                         |
+
+This excerpt from a JSON job specification shows the same settings as you would submit
+them programmatically:
+
+```
+{
+  "height": 512,
+  "width": 720,
+  "codecSettings": {
+    "codec": "MPEG2",
+    "mpeg2Settings": {
+      "bitrate": 30000000,
+      "syntax": "D_10",
+      "framerateDenominator": 1001,
+      "framerateControl": "SPECIFIED",
+      "framerateNumerator": 30000,
+      "numberBFramesBetweenReferenceFrames": 0,
+      "gopSize": 1.0,
+      "gopSizeUnits": "FRAMES",
+      "codecLevel": "MAIN",
+      "codecProfile": "PROFILE_422",
+      "rateControlMode": "CBR",
+      "interlaceMode": "TOP_FIELD"
+    }
+  }
+}
+```

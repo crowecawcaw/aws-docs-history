@@ -34,17 +34,164 @@ use in your AWS Elemental MediaConvert job. For information about format identif
 function differently in streaming outputs, see [Using settings
 variables with streaming outputs](#using-settings-variables-with-streaming-outputs "#using-settings-variables-with-streaming-outputs").
 
-| Format identifier               | Value to put in the job setting | Compatible job settings                    | Description and example                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------- | ------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Date and time                   | `$dt$`                          | Destination Name modifier Segment modifier | UTC date and time of the start time of the job. Format: YYYYMMDDTHHMMSS Example: For a job that starts at 3:05:28 PM on June 4, 2020, `$dt$` resolves to `20200604T150528`.                                                                                                                                                                                                                |
-| Date                            | `$d$`                           | Destination Name modifier Segment modifier | UTC date of the start time of the job. Format: YYYYMMDD Example: For a job that starts on June 4, 2020, `$d$` resolves to `20200604`.                                                                                                                                                                                                                                                      |
-| Time                            | `$t$`                           | Destination Name modifier Segment modifier | UTC start time of the job. Format: HHMMSS Example: For a job that starts at 3:05:28 PM, `$t$` resolves to `150528`.                                                                                                                                                                                                                                                                        |
-| Video bitrate                   | `$rv$`                          | Name modifier Segment modifier             | The video bitrate of the output, in kilobits. For QVBR outputs, the service uses video max bitrate, in kilobits. Example: If you set **Encoding settings**, **Video**, **Bitrate (bits/s)** to `50000000`, `$rv$` resolves to `50000`.                                                                                                                                                     |
-| Audio bitrate                   | `$ra$`                          | Name modifier Segment modifier             | Total of all the audio bitrates in the output, in kilobits. Example: If you have an output with a single audio tab and you set **Encoding settings**, **Audio 1**, **Bitrate (kbit/s)** to `256000`, `$ra$` resolves to `256000`.                                                                                                                                                          |
-| Container bitrate               | `$rc$`                          | Name modifier Segment modifier             | Combined audio and video bitrate for the output, in kilobits. Example: You have an output with a **Video** settings tab and **Audio 1** settings tab. If you set **Encoding settings**, **Video**, **Bitrate (bits/s)** to `5000000` and you set **Encoding settings**, **Audio**, **Bitrate (bits/s)** to `96000` (96 kilobits), `$rc$` resolves to `5096`.                               |
-| Video frame width               | `$w$`                           | Name modifier Segment modifier             | The frame width, or horizontal resolution, in pixels. Example: If you set **Encoding settings**, **Video**, **Resolution (w x h)** to `1280` x `720` , `$w$` resolves to `1280`.                                                                                                                                                                                                           |
-| Video frame height              | `$h$`                           | Name modifier Segment modifier             | The frame height, or vertical resolution, in pixels. Example: If you set **Encoding settings**, **Video**, **Resolution (w x h)** to `1280` x `720` , `$h$` resolves to `720`.                                                                                                                                                                                                             |
-| Framerate                       | `$f$`                           | Name modifier Segment modifier             | Framerate, in frames per second, truncated to the nearest whole number. Example: If your framerate is `59.940`, `$f$` resolves to `59`.                                                                                                                                                                                                                                                    |
-| Input file name                 | `$fn$`                          | Destination Name modifier Segment modifier | Name of the input file, without the file extension. For jobs that have multiple inputs, this is the first file specified in the job. Example: If **Input 1** for your job is `s3://amzn-s3-demo-bucket/my-video.mov`, `$fn$` resolves to `my-video`.                                                                                                                                       |
-| Output container file extension | `$ex$`                          | Name modifier Segment modifier             | Varies depending on the output group. For **File group** outputs, this is the extension of the output container file. For other output groups, this is the extension of the manifest. Example for file group: If you choose **MPEG2-TS** for **Output settings**, **Container**, `$ex$` resolves to `m2ts`. Example for HLS group: If your output group is HLS, `$ex$` resolves to `m3u8`. |
-| `$`                             | `$$`                            | Name modifier Segment modifier             | Escaped `$`. Example: Suppose that you provide the following values: <br>• Input file name: `file1.mp4` <br>• Destination: `s3://amzn-s3-demo-bucket/` <br>• Name modifier: `my-video$$hi-res-` Your output file name and path resolves to `s3://amzn-s3-demo-bucket/my-video$hi-res-file1.mp4`.                                                                                           | ## Using settings variables with streaming outputs Variables in your job settings, also called _format identifiers_, function differently for outputs in Apple HLS and DASH ISO output groups. Here are the differences: ###### For Apple HLS Outputs When you use the date and time format identifiers (`$dt$`, `$t$`, `$d$`) in the **Segment modifier** setting, these format identifiers resolve to the completion time of each segment, rather than to the start time of the job. ###### Note For jobs that use accelerated transcoding, segments might complete at the same time. This means that date and time format identifiers don't always resolve to unique values. ###### For DASH ISO Outputs You can use two additional format identifiers in the **Name modifier** setting. These affect the DASH manifest in addition to the output file name. Here are the identifiers: $Number$ In your output file names, `$Number$` resolves to a series of numbers that increment from 1. This replaces the default, nine-digit segment numbering in the segment file names. For example: <br>• If you specify `video_$Number$` for **Name modifier**, the service creates segment files named `video_1.mp4`, `video_2.mp4`, and so on. <br>• If you specify only `video_` for **Name modifier**, the service creates segment files named `video_000000001.mp4`, `video_000000002.mp4`, and so on. In your DASH manifest, AWS Elemental MediaConvert includes `duration` and `startNumber` inside the `SegmentTemplate` element, like this: `<SegmentTemplate timescale="90000" media="main_video_$Number$.mp4" initialization="main_video_$Number$init.mp4" duration="3375000"/>` ###### Note If you use the `$Number$` format identifier in an output, you must also use it in every other output of the output group. $Bandwidth$ In your output file names, `$Bandwidth$` resolves to the value of **Video**, **Bitrate** plus the value of **Audio**, **Bitrate** in the output. Regardless of whether you include this format identifier, the service uses nine-digit segment numbering in the segment file names. For example, suppose you specify these values: <br>• **Video**, **Bitrate (bits/s)**: `50000000` <br>• **Audio**, **Bitrate (kbits/s)**: `96.0` (96,000 bits/s) <br>• **Name modifier**: `video_$Bandwidth$` The value for $Bandwidth$ resolves to 50,096,000. The service creates segment files named `video_50096000_000000001.mp4`, `video_50096000_000000002.mp4`, and so on. In the manifest, AWS Elemental MediaConvert includes `duration` and `startNumber` inside the `SegmentTemplate` element, like this: `<SegmentTemplate timescale="90000" media="main_video_$Bandwidth$.mp4" initialization="main_video_$Bandwidth$init.mp4" duration="3375000"/>`. $Time$ In your output file names, `$Time$` resolves to the duration, in milliseconds, of the segment. When you include this format identifier, the service doesn't use the default nine-digit segment numbering in the segment file names. For example, if you specify `video180__$Time$` for **Name modifier**, the service creates segment files named `video180__345600.mp4`, `video180__331680.mp4`, and so on. In these examples, the segment durations are 345,600 ms and 331,680 ms. In the manifest, AWS Elemental MediaConvert includes `SegmentTimeline` inside the `SegmentTemplate` element, like this: `<Representation id="5" width="320" height="180" bandwidth="200000" codecs="avc1.4d400c"> <SegmentTemplate media="video180_$Time$.mp4" initialization="videovideo180_init.mp4"> <SegmentTimeline> <S t="0" d="345600" r="2"/> <S t="1036800" d="316800"/> </SegmentTimeline> </SegmentTemplate> </Representation>` ###### Note If you use the `$Time$` format identifier in an output, you must also use it in every other output of the output group. $RepresentationID$ In your output file names, `$RepresentationID$` resolves to an output's numerical order in your job settings . In the manifest, AWS Elemental MediaConvert uses this identifier in the `SegmentTemplate` element to reference the correct paths for each representation. This format identifier is particularly useful when you need to organize your DASH outputs by representation ID. ## Specifying a minimum number of digits For format identifiers that return a number, you can specify a minimum number of digits that the format identifier will resolve to. When you do, the service adds padding zeros before any value that would return fewer digits. Use the following syntax to specify the number of digits: `%0[number of digits]`. Put this value just before the final `$` of the format identifier. For example, suppose that your video frame height is 720 and you want to specify a minimum of four digits, so that it appears in your file name as `0720`. To do that, use the following format identifier: `$h%04$`. ###### Note Values that are too large to be expressed in the number of digits you specify resolve with more digits. |
+| Format identifier               | Value to put in the job setting | Compatible job settings                          | Description and example                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------- | ------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date and time                   | `$dt$`                          | Destination<br>Name modifier<br>Segment modifier | UTC date and time of the start time of the job.<br>Format: YYYYMMDDTHHMMSS<br>Example: For a job that starts at 3:05:28 PM on June 4, 2020,<br>`$dt$` resolves to<br>`20200604T150528`.                                                                                                                                                                                                                                      |
+| Date                            | `$d$`                           | Destination<br>Name modifier<br>Segment modifier | UTC date of the start time of the job.<br>Format: YYYYMMDD<br>Example: For a job that starts on June 4, 2020, `$d$` resolves to<br>`20200604`.                                                                                                                                                                                                                                                                               |
+| Time                            | `$t$`                           | Destination<br>Name modifier<br>Segment modifier | UTC start time of the job.<br>Format: HHMMSS<br>Example: For a job that starts at 3:05:28 PM,<br>`$t$` resolves to `150528`.                                                                                                                                                                                                                                                                                                 |
+| Video bitrate                   | `$rv$`                          | Name modifier<br>Segment modifier                | The video bitrate of the output, in kilobits. For QVBR outputs, the service uses video<br>max bitrate, in kilobits.<br>Example: If you set **Encoding settings**, **Video**,<br>\*_Bitrate (bits/s)_<br>• to<br>`50000000`, `$rv$`<br>resolves to `50000`.                                                                                                                                                                   |
+| Audio bitrate                   | `$ra$`                          | Name modifier<br>Segment modifier                | Total of all the audio bitrates in the output, in kilobits.<br>Example: If you have an output with a single audio tab and you set **Encoding<br>settings**, **Audio 1**,<br>\*_Bitrate (kbit/s)_<br>• to<br>`256000`, `$ra$`<br>resolves to `256000`.                                                                                                                                                                        |
+| Container bitrate               | `$rc$`                          | Name modifier<br>Segment modifier                | Combined audio and video bitrate for the output, in kilobits.<br>Example: You have an output with a **Video\*<br>• settings tab and<br>**Audio 1*<br>• settings tab. If you set<br>**Encoding settings**,<br>**Video**, \*\*Bitrate<br>(bits/s)*<br>• to `5000000` and you<br>set **Encoding settings**,<br>**Audio**, \*_Bitrate<br>(bits/s)_<br>• to `96000` (96<br>kilobits), `$rc$` resolves to<br>`5096`.               |
+| Video frame width               | `$w$`                           | Name modifier<br>Segment modifier                | The frame width, or horizontal resolution, in pixels.<br>Example: If you set **Encoding settings**, **Video**,<br>\*_Resolution (w x h)_<br>• to<br>`1280` x `720` ,<br>`$w$` resolves to `1280`.                                                                                                                                                                                                                            |
+| Video frame height              | `$h$`                           | Name modifier<br>Segment modifier                | The frame height, or vertical resolution, in pixels.<br>Example: If you set **Encoding settings**, **Video**,<br>\*_Resolution (w x h)_<br>• to<br>`1280` x `720` ,<br>`$h$` resolves to `720`.                                                                                                                                                                                                                              |
+| Framerate                       | `$f$`                           | Name modifier<br>Segment modifier                | Framerate, in frames per second, truncated to the nearest whole<br>number.<br>Example: If your framerate is `59.940`,<br>`$f$` resolves to `59`.                                                                                                                                                                                                                                                                             |
+| Input file name                 | `$fn$`                          | Destination<br>Name modifier<br>Segment modifier | Name of the input file, without the file extension. For jobs that have multiple inputs,<br>this is the first file specified in the job.<br>Example: If \*_Input 1_<br>• for your job is<br>`s3://amzn-s3-demo-bucket/my-video.mov`,<br>`$fn$` resolves to<br>`my-video`.                                                                                                                                                     |
+| Output container file extension | `$ex$`                          | Name modifier<br>Segment modifier                | Varies depending on the output group. For **File group\*<br>• outputs, this<br>is the extension of the output container file. For other output<br>groups, this is the extension of the manifest.<br>Example for file group: If you choose **MPEG2-TS\*<br>• for **Output<br>settings**, **Container**,<br>`$ex$` resolves to<br>`m2ts`.<br>Example for HLS group: If your output group is HLS, `$ex$` resolves<br>to `m3u8`. |
+| `$`                             | `$$`                            | Name modifier<br>Segment modifier                | Escaped `$`.<br>Example:<br>Suppose that you provide the following values:<br>• Input file name: `file1.mp4`<br>• Destination:<br>`s3://amzn-s3-demo-bucket/`<br>• Name modifier:<br>`my-video$$hi-res-`<br>Your output file name and path resolves to<br>`s3://amzn-s3-demo-bucket/my-video$hi-res-file1.mp4`.                                                                                                              |
+
+## Using settings
+
+variables with streaming outputs
+
+Variables in your job settings, also called _format
+identifiers_, function differently for outputs in Apple HLS and DASH
+ISO output groups. Here are the differences:
+
+###### For Apple HLS Outputs
+
+When you use the date and time format identifiers (`$dt$`, `$t$`,
+`$d$`) in the **Segment modifier** setting,
+these format identifiers resolve to the completion time of each segment, rather
+than to the start time of the job.
+
+###### Note
+
+For jobs that use accelerated transcoding, segments might complete at the same time. This
+means that date and time format identifiers don't always resolve to unique
+values.
+
+###### For DASH ISO Outputs
+
+You can use two additional format identifiers in the **Name modifier**
+setting. These affect the DASH manifest in addition to the output file name.
+Here are the identifiers:
+
+$Number$
+
+In your output file names, `$Number$` resolves to a series of numbers that
+increment from 1. This replaces the default, nine-digit segment
+numbering in the segment file names. For example:
+
+- If you specify `video_$Number$` for **Name
+  modifier**, the service creates segment files named
+  `video_1.mp4`,
+  `video_2.mp4`, and so on.
+- If you specify only `video_` for **Name
+  modifier**, the service creates segment files named
+  `video_000000001.mp4`,
+  `video_000000002.mp4`, and so on.
+
+In your DASH manifest, AWS Elemental MediaConvert includes `duration` and
+`startNumber` inside the `SegmentTemplate`
+element, like this: `<SegmentTemplate timescale="90000"
+ media="main_video_$Number$.mp4"
+ initialization="main_video_$Number$init.mp4"
+ duration="3375000"/>`
+
+###### Note
+
+If you use the `$Number$` format identifier in an output, you must also use
+it in every other output of the output group.
+
+$Bandwidth$
+
+In your output file names, `$Bandwidth$` resolves to the
+value of **Video**, **Bitrate** plus
+the value of **Audio**, **Bitrate** in
+the output. Regardless of whether you include this format identifier,
+the service uses nine-digit segment numbering in the segment file
+names.
+
+For example, suppose you specify these values:
+
+- **Video**, **Bitrate
+  (bits/s)**: `50000000`
+- **Audio**, **Bitrate
+  (kbits/s)**: `96.0` (96,000
+  bits/s)
+- **Name modifier**: `video_$Bandwidth$`
+
+The value for $Bandwidth$ resolves to 50,096,000. The service creates segment files
+named `video_50096000_000000001.mp4`,
+`video_50096000_000000002.mp4`, and so
+on.
+
+In the manifest, AWS Elemental MediaConvert includes `duration` and
+`startNumber` inside the `SegmentTemplate`
+element, like this: `<SegmentTemplate timescale="90000"
+ media="main_video_$Bandwidth$.mp4"
+ initialization="main_video_$Bandwidth$init.mp4"
+ duration="3375000"/>`.
+
+$Time$
+
+In your output file names, `$Time$` resolves to the
+duration, in milliseconds, of the segment. When you include this format
+identifier, the service doesn't use the default nine-digit segment
+numbering in the segment file names.
+
+For example, if you specify `video180__$Time$`
+for **Name modifier**, the service creates segment
+files named `video180__345600.mp4`,
+`video180__331680.mp4`, and so on. In these
+examples, the segment durations are 345,600 ms and 331,680 ms.
+
+In the manifest, AWS Elemental MediaConvert includes
+`SegmentTimeline` inside the `SegmentTemplate`
+element, like this:
+
+```
+<Representation id="5" width="320" height="180" bandwidth="200000" codecs="avc1.4d400c">
+        <SegmentTemplate media="video180_$Time$.mp4" initialization="videovideo180_init.mp4">
+          <SegmentTimeline>
+            <S t="0" d="345600" r="2"/>
+            <S t="1036800" d="316800"/>
+          </SegmentTimeline>
+        </SegmentTemplate>
+      </Representation>
+```
+
+###### Note
+
+If you use the `$Time$` format identifier in an output,
+you must also use it in every other output of the output
+group.
+
+$RepresentationID$
+
+In your output file names, `$RepresentationID$` resolves to an output's
+numerical order in your job settings .
+
+In the manifest, AWS Elemental MediaConvert uses this identifier in the `SegmentTemplate` element to reference the correct paths for each representation.
+
+This format identifier is particularly useful when you need to organize your DASH outputs by representation ID.
+
+## Specifying a minimum number of digits
+
+For format identifiers that return a number, you can specify a minimum number of
+digits that the format identifier will resolve to. When you do, the service adds
+padding zeros before any value that would return fewer digits.
+
+Use the following syntax to specify the number of digits: `%0[number of
+ digits]`. Put this value just before the final `$` of the
+format identifier.
+
+For example, suppose that your video frame height is 720 and you want to specify a minimum
+of four digits, so that it appears in your file name as `0720`.
+To do that, use the following format identifier:
+`$h%04$`.
+
+###### Note
+
+Values that are too large to be expressed in the number of digits you specify
+resolve with more digits.

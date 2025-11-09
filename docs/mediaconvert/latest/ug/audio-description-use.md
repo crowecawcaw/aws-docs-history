@@ -47,9 +47,85 @@ console:
    enter the following:
 
 | Channel mapping | Inputs  | Outputs |
-| --------------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ------- | ------- |
 |                 | L (0)   | R (1)   |
 | 1               | **0**   | **-60** |
 | 2               | **-60** | **0**   |
 | 3               | **0**   | **0**   |
-| 4               | **-60** | **-60** | ###### Note When played over speakers, audio description data streams sound like noise. Mute the data stream in your output by setting its channel mapping to **-60**, as shown in the previous channel mapping example table. The following is an excerpt of a job settings JSON that specifies audio description mixing for a stereo output. Note that the audio description audio signal is in input channel 3, and the audio description data stream is in input channel 4: `{ "Settings": { "Inputs": [], "OutputGroups": [ { "Name": "File Group", "OutputGroupSettings": { "Type": "FILE_GROUP_SETTINGS", "FileGroupSettings": {} }, "Outputs": [ { "VideoDescription": {}, "AudioDescriptions": [ { "CodecSettings": { "Codec": "AAC", "AacSettings": { "Bitrate": 96000, "CodingMode": "CODING_MODE_2_0", "SampleRate": 48000 } }, "AudioSourceName": "Audio Selector 1", "RemixSettings": { "ChannelMapping": { "OutputChannels": [ { "InputChannelsFineTune": [ 0, -60, 0, -60 ] }, { "InputChannelsFineTune": [ -60, 0, 0, -60 ] } ] }, "ChannelsIn": 4, "ChannelsOut": 2, "AudioDescriptionAudioChannel": 3, "AudioDescriptionDataChannel": 4 } } ], "ContainerSettings": { "Container": "MP4", "Mp4Settings": {} } } ] } ] } }` |
+| 4               | **-60** | **-60** |
+
+###### Note
+
+When played over speakers, audio description data streams sound
+like noise. Mute the data stream in your
+output by setting its channel mapping to **-60**,
+as shown in the previous channel mapping example table.
+The following is an excerpt of a job settings JSON that specifies audio
+description mixing for a stereo output. Note that the audio description audio
+signal is in input channel 3, and the audio description data stream is in input
+channel 4:
+
+```
+{
+  "Settings": {
+    "Inputs": [],
+    "OutputGroups": [
+      {
+        "Name": "File Group",
+        "OutputGroupSettings": {
+          "Type": "FILE_GROUP_SETTINGS",
+          "FileGroupSettings": {}
+        },
+        "Outputs": [
+          {
+            "VideoDescription": {},
+            "AudioDescriptions": [
+              {
+                "CodecSettings": {
+                  "Codec": "AAC",
+                  "AacSettings": {
+                    "Bitrate": 96000,
+                    "CodingMode": "CODING_MODE_2_0",
+                    "SampleRate": 48000
+                  }
+                },
+                "AudioSourceName": "Audio Selector 1",
+                "RemixSettings": {
+                  "ChannelMapping": {
+                    "OutputChannels": [
+                      {
+                        "InputChannelsFineTune": [
+                          0,
+                          -60,
+                          0,
+                          -60
+                        ]
+                      },
+                      {
+                        "InputChannelsFineTune": [
+                          -60,
+                          0,
+                          0,
+                          -60
+                        ]
+                      }
+                    ]
+                  },
+                  "ChannelsIn": 4,
+                  "ChannelsOut": 2,
+                  "AudioDescriptionAudioChannel": 3,
+                  "AudioDescriptionDataChannel": 4
+                }
+              }
+            ],
+            "ContainerSettings": {
+              "Container": "MP4",
+              "Mp4Settings": {}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```

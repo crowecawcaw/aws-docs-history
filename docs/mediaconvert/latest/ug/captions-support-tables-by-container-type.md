@@ -25,153 +25,397 @@ If your input captions are in a sidecar format, see [Sidecar captions supported 
 container](sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-cmaf-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your
 video.
 
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| HLS Container                                           | Embedded              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | WebVTT                | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-| MP4 Container                                           | Embedded              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-| MPEG2-TS Container                                      | Embedded              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | Teletext              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-| MXF Container                                           | Embedded              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | Ancillary             | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-| QuickTime Container                                     | Embedded              | IMSC (as sidecar .fmp4) WebVTT                                                                                |
-|                                                         | Ancillary             | IMSC (as sidecar .fmp4) WebVTT                                                                                | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in DASH output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in DASH output container](sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video.                                                                                                                                                                                                                                                                                                                                                                                 |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml) WebVTT |
-|                                                         | WebVTT                | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml) WebVTT |
-| IMF Container NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-| MP4 Container                                           | Embedded              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml) WebVTT |
-|                                                         | SCTE-20               | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-| MPEG2-TS Container                                      | DVB-Sub               | Burn in                                                                                                       |
-|                                                         | Embedded              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml) WebVTT |
-|                                                         | SCTE-20               | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml) WebVTT |
-|                                                         | Teletext              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-| MXF Container                                           | Embedded              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-|                                                         | SCTE-20               | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-|                                                         | Ancillary             | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-|                                                         | Teletext              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-| QuickTime Container                                     | Embedded              | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-|                                                         | SCTE-20               | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        |
-|                                                         | Ancillary             | Burn in IMSC (as sidecar .fmp4) IMSC (as sidecar .xml) TTML (as sidecar .fmp4) TTML (as sidecar .ttml)        | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in HLS output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in HLS output container](sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video. ###### Note AWS Elemental MediaConvert has the following limitations with Teletext in outputs: <br>• The service doesn't support captions formatting and positioning <br>• You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages                                               |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | WebVTT                | Burn in WebVTT                                                                                                |
-| IMF Container NoteSpecify the CPL to define your input. | IMSC1 text profile    | WebVTT                                                                                                        |
-| MP4 Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-| MPEG2-TS Container                                      | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | Teletext              | Burn in WebVTT                                                                                                |
-|                                                         | DVB-Sub               | Burn in                                                                                                       |
-| MXF Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | Teletext              | Burn in                                                                                                       |
-| QuickTime Container                                     | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded WebVTT                                           | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in Microsoft Smooth Streaming (MSS) output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in Microsoft Smooth Streaming (MSS) output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video.                                                                                                                                                                                                                                                                                                                           |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in TTML                                                                                                  |
-|                                                         | WebVTT                | Burn in TTML (as sidecar .ttml)                                                                               |
-| MP4 Container                                           | Embedded              | Burn in TTML                                                                                                  |
-|                                                         | SCTE-20               | Burn in TTML                                                                                                  |
-| MPEG2-TS Container                                      | Embedded              | Burn in TTML                                                                                                  |
-|                                                         | SCTE-20               | Burn in TTML                                                                                                  |
-|                                                         | Teletext              | Burn in TTML                                                                                                  |
-|                                                         | DVB-Sub               | Burn in                                                                                                       |
-| MXF Container                                           | Embedded              | Burn in TTML                                                                                                  |
-|                                                         | SCTE-20               | Burn in TTML                                                                                                  |
-|                                                         | Ancillary             | Burn in TTML                                                                                                  |
-|                                                         | Teletext              | Burn in TTML                                                                                                  |
-| QuickTime Container                                     | Embedded              | Burn in TTML                                                                                                  |
-|                                                         | SCTE-20               | Burn in TTML                                                                                                  |
-|                                                         | Ancillary             | Burn in TTML                                                                                                  | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in MP4 output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in MP4 output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video.                                                                                                                                                                                                                                                                                                                                                                                     |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | WebVTT                | Burn in                                                                                                       |
-| MP4 Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-| MPEG2-TS Container                                      | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Teletext              | Burn in                                                                                                       |
-|                                                         | DVB-Sub               | Burn in                                                                                                       |
-| MXF Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Teletext              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-| QuickTime Container                                     | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in MPEG2-TS output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in MPEG2-TS File output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video. ###### Note AWS Elemental MediaConvert has the following limitations with Teletext in outputs: <br>• The service doesn't support captions formatting and positioning <br>• You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages                      |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | WebVTT                | Burn in Teletext DVB-Sub                                                                                      |
-| IMF Container NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in DVB-Sub Teletext                                                                                      |
-| MPEG2-TS Container                                      | Embedded              | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded Teletext                                 |
-|                                                         | SCTE-20               | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | Teletext              | Burn in DVB-Sub Teletext                                                                                      |
-|                                                         | DVB-Sub               | Burn in DVB-Sub                                                                                               |
-| MP4 Container                                           | Embedded              | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded Teletext                                 |
-|                                                         | SCTE-20               | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-| MXF Container                                           | Embedded              | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded Teletext                                 |
-|                                                         | SCTE-20               | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | Ancillary             | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | Teletext              | Burn in DVB-Sub Teletext                                                                                      |
-| QuickTime Container                                     | Embedded              | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | SCTE-20               | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          |
-|                                                         | Ancillary             | Burn in DVB-Sub Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                          | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in MXF output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in MXF output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video. ###### Note AWS Elemental MediaConvert has the following limitations with Teletext in outputs: <br>• The service doesn't support captions formatting and positioning <br>• You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages                                               |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | WebVTT                | Burn in Teletext                                                                                              |
-| IMF Container NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in                                                                                                       |
-| MP4 Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded Teletext                                         |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-| MPEG2-TS Container                                      | DVB-Sub               | Burn in                                                                                                       |
-|                                                         | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded Teletext                                         |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Teletext              | Burn in Teletext                                                                                              |
-| MXF Container                                           | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Embedded              | Embedded Teletext                                                                                             |
-| QuickTime Container                                     | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Supported captions in QuickTime output container The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format. If your input captions are in a sidecar format, see [Sidecar captions supported in QuickTime output container](sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container"). _Sidecar captions_ are captions that you provide as a separate input file from your video.                                                                                                                                                                                                                                                                                                                                                             |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | WebVTT                | Burn in                                                                                                       |
-| IMF Container NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in                                                                                                       |
-| MP4 Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-| MPEG2-TS Container                                      | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Teletext              | Burn in                                                                                                       |
-|                                                         | DVB-Sub               | Burn in                                                                                                       |
-| MXF Container                                           | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Teletext              | Burn in                                                                                                       |
-| QuickTime Container                                     | Embedded              | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | SCTE-20               | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  |
-|                                                         | Ancillary             | Burn in Embedded Embedded plus SCTE-20 SCTE-20 plus embedded                                                  | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data ## Sidecar captions supported with File output groups The following table lists standalone sidecar output captions formats that MediaConvert supports with outputs in the **File** output group. _Sidecar_ captions are captions that are in a separate file from your video. If your input captions are in a sidecar format, see [Sidecar captions supported with File output groups](sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output "sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output"). _Sidecar captions_ are captions that you provide as a separate input file from your video. When you set up these output captions in your job, choose **No container** (`RAW`) for **Container**, under **Output settings**. In your JSON job specification, specify it this way: `{ "ContainerSettings": { "Container": "RAW" },` ###### Note You can create sidecar captions outputs only as part of a job that also generates a video output. |
-| Input captions container                                | Input captions format | Supported output captions formats                                                                             |
-| ---                                                     | ---                   | ---                                                                                                           |
-| HLS Container                                           | Embedded              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-| MP4 Container                                           | Embedded              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-| MPEG2-TS Container                                      | Embedded              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | Teletext              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-| MXF Container                                           | Embedded              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | Ancillary             | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | Teletext              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-| QuickTime Container                                     | Embedded              | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | SCTE-20               | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                |
-|                                                         | Ancillary             | IMSC (as sidecar .xml) SCC SRT SMI TTML WebVTT                                                                | In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats. Embedded captions include these formats: <br>• CEA-608 <br>• EIA-608 <br>• CEA-708 <br>• EIA-708 Ancillary captions include these formats: <br>• Captions in the QuickTime Captions Track <br>• Captions in the MXF container VANC data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Input captions container | Input captions format | Supported output captions formats |
+| ------------------------ | --------------------- | --------------------------------- |
+| HLS Container            | Embedded              | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | WebVTT                | IMSC (as sidecar .fmp4)<br>WebVTT |
+| MP4 Container            | Embedded              | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .fmp4)<br>WebVTT |
+| MPEG2-TS Container       | Embedded              | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | Teletext              | IMSC (as sidecar .fmp4)<br>WebVTT |
+| MXF Container            | Embedded              | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | Ancillary             | IMSC (as sidecar .fmp4)<br>WebVTT |
+| QuickTime Container      | Embedded              | IMSC (as sidecar .fmp4)<br>WebVTT |
+|                          | Ancillary             | IMSC (as sidecar .fmp4)<br>WebVTT |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in DASH output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in DASH output
+container](sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-dash-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+| Input captions container                                   | Input captions format | Supported output captions formats                                                                                            |
+| ---------------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| HLS Container                                              | Embedded              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)<br>WebVTT |
+|                                                            | WebVTT                | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)<br>WebVTT |
+| IMF Container<br>NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+| MP4 Container                                              | Embedded              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+| MPEG2-TS Container                                         | DVB-Sub               | Burn in                                                                                                                      |
+|                                                            | Embedded              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)<br>WebVTT |
+|                                                            | Teletext              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+| MXF Container                                              | Embedded              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+|                                                            | SCTE-20               | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+|                                                            | Ancillary             | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+|                                                            | Teletext              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+| QuickTime Container                                        | Embedded              | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+|                                                            | SCTE-20               | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+|                                                            | Ancillary             | Burn in<br>IMSC (as sidecar .fmp4)<br>IMSC (as sidecar .xml)<br>TTML (as sidecar .fmp4)<br>TTML (as sidecar .ttml)           |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in HLS output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in HLS output
+container](sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-hls-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+###### Note
+
+AWS Elemental MediaConvert has the following limitations with Teletext in outputs:
+
+- The service doesn't support captions formatting and positioning
+- You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages
+
+| Input captions container                                   | Input captions format | Supported output captions formats                                               |
+| ---------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------- |
+| HLS Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | WebVTT                | Burn in<br>WebVTT                                                               |
+| IMF Container<br>NoteSpecify the CPL to define your input. | IMSC1 text profile    | WebVTT                                                                          |
+| MP4 Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+| MPEG2-TS Container                                         | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | Teletext              | Burn in<br>WebVTT                                                               |
+|                                                            | DVB-Sub               | Burn in                                                                         |
+| MXF Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | Teletext              | Burn in                                                                         |
+| QuickTime Container                                        | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+|                                                            | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>WebVTT |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in Microsoft Smooth Streaming (MSS) output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in Microsoft Smooth
+Streaming (MSS) output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mss-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+| Input captions container | Input captions format | Supported output captions formats  |
+| ------------------------ | --------------------- | ---------------------------------- |
+| HLS Container            | Embedded              | Burn in<br>TTML                    |
+|                          | WebVTT                | Burn in<br>TTML (as sidecar .ttml) |
+| MP4 Container            | Embedded              | Burn in<br>TTML                    |
+|                          | SCTE-20               | Burn in<br>TTML                    |
+| MPEG2-TS Container       | Embedded              | Burn in<br>TTML                    |
+|                          | SCTE-20               | Burn in<br>TTML                    |
+|                          | Teletext              | Burn in<br>TTML                    |
+|                          | DVB-Sub               | Burn in                            |
+| MXF Container            | Embedded              | Burn in<br>TTML                    |
+|                          | SCTE-20               | Burn in<br>TTML                    |
+|                          | Ancillary             | Burn in<br>TTML                    |
+|                          | Teletext              | Burn in<br>TTML                    |
+| QuickTime Container      | Embedded              | Burn in<br>TTML                    |
+|                          | SCTE-20               | Burn in<br>TTML                    |
+|                          | Ancillary             | Burn in<br>TTML                    |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in MP4 output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in MP4 output
+container](sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mp4-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+| Input captions container | Input captions format | Supported output captions formats                                     |
+| ------------------------ | --------------------- | --------------------------------------------------------------------- |
+| HLS Container            | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | WebVTT                | Burn in                                                               |
+| MP4 Container            | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+| MPEG2-TS Container       | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | Teletext              | Burn in                                                               |
+|                          | DVB-Sub               | Burn in                                                               |
+| MXF Container            | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | Teletext              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+| QuickTime Container      | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                          | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in MPEG2-TS output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in MPEG2-TS
+File output container](sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mpeg2-ts-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+###### Note
+
+AWS Elemental MediaConvert has the following limitations with Teletext in outputs:
+
+- The service doesn't support captions formatting and positioning
+- You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages
+
+| Input captions container                                   | Input captions format | Supported output captions formats                                                            |
+| ---------------------------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------- |
+| HLS Container                                              | Embedded              | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | WebVTT                | Burn in<br>Teletext<br>DVB-Sub                                                               |
+| IMF Container<br>NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in<br>DVB-Sub<br>Teletext                                                               |
+| MPEG2-TS Container                                         | Embedded              | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>Teletext |
+|                                                            | SCTE-20               | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Teletext              | Burn in<br>DVB-Sub<br>Teletext                                                               |
+|                                                            | DVB-Sub               | Burn in<br>DVB-Sub                                                                           |
+| MP4 Container                                              | Embedded              | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>Teletext |
+|                                                            | SCTE-20               | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+| MXF Container                                              | Embedded              | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>Teletext |
+|                                                            | SCTE-20               | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Ancillary             | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Teletext              | Burn in<br>DVB-Sub<br>Teletext                                                               |
+| QuickTime Container                                        | Embedded              | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | SCTE-20               | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Ancillary             | Burn in<br>DVB-Sub<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in MXF output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in MXF output
+container](sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-mxf-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+###### Note
+
+AWS Elemental MediaConvert has the following limitations with Teletext in outputs:
+
+- The service doesn't support captions formatting and positioning
+- You can use only [Teletext level 1.5](https://en.wikipedia.org/wiki/World_System_Teletext "https://en.wikipedia.org/wiki/World_System_Teletext") languages
+
+| Input captions container                                   | Input captions format | Supported output captions formats                                                 |
+| ---------------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------- |
+| HLS Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | WebVTT                | Burn in<br>Teletext                                                               |
+| IMF Container<br>NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in                                                                           |
+| MP4 Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>Teletext |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+| MPEG2-TS Container                                         | DVB-Sub               | Burn in                                                                           |
+|                                                            | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded<br>Teletext |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Teletext              | Burn in<br>Teletext                                                               |
+| MXF Container                                              | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Embedded              | Embedded<br>Teletext                                                              |
+| QuickTime Container                                        | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+|                                                            | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded             |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Supported captions in QuickTime output container
+
+The following table lists supported output captions formats for this output container. Use when your input captions are in the same container or stream as your video. This table is sorted by the input captions container and input captions format.
+
+If your input captions are in a sidecar format, see [Sidecar captions supported in QuickTime
+output container](sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container "sidecar-captions-support-tables-by-container-type.md#sidecar-quicktime-output-container").
+_Sidecar captions_ are captions that you provide as a separate
+input file from your video.
+
+| Input captions container                                   | Input captions format | Supported output captions formats                                     |
+| ---------------------------------------------------------- | --------------------- | --------------------------------------------------------------------- |
+| HLS Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | WebVTT                | Burn in                                                               |
+| IMF Container<br>NoteSpecify the CPL to define your input. | IMSC1 text profile    | Burn in                                                               |
+| MP4 Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+| MPEG2-TS Container                                         | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | Teletext              | Burn in                                                               |
+|                                                            | DVB-Sub               | Burn in                                                               |
+| MXF Container                                              | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | Teletext              | Burn in                                                               |
+| QuickTime Container                                        | Embedded              | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | SCTE-20               | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+|                                                            | Ancillary             | Burn in<br>Embedded<br>Embedded plus SCTE-20<br>SCTE-20 plus embedded |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
+
+## Sidecar captions supported with File output groups
+
+The following table lists standalone sidecar output captions formats that MediaConvert
+supports with outputs in the **File** output group.
+_Sidecar_ captions are captions that are in a separate file from your video.
+
+If your input captions are in a sidecar format, see [Sidecar captions
+supported with File output groups](sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output "sidecar-captions-support-tables-by-container-type.md#sidecar-captions-supported-as-standalone-file-in-output"). _Sidecar captions_ are captions that you provide as a separate input
+file from your video.
+
+When you set up these output captions in your job, choose **No container**
+(`RAW`) for **Container**, under **Output
+settings**. In your JSON job specification, specify it this way:
+
+```
+ {
+            "ContainerSettings": {
+              "Container": "RAW"
+            },
+```
+
+###### Note
+
+You can create sidecar captions outputs only as part of a job that also generates a video
+output.
+
+| Input captions container | Input captions format | Supported output captions formats                             |
+| ------------------------ | --------------------- | ------------------------------------------------------------- |
+| HLS Container            | Embedded              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+| MP4 Container            | Embedded              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+| MPEG2-TS Container       | Embedded              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | Teletext              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+| MXF Container            | Embedded              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | Ancillary             | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | Teletext              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+| QuickTime Container      | Embedded              | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | SCTE-20               | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+|                          | Ancillary             | IMSC (as sidecar .xml)<br>SCC<br>SRT<br>SMI<br>TTML<br>WebVTT |
+
+In the preceding table, **Embedded** and **Ancillary** refer to groups of similar captions formats.
+
+Embedded captions include these formats:
+
+- CEA-608
+- EIA-608
+- CEA-708
+- EIA-708
+
+Ancillary captions include these formats:
+
+- Captions in the QuickTime Captions Track
+- Captions in the MXF container VANC data
