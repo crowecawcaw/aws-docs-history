@@ -54,5 +54,7 @@ The following considerations apply when using ACM for Nitro Enclaves:
 - ACM for Nitro Enclaves only supports RSA certificates.
 - ACM for Nitro Enclaves is available for Linux instances only. It is currently not
   supported on Windows instances.
-- ACM for Nitro Enclaves is currently not supported in Asia Pacific (Osaka) and Asia
-  Pacific (Jakarta).
+- ACM for Nitro Enclaves is currently not supported in the following Regions: Asia Pacific (Hyderabad), Asia Pacific (Jakarta),
+  Asia Pacific (Malaysia), Asia Pacific (Melbourne), Asia Pacific (New Zealand), Asia Pacific (Osaka), Asia Pacific (Taipei),
+  Asia Pacific (Thailand), Canada West (Calgary), Europe (Spain), Europe (Zurich), Israel (Tel Aviv), and
+  Mexico (Central).

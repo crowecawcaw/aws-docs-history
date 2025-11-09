@@ -286,10 +286,344 @@ You can use any editor to manipulate the
 `aws-nitro-enclaves-k8s-ds.yaml` file or a command line tool,
 such as `yq`. See the following example.
 
-````
+```
 yq ea '
   select(.kind == "DaemonSet")
-|= ( .spec.template.spec.containers[]
-|= ( select(.name == "aws-nitro-enclaves-k8s-dp").env[]
-|= ( select(.name == "ENCLAVE_CPU_ADVERTISEMENT").value = "true" ) ) ) // . ' -i aws-nitro-enclaves-k8s-ds.yaml ``` **Deployment** ``` kubectl apply -f aws-nitro-enclaves-k8s-ds.yaml ``` 2. Get the name of the worker node on which to install the Nitro Enclaves Kubernetes device plugin using the following command. ``` `$` kubectl get nodes ``` The following is example output. ``` NAME                                            STATUS  ROLES  AGE  VERSION ip-123-123-123-123.us-east-1.compute.internal   Ready   <none> 21h  v1.30.15-eks-fb459a0 ``` 3. Enable the Nitro Enclaves Kubernetes device plugin on the worker node. Use the following **kubectl** command and specify the node name from the previous step. ``` `$` kubectl label node `node_name` aws-nitro-enclaves-k8s-dp=enabled ``` For example: ``` `$` kubectl label node `ip-123-123-123-123.us-east-1.compute.internal` aws-nitro-enclaves-k8s-dp=enabled ``` ## Step 4: Prepare the image Nitro Enclaves uses Docker images as a convenient file format for packaging your applications. You must build the Docker image that includes your enclave application and any other commands that are needed to run the application. This Docker image will be deployed to the worker node in the following step. AWS provides a command line tool, **enclavectl** that automates the steps that are needed to build an enclave image file and to package your enclave image file into a Docker image. Additionally, the tool includes features that automate Amazon EKS cluster and node group creation, and application deployment. For an end-to-end tutorial on how to use the **enclavectl** tool to automate cluster creation, application packaging, and application deployment, see the [aws-nitro-enclaves-with-k8s readme file](https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/README.md "https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/README.md"). ###### Note You can also perform these steps manually using Docker and the Nitro CLI. For more information, see [Building an enclave image file](building-eif.md "building-eif.md"). In this tutorial, we use the **enclavectl** tool to package the *Hello Enclaves* sample application into a Docker image. ###### To prepare the image 1. The **enclavectl** utility can be found in the `aws-nitro-enclaves-with-k8s` GitHub repo. Clone the GitHub repo and navigate into the directory. ``` `$` git clone git@github.com:aws/aws-nitro-enclaves-with-k8s.git && cd aws-nitro-enclaves-with-k8s ``` 2. Source the `env.sh` script to add the **enclavectl** tool to you PATH variable. ``` `$` source env.sh ``` 3. Configure the **enclavectl** for the tutorial. The `settings.json` file includes some default parameters that are used only if you create a cluster using **enclavectl**. Since the cluster was created manually in the previous steps, the parameters in the `settings.json` are not used; but you must run this command to configure the tool before using it. ``` `$` enclavectl configure --file settings.json ``` 4. Build the Hello Enclaves enclave image file and package it into a Docker image. The required files are located in the `/container/hello` directory. Use the `enclavectl build` command and specify the name of the directory. ``` `$` enclavectl build --image hello ``` ###### Tip You can also use the **enclavectl** tool to package your own enclave applications into a Docker image. To do this, you must create a new directory with the name of your application in the `/container` directory. For example, `/aws-nitro-enclaves-with-k8s/container/`my-app``. Then, you must create your Dockerfile and an `enclave_manifest.json` file in this directory. Then, when you run the `enclavectl build` command, for `--image` specify the name of the directory that you created. For example, `enclavectl build --image my-app`. For more information about how to use the **enclavectl** tool to package you applications, see  [How to create your own application](https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md "https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md") 5. The Docker image is created with a name in the following format: `hello-*unique\_uuid*`. To view the full name of the image, run the following command. ``` `$` docker image ls | grep hello ``` ## Step 5: Deploy the application to the cluster Finally, you need to deploy the application to your cluster. ###### To deploy the application to the cluster 1. Create a deployment specification. Create a new file named `deployment_spec.yaml` and add the following content. ``` apiVersion: apps/v1 kind: Deployment metadata: name: `unique_deployment_name` spec: replicas: 1 selector: matchLabels: app: `application_name` template: metadata: labels: app: `application_name` spec: containers: <br>• name: `unique container_name` image: `docker_image_name`:`image_tag` command: [`"docker_image_entry_point"`] resources: limits: aws.ec2.nitro/nitro_enclaves: "`1`" hugepages-2Mi: `768Mi` cpu: `250m` requests: aws.ec2.nitro/nitro_enclaves: "`1`" hugepages-2Mi: `768Mi` volumeMounts: <br>• mountPath: /dev/hugepages name: hugepage readOnly: false volumes: <br>• name: hugepage-2mi emptyDir: medium: HugePages-2Mi <br>• name: hugepage-1gi emptyDir: medium: HugePages-1Gi tolerations: <br>• effect: NoSchedule operator: Exists <br>• effect: NoExecute operator: Exists ``` The deployment specification must include the following Nitro Enclaves specific sections: <br>• ``` limits: aws.ec2.nitro/nitro_enclaves: "1" hugepages-2Mi: 768Mi ``` The `limits` section defines the resource limits for the container. A container can't use more resources than what is defined in the limits. For more information, see  [Requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits"). `aws.ec2.nitro/nitro_enclaves` is the resource name of the [enclaves device driver](https://docs.kernel.org/virt/ne_overview.html "https://docs.kernel.org/virt/ne_overview.html") defined in the device plugin. When the device plugin is registered, it advertises this name to  [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/"). The resource name can be requested as part of a specification any time. In the template above, we specify `1` so that only one application can use the enclaves device driver at the same time. You can modify this value depending on your requirements. `hugepages` specifies the huge page size limit for your application. Nitro Enclaves uses large contiguous memory regions and therefore requires huge pages support. In the template above, the huge page size limit for the application is set to `768 MiB` of memory. Keep in mind that the `nitro-enclaves-allocator` service, which was installed to the node through the user data specified in the launch template, already allocated a huge page size based the value specified for ``MEMORY_MIB`` in the user data. For example, if the value for `MEMORY_MIB` in the user data is `1024`, the `nitro-enclaves allocator` allocated one page of 1 GiB huge page type for the whole node. In this case, the field in the deployment spec be defined as `hugepages-1Gi: 1Gi`. For more information, see  [Managing huge pages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/ "https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/"). <br>• ``` requests: aws.ec2.nitro/nitro_enclaves: "1" hugepages-2Mi: 768Mi ``` The `requests` section is used to define the node on which to place the pod For more information, see  [Requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits"). In the template above, we request a pod that has one enclave device (`aws.ec2.nitro/nitro_enclaves: "1"`), and a huge page size of 768 MiB ( `hugepages-2Mi: 768Mi`). The following is an example deployment specification for the Hello Enclaves application created in the previous steps. ``` apiVersion: apps/v1 kind: Deployment metadata: name: `hello_deployment` spec: replicas: 1 selector: matchLabels: app: `hello` template: metadata: labels: app: `hello` spec: containers: <br>• name: `hello_container` image: `123456789012.dkr.ecr.eu-central-1.amazonaws.com/hello-b0f89e0a-7d83-4928-853c-9a3f941fa769`:`latest` command: [`"/home/run.sh"`] resources: limits: aws.ec2.nitro/nitro_enclaves: "`1`" hugepages-2Mi: `768Mi` cpu: `250m` requests: aws.ec2.nitro/nitro_enclaves: "`1`" hugepages-2Mi: `768Mi` volumeMounts: <br>• mountPath: /dev/hugepages name: hugepage readOnly: false volumes: <br>• name: hugepage emptyDir: medium: HugePages-2Mi tolerations: <br>• effect: NoSchedule operator: Exists <br>• effect: NoExecute operator: Exists ``` 2. If the `ENCLAVE_CPU_ADVERTISEMENT` feature flag has been set, then the workloads can request a specific amount of CPUs for their enclaves. The Kubernetes scheduler can place the workloads on the EKS worker nodes according to the available CPUs. For more information, see [`aws-nitro-enclaves-k8s-device-plugin` documentation](https://github.com/aws/aws-nitro-enclaves-k8s-device-plugin?tab=readme-ov-file#enclave_cpu_advertisement "https://github.com/aws/aws-nitro-enclaves-k8s-device-plugin?tab=readme-ov-file#enclave_cpu_advertisement"). Kubernetes workloads can request CPUs for their enclaves (for example, 2) by adding `aws.ec2.nitro/nitro_enclaves_cpus: "2"` to the limits and sections under resources. ``` resources: limits: aws.ec2.nitro/nitro_enclaves_cpus: "2" requests: aws.ec2.nitro/nitro_enclaves_cpus: "2" ``` These values need to be combined with the limits and requests from the previous step. The following example shows a fully populated `resources` section for a Kubernetes pod requesting access to a single enclave that requires 2Gi of memory and access to 2 CPUs. ``` resources: limits: aws.ec2.nitro/nitro_enclaves: "1" aws.ec2.nitro/nitro_enclaves_cpus: "2" hugepages-1Gi: 2Gi cpu: 250m requests: aws.ec2.nitro/nitro_enclaves: "1" aws.ec2.nitro/nitro_enclaves_cpus: "2" hugepages-1Gi: 2Gi ``` 3. Apply the deployment specification to the cluster and deploy the application. Use the `kubectl apply` command and specify the deployment specification file. ``` `$` kubectl apply -f `deployment_spec.yaml` ``` ###### Tip The **enclavectl** tool automates and simplifies the steps required to deploy an application to a cluster. You can use the `enclavectl run --image `image_name`` command to automatically generate a deployment specification for your application and to automatically deploy it to your cluster. For example, `enclavectl run --image hello`. If you prefer automatically generate a deployment specification for your application, but deploy it manually, add the `--prepare-only` flag. For example, `enclavectl run --image hello --prepare-only`. Doing this will generate the deployment specification but it will not deploy the application to the cluster. Once the deployment specification has been generated, you can deploy the application using the `kubectl apply` command.
-````
+    |= (
+      .spec.template.spec.containers[]
+        |= (
+          select(.name == "aws-nitro-enclaves-k8s-dp").env[]
+            |= (
+              select(.name == "ENCLAVE_CPU_ADVERTISEMENT").value = "true"
+            )
+        )
+    )
+  // .
+' -i aws-nitro-enclaves-k8s-ds.yaml
+```
+
+**Deployment**
+
+```
+kubectl apply -f aws-nitro-enclaves-k8s-ds.yaml
+```
+
+2. Get the name of the worker node on which to install the Nitro Enclaves Kubernetes
+   device plugin using the following command.
+
+```
+`$` kubectl get nodes
+```
+
+The following is example output.
+
+```
+NAME                                            STATUS  ROLES  AGE  VERSION
+ip-123-123-123-123.us-east-1.compute.internal   Ready   <none> 21h  v1.30.15-eks-fb459a0
+```
+
+3. Enable the Nitro Enclaves Kubernetes device plugin on the worker node. Use the
+   following **kubectl** command and specify the node
+   name from the previous step.
+
+```
+`$` kubectl label node `node_name` aws-nitro-enclaves-k8s-dp=enabled
+```
+
+For example:
+
+```
+`$` kubectl label node `ip-123-123-123-123.us-east-1.compute.internal` aws-nitro-enclaves-k8s-dp=enabled
+```
+
+## Step 4: Prepare the image
+
+Nitro Enclaves uses Docker images as a convenient file format for packaging your
+applications. You must build the Docker image that includes your enclave application and
+any other commands that are needed to run the application. This Docker image will be
+deployed to the worker node in the following step.
+
+AWS provides a command line tool, **enclavectl** that
+automates the steps that are needed to build an enclave image file and to package your
+enclave image file into a Docker image. Additionally, the tool includes features that
+automate Amazon EKS cluster and node group creation, and application deployment. For an
+end-to-end tutorial on how to use the **enclavectl** tool
+to automate cluster creation, application packaging, and application deployment, see the
+[aws-nitro-enclaves-with-k8s readme file](https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/README.md "https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/README.md").
+
+###### Note
+
+You can also perform these steps manually using Docker and the Nitro CLI. For
+more information, see [Building an enclave image file](building-eif.md "building-eif.md").
+
+In this tutorial, we use the **enclavectl** tool to
+package the _Hello Enclaves_ sample application into a Docker image.
+
+###### To prepare the image
+
+1. The **enclavectl** utility can be found in the
+   `aws-nitro-enclaves-with-k8s` GitHub repo. Clone the GitHub repo
+   and navigate into the directory.
+
+```
+`$` git clone git@github.com:aws/aws-nitro-enclaves-with-k8s.git && cd aws-nitro-enclaves-with-k8s
+```
+
+2. Source the `env.sh` script to add the **enclavectl** tool to you PATH variable.
+
+```
+`$` source env.sh
+```
+
+3. Configure the **enclavectl** for the tutorial.
+   The `settings.json` file includes some default parameters that are
+   used only if you create a cluster using **enclavectl**. Since the cluster was created manually in the
+   previous steps, the parameters in the `settings.json` are not used;
+   but you must run this command to configure the tool before using it.
+
+```
+`$` enclavectl configure --file settings.json
+```
+
+4. Build the Hello Enclaves enclave image file and package it into a Docker
+   image. The required files are located in the `/container/hello`
+   directory. Use the `enclavectl build` command and specify the name of
+   the directory.
+
+```
+`$` enclavectl build --image hello
+```
+
+###### Tip
+
+You can also use the **enclavectl** tool to
+package your own enclave applications into a Docker image. To do this, you
+must create a new directory with the name of your application in the
+`/container` directory. For example,
+`/aws-nitro-enclaves-with-k8s/container/`my-app``.
+ Then, you must create your Dockerfile and an
+ `enclave_manifest.json`file in this directory. Then, when
+ you run the`enclavectl build`command, for`--image`  specify the name of the directory that you created. For example,
+ `enclavectl build --image my-app`.
+
+For more information about how to use the **enclavectl** tool to package you applications, see [How to create your own application](https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md "https://github.com/aws/aws-nitro-enclaves-with-k8s/blob/main/container/README.md") 5. The Docker image is created with a name in the following format:
+`hello-*unique\_uuid*`. To view the full
+name of the image, run the following command.
+
+```
+`$` docker image ls | grep hello
+```
+
+## Step 5: Deploy the application to the cluster
+
+Finally, you need to deploy the application to your cluster.
+
+###### To deploy the application to the cluster
+
+1. Create a deployment specification. Create a new file named
+   `deployment_spec.yaml` and add the following
+   content.
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: `unique_deployment_name`
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: `application_name`
+  template:
+    metadata:
+      labels:
+        app: `application_name`
+    spec:
+      containers:
+      - name: `unique container_name`
+        image: `docker_image_name`:`image_tag`
+        command: [`"docker_image_entry_point"`]
+        resources:
+          limits:
+            aws.ec2.nitro/nitro_enclaves: "`1`"
+            hugepages-2Mi: `768Mi`
+            cpu: `250m`
+          requests:
+            aws.ec2.nitro/nitro_enclaves: "`1`"
+            hugepages-2Mi: `768Mi`
+        volumeMounts:
+        - mountPath: /dev/hugepages
+          name: hugepage
+          readOnly: false
+      volumes:
+      - name: hugepage-2mi
+        emptyDir:
+          medium: HugePages-2Mi
+      - name: hugepage-1gi
+        emptyDir:
+          medium: HugePages-1Gi
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists
+```
+
+The deployment specification must include the following Nitro Enclaves specific
+sections:
+
+    * ```
+    limits:
+      aws.ec2.nitro/nitro_enclaves: "1"
+      hugepages-2Mi: 768Mi
+    ```
+
+    The `limits` section defines the resource limits for the
+     container. A container can't use more resources than what is defined in
+     the limits. For more information, see  [Requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits").
+
+
+    `aws.ec2.nitro/nitro_enclaves` is the resource name of the
+     [enclaves
+     device driver](https://docs.kernel.org/virt/ne_overview.html "https://docs.kernel.org/virt/ne_overview.html") defined in the device plugin. When the device
+     plugin is registered, it advertises this name to  [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/"). The resource name can be requested as part of a
+     specification any time. In the template above, we specify `1`
+     so that only one application can use the enclaves device driver at the
+     same time. You can modify this value depending on your
+     requirements.
+
+
+    `hugepages` specifies the huge page size limit for your
+     application. Nitro Enclaves uses large contiguous memory regions and
+     therefore requires huge pages support. In the template above, the huge
+     page size limit for the application is set to `768 MiB` of
+     memory. Keep in mind that the `nitro-enclaves-allocator`
+     service, which was installed to the node through the user data specified
+     in the launch template, already allocated a huge page size based the
+     value specified for ``MEMORY_MIB`` in the user
+     data. For example, if the value for `MEMORY_MIB` in the user
+     data is `1024`, the `nitro-enclaves allocator`
+     allocated one page of 1 GiB huge page type for the whole node. In this
+     case, the field in the deployment spec be defined as
+     `hugepages-1Gi: 1Gi`.
+
+
+    For more information, see  [Managing huge pages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/ "https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/").
+    * ```
+    requests:
+      aws.ec2.nitro/nitro_enclaves: "1"
+      hugepages-2Mi: 768Mi
+    ```
+
+    The `requests` section is used to define the node on which
+     to place the pod For more information, see  [Requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits").
+
+
+    In the template above, we request a pod that has one enclave device
+     (`aws.ec2.nitro/nitro_enclaves: "1"`), and a huge page
+     size of 768 MiB ( `hugepages-2Mi: 768Mi`).
+
+The following is an example deployment specification for the Hello Enclaves
+application created in the previous steps.
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: `hello_deployment`
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: `hello`
+  template:
+    metadata:
+      labels:
+        app: `hello`
+    spec:
+      containers:
+      - name: `hello_container`
+        image: `123456789012.dkr.ecr.eu-central-1.amazonaws.com/hello-b0f89e0a-7d83-4928-853c-9a3f941fa769`:`latest`
+        command: [`"/home/run.sh"`]
+        resources:
+          limits:
+            aws.ec2.nitro/nitro_enclaves: "`1`"
+            hugepages-2Mi: `768Mi`
+            cpu: `250m`
+          requests:
+            aws.ec2.nitro/nitro_enclaves: "`1`"
+            hugepages-2Mi: `768Mi`
+        volumeMounts:
+        - mountPath: /dev/hugepages
+          name: hugepage
+          readOnly: false
+      volumes:
+      - name: hugepage
+        emptyDir:
+          medium: HugePages-2Mi
+      tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists
+```
+
+2. If the `ENCLAVE_CPU_ADVERTISEMENT` feature flag has been set, then
+   the workloads can request a specific amount of CPUs for their enclaves. The
+   Kubernetes scheduler can place the workloads on the EKS worker nodes according
+   to the available CPUs. For more information, see [`aws-nitro-enclaves-k8s-device-plugin`
+   documentation](https://github.com/aws/aws-nitro-enclaves-k8s-device-plugin?tab=readme-ov-file#enclave_cpu_advertisement "https://github.com/aws/aws-nitro-enclaves-k8s-device-plugin?tab=readme-ov-file#enclave_cpu_advertisement").
+
+Kubernetes workloads can request CPUs for their enclaves (for example, 2) by
+adding `aws.ec2.nitro/nitro_enclaves_cpus: "2"` to the limits and
+sections under resources.
+
+```
+resources:
+  limits:
+    aws.ec2.nitro/nitro_enclaves_cpus: "2"
+  requests:
+    aws.ec2.nitro/nitro_enclaves_cpus: "2"
+```
+
+These values need to be combined with the limits and requests from the
+previous step. The following example shows a fully populated
+`resources` section for a Kubernetes pod requesting access to a
+single enclave that requires 2Gi of memory and access to 2 CPUs.
+
+```
+resources:
+  limits:
+    aws.ec2.nitro/nitro_enclaves: "1"
+    aws.ec2.nitro/nitro_enclaves_cpus: "2"
+    hugepages-1Gi: 2Gi
+    cpu: 250m
+  requests:
+    aws.ec2.nitro/nitro_enclaves: "1"
+    aws.ec2.nitro/nitro_enclaves_cpus: "2"
+    hugepages-1Gi: 2Gi
+```
+
+3. Apply the deployment specification to the cluster and deploy the application.
+   Use the `kubectl apply` command and specify the deployment
+   specification file.
+
+```
+`$` kubectl apply -f `deployment_spec.yaml`
+```
+
+###### Tip
+
+The **enclavectl** tool automates and
+simplifies the steps required to deploy an application to a cluster. You can
+use the `enclavectl run --image
+ `image_name``command to automatically
+ generate a deployment specification for your application and to
+ automatically deploy it to your cluster. For example,`enclavectl run
+--image hello`. If you prefer automatically generate a deployment
+ specification for your application, but deploy it manually, add the
+ `--prepare-only`flag. For example,`enclavectl run
+--image hello --prepare-only`. Doing this will generate the
+ deployment specification but it will not deploy the application to the
+ cluster. Once the deployment specification has been generated, you can
+ deploy the application using the `kubectl apply` command.

@@ -41,11 +41,186 @@ measurements.
 An enclave's measurements includes a series of hashes and platform configuration registers
 (PCRs) that are unique to the enclave. An enclave has six measurements:
 
-| PCR  | Hash of ...                              | Description                                                                                                                                                                                                            |
-| ---- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PCR0 | Enclave image file                       | A contiguous measure of the contents of the image file, without the section data.                                                                                                                                      |
-| PCR1 | Linux kernel and bootstrap               | A contiguous measurement of the kernel and boot ramfs data.                                                                                                                                                            |
-| PCR2 | Application                              | A contiguous, in-order measurement of the user applications, without the boot ramfs.                                                                                                                                   |
-| PCR3 | IAM role assigned to the parent instance | A contiguous measurement of the IAM role assigned to the parent instance. Ensures that the attestation process succeeds only when the parent instance has the correct IAM role.                                        |
-| PCR4 | Instance ID of the parent instance       | A contiguous measurement of the ID of the parent instance. Ensures that the attestation process succeeds only when the parent instance has a specific instance ID.                                                     |
-| PCR8 | Enclave image file signing certificate   | A measure of the signing certificate specified for the enclave image file. Ensures that the attestation process succeeds only when the enclave was booted from an enclave image file signed by a specific certificate. | Some of the measures are exposed when the enclave image file is built, while others need to be manually generated based on information about the parent instance. Enclaves launched using the `--debug-mode` or `--attach-console` options generate attestation documents with PCR values made up entirely of zeroes. ###### PCRs <br>• [PCR0, PCR1, and PCR2](#pcr012 "#pcr012") <br>• [PCR3](#pcr3 "#pcr3") <br>• [PCR4](#pcr4 "#pcr4") <br>• [PCR8](#pcr8 "#pcr8") ### PCR0, PCR1, and PCR2 PCR0, PCR1, and PCR2 are exposed when the enclave image file (`.eif`) is built. In other words, they are provided as part of the output of the [nitro-cli build-enclave](cmd-nitro-build-enclave.md "cmd-nitro-build-enclave.md") command. For example, when building the enclave image file for the `hello-world` sample application, the output includes the following. `Enclave Image successfully created. { "Measurements": { "HashAlgorithm": "Sha384 { ... }", "PCR0": "7fb5c55bc2ecbb68ed99a13d7122abfc0666b926a79d5379bc58b9445c84217f59cfdd36c08b2c79552928702efe23e4", "PCR1": "235c9e6050abf6b993c915505f3220e2d82b51aff830ad14cbecc2eec1bf0b4ae749d311c663f464cde9f718acca5286", "PCR2": "0f0ac32c300289e872e6ac4d19b0b5ac4a9b020c98295643ff3978610750ce6a86f7edff24e3c0a4a445f2ff8a9ea79d" } }` ### PCR3 To further strengthen the security posture of the enclave, you can create and attach an instance profile to the parent instance. After you create the instance profile and associate an IAM role with it, you can generate a SHA384 hash based on the Amazon resource name (ARN) of the IAM role that's associated with the instance profile. You can then use the hash as PCR3 in the condition keys for your AWS KMS key policies. Doing this ensures that only enclaves running on an instance that has the correct IAM role can perform specific AWS KMS actions against a KMS key. For more information, see [Using instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_. You can generate the hash using any tool that is capable of converting a string to a SHA384 hash. For example, the following command generates a SHA384 hash for an IAM role with an ARN of `arn:aws:iam::123456789012:role/Webserver`. ###### Note In this example, the hash is padded with 48 `null` (`\0`) characters. `` `$` ROLEARN="arn:aws:iam::123456789012:role/Webserver"; \ python -c"import hashlib, sys; \ h=hashlib.sha384(); h.update(b'\0'*48); \ h.update(\"$ROLEARN\".encode('utf-8')); \ print(h.hexdigest())" `` Example output `` `$` 78fce75db17cd4e0a3fb8dad3ad128ca5e77edbb2b2c7f75329dccd99aa5f6ef4fc1f1a452e315b9e98f9e312e6921e6 `` ### PCR4 PCR4 is based on a SHA384 of the instance ID of the parent instance. Therefore, you can generate the PCR after you have launched the parent instance. You can generate this hash using any tool that is capable of converting a string to a SHA384 hash. For example, the following command generates a SHA384 hash for a parent instance with an instance ID of `i-1234567890abcdef0`. ###### Note In this example, the hash is padded with 48 `null` (`\0`) characters. `` `$` INSTANCE_ID="i-1234567890abcdef0"; \ python -c"import hashlib, sys; \ h=hashlib.sha384(); h.update(b'\0'*48); \ h.update(\"$INSTANCE_ID\".encode('utf-8')); \ print(h.hexdigest())" `` Example output `` `$` 08f996b5d43e047a9eb51e7f548bfee7e164fd7dc8f65541f2ac09d6545ac812719327281c401a67a10fcba87ae79ce0 `` ### PCR8 You can also sign the enclave image file using your signing certificate and your private key. PCR8 is exposed only when building a signed enclave image file (`.eif`) . In other words it is provided as part of the output of the [nitro-cli build-enclave](cmd-nitro-build-enclave.md "cmd-nitro-build-enclave.md") command when the `--private-key` and `--signing-certificate` options are specified. Doing this creates a signed enclave image file. Using PCR8 ensures that only enclaves booted from an enclave image file signed by a specific certificate can perform specific AWS KMS actions against a KMS key. It also enables you to build more flexible condition keys that remain effective even if the enclave image or parent instance is changed. We recommend that you use PCR3 and PCR8 together for the best flexibility. You can use OpenSSL to generate a private key and signing certificate that can be used to sign an enclave image file. ###### To generate a private key and signing certificate 1. Generate the private key. `` `$` openssl ecparam -name secp384r1 -genkey -out `key_name`.pem `` This command generates the private key needed for the `--private-key` option. 2. Generate a certificate signing request (CSR). You can customize the request information if needed. `` `$` openssl req -new -key `key_name`.pem -sha384 -nodes -subj "/CN=`AWS`/C=`US`/ST=`WA`/L=`Seattle`/O=`Amazon/OU`=`AWS`" -out `csr`.pem `` 3. Generate a certificate based on the CSR. Specify the CSR, the private key, a name for the certificate, and the number of days for which the certificate is to remain valid. ###### Important If you attempt to start an enclave with an enclave image file that is signed with a certificate that is no longer valid, the `nitro-cli run-enclave` command fails with errors `E36`, `E39`, and `E11`. `` `$` openssl x509 -req -days `20`  -in `csr`.pem -out `certificate`.pem -sha384 -signkey `key_name`.pem `` This command generates the signing certificate needed for the `--signing-certificate` option. For example, when building the enclave image file for the `hello-world` sample application and specifying a private key and signing certificate, the output includes the following. `` `$` nitro-cli build-enclave --docker-uri hello-world:latest --output-file hello-signed.eif --private-key key_name.pem --signing-certificate certificate.pem `` `Enclave Image successfully created. { "Measurements": { "HashAlgorithm": "Sha384 { ... }", "PCR0": "7fb5c55bc2ecbb68ed99a13d7122abfc0666b926a79d5379bc58b9445c84217f59cfdd36c08b2c79552928702efe23e4", "PCR1": "235c9e6050abf6b993c915505f3220e2d82b51aff830ad14cbecc2eec1bf0b4ae749d311c663f464cde9f718acca5286", "PCR2": "0f0ac32c300289e872e6ac4d19b0b5ac4a9b020c98295643ff3978610750ce6a86f7edff24e3c0a4a445f2ff8a9ea79d", "PCR8": "70da58334a884328944cd806127c7784677ab60a154249fd21546a217299ccfa1ebfe4fa96a163bf41d3bcfaebe68f6f" } }` ## How to get an enclave's attestation document An enclave's attestation document is generated by the Nitro Hypervisor. You can request an enclave's attestation document from inside the enclave only, using the `get-attestation-document` API, which is included in the Nitro Enclaves SDK. For more information, see [AWS Nitro Enclaves SDK Github repository](https://github.com/aws/aws-nitro-enclaves-sdk-c "https://github.com/aws/aws-nitro-enclaves-sdk-c"). ###### Important Enclaves booted in debug mode generate attestation documents with PCRs that are made up entirely of zeros. These attestation documents can't be used for cryptographic attestation. |
+| PCR  | Hash of ...                              | Description                                                                                                                                                                                                                  |
+| ---- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PCR0 | Enclave image file                       | A contiguous measure of the contents of the image file, without the section data.                                                                                                                                            |
+| PCR1 | Linux kernel and bootstrap               | A contiguous measurement of the kernel and boot ramfs data.                                                                                                                                                                  |
+| PCR2 | Application                              | A contiguous, in-order measurement of the user applications, without the boot<br>ramfs.                                                                                                                                      |
+| PCR3 | IAM role assigned to the parent instance | A contiguous measurement of the IAM role assigned to the parent instance.<br>Ensures that the attestation process succeeds only when the parent instance<br>has the correct IAM role.                                        |
+| PCR4 | Instance ID of the parent instance       | A contiguous measurement of the ID of the parent instance. Ensures that the attestation<br>process succeeds only when the parent instance has a specific instance ID.                                                        |
+| PCR8 | Enclave image file signing certificate   | A measure of the signing certificate specified for the enclave image file. Ensures<br>that the attestation process succeeds only when the enclave was booted<br>from an enclave image file signed by a specific certificate. |
+
+Some of the measures are exposed when the enclave image file is built, while others need to be manually
+generated based on information about the parent instance.
+
+Enclaves launched using the `--debug-mode` or `--attach-console`
+options generate attestation documents with PCR values made up entirely of zeroes.
+
+###### PCRs
+
+- [PCR0, PCR1, and PCR2](#pcr012 "#pcr012")
+- [PCR3](#pcr3 "#pcr3")
+- [PCR4](#pcr4 "#pcr4")
+- [PCR8](#pcr8 "#pcr8")
+
+### PCR0, PCR1, and PCR2
+
+PCR0, PCR1, and PCR2 are exposed when the enclave image file (`.eif`) is built. In other words,
+they are provided as part of the output of the [nitro-cli build-enclave](cmd-nitro-build-enclave.md "cmd-nitro-build-enclave.md") command.
+
+For example, when building the enclave image file for the `hello-world` sample
+application, the output includes the following.
+
+```
+Enclave Image successfully created.
+{
+  "Measurements": {
+    "HashAlgorithm": "Sha384 { ... }",
+    "PCR0": "7fb5c55bc2ecbb68ed99a13d7122abfc0666b926a79d5379bc58b9445c84217f59cfdd36c08b2c79552928702efe23e4",
+    "PCR1": "235c9e6050abf6b993c915505f3220e2d82b51aff830ad14cbecc2eec1bf0b4ae749d311c663f464cde9f718acca5286",
+    "PCR2": "0f0ac32c300289e872e6ac4d19b0b5ac4a9b020c98295643ff3978610750ce6a86f7edff24e3c0a4a445f2ff8a9ea79d"
+  }
+}
+```
+
+### PCR3
+
+To further strengthen the security posture of the enclave, you can create and attach an
+instance profile to the parent instance. After you create the instance profile and
+associate an IAM role with it, you can generate a SHA384 hash based on the Amazon
+resource name (ARN) of the IAM role that's associated with the instance profile. You can
+then use the hash as PCR3 in the condition keys for your AWS KMS key policies. Doing this
+ensures that only enclaves running on an instance that has the correct IAM role can
+perform specific AWS KMS actions against a KMS key. For more information, see [Using
+instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_.
+
+You can generate the hash using any tool that is capable of converting a string to a
+SHA384 hash.
+
+For example, the following command generates a SHA384 hash for an IAM role with an ARN of
+`arn:aws:iam::123456789012:role/Webserver`.
+
+###### Note
+
+In this example, the hash is padded with 48 `null` (`\0`) characters.
+
+```
+`$` ROLEARN="arn:aws:iam::123456789012:role/Webserver"; \
+python -c"import hashlib, sys; \
+h=hashlib.sha384(); h.update(b'\0'*48); \
+h.update(\"$ROLEARN\".encode('utf-8')); \
+print(h.hexdigest())"
+```
+
+Example output
+
+```
+`$` 78fce75db17cd4e0a3fb8dad3ad128ca5e77edbb2b2c7f75329dccd99aa5f6ef4fc1f1a452e315b9e98f9e312e6921e6
+```
+
+### PCR4
+
+PCR4 is based on a SHA384 of the instance ID of the parent instance. Therefore,
+you can generate the PCR after you have launched the parent instance.
+
+You can generate this hash using any tool that is capable of converting a string to a
+SHA384 hash.
+
+For example, the following command generates a SHA384 hash for a parent instance with an instance ID of
+`i-1234567890abcdef0`.
+
+###### Note
+
+In this example, the hash is padded with 48 `null` (`\0`) characters.
+
+```
+`$` INSTANCE_ID="i-1234567890abcdef0"; \
+python -c"import hashlib, sys; \
+h=hashlib.sha384(); h.update(b'\0'*48); \
+h.update(\"$INSTANCE_ID\".encode('utf-8')); \
+print(h.hexdigest())"
+```
+
+Example output
+
+```
+`$` 08f996b5d43e047a9eb51e7f548bfee7e164fd7dc8f65541f2ac09d6545ac812719327281c401a67a10fcba87ae79ce0
+```
+
+### PCR8
+
+You can also sign the enclave image file using your signing certificate and your private key.
+
+PCR8 is exposed only when building a signed enclave image file (`.eif`) . In other words it is provided
+as part of the output of the [nitro-cli build-enclave](cmd-nitro-build-enclave.md "cmd-nitro-build-enclave.md") command when the `--private-key` and
+`--signing-certificate` options are specified. Doing this creates a signed enclave image file.
+
+Using PCR8 ensures that only enclaves booted from an enclave image file signed by a
+specific certificate can perform specific AWS KMS actions against a KMS key. It also enables
+you to build more flexible condition keys that remain effective even if the enclave
+image or parent instance is changed. We recommend that you use PCR3 and PCR8 together
+for the best flexibility.
+
+You can use OpenSSL to generate a private key and signing certificate that can be used to sign an enclave image file.
+
+###### To generate a private key and signing certificate
+
+1. Generate the private key.
+
+```
+`$` openssl ecparam -name secp384r1 -genkey -out `key_name`.pem
+```
+
+This command generates the private key needed for the `--private-key` option. 2. Generate a certificate signing request (CSR). You can customize the request information if needed.
+
+```
+`$` openssl req -new -key `key_name`.pem -sha384 -nodes -subj "/CN=`AWS`/C=`US`/ST=`WA`/L=`Seattle`/O=`Amazon/OU`=`AWS`" -out `csr`.pem
+```
+
+3. Generate a certificate based on the CSR. Specify the CSR, the private key, a name for the
+   certificate, and the number of days for which the certificate is to remain valid.
+
+###### Important
+
+If you attempt to start an enclave with an enclave image file that is signed with a
+certificate that is no longer valid, the `nitro-cli run-enclave` command
+fails with errors `E36`, `E39`, and `E11`.
+
+```
+`$` openssl x509 -req -days `20`  -in `csr`.pem -out `certificate`.pem -sha384 -signkey `key_name`.pem
+```
+
+This command generates the signing certificate needed for the `--signing-certificate` option.
+
+For example, when building the enclave image file for the `hello-world` sample
+application and specifying a private key and signing certificate, the output includes
+the following.
+
+```
+`$` nitro-cli build-enclave --docker-uri hello-world:latest --output-file hello-signed.eif --private-key key_name.pem --signing-certificate certificate.pem
+```
+
+```
+Enclave Image successfully created.
+{
+  "Measurements": {
+    "HashAlgorithm": "Sha384 { ... }",
+    "PCR0": "7fb5c55bc2ecbb68ed99a13d7122abfc0666b926a79d5379bc58b9445c84217f59cfdd36c08b2c79552928702efe23e4",
+    "PCR1": "235c9e6050abf6b993c915505f3220e2d82b51aff830ad14cbecc2eec1bf0b4ae749d311c663f464cde9f718acca5286",
+    "PCR2": "0f0ac32c300289e872e6ac4d19b0b5ac4a9b020c98295643ff3978610750ce6a86f7edff24e3c0a4a445f2ff8a9ea79d",
+    "PCR8": "70da58334a884328944cd806127c7784677ab60a154249fd21546a217299ccfa1ebfe4fa96a163bf41d3bcfaebe68f6f"
+  }
+}
+```
+
+## How to get an enclave's attestation document
+
+An enclave's attestation document is generated by the Nitro Hypervisor. You can request an enclave's
+attestation document from inside the enclave only, using the `get-attestation-document`
+API, which is included in the Nitro Enclaves SDK. For more information, see
+[AWS Nitro Enclaves SDK Github repository](https://github.com/aws/aws-nitro-enclaves-sdk-c "https://github.com/aws/aws-nitro-enclaves-sdk-c").
+
+###### Important
+
+Enclaves booted in debug mode generate attestation documents with PCRs that are made up entirely
+of zeros. These attestation documents can't be used for cryptographic attestation.
