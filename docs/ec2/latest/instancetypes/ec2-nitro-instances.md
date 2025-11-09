@@ -110,7 +110,7 @@ Nitro v6
 
 - **General Purpose**: M8a | M8i | M8i-flex
 - **Compute Optimized**: C8gn | C8i | C8i-flex
-- **Memory Optimized**: R8gb | R8gn | R8i | R8i-flex
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8i-flex
 - **Storage Optimized**: I8ge
 - **Accelerated Computing**: P6-B200
 
@@ -156,7 +156,7 @@ Nitro v6
 
 - **General Purpose**: M8a | M8i
 - **Compute Optimized**: C8gn | C8i
-- **Memory Optimized**: R8gb | R8gn | R8i
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i
 - **Storage Optimized**: I8ge
 
 Nitro v5
@@ -229,12 +229,59 @@ your instance with the **uname** command as follows:
 uname -r
 ```
 
-| Linux distribution                  | Minimum kernel version                                                                                                                                                                                                |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Linux upstream                      | Kernel version 5.9                                                                                                                                                                                                    |
-| Amazon Linux 2                      | Kernel 4.14.186                                                                                                                                                                                                       |
-| Red Hat Enterprise Linux (RHEL)     | RHEL 8.3 kernel 4.18.0-240.1.1.el8_3.ARCH                                                                                                                                                                             |
-| SUSE Linux Enterprise Server (SLES) | <br>• SLE 12 SP4 kernel 4.12.14-95.99.3 <br>• SLE 12 SP5 kernel 4.12.14-122.116.1 <br>• SLE 15 kernel 4.12.14-150000.150.92.2 <br>• SLE 15 SP1 kernel 4.12.14-150100.197.114.2 <br>• SLE 15 SP2 kernel 5.3.18-24.15.1 |
-| Linux Ubuntu                        | 20.04 kernel 5.4.0-1025-aws                                                                                                                                                                                           |
-| Debian                              | 11 (Bullseye) kernel 5.10.0                                                                                                                                                                                           |
-| DPDK                                | v20.11                                                                                                                                                                                                                | ###### Note The following ENA Linux driver versions are not supported, and will result in elastic network interface attachment failures: <br>• ENA Linux + Nitro v5 – Earlier than 2.2.9 + All Nitro versions prior to v5 – Earlier than v1.2.0 <br>• ENA DPDK + Nitro v5 – Earlier than 20.11 + All Nitro versions prior to v5 – Earlier than v1.1.1 Windows ENA Windows driver version: 2.2.3 or later for Windows instances. ###### Note The following ENA Windows drivers are not supported: <br>• ENA Windows: v2.2.0 or earlier All of the current AWS Windows AMIs meet these requirements. For more information about AMI versions and release notes, see the [AWS Windows AMI reference](../windows-ami-reference/windows-amis.md "../windows-ami-reference/windows-amis.md"). FreeBSD ENA FreeBSD driver version: 2.3.1 or later for FreeBSD instances. ###### Note ENA FreeBSD driver versions earlier than v2.3.1 are not supported, and will result in elastic network interface attachment failures. ### Linux instances with AWS Graviton processors Linux instances with AWS Graviton processors have the following additional requirements: <br>• An AMI with 64-bit ARM architecture. <br>• Support for UEFI boot with ACPI tables and ACPI hot-plug of PCI devices. ###### Note AWS Graviton processors only support Linux operating systems. |
+| Linux distribution                  | Minimum kernel version                                                                                                                                                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Linux upstream                      | Kernel version 5.9                                                                                                                                                                                            |
+| Amazon Linux 2                      | Kernel 4.14.186                                                                                                                                                                                               |
+| Red Hat Enterprise Linux (RHEL)     | RHEL 8.4 kernel 4.18.0-305                                                                                                                                                                                    |
+| SUSE Linux Enterprise Server (SLES) | • SLE 12 SP4 kernel 4.12.14-95.99.3<br>• SLE 12 SP5 kernel 4.12.14-122.116.1<br>• SLE 15 kernel 4.12.14-150000.150.92.2<br>• SLE 15 SP1 kernel 4.12.14-150100.197.114.2<br>• SLE 15 SP2 kernel 5.3.18-24.15.1 |
+| Linux Ubuntu                        | 20.04 kernel 5.4.0-1025-aws                                                                                                                                                                                   |
+| Debian                              | 11 (Bullseye) kernel 5.10.0                                                                                                                                                                                   |
+| DPDK                                | v20.11                                                                                                                                                                                                        |
+
+###### Note
+
+The following ENA Linux driver versions are not supported, and
+will result in elastic network interface attachment failures:
+
+- ENA Linux
+  - Nitro v5 – Earlier than 2.2.9
+  - All Nitro versions prior to v5 – Earlier than v1.2.0
+
+- ENA DPDK
+  - Nitro v5 – Earlier than 20.11
+  - All Nitro versions prior to v5 – Earlier than v1.1.1
+
+Windows
+ENA Windows driver version: 2.2.3 or later for Windows instances.
+
+###### Note
+
+The following ENA Windows drivers are not supported:
+
+- ENA Windows: v2.2.0 or earlier
+
+All of the current AWS Windows AMIs meet these requirements. For
+more information about AMI versions and release notes, see the
+[AWS
+Windows AMI reference](../windows-ami-reference/windows-amis.md "../windows-ami-reference/windows-amis.md").
+
+FreeBSD
+ENA FreeBSD driver version: 2.3.1 or later for FreeBSD instances.
+
+###### Note
+
+ENA FreeBSD driver versions earlier than v2.3.1 are not supported, and
+will result in elastic network interface attachment failures.
+
+### Linux instances with AWS Graviton processors
+
+Linux instances with AWS Graviton processors have the following additional requirements:
+
+- An AMI with 64-bit ARM architecture.
+- Support for UEFI boot with ACPI tables and ACPI hot-plug of PCI
+  devices.
+
+###### Note
+
+AWS Graviton processors only support Linux operating systems.
