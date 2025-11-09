@@ -7,9 +7,9 @@ profiles- "Project Member" and "Project Owner". Permission profiles, and the per
 grant to select users of a project, only apply to the project that they belong to; Global
 Administrators are super users who have all the permissions below across all projects.
 
-| Permissions                       | Description                                                                                                      | Project Member | Project Owner |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------- | ------------- |
-| Create Session                    | Create your own session. Users can always stop and terminate their own sessions with or without this permission. | X              | X             |
-| Create/terminate others' sessions | Create or terminate another user's session within a project.                                                     |                | X             |
-| Update Project membership         | Update users and groups associated with a project.                                                               |                | X             |
-| Update Project Status             | Enable or disable a project.                                                                                     |                | X             |
+| Permissions                       | Description                                                                                                         | Project Member | Project Owner |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- |
+| Create Session                    | Create your own session. Users can always stop and terminate their own<br>sessions with or without this permission. | X              | X             |
+| Create/terminate others' sessions | Create or terminate another user's session within a project.                                                        |                | X             |
+| Update Project membership         | Update users and groups associated with a project.                                                                  |                | X             |
+| Update Project Status             | Enable or disable a project.                                                                                        |                | X             |

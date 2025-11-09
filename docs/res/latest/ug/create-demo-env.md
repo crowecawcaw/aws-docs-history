@@ -71,10 +71,37 @@ this product](plan-your-deployment.md#quotas-for-aws-services-in-this-product "p
 Make sure you are in your administrator account. 2. Launch [the template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/res/res_demo_env/assets/res-demo-stack.yaml") in the console. 3. Under **Parameters**, review the parameters for this
 product template and modify them as necessary.
 
-| Parameter          | Default        | Description                                                                                                                                                                                |
-| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EnvironmentName    | `<*res-demo*>` | A unique name given to your RES environment starting with res-, no longer than 11 characters, and no capital letters.                                                                      |
-| AdministratorEmail |                | The email address for the user completing setup of the product. This user additionally functions as a break-glass user if there is an Active Directory single sign on integration failure. |
-| KeyPair            |                | The key pair used to connect to infrastructure hosts.                                                                                                                                      |
-| ClientIPCidr       | <0.0.0.0/0>    | IP address filter which limits connection to the system. You can update the ClientIpCidr after deployment.                                                                                 |
-| InboundPrefixList  |                | _(Optional)_ Provide a managed prefix list for IPs allowed to directly access the web UI and SSH into the bastion host.                                                                    | 4. Choose **Create stack**. ## Post deployment steps 1. You can now log in to the demo environment using the clusteradmin user and the temporary password sent to the administrator email you entered during setup. You are prompted to create a new password on your first log in. 2. If you want to use the "Sign in with organization SSO" feature, you must first reset the passwords for each user you would like to log in as. You can reset user passwords from the AWS Directory Service. The demo stack creates four users with usernames which you can use: admin1, user1, admin2, and user2. 1. Go to the Directory Service console. 2. Select the Directory Id for your environment. You can get the Directory Id from the output of the `<StackName>*DirectoryService*` stack. 3. From the top right **Action** dropdown menu, select **Reset user password**. 4. For all the users you want to use, enter the username, type in the new password you want and then choose **Reset Password**. 3. Once you have reset the user passwords, proceed to the single sign in log in page to access the environment. Your deployment is now ready. Use the EnvironmentUrl you received in your email to access the UI, or you can also get the same URL from the output of the deployed stack. You may now login to the Research and Engineering Studio environment with the user and password that you reset the password for in Active Directory. |
+| Parameter          | Default        | Description                                                                                                                                                                                      |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| EnvironmentName    | `<*res-demo*>` | A unique name given to your RES environment starting<br>with res-, no longer than 11 characters, and no capital letters.                                                                         |
+| AdministratorEmail |                | The email address for the user completing setup of the product.<br>This user additionally functions as a break-glass user if there is<br>an Active Directory single sign on integration failure. |
+| KeyPair            |                | The key pair used to connect to infrastructure hosts.                                                                                                                                            |
+| ClientIPCidr       | <0.0.0.0/0>    | IP address filter which limits connection to the system. You can update the<br>ClientIpCidr after deployment.                                                                                    |
+| InboundPrefixList  |                | \*(Optional)<br>• Provide a managed prefix list<br>for IPs allowed to directly access the web UI and SSH into the bastion<br>host.                                                               |
+
+4. Choose **Create stack**.
+
+## Post deployment steps
+
+1. You can now log in to the demo environment using the clusteradmin user and the temporary
+   password sent to the administrator email you entered during setup. You are prompted to
+   create a new password on your first log in.
+2. If you want to use the "Sign in with organization SSO" feature, you must first reset
+   the passwords for each user you would like to log in as. You can reset user passwords
+   from the AWS Directory Service. The demo stack creates four users with usernames
+   which you can use: admin1, user1, admin2, and user2.
+   1. Go to the Directory Service console.
+   2. Select the Directory Id for your environment. You can get the Directory Id
+      from the output of the `<StackName>*DirectoryService*` stack.
+   3. From the top right **Action** dropdown menu, select
+      **Reset user password**.
+   4. For all the users you want to use, enter the username, type in the new
+      password you want and then choose **Reset Password**.
+
+3. Once you have reset the user passwords, proceed to the single sign in log in page
+   to access the environment.
+
+Your deployment is now ready. Use the EnvironmentUrl you received in your email to
+access the UI, or you can also get the same URL from the output of the deployed stack.
+You may now login to the Research and Engineering Studio environment with the user and password that you
+reset the password for in Active Directory.

@@ -4,7 +4,7 @@ Research and Engineering Studio creates the following log groups in CloudWatch d
 table for default retentions:
 
 | CloudWatch Log groups                                                             | Retention    |
-| --------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------------------------------------------- | ------------ |
 | `/aws/lambda/`<installation-stack-name>`-cluster-endpoints`                       | Never expire |
 | `/aws/lambda/`<installation-stack-name>`-cluster-manager-scheduled-ad-sync`       | Never expire |
 | `/aws/lambda/`<installation-stack-name>`-cluster-settings`                        | Never expire |
@@ -16,4 +16,8 @@ table for default retentions:
 | `/`<installation-stack-name>`/cluster-manager`                                    | 3 months     |
 | `/`<installation-stack-name>`/vdc/controller`                                     | 3 months     |
 | `/`<installation-stack-name>`/vdc/dcv-broker`                                     | 3 months     |
-| `/`<installation-stack-name>`/vdc/dcv-connection-gateway`                         | 3 months     | If you would like to change the default retention for a log group, you can go to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch") and follow the directions to [Change log data retention in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention"). |
+| `/`<installation-stack-name>`/vdc/dcv-connection-gateway`                         | 3 months     |
+
+If you would like to change the default retention for a log group, you can go to the
+[CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch") and follow the directions to
+[Change log data retention in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention").

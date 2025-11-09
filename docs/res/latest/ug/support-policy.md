@@ -24,7 +24,7 @@ instructions on upgrading RES, please [refer to our documentation](update-the-pr
 If you have any questions or need assistance with upgrading, please contact AWS Support.
 
 | Research and Engineering Studio version | End of support (EOSL) date |
-| --------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------ |
+| --------------------------------------- | -------------------------- |
 | 2023.11.x                               | 11/30/2024                 |
 | 2024.01.x                               | 1/31/2025                  |
 | 2024.04.x                               | 4/30/2025                  |
@@ -34,4 +34,8 @@ If you have any questions or need assistance with upgrading, please contact AWS 
 | 2024.12.x                               | 12/31/2025                 |
 | 2025.03.x                               | 3/30/2026                  |
 | 2025.06.x                               | 6/30/2026                  |
-| 2025.09.x                               | 9/30/2026                  | ###### Important You are responsible for patching your infra / VDI hosts after deployment. |
+| 2025.09.x                               | 9/30/2026                  |
+
+###### Important
+
+You are responsible for patching your infra / VDI hosts after deployment.

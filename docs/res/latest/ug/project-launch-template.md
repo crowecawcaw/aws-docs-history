@@ -48,7 +48,20 @@ complete.
 Scripts support the following options:
 
 | Script configuration | Example                                 |
-| -------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------- | --------------------------------------- |
 | S3 URI               | s3://bucketname/script.sh               |
 | HTTPS URL            | https://sample.samplecontent.com/sample |
-| Local file           | file:///user/scripts/example.sh         | All custom scripts that are hosted on a S3 buckets need to be provisioned with the following tag: `` res:EnvironmentName/`<res-environment>` `` For **Arguments**, provide any arguments separated by a comma. ![Example of a project configuration](images/res-projectconfigexample.png) _Example of a project configuration_ |
+| Local file           | file:///user/scripts/example.sh         |
+
+All custom scripts that are hosted on a S3 buckets need to be provisioned with the
+following tag:
+
+```
+res:EnvironmentName/`<res-environment>`
+```
+
+For **Arguments**, provide any arguments separated by a comma.
+
+![Example of a project configuration](images/res-projectconfigexample.png)
+
+_Example of a project configuration_
