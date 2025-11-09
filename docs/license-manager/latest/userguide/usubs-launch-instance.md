@@ -54,7 +54,7 @@ follow these steps.
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. Choose **Manage subscriptions** from the navigation pane.
 3. To streamline subscription results, you can search for all or part of the
-   subscription name. For example, `Office LTSC Professional Plus 2021`
+   subscription name. For example, `Office LTSC Professional Plus`
    or `Visual Studio Enterprise`.
 4. Select **Launch new instance** from the subscription panel.
    This opens a launch configuration page.

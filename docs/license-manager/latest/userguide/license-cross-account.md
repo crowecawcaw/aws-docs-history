@@ -24,7 +24,7 @@ Before you begin, ensure you have:
   owner account:
   - [Visual Studio Professional 2022](https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i "https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i")
   - [Visual Studio Enterprise 2022](https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg "https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg")
-  - [Office LTSC Professional Plus 2021](https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns")
+  - [Office LTSC Professional Plus](https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns")
 
 ## Limitations
 
@@ -154,8 +154,11 @@ rules table, to allow traffic from directory consumer accounts.
   - TCP 464 (Kerberos Password)
   - UDP 464 (Kerberos Password)
   - TCP 636 (LDAPS)
+  - TCP 9389 (Active Directory Web Services)
   - TCP 3268-3269 (Global Catalog)
   - TCP 1024-65535 (Dynamic RPC)
+
+Port 9389 is required for Active Directory Web Services (ADWS), which is used by the Active Directory PowerShell module and other management tools to communicate with domain controllers.
 
 ### Step 4: Deploy instances and manage user associations
 

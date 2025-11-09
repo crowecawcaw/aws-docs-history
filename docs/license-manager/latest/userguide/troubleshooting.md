@@ -290,7 +290,7 @@ When you launch an instance from an AMI that supports Office LTSC Professional P
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. Choose **Manage subscriptions** from the navigation pane.
-3. To streamline subscription results, you can search for all or part of the subscription name. For example, Office LTSC Professional Plus 2021 or Visual Studio Enterprise.
+3. To streamline subscription results, you can search for all or part of the subscription name. For example, Office LTSC Professional Plus or Visual Studio Enterprise.
 4. Select **Launch new instance** from the subscription panel. This opens a launch configuration page.
 5. To launch an instance from an AMI that's based on an earlier version of the Windows OS platform, select the full AWS Marketplace website link, located under the Software version. This takes you to a configuration page where you can select from a list of versions.
 6. The list shows the latest AMI versions for the supported Windows OS platforms. Select the Windows OS version that you want to launch from.

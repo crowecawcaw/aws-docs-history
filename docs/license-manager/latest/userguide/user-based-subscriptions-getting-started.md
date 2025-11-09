@@ -42,7 +42,7 @@ links:
 - [Visual
   Studio Enterprise](https://aws.amazon.com/marketplace/pp/prodview-dzstlnjdl3izg "https://aws.amazon.com/marketplace/pp/prodview-dzstlnjdl3izg")
 - [Office LTSC
-  Professional Plus 2021](https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns")
+  Professional Plus](https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/marketplace/pp/prodview-bh46d5p2hapns")
 - [Win Remote
   Desktop Services SAL](https://aws.amazon.com/marketplace/pp/prodview-buamtl3v3xaes "https://aws.amazon.com/marketplace/pp/prodview-buamtl3v3xaes")
 
