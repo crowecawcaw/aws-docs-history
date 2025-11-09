@@ -20,8 +20,11 @@ The gateway local console displays **[OK**],
 **[WARNING]**, or **[FAIL]** to indicate
 the status of the resource as follows:
 
-| Message       | Description                                                                                                                                                                                        |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **[OK]**      | The resource has passed the system resource check.                                                                                                                                                 |
-| **[WARNING]** | The resource does not meet the recommended requirements, but your gateway can continue to function. The gateway local console displays a message that describes the results of the resource check. |
-| **[FAIL]**    | The resource does not meet the minimum requirements. Your gateway might not function properly. The gateway local console displays a message that describes the results of the resource check.      | The local console also displays the number of errors and warnings next to the resource check menu option. |
+| Message       | Description                                                                                                                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[OK]**      | The resource has passed the system resource check.                                                                                                                                                          |
+| **[WARNING]** | The resource does not meet the recommended requirements, but<br>your gateway can continue to function. The gateway local console<br>displays a message that describes the results of the resource<br>check. |
+| **[FAIL]**    | The resource does not meet the minimum requirements. Your<br>gateway might not function properly. The gateway local console<br>displays a message that describes the results of the resource<br>check.      |
+
+The local console also displays the number of errors and warnings next to the
+resource check menu option.

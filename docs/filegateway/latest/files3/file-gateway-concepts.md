@@ -41,10 +41,34 @@ Common file operations change file metadata, which results in the deletion of th
 current S3 object and the creation of a new S3 object. The following table shows example
 file operations and the impact on S3 objects.
 
-| File operation                 | S3 object impact                                                                                              | Storage class implication                        |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rename file                    | Replaces existing S3 object and creates a new S3 object for each file                                         | Early deletion fees and retrieval fees may apply |
-| Rename folder                  | Replaces all existing S3 objects and creates new S3 objects for each folder and files in the folder structure | Early deletion fees and retrieval fees may apply |
-| Change file/folder permissions | Replaces existing S3 object and creates a new S3 object for each file or folder                               | Early deletion fees and retrieval fees may apply |
-| Change file/folder ownership   | Replaces existing S3 object and creates a new S3 object for each file or folder                               | Early deletion fees and retrieval fees may apply |
-| Append to a file               | Replaces existing S3 object and creates a new S3 object for each file                                         | Early deletion fees and retrieval fees may apply | When a file is written to the S3 File Gateway by an NFS or SMB client, the File Gateway uploads the file's data to Amazon S3 followed by its metadata, (ownerships, timestamps, etc.). Uploading the file data creates an S3 object, and uploading the metadata for the file updates the metadata for the S3 object. This process creates another version of the object, resulting in two versions of an object. If S3 Versioning is turned on, both versions will be stored. When a file is modified in the S3 File Gateway by an NFS or SMB client after it has been uploaded to Amazon S3, the S3 File Gateway uploads the new or modified data instead of uploading the whole file. The file modification results in a new version of the S3 object being created. When the S3 File Gateway uploads larger files, it might need to upload smaller chunks of the file before the client is done writing to the S3 File Gateway. Some reasons for this include freeing up cache space or a high rate of writes to a file share. This can result in multiple versions of an object in the S3 bucket. You should monitor your S3 bucket to determine how many versions of an object exist before setting up lifecycle policies to move objects to different storage classes. You should configure lifecycle expiration for previous versions to minimize the number of versions you have for an object in your S3 bucket. The use of Same-Region replication (SRR) or Cross-Region replication (CRR) between S3 buckets will increase the storage used. |
+| File operation                 | S3 object impact                                                                                                 | Storage class implication                        |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| Rename file                    | Replaces existing S3 object and creates a new S3 object for each<br>file                                         | Early deletion fees and retrieval fees may apply |
+| Rename folder                  | Replaces all existing S3 objects and creates new S3 objects for<br>each folder and files in the folder structure | Early deletion fees and retrieval fees may apply |
+| Change file/folder permissions | Replaces existing S3 object and creates a new S3 object for each<br>file or folder                               | Early deletion fees and retrieval fees may apply |
+| Change file/folder ownership   | Replaces existing S3 object and creates a new S3 object for each<br>file or folder                               | Early deletion fees and retrieval fees may apply |
+| Append to a file               | Replaces existing S3 object and creates a new S3 object for each<br>file                                         | Early deletion fees and retrieval fees may apply |
+
+When a file is written to the S3 File Gateway by an NFS or SMB client, the File Gateway
+uploads the file's data to Amazon S3 followed by its metadata, (ownerships, timestamps,
+etc.). Uploading the file data creates an S3 object, and uploading the metadata for the
+file updates the metadata for the S3 object. This process creates another version of the
+object, resulting in two versions of an object. If S3 Versioning is turned on, both
+versions will be stored.
+
+When a file is modified in the S3 File Gateway by an NFS or SMB client after it has been
+uploaded to Amazon S3, the S3 File Gateway uploads the new or modified data instead of uploading the
+whole file. The file modification results in a new version of the S3 object being
+created.
+
+When the S3 File Gateway uploads larger files, it might need to upload smaller chunks of the
+file before the client is done writing to the S3 File Gateway. Some reasons for this include
+freeing up cache space or a high rate of writes to a file share. This can result in
+multiple versions of an object in the S3 bucket.
+
+You should monitor your S3 bucket to determine how many versions of an object exist
+before setting up lifecycle policies to move objects to different storage classes. You
+should configure lifecycle expiration for previous versions to minimize the number of
+versions you have for an object in your S3 bucket. The use of Same-Region replication
+(SRR) or Cross-Region replication (CRR) between S3 buckets will increase the storage
+used.

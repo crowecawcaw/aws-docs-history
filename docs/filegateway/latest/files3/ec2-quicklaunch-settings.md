@@ -75,21 +75,25 @@ following default specifications:
 
 
 
+    	| **Port** | **Protocol** | **File System Protocol** |
+    	| --- | --- | --- |
+    	| 80 | TCP | HTTP access for activation |
+    	| 111 | TCP, UDP | NFSv3 |
+    	| 139 | TCP, UDP | SMB |
+    	| 445 | TCP | SMB |
+    	| 2049 | TCP, UDP | NFS |
+    	| 20048 | TCP, UDP | NFSv3 |
+    * **Configure storage**
 
-| **Port**              | **Protocol**        | **File System Protocol**   |
-| --------------------- | ------------------- | -------------------------- | --------------------------- |
-| 80                    | TCP                 | HTTP access for activation |
-| 111                   | TCP, UDP            | NFSv3                      |
-| 139                   | TCP, UDP            | SMB                        |
-| 445                   | TCP                 | SMB                        |
-| 2049                  | TCP, UDP            | NFS                        |
-| 20048                 | TCP, UDP            | NFSv3                      | <br>• **Configure storage** |
-| **Default Settings**  | **AMI Root Volume** | **Volume 2 Cache**         |
-| ---                   | ---                 | ---                        |
-| Device Name           |                     | '/dev/sdb'                 |
-| Size                  | 80 Gib              | 165 GiB                    |
-| Volume Type           | gp3                 | gp3                        |
-| IOPS                  | 3000                | 3000                       |
-| Delete on termination | Yes                 | Yes                        |
-| Encrypted             | No                  | No                         |
-| Throughput            | 125                 | 125                        |
+
+
+
+    | **Default<br>Settings** | **AMI Root<br>Volume** | **Volume 2<br>Cache** |
+    | --- | --- | --- |
+    | Device Name |  | '/dev/sdb' |
+    | Size | 80 Gib | 165 GiB |
+    | Volume Type | gp3 | gp3 |
+    | IOPS | 3000 | 3000 |
+    | Delete on termination | Yes | Yes |
+    | Encrypted | No | No |
+    | Throughput | 125 | 125 |

@@ -34,6 +34,32 @@ and what the gateway expects. At the same time, file `A.txt` was
 renamed to `B.txt` through the gateway.
 
 | Bucket           | S3ObjectKey | FilePath | RenamedTo | Type | IsDirty | IsDataDirty | IsDeleted | IsFailingToUpload | UploadError        | SizeInBytes | IsWholeFileInCache |
-| ---------------- | ----------- | -------- | --------- | ---- | ------- | ----------- | --------- | ----------------- | ------------------ | ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ----------- | -------- | --------- | ---- | ------- | ----------- | --------- | ----------------- | ------------------ | ----------- | ------------------ |
 | samplebucket-iad | A.txt       | /B.txt   |           | FILE | TRUE    | FALSE       | FALSE     | TRUE              | InvalidObjectState | 4           | FALSE              |
-| samplebucket-iad | A.txt       | /A.txt   | /B.txt    | FILE | TRUE    | FALSE       | TRUE      | FALSE             |                    | 4           | FALSE              | <br>• **Type** — Denotes whether the entry is for a `FILE` or `DIRECTORY`. <br>• **IsDirty** — Reports `TRUE` if there is any type of change to the file which have not been uploaded to Amazon S3. This includes changes to metadata such as file name and read/write permissions, even if the file's data has not changed. <br>• **IsDataDirty** — Reports `TRUE` if there are changes to the file's data which have not been uploaded to Amazon S3. <br>• **IsDeleted** — Reports `TRUE` if the file was deleted on the gateway. If a file is marked as deleted, then it will always be marked as dirty. <br>• **IsFailingToUpload** — Reports `TRUE` if there is a problem uploading the file to Amazon S3. This status resets every 24 hours to allow the gateway to retry the upload and check whether the issue has been resolved. The gateway rejects any new write operations for a file that is failing to upload. If the gateway does not have the entire file in cache, then it also rejects read operations. <br>• **UploadError** — The error that is preventing the file from uploading to Amazon S3. For more information and recommended steps to resolve these errors, see [Troubleshooting: File Gateway issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md"). <br>• **SizeInBytes** — The total size of the file. <br>• **IsWholeFileInCache** — Reports `TRUE` if all of the file's data is currently stored in the gateway cache. If this is TRUE for a file failing to upload to Amazon S3, then the gateway will allow the file to be read. |
+| samplebucket-iad | A.txt       | /A.txt   | /B.txt    | FILE | TRUE    | FALSE       | TRUE      | FALSE             |                    | 4           | FALSE              |
+
+- **Type** — Denotes whether the entry is for a
+  `FILE` or `DIRECTORY`.
+- **IsDirty** — Reports `TRUE` if there is
+  any type of change to the file which have not been uploaded to Amazon S3. This
+  includes changes to metadata such as file name and read/write permissions, even
+  if the file's data has not changed.
+- **IsDataDirty** — Reports `TRUE` if there
+  are changes to the file's data which have not been uploaded to Amazon S3.
+- **IsDeleted** — Reports `TRUE` if the file
+  was deleted on the gateway. If a file is marked as deleted, then it will always
+  be marked as dirty.
+- **IsFailingToUpload** — Reports `TRUE` if
+  there is a problem uploading the file to Amazon S3. This status resets every 24 hours
+  to allow the gateway to retry the upload and check whether the issue has been
+  resolved. The gateway rejects any new write operations for a file that is
+  failing to upload. If the gateway does not have the entire file in cache, then
+  it also rejects read operations.
+- **UploadError** — The error that is preventing the
+  file from uploading to Amazon S3. For more information and recommended steps to
+  resolve these errors, see [Troubleshooting: File Gateway issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
+- **SizeInBytes** — The total size of the file.
+- **IsWholeFileInCache** — Reports `TRUE` if
+  all of the file's data is currently stored in the gateway cache. If this is
+  TRUE for a file failing to upload to Amazon S3, then the gateway will allow
+  the file to be read.

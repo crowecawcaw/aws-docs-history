@@ -11,9 +11,20 @@ stored in object metadata. When your S3 File Gateway discovers objects that were
 by the S3 File Gateway, these objects are assigned default Unix file permissions. You can find
 the default Unix permissions in the following table.
 
-| Metadata                  | Description                                                                                                                                                      |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Directory permissions** | The Unix directory mode in the form "nnnn". For example, "0666" represents the access mode for all directories inside the file share. The default value is 0777. |
-| **File permissions**      | The Unix file mode in the form "nnnn". For example, "0666" represents the file mode inside the file share. The default value is 0666.                            |
-| **User ID**               | The default owner ID for files in the file share. The default value is 65534.                                                                                    |
-| **Group ID**              | The default group ID for the file share. The default value is 65534.                                                                                             | ###### To edit metadata defaults 1. Open the Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/"). 2. Choose **File shares**, and then choose the file share that you want to update. 3. For **Actions**, choose **Edit file metadata defaults**. 4. In the **Edit file metadata defaults** dialog box, provide the metadata information and choose **Save**. |
+| Metadata                  | Description                                                                                                                                                            |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Directory permissions** | The Unix directory mode in the form "nnnn". For example, "0666"<br>represents the access mode for all directories inside the file<br>share. The default value is 0777. |
+| **File permissions**      | The Unix file mode in the form "nnnn". For example, "0666"<br>represents the file mode inside the file share. The default value is<br>0666.                            |
+| **User ID**               | The default owner ID for files in the file share. The default<br>value is 65534.                                                                                       |
+| **Group ID**              | The default group ID for the file share. The default value is 65534.                                                                                                   |
+
+###### To edit metadata defaults
+
+1. Open the Storage Gateway console at
+   [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
+2. Choose **File shares**, and then choose the file share that
+   you want to update.
+3. For **Actions**, choose **Edit file metadata
+   defaults**.
+4. In the **Edit file metadata defaults** dialog box, provide
+   the metadata information and choose **Save**.
