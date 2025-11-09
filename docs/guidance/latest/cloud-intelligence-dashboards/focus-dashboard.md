@@ -25,12 +25,12 @@ features:
 
 ![Architecture High Level](images/images/architecture/focus-high-level.png)
 
-1. The service AWS Data Exports provides FOCUS data. Use CID [Data Exports](data-exports.md "data-exports.md") stack to activate that in your Management (Payer) Account and configure the replication to a Data Collection account.
+1. AWS Data Exports service provides FOCUS data. Use CID [Data Exports](data-exports.md "data-exports.md") stack to activate that in your Management (Payer) Account and automatically configure the replication to a Data Collection account.
 2. Install [CID FOCUS Dashboards](#focus-dashboard-deployment "#focus-dashboard-deployment") that leverages FOCUS data and provides a placeholder consolidated view in Amazon Athena that can be extended once added new FOCUS data from other providers.
-3. Install the next FOCUS data collection stack that collects the data from other data providers. Typically these stack are leveraging scheduled AWS Lambda or AWS Glue Jobs and retrieve data from API using credentials stored in AWS Secret Manager. Also The data in this case encrypted with custom KMS keys to protect sensitive billing information from any unauthorized access (including AWS).
-4. You can extend to more then one FOCUS data provider. Currently under available: [Microsoft Azure](https://catalog.workshops.aws/cidforazure/en-US/03-setup "https://catalog.workshops.aws/cidforazure/en-US/03-setup"), [Google Private Cloud](https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design "https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design") and [Oracle Cloud Infrastructure](https://github.com/awslabs/cid-oci-cost-dashboard/ "https://github.com/awslabs/cid-oci-cost-dashboard/")
-   [see more](#focus-dashboard-add-focus-data-from-other-cloud-providers "#focus-dashboard-add-focus-data-from-other-cloud-providers"). Contribution for other types of data exports are welcome.
-5. You can also export cost data from OnPremises datacenters or other service providers in the same format and integrate them in similar way.
+3. Install the FOCUS data collection stack(s) that collects the data from other data providers. Currently we provide integrations to collect FOCUS data from [Microsoft Azure](https://catalog.workshops.aws/cidforazure/en-US/03-setup "https://catalog.workshops.aws/cidforazure/en-US/03-setup"), [Google Cloud Platform](https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design "https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design") and [Oracle Cloud Infrastructure](https://github.com/awslabs/cid-oci-cost-dashboard/ "https://github.com/awslabs/cid-oci-cost-dashboard/")
+   [see more](#focus-dashboard-add-focus-data-from-other-cloud-providers "#focus-dashboard-add-focus-data-from-other-cloud-providers"). Typically these stack are leveraging scheduled AWS Lambda or AWS Glue Jobs and retrieve data from API using credentials stored in AWS Secret Manager. Also The data in this case encrypted with custom KMS keys to protect sensitive billing information from any unauthorized access (including AWS).
+4. Update [FOCUS Consolidation View](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/dashboards/focus/focus_consolidation_view/focus_consolidation_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/dashboards/focus/focus_consolidation_view/focus_consolidation_view.sql") to include tables with FOCUS data from other cloud providers
+5. You can also export cost data from OnPremises datacenters or SaaS providers in the same format and integrate them in similar way.
 
 ## Demo Dashboard
 
@@ -143,6 +143,9 @@ cid-cmd update --dashboard-id focus-dashboard
 - Yuriy Prykhodko, Principal Technical Account Manager
 - Iakov Gan, Senior Solution Architect
 - Zach Erdman, Senior Product Manager
+- Mo Mohoboob, Senior Specialist SA
+- Marco De Bianchi, Sr. Delivery Consultant
+- Soham Majumder, Technical Account Manager
 
 ## Contributors
 

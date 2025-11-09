@@ -6,20 +6,14 @@ Follow these steps to remove the dashboard.
 
 ### Step 1: all deployment architectures
 
-1. Log into the AWS Console of the account where you deployed the
-   dashboard. This is the AWS account ID that you specified in the `Dashboard account ID` parameter of the CloudFormation template.
-2. Open AWS CloudShell in the region where the dashboard is deployed.
-3. Execute the following command to delete the dashboard:
+1. Log into the AWS Console of the account where you deployed the dashboard. This is the AWS account ID that you specified in the `Dashboard account ID` parameter of the CloudFormation template.
+2. Open AWS CloudShell in the AWS Region where the dashboard is deployed.
+3. You need to use the dahboard YAML file corresponding to your [CRCD release](https://github.com/aws-samples/config-resource-compliance-dashboard/releases "https://github.com/aws-samples/config-resource-compliance-dashboard/releases"). Upload both `cid-crcd.yaml` and `cid-crcd-definition.yaml` on the `dashboard_template` directory to AWS CloudShell.
+4. Execute the following command to delete the dashboard:
 
 ```
-cid-cmd delete --resources cid-crcd.yaml --tag1 '`tag1`' --tag2 '`tag2`' --tag3 '`tag3`' --tag4 '`tag4`'
+cid-cmd delete --resources cid-crcd.yaml
 ```
-
-- `cid-crcd.yaml` is the template file provided in the
-  `dashboard_template` directory. Upload it to AWS CloudShell if needed.
-- The command provides default values for the tag parameters so that
-  they are not asked later. There is no need to specify your actual tag
-  names here.
 
 1. When prompted:
    - Select the `[cid-crcd] AWS Config Resource Compliance Dashboard (CRCD)` dashboard.
@@ -42,8 +36,7 @@ Follow these steps if you deployed the dashboard on the Log Archive account or a
 
 ###### Note
 
-Follow these steps if you deployed the dashboard on a dedicated
-Dashboard account.
+Follow these steps if you deployed the dashboard on a dedicated Dashboard account.
 
 #### Remove resources on Log Archive account
 

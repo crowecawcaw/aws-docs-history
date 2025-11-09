@@ -116,7 +116,7 @@ In the EUC Dashboard, to view the WorkSpaces Cloudwatch metrics in the **WorkSpa
 - During Deployment, make sure you selected **yes** for the **Include WorkSpaces Utilization Data Collection Module** parameter.
 - Go to the [Amazon Athena](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/") Query Editor.
 - Select the database that has the views for CID. By default it can be CUR 1 **cid_cur** cur or CID 2 **cid_data_export** cur2 database.
-- Run the following query to update **eucdashboard-metrics** view in Amazon Athena, **replacing the cur table name based on version of cur running.**
+- Run the following query to update **euc_metrics_view** view in Amazon Athena, **replacing the cur table name 'Line 89' based on version of cur running. e.g. "cid_data_export"."cur2" cur**
 
 ```
 CREATE OR REPLACE VIEW "euc_metrics_view" AS
@@ -174,41 +174,38 @@ SELECT
 , line_item_usage_account_id linked_account_id
 , line_item_line_item_type charge_type
 , line_item_product_code
-, product['product_name'] product_product_name
-, product['product_family'] product_product_family
 , line_item_usage_type
 , line_item_operation
 , line_item_line_item_description
+, line_item_resource_id
+, product['product_family'] product_product_family
 , product_instance_type
+, product_instance_family
+, product['product_name'] product_product_name
 , product['operating_system'] product_operating_system
 , product['group'] product_group
-, product['region_code'] product_region_code
 , product['bundle_description'] product_bundle_description
 , product['bundle_group'] product_bundle_group
-, product_instance_family
 , product['resource_type'] product_resource_type
+, product['storage'] product_storage
+, product['running_mode'] product_running_mode
+, product['group_description'] product_group_description
+, product['software_included'] product_software_included
 , pricing_unit
+, pricing_term
 , split_part(line_item_resource_id, '/', 2) resource_id
 , split_part(line_item_resource_id, ':', 6) resource_type
 , split_part(line_item_resource_id, 'directory/', 2) resource_directory_id
 , CAST(line_item_unblended_cost AS DECIMAL(18, 6)) line_item_unblended_cost
 , CAST(line_item_usage_amount AS DECIMAL(18, 6)) line_item_usage_amount
 , CAST(pricing_public_on_demand_cost AS DECIMAL(18, 6)) pricing_public_on_demand_cost
-, pricing_term
-, product['storage'] product_storage
-, product['running_mode'] product_running_mode
-, product['license'] product_license
-, product['group_description'] product_group_description
-, product['software_included'] product_software_included
-, line_item_resource_id
 , sum((CASE WHEN ("line_item_line_item_type" = 'Usage') THEN "line_item_usage_amount" ELSE 0 END)) "usage_quantity"
 , sum("line_item_unblended_cost") "unblended_cost"
-, sum((CASE WHEN ("line_item_line_item_type" = 'Usage') THEN "line_item_unblended_cost" ELSE "line_item_unblended_cost" END)) "amortized_cost"
 FROM
   (<CUR2TABLE> cur2
 LEFT JOIN workspace_metrics wi ON ((split_part(cur2.line_item_resource_id, '/', 2) = wi.workspaceid) AND (cur2.line_item_usage_account_id = wi.accountid)))
 WHERE ((("bill_billing_period_start_date" >= ("date_trunc"('month', current_timestamp) - INTERVAL  '7' MONTH)) AND (CAST("concat"("billing_period", '-01') AS date) >= ("date_trunc"('month', current_date) - INTERVAL  '7' MONTH)) AND (line_item_product_code = 'AmazonWorkSpaces')) OR (line_item_product_code = 'AmazonAppStream') OR (line_item_product_code = 'AWSDirectoryService'))
-GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52
 ```
 
 ## Update

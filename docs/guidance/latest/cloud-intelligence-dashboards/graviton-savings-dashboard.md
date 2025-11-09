@@ -162,9 +162,122 @@ large driver of eligibility for Graviton.
 Eligibility for RDS Graviton is driven based on RDS Type, Engine, and
 version number. The below table details out eligibility for Graviton:
 
-| Type                 | MySQL             | PostgreSQL                       | MariaDB                  |
-| -------------------- | ----------------- | -------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon RDS           | 8.0.17 and higher | 12.3, 13 and higher              | 10.4.13, 10.5 and higher |
-| Amazon Aurora        | 2.09.2 and higher | 11.9 and higher, 12.4 and higher | n/a                      | The RDS Graviton Opportunities section provides a breakdown of your Graviton eligibility based on several criteria. If your current database is using a compatible engine version and meets the required engine version, it will be displayed as "Eligible". If it meets the engine type requirements but does not meet the version number requirements, it will be listed as "Requires Update". Otherwise, it will be listed as "Ineligible". The "Eligibility and Savings by RDS Resource ID" table can be used as an explorer to identify workloads and determine potential savings for particular usage. You can use the controls at the top of the page and the filters on the table to isolate particular usage, and export the report to send to application teams to showcase instance-level savings. You can learn more about RDS Graviton Eligibility [here](https://aws.amazon.com/blogs/database/key-considerations-in-moving-to-graviton2-for-amazon-rds-and-amazon-aurora-databases/ "https://aws.amazon.com/blogs/database/key-considerations-in-moving-to-graviton2-for-amazon-rds-and-amazon-aurora-databases/") ![RDS - Opportunities](images/RDS_Opportunity_GSD.png) **ElastiCache** **Current Usage and Savings** Similar to EC2 and RDS the Current Usage and Savings visuals for Elasticache, provide details on your current usage, realized savings, cost, and savings percentage. It also provides details by cache engine, as this is a large driver of eligibility for Graviton. ![ElastiCache](images/ElastiCache_UsageSavings_GSD.png) **Graviton Opportunities** The ElastiCache Graviton Opportunity section highlights the potential monthly savings from using Graviton processors for your ElastiCache clusters. This section identifies the eligible clusters that meet the criteria to migrate to Graviton-based instances. The eligibility for Graviton usage is based on the specific database engine and version running on the cluster. Your caches are eligible to move to Graviton if they are: <br>• Redis - 5.0.6 and above <br>• Memcached - 1.5.16 and above For more information, see the following supported versions documentation for [Redis](../../../AmazonElastiCache/latest/red-ug/supported-engine-versions.md "../../../AmazonElastiCache/latest/red-ug/supported-engine-versions.md") and [Memcached](../../../AmazonElastiCache/latest/mem-ug/supported-engine-versions-mc.md "../../../AmazonElastiCache/latest/mem-ug/supported-engine-versions-mc.md") ![ElastiCache](images/ElastiCache_Opportunity_GSD.png) **OpenSearch** **Current Usage and Savings** Similar to other services, the Current Amazon OpenSearch Graviton Usage and Savings section provides insights into your usage by engine to give you context into the eligibility of Graviton usage. ![OpenSearch - Existing Usage](images/OpenSearch_UsageSavings_GSD.png) **Graviton Opportunities** OpenSearch Graviton eligibility is a bit more straight forward than other AWS Managed Services. The below table describes eligibility for both Amazon ElasticSearch and AmazonOpenSearch: |
-| Type                 | Required Version  |                                  | ---                      | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Amazon ElasticSearch | 7.9 or higher     |                                  | Amazon OpenSearch        | All versions eligible                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | For more information on supported OpenSearch instance types, read more in the official [Amazon OpenSearch Service Documentation](../../../opensearch-service/latest/developerguide/supported-instance-types.md "../../../opensearch-service/latest/developerguide/supported-instance-types.md") ![OpenSearch - Opportunity Explorer](images/OpenSearch_Opportunity_GSD.png) ### Authors <br>• Rosa Corley, Senior FinOps Commercial Architect <br>• Rajani Guptan, Senior Technical Account Manager <br>• Rem Baumann, Ex-Amazonian <br>• Erik Petersen, Ex-Amazonian ### Contributors <br>• Iakov Gan, Senior Solution Architect <br>• Eric Christensen, Technical Account Manager <br>• Yuriy Prykhodko, Principal Technical Account Manager <br>• Travis James, Optimization Solutions Architect <br>• John Masci, Principle Optimization Solutions Architect <br>• Vinay Gaonkar, Principal Go To Market, EC2 Spot <br>• Hahnara Hyun, Senior Specialist Solutions Architect, EC2 Graviton <br>• Zi Shen Lim, Sustainability GTM, Graviton <br>• Bhavik Gandhi, FinOps Commercial Architect <br>• Shankar Gopalan, WWSO Specialist ## Feedback Support If you have feedback or questions on the dashboard, please send your inquiries to [aws-cid-graviton-savings-dashboard@amazon.com](mailto:aws-cid-graviton-savings-dashboard@amazon.com "mailto:aws-cid-graviton-savings-dashboard@amazon.com") ###### Note These dashboards and their content: (a) are for informational purposes only, (b) represent current AWS product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS content, products or services are provided "as is" without warranties, representations, or conditions of any kind, whether express or implied. The responsibilities and liabilities of AWS to its customers are controlled by AWS agreements, and this document is not part of, nor does it modify, any agreement between AWS and its customers. |
+| Type          | MySQL             | PostgreSQL                       | MariaDB                     |
+| ------------- | ----------------- | -------------------------------- | --------------------------- |
+| Amazon RDS    | 8.0.17 and higher | 12.3, 13 and higher              | 10.4.13, 10.5 and<br>higher |
+| Amazon Aurora | 2.09.2 and higher | 11.9 and higher, 12.4 and higher | n/a                         |
+
+The RDS Graviton Opportunities section provides a breakdown of your
+Graviton eligibility based on several criteria. If your current database
+is using a compatible engine version and meets the required engine
+version, it will be displayed as "Eligible". If it meets the engine
+type requirements but does not meet the version number requirements, it
+will be listed as "Requires Update". Otherwise, it will be listed as
+"Ineligible". The "Eligibility and Savings by RDS Resource ID" table
+can be used as an explorer to identify workloads and determine potential
+savings for particular usage. You can use the controls at the top of the
+page and the filters on the table to isolate particular usage, and
+export the report to send to application teams to showcase
+instance-level savings.
+
+You can learn more about RDS Graviton Eligibility
+[here](https://aws.amazon.com/blogs/database/key-considerations-in-moving-to-graviton2-for-amazon-rds-and-amazon-aurora-databases/ "https://aws.amazon.com/blogs/database/key-considerations-in-moving-to-graviton2-for-amazon-rds-and-amazon-aurora-databases/")
+
+![RDS - Opportunities](images/RDS_Opportunity_GSD.png)
+
+**ElastiCache**
+
+**Current Usage and Savings**
+
+Similar to EC2 and RDS the Current Usage and Savings visuals for
+Elasticache, provide details on your current usage, realized savings,
+cost, and savings percentage. It also provides details by cache engine,
+as this is a large driver of eligibility for Graviton.
+
+![ElastiCache](images/ElastiCache_UsageSavings_GSD.png)
+
+**Graviton Opportunities**
+
+The ElastiCache Graviton Opportunity section highlights the potential
+monthly savings from using Graviton processors for your ElastiCache
+clusters. This section identifies the eligible clusters that meet the
+criteria to migrate to Graviton-based instances. The eligibility for
+Graviton usage is based on the specific database engine and version
+running on the cluster. Your caches are eligible to move to Graviton if
+they are:
+
+- Redis - 5.0.6 and above
+- Memcached - 1.5.16 and above
+  For more information, see the following supported versions documentation
+  for
+  [Redis](../../../AmazonElastiCache/latest/red-ug/supported-engine-versions.md "../../../AmazonElastiCache/latest/red-ug/supported-engine-versions.md")
+  and
+  [Memcached](../../../AmazonElastiCache/latest/mem-ug/supported-engine-versions-mc.md "../../../AmazonElastiCache/latest/mem-ug/supported-engine-versions-mc.md")
+
+![ElastiCache](images/ElastiCache_Opportunity_GSD.png)
+
+**OpenSearch**
+
+**Current Usage and Savings**
+
+Similar to other services, the Current Amazon OpenSearch Graviton Usage
+and Savings section provides insights into your usage by engine to give
+you context into the eligibility of Graviton usage.
+
+![OpenSearch - Existing Usage](images/OpenSearch_UsageSavings_GSD.png)
+
+**Graviton Opportunities**
+
+OpenSearch Graviton eligibility is a bit more straight forward than
+other AWS Managed Services. The below table describes eligibility for
+both Amazon ElasticSearch and AmazonOpenSearch:
+
+| Type                 | Required Version      |
+| -------------------- | --------------------- |
+| Amazon ElasticSearch | 7.9 or higher         |
+| Amazon OpenSearch    | All versions eligible |
+
+For more information on supported OpenSearch instance types, read more
+in the official
+[Amazon
+OpenSearch Service Documentation](../../../opensearch-service/latest/developerguide/supported-instance-types.md "../../../opensearch-service/latest/developerguide/supported-instance-types.md")
+
+![OpenSearch - Opportunity Explorer](images/OpenSearch_Opportunity_GSD.png)
+
+### Authors
+
+- Rosa Corley, Senior FinOps Commercial Architect
+- Rajani Guptan, Senior Technical Account Manager
+- Rem Baumann, Ex-Amazonian
+- Erik Petersen, Ex-Amazonian
+
+### Contributors
+
+- Iakov Gan, Senior Solution Architect
+- Eric Christensen, Technical Account Manager
+- Yuriy Prykhodko, Principal Technical Account Manager
+- Travis James, Optimization Solutions Architect
+- John Masci, Principle Optimization Solutions Architect
+- Vinay Gaonkar, Principal Go To Market, EC2 Spot
+- Hahnara Hyun, Senior Specialist Solutions Architect, EC2 Graviton
+- Zi Shen Lim, Sustainability GTM, Graviton
+- Bhavik Gandhi, FinOps Commercial Architect
+- Shankar Gopalan, WWSO Specialist
+
+## Feedback Support
+
+If you have feedback or questions on the dashboard, please send your
+inquiries to [aws-cid-graviton-savings-dashboard@amazon.com](mailto:aws-cid-graviton-savings-dashboard@amazon.com "mailto:aws-cid-graviton-savings-dashboard@amazon.com")
+
+###### Note
+
+These dashboards and their content: (a) are for informational
+purposes only, (b) represent current AWS product offerings and
+practices, which are subject to change without notice, and (c) does not
+create any commitments or assurances from AWS and its affiliates,
+suppliers or licensors. AWS content, products or services are provided
+"as is" without warranties, representations, or conditions of any
+kind, whether express or implied. The responsibilities and liabilities
+of AWS to its customers are controlled by AWS agreements, and this
+document is not part of, nor does it modify, any agreement between AWS
+and its customers.

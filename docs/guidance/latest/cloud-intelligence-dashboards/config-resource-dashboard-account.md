@@ -2,11 +2,7 @@
 
 ## Deployment Instructions
 
-The infrastructure needed to collect and process the data is defined in
-AWS CloudFormation. The dashboard resources are defined in a template
-file that can be installed using the
-[CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md")
-tool.
+The infrastructure needed to collect and process the data is defined in AWS CloudFormation. The dashboard resources are defined in a template file that can be installed using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool.
 
 ## Installation on dedicated Dashboard account
 
@@ -14,27 +10,24 @@ The installation process consists of three steps:
 
 1. On the Dashboard account, deploy data pipeline resources for the dashboard using a CloudFormation stack.
 2. On the Log Archive account, configure the S3 replication rule that copies AWS Config files from the Log Archive bucket to the Dashboard bucket using a CloudFormation stack.
-3. On the Dashboard account, deploy Quicksight resources for the dashboard and the necessary Athena views using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
+3. On the Dashboard account, deploy QuickSight resources for the dashboard and the necessary Athena views using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") command line tool.
 
 ![CRCD Dashboard: deployment steps on Dashboard account](images/images/dashboards/crcd-deployment-steps-dashboard-account.png)
 
 ###### Note
 
-The S3 replication rule configured at step 2 is valid only for
-new AWS Config files delivered to the Log Archive bucket, i.e. it **will
-not** replicate files that previously existed on the Log Archive bucket.
+The S3 replication rule configured at step 2 is valid only for new AWS Config files delivered to the Log Archive bucket, i.e. it **will not** replicate files that previously existed on the Log Archive bucket.
 
 ## Deployment Steps
 
 ###### Note
 
-Ensure you are in the region where both your Log Archive bucket
-and Amazon QuickSight are deployed.
+Ensure you are in the AWS Region where both your Log Archive bucket and Amazon QuickSight are deployed.
 
 ## Step 1 [in Dashboard account]
 
 1. Log into the AWS Management Console for your Dashboard account.
-2. Ensure you are in the same region as the Log Archive bucket.
+2. Ensure you are in the same Region as the Log Archive bucket.
 3. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources")
@@ -87,21 +80,14 @@ and Amazon QuickSight are deployed.
 
 **Manual setup of S3 replication**
 
-1. Log onto the Log Archive Account and open the Amazon S3 console.
-2. You can replicate AWS Config files from the centralized Log Archive
-   bucket to the Dashboard bucket through an Amazon S3 Replication
-   configuration, follow these
-   [instructions](../../../AmazonS3/latest/userguide/replication-walkthrough-2.md "../../../AmazonS3/latest/userguide/replication-walkthrough-2.md").
-3. Specify the IAM role created by the CloudFormation template at Step 2,
-   as reported in the output value `ReplicationRoleArn` of the template.
-   If your Log Archive bucket is SSE-KMS encrypted, the replication role
-   will have the necessary permissions, no need for additional steps.
+1. Log onto the Log Archive account and open the Amazon S3 console.
+2. You can replicate AWS Config files from the centralized Log Archive bucket to the Dashboard bucket through an Amazon S3 Replication configuration, follow these [instructions](../../../AmazonS3/latest/userguide/replication-walkthrough-2.md "../../../AmazonS3/latest/userguide/replication-walkthrough-2.md").
+3. Specify the IAM role created by the CloudFormation template at Step 2, as reported in the output value `ReplicationRoleArn` of the template.
+   If your Log Archive bucket is SSE-KMS encrypted, the replication role will have the necessary permissions, no need for additional steps.
 
 ###### Note
 
-The S3 replication rule configured at step 2 is valid only for
-new AWS Config files delivered to the Log Archive bucket, i.e. it **will
-not** replicate files that previously existed on the Log Archive bucket.
+The S3 replication rule configured at step 2 is valid only for new AWS Config files delivered to the Log Archive bucket, i.e. it **will not** replicate files that previously existed on the Log Archive bucket.
 
 ## Step 3 [in Dashboard account]
 
@@ -109,81 +95,48 @@ Log back into the AWS Management Console for your Dashboard account.
 
 ###### Note
 
-At this step you will specify the tags to be used to display
-resources in the [Inventory management](config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management "config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management")
-part of the dashboard. Use the tags that classify workloads
-and resources in your organization.
+At this step you will specify the tags to be used to display resources in the [Resource inventory management](config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management "config-resource-compliance-dashboard.md#config-resource-compliance-dashboard-inventory-management") part of the dashboard. Use the tags that classify workloads and resources in your organization.
 
-1. Navigate to the AWS Management Console and open
-   [AWS CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"). Ensure to be
-   in the correct region.
-2. Install the latest pip package of [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool:
+1. Navigate to the AWS Management Console and open [AWS CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell"). Ensure to be in the correct Region.
+2. Install the latest pip package of the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md") tool:
 
 ```
 pip3 install --upgrade cid-cmd
 ```
 
-1.  Deploy the dashboard by running the following command (replace the
-    parameters accordingly):
+1. Deploy the dashboard by running the following command (replace the parameters accordingly):
+   - `--tag1` The name of the first tag you use to categorize resources.
+   - `--tag2` The name of the second tag you use to categorize resources.
+   - `--tag3` The name of the third tag you use to categorize resources.
+   - `--tag4` The name of the fourth tag you use to categorize resources.
+   - Notice that tag parameters are case sensitive and cannot be empty. If you do not use a tag, pass a short default value, e.g. `--tag4 'NA'`.
+   - Leave all other parameters at their default value.
 
-        * `--tag1` The name of the first tag you use to categorize workloads.
-        * `--tag2` The name of the second tag you use to categorize workloads.
-        * `--tag3` The name of the third tag you use to categorize workloads.
-        * `--tag4` The name of the fourth tag you use to categorize workloads.
-        * Notice that tag parameters are case sensitive and cannot be empty. If
-        you do not use a tag, pass a short default value, e.g. `--tag4 'NA'`.
-        * Leave all other parameters at their default value.
+   ```
+   cid-cmd deploy \
+      --resources 'https://raw.githubusercontent.com/aws-samples/config-resource-compliance-dashboard/refs/heads/main/dashboard_template/cid-crcd.yaml' \
+      --dashboard-id 'cid-crcd' \
+      --athena-database 'cid_crcd_database' \
+      --athena-workgroup 'crcd-dashboard' \
+      --tag1 'REPLACE_WITH_CUSTOM_TAG_1' \
+      --tag2 'REPLACE_WITH_CUSTOM_TAG_2' \
+      --tag3 'REPLACE_WITH_CUSTOM_TAG_3' \
+      --tag4 'REPLACE_WITH_CUSTOM_TAG_4'
+   ```
 
+1. The CID-CMD tool will prompt you to select a datasource: `[quicksight-datasource-id] Please choose DataSource (Select the first one if not sure):`.
+   - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
+   - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 
-
-        ```
-        cid-cmd deploy \
-           --resources 'https://raw.githubusercontent.com/aws-samples/config-resource-compliance-dashboard/refs/heads/main/dashboard_template/cid-crcd.yaml' \
-           --dashboard-id 'cid-crcd' \
-           --athena-database 'cid_crcd_database' \
-           --athena-workgroup 'crcd-dashboard' \
-           --tag1 'REPLACE_WITH_CUSTOM_TAG_1' \
-           --tag2 'REPLACE_WITH_CUSTOM_TAG_2' \
-           --tag3 'REPLACE_WITH_CUSTOM_TAG_3' \
-           --tag4 'REPLACE_WITH_CUSTOM_TAG_4'
-        ```
-
-1.  The CID-CMD tool will prompt you to select a datasource:
-    `[quicksight-datasource-id] Please choose DataSource (Select the first one if not sure):`.
-
-        * If you have installed other CID/CUDOS dashboards, select the existing
-        datasource `CID-CMD-Athena`.
-        * Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
-
-1.  When prompted
-    `[quicksight-datasource-role] Please choose a QuickSight role.`
-    select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or
-    `CidCmdQuickSightDataSourceRole` (the second option will appear as default if you have other CID/CUDOS dashboards).
-1.  In certain cases the installer will show an updated IAM policy JSON
-    code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`.
-    Select `yes`.
-1.  When prompted
-    `[timezone] Please select timezone for datasets scheduled refresh.:`
-    select the time zone for dataset scheduled refresh in your region (it is
-    already preselected).
-1.  When prompted
-    `[share-with-account] Share this dashboard with everyone in the account?:`
-    select the option that works for you.
-
-## Configure dataset refresh schedule (optional)
-
-By default, the datasets for the CRCD dashboard are refreshed once a
-day. You can optionally configure the Refresh Schedule in QuickSight
-with a different frequency:
-
-1. Navigate to QuickSight and then `Datasets`.
-2. All the datasets for this dashboard have the prefix `config_`.
-3. Click on a dataset, and then open the `Refresh` tab.
-4. Click on `ADD NEW SCHEDULE`, select `Full refresh`, and choose the desired frequency.
+1. When prompted `[quicksight-datasource-role] Please choose a QuickSight role.` select `CidCmdQuickSightDataSourceRole <ADD NEW ROLE>` or `CidCmdQuickSightDataSourceRole` (the second option will appear as default if you have other CID/CUDOS dashboards).
+1. In certain cases the installer will show an updated IAM policy JSON code and prompt `? [confirm-policy-AthenaAccess] Please confirm:`. Select `yes`.
+1. When prompted `[timezone] Please select timezone for datasets scheduled refresh.:` select the time zone for dataset scheduled refresh in your Region (it is already preselected).
+1. When prompted `Select taxonomy fields to add as dashboard filters and group by fields` select `Looks good` without adding taxonomy items. Taxonomy is not yet supported by the dashboard.
+1. When prompted `[share-with-account] Share this dashboard with everyone in the account?:` select the option that works for you.
 
 ## Visualize the dashboard
 
 1. Navigate to QuickSight and then `Dashboards`.
-2. Ensure you are in the correct region.
+2. Ensure you are in the correct Region.
 3. Click on the **AWS Config Resource Compliance Dashboard (CRCD)**
    dashboard.
