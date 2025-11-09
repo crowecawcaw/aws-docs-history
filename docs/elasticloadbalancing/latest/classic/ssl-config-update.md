@@ -98,10 +98,12 @@ Windows
 
 The following is example output:
 
-````
+```
 ------------------------------------------
-|      DescribeLoadBalancerPolicies      | +----------------------------------------+
-|               PolicyName               | +----------------------------------------+
+|      DescribeLoadBalancerPolicies      |
++----------------------------------------+
+|               PolicyName               |
++----------------------------------------+
 |  ELBSecurityPolicy-2016-08             |
 |  ELBSecurityPolicy-TLS-1-2-2017-01     |
 |  ELBSecurityPolicy-TLS-1-1-2017-01     |
@@ -112,5 +114,145 @@ The following is example output:
 |  ELBSecurityPolicy-2014-01             |
 |  ELBSecurityPolicy-2011-08             |
 |  ELBSample-ELBDefaultCipherPolicy      |
-|  ELBSample-OpenSSLDefaultCipherPolicy  | +----------------------------------------+ ``` To determine which ciphers are enabled for a policy, use the following command: ``` aws elb describe-load-balancer-policies --policy-names `ELBSecurityPolicy-2016-08` --output table ``` For information about the configuration for the predefined security policies, see [Predefined SSL security policies for Classic Load Balancers](elb-security-policy-table.md "elb-security-policy-table.md"). 2. Use the [create-load-balancer-policy](../../../cli/latest/reference/elb/create-load-balancer-policy.md "../../../cli/latest/reference/elb/create-load-balancer-policy.md") command to create an SSL negotiation policy using one of the predefined security policies that you described in the previous step. For example, the following command uses the default predefined security policy: ``` `aws elb create-load-balancer-policy --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy` --policy-type-name SSLNegotiationPolicyType --policy-attributes AttributeName=Reference-Security-Policy,AttributeValue=ELBSecurityPolicy-2016-08` ``` If you exceed the limit on the number of policies for the load balancer, use the [delete-load-balancer-policy](../../../cli/latest/reference/elb/delete-load-balancer-policy.md "../../../cli/latest/reference/elb/delete-load-balancer-policy.md") command to delete any unused policies. 3. (Optional) Use the following [describe-load-balancer-policies](../../../cli/latest/reference/elb/describe-load-balancer-policies.md "../../../cli/latest/reference/elb/describe-load-balancer-policies.md") command to verify that the policy is created: ``` `aws elb describe-load-balancer-policies --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy`` ``` The response includes the description of the policy. 4. Use the following [set-load-balancer-policies-of-listener](../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md "../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md") command to enable the policy on load balancer port 443: ``` `aws elb set-load-balancer-policies-of-listener --load-balancer-name `my-loadbalancer` --load-balancer-port 443 --policy-names `my-SSLNegotiation-policy`` ``` ###### Note The `set-load-balancer-policies-of-listener` command replaces the current set of policies for the specified load balancer port with the the specified set of policies. The `--policy-names` list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. 5. (Optional) Use the following [describe-load-balancers](../../../cli/latest/reference/elb/describe-load-balancers.md "../../../cli/latest/reference/elb/describe-load-balancers.md") command to verify that the new policy is enabled for the load balancer port: ``` `aws elb describe-load-balancers --load-balancer-name `my-loadbalancer`` ``` The response shows that the policy is enabled on port 443. ``` ... { "Listener": { "InstancePort": 443, "SSLCertificateId": "`ARN`", "LoadBalancerPort": 443, "Protocol": "HTTPS", "InstanceProtocol": "HTTPS" }, "PolicyNames": [ "my-SSLNegotiation-policy" ] } ... ``` When you create a custom security policy, you must enable at least one protocol and one cipher. The DSA and RSA ciphers are specific to the signing algorithm and are used to create the SSL certificate. If you already have an SSL certificate, be sure to enable the cipher that was used to create the certificate. The name of your custom policy must not begin with `ELBSecurityPolicy-` or `ELBSample-`, as these prefixes are reserved for the names of the predefined security policies. ###### To use a custom SSL security policy 1. Use the [create-load-balancer-policy](../../../cli/latest/reference/elb/create-load-balancer-policy.md "../../../cli/latest/reference/elb/create-load-balancer-policy.md") command to create an SSL negotiation policy using a custom security policy. For example: ``` `aws elb create-load-balancer-policy --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy` --policy-type-name SSLNegotiationPolicyType --policy-attributes AttributeName=Protocol-TLSv1.2,AttributeValue=true AttributeName=Protocol-TLSv1.1,AttributeValue=true AttributeName=DHE-RSA-AES256-SHA256,AttributeValue=true AttributeName=Server-Defined-Cipher-Order,AttributeValue=true` ``` If you exceed the limit on the number of policies for the load balancer, use the [delete-load-balancer-policy](../../../cli/latest/reference/elb/delete-load-balancer-policy.md "../../../cli/latest/reference/elb/delete-load-balancer-policy.md") command to delete any unused policies. 2. (Optional) Use the following [describe-load-balancer-policies](../../../cli/latest/reference/elb/describe-load-balancer-policies.md "../../../cli/latest/reference/elb/describe-load-balancer-policies.md") command to verify that the policy is created: ``` `aws elb describe-load-balancer-policies --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy`` ``` The response includes the description of the policy. 3. Use the following [set-load-balancer-policies-of-listener](../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md "../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md") command to enable the policy on load balancer port 443: ``` `aws elb set-load-balancer-policies-of-listener --load-balancer-name `my-loadbalancer` --load-balancer-port 443 --policy-names `my-SSLNegotiation-policy`` ``` ###### Note The `set-load-balancer-policies-of-listener` command replaces the current set of policies for the specified load balancer port with the the specified set of policies. The `--policy-names` list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. 4. (Optional) Use the following [describe-load-balancers](../../../cli/latest/reference/elb/describe-load-balancers.md "../../../cli/latest/reference/elb/describe-load-balancers.md") command to verify that the new policy is enabled for the load balancer port: ``` `aws elb describe-load-balancers --load-balancer-name `my-loadbalancer`` ``` The response shows that the policy is enabled on port 443. ``` ... { "Listener": { "InstancePort": 443, "SSLCertificateId": "`ARN`", "LoadBalancerPort": 443, "Protocol": "HTTPS", "InstanceProtocol": "HTTPS" }, "PolicyNames": [ "my-SSLNegotiation-policy" ] } ... ```
-````
+|  ELBSample-OpenSSLDefaultCipherPolicy  |
++----------------------------------------+
+```
+
+To determine which ciphers are enabled for a policy, use the following
+command:
+
+```
+aws elb describe-load-balancer-policies --policy-names `ELBSecurityPolicy-2016-08` --output table
+```
+
+For information about the configuration for the predefined security
+policies, see [Predefined SSL security policies for Classic Load Balancers](elb-security-policy-table.md "elb-security-policy-table.md"). 2. Use the [create-load-balancer-policy](../../../cli/latest/reference/elb/create-load-balancer-policy.md "../../../cli/latest/reference/elb/create-load-balancer-policy.md") command to create an SSL
+negotiation policy using one of the predefined security policies that you
+described in the previous step. For example, the following command uses the
+default predefined security policy:
+
+```
+`aws elb create-load-balancer-policy --load-balancer-name `my-loadbalancer`
+--policy-name `my-SSLNegotiation-policy` --policy-type-name SSLNegotiationPolicyType
+--policy-attributes AttributeName=Reference-Security-Policy,AttributeValue=ELBSecurityPolicy-2016-08`
+```
+
+If you exceed the limit on the number of policies for the load balancer,
+use the [delete-load-balancer-policy](../../../cli/latest/reference/elb/delete-load-balancer-policy.md "../../../cli/latest/reference/elb/delete-load-balancer-policy.md") command to delete any unused
+policies. 3. (Optional) Use the following [describe-load-balancer-policies](../../../cli/latest/reference/elb/describe-load-balancer-policies.md "../../../cli/latest/reference/elb/describe-load-balancer-policies.md") command to verify that the
+policy is created:
+
+```
+`aws elb describe-load-balancer-policies --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy``
+```
+
+The response includes the description of the policy. 4. Use the following [set-load-balancer-policies-of-listener](../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md "../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md") command to enable the
+policy on load balancer port 443:
+
+```
+`aws elb set-load-balancer-policies-of-listener --load-balancer-name `my-loadbalancer` --load-balancer-port 443 --policy-names `my-SSLNegotiation-policy``
+```
+
+###### Note
+
+The `set-load-balancer-policies-of-listener` command
+replaces the current set of policies for the specified load balancer
+port with the the specified set of policies. The
+`--policy-names` list must include all policies to be
+enabled. If you omit a policy that is currently enabled, it is
+disabled. 5. (Optional) Use the following [describe-load-balancers](../../../cli/latest/reference/elb/describe-load-balancers.md "../../../cli/latest/reference/elb/describe-load-balancers.md") command to verify that the new policy
+is enabled for the load balancer port:
+
+```
+`aws elb describe-load-balancers --load-balancer-name `my-loadbalancer``
+```
+
+The response shows that the policy is enabled on port 443.
+
+```
+...
+  {
+      "Listener": {
+          "InstancePort": 443,
+          "SSLCertificateId": "`ARN`",
+          "LoadBalancerPort": 443,
+          "Protocol": "HTTPS",
+          "InstanceProtocol": "HTTPS"
+      },
+      "PolicyNames": [
+          "my-SSLNegotiation-policy"
+      ]
+  }
+...
+```
+
+When you create a custom security policy, you must enable at least one protocol
+and one cipher. The DSA and RSA ciphers are specific to the signing algorithm and
+are used to create the SSL certificate. If you already have an SSL certificate, be
+sure to enable the cipher that was used to create the certificate. The name of your
+custom policy must not begin with `ELBSecurityPolicy-` or
+`ELBSample-`, as these prefixes are reserved for the names of the
+predefined security policies.
+
+###### To use a custom SSL security policy
+
+1. Use the [create-load-balancer-policy](../../../cli/latest/reference/elb/create-load-balancer-policy.md "../../../cli/latest/reference/elb/create-load-balancer-policy.md") command to create an SSL
+   negotiation policy using a custom security policy. For example:
+
+```
+`aws elb create-load-balancer-policy --load-balancer-name `my-loadbalancer`
+ --policy-name `my-SSLNegotiation-policy` --policy-type-name SSLNegotiationPolicyType
+ --policy-attributes AttributeName=Protocol-TLSv1.2,AttributeValue=true
+ AttributeName=Protocol-TLSv1.1,AttributeValue=true
+ AttributeName=DHE-RSA-AES256-SHA256,AttributeValue=true
+ AttributeName=Server-Defined-Cipher-Order,AttributeValue=true`
+```
+
+If you exceed the limit on the number of policies for the load balancer,
+use the [delete-load-balancer-policy](../../../cli/latest/reference/elb/delete-load-balancer-policy.md "../../../cli/latest/reference/elb/delete-load-balancer-policy.md") command to delete any unused
+policies. 2. (Optional) Use the following [describe-load-balancer-policies](../../../cli/latest/reference/elb/describe-load-balancer-policies.md "../../../cli/latest/reference/elb/describe-load-balancer-policies.md") command to verify that the
+policy is created:
+
+```
+`aws elb describe-load-balancer-policies --load-balancer-name `my-loadbalancer` --policy-name `my-SSLNegotiation-policy``
+```
+
+The response includes the description of the policy. 3. Use the following [set-load-balancer-policies-of-listener](../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md "../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md") command to enable the
+policy on load balancer port 443:
+
+```
+`aws elb set-load-balancer-policies-of-listener --load-balancer-name `my-loadbalancer` --load-balancer-port 443 --policy-names `my-SSLNegotiation-policy``
+```
+
+###### Note
+
+The `set-load-balancer-policies-of-listener` command
+replaces the current set of policies for the specified load balancer
+port with the the specified set of policies. The
+`--policy-names` list must include all policies to be
+enabled. If you omit a policy that is currently enabled, it is
+disabled. 4. (Optional) Use the following [describe-load-balancers](../../../cli/latest/reference/elb/describe-load-balancers.md "../../../cli/latest/reference/elb/describe-load-balancers.md") command to verify that the new policy
+is enabled for the load balancer port:
+
+```
+`aws elb describe-load-balancers --load-balancer-name `my-loadbalancer``
+```
+
+The response shows that the policy is enabled on port 443.
+
+```
+...
+  {
+      "Listener": {
+          "InstancePort": 443,
+          "SSLCertificateId": "`ARN`",
+          "LoadBalancerPort": 443,
+          "Protocol": "HTTPS",
+          "InstanceProtocol": "HTTPS"
+      },
+      "PolicyNames": [
+          "my-SSLNegotiation-policy"
+      ]
+  }
+...
+```

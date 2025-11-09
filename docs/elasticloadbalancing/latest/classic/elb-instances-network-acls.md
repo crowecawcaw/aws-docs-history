@@ -16,10 +16,13 @@ from the CIDR of the VPC to `0.0.0.0/0`.
 
 The following are the recommended inbound rules.
 
-| Source      | Protocol | Port Range          | Comment                                                               |
-| ----------- | -------- | ------------------- | --------------------------------------------------------------------- | ------------------------------------------------- |
-| `VPC CIDR`  | TCP      | `instance listener` | Allow inbound traffic from the VPC CIDR on the instance listener port |
-| `VPC CIDR`  | TCP      | `health check`      | Allow inbound traffic from the VPC CIDR on the health check port      | The following are the recommended outbound rules. |
-| Destination | Protocol | Port Range          | Comment                                                               |
-| ---         | ---      | ---                 | ---                                                                   |
-| `VPC CIDR`  | TCP      | 1024-65535          | Allow outbound traffic to the VPC CIDR on the ephemeral ports         |
+| Source     | Protocol | Port Range          | Comment                                                                  |
+| ---------- | -------- | ------------------- | ------------------------------------------------------------------------ |
+| `VPC CIDR` | TCP      | `instance listener` | Allow inbound traffic from the VPC CIDR on the instance listener<br>port |
+| `VPC CIDR` | TCP      | `health check`      | Allow inbound traffic from the VPC CIDR on the health check port         |
+
+The following are the recommended outbound rules.
+
+| Destination | Protocol | Port Range | Comment                                                       |
+| ----------- | -------- | ---------- | ------------------------------------------------------------- |
+| `VPC CIDR`  | TCP      | 1024-65535 | Allow outbound traffic to the VPC CIDR on the ephemeral ports |

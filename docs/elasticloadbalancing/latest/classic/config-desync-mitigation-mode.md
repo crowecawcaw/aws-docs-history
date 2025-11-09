@@ -83,8 +83,49 @@ The following table describes how Classic Load Balancers treat requests based on
 classification.
 
 | Classification | Monitor mode | Defensive mode | Strictest mode |
-| -------------- | ------------ | -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------ | -------------- | -------------- |
 | Compliant      | Allowed      | Allowed        | Allowed        |
 | Acceptable     | Allowed      | Allowed        | Blocked        |
 | Ambiguous      | Allowed      | Allowed¹       | Blocked        |
-| Severe         | Allowed      | Blocked        | Blocked        | ¹ Routes the requests but closes the client and target connections. ## Modify desync mitigation mode ###### To update desync mitigation mode using the console 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. On the navigation pane, under **Load Balancing**, choose **Load Balancers**. 3. Choose the name of the load balancer to open its detail page. 4. On the **Attributes** tab, choose **Edit**. 5. On the **Edit load balancer attributes** page, under **Traffic configuration**, choose **Defensive - recommended**, **Strictest**, or **Monitor**. 6. Choose **Save changes**. ###### To update desync mitigation mode using the AWS CLI Use the [modify-load-balancer-attributes](../../../cli/latest/reference/elb/modify-load-balancer-attributes.md "../../../cli/latest/reference/elb/modify-load-balancer-attributes.md") command with the `elb.http.desyncmitigationmode` attribute set to `monitor`, `defensive`, or `strictest`. ``aws elb modify-load-balancer-attributes --load-balancer-name `my-load-balancer` --load-balancer-attributes file://attribute.json`` The following is the contents of `attribute.json`. `{ "AdditionalAttributes": [ { "Key": "elb.http.desyncmitigationmode", "Value": "strictest" } ] }` |
+| Severe         | Allowed      | Blocked        | Blocked        |
+
+¹ Routes the requests but closes the client and target connections.
+
+## Modify desync mitigation
+
+mode
+
+###### To update desync mitigation mode using the console
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the navigation pane, under **Load Balancing**, choose
+   **Load Balancers**.
+3. Choose the name of the load balancer to open its detail page.
+4. On the **Attributes** tab, choose **Edit**.
+5. On the **Edit load balancer attributes** page, under **Traffic configuration**, choose **Defensive - recommended**, **Strictest**, or **Monitor**.
+6. Choose **Save changes**.
+
+###### To update desync mitigation mode using the AWS CLI
+
+Use the [modify-load-balancer-attributes](../../../cli/latest/reference/elb/modify-load-balancer-attributes.md "../../../cli/latest/reference/elb/modify-load-balancer-attributes.md") command with the
+`elb.http.desyncmitigationmode` attribute set to
+`monitor`, `defensive`, or
+`strictest`.
+
+```
+aws elb modify-load-balancer-attributes --load-balancer-name `my-load-balancer` --load-balancer-attributes file://attribute.json
+```
+
+The following is the contents of `attribute.json`.
+
+```
+{
+    "AdditionalAttributes": [
+        {
+            "Key": "elb.http.desyncmitigationmode",
+            "Value": "strictest"
+        }
+    ]
+}
+```

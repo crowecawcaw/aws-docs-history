@@ -12,6 +12,10 @@ The security groups for your instances must allow them to communicate with the l
 The following table shows the recommended inbound rules.
 
 | Source                         | Protocol | Port Range          | Comment                                                            |
-| ------------------------------ | -------- | ------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------ | -------- | ------------------- | ------------------------------------------------------------------ |
 | `load balancer security group` | TCP      | `instance listener` | Allow traffic from the load balancer on the instance listener port |
-| `load balancer security group` | TCP      | `health check`      | Allow traffic from the load balancer on the health check port      | We also recommend that you allow inbound ICMP traffic to support Path MTU Discovery. For more information, see [Path MTU Discovery](../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery "../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery") in the _Amazon EC2 User Guide_. |
+| `load balancer security group` | TCP      | `health check`      | Allow traffic from the load balancer on the health check port      |
+
+We also recommend that you allow inbound ICMP traffic to support Path MTU Discovery. For more information,
+see [Path MTU Discovery](../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery "../../../AWSEC2/latest/UserGuide/network_mtu.md#path_mtu_discovery") in the
+_Amazon EC2 User Guide_.
