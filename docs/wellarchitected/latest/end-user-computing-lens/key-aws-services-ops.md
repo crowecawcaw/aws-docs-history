@@ -2,7 +2,7 @@
 
 **EUC:**
 
-- [Amazon AppStream 2.0](https://aws.amazon.com/appstream2/ "https://aws.amazon.com/appstream2/")
+- [Amazon WorkSpaces Applications](https://aws.amazon.com/appstream2/ "https://aws.amazon.com/appstream2/")
 - [Amazon WorkSpaces Family](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/")
 - [Amazon WorkSpaces Secure
   Browser](https://aws.amazon.com/workspaces-family/secure-browser/ "https://aws.amazon.com/workspaces-family/secure-browser/")

@@ -11,7 +11,7 @@ established:** Medium
 
 ## Implementation guidance
 
-For both Amazon WorkSpaces and AppStream 2.0, each service should have been deployed based
+For both Amazon WorkSpaces and WorkSpaces Applications, each service should have been deployed based
 upon a design that resulted from the collected input of key technology and business
 stakeholders. Evolving the solution design should be managed in a similarly inclusive
 fashion. Agree and sign off on all changes to the initial design through a project board

@@ -8,7 +8,7 @@ Well-Architected Framework and EUC workloads.
 ## AWS Definitions
 
 - EUC
-  - **Amazon AppStream 2.0:** Secure, reliable, and
+  - **Amazon WorkSpaces Applications:** Secure, reliable, and
     scalable application streaming and low-cost virtual
     desktop service
   - **[Amazon WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/") Family:** Comprehensive, fully
@@ -56,8 +56,8 @@ Well-Architected Framework and EUC workloads.
     Microsoft allows it, you can bring and deploy your Windows
     10 or 11 desktop on your WorkSpaces.
   - **[Cost
-    Optimizer for Amazon AppStream 2.0](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2"):**
-    Monitors your AppStream 2.0 app block builders and image
+    Optimizer for Amazon WorkSpaces Applications](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2"):**
+    Monitors your WorkSpaces Applications app block builders and image
   - **[Cost
     Optimizer for Amazon WorkSpaces](https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/ "https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/"):** Monitor
     Amazon WorkSpaces usage and optimize costs builders and
@@ -234,7 +234,7 @@ Well-Architected Framework and EUC workloads.
       that the new WorkSpaces have the same consistent
       configuration (hardware and software).
 
-- AppStream 2.0
+- WorkSpaces Applications
   - **[Fleet
     types](../../../appstream2/latest/developerguide/fleet-type.md "../../../appstream2/latest/developerguide/fleet-type.md"):**
     - **OnDemand:** Streaming
@@ -244,19 +244,19 @@ Well-Architected Framework and EUC workloads.
       Streaming instances run constantly, even when no users
       are streaming applications and desktops.
     - **Elastic:** The pool
-      of streaming instances is managed by AppStream 2.0.
+      of streaming instances is managed by WorkSpaces Applications.
       When your users select their application or desktop to
       launch, they will start streaming after the app block
       has been downloaded and mounted to a streaming
       instance.
 
   - **[Images](../../../appstream2/latest/developerguide/managing-images.md "../../../appstream2/latest/developerguide/managing-images.md"):** You
-    can create Amazon AppStream 2.0 images that contain
+    can create Amazon WorkSpaces Applications images that contain
     applications you can stream to your users and default
     system and application settings to enable your users to
     get started with those applications quickly.
   - **[Image
-    Builders](../../../appstream2/latest/developerguide/managing-image-builders.md "../../../appstream2/latest/developerguide/managing-image-builders.md"):** Amazon AppStream 2.0 uses EC2
+    Builders](../../../appstream2/latest/developerguide/managing-image-builders.md "../../../appstream2/latest/developerguide/managing-image-builders.md"):** Amazon WorkSpaces Applications uses EC2
     instances to stream applications. You launch instances
     from base images, called image builders, which AppStream
     2.0 provides. To create your own custom image, you connect
@@ -280,7 +280,7 @@ Well-Architected Framework and EUC workloads.
   automation, and data analytics.
 - **Nuvens:** A member of AWS'
   Partner Network (APN) that supports AWS' virtual desktop
-  services, namely Amazon WorkSpaces Manager and AppStream 2.0.
+  services, namely Amazon WorkSpaces Manager and WorkSpaces Applications.
   Our services support AWS' customers to provision, secure, and
   extract intelligence from end-point devices, end-user apps,
   and data on AWS.

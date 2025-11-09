@@ -13,7 +13,7 @@ practice is not established:** High
 
 - **Limit the use of administrator
   permissions:** Users should not be granted local
-  administrator access to Amazon WorkSpaces or AppStream 2.0
+  administrator access to Amazon WorkSpaces or WorkSpaces Applications
   instances unless it is required for them to undertake
   their role. Use tools and products that provide the
   ability to temporarily provide elevated rights in
@@ -33,7 +33,7 @@ practice is not established:** High
   service can use the enhanced administrative toolset that
   AWS offers in the form of the EUC toolkit. For more detail
   on the EUC Toolkit, see
-  [Use EUC Toolkit to manage Amazon AppStream 2.0 and Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/").
+  [Use EUC Toolkit to manage Amazon WorkSpaces Applications and Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/").
 - **Audit and monitor privileged or
   sensitive operations:** Log any privileged or
   sensitive operations associated with the management of AWS
@@ -62,12 +62,12 @@ practice is not established:** High
 - **Restrict the scope of access for
   service accounts:** Restrict permissions for
   service accounts for Amazon WorkSpaces (with Active
-  Directory Connector) and Amazon AppStream 2.0 (with
+  Directory Connector) and Amazon WorkSpaces Applications (with
   domain-joined fleets) to only allow them to create
   computer objects within their designated Organizational
   Unit (OU). For implementing service accounts, see
   [Amazon
-  AppStream 2.0 Active Directory Administration](../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions "../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions") and
+  WorkSpaces Applications Active Directory Administration](../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions "../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions") and
 
 [AD
 Connector prerequisites](../../../directoryservice/latest/admin-guide/prereq_connector.md#connect_delegate_privileges "../../../directoryservice/latest/admin-guide/prereq_connector.md#connect_delegate_privileges").

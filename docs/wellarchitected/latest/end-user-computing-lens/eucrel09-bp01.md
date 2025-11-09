@@ -1,7 +1,7 @@
 # EUCREL09-BP01 Implement and test rollback plan for every change you make in EUC environments
 
 Develop rollback plans for changes in Amazon WorkSpaces and
-AppStream 2.0 to anticipate and address potential failures and
+WorkSpaces Applications to anticipate and address potential failures and
 their impacts to system stability or resilience. By establishing
 these plans, businesses can proactively address unforeseen
 situations that may arise during implementation, creating a
@@ -19,7 +19,7 @@ practice is not established:** High
 ## Implementation guidance
 
 Develop rollback plans for changes that could potentially
-impact WorkSpaces and AppStream 2.0 resiliency or stability.
+impact WorkSpaces and WorkSpaces Applications resiliency or stability.
 Define procedures for reverting to the previous state if a
 change causes unexpected incidents or service disruptions.
 Test and validate rollback plansto verify their effectiveness

@@ -9,7 +9,7 @@ practice is not established:** High
 ## Implementation guidance
 
 Use AWS EUC streaming protocols to encrypt streaming data in
-transit. Amazon WorkSpaces and Amazon AppStream 2.0 provide
+transit. Amazon WorkSpaces and Amazon WorkSpaces Applications provide
 data encryption of pixel streaming traffic between instances
 and end user devices by default. Evaluate the default levels
 of encryption to verify that they provide sufficient
@@ -18,7 +18,7 @@ satisfy the requirements of the organization. For further
 details regarding the encryption used for Amazon AppStream,
 see
 [Data
-Protection in Amazon AppStream 2.0](../../../appstream2/latest/developerguide/data-protection.md "../../../appstream2/latest/developerguide/data-protection.md") , and for Amazon WorkSpaces, see
+Protection in Amazon WorkSpaces Applications](../../../appstream2/latest/developerguide/data-protection.md "../../../appstream2/latest/developerguide/data-protection.md") , and for Amazon WorkSpaces, see
 
 [Data
 Protection in Amazon WorkSpaces.](../../../workspaces/latest/adminguide/data-protection.md "../../../workspaces/latest/adminguide/data-protection.md")

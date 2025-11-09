@@ -12,7 +12,7 @@ practice is not established:** High
 
 Automate configuration management tools to verify compliance.
 Use centralized control and enforcement of configuration
-settings applied to Amazon WorkSpaces and AppStream 2.0
+settings applied to Amazon WorkSpaces and WorkSpaces Applications
 instances to verify that configuration settings align with the
 desired configuration of instances.
 
@@ -22,7 +22,7 @@ desired configuration of instances.
 - For Amazon WorkSpaces Linux instances, consider
   configuration management tools such as Ansible, Chef, and
   Puppet to apply a known configuration.
-- For Amazon AppStream 2.0 On-Demand and Always-On fleets,
+- For Amazon WorkSpaces Applications On-Demand and Always-On fleets,
   apply desired configuration settings to the instance used
   to create the Image for the associated fleet.
 

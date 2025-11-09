@@ -14,9 +14,9 @@ practice is not established:** Medium
 
 Verify that EUC services are not used for long-term data
 storage. EUC services such as Amazon WorkSpaces and Amazon
-AppStream 2.0 are optimized for application delivery and user
+WorkSpaces Applications are optimized for application delivery and user
 productivity, rather than as primary long-term data storage
-solutions. Amazon AppStream 2.0 streaming instances are
+solutions. Amazon WorkSpaces Applications streaming instances are
 non-persistent, meaning data stored locally during a session
 is lost when the instance is recycled or terminated. Amazon WorkSpaces provides persistent root and user volumes, which
 are well-suited for user profiles, application settings, and

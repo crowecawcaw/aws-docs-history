@@ -9,7 +9,7 @@ practice is not established:** High
 ## Implementation guidance
 
 - **Configure security software for
-  Amazon AppStream 2.0:** If you choose to install
+  Amazon WorkSpaces Applications:** If you choose to install
   security software (for example, anti-virus or behavioral
   anomaly detection) on your image, we recommend that you do
   not enable automatic updates for the software. Otherwise,
@@ -28,10 +28,10 @@ practice is not established:** High
     updated external server.
   - For more detail, see
     [Administer
-    Your Amazon AppStream 2.0 Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av") and
+    Your Amazon WorkSpaces Applications Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av") and
 
   [Best
-  Practices for Deploying Amazon AppStream 2.0](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/security-1.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/security-1.md").
+  Practices for Deploying Amazon WorkSpaces Applications](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/security-1.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/security-1.md").
 
 - **Configure security software for Amazon WorkSpaces:** Security software can adversely affect the operation of Amazon WorkSpaces if it is not configured to consider the requirements of the service. For details on the configuration elements that are required to be considered as exclusions for anti-malware scanning, see [Required configuration and service components for WorkSpaces Personal](../../../workspaces/latest/adminguide/required-service-components.md "../../../workspaces/latest/adminguide/required-service-components.md").
 

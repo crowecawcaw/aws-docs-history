@@ -47,6 +47,6 @@ principles. 
   existing licensing with Microsoft, you may be able to use existing M365 or RDS CAL
   licenses with certain AWS EUC services. It is highly recommended you assess your
   eligibility to bring your own licenses upfront, since this may allow you to reduce the
-  cost of your AWS EUC service. Consult the [Amazon WorkSpaces FAQs on Windows BYOL](https://aws.amazon.com/workspaces/faqs/#Windows_BYOL "https://aws.amazon.com/workspaces/faqs/#Windows_BYOL"), the [Amazon AppStream 2.0 FAQs
+  cost of your AWS EUC service. Consult the [Amazon WorkSpaces FAQs on Windows BYOL](https://aws.amazon.com/workspaces/faqs/#Windows_BYOL "https://aws.amazon.com/workspaces/faqs/#Windows_BYOL"), the [Amazon WorkSpaces Applications FAQs
   on Pricing and Billing](https://aws.amazon.com/appstream2/faqs/?nc1=h_ls#Pricing_and_billing "https://aws.amazon.com/appstream2/faqs/?nc1=h_ls#Pricing_and_billing"), and the [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/?nc1=h_ls "https://aws.amazon.com/windows/resources/licensing/?nc1=h_ls") guide
   for further detail, and contact microsoft@amazon.com.

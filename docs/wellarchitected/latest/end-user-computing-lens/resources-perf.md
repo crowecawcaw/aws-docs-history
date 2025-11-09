@@ -2,8 +2,8 @@
 
 **Related documents:**
 
-- **AppStream 2.0**
-  - [Create an Image That Always Uses the Latest Version of the AppStream 2.0
+- **WorkSpaces Applications**
+  - [Create an Image That Always Uses the Latest Version of the WorkSpaces Applications
     Agent](../../../appstream2/latest/developerguide/base-images-agent.md#create-image-that-always-uses-latest-agent "../../../appstream2/latest/developerguide/base-images-agent.md#create-image-that-always-uses-latest-agent")
   - [Fleet auto scaling strategies](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/fleet-auto-scaling-strategies.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/fleet-auto-scaling-strategies.md")
   - [Best practices for scaling policy design](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-scaling-policy-design.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-scaling-policy-design.md")

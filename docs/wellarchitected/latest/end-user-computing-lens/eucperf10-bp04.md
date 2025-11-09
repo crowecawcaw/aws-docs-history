@@ -13,7 +13,7 @@ established:** Low
 Remove unneeded files from images to optimize storage consumption.
 
 Unnecessary files included in an Amazon WorkSpaces golden image use space for each WorkSpace
-provisioned using that image. Similarly, for Amazon AppStream 2.0 where the image builder
+provisioned using that image. Similarly, for Amazon WorkSpaces Applications where the image builder
 volume size is limited, removing unneeded files can provide additional storage space for
 other applications.
 

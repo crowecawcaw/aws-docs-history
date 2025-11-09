@@ -7,15 +7,48 @@ not only to collect data but also to interpret it correctly. Define clear baseli
 appropriate alert thresholds, and actively monitor for any deviations. A shift in a key
 metric, especially when correlated with other data, can pinpoint specific problem areas.
 
-| EUCOPS11: What are the health metrics you need to monitor for your EUC environment?                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                       | Agreeing on the metrics which are key to identifying service health help to verify adherence to service level agreements which have been agreed upon by the business, third parties or customers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| EUCOPS12: How do you identify and deal with variations in service availability and performance that exceed agreed baselines?          |
-| ---                                                                                                                                   |
-|                                                                                                                                       | Following the identification of service degradation, quickly identifying the root cause and best method of remediation will be critical. Different user personas and application sets will likely have different priorities that must be dealt with based on their impact on the business.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| EUCOPS13: Do you have a mechanism to regularly review key metrics?                                                                    |
-| ---                                                                                                                                   |
-|                                                                                                                                       | To identify trends that can be used to improve service delivery and maintain a consistent user experience, establish an agreed cadence for reviewing data that identifies how your AWS EUC services are performing over time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| EUCOPS14: Are you gathering sufficient logging data to identify cross-platform or service failures that may have a common root cause? |
-| ---                                                                                                                                   |
-|                                                                                                                                       | While AWS EUC-focused logs can expose issues specific to these services, access to data from other contingent services (like networking, authentication, storage, or backend services) provides a broader view of the cause and effect of cross-service outages. ###### Best practices <br>• [EUCOPS11-BP01 Create EUC health metrics that allow you to meet your operational goals](eucops11-bp01.md "eucops11-bp01.md") <br>• [EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify anomalous metrics](eucops12-bp01.md "eucops12-bp01.md") <br>• [EUCOPS12-BP02 Define and maintain an alerting chain of command that quickly communicates issues in real time](eucops12-bp02.md "eucops12-bp02.md") <br>• [EUCOPS13-BP01 Perform regular service reviews to identify significant trends in performance, scalability, and availability](eucops13-bp01.md "eucops13-bp01.md") <br>• [EUCOPS14-BP01 Ingest log file data from multiple data sources to correlate key problem identifiers and trends](eucops14-bp01.md "eucops14-bp01.md") |
+| EUCOPS11: What are the health metrics you need to monitor for your EUC<br>environment? |
+| -------------------------------------------------------------------------------------- |
+|                                                                                        |
+
+Agreeing on the metrics which are key to identifying service health help to verify
+adherence to service level agreements which have been agreed upon by the business, third
+parties or customers.
+
+| EUCOPS12: How do you identify and deal with variations in service availability<br>and performance that exceed agreed baselines? |
+| ------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                 |
+
+Following the identification of service degradation, quickly identifying the root cause
+and best method of remediation will be critical. Different user personas and application sets
+will likely have different priorities that must be dealt with based on their impact on the
+business.
+
+| EUCOPS13: Do you have a mechanism to regularly review key metrics? |
+| ------------------------------------------------------------------ |
+|                                                                    |
+
+To identify trends that can be used to improve service delivery and maintain a consistent
+user experience, establish an agreed cadence for reviewing data that identifies how your AWS
+EUC services are performing over time.
+
+| EUCOPS14: Are you gathering sufficient logging data to identify cross-platform<br>or service failures that may have a common root cause? |
+| ---------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                          |
+
+While AWS EUC-focused logs can expose issues specific to these services, access to data
+from other contingent services (like networking, authentication, storage, or backend services)
+provides a broader view of the cause and effect of cross-service outages.
+
+###### Best practices
+
+- [EUCOPS11-BP01 Create EUC health metrics that allow you to
+  meet your operational goals](eucops11-bp01.md "eucops11-bp01.md")
+- [EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify
+  anomalous metrics](eucops12-bp01.md "eucops12-bp01.md")
+- [EUCOPS12-BP02 Define and maintain an alerting chain of
+  command that quickly communicates issues in real time](eucops12-bp02.md "eucops12-bp02.md")
+- [EUCOPS13-BP01 Perform regular service reviews to identify significant trends in performance,
+  scalability, and availability](eucops13-bp01.md "eucops13-bp01.md")
+- [EUCOPS14-BP01 Ingest log file data from multiple data
+  sources to correlate key problem identifiers and trends](eucops14-bp01.md "eucops14-bp01.md")

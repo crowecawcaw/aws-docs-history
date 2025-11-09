@@ -31,6 +31,6 @@ results in a better overall solution, improving service and support.
 Provide these teams sufficient resources not only to manage and maintain the planned
 infrastructure but also to perform continual service development. Plan to accommodate new
 features and functionality that meet evolving business needs. If your technical teams lack
-the AWS expertise necessary to deploy or migrate to Amazon WorkSpaces, Amazon AppStream 2.0, or
+the AWS expertise necessary to deploy or migrate to Amazon WorkSpaces, Amazon WorkSpaces Applications, or
 Amazon WorkSpaces Secure Browser, consider engaging with AWS Professional Services or one of our
 partners.

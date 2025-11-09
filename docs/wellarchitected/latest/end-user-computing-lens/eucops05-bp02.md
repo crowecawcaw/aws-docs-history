@@ -16,11 +16,11 @@ established:** High
 
 ## Implementation guidance
 
-Extracting performance data and log files from both WorkSpaces and AppStream 2.0 and
+Extracting performance data and log files from both WorkSpaces and WorkSpaces Applications and
 storing it centrally is essential if you need to adhere to specific industry compliance
 standards or if you want to perform retrospective analysis of data for troubleshooting
 purposes, root cause analysis, or predicting service scalability and requirements.
 
 Amazon CloudWatch can be used to capture specific metrics and store the data longer term in
-Amazon S3. Amazon Kinesis agents can also be installed on WorkSpaces or AppStream 2.0 instances to
+Amazon S3. Amazon Kinesis agents can also be installed on WorkSpaces or WorkSpaces Applications instances to
 propagate system logs in real time to a centralized location. For more detail, see [Using Amazon Kinesis Agents to Store AppStream Event Logs](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/").

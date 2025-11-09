@@ -1,6 +1,6 @@
 # EUCCOST05-BP04 Choose an appropriate running mode for your EUC workload where applicable
 
-Amazon WorkSpaces can be used with monthly and hourly pricing, while Amazon AppStream 2.0 supports
+Amazon WorkSpaces can be used with monthly and hourly pricing, while Amazon WorkSpaces Applications supports
 Always-On, On-Demand, and Elastic fleets. Choosing an appropriate running mode can
 significantly impact the cost of your EUC services. Historical usage data (usage patterns)
 of a reference environment can help you assess which running mode to use for your EUC
@@ -31,7 +31,7 @@ the breakeven point varies from bundle to bundle. The
 Pricing](https://aws.amazon.com/workspaces/pricing/ "https://aws.amazon.com/workspaces/pricing/") page helps you calculate the breakeven point
 for these bundles.
 
-Amazon AppStream 2.0 offers three different fleet types: Always-On, On-Demand, and Elastic.
+Amazon WorkSpaces Applications offers three different fleet types: Always-On, On-Demand, and Elastic.
 Explore the fleet types to determine the right balance between cost-effective operation
 and desired user experience.
 
@@ -56,11 +56,11 @@ and desired user experience.
 - As opposed to Always-On and On-Demand, Elastic fleets do
   not require you to manage scaling policies and provision
   buffer capacity, since the pool of Instances in an Elastic
-  fleet is managed by AppStream 2.0.
+  fleet is managed by WorkSpaces Applications.
 
-Amazon AppStream 2.0 offers multi-session fleets, which allow multiple users to use a single
-AppStream 2.0 fleet instance. Depending on the user density you can achieve on a given instance,
-you may be able to further optimize your AppStream 2.0 costs compared to a single-session fleet.
+Amazon WorkSpaces Applications offers multi-session fleets, which allow multiple users to use a single
+WorkSpaces Applications fleet instance. Depending on the user density you can achieve on a given instance,
+you may be able to further optimize your WorkSpaces Applications costs compared to a single-session fleet.
 If you plan to use multi-session fleets, consider resource requirements, instance
 specifications, and user behavior. For specific guidance, see [Multi-Session
 Recommendations](../../../appstream2/latest/developerguide/multi-session-recs.md "../../../appstream2/latest/developerguide/multi-session-recs.md") .

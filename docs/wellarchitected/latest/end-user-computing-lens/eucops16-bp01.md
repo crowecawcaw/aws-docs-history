@@ -13,7 +13,7 @@ established:** High
 
 ## Implementation guidance
 
-Although Amazon WorkSpaces and Amazon AppStream 2.0 are fully managed services, there are a
+Although Amazon WorkSpaces and Amazon WorkSpaces Applications are fully managed services, there are a
 number of touch points when maintenance the associated infrastructure and the desktop and
 applications delivered by the service requires periodic updates.
 
@@ -35,10 +35,10 @@ The following questions and discussions can provide you steps for improvement.
   aligned with the service control plane. For detail on the maintenance process for
   Always-On and AutoStop WorkSpaces, see [Maintenance in WorkSpaces
   Personal](../../../workspaces/latest/adminguide/workspace-maintenance.md "../../../workspaces/latest/adminguide/workspace-maintenance.md").
-- **Amazon AppStream 2.0**: For AppStream 2.0, each private
+- **Amazon WorkSpaces Applications**: For WorkSpaces Applications, each private
   image used to deploy a non-persistent desktop or application experience will
   periodically require updates in the form of operating system patches, hotfixes, and
-  security and application updates. As AppStream 2.0 instances are deployed from a
+  security and application updates. As WorkSpaces Applications instances are deployed from a
   common image, only the private image for each fleet version needs to be updated. New
   instances launched when users log in will automatically inherit the changes made to
   the private image. The customer is responsible for making these changes.
@@ -46,11 +46,11 @@ The following questions and discussions can provide you steps for improvement.
   controlled by the customer if specific versions are required. For more information on
   the processes of maintaining agent versions for each image, see:
   - [Update Management
-    in Amazon AppStream 2.0 PDF RSS Focus mode](../../../appstream2/latest/developerguide/update-management.md "../../../appstream2/latest/developerguide/update-management.md")
+    in Amazon WorkSpaces Applications PDF RSS Focus mode](../../../appstream2/latest/developerguide/update-management.md "../../../appstream2/latest/developerguide/update-management.md")
   - [Manage AppStream
     2.0 Agent Versions](../../../appstream2/latest/developerguide/base-images-agent.md "../../../appstream2/latest/developerguide/base-images-agent.md")
 
-- Amazon AppStream 2.0 also offers an application delivery option called elastic
+- Amazon WorkSpaces Applications also offers an application delivery option called elastic
   fleets that you can use to quickly deploy and manage portable applications. For more
   information, see [Applications
   Manager](../../../appstream2/latest/developerguide/app-blocks-applications.md "../../../appstream2/latest/developerguide/app-blocks-applications.md").
@@ -77,18 +77,18 @@ maximizing productivity.
   - [Software deployment to Amazon WorkSpaces using AWS Systems Manager](https://aws.amazon.com/blogs/mt/software-deployment-to-amazon-workspaces-using-aws-systems-manager/ "https://aws.amazon.com/blogs/mt/software-deployment-to-amazon-workspaces-using-aws-systems-manager/")
   - [Automatically create customized Amazon WorkSpaces Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-amazon-workspaces-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-amazon-workspaces-windows-images/")
 
-- **AppStream 2.0**: AppStream 2.0 provides a management
+- **WorkSpaces Applications**: WorkSpaces Applications provides a management
   console and a corresponding API, which can be used to automate the delivery of an
   image builder that updates each version of a private image. As the image builder has a
   network interface in a customer-managed VPC, traditional software distribution tools
   and automation frameworks can also be used to push updates to this instance from where
   a new version of an image is created and assigned to fleets.
-- AppStream 2.0 also offers an automated option called Managed Image Updates, which
+- WorkSpaces Applications also offers an automated option called Managed Image Updates, which
   automates and simplifies the process of updating AppStream agent software and OS
   patches. For more information, see the following:
-  - [Administer Your Amazon AppStream 2.0 Images](../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates "../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates")
-  - [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/")
-  - [Automate the creation of AppStream 2.0 resources using AWS CloudFormation](../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md "../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md")
+  - [Administer Your Amazon WorkSpaces Applications Images](../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates "../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates")
+  - [Automatically create customized WorkSpaces Applications Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/")
+  - [Automate the creation of WorkSpaces Applications resources using AWS CloudFormation](../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md "../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md")
 
 **How will you test and validate updates?**
 
@@ -111,7 +111,7 @@ maximizing productivity.
 For more flexible backup and recovery options, consider using traditional backup and
 recovery tools and techniques, or consider [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md").
 
-- **AppStream 2.0**: As AppStream 2.0 delivers tens,
+- **WorkSpaces Applications**: As WorkSpaces Applications delivers tens,
   hundreds, or thousands of instances from a common private image, testing can be done
   by creating a single instance test or development fleet from a new version of an
   image, allowing administrators to fully test changes before assigning the image to a
@@ -130,31 +130,31 @@ example, creating a retrospective back-out or remediation plan in the event of a
 that occurs days or weeks after a change is made to the environment will be much easier if
 comprehensive change management is observed.
 
-For both Amazon WorkSpaces and Amazon AppStream 2.0 specifically, adopt a version numbering
+For both Amazon WorkSpaces and Amazon WorkSpaces Applications specifically, adopt a version numbering
 scheme and capturing a log of changes made to each custom bundle or private image to trace
 issues back to a specific image version, if required.
 
 You can use AWS CloudTrail to log API calls used to make changes to both Amazon WorkSpaces and
-AppStream 2.0 environments.
+WorkSpaces Applications environments.
 
 - [Logging
-  AppStream 2.0 API calls with AWS CloudTrail](../../../appstream2/latest/developerguide/logging-using-cloudtrail.md "../../../appstream2/latest/developerguide/logging-using-cloudtrail.md")
+  WorkSpaces Applications API calls with AWS CloudTrail](../../../appstream2/latest/developerguide/logging-using-cloudtrail.md "../../../appstream2/latest/developerguide/logging-using-cloudtrail.md")
 - [Logging WorkSpaces API Calls by Using CloudTrail](../../../workspaces/latest/api/cloudtrail_logging.md "../../../workspaces/latest/api/cloudtrail_logging.md")
 
-**Automating changes to Amazon WorkSpaces and Amazon AppStream 2.0**
+**Automating changes to Amazon WorkSpaces and Amazon WorkSpaces Applications**
 
 By using automation, you can avoid many of the configuration drift and image
 consistency problems seen with manual deployments. The following articles provide some
 options for automating the creation and management of AWS EUC services.
 
 - [Automating the provisioning of AWS WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/automate-provisioning-of-amazon-workspaces-using-aws-lambda/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automate-provisioning-of-amazon-workspaces-using-aws-lambda/")
-- [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/")
+- [Automatically create customized WorkSpaces Applications Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/")
 - [Best practices for automating your AWS End User Computing deployments](https://pages.awscloud.com/rs/112-TZM-766/images/2020_0210-EUC_Slide-Deck.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/2020_0210-EUC_Slide-Deck.pdf")
-- [Amazon WorkSpaces and AppStream 2.0 Terraform Resources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "https://registry.terraform.io/providers/hashicorp/aws/latest/docs")
+- [Amazon WorkSpaces and WorkSpaces Applications Terraform Resources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "https://registry.terraform.io/providers/hashicorp/aws/latest/docs")
 - [Deploying and Managing Amazon WorkSpaces applications with Ansible](https://aws.amazon.com/blogs/desktop-and-application-streaming/deploying-and-managing-amazon-workspaces-applications-with-ansible/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/deploying-and-managing-amazon-workspaces-applications-with-ansible/")
 - [DXC Technology creates DevSecOps and CI/CD for mainframe and Java using Amazon
-  AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/dxc-technology-devsecops-cicd-mainframe-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/dxc-technology-devsecops-cicd-mainframe-amazon-appstream-2-0/")
+  WorkSpaces Applications](https://aws.amazon.com/blogs/desktop-and-application-streaming/dxc-technology-devsecops-cicd-mainframe-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/dxc-technology-devsecops-cicd-mainframe-amazon-appstream-2-0/")
 - [Announcing the Amazon WorkSpaces dynamic inventory plugin for Ansible®](https://aws.amazon.com/blogs/desktop-and-application-streaming/announcing-the-amazon-workspaces-dynamic-inventory-plugin-for-ansible/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/announcing-the-amazon-workspaces-dynamic-inventory-plugin-for-ansible/")
 - [Terraform resources for AWS WorkSpaces](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace")
-- [Automation of infrastructure and application deployment for Amazon AppStream 2.0
+- [Automation of infrastructure and application deployment for Amazon WorkSpaces Applications
   with Terraform](https://aws.amazon.com/blogs/desktop-and-application-streaming/automation-of-infrastructure-and-application-deployment-for-amazon-appstream-2-0-with-terraform/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automation-of-infrastructure-and-application-deployment-for-amazon-appstream-2-0-with-terraform/")

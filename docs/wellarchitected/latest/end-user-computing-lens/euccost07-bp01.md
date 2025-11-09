@@ -1,4 +1,4 @@
-# EUCCOST07-BP01 Use the available cost optimizers for Amazon WorkSpaces and Amazon AppStream 2.0
+# EUCCOST07-BP01 Use the available cost optimizers for Amazon WorkSpaces and Amazon WorkSpaces Applications
 
 Leverage available tools from AWS and partners to support you
 with cost monitoring and optimization.
@@ -8,14 +8,14 @@ practice is not established:** High
 
 ## Implementation guidance
 
-Amazon AppStream 2.0 uses app block and image builders that are charged hourly or in one second
+Amazon WorkSpaces Applications uses app block and image builders that are charged hourly or in one second
 increments with a 15-minute minimum if you keep them running. You must explicitly stop
 them to stop the billing. The [Cost Optimizer
-for Amazon AppStream 2.0](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2") can monitor your AppStream 2.0 app block and image builders and notify
+for Amazon WorkSpaces Applications](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2") can monitor your WorkSpaces Applications app block and image builders and notify
 you or stop them when they are active for longer than specified thresholds. 
 
 Third-party tools like the [AppStream
-Optimizer by Cambrian Technologies](https://www.cambriantechnologies.com/solutions/appstream-optimiser/ "https://www.cambriantechnologies.com/solutions/appstream-optimiser/") use machine learning to optimize your AppStream 2.0
+Optimizer by Cambrian Technologies](https://www.cambriantechnologies.com/solutions/appstream-optimiser/ "https://www.cambriantechnologies.com/solutions/appstream-optimiser/") use machine learning to optimize your WorkSpaces Applications
 Fleets and achieve a better utilization. This helps reduce your cost by reducing idle
 capacity.
 

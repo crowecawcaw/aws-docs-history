@@ -22,10 +22,10 @@ attributes to record.
 For completeness, consider all possible sources of events,
 including:
 
-- Service-emitted events and logs (for example, Amazon WorkSpaces EventBridge events and AppStream 2.0 usage
+- Service-emitted events and logs (for example, Amazon WorkSpaces EventBridge events and WorkSpaces Applications usage
   reports)
 - Data plane logs collected through agents installed onto
-  Amazon WorkSpaces or AppStream 2.0 instances
+  Amazon WorkSpaces or WorkSpaces Applications instances
 
 For Windows instances, use events recorded in the Windows
 security log alongside a log management system to collect and
@@ -39,14 +39,14 @@ practice is not established:** High
 
 ## Implementation guidance
 
-Use agents on Amazon AppStream 2.0 and Amazon WorkSpaces
+Use agents on Amazon WorkSpaces Applications and Amazon WorkSpaces
 instances to aggregate security logs. If instance security
-logs need to be captured from AppStream 2.0 instances, then
+logs need to be captured from WorkSpaces Applications instances, then
 event forwarding agents such as Amazon CloudWatch, Amazon Kinesis Agent for Windows, or Telegraf can be used to forward
 relevant events into the central security logging system.
 
 For WorkSpaces, these agents can be pre-installed into a
 WorkSpaces custom bundle to make sure a logging capability is
 available before users attempt to access WorkSpaces. For
-AppStream 2.0, these agents need to be installed into the
+WorkSpaces Applications, these agents need to be installed into the
 Image Builder for On-Demand and Always-On fleets.

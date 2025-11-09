@@ -18,9 +18,9 @@ practice is not established:** High
 - **Regularly patch Amazon AppStream
   2.0 images:** As part of the AWS Shared
   Responsibility Model, customers are responsible for
-  patching and securing their AppStream 2.0 images. When an
+  patching and securing their WorkSpaces Applications images. When an
   image is built and deployed, there are five categories of
-  software that require patching in your AppStream 2.0
+  software that require patching in your WorkSpaces Applications
   image:
 
 - **Applications and
@@ -31,17 +31,17 @@ practice is not established:** High
   updates for Linux and Windows.
 - **Software components:**
   These are drivers, agents, and other software required for
-  AppStream 2.0 operation (for example, the Amazon CloudWatch agent). AppStream 2.0 periodically releases new
+  WorkSpaces Applications operation (for example, the Amazon CloudWatch agent). WorkSpaces Applications periodically releases new
   base images that contain new agents and drivers. Customers
   can recreate their images using the latest base image to
   bring the software components to the latest baseline.
-- **AppStream 2.0 agent**:
+- **WorkSpaces Applications agent**:
   Customers can choose to consistently use the latest agent
   version in the Image Assistant. With this option,
   streaming instances that are launched from the image
   automatically use the latest version of the agent.
 - **Clients**: Where the
-  Amazon AppStream 2.0 client is in use, this should also be
+  Amazon WorkSpaces Applications client is in use, this should also be
   updated upon the release of each new version.
 
 - **Regularly patch Amazon WorkSpaces

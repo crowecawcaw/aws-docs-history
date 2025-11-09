@@ -1,6 +1,6 @@
 # EUCREL03-BP01 Add redundancy to networking connections
 
-Use a redundant networking architecture for Amazon WorkSpaces and AppStream 2.0,
+Use a redundant networking architecture for Amazon WorkSpaces and WorkSpaces Applications,
 incorporating multiple Active Directory (AD) Controllers, AD connectors, DNS servers,
 gateways, VPNs, or AWS Direct Connect links. This approach supports continuous
 connectivity by providing alternative pathways for network traffic, reducing the risk of
@@ -13,7 +13,7 @@ established:**High
 
 ## Implementation guidance
 
-Enhance the resilience of Amazon WorkSpaces and AppStream 2.0 by configuring
+Enhance the resilience of Amazon WorkSpaces and WorkSpaces Applications by configuring
 redundant networking components such as VPN connections or AWS Direct Connect links.
 This setup provides alternative paths for network traffic, mitigating the impact of
 network incidents and supporting continuous access to WorkSpaces environments. Verify

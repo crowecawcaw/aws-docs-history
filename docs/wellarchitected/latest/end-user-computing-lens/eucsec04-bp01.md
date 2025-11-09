@@ -30,12 +30,12 @@ Separate workloads using accounts](../security-pillar/sec_securely_operate_multi
 
 - **Use
   [IAM
-  roles with AppStream 2.0](../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances "../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances") to enable access to AWS
+  roles with WorkSpaces Applications](../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances "../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances") to enable access to AWS
   services**: To access AWS services from an
-  AppStream 2.0 instance, use an IAM role and verify that
+  WorkSpaces Applications instance, use an IAM role and verify that
   the IAM policy attached to it is scoped to the specific
   services required. This approach avoids the need for users
-  in AppStream 2.0 sessions to have access with additional
+  in WorkSpaces Applications sessions to have access with additional
   credentials. If groups of users require differing levels
   of access to other AWS services, consider creating an
   additional role for each set of permissions. To help
@@ -44,7 +44,7 @@ Separate workloads using accounts](../security-pillar/sec_securely_operate_multi
   For further detail, see
   [Use IAM Access Analyzer policy generation to grant fine-grained permissions for your AWS CloudFormation service roles](https://aws.amazon.com/blogs/security/use-iam-access-analyzer-policy-generation-to-grant-fine-grained-permissions-for-your-aws-cloudformation-service-roles/ "https://aws.amazon.com/blogs/security/use-iam-access-analyzer-policy-generation-to-grant-fine-grained-permissions-for-your-aws-cloudformation-service-roles/").
 - **Restrict access to only authorized
-  applications**: By default, AppStream 2.0 allows
+  applications**: By default, WorkSpaces Applications allows
   users or applications to start programs on the instance,
   beyond what is specified in the image application catalog.
   This is useful when your application relies on another
@@ -65,20 +65,20 @@ to Microsoft AppLocker is FSLogix Application Masking
 which is available with Windows desktop and server
 operating systems. The
 [use
-of application entitlements with AppStream 2.0](../../../appstream2/latest/developerguide/manage-application-entitlements.md "../../../appstream2/latest/developerguide/manage-application-entitlements.md") can
+of application entitlements with WorkSpaces Applications](../../../appstream2/latest/developerguide/manage-application-entitlements.md "../../../appstream2/latest/developerguide/manage-application-entitlements.md") can
 restrict the ability of users to launch only authorized
 applications, but this control by itself does not prevent
-the launch of other applications on AppStream 2.0
+the launch of other applications on WorkSpaces Applications
 instances. To achieve this, we recommend the two preceding
 approaches AppLocker or FSLogix.
 
 - **Secure access to the S3 buckets
-  used by Amazon AppStream 2.0:** Review, maintain,
+  used by Amazon WorkSpaces Applications:** Review, maintain,
   and update S3 bucket policies as appropriate. These
   reviews should verify that restricted access is in place
   to protect S3 buckets that are created and used to persist
   user data for both home folders and application settings
-  persistence when enabled. This blocks non-AppStream 2.0
+  persistence when enabled. This blocks non-WorkSpaces Applications
   administrators from accessing the data. Use S3 bucket
   policies and IAM policies together. For more information,
   see

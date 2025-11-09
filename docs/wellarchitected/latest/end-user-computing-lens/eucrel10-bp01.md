@@ -1,6 +1,6 @@
 # EUCREL10-BP01 Implement communication plans with EUC environment stakeholders
 
-Include WorkSpaces and AppStream 2.0 users, administrators, and
+Include WorkSpaces and WorkSpaces Applications users, administrators, and
 support teams in your communications. Provide advance notice of
 scheduled maintenance windows or change activities to minimize
 potential service interruptions for users. Coordinate with other

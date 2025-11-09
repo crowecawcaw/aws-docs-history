@@ -32,11 +32,11 @@ service separation is necessary to align with compliance or security requirement
 AWS Control Tower can be used to streamline the management and governance of multiple
 AWS accounts.
 
-Unlike on-premises infrastructure, Amazon WorkSpaces and AppStream 2.0 environments can be
+Unlike on-premises infrastructure, Amazon WorkSpaces and WorkSpaces Applications environments can be
 [deployed using automated processes](https://pages.awscloud.com/rs/112-TZM-766/images/2020_0210-EUC_Slide-Deck.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/2020_0210-EUC_Slide-Deck.pdf") and only attract costs while in use.
 
 AWS CloudFormation templates can be used to deploy new AWS services such as WorkSpaces and
-AppStream 2.0 to reduce the likelihood of human error and reduce configuration drift.
+WorkSpaces Applications to reduce the likelihood of human error and reduce configuration drift.
 
 AWS Systems Manager Runbooks can be used to automate some aspects of WorkSpaces deployment. For
 more detail, see [SSM

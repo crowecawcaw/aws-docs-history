@@ -1,8 +1,8 @@
 # EUCSUS03-BP01 Adapt your
 
-AppStream 2.0 fleet timeout
+WorkSpaces Applications fleet timeout
 
-Configure timeouts for AppStream 2.0 fleets to minimize unnecessary resource consumption
+Configure timeouts for WorkSpaces Applications fleets to minimize unnecessary resource consumption
 whilst also factoring in usability. Minimize resource consumption by verifying that
 instances are not consuming resources unnecessarily when users are not using them or
 unlikely to use them.

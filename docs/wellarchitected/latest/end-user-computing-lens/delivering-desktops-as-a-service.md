@@ -94,7 +94,7 @@ number of tasks your IT staff has to deal with. The freed-up
 resources can be assigned to other projects where they can
 contribute more directly to your business goals.
 
-![Solution stack table describing advantages of Amazon WorkSpaces and AppStream 2.0.](images/image2.png)
+![Solution stack table describing advantages of Amazon WorkSpaces and WorkSpaces Applications.](images/image2.png)
 
 ### Scenario 4: Increased availability
 

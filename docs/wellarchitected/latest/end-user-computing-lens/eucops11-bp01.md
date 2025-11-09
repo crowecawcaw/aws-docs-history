@@ -13,13 +13,13 @@ established:** High
 While the tools and processes required to monitor AWS EUC service health are
 discussed earlier, from an operational perspective there are key metrics which, at a
 minimum, should be gathered to build a baseline for systems health across the tiers of an
-Amazon WorkSpaces or AppStream 2.0 deployment.
+Amazon WorkSpaces or WorkSpaces Applications deployment.
 
 The following guidance discusses both the service specific metrics which should be
 gathered in addition to the monitoring other key services which contribute to AWS EUC
 service:
 
-**Amazon WorkSpaces and AppStream 2.0 Service or Instance metrics**
+**Amazon WorkSpaces and WorkSpaces Applications Service or Instance metrics**
 
 Insight into both service level and instance-based performance metrics are key to
 identifying availability problems, performance problems or trends and to provide data for
@@ -57,8 +57,8 @@ CloudWatch Alarms can also be configured to send alerts when specific thresholds
 For more information, see [Creating CloudWatch
 Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
-**Amazon AppStream 2.0:** Amazon CloudWatch provides an automatic
-dashboard which gives an overview of overall Amazon AppStream 2.0 service health,
+**Amazon WorkSpaces Applications:** Amazon CloudWatch provides an automatic
+dashboard which gives an overview of overall Amazon WorkSpaces Applications service health,
 including:
 
 **Service metrics:**
@@ -93,7 +93,7 @@ CloudWatch Alarms can also be configured to send alarms when specific thresholds
 
 - [Using Amazon CloudWatch
   alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
-- [Monitoring Amazon AppStream 2.0 Resources](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md")
+- [Monitoring Amazon WorkSpaces Applications Resources](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md")
 
 **Other key areas to monitor**
 
@@ -103,7 +103,7 @@ order to understand the end to end health and performance of AWS EUC services.
 **Networking**
 
 With any cloud hosted desktop and application delivery service such as Amazon WorkSpaces or
-Amazon AppStream 2.0, users are connecting from a remote location, across a variety of
+Amazon WorkSpaces Applications, users are connecting from a remote location, across a variety of
 network types, to a service running in a cloud data center. Once they are connected and
 logged in, they are dependent upon a number of backend services which are also connected
 to the AWS EUC service using a variety of devices which each have their own performance
@@ -113,14 +113,14 @@ backend services should ideally, be monitored.
 **User endpoint device to AWS EUC service**
 
 The following articles discuss the latency and bandwidth requirements for Amazon WorkSpaces
-and Amazon AppStream 2.0 and tools that can be used to validate service performance:
+and Amazon WorkSpaces Applications and tools that can be used to validate service performance:
 
 - [Client
   network requirements for WorkSpaces Personal](../../../workspaces/latest/adminguide/workspaces-network-requirements.md "../../../workspaces/latest/adminguide/workspaces-network-requirements.md")
 - [AppStream Latency: Bandwidth Recommendations](../../../appstream2/latest/developerguide/bandwidth-recommendations-user-connections.md "../../../appstream2/latest/developerguide/bandwidth-recommendations-user-connections.md")
 - [Measuring Client to
   AWS EUC region latency](https://clients.amazonworkspaces.com/Health.html "https://clients.amazonworkspaces.com/Health.html")
-- [Visualizing AppStream 2.0 session latency metrics using AWS Lambda, Amazon Kinesis Data
+- [Visualizing WorkSpaces Applications session latency metrics using AWS Lambda, Amazon Kinesis Data
   Stream and Amazon OpenSearch Service](https://aws.amazon.com/blogs/desktop-and-application-streaming/visualizing-appstream-2-0-session-latency-metrics-using-aws-lambda-amazon-kinesis-data-stream-and-amazon-opensearch-service/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/visualizing-appstream-2-0-session-latency-metrics-using-aws-lambda-amazon-kinesis-data-stream-and-amazon-opensearch-service/")
 - [CloudWatch Internet
   Monitor](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.md")
@@ -129,7 +129,7 @@ and Amazon AppStream 2.0 and tools that can be used to validate service performa
 **AWS EUC compute instance to backend services:**
 
 Consider deploying third party tools which proactively monitor client to server
-operations such as network flow between WorkSpaces, AppStream 2.0 and supporting databases,
+operations such as network flow between WorkSpaces, WorkSpaces Applications and supporting databases,
 data feeds, web servers and file or print services. These data points can be used to
 accurately determine service degradation or trends which might identify the need to scale
 supporting infrastructure service up or down.
@@ -172,7 +172,7 @@ purposes.
 - [Microsoft: Use DISKSPD to test workload storage performance](https://learn.microsoft.com/en-us/azure-stack/hci/manage/diskspd-overview "https://learn.microsoft.com/en-us/azure-stack/hci/manage/diskspd-overview")
 
 If specific issues arise that require deeper insight into Amazon WorkSpaces or Amazon
-AppStream 2.0 storage performance, consider using Windows Task Manager or Performance
+WorkSpaces Applications storage performance, consider using Windows Task Manager or Performance
 Monitor, or iostat/iotop for Linux instances, to better understand disk i/o performance.
 
 **Active Directory**
@@ -198,7 +198,7 @@ availability and performance.
 
 **Certificate-based authentication (CBA)**
 
-If end-to-end single sign-on is required for Amazon WorkSpaces or AppStream 2.0 deployments
+If end-to-end single sign-on is required for Amazon WorkSpaces or WorkSpaces Applications deployments
 which are integrated with SAML, CBA can be used to emulate a virtual smart card login for
 each user. While falling back to a standard AD username and password login is possible if
 CBA is unavailable, if you do not elect to use this option it will be essential to
@@ -216,7 +216,7 @@ following documentation to understand which key metrics should be monitored:
 
 **Network file services**
 
-Amazon AppStream 2.0 and WorkSpaces are typically integrated with backend network file
+Amazon WorkSpaces Applications and WorkSpaces are typically integrated with backend network file
 services which provide storage for user data and user profiles. These repositories are
 typically critical to employee productivity and should form part of end-to-end service
 monitoring. If Amazon FSx for Windows is being used for backend storage, a comprehensive
@@ -265,14 +265,14 @@ components.
 **Anti-virus infrastructure**
 
 While anti-virus and anti-malware products are unlikely to cause systems outage, from
-a security perspective, being sure that Amazon WorkSpaces and AppStream 2.0 instances are being
+a security perspective, being sure that Amazon WorkSpaces and WorkSpaces Applications instances are being
 effectively protected can avoid wider service outage due to intrusion and malign
 interference from external bad actors. Furthermore, understanding and minimizing the
 impact of anti-virus and anti-malware scans, is key.
 
-**WorkSpaces and AppStream 2.0 instance metrics**
+**WorkSpaces and WorkSpaces Applications instance metrics**
 
-Amazon WorkSpaces and AppStream 2.0 compute instances are standard Windows Client/Server, or
+Amazon WorkSpaces and WorkSpaces Applications compute instances are standard Windows Client/Server, or
 Linux instance types. They each have a network interface exposed to a customer managed VPC
 and can be managed and monitored in the same way as traditional desktops.
 
@@ -280,7 +280,7 @@ Amazon CloudWatch can be used to extract instance specific metrics such as CPU, 
 or Network utilization, and existing third party tools can be used to extract similar
 information.
 
-Be aware that as AppStream 2.0 is a non-persistent application and desktop delivery
+Be aware that as WorkSpaces Applications is a non-persistent application and desktop delivery
 service, instances are terminated and destroyed when the last user session is ended
 (consider single session versus multi-session), this needs to be considered when gathering
 performance statistics or system logs.
@@ -291,13 +291,13 @@ be used for this purpose, the PowerShell code for this utility can also be downl
 used as a reference for building your own PowerShell management utilities.
 
 - [Monitor your WorkSpaces using CloudWatch metrics](../../../workspaces/latest/adminguide/cloudwatch-metrics.md "../../../workspaces/latest/adminguide/cloudwatch-metrics.md")
-- [Monitoring and Reporting for Amazon AppStream 2.0](../../../appstream2/latest/developerguide/configure-monitoring-reporting.md "../../../appstream2/latest/developerguide/configure-monitoring-reporting.md")
+- [Monitoring and Reporting for Amazon WorkSpaces Applications](../../../appstream2/latest/developerguide/configure-monitoring-reporting.md "../../../appstream2/latest/developerguide/configure-monitoring-reporting.md")
 - [Monitoring Amazon WorkSpaces
   Secure Browser](../../../workspaces-web/latest/adminguide/monitoring-overview.md "../../../workspaces-web/latest/adminguide/monitoring-overview.md")
 - [Use
-  the EUC Toolkit to manage Amazon AppStream 2.0 and Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/")
+  the EUC Toolkit to manage Amazon WorkSpaces Applications and Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/euc-toolkit/")
 
 In summary, AWS EUC deployments are dependent on the reliability and performance of
-both the Amazon WorkSpaces or AppStream 2.0 services themselves and also many external systems,
+both the Amazon WorkSpaces or WorkSpaces Applications services themselves and also many external systems,
 taking a holistic approach to management of each component of the end to end deployment is
 key to maintaining end user engagement and productivity.

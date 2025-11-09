@@ -83,7 +83,7 @@ inefficient scaling policies). Deploy automated tools, such as the
 [Cost
 Optimizer for Amazon WorkSpaces](https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/ "https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/") and the
 [Cost
-Optimizer for Amazon AppStream 2.0](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2"),to help with this
+Optimizer for Amazon WorkSpaces Applications](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2"),to help with this
 process. Use open-source OSes when use cases allow or bring your
 own OS licenses when available. For more detail, see Cost
 optimization.

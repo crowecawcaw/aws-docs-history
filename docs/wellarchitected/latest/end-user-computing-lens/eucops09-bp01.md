@@ -2,14 +2,14 @@
 
 service owners and quick access links to the support plans for each service
 
-Amazon WorkSpaces and Amazon AppStream 2.0, although easier to implement and administer than
+Amazon WorkSpaces and Amazon WorkSpaces Applications, although easier to implement and administer than
 traditional on-premises alternatives, still require specific knowledge to deploy, manage,
 and support. To simplify the process of routing issues to the right owners, you should be
 able to quickly identify the teams who are responsible for implementation and support along
 with clear support plans for each application being delivered, expediting time to
 resolution.
 
-Each application delivered by WorkSpaces or AppStream 2.0 should have a formalized support
+Each application delivered by WorkSpaces or WorkSpaces Applications should have a formalized support
 plan with designated business and technical owners who are responsible for and involved in
 the deployment, maintenance, and support of each application and its dependent technology
 stacks.
@@ -20,7 +20,7 @@ recovery purposes, the business should be able to identify relevant RTO and RPO 
 which each service should be engineered to accommodate so that critical business services
 can be delivered even under the most challenging circumstances.
 
-If you are delivering WorkSpaces or AppStream 2.0 across multiple AWS Regions, verify that
+If you are delivering WorkSpaces or WorkSpaces Applications across multiple AWS Regions, verify that
 a support and escalation mechanism exists that documents the transfer of responsibility
 between regions when required. This documentation is important to sustain support efforts
 across time zones, maximizing service continuity.
@@ -40,5 +40,5 @@ and address any issues in service delivery.
 ## Resources
 
 - [WorkSpaces Service Level Agreement](https://aws.amazon.com/workspaces/sla/ "https://aws.amazon.com/workspaces/sla/")
-- [AppStream 2.0 Service Level
+- [WorkSpaces Applications Service Level
   Agreement](https://aws.amazon.com/appstream2/sla/ "https://aws.amazon.com/appstream2/sla/")

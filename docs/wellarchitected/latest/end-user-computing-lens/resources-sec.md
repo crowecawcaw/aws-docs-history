@@ -6,17 +6,17 @@
   and access management for WorkSpaces](../../../workspaces/latest/adminguide/workspaces-access-control.md "../../../workspaces/latest/adminguide/workspaces-access-control.md")
 - [Using
   AWS Managed Policies and Linked Roles to Manage Administrator
-  Access to AppStream 2.0 Resources](../../../appstream2/latest/developerguide/controlling-administrator-access-with-policies-roles.md "../../../appstream2/latest/developerguide/controlling-administrator-access-with-policies-roles.md")
+  Access to WorkSpaces Applications Resources](../../../appstream2/latest/developerguide/controlling-administrator-access-with-policies-roles.md "../../../appstream2/latest/developerguide/controlling-administrator-access-with-policies-roles.md")
 - [AppStream
   2.0 Active Directory Administration](../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions "../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions")
 - [Getting
   started with AD Connector](../../../directoryservice/latest/admin-guide/ad_connector_getting_started.md#prereq_connector "../../../directoryservice/latest/admin-guide/ad_connector_getting_started.md#prereq_connector")
 - [Using an IAM Role to Grant Permissions to Applications and Scripts
-  Running on AppStream 2.0 Streaming Instances](../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances "../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances")
+  Running on WorkSpaces Applications Streaming Instances](../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances "../../../appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md#how-to-use-iam-role-with-streaming-instances")
 - [Amazon
-  AppStream 2.0: Manage Application Entitlements](../../../appstream2/latest/developerguide/manage-application-entitlements.md "../../../appstream2/latest/developerguide/manage-application-entitlements.md")
+  WorkSpaces Applications: Manage Application Entitlements](../../../appstream2/latest/developerguide/manage-application-entitlements.md "../../../appstream2/latest/developerguide/manage-application-entitlements.md")
 - [Administer
-  Your Amazon AppStream 2.0 Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av")
+  Your Amazon WorkSpaces Applications Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av")
 - [Required
   configuration and service components for WorkSpaces Personal](../../../workspaces/latest/adminguide/required-service-components.md "../../../workspaces/latest/adminguide/required-service-components.md")
 - [Tutorial:
@@ -30,9 +30,9 @@
 - [Manage
   your Windows WorkSpaces in WorkSpaces Personal](../../../workspaces/latest/adminguide/group_policy.md "../../../workspaces/latest/adminguide/group_policy.md")
 - [Create
-  an Amazon AppStream 2.0 Fleet and Stack](../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install "../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install")
+  an Amazon WorkSpaces Applications Fleet and Stack](../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install "../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install")
 - [Disaster
-  Recovery considerations with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/disaster-recovery-considerations-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/disaster-recovery-considerations-with-amazon-appstream-2-0/")
+  Recovery considerations with Amazon WorkSpaces Applications](https://aws.amazon.com/blogs/desktop-and-application-streaming/disaster-recovery-considerations-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/disaster-recovery-considerations-with-amazon-appstream-2-0/")
 - [Cross-Region
   redirection for Amazon WorkSpaces](../../../workspaces/latest/adminguide/cross-region-redirection.md "../../../workspaces/latest/adminguide/cross-region-redirection.md")
 - [Multi-Region
@@ -46,7 +46,7 @@
 - [Getting
   started with GuardDuty](../../../guardduty/latest/ug/guardduty_settingup.md "../../../guardduty/latest/ug/guardduty_settingup.md")
 - [Administer
-  Your Amazon AppStream 2.0 Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av")
+  Your Amazon WorkSpaces Applications Images](../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av "../../../appstream2/latest/developerguide/administer-images.md#windows-update-antivirus-software-av")
 - [Certificate-based
   authentication with WorkSpaces](../../../workspaces/latest/adminguide/certificate-based-authentication.md "../../../workspaces/latest/adminguide/certificate-based-authentication.md")
 - [IAM
@@ -58,7 +58,7 @@
 - [Use IAM Access Analyzer policy generation to grant fine-grained permissions for your AWS CloudFormation service roles](https://aws.amazon.com/blogs/security/use-iam-access-analyzer-policy-generation-to-grant-fine-grained-permissions-for-your-aws-cloudformation-service-roles/ "https://aws.amazon.com/blogs/security/use-iam-access-analyzer-policy-generation-to-grant-fine-grained-permissions-for-your-aws-cloudformation-service-roles/")
 - [Best
   Practices for VPCs and Networking in Amazon WorkSpaces Deployments](https://d1.awsstatic.com/whitepapers/best-practices-vpcs-networking-amazon-workspaces-deployments.pdf "https://d1.awsstatic.com/whitepapers/best-practices-vpcs-networking-amazon-workspaces-deployments.pdf")
-- [Best Practices for Deploying Amazon AppStream 2.0](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md")
+- [Best Practices for Deploying Amazon WorkSpaces Applications](../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md "../../../whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md")
 
 **Related partner solutions:**
 

@@ -10,14 +10,14 @@ established:** High
 
 ## Implementation guidance
 
-Provide targeted training on the AWS Cloud, Amazon WorkSpaces, and AppStream 2.0 to verify
+Provide targeted training on the AWS Cloud, Amazon WorkSpaces, and WorkSpaces Applications to verify
 that architects, administrators, and support personnel all have the relevant skills to
 design, deploy, and maintain the AWS EUC environment. Give this training through
 authorized training courses and professional accreditations and create a training
 environment that can be used for evaluation and self-instruction, augmenting official
 coursework.
 
-The core tenets are the same for WorkSpaces and AppStream 2.0 as they are for delivering a
+The core tenets are the same for WorkSpaces and WorkSpaces Applications as they are for delivering a
 remotely accessed, centralized, and virtualized desktop and application delivery service,
 either on-premises or from an alternate cloud vendor. Skills in these areas are
 transferrable to deploying and managing AWS EUC services. It is essential for your
@@ -25,14 +25,14 @@ deployment teams to have a good understanding of compute, networking, storage,
 virtualization, and application delivery, at a minimum.
 
 Technical teams may need to be prepared in different ways depending on the nature of
-the adoption of Amazon WorkSpaces and AppStream 2.0 services:
+the adoption of Amazon WorkSpaces and WorkSpaces Applications services:
 
 **Greenfield a net new deployment with no prior cloud or EUC
 skills**
 
 Teams need to be trained, and they should iteratively maintain their skills in AWS
 core competencies such as cloud delivery, compute, networking, and storage, in addition to
-specific training and exposure to Amazon WorkSpaces and AppStream 2.0. Focus on understanding the
+specific training and exposure to Amazon WorkSpaces and WorkSpaces Applications. Focus on understanding the
 core tenets of cloud delivery such as reducing costs, increasing scalability and
 resilience, and taking advantage of the global reach of AWS Cloud services. This may be
 an area where AWS Professional Services or an AWS Partner may be able to add
@@ -47,7 +47,7 @@ understanding the core tenets of cloud delivery such as reducing costs, increasi
 scalability and resilience, and taking advantage of the global reach of AWS Cloud
 services.
 
-Teams should still be trained on and exposed to Amazon WorkSpaces and AppStream 2.0, but
+Teams should still be trained on and exposed to Amazon WorkSpaces and WorkSpaces Applications, but
 technical teams with prior experience deploying and managing EUC solutions will find this
 relatively straightforward.
 
@@ -60,7 +60,7 @@ understanding the core tenets of cloud delivery such as reducing costs, increasi
 scalability and resilience, and taking advantage of the global reach of AWS Cloud
 services.
 
-Teams should still be trained on and exposed to Amazon WorkSpaces and AppStream 2.0, but
+Teams should still be trained on and exposed to Amazon WorkSpaces and WorkSpaces Applications, but
 technical teams with prior experience deploying and managing EUC solutions will find this
 relatively straightforward.
 
@@ -81,13 +81,13 @@ Pay particular attention on the training and preparation needed to accommodate t
 differences between the incumbent cloud and EUC solutions and the way AWS Cloud and EUC
 services are deployed and managed.
 
-While Amazon WorkSpaces and AppStream 2.0 deliver standard Windows desktops and applications,
+While Amazon WorkSpaces and WorkSpaces Applications deliver standard Windows desktops and applications,
 which are created, managed, and maintained in a similar way to many other EUC and VDI
 systems, there are a few specific differences that need to be considered:-
 
-**Amazon WorkSpaces and Amazon AppStream 2.0 service specifics**
+**Amazon WorkSpaces and Amazon WorkSpaces Applications service specifics**
 
-Amazon WorkSpaces and Amazon AppStream 2.0 are fully managed services, meaning that there is
+Amazon WorkSpaces and Amazon WorkSpaces Applications are fully managed services, meaning that there is
 no customer access to the control plane. While this reduces control plane hardware
 requirements and simplifies deployment, there are some specific differences that need to
 be considered:
@@ -95,16 +95,16 @@ be considered:
 - **Connectivity**: User connectivity to each of the
   services is typically through an AWS-controlled point of presence on the public
   internet. Both streaming authentication and streaming traffic are delivered in this
-  fashion. For Amazon AppStream 2.0, streaming traffic can be routed to a
+  fashion. For Amazon WorkSpaces Applications, streaming traffic can be routed to a
   customer-configured VPC endpoint.
-  - [AppStream 2.0 Interface VPC Endpoints](../../../appstream2/latest/developerguide/interface-vpc-endpoints.md "../../../appstream2/latest/developerguide/interface-vpc-endpoints.md")
+  - [WorkSpaces Applications Interface VPC Endpoints](../../../appstream2/latest/developerguide/interface-vpc-endpoints.md "../../../appstream2/latest/developerguide/interface-vpc-endpoints.md")
 
-- **Compute instances**: Amazon WorkSpaces and Amazon AppStream 2.0
+- **Compute instances**: Amazon WorkSpaces and Amazon WorkSpaces Applications
   instances are a specifically engineered version of equivalent EC2 instances. As a
   result, the storage and networking configuration is subtly different.
 - **Instance availability**: Customers already familiar
   with the AWS Cloud and Amazon EC2 may be accustomed to a large selection of available
-  instance types. While Amazon WorkSpaces and Amazon AppStream 2.0 offer a range of compute
+  instance types. While Amazon WorkSpaces and Amazon WorkSpaces Applications offer a range of compute
   instances to deliver most typical EUC use cases, these are only a subset of the
   instance types available on EC2.
 - **Cost management**: Minimizing cost is a key
@@ -112,18 +112,18 @@ be considered:
   involved in deploying, managing, and maintaining the environment need to adopt a
   mindset that active resources add to the solution costs. For example, optimizing the
   running mode of WorkSpaces (Always-On or AutoStop), and managing the scale up and down
-  policies and running mode for AppStream 2.0 (Always-On or On-Demand) verifies that you
+  policies and running mode for WorkSpaces Applications (Always-On or On-Demand) verifies that you
   are managing costs effectively.
 
-Both WorkSpaces and AppStream 2.0 have cost optimizers that can be used to reduce costs by
+Both WorkSpaces and WorkSpaces Applications have cost optimizers that can be used to reduce costs by
 automating the shutdown or running mode of compute resources:
 
 - [Cost Optimizer for Amazon WorkSpaces](https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/ "https://aws.amazon.com/solutions/implementations/cost-optimizer-for-amazon-workspaces/")
-- [Cost Optimizer for Amazon AppStream 2.0](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2")
-- [Cost Optimization for AppStream 2.0
+- [Cost Optimizer for Amazon WorkSpaces Applications](https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2 "https://github.com/aws-samples/cost-optimizer-for-amazon-appstream2")
+- [Cost Optimization for WorkSpaces Applications
   Fleets](https://aws.amazon.com/blogs/desktop-and-application-streaming/optimizing-costs-using-amazon-appstream-2-0-fleet-options/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/optimizing-costs-using-amazon-appstream-2-0-fleet-options/")
 
-**Amazon WorkSpaces and AppStream 2.0 targeted training**
+**Amazon WorkSpaces and WorkSpaces Applications targeted training**
 
 While a basic knowledge of AWS services, such as deploying VPCs, subnets,
 networking, and storage, is required to deploy AWS EUC services, the following training,

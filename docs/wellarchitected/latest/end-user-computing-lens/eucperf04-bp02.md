@@ -9,7 +9,7 @@ graphics users may require performant desktops. Other users may require moderate
 performance as their workloads may be unpredictable.
 
 It's important to have a high degree of familiarity with the applications that need to
-be delivered using Amazon AppStream 2.0 in terms of their compute resource requirements. By
+be delivered using Amazon WorkSpaces Applications in terms of their compute resource requirements. By
 understanding core compute requirements such as the amount of memory, CPU, network
 bandwidth, latency, and disk space that applications require, you can determine the optimum
 fleet type and instance sizes required for the workload.
@@ -27,5 +27,5 @@ Determine the compute requirements for your applications.
   without overprovisioning their instance types.
 - If performance or productivity suffers for various users, increase the
   performance of their instances. This can be achieved by using larger instances with
-  more CPU or in the case of AppStream 2.0 using a different instance family that
+  more CPU or in the case of WorkSpaces Applications using a different instance family that
   provides higher clock speed for CPU cores.

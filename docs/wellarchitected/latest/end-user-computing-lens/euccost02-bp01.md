@@ -1,12 +1,12 @@
 # EUCCOST02-BP01 Monitor your EUC cost and usage proactively
 
 [AWS Cost and Usage
-Reports](../../../cur/latest/userguide/cur-create.md "../../../cur/latest/userguide/cur-create.md") help you gain detailed insights onboth your AppStream 2.0 and your WorkSpaces service
-usage and cost. In addition, AppStream 2.0 offers separate [Usage Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md")
+Reports](../../../cur/latest/userguide/cur-create.md "../../../cur/latest/userguide/cur-create.md") help you gain detailed insights onboth your WorkSpaces Applications and your WorkSpaces service
+usage and cost. In addition, WorkSpaces Applications offers separate [Usage Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md")
 with further detail. Amazon WorkSpaces comes with a [WorkSpaces CloudWatch automatic
 dashboard](../../../workspaces/latest/adminguide/cloudwatch-dashboard.md "../../../workspaces/latest/adminguide/cloudwatch-dashboard.md") that provides insight into the performance of your WorkSpaces resources and
-helps you identify performance issues. [Amazon AppStream 2.0 Fleet Usage and
-Instance/Session Performance Metrics](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md") are available in the AppStream 2.0 Console and
+helps you identify performance issues. [Amazon WorkSpaces Applications Fleet Usage and
+Instance/Session Performance Metrics](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md") are available in the WorkSpaces Applications Console and
 Amazon CloudWatch.
 
 **Level of risk exposed if this best
@@ -24,10 +24,10 @@ build a CUDOS Dashboard that includes Amazon WorkSpaces cost and usage data. The
 Optimizer for Amazon WorkSpaces referred to in EUCCOST-BP05 also generates basic usage
 reports in Amazon S3. 
 
-AppStream 2.0 also offers built-in usage reports. Enable [AppStream 2.0 Usage
-Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md") to gain valuable insights into your AppStream 2.0 usage. For details on
-visualizing your AppStream 2.0 usage, see [Analyze your AppStream 2.0 usage reports using Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/"). If you are using
-Amazon AppStream 2.0 features such as [Enable Application
-Settings Persistence for Your AppStream 2.0 Users](../../../appstream2/latest/developerguide/app-settings-persistence.md "../../../appstream2/latest/developerguide/app-settings-persistence.md") or [Enable and Administer Home
-Folders for Your AppStream 2.0 Users](../../../appstream2/latest/developerguide/home-folders.md "../../../appstream2/latest/developerguide/home-folders.md") , include the underlying Amazon S3 buckets in
+WorkSpaces Applications also offers built-in usage reports. Enable [WorkSpaces Applications Usage
+Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md") to gain valuable insights into your WorkSpaces Applications usage. For details on
+visualizing your WorkSpaces Applications usage, see [Analyze your WorkSpaces Applications usage reports using Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/"). If you are using
+Amazon WorkSpaces Applications features such as [Enable Application
+Settings Persistence for Your WorkSpaces Applications Users](../../../appstream2/latest/developerguide/app-settings-persistence.md "../../../appstream2/latest/developerguide/app-settings-persistence.md") or [Enable and Administer Home
+Folders for Your WorkSpaces Applications Users](../../../appstream2/latest/developerguide/home-folders.md "../../../appstream2/latest/developerguide/home-folders.md") , include the underlying Amazon S3 buckets in
 your cost and usage monitoring.

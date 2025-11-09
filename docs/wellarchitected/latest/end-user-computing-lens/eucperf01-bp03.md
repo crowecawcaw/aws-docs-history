@@ -15,7 +15,7 @@ For WorkSpaces, the use of cross-Region redirection or Multi-Region Resilience a
 manual or partially automated process of using alternate regions to support your WorkSpaces
 users in the event of a serious outage.
 
-For AppStream 2.0, the master images created in one Region can be copied to a
+For WorkSpaces Applications, the master images created in one Region can be copied to a
 secondary Region to enable the configuration of identical regional deployment for DR
 purposes.
 

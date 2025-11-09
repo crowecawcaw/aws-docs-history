@@ -10,7 +10,7 @@ established:** Medium
 
 ## Implementation guidance
 
-Take advantage of new and improved capabilities of Amazon WorkSpaces and AppStream 2.0
+Take advantage of new and improved capabilities of Amazon WorkSpaces and WorkSpaces Applications
 services and deploy new updates to deliver incremental features and performance for your
 desktops and applications delivered by those services. Staying up to date is key to
 deliver business outcomes that provide a competitive advantage.
@@ -18,7 +18,7 @@ deliver business outcomes that provide a competitive advantage.
 Perform periodic reviews of new service capabilities and improvements in desktop and
 application delivery to maximize your investment.
 
-You can continually improve service for Amazon WorkSpaces and AppStream 2.0 in many ways,
+You can continually improve service for Amazon WorkSpaces and WorkSpaces Applications in many ways,
 including:
 
 - **New features**: Identify, test, and implement new

@@ -31,7 +31,7 @@ and why each configuration decision was made.
 
 **Infrastructure build**
 
-How were the landing zone and your WorkSpaces or AppStream 2.0 environments created, which
+How were the landing zone and your WorkSpaces or WorkSpaces Applications environments created, which
 options were configured for each service, and why? CloudFormation templates can be used to
 reliably and repeatably build the baseline infrastructure and the rationale behind the
 CloudFormation template creation. Deployment and rollback processes can be captured and
@@ -40,7 +40,7 @@ documented.
 **Active Directory or RADIUS integration**
 
 Your Active Directory and RADIUS deployment and maintenance should be part of a
-separate operations guide chapter. For WorkSpaces and AppStream 2.0, capture the specifics of
+separate operations guide chapter. For WorkSpaces and WorkSpaces Applications, capture the specifics of
 how you integrated Active Directory and RADIUS for the respective service. For WorkSpaces,
 document which directory integration method was used, and capture the manual steps used to
 deploy or details of the CloudFormation templates used to automate this process.
@@ -48,7 +48,7 @@ deploy or details of the CloudFormation templates used to automate this process.
 **SAML 2.0 or certificate-based authentication**
 
 How was your SAML 2.0 IdP configured with respect to integration with Amazon WorkSpaces or
-AppStream 2.0? Which SAML attributes were used to drive AppStream application
+WorkSpaces Applications? Which SAML attributes were used to drive AppStream application
 entitlements?
 
 How will you monitor and manage the certificates used to build a chain of trust
@@ -69,7 +69,7 @@ which registry or file system changes were required?
 How were your applications installed and deployed (for example, did you use local
 images, App-V, MSIX, AppVolumes, network share, or third party isolation products?).
 
-For AppStream 2.0, did you use session scripts? Document the scripts deployed and
+For WorkSpaces Applications, did you use session scripts? Document the scripts deployed and
 what each script does.
 
 For WorkSpaces BYOL deployments, document the process followed to extract your Windows 10
@@ -80,6 +80,6 @@ will be applied, and how will you roll back to a known good configuration if req
 
 **Client deployment**
 
-Which clients are required to access Workspaces or AppStream 2.0 (for example,
+Which clients are required to access Workspaces or WorkSpaces Applications (for example,
 Windows, macOS, or web), which user groups require each client type, and how should it be
 installed? How will clients be updated?

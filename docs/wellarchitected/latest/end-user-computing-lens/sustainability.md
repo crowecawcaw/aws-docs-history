@@ -6,7 +6,7 @@ sustainability targets for your AWS workloads. 
 
 End user computing (EUC) plays a significant role in supporting
 environmental, social, and governance (ESG) goals, ultimately
-contributing to sustainability. EUC in AWS includes Amazon WorkSpaces and Amazon AppStream 2.0 and allows employees to work from
+contributing to sustainability. EUC in AWS includes Amazon WorkSpaces and Amazon WorkSpaces Applications and allows employees to work from
 anywhere, anytime, and on many devices, thereby reducing the need
 for commuting and lowering carbon emissions. By promoting remote
 work, EUC also contributes to a more sustainable approach by

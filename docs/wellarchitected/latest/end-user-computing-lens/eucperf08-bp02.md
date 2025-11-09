@@ -1,6 +1,6 @@
-# EUCPERF08-BP02 Monitor Amazon AppStream 2.0 CloudWatch metrics
+# EUCPERF08-BP02 Monitor Amazon WorkSpaces Applications CloudWatch metrics
 
-Use Amazon CloudWatch to establish and monitor your AppStream 2.0 workload's performance against
+Use Amazon CloudWatch to establish and monitor your WorkSpaces Applications workload's performance against
 the KPIs established for your service. [Use the Automatic
 dashboard](../../../workspaces/latest/adminguide/cloudwatch-dashboard.md "../../../workspaces/latest/adminguide/cloudwatch-dashboard.md") in Amazon CloudWatch to monitor your fleet capacity over time or consider
 creating a custom dashboard tailored to your environment.

@@ -17,6 +17,6 @@ For the WorkSpaces service line, explore the Availability Zone information.
 - [Amazon WorkSpaces Availability Zone Support](../../../workspaces/latest/adminguide/azs-workspaces.md "../../../workspaces/latest/adminguide/azs-workspaces.md")
 - [Amazon WorkSpaces Secure Browser](../../../workspaces-web/latest/adminguide/availability-zones.md "../../../workspaces-web/latest/adminguide/availability-zones.md")
 
-For AppStream 2.0, selecting a subnet when creating a new fleet automatically checks
+For WorkSpaces Applications, selecting a subnet when creating a new fleet automatically checks
 if the associated Availability Zone can support the requested requirements, which are
 based on several criteria such as instance type and availability.

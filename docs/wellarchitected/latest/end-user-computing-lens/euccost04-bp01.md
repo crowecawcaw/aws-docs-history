@@ -1,6 +1,6 @@
-# EUCCOST04-BP01 Tag your Amazon WorkSpaces and Amazon AppStream 2.0 resources
+# EUCCOST04-BP01 Tag your Amazon WorkSpaces and Amazon WorkSpaces Applications resources
 
-[Tagging your Amazon AppStream 2.0 resources](../../../appstream2/latest/developerguide/tagging-basic.md "../../../appstream2/latest/developerguide/tagging-basic.md") or [tagging WorkSpaces
+[Tagging your Amazon WorkSpaces Applications resources](../../../appstream2/latest/developerguide/tagging-basic.md "../../../appstream2/latest/developerguide/tagging-basic.md") or [tagging WorkSpaces
 resources](../../../workspaces/latest/adminguide/tag-workspaces-resources.md "../../../workspaces/latest/adminguide/tag-workspaces-resources.md") helps you allocate your cost to logical groups, such as departments or
 business entities.
 

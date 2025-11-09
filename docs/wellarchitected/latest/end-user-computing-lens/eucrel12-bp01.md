@@ -1,7 +1,7 @@
 # EUCREL12-BP01 Develop an EUC-specific incident response plan that improves reliability in your environment
 
 When developing incident response plans for Amazon WorkSpaces
-and AppStream 2.0, it's important to address their unique
+and WorkSpaces Applications, it's important to address their unique
 characteristics such as the session-based nature of AppStream
 2.0 and the persistent data in WorkSpaces. Plans should include
 strategies for handling issues with scaling, session failures,
@@ -16,7 +16,7 @@ Additionally, document user connectivity issues and regular
 backups to provide seamless recovery and data protection. Verify
 that the incident response plans are comprehensive, covering
 procedures for responding to various types of incidents or
-events specific to WorkSpaces and AppStream 2.0. Collaborate
+events specific to WorkSpaces and WorkSpaces Applications. Collaborate
 with key stakeholders in the process to gather insights into
 potential scenarios and verify alignment with organizational
 goals. Regularly review and refine these plans to incorporate
@@ -29,11 +29,11 @@ practice is not established:** Medium
 ## Implementation guidance
 
 When developing incident response plans for Amazon WorkSpaces
-and AppStream 2.0, customize them to suit the specific
+and WorkSpaces Applications, customize them to suit the specific
 features and challenges posed by these cloud services. Verify
 that these plans are thorough, encompassing procedures for
 addressing various incidents or situations specific to
-WorkSpaces and AppStream 2.0.
+WorkSpaces and WorkSpaces Applications.
 
 Collaborate with key stakeholders to gather valuable insights
 and align plans with organizational objectives. Document

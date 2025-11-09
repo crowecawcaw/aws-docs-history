@@ -20,7 +20,7 @@
 - [Amazon WorkSpaces Primer](https://www.aws.training/Details/Curriculum?id=62373 "https://www.aws.training/Details/Curriculum?id=62373")
 - [Amazon WorkSpaces Deep Dive](https://www.aws.training/Details/Curriculum?id=67317 "https://www.aws.training/Details/Curriculum?id=67317")
 - [Amazon
-  AppStream 2.0 Primer](https://www.aws.training/Details/Curriculum?id=67990 "https://www.aws.training/Details/Curriculum?id=67990")
+  WorkSpaces Applications Primer](https://www.aws.training/Details/Curriculum?id=67990 "https://www.aws.training/Details/Curriculum?id=67990")
 
 **Related videos:**
 

@@ -11,7 +11,7 @@ practice is not established:** Medium
 
 ## Implementation guidance
 
-By using either AppStream 2.0 or WorkSpaces, you can extend your device lifecycle. The
+By using either WorkSpaces Applications or WorkSpaces, you can extend your device lifecycle. The
 performance of the local device will not be affected, and a low-performance device can
 connect and stream an intensive application. Examples of this strategy include Windows
 laptops, Chromebooks, or other user-owned devices.

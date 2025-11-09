@@ -16,7 +16,7 @@ Implement proactive monitoring of the health of all aspects of an AWS EUC
 deployment to quickly identify and remediate problems that affect the user population,
 their productivity, and any impact this may have on the business.
 
-For both Amazon WorkSpaces and Amazon AppStream 2.0, it is important to monitor both the
+For both Amazon WorkSpaces and Amazon WorkSpaces Applications, it is important to monitor both the
 service itself in addition to any external service dependencies. Consider the following
 monitoring tools:
 
@@ -35,14 +35,14 @@ Additional metrics, such as instance specific CPU, memory, and disk performance 
 also be viewed. Develop custom CloudWatch widgets to fine tune the monitoring of specific groups
 of WorkSpaces.
 
-[**Amazon AppStream 2.0**](../../../appstream2/latest/developerguide/logging-monitoring-alerting.md "../../../appstream2/latest/developerguide/logging-monitoring-alerting.md")
+[**Amazon WorkSpaces Applications**](../../../appstream2/latest/developerguide/logging-monitoring-alerting.md "../../../appstream2/latest/developerguide/logging-monitoring-alerting.md")
 
 Amazon CloudWatch provides an automatic dashboard which gives an overview of overall service
 health, including fleet capacity and utilization.
 
 CloudWatch alarms can be configured to send alerts when specific thresholds are met.
 
-Each WorkSpaces and Amazon AppStream 2.0 instance exposes a network interface in the
+Each WorkSpaces and Amazon WorkSpaces Applications instance exposes a network interface in the
 customers managed VPC which can be addressed by third party monitoring tools for
 traditional management.
 
@@ -54,7 +54,7 @@ scripts or in real time using services such as Amazon Kinesis.
 
 Monitoring should also be in place for:
 
-- Internet connectivity (user to Amazon WorkSpaces or Amazon AppStream 2.0 service)
+- Internet connectivity (user to Amazon WorkSpaces or Amazon WorkSpaces Applications service)
 - Amazon networking
 - Active directory
 - RADIUS (or other MFA provider)
@@ -78,12 +78,12 @@ key metrics to Amazon CloudWatch.
 **Log propagation**
 
 For centralized gathering of log files for troubleshooting and retrospective
-analysis, Amazon Kinesis agents can be deployed on WorkSpaces or AppStream 2.0 to deliver real-time
+analysis, Amazon Kinesis agents can be deployed on WorkSpaces or WorkSpaces Applications to deliver real-time
 propagation of OS and application-level logs to a central location.
 
-For Amazon AppStream 2.0, propagating instance log files in real time to a
+For Amazon WorkSpaces Applications, propagating instance log files in real time to a
 centralized location is essential if you need to store logs for compliance purposes, as
-AppStream instances are destroyed at the end of each session. For more detail, see [Using the Kinesis Agent to store AppStream 2.0 Windows event logs](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/").
+AppStream instances are destroyed at the end of each session. For more detail, see [Using the Kinesis Agent to store WorkSpaces Applications Windows event logs](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-kinesis-agent-for-microsoft-windows-to-store-appstream-2-0-windows-event-logs/").
 
 **AWS Health dashboard**
 

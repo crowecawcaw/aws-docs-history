@@ -18,6 +18,6 @@ Evaluate the required domain knowledge in your cloud business office. We recomme
 you evaluate the required EUC domain knowledge in your cloud business office to understand
 if the team is ready to support cost optimization for EUC services. These individuals need
 to be intimately familiar with the cost optimization levers specific to EUC services, such
-as Microsoft licensing, WorkSpaces running modes, WorkSpaces bundles, AppStream 2.0 Fleet types, and
-AppStream 2.0instances. Provide EUC-specific cloud financial training to them if there is a
+as Microsoft licensing, WorkSpaces running modes, WorkSpaces bundles, WorkSpaces Applications Fleet types, and
+WorkSpaces Applicationsinstances. Provide EUC-specific cloud financial training to them if there is a
 knowledge gap.

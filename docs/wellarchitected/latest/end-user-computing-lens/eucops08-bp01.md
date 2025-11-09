@@ -11,16 +11,16 @@ established:** High
 ## Implementation guidance
 
 Track all changes which might directly or indirectly affect the performance and
-availability of Amazon WorkSpaces or Amazon AppStream 2.0 services. Implement a change control
+availability of Amazon WorkSpaces or Amazon WorkSpaces Applications services. Implement a change control
 process that documents each service update with a robust risk assessment and back-out plan
 and involves technology stakeholders from all relevant areas. This process can reduce the
 risk of service outages or degradation.
 
-Both WorkSpaces and Amazon AppStream 2.0 have key dependencies on many external services.
+Both WorkSpaces and Amazon WorkSpaces Applications have key dependencies on many external services.
 If changes to any of these services is required, a representative from the AWS EUC team
 should be part of the change control team to review and quantify the risk of the change.
 
-The service dependencies for Amazon WorkSpaces and Amazon AppStream 2.0 include, but are not
+The service dependencies for Amazon WorkSpaces and Amazon WorkSpaces Applications include, but are not
 restricted to:
 
 - AWS networking
@@ -41,5 +41,5 @@ restricted to:
 - Anti-malware infrastructure
 - Thin client management infrastructure
 
-Amazon WorkSpaces and Amazon AppStream 2.0 also use other AWS services, such as Amazon EBS and
+Amazon WorkSpaces and Amazon WorkSpaces Applications also use other AWS services, such as Amazon EBS and
 Amazon S3 for storage, so you should understand any changes being made to these systems.

@@ -51,17 +51,17 @@ practice is not established:** High
   [Manage
   your Windows WorkSpaces in WorkSpaces Personal](../../../workspaces/latest/adminguide/group_policy.md "../../../workspaces/latest/adminguide/group_policy.md").
 - **Restrict data access to required
-  functionality within Amazon AppStream 2.0**: To
+  functionality within Amazon WorkSpaces Applications**: To
   protect data on the endpoint used to connect to an Amazon
-  AppStream 2.0 session and the AppStream 2.0 instance
+  WorkSpaces Applications session and the WorkSpaces Applications instance
   itself, implement controls to close potential inbound or
   outbound channels that are not required by the users
   connecting to the service. The service has controls to
   configure the clipboard, file transfer, printing to a
   local device, and file system redirection. You can
-  configure each of these options on an AppStream 2.0 stack
+  configure each of these options on an WorkSpaces Applications stack
   and disable them when not required. For details on
   configuring data access restrictions with Amazon AppStream
   2.0, see
   [Create
-  an Amazon AppStream 2.0 Fleet and Stack](../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install "../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install").
+  an Amazon WorkSpaces Applications Fleet and Stack](../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install "../../../appstream2/latest/developerguide/set-up-stacks-fleets.md#set-up-stacks-fleets-install").

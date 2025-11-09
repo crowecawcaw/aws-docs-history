@@ -11,7 +11,7 @@ practice is not established:** Medium
 
 Implement security controls to restrict access to software
 binaries. Permissions applied to software binaries present on
-Amazon WorkSpaces or AppStream 2.0 instances should restrict
+Amazon WorkSpaces or WorkSpaces Applications instances should restrict
 the ability for users to run the programs and applications
 that they require to fulfill their role. Evaluate other
 software binaries present in the image to verify that the

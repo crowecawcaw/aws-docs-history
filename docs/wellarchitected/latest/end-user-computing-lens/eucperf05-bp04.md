@@ -5,7 +5,7 @@ storage is located on disks that are physically attached to the host computer. I
 store is ideal for temporary storage of information that changes frequently, such as
 buffers, caches, scratch data, and other temporary content.
 
-For AppStream 2.0, the Graphics G4, Graphics G5, and Memory Optimized
+For WorkSpaces Applications, the Graphics G4, Graphics G5, and Memory Optimized
 (stream.memory.z1d) instance families include NVMe instance storage volumes. For further
 information related to the instance storage volumes and initializing, see [Instance store
 temporary block storage for EC2 instances](../../../AWSEC2/latest/WindowsGuide/InstanceStorage.md "../../../AWSEC2/latest/WindowsGuide/InstanceStorage.md").

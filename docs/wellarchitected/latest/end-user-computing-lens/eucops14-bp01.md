@@ -19,7 +19,7 @@ degradation or other failures at the AWS EUC service tier.
 Use Amazon CloudWatch to gather metrics and logs, which are stored for subsequent analysis, to
 identify problems or trends that have occurred over time.
 
-Amazon Kinesis agents can be installed onto Amazon WorkSpaces or AppStream 2.0 images to export log
+Amazon Kinesis agents can be installed onto Amazon WorkSpaces or WorkSpaces Applications images to export log
 file data in real time to a centralized location for retrospective analysis.
 
 For larger environments, consider creating a data lake of key data from system logs,

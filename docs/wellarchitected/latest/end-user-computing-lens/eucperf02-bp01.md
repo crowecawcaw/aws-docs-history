@@ -3,7 +3,7 @@
 latency
 
 When migrating to or implementing AWS EUC services, consider the location of each
-group of users with respect to the service endpoints for AWS WorkSpaces, AppStream 2.0, or
+group of users with respect to the service endpoints for AWS WorkSpaces, WorkSpaces Applications, or
 WorkSpaces Secure Browser. You should deliver services from the Region with the lowest latency to
 most users.
 

@@ -17,7 +17,7 @@ practice is not established:** High
   - Use a strong password policy.
   - Use multi-factor authentication (MFA) to provide
     additional protection to end users in your
-    environment. For Amazon WorkSpaces and AppStream 2.0
+    environment. For Amazon WorkSpaces and WorkSpaces Applications
     environments integrated with a SAML IdP, enable MFA in
     the IdP. For Amazon WorkSpaces Personal where a SAML
     IdP is not in use, implement a RADIUS server to
@@ -39,7 +39,7 @@ practice is not established:** High
   Active Directory, to authenticate users prior to them
   accessing an AWS EUC service. Verifying authenticating or
   authorization checks that only entitled users can access
-  the applications and data accessible from Amazon WorkSpaces and AppStream 2.0 instances.
+  the applications and data accessible from Amazon WorkSpaces and WorkSpaces Applications instances.
 - **Manage user entitlements using
   groups where possible**: Use groups within Active
   Directory or your authentication provider instead of

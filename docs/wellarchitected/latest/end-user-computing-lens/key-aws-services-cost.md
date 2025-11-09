@@ -1,6 +1,6 @@
 # Key AWS services
 
-- [Amazon AppStream 2.0](https://aws.amazon.com/appstream2/?nc1=h_ls "https://aws.amazon.com/appstream2/?nc1=h_ls")
+- [Amazon WorkSpaces Applications](https://aws.amazon.com/appstream2/?nc1=h_ls "https://aws.amazon.com/appstream2/?nc1=h_ls")
 - [Amazon WorkSpaces](https://aws.amazon.com/workspaces/all-inclusive/ "https://aws.amazon.com/workspaces/all-inclusive/")
 - [Amazon WorkSpaces Secure Browser](https://aws.amazon.com/workspaces/secure-browser/ "https://aws.amazon.com/workspaces/secure-browser/")
 - [Amazon WorkSpaces Core](https://aws.amazon.com/workspaces/core/ "https://aws.amazon.com/workspaces/core/")

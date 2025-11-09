@@ -12,7 +12,7 @@ practice is not established:** High
 
 Enforce network separation between user instances and other
 services. EUC instances provided by Amazon WorkSpaces or
-AppStream 2.0 usually have network connectivity to other
+WorkSpaces Applications usually have network connectivity to other
 workloads in the same network subnet. The use of security
 groups within VPCs can restrict lateral movement and are
 recommended for implementation. For defense-in-depth, non-end

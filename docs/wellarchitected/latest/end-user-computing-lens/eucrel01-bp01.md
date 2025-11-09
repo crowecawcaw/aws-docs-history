@@ -2,7 +2,7 @@
 
 The principle of assuming that failures will occur represents a
 paradigm shift in the approach to designing Amazon WorkSpaces
-and AppStream 2.0 environments. By adopting this mindset,
+and WorkSpaces Applications environments. By adopting this mindset,
 organizations can prioritize resilience and develop strategies
 that minimize the impact of failures, thereby reducing downtime
 and mitigating potential business disruptions.
@@ -12,16 +12,16 @@ practice is not established:** High
 
 ## Implementation guidance
 
-When designing an Amazon WorkSpaces or AppStream 2.0
+When designing an Amazon WorkSpaces or WorkSpaces Applications
 environment, the approach should prioritize resilience and
 minimize the impact of failures by assuming that failures will
 occur and implementing robust strategies.
 
 Implement redundancy at every layer of your architecture. This
 includes network paths, storage, and virtual desktops. Use
-multiple instances of Amazon WorkSpaces or AppStream 2.0 so
+multiple instances of Amazon WorkSpaces or WorkSpaces Applications so
 that if one fails, others can take over seamlessly. For
-AppStream 2.0, use automatic scaling to match the number of
+WorkSpaces Applications, use automatic scaling to match the number of
 running instances to user demand, keeping performance
 consistent even during usage spikes.
 
@@ -36,7 +36,7 @@ operations quickly in case of a failure.
 
 Set up comprehensive monitoring using Amazon CloudWatch to
 keep track of the performance and health of your WorkSpaces
-and AppStream 2.0 environments. Create alarms and automated
+and WorkSpaces Applications environments. Create alarms and automated
 responses to detect and remediate detected issues promptly.
 
 Continuously review and improve your architecture and

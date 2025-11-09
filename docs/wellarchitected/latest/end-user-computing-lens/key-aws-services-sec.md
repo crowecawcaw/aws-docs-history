@@ -2,7 +2,7 @@
 
 - [Amazon WorkSpaces](../../../workspaces/latest/adminguide/amazon-workspaces.md "../../../workspaces/latest/adminguide/amazon-workspaces.md")
 - [Amazon
-  AppStream 2.0](../../../appstream2/latest/developerguide/what-is-appstream.md "../../../appstream2/latest/developerguide/what-is-appstream.md")
+  WorkSpaces Applications](../../../appstream2/latest/developerguide/what-is-appstream.md "../../../appstream2/latest/developerguide/what-is-appstream.md")
 - [Amazon Virtual Private Cloud](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md")
 - [AWS Identity and Access Management](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md")
 - [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md")

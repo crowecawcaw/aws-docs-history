@@ -1,6 +1,6 @@
 # EUCCOST05-BP03 Rightsize your EUC resources
 
-Choosing the right Amazon WorkSpaces bundle or Amazon AppStream 2.0 instance type for your EUC
+Choosing the right Amazon WorkSpaces bundle or Amazon WorkSpaces Applications instance type for your EUC
 workloads is important to operate your EUC environment in a cost-effective manner. The
 chosen configuration needs to support the hardware requirements of your applications, while
 at the same time avoiding over-provisioning resources.
@@ -23,8 +23,8 @@ Once your workload is in production, continually monitor relevant metrics, helpi
 react to changing requirements by adjusting the bundle and instance type.  [Monitor
 your WorkSpaces health using the WorkSpaces CloudWatch automatic dashboard](../../../workspaces/latest/adminguide/cloudwatch-dashboard.md "../../../workspaces/latest/adminguide/cloudwatch-dashboard.md"), which provides
 insight into the performance of your WorkSpaces resources and helps you identify performance
-issues. [Amazon AppStream 2.0 fleet usage, instance, and session Performance Metrics](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md") are available in
-the AppStream 2.0 console and Amazon CloudWatch.
+issues. [Amazon WorkSpaces Applications fleet usage, instance, and session Performance Metrics](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md") are available in
+the WorkSpaces Applications console and Amazon CloudWatch.
 
 **Level of risk exposed if this best
 practice is not established:** Medium
@@ -36,7 +36,7 @@ practice is not established:** Medium
 AWS EUC services offer a variety of different bundles and instance types, including
 GPU-enabled choices. Assuming you have captured and analyzed your metrics in an existing
 reference environment, you can map your workloads to the most cost-effective Amazon WorkSpaces or
-AppStream 2.0 bundles and instance types. If you have use cases that require a GPU and are
-heavily utilized (high number of hours per month), consider using AppStream 2.0, which gives you
-a more granular choice of GPU-enabled instances. Use the [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/") or the [Amazon AppStream 2.0 Pricing](https://aws.amazon.com/appstream2/pricing/?nc1=h_ls "https://aws.amazon.com/appstream2/pricing/?nc1=h_ls") tool to determine which of
+WorkSpaces Applications bundles and instance types. If you have use cases that require a GPU and are
+heavily utilized (high number of hours per month), consider using WorkSpaces Applications, which gives you
+a more granular choice of GPU-enabled instances. Use the [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/") or the [Amazon WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/?nc1=h_ls "https://aws.amazon.com/appstream2/pricing/?nc1=h_ls") tool to determine which of
 the two solutions is more cost-effective for your specific workload.

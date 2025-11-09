@@ -79,14 +79,14 @@ reliable network connection opens up a number of new delivery
 scenarios which allow employees to be more productive wherever
 they are located.
 
-Amazon AppStream 2.0 delivers a service which accommodates the
+Amazon WorkSpaces Applications delivers a service which accommodates the
 application delivery models and the associated advantages which
 are mentioned in the preceding section. The following diagram
-illustrates a typical deployment of the AppStream 2.0 service.
+illustrates a typical deployment of the WorkSpaces Applications service.
 
 ![](images/image3.png)
 
-Prior to subscribing to the AppStream 2.0 service, the customer
+Prior to subscribing to the WorkSpaces Applications service, the customer
 must create their own AWS landing zone and VPC, which will
 typically deploy subnets across multiple resilient Availability
 Zones. It is from these subnets that the application machine
@@ -124,13 +124,13 @@ defines the naming convention for the application set, which
 applications will be visible to various users and groups, home
 drive and application persistence settings, and policy controls
 to limit access to clipboard, file transfer, and printing.
-Amazon AppStream 2.0 offers built-in storage for home drives and
+Amazon WorkSpaces Applications offers built-in storage for home drives and
 application settings in an Amazon S3 storage location, but other
 file sharing and profile management solutions such as Google
 Drive, OneDrive, WorkDocs, or using the AWS Windows FSx file
 service and FSLogix for profile management are possible.
 
-## Common Amazon AppStream 2.0 deployment scenarios
+## Common Amazon WorkSpaces Applications deployment scenarios
 
 Several example problem-solutions are presented here that our
 typical customers encounter with their desktops. You can benefit
@@ -147,15 +147,15 @@ complete. The service desk became overwhelmed by new support
 calls when a new OS or application update was deployed, and
 users are becoming frustrated.
 
-Amazon AppStream 2.0 provides a system to deliver a common set
+Amazon WorkSpaces Applications provides a system to deliver a common set
 of applications to thousands of users from a single image. By
 maintaining a single image and using robust version control, a
 single set of applications can be delivered, updated, rolled
 out, and quickly rolled back if required. This customer
-installed the Amazon AppStream 2.0 client and delivered the
+installed the Amazon WorkSpaces Applications client and delivered the
 required applications virtually to every laptop without
 needing to install local copies on every device. The
-applications delivered from Amazon AppStream 2.0 appeared as
+applications delivered from Amazon WorkSpaces Applications appeared as
 natively integrated into the Windows user interface, making
 the change almost seamless to the end users.
 
@@ -169,7 +169,7 @@ of computers in the required timescales. We sometimes
 encounter issues with the new updates which can take hours to
 remediate.
 
-Amazon AppStream 2.0 was selected here, as it facilitates the
+Amazon WorkSpaces Applications was selected here, as it facilitates the
 automated update of a centralized application image, allowing
 new application updates to be quickly installed and pushed out
 to thousands of users in a short time frame. Rollback is also
@@ -184,7 +184,7 @@ internally developed application available to their key
 business partners, but we have no control over the management
 of the endpoint devices used by these external companies. 
 
-Amazon AppStream 2.0 can deliver applications into a standard
+Amazon WorkSpaces Applications can deliver applications into a standard
 HTML5 browser interface, removing the need to install client
 software on unmanaged devices. In this case, the customer was
 able to maintain complete control over the application set
@@ -201,7 +201,7 @@ allow authentication or corporate access to the parent company
 resources.
 
 The customer can fast-track access to parent company assets
-from their new acquisition using Amazon AppStream 2.0, which
+from their new acquisition using Amazon WorkSpaces Applications, which
 provides remote access to the required applications over the
 internet while also being able to mandate the strict
 authentication requirements of the parent company.
@@ -218,9 +218,9 @@ offering. 
 
 As an ISV, being able to minimize the cost of delivering their
 applications using the service-oriented approach of Amazon
-AppStream 2.0 allowed this customer to maintain their
+WorkSpaces Applications allowed this customer to maintain their
 competitive advantage and to maximize their own revenues. As
-Amazon AppStream 2.0 application machine instances are charged
+Amazon WorkSpaces Applications application machine instances are charged
 at an hourly rate (or by the second for Elastic instances), it
 is simple to calculate the delivery costs for different
 service levels based on increasing hardware capabilities.
@@ -234,7 +234,7 @@ every year. We currently stand-up dedicated hardware for these
 events, but this is costly, and the infrastructure is
 underutilized for the remainder of the year.
 
-Amazon AppStream 2.0 fleets can be configured to scale up or
+Amazon WorkSpaces Applications fleets can be configured to scale up or
 down based on several criteria, such as the number of required
 instances or on a time schedule. The ability to scale and only
 pay for what you use was a compelling factor in this
@@ -249,12 +249,12 @@ basis and provide access to key productivity apps to users
 wherever they are geographically located. However, we don't
 issue laptops or mobile devices to many employees.
 
-Amazon AppStream 2.0 provides secure remote internet access by
+Amazon WorkSpaces Applications provides secure remote internet access by
 default. All that is required to access your application set
 is a supported endpoint device such as a desktop, laptop, or
 mobile device. If the user cannot install a local Amazon
-AppStream 2.0 client, access is possible using an HTML5
-browser. Following the adoption of Amazon AppStream 2.0, this
+WorkSpaces Applications client, access is possible using an HTML5
+browser. Following the adoption of Amazon WorkSpaces Applications, this
 customer can now offer remote working to their key staff,
 allowing them to be productive if travel to the office is
 disrupted or if personal circumstances mean that office
@@ -267,7 +267,7 @@ like to be able to deliver a new Windows application to all
 our users, but they are running a mixture of Windows, Linux,
 and macOS devices.
 
-Amazon AppStream 2.0 can deliver Windows or Linux
+Amazon WorkSpaces Applications can deliver Windows or Linux
 applications, virtually, to a diverse endpoint OS system
 combination such as macOS, Linux, Windows, or mobile devices
 while maintaining the native user experience of the
@@ -282,7 +282,7 @@ test and upgrade my Windows application estate to the latest
 OS version, but the upgrade process is always time-consuming
 and support intensive. 
 
-Amazon AppStream 2.0 offers access to several OS systems
+Amazon WorkSpaces Applications offers access to several OS systems
 versions in the Windows server and Amazon Linux line-up. You
 can select a later operating system version and perform
 exhaustive testing of your application set before migrating to
@@ -299,7 +299,7 @@ of older application servers and endpoint devices that have
 green credentials which are difficult to incorporate into our
 plans.
 
-Amazon AppStream 2.0 is delivered as a service using the AWS Cloud, which invests heavily in environmentally friendly data
+Amazon WorkSpaces Applications is delivered as a service using the AWS Cloud, which invests heavily in environmentally friendly data
 centers, providing businesses with a cost-effective way of
 realizing regional environmental targets with minimal effort.
 Thin or zero client devices can be deployed to access
@@ -314,7 +314,7 @@ to deliver some key business applications to users across the
 globe but are concerned about leakage of our critical business
 intellectual property.
 
-Accessing applications using Amazon AppStream 2.0 moves the
+Accessing applications using Amazon WorkSpaces Applications moves the
 execution of applications into a centralized and secure AWS Cloud environment which can be more tightly controlled than a
 distributed application delivery approach. Amazon Appstream
 2.0 virtual channels which control clipboard, local file
@@ -335,9 +335,9 @@ strategic data lakes and AI/ML systems. How do we optimize the
 performance of the client-side applications that use these
 services?
 
-Amazon AppStream 2.0 runs as an AWS service in many Regions
+Amazon WorkSpaces Applications runs as an AWS service in many Regions
 across the globe. Accessing client applications using Amazon
-AppStream 2.0 verifies that they run near your other AWS
+WorkSpaces Applications verifies that they run near your other AWS
 services, maximizing network performance between the client
 and the data being manipulated.
 
@@ -348,10 +348,10 @@ training company who needs to increase our reach and reduce
 our service costs by offering training courses that can be
 attended remotely.
 
-Amazon AppStream 2.0 runs in 15 AWS Regions, which means that
+Amazon WorkSpaces Applications runs in 15 AWS Regions, which means that
 deploying a training application with global reach is simply a
-matter of deploying Amazon AppStream 2.0 from multiple
-Regions. As Amazon AppStream 2.0 instance charges are based on
+matter of deploying Amazon WorkSpaces Applications from multiple
+Regions. As Amazon WorkSpaces Applications instance charges are based on
 hourly usage and scale across a wide range of instance types,
 you can deliver a range of different training courses with a
 predictable baseline cost.
@@ -361,10 +361,10 @@ predictable baseline cost.
 **User scenario:** We are an
 engineering company with significant requirements in terms of
 graphics processing for our development applications. How can
-Amazon AppStream 2.0 deliver the performance we need to take
+Amazon WorkSpaces Applications deliver the performance we need to take
 advantage of application virtualization?
 
-Amazon AppStream 2.0 offers several graphics instance types
+Amazon WorkSpaces Applications offers several graphics instance types
 offering NVidia T4 GPUs with up to 64Gb memory, which is
 adequate for a wide range of engineering application needs.
 Furthermore, the Amazon DCV protocol used by Amazon AppStream

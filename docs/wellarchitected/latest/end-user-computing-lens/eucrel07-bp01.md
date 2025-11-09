@@ -25,4 +25,4 @@ facilitate collaboration among team members. By prioritizing
 comprehensive change documentation, organizations can enhance
 transparency, foster shared responsibility, and streamline
 troubleshooting and auditing processes in their WorkSpaces and
-AppStream 2.0 environments.
+WorkSpaces Applications environments.

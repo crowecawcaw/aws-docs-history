@@ -12,7 +12,7 @@ practice is not established:** High
 
 ## Implementation guidance
 
-AppStream 2.0 offers eight [instance families](../../../appstream2/latest/developerguide/instance-types.md "../../../appstream2/latest/developerguide/instance-types.md") and
+WorkSpaces Applications offers eight [instance families](../../../appstream2/latest/developerguide/instance-types.md "../../../appstream2/latest/developerguide/instance-types.md") and
 a set of instance types per family. Explore these instance families and types to identify
 the appropriate requirement for each use case. For graphics workloads, use Graphics G4dn
 and Graphics G5. Once you have defined the instance family, you can benchmark at least two

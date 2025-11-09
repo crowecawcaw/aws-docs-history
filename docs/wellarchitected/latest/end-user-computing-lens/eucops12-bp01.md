@@ -15,7 +15,7 @@ established:** High
 The design and pilot phases of an AWS EUC project should identify resource
 requirements for each application set over a typical business cycle. Identify the peak
 activity levels to verify that the compute instance types selected for both Amazon WorkSpaces and
-AppStream 2.0 can deliver performance that maintains a good user experience and improves
+WorkSpaces Applications can deliver performance that maintains a good user experience and improves
 productivity.
 
 Third party tools from vendors such as ControlUp, Nuvens, LiquidWare, Lakeside
