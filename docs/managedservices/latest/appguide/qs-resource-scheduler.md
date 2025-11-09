@@ -76,4 +76,79 @@ To deploy an AMS Resource scheduler solution, follow these steps.
    submit the [Period | Add](../ctref/management-ams-period-add.md "../ctref/management-ams-period-add.md") change type.
 3. Finally, submit an RFC to add a schedule to the period that was created in step two. Use the
    [Schedule
-   | Add](../ctref/management-ams-schedule-add.md "../ctref/management-ams-schedule-add.md") change type. ### AMS Resource Scheduler implementation and usage FAQs Frequently asked questions about AMS Resource Scheduler. **Q**: What happens if I enable hibernation but the EC2 instance does not support it? **A**: Hibernation saves the contents from the instance memory (RAM) to your Amazon Elastic Block Store (Amazon EBS) root volume. If this field is set to **true**, instances are hibernated when Resource Scheduler stops them. If you set Resource Scheduler to use hibernation but your instances are not [enabled for hibernation](../../../AWSEC2/latest/UserGuide/Hibernate.md#enabling-hibernation "../../../AWSEC2/latest/UserGuide/Hibernate.md#enabling-hibernation") or they do not meet the [hibernation prerequisites](../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites "../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites"), Resource Scheduler logs a warning and the instances are stopped without hibernation. For more information, see [Hibernate Your Instance](../../../AWSEC2/latest/UserGuide/Hibernate.md "../../../AWSEC2/latest/UserGuide/Hibernate.md"). **Q**: What happens if I set both **override_status** and **enforced**? **A**: If you set **override_status** to **running**  and set **enforced** to **true** (prevents an instance from being manually started outside of a running period), Resource Scheduler stops the instance. If you set **override_status** to **stopped**, and set **enforced** to **true** (prevents an instance from being manually stopped during a running period), the Resource Scheduler restarts the instance. ###### Note If **enforced** is **false**, the configured **override** behavior is applied. **Q**: After the AMS Resource Scheduler is deployed, how do I disable or enable the resource scheduler in my account? **A**: To disable or enable AMS Resource Scheduler: <br>• To **disable**: Create an RFC using [State | Disable](../ctref/management-ams-state-disable.md "../ctref/management-ams-state-disable.md"). Be sure to set the **SchedulerState** to **DISABLE** <br>• To **enable**: Create an RFC using [State | Enable](../ctref/management-ams-state-enable.md "../ctref/management-ams-state-enable.md"). Be sure to set the **SchedulerState** to **ENABLE** **Q**What happens if the AMS Resource Scheduler period falls within my patching maintenance window? **A**: Resource Scheduler works based on its configured schedules. If it is configured to stop an instance while patching is in flight, then it stops the instance unless the patching window is added as a period to the schedule before patching begins. In other words, Resource Scheduler does not auto-start any stopped instances for patching unless a designated period is configured. To avoid conflicts with your patching maintenance window, add the time window allocated for patching to the Resource Scheduler schedule as a period. To add a period to existing schedule, create an RFC using [Period | Add](../ctref/management-ams-period-add.md "../ctref/management-ams-period-add.md"). **Q** If I need to have a different schedule for different EC2 instances, can I have more than one schedule setup inside of my account? **A**: Yes, you can create multiple schedules. Each schedule can have multiple periods based on the requirement. When AMS Resource Scheduler is enabled in the account, a **Tag Key** is configured. As an example, if the Tag Key is "Schedule", the Tag Value can differ based on different schedules which corresponds to AMS Resource Scheduler’s schedule name. To add a new schedule, you can create an RFC using the Management | AMS Resource Scheduler | Schedule | Add (ct-2bxelbn765ive) change type, see [Schedule | Add](../ctref/management-ams-schedule-add.md "../ctref/management-ams-schedule-add.md"). **Q**: Where can I find all the different change types that are supported for AMS Resource Scheduler? **A**: AMS has Resource Scheduler change types to deploy the AMS Resource Scheduler to your account; enable or disable it; define, add, update, and delete schedules and periods to use with it; and describe (get a detailed description of) the schedules and periods.
+   | Add](../ctref/management-ams-schedule-add.md "../ctref/management-ams-schedule-add.md") change type.
+
+### AMS Resource Scheduler implementation and usage FAQs
+
+Frequently asked questions about AMS Resource Scheduler.
+
+**Q**: What happens if I enable hibernation but the EC2 instance does not support it?
+
+**A**: Hibernation saves the contents from the instance memory (RAM) to your Amazon
+Elastic Block Store (Amazon EBS) root volume.
+If this field is set to **true**, instances are hibernated when Resource Scheduler stops them.
+
+If you set Resource Scheduler to use hibernation but your instances are not
+[enabled
+for hibernation](../../../AWSEC2/latest/UserGuide/Hibernate.md#enabling-hibernation "../../../AWSEC2/latest/UserGuide/Hibernate.md#enabling-hibernation") or they do not meet the
+[hibernation
+prerequisites](../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites "../../../AWSEC2/latest/UserGuide/Hibernate.md#hibernating-prerequisites"), Resource Scheduler logs a warning and the instances are stopped without hibernation. For more information, see
+[Hibernate Your Instance](../../../AWSEC2/latest/UserGuide/Hibernate.md "../../../AWSEC2/latest/UserGuide/Hibernate.md").
+
+**Q**: What happens if I set both **override_status** and
+**enforced**?
+
+**A**: If you set **override_status**
+to **running**  and set **enforced** to
+**true** (prevents an instance from being manually started outside of a
+running period), Resource Scheduler stops the instance.
+
+If you set **override_status** to **stopped**, and
+set **enforced** to **true** (prevents an instance from
+being manually stopped during a running period), the Resource Scheduler restarts the
+instance.
+
+###### Note
+
+If **enforced** is **false**, the configured **override**
+behavior is applied.
+
+**Q**: After the AMS Resource Scheduler is deployed, how do I disable or enable the
+resource scheduler in my account?
+
+**A**: To disable or enable AMS Resource Scheduler:
+
+- To **disable**: Create an RFC using
+  [State | Disable](../ctref/management-ams-state-disable.md "../ctref/management-ams-state-disable.md"). Be sure to set the
+  **SchedulerState** to **DISABLE**
+- To **enable**: Create an RFC using
+  [State | Enable](../ctref/management-ams-state-enable.md "../ctref/management-ams-state-enable.md"). Be sure to set the
+  **SchedulerState** to **ENABLE**
+
+**Q**What happens if the AMS Resource Scheduler period falls within my patching
+maintenance window?
+
+**A**: Resource Scheduler works based on its configured schedules. If it is configured
+to stop an instance while patching is in flight, then it stops the instance unless the patching window is added as a
+period to the schedule before patching begins. In other words, Resource Scheduler does not auto-start any stopped instances
+for patching unless a designated period is configured. To avoid conflicts with your patching maintenance window,
+add the time window allocated for patching to the Resource Scheduler schedule as a period. To add a period to existing
+schedule, create an RFC using
+[Period | Add](../ctref/management-ams-period-add.md "../ctref/management-ams-period-add.md").
+
+**Q** If I need to have a different schedule for different EC2 instances, can I have more
+than one schedule setup inside of my account?
+
+**A**: Yes, you can create multiple schedules. Each schedule can have multiple periods
+based on the requirement. When AMS Resource Scheduler is enabled in the account, a **Tag Key** is
+configured. As an example, if the Tag Key is "Schedule", the Tag Value can differ based on different schedules which
+corresponds to AMS Resource Scheduler’s schedule name. To add a new schedule, you can create an RFC using the
+Management | AMS Resource Scheduler | Schedule | Add (ct-2bxelbn765ive) change type, see
+[Schedule | Add](../ctref/management-ams-schedule-add.md "../ctref/management-ams-schedule-add.md").
+
+**Q**: Where can I find all the different change types that are supported
+for AMS Resource Scheduler?
+
+**A**: AMS has Resource Scheduler change types to deploy the AMS Resource Scheduler to
+your account; enable or disable it; define, add, update, and delete schedules and periods to use with it; and
+describe (get a detailed description of) the schedules and periods.

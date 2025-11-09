@@ -9,21 +9,31 @@ All testing was performed using Amazon Linux. While the dynamic port range for W
 
 ## Parent Domain Controller, Linux
 
-| FROM: Parent domain controllers TO: Linux stack and shared services subnets | Source Port   | Destination Port | Protocol                                                                                          |
-| --------------------------------------------------------------------------- | ------------- | ---------------- | ------------------------------------------------------------------------------------------------- | ----------- | ---------------- | -------- |
-| 389                                                                         | 32768 - 61000 | UDP              |
-| 88                                                                          | 32768 - 61000 | TCP              | FROM: Stack subnets, including shared services TO: Linux forest root domain controllers           | Source Port | Destination Port | Protocol |
-| ---                                                                         | ---           | ---              |
-| 32768 - 61000                                                               | 88            | TCP              |
-| 32768 - 61000                                                               | 389           | UDP              | ## Child Domain Controller, Linux FROM: Child domain controllers TO: Linux AWS domain controllers | Source Port | Destination Port | Protocol |
-| ---                                                                         | ---           | ---              |
-| 49152 - 65535                                                               | 53            | TCP              |
-| 49152 - 65535                                                               | 88            | TCP              |
-| 389                                                                         | 49152 - 65535 | UDP              |
-| 49152 - 65535                                                               | 389           | UDP              | FROM: Child domain controllers TO: Linux stack and shared services subnets                        | Source Port | Destination Port | Protocol |
-| ---                                                                         | ---           | ---              |
-| 88                                                                          | 32768 - 61000 | TCP              |
-| 389                                                                         | 32768 - 61000 | UDP              | FROM: Stack subnets, including shared services TO: Linux child domain controller                  | Source Port | Destination Port | Protocol |
-| ---                                                                         | ---           | ---              |
-| 32768 - 61000                                                               | 88            | TCP              |
-| 32768 - 61000                                                               | 389           | UDP              |
+| FROM: Parent domain controllers TO: Linux stack and shared services subnets | Source Port      | Destination Port | Protocol |
+| --------------------------------------------------------------------------- | ---------------- | ---------------- | -------- |
+| 389                                                                         | 32768<br>• 61000 | UDP              |
+| 88                                                                          | 32768<br>• 61000 | TCP              |
+
+| FROM: Stack subnets, including shared services TO: Linux forest root domain controllers | Source Port | Destination Port | Protocol |
+| --------------------------------------------------------------------------------------- | ----------- | ---------------- | -------- |
+| 32768<br>• 61000                                                                        | 88          | TCP              |
+| 32768<br>• 61000                                                                        | 389         | UDP              |
+
+## Child Domain Controller, Linux
+
+| FROM: Child domain controllers TO: Linux AWS domain controllers | Source Port      | Destination Port | Protocol |
+| --------------------------------------------------------------- | ---------------- | ---------------- | -------- |
+| 49152<br>• 65535                                                | 53               | TCP              |
+| 49152<br>• 65535                                                | 88               | TCP              |
+| 389                                                             | 49152<br>• 65535 | UDP              |
+| 49152<br>• 65535                                                | 389              | UDP              |
+
+| FROM: Child domain controllers TO: Linux stack and shared services subnets | Source Port      | Destination Port | Protocol |
+| -------------------------------------------------------------------------- | ---------------- | ---------------- | -------- |
+| 88                                                                         | 32768<br>• 61000 | TCP              |
+| 389                                                                        | 32768<br>• 61000 | UDP              |
+
+| FROM: Stack subnets, including shared services TO: Linux child domain controller | Source Port | Destination Port | Protocol |
+| -------------------------------------------------------------------------------- | ----------- | ---------------- | -------- |
+| 32768<br>• 61000                                                                 | 88          | TCP              |
+| 32768<br>• 61000                                                                 | 389         | UDP              |

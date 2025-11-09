@@ -24,9 +24,10 @@ Environment updates can involve any of these changes:
 For any application deployment, no matter the method, always file a service
 request beforehand to let AMS know that you are going to deploy an application.
 
-| Immutable vs Mutable Application Installation Examples | Compute Instance Mutability | App Install Method                | AMI |
-| ------------------------------------------------------ | --------------------------- | --------------------------------- | --- |
-| Mutable                                                | With CodeDeploy             | AMS-provided                      |
-| Manually                                               |                             | With a Chef or Puppet, Pull-Based |
+| Immutable vs Mutable Application Installation Examples | Compute Instance Mutability | App Install Method             | AMI |
+| ------------------------------------------------------ | --------------------------- | ------------------------------ | --- |
+| Mutable                                                | With CodeDeploy             | AMS-provided                   |
+| Manually                                               |
+| With a Chef or Puppet, Pull-Based                      |
 | With Ansible or Salt, Push-Based                       |
-| Immutable                                              | With a Golden AMI           | Custom (based on AMS-provided)    |
+| Immutable                                              | With a Golden AMI           | Custom (based on AMS-provided) |
