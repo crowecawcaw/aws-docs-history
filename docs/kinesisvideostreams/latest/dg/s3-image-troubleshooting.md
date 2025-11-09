@@ -73,8 +73,13 @@ Confirm that the Producer SDK or Sample Application appended the tags correctly.
 
 
     	```
+    	|+ Tags
+    	| + Tag
+    	|  + Simple
+    	|   + Name: AWS_KINESISVIDEO_IMAGE_GENERATION
+    	```
 
-|+ Tags
-| + Tag
-| + Simple
-| + Name: AWS_KINESISVIDEO_IMAGE_GENERATION ```###### Note The tags belong to the Cluster before it. 4. If the MKV tag is not present, ensure that the`KinesisVideoStream::PutEventMetadata`producer SDK method has been called with the`STREAM_EVENT_TYPE_IMAGE_GENERATION` argument, and that it returned a success (0) code.
+    	###### Note
+
+    	The tags belong to the Cluster before it.
+    4. If the MKV tag is not present, ensure that the `KinesisVideoStream::PutEventMetadata` producer SDK method has been called with the `STREAM_EVENT_TYPE_IMAGE_GENERATION` argument, and that it returned a success (0) code.

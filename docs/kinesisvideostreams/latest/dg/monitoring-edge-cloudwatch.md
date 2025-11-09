@@ -15,15 +15,88 @@ To view the metrics, do the following:
 3. Choose the **Browse** tab, then select the **EdgeRuntimeAgent** custom namespace.
    Amazon Kinesis Video Streams Edge Agent publishes the following metrics under the namespace `EdgeRuntimeAgent`:
 
-| Dimensions                   | State                                                                                                                                             | Description                                                                                                                                                                                                                                                                                     |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Stream name, `RecordJob`     | Running                                                                                                                                           | Publishes continuously when the `RecordJob` is running. Units: None. "1" is published for as long as `RecordJob` is in this state.                                                                                                                                                              |
-| FatalError                   | Publishes if a `RecordJob` fatally errors. Units: None. "1" is published once, when this event occurs. NoteSee logs for additional information.   |                                                                                                                                                                                                                                                                                                 | Completed                    | Publishes when a `RecordJob` is completed. Units: None. "1" is published once, when this event occurs.     |
-| Stream name, `UploadJob`     | Running                                                                                                                                           | Publishes continuously when the `UploadJob` is running. Units: None. "1" is published for as long as `UploadJob` is in this state.                                                                                                                                                              |
-| FatalError                   | Publishes if the `UploadJob` fatally errors. Units: None. "1" is published once, when this event occurs. NoteSee logs for additional information. |                                                                                                                                                                                                                                                                                                 | Completed                    | Publishes when the `UploadJob` is completed. Units: None. "1" is published once, when this event occurs.   |
-| Stream name                  | PercentageSpaceUsed                                                                                                                               | This is the percentage used out of the total space allocated in Amazon Kinesis Video Streams Edge Agent configurations for recording media. See [LocalSizeConfig](API_LocalSizeConfig.md "API_LocalSizeConfig.md") for more information. Units: Percentage (scale 0–1).                         |
-| Thing name                   | Alive                                                                                                                                             | Publishes every minute from the Amazon Kinesis Video Streams Edge Agent, regardless of any configurations running on it. This can be used to understand if the Amazon Kinesis Video Streams Edge Agent is alive and ready to accept configurations. Units: None. "1" is published every minute. |
-| RecordJobs.HealthyJobCount   | Total count of running and scheduled record jobs on Amazon Kinesis Video Streams Edge Agent. Units: Count.                                        |                                                                                                                                                                                                                                                                                                 | UploadJobs.HealthyJobCount   | Total count of running and scheduled upload jobs on Amazon Kinesis Video Streams Edge Agent. Units: Count. |
-| RecordJobs.UnhealthyJobCount | Total count of currently errored record jobs. Units: Count.                                                                                       |                                                                                                                                                                                                                                                                                                 | UploadJobs.UnhealthyJobCount | Total count of currently errored upload jobs. Units: Count.                                                |
-| RecordJobs.RunningJobCount   | Total count of actively running record jobs. Units: Count.                                                                                        |                                                                                                                                                                                                                                                                                                 | UploadJobs.RunningJobCount   | Total count of actively running upload jobs. Units: Count.                                                 |
-| RecordJobs.EdgeConfigCount   | Total count of record configurations in process on Amazon Kinesis Video Streams Edge Agent. Units: Count.                                         |                                                                                                                                                                                                                                                                                                 | UploadJobs.EdgeConfigCount   | Total count of upload configurations in process on Amazon Kinesis Video Streams Edge Agent. Units: Count.  | ## CloudWatch metrics guidance for Amazon Kinesis Video Streams Edge Agent CloudWatch metrics can be useful for finding answers to the following questions: ###### Topics <br>• [Does the Amazon Kinesis Video Streams Edge Agent have enough space to record?](#monitoring-edge-space "#monitoring-edge-space") <br>• [Is the Amazon Kinesis Video Streams Edge Agent alive?](#monitoring-edge-alive "#monitoring-edge-alive") <br>• [Are there any unhealthy jobs?](#monitoring-edge-unhealthy "#monitoring-edge-unhealthy") <br>• [Do any jobs need external intervention?](#monitoring-edge-intervention "#monitoring-edge-intervention") ### Does the Amazon Kinesis Video Streams Edge Agent have enough space to record? **Relevant metrics:** `PercentageSpaceUsed` **Action:** No action required. ### Is the Amazon Kinesis Video Streams Edge Agent alive? **Relevant metrics:** `Alive` **Action:** If at any point you stop receiving this metric, it means that the Amazon Kinesis Video Streams Edge Agent encountered **one or more** of the following: <br>• An application runtime issue: memory or other resource constraint, bug, and so on <br>• The AWS IoT device that the agent is running on shutdown, crashed, or terminated <br>• The AWS IoT device doesn't have network connectivity ### Are there any unhealthy jobs? **Relevant metrics:** <br>• `RecordJobs.UnhealthyJobCount` <br>• `UploadJobs.UnhealthyJobCount` **Action:** Inspect the logs and look for the `FatalError` metric. <br>• If the `FatalError` metric **is** present, a fatal error was encountered and you need to manually restart the job. Inspect the logs and fix the issue before using `StartEdgeConfigurationUpdate` to manually restart the job. <br>• If the `FatalError` metric **isn't** present, a transient (non-fatal) error was encountered and Amazon Kinesis Video Streams Edge Agent is retrying the job. ###### Note To have the agent reattempt a fatally-errored job, use [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md"). ### Do any jobs need external intervention? **Relevant metrics:** <br>• `PercentageSpaceUsed` – If this exceeds a certain value, the record job is paused and resumes only when space is available (when media goes out of retention). You can send an updated configuration with a higher `MaxLocalMediaSizeInMB` to update the job immediately. <br>• `RecordJob.FatalError` / `UploadJob.FatalError` – Investigate the agent's logs and send the configuration again for the job to resume. **Action:** Make an API call with the configuration to restart jobs that encounter this problem. |
+| Dimensions                   | State                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stream name, `RecordJob`     | Running                                                                                                                                                 | Publishes continuously when the `RecordJob` is running.<br>Units: None. "1" is published for as long as `RecordJob` is in this state.                                                                                                                                                                 |
+| FatalError                   | Publishes if a `RecordJob` fatally errors.<br>Units: None. "1" is published once, when this event occurs.<br>NoteSee logs for additional information.   |
+| Completed                    | Publishes when a `RecordJob` is completed.<br>Units: None. "1" is published once, when this event occurs.                                               |
+| Stream name, `UploadJob`     | Running                                                                                                                                                 | Publishes continuously when the `UploadJob` is running.<br>Units: None. "1" is published for as long as `UploadJob` is in this state.                                                                                                                                                                 |
+| FatalError                   | Publishes if the `UploadJob` fatally errors.<br>Units: None. "1" is published once, when this event occurs.<br>NoteSee logs for additional information. |
+| Completed                    | Publishes when the `UploadJob` is completed.<br>Units: None. "1" is published once, when this event occurs.                                             |
+| Stream name                  | PercentageSpaceUsed                                                                                                                                     | This is the percentage used out of the total space allocated in Amazon Kinesis Video Streams Edge Agent configurations for recording media. See [LocalSizeConfig](API_LocalSizeConfig.md "API_LocalSizeConfig.md") for more information.<br>Units: Percentage (scale 0–1).                            |
+| Thing name                   | Alive                                                                                                                                                   | Publishes every minute from the Amazon Kinesis Video Streams Edge Agent, regardless of any configurations running on it.<br>This can be used to understand if the Amazon Kinesis Video Streams Edge Agent is alive and ready to accept configurations.<br>Units: None. "1" is published every minute. |
+| RecordJobs.HealthyJobCount   | Total count of running and scheduled record jobs on Amazon Kinesis Video Streams Edge Agent.<br>Units: Count.                                           |
+| UploadJobs.HealthyJobCount   | Total count of running and scheduled upload jobs on Amazon Kinesis Video Streams Edge Agent.<br>Units: Count.                                           |
+| RecordJobs.UnhealthyJobCount | Total count of currently errored record jobs.<br>Units: Count.                                                                                          |
+| UploadJobs.UnhealthyJobCount | Total count of currently errored upload jobs.<br>Units: Count.                                                                                          |
+| RecordJobs.RunningJobCount   | Total count of actively running record jobs.<br>Units: Count.                                                                                           |
+| UploadJobs.RunningJobCount   | Total count of actively running upload jobs.<br>Units: Count.                                                                                           |
+| RecordJobs.EdgeConfigCount   | Total count of record configurations in process on Amazon Kinesis Video Streams Edge Agent.<br>Units: Count.                                            |
+| UploadJobs.EdgeConfigCount   | Total count of upload configurations in process on Amazon Kinesis Video Streams Edge Agent.<br>Units: Count.                                            |
+
+## CloudWatch metrics guidance for Amazon Kinesis Video Streams Edge Agent
+
+CloudWatch metrics can be useful for finding answers to the following questions:
+
+###### Topics
+
+- [Does the Amazon Kinesis Video Streams Edge Agent have enough space to record?](#monitoring-edge-space "#monitoring-edge-space")
+- [Is the Amazon Kinesis Video Streams Edge Agent alive?](#monitoring-edge-alive "#monitoring-edge-alive")
+- [Are there any unhealthy jobs?](#monitoring-edge-unhealthy "#monitoring-edge-unhealthy")
+- [Do any jobs need external intervention?](#monitoring-edge-intervention "#monitoring-edge-intervention")
+
+### Does the Amazon Kinesis Video Streams Edge Agent have enough space to record?
+
+**Relevant metrics:**
+`PercentageSpaceUsed`
+
+**Action:** No action required.
+
+### Is the Amazon Kinesis Video Streams Edge Agent alive?
+
+**Relevant metrics:**
+`Alive`
+
+**Action:** If at any point you stop receiving this metric, it means that the Amazon Kinesis Video Streams Edge Agent encountered **one or more** of the following:
+
+- An application runtime issue: memory or other resource constraint,
+  bug, and so on
+- The AWS IoT device that the agent is running on shutdown, crashed, or
+  terminated
+- The AWS IoT device doesn't have network connectivity
+
+### Are there any unhealthy jobs?
+
+**Relevant metrics:**
+
+- `RecordJobs.UnhealthyJobCount`
+- `UploadJobs.UnhealthyJobCount`
+
+**Action:** Inspect the logs and look for the `FatalError` metric.
+
+- If the `FatalError` metric **is** present, a fatal
+  error was encountered and you need to manually restart the job. Inspect
+  the logs and fix the issue before using `StartEdgeConfigurationUpdate` to
+  manually restart the job.
+- If the `FatalError` metric **isn't** present, a
+  transient (non-fatal) error was encountered and Amazon Kinesis Video Streams Edge Agent is retrying
+  the job.
+
+###### Note
+
+To have the agent reattempt a fatally-errored job, use [StartEdgeConfigurationUpdate](API_StartEdgeConfigurationUpdate.md "API_StartEdgeConfigurationUpdate.md").
+
+### Do any jobs need external intervention?
+
+**Relevant metrics:**
+
+- `PercentageSpaceUsed` – If this exceeds a certain
+  value, the record job is paused and resumes only when space is available
+  (when media goes out of retention). You can send an updated
+  configuration with a higher `MaxLocalMediaSizeInMB` to update
+  the job immediately.
+- `RecordJob.FatalError` / `UploadJob.FatalError`
+  – Investigate the agent's logs and send the configuration again
+  for the job to resume.
+
+**Action:** Make an API call with the configuration to restart jobs that encounter this problem.

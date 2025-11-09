@@ -25,9 +25,12 @@ The flags tell the SDK to adapt the NALUs to AVCC or Annex-B for frame data and 
 follows:
 
 | Flag                                       | Adaptation                                                                     |
-| ------------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------ | ------------------------------------------------------------------------------ |
 | `NAL_ADAPTATION_FLAG_NONE`                 | No adaptation.                                                                 |
 | `NAL_ADAPTATION_ANNEXB_NALS`               | Adapt Annex-B NALUs to AVCC NALUs.                                             |
 | `NAL_ADAPTATION_AVCC_NALS`                 | Adapt AVCC NALUs to Annex-B NALUs.                                             |
 | `NAL_ADAPTATION_ANNEXB_CPD_NALS`           | Adapt Annex-B NALUs for the codec private data to AVCC format NALUs.           |
-| `NAL_ADAPTATION_ANNEXB_CPD_AND_FRAME_NALS` | Adapt Annex-B NALUs for the codec and frame private data to AVCC format NALUs. | For more information about NALU types, see **Section 1.3: Network Abstraction Layer Unit Types** in [RFC 3984](https://www.ietf.org/rfc/rfc3984.txt "https://www.ietf.org/rfc/rfc3984.txt"). |
+| `NAL_ADAPTATION_ANNEXB_CPD_AND_FRAME_NALS` | Adapt Annex-B NALUs for the codec and frame private data to AVCC format NALUs. |
+
+For more information about NALU types, see **Section 1.3: Network
+Abstraction Layer Unit Types** in [RFC 3984](https://www.ietf.org/rfc/rfc3984.txt "https://www.ietf.org/rfc/rfc3984.txt").
