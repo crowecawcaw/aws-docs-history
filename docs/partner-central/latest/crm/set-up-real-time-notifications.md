@@ -434,11 +434,11 @@ The links take you to the API documentation for each event.
 The following table lists examples of the EventBridge rules that you can use with the events listed in the previous section.
 Rules route events from the event bus to the API destination, which results in making a REST call to publish an event back to Salesforce.
 
-| Event type                         | Example                                                                                                                             |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Opportunity Created**            | `{ "source": ["aws.partnercentral-selling"], "detail-type": ["Opportunity Created"], "detail": { "catalog": ["AWS"] } }`            |
-| **Opportunity Updated**            | `{ "source": ["aws.partnercentral-selling"], "detail-type": ["Opportunity Updated"], "detail": { "catalog": ["AWS"] } }`            |
-| **Engagement Invitation Created**  | `{ "source": ["aws.partnercentral-selling"], "detail-type": ["Engagement Invitation Created"], "detail": { "catalog": ["AWS"] } }`  |
-| **Engagement Invitation Accepted** | `{ "source": ["aws.partnercentral-selling"], "detail-type": ["Engagement Invitation Accepted"], "detail": { "catalog": ["AWS"] } }` |
-| **Engagement Invitation Rejected** | `{ "source": ["aws.partnercentral-selling"], "detail-type": ["Engagement Invitation Rejected"], "detail": { "catalog": ["AWS"] } }` |
-| **All events**                     | `{ "source": ["aws.partnercentral-selling"], "detail": { "catalog": ["AWS"] } }`                                                    |
+| Event type                         | Example                                                                                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Opportunity Created**            | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail-type": ["Opportunity Created"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>`            |
+| **Opportunity Updated**            | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail-type": ["Opportunity Updated"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>`            |
+| **Engagement Invitation Created**  | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail-type": ["Engagement Invitation Created"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>`  |
+| **Engagement Invitation Accepted** | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail-type": ["Engagement Invitation Accepted"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>` |
+| **Engagement Invitation Rejected** | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail-type": ["Engagement Invitation Rejected"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>` |
+| **All events**                     | `<br>{<br>"source": ["aws.partnercentral-selling"],<br>"detail": {<br>"catalog": ["AWS"]<br>}<br>}<br>`                                                       |

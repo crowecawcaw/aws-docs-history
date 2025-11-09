@@ -4,6 +4,8 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.13 (October 30, 2025)](#3.13 "#3.13")
+- [Version 3.12 (September 16, 2025)](#3.12 "#3.12")
 - [Version 3.11 (September 10, 2025)](#3.11 "#3.11")
 - [Version 3.10 (August 6, 2025)](#3.10 "#3.10")
 - [Version 3.8 (April 17, 2025)](#3.8 "#3.8")
@@ -18,6 +20,37 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.13 (October 30, 2025)
+
+AWS Partner CRM Connector version 3.13 contains the following features and
+improvements.
+
+### AWS Partner Central API
+
+**Bulk accept and bulk assign opportunities**
+
+- Added ability to **accept** or **assign** multiple ACE Opportunities simultaneously, improving efficiency in opportunity management
+
+**Opportunity synchronization logs**
+
+- Users of the AWS Partner Central API integration can now view corresponding synchronization logs directly within the ACE Opportunity object. This feature provides visibility into the synchronization process for each opportunity
+
+### Bug fixes
+
+- Resolved an issue where the Customer DUNS number field (`customerDuns`) was rejected during opportunity submission due to data type mismatch
+- Increased the error message field (`awsapn__Error_Message__c`) size from 32KB to 128KB in sync log details to prevent truncation of error messages and avoid disruption to Apex job processing during high-volume synchronization errors
+- Fixed an issue where opportunities would appear as submitted but remain stuck in draft status when postal or zip codes were in invalid format. The connector now surfaces async API validation errors, allowing partners to correct postal or zip code formatting before submitting to AWS
+- Resolved an issue where opportunities with "Other" specified in the Solution Offering field would remain stuck in Draft status instead of progressing to Submitted. The connector now properly handles "Other" solution values and correctly parses API responses to allow opportunity progression through the ACE validation process. Partners can now also associate valid solutions even when they have "Other" in the other solution description field
+
+## Version 3.12 (September 16, 2025)
+
+AWS Partner CRM Connector version 3.12 contains the following features and
+improvements.
+
+### Bug fixes
+
+- Set the `Unified_Standard_ACE_Sync` flow template to be in a **draft** state as opposed to an active state. Some customers were experiencing installation errors with the flow template in an active state.
 
 ## Version 3.11 (September 10, 2025)
 

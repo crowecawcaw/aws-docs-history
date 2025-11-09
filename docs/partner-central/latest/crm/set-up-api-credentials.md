@@ -12,7 +12,7 @@ organization credentials to authenticate with Partner Central.
    form, enter the values from the following table.
 
 | Field                                 | Value                                                           |
-| ------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | --------------------------------------------------------------- |
 | **Label**                             | AWS Partner Central API                                         |
 | **URL**                               | https://partnercentral-selling.us-east-1.api.aws                |
 | **Identity type**                     | Named Principal                                                 |
@@ -23,4 +23,7 @@ organization credentials to authenticate with Partner Central.
 | **AWS service**                       | partnercentral-selling                                          |
 | **Generate authorization header**     | checked                                                         |
 | **Allow merge fields in HTTP header** | checked                                                         |
-| **Allow merge fields in HTTP body**   | unchecked                                                       | 4. Choose **Save**. 5. Return to the **AWSGuided setup** page. In the **Authentication details** section, choose **Review** and confirm the credentials. |
+| **Allow merge fields in HTTP body**   | unchecked                                                       |
+
+4. Choose **Save**.
+5. Return to the **AWSGuided setup** page. In the **Authentication details** section, choose **Review** and confirm the credentials.

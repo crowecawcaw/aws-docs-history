@@ -1,4 +1,4 @@
-# Accepting or rejecting an AWS originated opportunities
+# Accepting or rejecting AWS originated opportunities
 
 The following steps explain how to accept or reject an opportunity that originates from AWS Sales.
 
