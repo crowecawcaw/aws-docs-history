@@ -1,65 +1,252 @@
-# Connecting Greenplum Database with AWS Schema Conversion Tool
+# Connecting to Apache Oozie workflows with the AWS Schema Conversion Tool
 
-You can use AWS SCT to convert schemas, code objects, and application code from Greenplum Database to Amazon Redshift.
+You can use the AWS SCT command line interface (CLI) to convert Apache Oozie workflows
+to AWS Step Functions. After you migrate your Apache Hadoop workloads to Amazon EMR, you can use a native
+service in the AWS Cloud to orchestrate your jobs. For more
+information, see [Connecting to Apache Hadoop](CHAP_Source.md "CHAP_Source.md").
 
-## Privileges for Greenplum Database as a
+AWS SCT converts your Oozie workflows to AWS Step Functions and uses AWS Lambda to emulate features
+that AWS Step Functions doesn't support. Also, AWS SCT converts your Oozie job properties to AWS Systems Manager.
 
-source
+To convert Apache Oozie workflows, make sure that you use AWS SCT version 1.0.671
+or higher. Also, familiarize yourself with the command line interface of AWS SCT. For
+more information, see [CLI Reference for AWS Schema Conversion Tool](CHAP_Reference.md "CHAP_Reference.md").
 
-The following privileges are required for using Greenplum Database as a source:
+## Prerequisites for using Apache Oozie as
 
-- CONNECT ON DATABASE `<database_name>`
-- USAGE ON SCHEMA `<schema_name>`
-- SELECT ON `<schema_name>.<table_name>`
-- SELECT ON SEQUENCE `<schema_name>.<sequence_name>`
+a source
 
-In the preceding example, replace placeholders as following:
+The following prerequisites are required to connect to Apache Oozie with the AWS SCT
+CLI.
 
-- Replace `database_name` with
-  the name of the source database.
-- Replace `schema_name` with
-  the name of the source schema.
-- Replace `table_name` with
-  the name of the source table.
-- Replace `sequence_name` with
-  the name of the sequence name.
+- Create an Amazon S3 bucket to store the definitions of state machines. You can use
+  these definitions to configure your state machines. For more information,
+  see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
+- Create an AWS Identity and Access Management (IAM) role with the `AmazonS3FullAccess` policy.
+  AWS SCT uses this IAM role to access your Amazon S3 bucket.
+- Take a note of your AWS secret key and AWS secret access key. For more information
+  about AWS access keys, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.
+- Store your AWS credentials and the information about your Amazon S3 bucket in the
+  AWS service profile in the global application settings. Then, AWS SCT uses this
+  AWS service profile to work with your AWS resources. For more information, see
+  [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
 
-## Connecting to Greenplum Database as a
+To work with your source Apache Oozie workflows, AWS SCT requires the specific structure
+of your source files. Each of your application folders must include the
+`job.properties` file. This file includes key-value pairs of your job
+properties. Also, each of your application folders must include the `workflow.xml`
+file. This file describes the action nodes and control flow nodes of your workflow.
 
-source
+## Connecting to Apache Oozie as a source
 
-Use the following procedure to connect to your Greenplum source database
-with AWS SCT.
+Use the following procedure to connect to your Apache Oozie source files.
 
-###### To connect to a Greenplum source database
+###### To connect to Apache Oozie in the AWS SCT CLI
 
-1. In the AWS Schema Conversion Tool, choose **Add source**.
-2. Choose **SAP ASE**, then choose
-   **Next**.
+1. Create a new AWS SCT CLI script or edit an existing scenario template. For example,
+   you can download and edit the `OozieConversionTemplate.scts` template.
+   For more information, see [Getting CLI scenarios](CHAP_Reference.md#CHAP_Reference.Scenario "CHAP_Reference.md#CHAP_Reference.Scenario").
+2. Configure the AWS SCT application settings.
 
-The **Add source** dialog box appears. 3. For **Connection name**, enter a name for your database.
-AWS SCT displays this name in the tree in the left panel. 4. Use database credentials from AWS Secrets Manager or enter them manually:
+The following code example saves the application settings and allows to store
+passwords in your project. You can use these saved settings in other projects.
 
-    * To use database credentials from Secrets Manager, use the following
-     instructions:
+```
+SetGlobalSettings
+    -save: 'true'
+    -settings: '{
+        "store_password": "true"
+    }'
+/
+```
 
+3. Create a new AWS SCT project.
 
+The following code example creates the `oozie` project in the
+`c:\sct` folder.
 
+```
+CreateProject
+    -name: 'oozie'
+    -directory: 'c:\sct'
+/
+```
 
-    	1. For **AWS Secret**, choose
-    	 the name of the secret.
-    	2. Choose **Populate** to automatically fill in
-    	 all values in the database connection dialog box from Secrets Manager.
-    For information about using database credentials from Secrets Manager, see [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md").
-    * To enter the Greenplum source database credentials manually,
-     use the following instructions:
+4. Add the folder with your source Apache Oozie files to the project using the `AddSource`
+   command. Make sure that you use the `APACHE_OOZIE` value for the `vendor` parameter.
+   Also, provide values for the following required parameters: `name` and `mappingsFolder`.
 
-| Parameter                          | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Server name**                    | Enter the Domain Name System (DNS) name or IP address of your source database server.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Server port**                    | Enter the port used to connect to your source database server.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Database**                       | Enter the name of the Greenplum database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **User name** and **Password**     | Enter the database credentials to connect to your source database server. AWS SCT uses the password to connect to your source database only when you choose to connect to your database in a project. To guard against exposing the password for your source database, AWS SCT doesn't store the password by default. If you close your AWS SCT project and reopen it, you are prompted for the password to connect to your source database as needed.                                                                    |
-| **Use SSL**                        | Choose this option to use Secure Sockets Layer (SSL) to connect to your database. Provide the following additional information, as applicable, on the **SSL** tab: + **Verify server certificate**: Select this option to verify the server certificate by using a trust store. + **Trust store**: The location of a trust store containing certificates.                                                                                                                                                                 |
-| **Store password**                 | AWS SCT creates a secure vault to store SSL certificates and database passwords. By turning this option on, you can store the database password and connect quickly to the database without having to enter the password.                                                                                                                                                                                                                                                                                                 |
-| **Greenplum Database driver path** | Enter the path to the driver to use to connect to the source database. For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md"). If you store the driver path in the global project settings, the driver path doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.md#CHAP_Installing.JDBCDrivers.Settings"). | 5. Choose **Test Connection** to verify that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database. ## Greenplum to Amazon Redshift conversion settings To edit Greenplum to Amazon Redshift conversion settings, choose **Settings** in AWS SCT, and then choose **Conversion settings**. From the upper list, choose **Greenplum**, and then choose **Greenplum – Amazon Redshift**. AWS SCT displays all available settings for Greenplum to Amazon Redshift conversion. Greenplum to Amazon Redshift conversion settings in AWS SCT include options for the following: <br>• To limit the number of comments with action items in the converted code. For **Add comments in the converted code for the action items of selected severity and higher**, choose the severity of action items. AWS SCT adds comments in the converted code for action items of the selected severity and higher. For example, to minimize the number of comments in your converted code, choose **Errors only**. To include comments for all action items in your converted code, choose **All messages**. <br>• To set the maximum number of tables that AWS SCT can apply to your target Amazon Redshift cluster. For **The maximum number of tables for the target Amazon Redshift cluster**, choose the number of tables that AWS SCT can apply to your Amazon Redshift cluster. Amazon Redshift has quotas that limit the use tables for different cluster node types. If you choose **Auto**, AWS SCT determines the number of tables to apply to your target Amazon Redshift cluster depending on the node type. Optionally, choose the value manually. For more information, see [Quotas and limits in Amazon Redshift](../../../redshift/latest/mgmt/amazon-redshift-limits.md "../../../redshift/latest/mgmt/amazon-redshift-limits.md") in the _Amazon Redshift Management Guide_. AWS SCT converts all your source tables, even if this is more than your Amazon Redshift cluster can store. AWS SCT stores the converted code in your project and doesn't apply it to the target database. If you reach the Amazon Redshift cluster quota for the tables when you apply the converted code, then AWS SCT displays a warning message. Also, AWS SCT applies tables to your target Amazon Redshift cluster until the number of tables reaches the limit. <br>• To migrate partitions of the source table to separate tables in Amazon Redshift. To do so, select **Use the UNION ALL view** and enter the maximum number of target tables that AWS SCT can create for a single source table. Amazon Redshift doesn't support table partitioning. To emulate this behavior and make queries run faster, AWS SCT can migrate each partition of your source table to a separate table in Amazon Redshift. Then, AWS SCT creates a view that includes data from all these tables. AWS SCT automatically determines the number of partitions in your source table. Depending on the type of source table partitioning, this number can exceed the quota for the tables that you can apply to your Amazon Redshift cluster. To avoid reaching this quota, enter the maximum number of target tables that AWS SCT can create for partitions of a single source table. The default option is 368 tables, which represents a partition for 366 days of a year and two tables for `NO RANGE` and `UNKNOWN` partitions. <br>• To apply compression to Amazon Redshift table columns. To do so, select **Use compression encoding**. AWS SCT assigns compression encoding to columns automatically using the default Amazon Redshift algorithm. For more information, see [Compression encodings](../../../redshift/latest/dg/c_Compression_encodings.md "../../../redshift/latest/dg/c_Compression_encodings.md") in the _Amazon Redshift Database Developer Guide_. By default, Amazon Redshift doesn't apply compression to columns that are defined as sort and distribution keys. You can change this behavior and apply compression to these columns. To do so, select **Use compression encoding for KEY columns**. You can select this option only when you select the **Use compression encoding** option. ## Greenplum to Amazon Redshift conversion optimization settings To edit Greenplum to Amazon Redshift conversion optimization settings, choose **Settings** in AWS SCT, and then choose **Conversion settings**. From the upper list, choose **Greenplum**, and then choose **Greenplum – Amazon Redshift**. In the left pane, choose **Optimization strategies**. AWS SCT displays conversion optimization settings for Greenplum to Amazon Redshift conversion. Greenplum to Amazon Redshift conversion optimization settings in AWS SCT include options for the following: <br>• To work with automatic table optimization. To do so, select **Use Amazon Redshift automatic table tuning**. Automatic table optimization is a self-tuning process in Amazon Redshift that automatically optimizes the design of tables. For more information, see [Working with automatic table optimization](../../../redshift/latest/dg/t_Creating_tables.md "../../../redshift/latest/dg/t_Creating_tables.md") in the _Amazon Redshift Database Developer Guide_. To rely only on the automatic table optimization, choose **None** for **Initial key selection strategy**. <br>• To choose sort and distribution keys using your strategy. You can choose sort and distribution keys using Amazon Redshift metadata, statistical information, or both these options. For **Initial key selection strategy** on the **Optimization strategies** tab, choose one of the following options: + Use metadata, ignore statistical information + Ignore metadata, use statistical information + Use metadata and statistical information Depending on the option that you choose, you can select optimization strategies. Then, for each strategy, enter the value (0–100). These values define the weight of each strategy. Using these weight values, AWS SCT defines how each rule influences on the choice of distribution and sort keys. The default values are based on the AWS migration best practices. You can define the size of small tables for the **Find small tables** strategy. For **Min table row count** and **Max table row count**, enter the minimum and maximum number of rows in a table to define it as a small table. AWS SCT applies the `ALL` distribution style to small tables. In this case, a copy of the entire table is distributed to every node. <br>• To configure strategy details. In addition to defining the weight for each optimization strategy, you can configure the optimization settings. To do so, choose **Conversion optimization**. + For **Sort key columns limit**, enter the maximum number of columns in the sort key. + For **Skewed threshold value**, enter the percentage (0–100) of a skewed value for a column. AWS SCT excludes columns with the skew value greater than the threshold from the list of candidates for the distribution key. AWS SCT defines the skewed value for a column as the percentage ratio of the number of occurrences of the most common value to the total number of records. + For **Top N queries from the query history table**, enter the number (1–100) of the most frequently used queries to analyze. + For **Select statistics user**, choose the database user for which you want to analyze the query statistics. Also, on the **Optimization strategies** tab, you can define the size of small tables for the **Find small tables** strategy. For **Min table row count** and **Max table row count**, enter the minimum and maximum number of rows in a table to consider it as a small table. AWS SCT applies the `ALL` distribution style to small tables. In this case, a copy of the entire table is distributed to every node. |
+The following code example adds Apache Oozie as a source in your AWS SCT project. This example creates
+a source object with the name `OOZIE`. Use this object name to add mapping rules. After you run
+this code example, AWS SCT uses the `c:\oozie` folder to load your source files
+in the project.
+
+```
+AddSource
+    -name: 'OOZIE'
+    -vendor: 'APACHE_OOZIE'
+    -mappingsFolder: 'c:\oozie'
+/
+```
+
+You can use this example and the following examples in Windows. 5. Connect to your source Apache Oozie files using the `ConnectSource` command.
+Use the name of your source object that you defined in the previous step.
+
+```
+ConnectSource
+    -name: 'OOZIE'
+    -mappingsFolder: 'c:\oozie'
+/
+```
+
+6. Save your CLI script. Next, add the connection information for your AWS Step Functions service.
+
+## Permissions for using AWS Lambda functions
+
+in the extension pack
+
+For the source functions that AWS Step Functions doesn't support, AWS SCT creates an extension pack. This
+extension pack includes AWS Lambda functions, which emulate your source functions.
+
+To use this extension pack, create an AWS Identity and Access Management (IAM) role with the following permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "lambda",
+ "Effect": "Allow",
+ "Action": [
+ "lambda:InvokeFunction"
+ ],
+ "Resource": [
+ "arn:aws:lambda:*:498160209112:function:LoadParameterInitialState:*",
+ "arn:aws:lambda:*:498160209112:function:EvaluateJSPELExpressions:*"
+ ]
+ },
+ {
+ "Sid": "emr",
+ "Effect": "Allow",
+ "Action": [
+ "elasticmapreduce:DescribeStep",
+ "elasticmapreduce:AddJobFlowSteps"
+ ],
+ "Resource": [
+ "arn:aws:elasticmapreduce:*:498160209112:cluster/*"
+ ]
+ },
+ {
+ "Sid": "s3",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::*/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+To apply the extension pack, AWS SCT requires an IAM role with the following permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:GetRole",
+ "iam:ListRolePolicies",
+ "iam:CreateRole",
+ "iam:TagRole",
+ "iam:PutRolePolicy",
+ "iam:DeleteRolePolicy",
+ "iam:DeleteRole",
+ "iam:PassRole"
+ ],
+ "Resource": [
+ "arn:aws:iam::`111122223333`:role/sct/*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iam:GetRole",
+ "iam:ListRolePolicies"
+ ],
+ "Resource": [
+ "arn:aws:iam::`111122223333`:role/lambda_LoadParameterInitialStateRole",
+ "arn:aws:iam::`111122223333`:role/lambda_EvaluateJSPELExpressionsRole",
+ "arn:aws:iam::`111122223333`:role/stepFunctions_MigratedOozieWorkflowRole"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "lambda:GetFunction",
+ "lambda:CreateFunction",
+ "lambda:UpdateFunctionCode",
+ "lambda:DeleteFunction"
+ ],
+ "Resource": [
+ "arn:aws:lambda:*:`111122223333`:function:LoadParameterInitialState",
+ "arn:aws:lambda:*:`111122223333`:function:EvaluateJSPELExpressions"
+ ]
+ }
+ ]
+}`
+
+```
+
+## Connecting to AWS Step Functions as a target
+
+Use the following procedure to connect to AWS Step Functions as a target.
+
+###### To connect to AWS Step Functions in the AWS SCT CLI
+
+1. Open your CLI script which includes the connection information for your Apache Oozie source files.
+2. Add the information about your migration target in the AWS SCT project using the `AddTarget`
+   command. Make sure that you use the `STEP_FUNCTIONS` value for the `vendor` parameter.
+   Also, provide values for the following required parameters: `name` and `profile`.
+
+The following code example adds AWS Step Functions as a source in your AWS SCT project. This example creates
+a target object with the name `AWS_STEP_FUNCTIONS`. Use this object name when you create
+mapping rules. Also, this example uses an AWS SCT service profile that you created in the prerequisites step.
+Make sure that you replace `profile_name` with the name of your profile.
+
+```
+AddTarget
+    -name: 'AWS_STEP_FUNCTIONS'
+    -vendor: 'STEP_FUNCTIONS'
+    -profile: '`profile_name`'
+/
+```
+
+If you don't use the AWS service profile, make sure that you provide values for the following
+required parameters: `accessKey`, `secretKey`, `awsRegion`,
+and `s3Path`. Use these parameters to specify your AWS secret access key, AWS secret key,
+AWS Region, and the path to your Amazon S3 bucket. 3. Connect to AWS Step Functions using the `ConnectTarget` command. Use the name of your target object
+that you defined in the previous step.
+
+The following code example connects to the `AWS_STEP_FUNCTIONS` target object using your
+AWS service profile. Make sure that you replace `profile_name` with the
+name of your profile.
+
+```
+ConnectTarget
+    -name: 'AWS_STEP_FUNCTIONS'
+    -profile: '`profile_name`'
+/
+```
+
+4. Save your CLI script. Next, add mapping rules and migration commands. For more information, see
+   [Converting Oozie workflows;](big-data-oozie.md "big-data-oozie.md").

@@ -1,9 +1,23 @@
-# Storing passwords in the AWS Schema Conversion Tool
+# Navigating the user interface of the AWS SCT
 
-You can store a database password or SSL certificate in the AWS SCT cache. To store a
-password, choose **Store Password** when you create a connection.
+Use the following topics to help you work with the AWS SCT user interface. For
+information on installing AWS SCT, see [Installing and Configuring AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
 
-The password is encrypted using the randomly generated token in the
-`seed.dat` file. The password is then stored with the user name in the
-cache file. If you lose the `seed.dat` file or it becomes corrupted, the
-database password might be unencrypted incorrectly. In this case, the connection fails.
+###### Topics
+
+- [Viewing the Project Window in AWS SCT](CHAP_UserInterface.Overview.md "CHAP_UserInterface.Overview.md")
+- [Starting and managing Projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Using the AWS SCT Wizard](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Saving projects in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Adding servers to project in AWS SCT](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Using offline mode in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Using tree filters in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Hiding schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Viewing the Assessment Report in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Converting Schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Applying the converted schemas in AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Configuring AWS Secrets Manager in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Storing passwords in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Creating UNION ALL view in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
+- [Using Keyboard Shortcuts in the AWS Schema Conversion Tool](CHAP_UserInterface.md "CHAP_UserInterface.md")
