@@ -443,7 +443,7 @@ commit with an emoji
 The following values are supported for emojis in CodeCommit:
 
 | Emoji | Shortcode       | Unicode |
-| ----- | --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----- | --------------- | ------- |
 | 👍    | :thumbsup:      | U+1F44D |
 | 👎    | :thumbsdown:    | U+1F44E |
 | 😄    | :smile:         | U+1F604 |
@@ -456,4 +456,71 @@ The following values are supported for emojis in CodeCommit:
 | 🎊    | :confetti_ball: | U+1F38A |
 | 🚢    | :ship:          | U+1F6A2 |
 | 👀    | :eyes:          | U+1F440 |
-|       | none            | U+0000  | For example, to add the emoji `:thumbsup:` to the comment with the system-generated ID of `abcd1234EXAMPLEb5678efgh`: `` aws codecommit put-comment-reaction --comment-id `abcd1234EXAMPLEb5678efgh` --reaction-value `:thumbsup:` `` 2. If successful, this command produces no output. ### To view emoji reactions to a comment 1. To view emoji reactions to a comment, including the users who reacted with those emojis, run the **get-comment-reactions** command, specifying the system-generated ID of the comment. For example, to view emoji reactions to the comment with the system-generated ID of `abcd1234EXAMPLEb5678efgh`: `` aws codecommit get-comment-reactions --comment-id `abcd1234EXAMPLEb5678efgh` `` 2. If successful, this command produces output similar to the following: `{ "reactionsForComment": { [ { "reaction": { "emoji:"👍", "shortCode": "thumbsup", "unicode": "U+1F44D" }, "users": [ "arn:aws:iam::123456789012:user/Li_Juan", "arn:aws:iam::123456789012:user/Mary_Major", "arn:aws:iam::123456789012:user/Jorge_Souza" ] }, { "reaction": { "emoji": "👎", "shortCode": "thumbsdown", "unicode": "U+1F44E" }, "users": [ "arn:aws:iam::123456789012:user/Nikhil_Jayashankar" ] }, { "reaction": { "emoji": "😕", "shortCode": "confused", "unicode": "U+1F615" }, "users": [ "arn:aws:iam::123456789012:user/Saanvi_Sarkar" ] } ] } }` |
+|       | none            | U+0000  |
+
+For example, to add the emoji `:thumbsup:` to the comment
+with the system-generated ID of `abcd1234EXAMPLEb5678efgh`:
+
+```
+aws codecommit put-comment-reaction --comment-id `abcd1234EXAMPLEb5678efgh` --reaction-value `:thumbsup:`
+```
+
+2. If successful, this command produces no output.
+
+### To view emoji reactions to a
+
+comment
+
+1. To view emoji reactions to a comment, including the users who reacted with those
+   emojis, run the **get-comment-reactions** command, specifying the
+   system-generated ID of the comment.
+
+For example, to view emoji reactions to the comment with the system-generated ID of
+`abcd1234EXAMPLEb5678efgh`:
+
+```
+aws codecommit get-comment-reactions --comment-id `abcd1234EXAMPLEb5678efgh`
+```
+
+2. If successful, this command produces output similar to the following:
+
+```
+{
+    "reactionsForComment": {
+        [
+           {
+                "reaction": {
+                    "emoji:"👍",
+                    "shortCode": "thumbsup",
+                    "unicode": "U+1F44D"
+                },
+                "users": [
+                    "arn:aws:iam::123456789012:user/Li_Juan",
+                    "arn:aws:iam::123456789012:user/Mary_Major",
+                    "arn:aws:iam::123456789012:user/Jorge_Souza"
+                ]
+            },
+            {
+                "reaction": {
+                    "emoji": "👎",
+                    "shortCode": "thumbsdown",
+                    "unicode": "U+1F44E"
+                },
+                "users": [
+                    "arn:aws:iam::123456789012:user/Nikhil_Jayashankar"
+                ]
+            },
+            {
+                "reaction": {
+                    "emoji": "😕",
+                    "shortCode": "confused",
+                    "unicode": "U+1F615"
+                },
+                "users": [
+                    "arn:aws:iam::123456789012:user/Saanvi_Sarkar"
+                ]
+            }
+        ]
+    }
+}
+```

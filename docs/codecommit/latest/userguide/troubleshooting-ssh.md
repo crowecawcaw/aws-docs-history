@@ -127,8 +127,8 @@ Are you sure you want to continue connecting (yes/no)?
 Make sure the fingerprint and public key for CodeCommit connections match those documented
 in the SSH setup topics before you continue with the connection.
 
-| Public fingerprints for CodeCommit             | Server | Cryptographic hash type                           | Fingerprint                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------- | ------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public fingerprints for CodeCommit             | Server | Cryptographic hash type                           | Fingerprint |
+| ---------------------------------------------- | ------ | ------------------------------------------------- | ----------- |
 | git-codecommit.us-east-2.amazonaws.com         | MD5    | `a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` |
 | git-codecommit.us-east-2.amazonaws.com         | SHA256 | `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ`     |
 | git-codecommit.us-east-1.amazonaws.com         | MD5    | `a6:9c:7d:bc:35:f5:d4:5f:8b:ba:6f:c8:bc:d4:83:84` |
@@ -186,4 +186,134 @@ in the SSH setup topics before you continue with the connection.
 | git-codecommit.af-south-1.amazonaws.com        | MD5    | `21:a0:ba:d7:c1:d1:b5:39:98:8d:4d:7c:96:f5:ca:29` |
 | git-codecommit.af-south-1.amazonaws.com        | SHA256 | `C34ji3x/cnsDZjUpyNGXdE5pjHYimqJrQZ3leTgqJHM`     |
 | git-codecommit.il-central-1.amazonaws.com      | MD5    | `04:74:89:16:98:7a:61:b1:69:46:42:3c:d1:b4:ac:a9` |
-| git-codecommit.il-central-1.amazonaws.com      | SHA256 | `uFxhp51kUWhleTLeYbxQVYm4RnNLNZ5Dbdm1cgdSl/8`     | ## IAM error: 'Invalid format' when attempting to add a public key to IAM **Problem:** In IAM, when attempting to set up to use SSH with CodeCommit, an error message appears containing the phrase `Invalid format` when you attempt to add your public key. **Possible fixes:** IAM requires that the public key must be encoded in ssh-rsa format or PEM format. It accepts public keys in the OpenSSH format only and has additional requirements as specified in [Use SSH Keys with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit") in the _IAM User Guide_. If you provide your public key in another format, or if the key does not contain the required number of bits, you see this error. <br>• When you copied the SSH public key, your operating system might have introduced line breaks. Make sure that there are no line breaks in the public key that you add to IAM. <br>• Some Windows operating systems do not use the OpenSSH format. To generate a key pair and copy the OpenSSH format required by IAM, see [Step 3: Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows"). For more information about the requirements for SSH keys in IAM, see [Use SSH Keys with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit") in the _IAM User Guide_. ## I need to access CodeCommit repositories in multiple Amazon Web Services accounts with SSH credentials **Problem:** I want to set up SSH access to CodeCommit repositories in more than one Amazon Web Services account. **Possible fixes:** You can create unique SSH public/private key pairs for each Amazon Web Services account and configure IAM with each key. You can then configure your ~/.ssh/config file with information about each IAM User ID associated with the public key. For example: ``Host codecommit-1 Hostname git-codecommit.us-east-1.amazonaws.com User `SSH-KEY-ID-1` # This is the SSH Key ID you copied from IAM in Amazon Web Services account 1 (for example, `APKAEIBAERJR2EXAMPLE1`). IdentityFile ~/.ssh/codecommit_rsa # This is the path to the associated public key file, such as id_rsa.  We advise creating CodeCommit specific _rsa files. Host codecommit-2 Hostname git-codecommit.us-east-1.amazonaws.com User `SSH-KEY-ID-2` # This is the SSH Key ID you copied from IAM in Amazon Web Services account 2 (for example, `APKAEIBAERJR2EXAMPLE2`). IdentityFile ~/.ssh/codecommit_2_rsa # This is the path to the other associated public key file.  We advise creating CodeCommit specific _rsa files.`` In this configuration, you will be able to replace 'git-codecommit.us-east-1.amazonaws.com' with 'codecommit-2'. For example, to clone a repository in your second Amazon Web Services account: `` git clone ssh://codecommit-2/v1/repos/`YourRepositoryName` `` To set up a remote for your repository, run **git remote add**. For example: `` git remote add origin ssh://codecommit-2/v1/repos/`YourRepositoryName` `` For more examples, see [this forum post](https://forums.aws.amazon.com/thread.jspa?messageID=711158 "https://forums.aws.amazon.com/thread.jspa?messageID=711158") and [this contribution on GitHub](https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0 "https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0"). ## Git on Windows: Bash emulator or command line freezes when attempting to connect using SSH **Problem:** After you configure SSH access for Windows and confirm connectivity at the command line or terminal, you see a message that the server's host key is not cached in the registry, and the prompt to store the key in the cache is frozen (does not accept y/n/return input) when you attempt to use commands such as **git pull**, **git push**, or **git clone** at the command prompt or Bash emulator. **Possible fixes:** The most common cause for this error is that your Git environment is configured to use something other than OpenSSH for authentication (probably PuTTY). This is known to cause problems with the caching of keys in some configurations. To fix this problem, try one of the following: <br>• Open a Bash emulator and add the `GIT_SSH_COMMAND="ssh"` parameter before the Git command. For example, if you are attempting to push to a repository, instead of typing **git push**, type: `GIT_SSH_COMMAND="ssh" git push` <br>• If you have PuTTY installed, open PuTTY, and in **Host Name (or IP address)**, enter the CodeCommit endpoint you want to reach (for example, git-codecommit.us-east-2.amazonaws.com). Choose **Open**. When prompted by the PuTTY security alert, choose **Yes** to permanently cache the key. <br>• Rename or delete the `GIT_SSH` environment variable if you are no longer using it. Then open a new command prompt or Bash emulator session, and try your command again. For other solutions, see [Git clone/pull continually freezing at Store key in cache](http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache "http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache") on Stack Overflow. ## Public key format requires specification in some distributions of Linux **Problem:** When you try to configure a public-private key pair, you receive an error. **Possible fixes:** Some distributions of Linux require an additional line of configuration in the `~/.ssh/config` file that specifies the accepted types of public keys. For more information, see the documentation for your distribution about `PubkeyAcceptedKeyTypes`. ## Access error: SSH public key denied when connecting to a CodeCommit repository **Problem:** When you try to use an SSH endpoint to communicate with a CodeCommit repository, an error message appears containing the phrase `Error: public key denied`. **Possible fixes:** The most common reason for this error is that you have not completed setup for SSH connections. Configure a public and private SSH key pair, and then associate the public key with your IAM user. For more information about configuring SSH, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md "setting-up-ssh-unixes.md") and [For SSH connections on Windows](setting-up-ssh-windows.md "setting-up-ssh-windows.md"). |
+| git-codecommit.il-central-1.amazonaws.com      | SHA256 | `uFxhp51kUWhleTLeYbxQVYm4RnNLNZ5Dbdm1cgdSl/8`     |
+
+## IAM error: 'Invalid format' when attempting to
+
+add a public key to IAM
+
+**Problem:** In IAM, when attempting to set up to use
+SSH with CodeCommit, an error message appears containing the phrase `Invalid
+ format` when you attempt to add your public key.
+
+**Possible fixes:** IAM
+requires that the
+public key must be encoded in ssh-rsa format or PEM format.
+It accepts public keys in the OpenSSH format only and
+has
+additional requirements as specified in [Use SSH
+Keys with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit") in the _IAM User Guide_.
+If you provide your public key in another format, or if the key does not contain the
+required number of bits, you see this error.
+
+- When you copied the SSH public key, your operating system might have
+  introduced line breaks. Make sure that there are no line breaks in the public
+  key that you add to IAM.
+- Some Windows operating systems do not use the OpenSSH format. To generate a
+  key pair and copy the OpenSSH format required by IAM, see [Step 3:
+
+Set up the public and private keys for Git and CodeCommit](setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows "setting-up-ssh-windows.md#setting-up-ssh-windows-keys-windows").
+
+For more information about the requirements for SSH keys in IAM, see [Use SSH
+Keys with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit") in the _IAM User
+Guide_.
+
+## I need to access CodeCommit repositories in
+
+multiple Amazon Web Services accounts with SSH credentials
+
+**Problem:** I want to set up SSH access to CodeCommit
+repositories in more than one Amazon Web Services account.
+
+**Possible fixes:** You can create unique SSH
+public/private key pairs for each Amazon Web Services account and configure IAM with each key. You
+can then configure your ~/.ssh/config file with information about each IAM User ID
+associated with the public key. For example:
+
+```
+Host codecommit-1
+    Hostname git-codecommit.us-east-1.amazonaws.com
+    User `SSH-KEY-ID-1` # This is the SSH Key ID you copied from IAM in Amazon Web Services account 1 (for example, `APKAEIBAERJR2EXAMPLE1`).
+    IdentityFile ~/.ssh/codecommit_rsa # This is the path to the associated public key file, such as id_rsa.  We advise creating CodeCommit specific _rsa files.
+
+Host codecommit-2
+    Hostname git-codecommit.us-east-1.amazonaws.com
+    User `SSH-KEY-ID-2` # This is the SSH Key ID you copied from IAM in Amazon Web Services account 2 (for example, `APKAEIBAERJR2EXAMPLE2`).
+    IdentityFile ~/.ssh/codecommit_2_rsa # This is the path to the other associated public key file.  We advise creating CodeCommit specific _rsa files.
+```
+
+In this configuration, you will be able to replace
+'git-codecommit.us-east-1.amazonaws.com' with 'codecommit-2'. For example, to clone a
+repository in your second Amazon Web Services account:
+
+```
+git clone ssh://codecommit-2/v1/repos/`YourRepositoryName`
+```
+
+To set up a remote for your repository, run **git remote add**. For
+example:
+
+```
+git remote add origin ssh://codecommit-2/v1/repos/`YourRepositoryName`
+```
+
+For more examples, see [this forum
+post](https://forums.aws.amazon.com/thread.jspa?messageID=711158 "https://forums.aws.amazon.com/thread.jspa?messageID=711158") and [this
+contribution on GitHub](https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0 "https://gist.github.com/justinpawela/3a7056cd592d688425e59de2ef6f1da0").
+
+## Git on Windows: Bash emulator or command line
+
+freezes when attempting to connect using SSH
+
+**Problem:** After you configure SSH access for Windows
+and confirm connectivity at the command line or terminal, you see a message that the
+server's host key is not cached in the registry, and the prompt to store the key in the
+cache is frozen (does not accept y/n/return input) when you attempt to use commands such
+as **git pull**, **git push**, or **git
+clone** at the command prompt or Bash emulator.
+
+**Possible fixes:** The most common cause for this error
+is that your Git environment is configured to use something other than OpenSSH for
+authentication (probably PuTTY). This is known to cause problems with the caching of
+keys in some configurations. To fix this problem, try one of the following:
+
+- Open a Bash emulator and add the `GIT_SSH_COMMAND="ssh"` parameter
+  before the Git command. For example, if you are attempting to push to a
+  repository, instead of typing **git push**, type:
+
+```
+GIT_SSH_COMMAND="ssh" git push
+```
+
+- If you have PuTTY installed, open PuTTY, and in **Host Name (or IP
+  address)**, enter the CodeCommit endpoint you want to reach (for
+  example, git-codecommit.us-east-2.amazonaws.com). Choose **Open**. When
+  prompted by the PuTTY security alert, choose **Yes** to
+  permanently cache the key.
+- Rename or delete the `GIT_SSH` environment variable if you are no
+  longer using it. Then open a new command prompt or Bash emulator session, and
+  try your command again.
+
+For other solutions, see [Git clone/pull continually freezing at Store key in cache](http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache "http://stackoverflow.com/questions/33240137/git-clone-pull-continually-freezing-at-store-key-in-cache") on Stack
+Overflow.
+
+## Public key format requires specification in some distributions of Linux
+
+**Problem:** When you try to configure a public-private key pair, you receive an error.
+
+**Possible fixes:** Some distributions of Linux require an additional line of configuration in the
+`~/.ssh/config` file that specifies the accepted types of public keys. For more information, see the documentation for your distribution about
+`PubkeyAcceptedKeyTypes`.
+
+## Access error: SSH public key denied when connecting to a CodeCommit
+
+repository
+
+**Problem:** When you try to use an SSH endpoint to
+communicate with a CodeCommit repository, an error message appears containing the phrase
+`Error: public key denied`.
+
+**Possible fixes:** The most common reason for this error
+is that you have not completed setup for SSH connections. Configure a public and private
+SSH key pair, and then associate the public key with your IAM user. For more
+information about configuring SSH, see [For SSH connections on Linux, macOS, or Unix](setting-up-ssh-unixes.md "setting-up-ssh-unixes.md") and [For SSH connections on Windows](setting-up-ssh-windows.md "setting-up-ssh-windows.md").

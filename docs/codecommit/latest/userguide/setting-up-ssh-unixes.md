@@ -84,7 +84,7 @@ should be used.
 
 For example:
 
-````
+```
 $ ssh-keygen
 
 Generating public/private rsa key pair.
@@ -106,5 +106,172 @@ The key fingerprint is:
 |          .      |
 |                 |
 |                 |
-|                 | +-----------------+ ``` This generates: <br>• The `codecommit_rsa` file, which is the private key file. <br>• The `codecommit_rsa.pub` file, which is the public key file. ###### Tip By default, **ssh-keygen** generates a 2048 bit key. You can use the -t and -b parameters to specify the type and length of the key. If you want a 4096 bit key in the rsa format, you would specify this by running the command with the following parameters: ``` ssh-keygen -t rsa -b 4096 ``` For more information about the formats and lengths required for SSH keys, see [Using IAM with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit"). 2. Run the following command to display the value of the public key file (`codecommit_rsa.pub`): ``` cat ~/.ssh/`codecommit_rsa.pub` ``` Copy this value. It looks similar to the following: ``` ssh-rsa EXAMPLE-AfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJB gNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb2 5zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhc NMTEwNDI1MjA0NTIxWhcNMTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAw DgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDAS=EXAMPLE `user-name`@`ip-192-0-2-137` ``` 3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). ###### Note You can directly view and manage your CodeCommit credentials in **My Security Credentials**. For more information, see [View and manage your credentials](setting-up.md#setting-up-view-credentials "setting-up.md#setting-up-view-credentials"). 4. In the IAM console, in the navigation pane, choose **Users**, and from the list of users, choose your IAM user. 5. On the user details page, choose the **Security Credentials** tab, and then choose **Upload SSH public key**. 6. Paste the contents of your SSH public key into the field, and then choose **Upload SSH public key**. 7. Copy or save the information in **SSH Key ID** (for example, `APKAEIBAERJR2EXAMPLE`). ![The SSH Key ID in the IAM console](images/codecommit-ssh-key-id-iam.png) ###### Note If you have more than one SSH key IDs uploaded, the keys are listed alphabetically by key ID, not by upload date. Make sure that you have copied the key ID that is associated with the correct upload date. 8. On your local machine, use a text editor to create a config file in the ~/.ssh directory, and then add the following lines to the file, where the value for `User` is the SSH key ID you copied earlier: ``` Host git-codecommit.*.amazonaws.com User `APKAEIBAERJR2EXAMPLE` IdentityFile ~/.ssh/`codecommit_rsa` ``` ###### Note If you gave your private key file a name other than `codecommit_rsa`, be sure to use it here. You can set up SSH access to repositories in multiple Amazon Web Services accounts, For more information, see [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md"). Save and name this file `config`. 9. From the terminal, run the following command to change the permissions for the config file: ``` chmod 600 config ``` 10. Run the following command to test your SSH configuration: ``` ssh git-codecommit.us-east-2.amazonaws.com ``` You are asked to confirm the connection because `git-codecommit.us-east-2.amazonaws.com` is not yet included in your known hosts file. The CodeCommit server fingerprint is displayed as part of the verification (`a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` for MD5 or `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ` for SHA256). ###### Note CodeCommit server fingerprints are unique for every AWS Region. To view the server fingerprints for an AWS Region, see [Server fingerprints for CodeCommit](regions.md#regions-fingerprints "regions.md#regions-fingerprints"). After you have confirmed the connection, you should see confirmation that you have added the server to your known hosts file and a successful connection message. If you do not see a success message, check that you saved the `config` file in the ~/.ssh directory of the IAM user you configured for access to CodeCommit, and that you specified the correct private key file. For information to help you troubleshoot problems, run the `ssh` command with the `-v` parameter. For example: ``` ssh -v git-codecommit.us-east-2.amazonaws.com ``` For information to help you troubleshoot connection problems, see [Troubleshooting SSH connections to AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md"). ## Step 4: Connect to the CodeCommit console and clone the repository If an administrator has already sent you the name and connection details for the CodeCommit repository, you can skip this step and clone the repository directly. ###### To connect to a CodeCommit repository 1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home"). 2. In the region selector, choose the AWS Region where the repository was created. Repositories are specific to an AWS Region. For more information, see [Regions and Git connection endpoints](regions.md "regions.md"). 3. Find the repository you want to connect to from the list and choose it. Choose **Clone URL**, and then choose the protocol you want to use when cloning or connecting to the repository. This copies the clone URL. <br>• Copy the HTTPS URL if you are using either Git credentials with your IAM user or the credential helper included with the AWS CLI. <br>• Copy the HTTPS (GRC) URL if you are using the **git-remote-codecommit** command on your local computer. <br>• Copy the SSH URL if you are using an SSH public/private key pair with your IAM user. ###### Note If you see a **Welcome** page instead of a list of repositories, there are no repositories associated with your AWS account in the AWS Region where you are signed in. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md "how-to-create-repository.md") or follow the steps in the [Getting started with Git and CodeCommit](getting-started.md "getting-started.md") tutorial. 4. Open a terminal. From the /tmp directory, run the **git clone** command with the SSH URL you copied to clone the repository. For example, to clone a repository named `MyDemoRepo` to a local repo named `my-demo-repo` in the US East (Ohio) Region: ``` git clone ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo ``` ###### Note If you successfully tested your connection, but the clone command fails, you might not have the required access to your config file, or another setting might be in conflict with your config file. Try connecting again, this time including the SSH key ID in the command. For example: ``` git clone ssh://`Your-SSH-Key-ID`@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo ``` For more information, see [Access error: Public key is uploaded successfully to IAM but connection fails on Linux, macOS, or Unix systems](troubleshooting-ssh.md#troubleshooting-ae4 "troubleshooting-ssh.md#troubleshooting-ae4"). For more information about how to connect to repositories, see [Connect to the CodeCommit repository by cloning the repository](how-to-connect.md#how-to-connect-http "how-to-connect.md#how-to-connect-http"). ## Next steps You have completed the prerequisites. Follow the steps in [Getting started with CodeCommit](getting-started-cc.md "getting-started-cc.md")  to start using CodeCommit.
-````
+|                 |
++-----------------+
+```
+
+This generates:
+
+    * The `codecommit_rsa` file, which is the private key
+     file.
+    * The `codecommit_rsa.pub` file, which is the public key
+     file.
+
+###### Tip
+
+By default, **ssh-keygen** generates a 2048 bit key. You can use
+the -t and -b parameters to specify the type and length of the key. If you want a 4096
+bit key in the rsa format, you would specify this by running the command with the
+following parameters:
+
+```
+ssh-keygen -t rsa -b 4096
+```
+
+For more information about the formats and lengths required for SSH keys, see
+[Using
+IAM with CodeCommit](../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit "../../../IAM/latest/UserGuide/id_credentials_ssh-keys.md#ssh-keys-code-commit"). 2. Run the following command to display the value of the public key file
+(`codecommit_rsa.pub`):
+
+```
+cat ~/.ssh/`codecommit_rsa.pub`
+```
+
+Copy this value. It looks similar to the following:
+
+```
+ssh-rsa EXAMPLE-AfICCQD6m7oRw0uXOjANBgkqhkiG9w0BAQUFADCBiDELMAkGA1UEBhMCVVMxCzAJB
+gNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDASBgNVBAsTC0lBTSBDb2
+5zb2xlMRIwEAYDVQQDEwlUZXN0Q2lsYWMxHzAdBgkqhkiG9w0BCQEWEG5vb25lQGFtYXpvbi5jb20wHhc
+NMTEwNDI1MjA0NTIxWhcNMTIwNDI0MjA0NTIxWjCBiDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAw
+DgYDVQQHEwdTZWF0dGxlMQ8wDQYDVQQKEwZBbWF6b24xFDAS=EXAMPLE `user-name`@`ip-192-0-2-137`
+```
+
+3. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+
+###### Note
+
+You can directly view and manage your CodeCommit credentials in **My Security
+Credentials**. For more information, see [View and manage your credentials](setting-up.md#setting-up-view-credentials "setting-up.md#setting-up-view-credentials"). 4. In the IAM console, in the navigation pane, choose **Users**, and
+from the list of users, choose your IAM user. 5. On the user details page, choose the **Security Credentials** tab,
+and then choose **Upload SSH public key**. 6. Paste the contents of your SSH public key into the field, and then choose
+**Upload SSH public key**. 7. Copy or save the information in **SSH Key ID** (for example,
+`APKAEIBAERJR2EXAMPLE`).
+
+![The SSH Key ID in the IAM console](images/codecommit-ssh-key-id-iam.png)
+
+###### Note
+
+If you have more than one SSH key IDs uploaded, the keys are listed alphabetically
+by key ID, not by upload date. Make sure that you have copied the key ID that is
+associated with the correct upload date. 8. On your local machine, use a text editor to create
+a config file in the ~/.ssh directory, and then add the following lines to the file,
+where the value for `User` is the SSH key ID you copied
+earlier:
+
+```
+Host git-codecommit.*.amazonaws.com
+  User `APKAEIBAERJR2EXAMPLE`
+  IdentityFile ~/.ssh/`codecommit_rsa`
+```
+
+###### Note
+
+If you gave your private key file a name other than
+`codecommit_rsa`, be sure to use it here.
+
+You can set up SSH access to repositories in multiple Amazon Web Services accounts, For more
+information, see [Troubleshooting SSH connections to
+AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md").
+
+Save and name this file `config`. 9. From the terminal, run the following command to change the permissions for the
+config file:
+
+```
+chmod 600 config
+```
+
+10. Run the following command to test your SSH configuration:
+
+```
+ssh git-codecommit.us-east-2.amazonaws.com
+```
+
+You are asked to confirm the connection because
+`git-codecommit.us-east-2.amazonaws.com` is not yet included in your
+known hosts file. The CodeCommit server fingerprint is displayed as part of the verification
+(`a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` for MD5 or
+`3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ` for SHA256).
+
+###### Note
+
+CodeCommit server fingerprints are unique for every AWS Region. To view the server
+fingerprints for an AWS Region, see [Server fingerprints for CodeCommit](regions.md#regions-fingerprints "regions.md#regions-fingerprints").
+
+After you have confirmed the connection, you should see confirmation that you have
+added the server to your known hosts file and a successful connection message. If you do
+not see a success message, check that you saved the `config` file in
+the ~/.ssh directory of the IAM user you configured for access to CodeCommit, and that you
+specified the correct private key file.
+
+For information to help you troubleshoot problems, run the `ssh` command
+with the `-v` parameter. For example:
+
+```
+ssh -v git-codecommit.us-east-2.amazonaws.com
+```
+
+For information to help you troubleshoot connection problems, see [Troubleshooting SSH connections to
+AWS CodeCommit](troubleshooting-ssh.md "troubleshooting-ssh.md").
+
+## Step 4: Connect to the CodeCommit console and clone
+
+the repository
+
+If an administrator has already sent you the name and connection details for the CodeCommit
+repository, you can skip this step and clone the repository directly.
+
+###### To connect to a CodeCommit repository
+
+1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
+2. In the region selector, choose the AWS Region where the repository was created.
+   Repositories are specific to an AWS Region. For more information, see [Regions and Git connection endpoints](regions.md "regions.md").
+3. Find the repository you want to connect to from the list and choose it. Choose **Clone URL**, and then choose the protocol you want to use when
+   cloning or connecting to the repository. This copies the clone URL.
+   - Copy the HTTPS URL if you are using either Git credentials with your IAM user or the credential helper included with the AWS CLI.
+   - Copy the HTTPS (GRC) URL if you are using the **git-remote-codecommit** command on your local computer.
+   - Copy the SSH URL if you are using an SSH public/private key pair with your IAM user.
+
+###### Note
+
+If you see a **Welcome** page instead of a list of repositories, there are no
+repositories associated with your AWS account in the AWS Region where you are signed in. To create a repository, see [Create an AWS CodeCommit repository](how-to-create-repository.md "how-to-create-repository.md") or
+follow the steps in the [Getting started with Git and CodeCommit](getting-started.md "getting-started.md") tutorial. 4. Open a terminal. From the /tmp directory, run the **git clone** command
+with the SSH URL you copied to clone the repository. For example, to clone a repository
+named `MyDemoRepo` to a local repo named
+`my-demo-repo` in the US East (Ohio) Region:
+
+```
+git clone ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
+```
+
+###### Note
+
+If you successfully tested your connection, but the clone command fails, you
+might not have the required access to your config file, or another setting might be
+in conflict with your config file. Try connecting again, this time including the SSH
+key ID in the command. For
+example:
+
+```
+git clone ssh://`Your-SSH-Key-ID`@git-codecommit.us-east-2.amazonaws.com/v1/repos/MyDemoRepo my-demo-repo
+```
+
+For more information, see [Access error: Public key is uploaded successfully
+to IAM but connection fails on Linux, macOS, or Unix systems](troubleshooting-ssh.md#troubleshooting-ae4 "troubleshooting-ssh.md#troubleshooting-ae4").
+
+For more information about how to connect to repositories, see [Connect to the CodeCommit repository by cloning the repository](how-to-connect.md#how-to-connect-http "how-to-connect.md#how-to-connect-http").
+
+## Next steps
+
+You have completed the prerequisites. Follow the steps in [Getting started with CodeCommit](getting-started-cc.md "getting-started-cc.md") to start using CodeCommit.
