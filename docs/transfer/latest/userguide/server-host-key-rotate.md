@@ -43,11 +43,20 @@ can exist in the `known_hosts` file for the same Transfer Family server.
 As an example, assume that you have added the following set of server host keys to
 your Transfer Family server.
 
-| Server host keys | Host key type    | Date added to the server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server host keys | Host key type    | Date added to the server |
+| ---------------- | ---------------- | ------------------------ |
 | RSA              | April 1, 2020    |
 | ECDSA            | February 1, 2020 |
 | ED25519          | December 1, 2019 |
 | RSA              | October 1, 2019  |
 | ECDSA            | June 1, 2019     |
-| ED25519          | March 1, 2019    | ###### To rotate the server host key 1. Add a new server host key. This procedure is described in [Add an additional server host key](server-host-key-add.md "server-host-key-add.md"). 2. Delete one or more of the host keys of the same type that you had added previously. This procedure is described in [Delete a server host key](server-host-key-delete.md "server-host-key-delete.md"). 3. All keys are visible, and can be active, subject to the behavior described previously in [How the client chooses a server host key](#server-key-behavior "#server-key-behavior"). |
+| ED25519          | March 1, 2019    |
+
+###### To rotate the server host key
+
+1. Add a new server host key. This procedure is described in [Add an additional server host key](server-host-key-add.md "server-host-key-add.md").
+2. Delete one or more of the host keys of the same type that you had added
+   previously. This procedure is described in [Delete a server host key](server-host-key-delete.md "server-host-key-delete.md").
+3. All keys are visible, and can be active, subject to the behavior described
+   previously in [How the client chooses a server host
+   key](#server-key-behavior "#server-key-behavior").

@@ -70,7 +70,7 @@ connector security policy.
 | hmac-sha2-256                        | ♦                                               | ♦                                          | ♦                                          |
 | hmac-sha1                            |                                                  |                                             | ♦                                          |
 | hmac-sha1-96                         |                                                  |                                             | ♦                                          |
-| **Host Key Algorithms**              |
+| **Host Key<br>Algorithms**           |
 | rsa-sha2-256                         | ♦                                               | ♦                                          | ♦                                          |
 | rsa-sha2-512                         | ♦                                               | ♦                                          | ♦                                          |
 | ecdsa-sha2-nistp256                  | ♦                                               | ♦                                          | ♦                                          |

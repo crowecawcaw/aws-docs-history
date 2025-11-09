@@ -131,6 +131,183 @@ connector added to the list. To view the details for your connectors, see [View 
 When you create an AS2 connector, the following security algorithms are attached to the
 connector.
 
-| Type       | Algorithm                                                                                                                                                                                                                                                                                                               |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TLS Cipher | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | ## Basic authentication for AS2 connectors When you create or update a Transfer Family server that uses the AS2 protocol, you can add Basic authentication for outbound messages. You do this by adding authentication information to a connector. ###### Note Basic authentication is available only if you're using HTTPS. To use authentication for your connector, select **Enable Basic authentication** in the **Basic authentication** section. After you enable Basic authentication, you can choose to create a new secret, or use an existing one. In either case, the credentials in the secret are sent with outbound messages that use this connector. The credentials must match the user that is attempting to connect to the trading partner's remote endpoint. The following screenshot shows **Enable Basic authentication** selected, and **Create a new secret** chosen. After making these choices, you can enter a username and password for the secret. ![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Create a new secret is chosen.](images/as2-basic-auth-create-secret.png) The following screenshot shows **Enable Basic authentication** selected, and **Choose an existing secret** chosen. Your secret must be in the correct format, as described in [Enable Basic authentication for AS2 connectors](#as2-secret-create "#as2-secret-create"). ![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Choose an existing secret is chosen.](images/as2-basic-auth-select-secret.png) ## Enable Basic authentication for AS2 connectors When you enable Basic authentication for AS2 connectors, you can either create a new secret in the Transfer Family console, or you can use a secret that you create in AWS Secrets Manager. In either case, your secret is stored in Secrets Manager. ###### Topics <br>• [Create a new secret in the console](#as2-secret-details-console "#as2-secret-details-console") <br>• [Use an existing secret](#use-existing-secret "#use-existing-secret") <br>• [Create a secret in AWS Secrets Manager](#as2-secret-details-asm "#as2-secret-details-asm") ### Create a new secret in the console When you're creating a connector in the console, you can create a new secret. To create a new secret, choose **Create a new secret** and then enter a username and password. These credentials must match the user that connects to the partner's endpoint. ![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Create a new secret chosen.](images/as2-basic-auth-create-secret.png) ###### Note When you create a new secret in the console, the name of the secret follows this naming convention: `/aws/transfer/`connector-id``, where `connector-id`is the ID of the connector that you're creating. Consider this when you are trying to locate the secret in AWS Secrets Manager. ### Use an existing secret When you're creating a connector in the console, you can specify an existing secret. To use an existing secret, choose **Choose an existing secret**, and then choose a secret from the dropdown menu. For the details of creating a correctly formatted secret in Secrets Manager, see [Create a secret in AWS Secrets Manager](#as2-secret-details-asm "#as2-secret-details-asm"). ![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Choose an existing secret chosen.](images/as2-basic-auth-select-secret.png) ### Create a secret in AWS Secrets Manager The following procedure describes how to create an appropriate secret for use with your AS2 connector. ###### Note Basic authentication is available only if you're using HTTPS. ###### To store user credentials in Secrets Manager for AS2 Basic authentication 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/"). 2. In the left navigation pane, choose **Secrets**. 3. On the **Secrets** page, choose **Store a new secret**. 4. On the **Choose secret type** page, for **Secret type**, choose **Other type of secret**. 5. In the **Key/value pairs** section, choose the **Key/value** tab. <br>• **Key** – Enter`Username`. <br>• **value** – Enter the name of the user that is authorized to connect to the partner' server. 6. If you want to provide a password, choose **Add row**, and in the **Key/value pairs** section, choose the **Key/value** tab. Choose **Add row**, and in the **Key/value pairs** section, choose the **Key/value** tab. <br>• **Key** – Enter `Password`. <br>• **value** – Enter the password for the user. 7. If you want to provide a private key, choose **Add row**, and in the **Key/value pairs** section, choose the **Key/value** tab. <br>• **Key** – Enter `PrivateKey`. <br>• **value** – Enter a private key for the user. This value must be stored in OpenSSH format, and must correspond to the public key that is stored for this user in the remote server. 8. Choose **Next**. 9. On the **Configure secret** page, enter a name and description for your secret. We recommend that you use a prefix of `aws/transfer/`for the name. For example, you could name your secret`aws/transfer/connector-1`. 10. Choose **Next**, and then accept the defaults on the **Configure rotation** page. Then choose **Next**. 11. On the **Review** page, choose **Store** to create and store the secret. After you create the secret, you can choose it when you are creating a connector (see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md")). In the step where you enable Basic authentication, choose the secret from the dropdown list of available secrets. ## View AS2 connector details You can find a list of details and properties for an AS2 AWS Transfer Family connector in the AWS Transfer Family console. An AS2 connector's properties include its URL, roles, profiles, MDNs, tags, and monitoring metrics. This is the procedure for viewing connector details. ###### To view connector details 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/"). 2. In the left navigation pane, choose **Connectors**. 3. Choose the identifier in the **Connector ID** column to see the details page for the selected connector. You can change the properties for the AS2 connector on the connector's details page by choosing **Edit**. ![The Transfer Family console connector details page, showing the URL, access role, and logging role for the selected connector.](images/as2-connector-details_01-top.png) ![The Transfer Family console connector details page, showing the AS2 configuration details for the selected connector.](images/as2-connector-details_02-middle.png) ![The Transfer Family console connector details page, showing the AS2 Basic authentication section details, tags, static IP, and AS2 monitoring information for the selected connector.](images/as2-basic-auth-details-pane.png) ###### Note You can get much of this information, albeit in a different format, by running the following AWS Command Line Interface (AWS CLI command: ``` aws transfer describe-connector --connector-id `your-connector-id` ``` For more information, see [DescribeConnector](../APIReference/API_DescribeConnector.md "../APIReference/API_DescribeConnector.md") in the API reference. |
+| Type       | Algorithm                                                                                                                                                                                                                                                                                                                                    |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TLS Cipher | TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+
+## Basic authentication for AS2 connectors
+
+When you create or update a Transfer Family server that uses the AS2 protocol, you can add
+Basic authentication for outbound messages. You do this by adding authentication
+information to a connector.
+
+###### Note
+
+Basic authentication is available only if you're using HTTPS.
+
+To use authentication for your connector, select **Enable Basic
+authentication** in the **Basic authentication**
+section. After you enable Basic authentication, you can choose to create a new
+secret, or use an existing one. In either case, the credentials in the secret are
+sent with outbound messages that use this connector. The credentials must match the
+user that is attempting to connect to the trading partner's remote endpoint.
+
+The following screenshot shows **Enable Basic authentication**
+selected, and **Create a new secret** chosen. After making these
+choices, you can enter a username and password for the secret.
+
+![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Create a new secret is chosen.](images/as2-basic-auth-create-secret.png)
+
+The following screenshot shows **Enable Basic authentication**
+selected, and **Choose an existing secret** chosen. Your secret
+must be in the correct format, as described in [Enable Basic authentication for AS2
+connectors](#as2-secret-create "#as2-secret-create").
+
+![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Choose an existing secret is chosen.](images/as2-basic-auth-select-secret.png)
+
+## Enable Basic authentication for AS2
+
+connectors
+
+When you enable Basic authentication for AS2 connectors, you can either create a
+new secret in the Transfer Family console, or you can use a secret that you create in
+AWS Secrets Manager. In either case, your secret is stored in Secrets Manager.
+
+###### Topics
+
+- [Create a new secret in the
+  console](#as2-secret-details-console "#as2-secret-details-console")
+- [Use an existing secret](#use-existing-secret "#use-existing-secret")
+- [Create a secret in AWS Secrets Manager](#as2-secret-details-asm "#as2-secret-details-asm")
+
+### Create a new secret in the
+
+console
+
+When you're creating a connector in the console, you can create a new
+secret.
+
+To create a new secret, choose **Create a new secret** and
+then enter a username and password. These credentials must match the user that
+connects to the partner's endpoint.
+
+![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Create a new secret chosen.](images/as2-basic-auth-create-secret.png)
+
+###### Note
+
+When you create a new secret in the console, the name of the secret
+follows this naming convention:
+`/aws/transfer/`connector-id``,
+ where `connector-id` is the ID of the connector
+that you're creating. Consider this when you are trying to locate the
+secret in AWS Secrets Manager.
+
+### Use an existing secret
+
+When you're creating a connector in the console, you can specify an existing
+secret.
+
+To use an existing secret, choose **Choose an existing
+secret**, and then choose a secret from the dropdown menu. For the
+details of creating a correctly formatted secret in Secrets Manager, see [Create a secret in AWS Secrets Manager](#as2-secret-details-asm "#as2-secret-details-asm").
+
+![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Choose an existing secret chosen.](images/as2-basic-auth-select-secret.png)
+
+### Create a secret in AWS Secrets Manager
+
+The following procedure describes how to create an appropriate secret for use
+with your AS2 connector.
+
+###### Note
+
+Basic authentication is available only if you're using HTTPS.
+
+###### To store user credentials in Secrets Manager
+
+for AS2 Basic authentication
+
+1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+2. In the left navigation pane, choose **Secrets**.
+3. On the **Secrets** page, choose **Store a new
+   secret**.
+4. On the **Choose secret type** page, for **Secret
+   type**, choose **Other type of secret**.
+5. In the **Key/value pairs** section, choose the
+   **Key/value** tab.
+   - **Key** – Enter
+     `Username`.
+   - **value** – Enter the name of the user that is
+     authorized to connect to the partner' server.
+
+6. If you want to provide a password, choose **Add row**, and in
+   the **Key/value pairs** section, choose the
+   **Key/value** tab.
+
+Choose **Add row**, and in the **Key/value
+pairs** section, choose the **Key/value**
+tab.
+
+    * **Key** – Enter
+     `Password`.
+    * **value** – Enter the password for the
+     user.
+
+7. If you want to provide a private key, choose **Add row**, and
+   in the **Key/value pairs** section, choose the
+   **Key/value** tab.
+   - **Key** – Enter
+     `PrivateKey`.
+   - **value** – Enter a private key for the user.
+     This value must be stored in OpenSSH format, and must correspond to the
+     public key that is stored for this user in the remote server.
+
+8. Choose **Next**.
+9. On the **Configure secret** page, enter a name and
+   description for your secret. We recommend that you use a prefix of
+   `aws/transfer/` for the name. For example, you could
+   name your secret `aws/transfer/connector-1`.
+10. Choose **Next**, and then accept the defaults on the
+    **Configure rotation** page. Then choose
+    **Next**.
+11. On the **Review** page, choose **Store** to
+    create and store the secret.
+
+After you create the secret, you can choose it when you are creating a
+connector (see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md")). In the step where you enable
+Basic authentication, choose the secret from the dropdown list of available
+secrets.
+
+## View AS2 connector details
+
+You can find a list of details and properties for an AS2 AWS Transfer Family connector in the
+AWS Transfer Family console. An AS2 connector's properties include its URL, roles, profiles,
+MDNs, tags, and monitoring metrics.
+
+This is the procedure for viewing connector details.
+
+###### To view connector details
+
+1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
+2. In the left navigation pane, choose **Connectors**.
+3. Choose the identifier in the **Connector ID** column to see
+   the details page for the selected connector.
+
+You can change the properties for the AS2 connector on the connector's details
+page by choosing **Edit**.
+
+![The Transfer Family console connector details page, showing the URL, access role, and logging role for the selected connector.](images/as2-connector-details_01-top.png)
+
+![The Transfer Family console connector details page, showing the AS2 configuration details for the selected connector.](images/as2-connector-details_02-middle.png)
+
+![The Transfer Family console connector details page, showing the AS2 Basic authentication section details, tags, static IP, and AS2 monitoring information for the selected connector.](images/as2-basic-auth-details-pane.png)
+
+###### Note
+
+You can get much of this information, albeit in a different format, by running
+the following AWS Command Line Interface (AWS CLI command:
+
+```
+aws transfer describe-connector --connector-id `your-connector-id`
+```
+
+For more information, see [DescribeConnector](../APIReference/API_DescribeConnector.md "../APIReference/API_DescribeConnector.md") in the API reference.

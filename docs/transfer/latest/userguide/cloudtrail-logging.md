@@ -261,10 +261,12 @@ The `x-amz-onBehalfOf` field is particularly important as it links the S3 API ca
 
 When monitoring data access through AWS Transfer Family, you'll typically see the following S3 API operations in your CloudTrail logs:
 
-| Common S3 operations in AWS Transfer Family logs | S3 API Operation  | AWS Transfer Family Action             | Description                                                                                                                                                                                                           |
-| ------------------------------------------------ | ----------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Common S3 operations in AWS Transfer Family logs | S3 API Operation  | AWS Transfer Family Action             | Description |
+| ------------------------------------------------ | ----------------- | -------------------------------------- | ----------- |
 | GetObject                                        | File download     | User downloaded a file from the server |
 | PutObject                                        | File upload       | User uploaded a file to the server     |
 | DeleteObject                                     | File deletion     | User deleted a file from the server    |
 | ListObjects or ListObjectsV2                     | Directory listing | User listed files in a directory       |
-| CopyObject                                       | File copy         | User copied a file within the server   | By monitoring these operations in your CloudTrail logs, you can track all file activities performed through your AWS Transfer Family server, helping you meet compliance requirements and detect unauthorized access. |
+| CopyObject                                       | File copy         | User copied a file within the server   |
+
+By monitoring these operations in your CloudTrail logs, you can track all file activities performed through your AWS Transfer Family server, helping you meet compliance requirements and detect unauthorized access.

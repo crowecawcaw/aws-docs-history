@@ -118,11 +118,575 @@ do not need to generate two root certificate authorities (CAs).
 
 The `-subj` argument consists of the following values.
 
-|      | Name                                              | Description                                                                                                                                                 |
-| ---- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `C`  | Country code                                      | A two-letter code for the country in which your organization is located.                                                                                    |
-| `ST` | State, region, or province                        | The state, region, or province in which your organization is located. (In this case, _region_ does not refer to your AWS Region.)                           |
-| `L`  | Locality name                                     | The city in which your organization is located.                                                                                                             |
-| `O`  | Organization name                                 | The full legal name of your organization, including suffixes, such as LLC, Corp, and so on.                                                                 |
-| `OU` | Organizational unit name                          | The division in your organization that deals with this certificate.                                                                                         |
-| `CN` | Common name or fully qualified domain name (FQDN) | In this case, we're creating a root certificate, so the value is `ROOTCA`. In these examples, we are using `CN` to describe the purpose of the certificate. | 3. Create a signing key and an encryption key for your local profile. `/usr/bin/openssl genrsa -out signing-key.pem 2048 /usr/bin/openssl genrsa -out encryption-key.pem 2048` ###### Note Some AS2-enabled servers, such as OpenAS2, require that you use the same certificate for both signing and encryption. In this case, you can import the same private key and certificate for both purposes. To do so, run this command instead of the two previous commands: `/usr/bin/openssl genrsa -out signing-and-encryption-key.pem 2048` 4. Run the following commands to create Certificate Signing Requests (CSRs) for the root key to sign. ``/usr/bin/openssl req -new -key signing-key.pem -subj \ "/C=`US`/ST=`MA`/L=`Boston`/O=`TransferFamilyCustomer`/OU=`IT-dept`/CN=Signer" -out signing-key-csr.pem`` ``/usr/bin/openssl req -new -key encryption-key.pem -subj \ "/C=`US`/ST=`MA`/L=`Boston`/O=`TransferFamilyCustomer`/OU=`IT-dept`/CN=Encrypter" -out encryption-key-csr.pem`` 5. Next, you must create a `signing-cert.conf` file and an `encryption-cert.conf` file. <br>• Use a text editor to create the `signing-cert.conf` file with the following contents: `authorityKeyIdentifier=keyid,issuer keyUsage = digitalSignature, nonRepudiation` <br>• Use a text editor to create the `encryption-cert.conf` file with the following contents: `authorityKeyIdentifier=keyid,issuer keyUsage = dataEncipherment` 6. Finally, you create the signed certificates by running the following commands. `/usr/bin/openssl x509 -req -sha256 -CAcreateserial -days 1825 -in signing-key-csr.pem -out signing-cert.pem -CA \ root-ca.pem -CAkey root-ca-key.pem -extfile signing-cert.conf` `/usr/bin/openssl x509 -req -sha256 -CAcreateserial -days 1825 -in encryption-key-csr.pem -out encryption-cert.pem \ -CA root-ca.pem -CAkey root-ca-key.pem -extfile encryption-cert.conf` ## Step 2: Import certificates as Transfer Family certificate resources This procedure explains how to import certificates by using the AWS CLI. If you want to use the Transfer Family console instead, see [Import AS2 certificates](managing-as2-partners.md#configure-as2-certificate "managing-as2-partners.md#configure-as2-certificate"). To import the signing and encryption certificates that you created in step 1, run the following `import-certificate` commands. If you're using the same certificate for encryption and signing, import the same certificate twice (once with the `SIGNING` usage and again with the `ENCRYPTION` usage). ###### Note If you have a file that contains both a certificate and its chain, you can provide that file to the `import-certificate` command using only the `certificate` parameter. For example: `` aws transfer import-certificate --usage ENCRYPTION --certificate file://`combined-cert-and-chain-file.pem` `` If you use the `certificate` parameter to upload both the certificate and its chain, don't use the `certificate-chain` parameter. If you combine the certificate and its chain, your key is formatted using conventional PEM standards, which includes a newline “\n” every 64 characters. The certificate that is stored is functionally equivalent to the one you uploaded, with the sole difference that the `DescribeCertificate` response via the AWS CLI will contain these newline characters. `aws transfer import-certificate --usage SIGNING --certificate file://signing-cert.pem \ --private-key file://signing-key.pem --certificate-chain file://root-ca.pem` This command returns your signing `CertificateId`. In the next section, this certificate ID is referred to as `my-signing-cert-id`. `aws transfer import-certificate --usage ENCRYPTION --certificate file://encryption-cert.pem \ --private-key file://encryption-key.pem --certificate-chain file://root-ca.pem` This command returns your encryption `CertificateId`. In the next section, this certificate ID is referred to as `my-encrypt-cert-id`. Next, import your partner's encryption and signing certificates by running the following commands. ``aws transfer import-certificate --usage ENCRYPTION --certificate file://`partner-encryption-cert`.pem \ --certificate-chain file://`partner-root-ca`.pem`` This command returns your partner's encryption `CertificateId`. In the next section, this certificate ID is referred to as `partner-encrypt-cert-id`. ``aws transfer import-certificate --usage SIGNING --certificate file://`partner-signing-cert`.pem \ --certificate-chain file://`partner-root-ca`.pem`` This command returns your partner's signing `CertificateId`. In the next section, this certificate ID is referred to as `partner-signing-cert-id`. ## Step 3: Create profiles for you and your trading partner This procedure explains how to create AS2 profiles by using AWS CLI. If you want to use the Transfer Family console instead, see [Create AS2 profiles](configure-as2-profile.md "configure-as2-profile.md"). Create your local AS2 profile by running the following command. This command references the certificates that contain your public and private keys. `` aws transfer create-profile --as2-id `MYCORP` --profile-type LOCAL --certificate-ids \ `my-signing-cert-id` `my-encrypt-cert-id` `` This command returns your profile ID. In the next section, this ID is referred to as `my-profile-id`. Now create the partner profile by running the following command. This command uses only your partner's public key certificates. To use this command, replace the `user input placeholders` with your own information; for example, your partner's AS2 name and certificate IDs. `` aws transfer create-profile --as2-id `PARTNER-COMPANY` --profile-type PARTNER --certificate-ids \ `partner-signing-cert-id` `partner-encrypt-cert-id` `` This command returns your partner's profile ID. In the next section, this ID is referred to as `partner-profile-id`. ###### Note In the previous commands, replace `MYCORP` with the name of your organization, and `PARTNER-COMPANY` with the name of your trading partner's organization. ## Step 4: Create a Transfer Family server that uses the AS2 protocol This procedure explains how to create an AS2-enabled server by using the Transfer Family AWS CLI. ###### Note Many of the example steps use commands that load parameters from a file. For more details about using files to load parameters, see [How to load parameters from a file](../../../cli/latest/userguide/cli-usage-parameters-file.md "../../../cli/latest/userguide/cli-usage-parameters-file.md"). If you want to use the console instead, see [Create an AS2 server using the Transfer Family console](create-as2-transfer-server.md#create-server-as2-console "create-as2-transfer-server.md#create-server-as2-console"). Similar to how you create an SFTP or FTPS AWS Transfer Family server, you create an AS2-enabled server by using the `--protocols AS2` parameter of the `create-server` AWS CLI command. Currently, Transfer Family supports only VPC endpoint types and Amazon S3 storage with the AS2 protocol. When you create your AS2-enabled server for Transfer Family by using the `create-server` command, a VPC endpoint is automatically created for you. This endpoint exposes TCP port 5080 so that it can accept AS2 messages. If you want to expose your VPC endpoint publicly to the internet, you can associate Elastic IP addresses with your VPC endpoint. To use these instructions, you need the following: <br>• The ID of your VPC (for example, **vpc-abcdef01**). <br>• The IDs of your VPC subnets (for example, **subnet-abcdef01**, **subnet-subnet-abcdef01**, **subnet-021345ab**). <br>• One or more IDs of the security groups that allow incoming traffic on TCP port 5080 from your trading partners (for example, **sg-1234567890abcdef0** and **sg-abcdef01234567890**). <br>• (Optional) The Elastic IP addresses that you want to associate with your VPC endpoint. <br>• If your trading partner is not connected to your VPC through a VPN, you need an internet gateway. For more information, see [Connect to the internet using an internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in the _Amazon VPC User Guide_. ###### To create an AS2-enabled server 1. Run the following command. Replace each `user input placeholder` with your own information. ``aws transfer create-server --endpoint-type VPC \ --endpoint-details VpcId=`vpc-abcdef01`,SubnetIds=`subnet-abcdef01`,`subnet-abcdef01`,`subnet- 021345ab`,SecurityGroupIds=`sg-abcdef01234567890`,`sg-1234567890abcdef0` --protocols AS2 \ --protocol-details As2Transports=HTTP`` 2. (Optional) You can make the VPC endpoint public. You can attach Elastic IP addresses to a Transfer Family server only through an `update-server` operation. The following commands stop the server, update it with Elastic IP addresses, and then start it again. `` aws transfer stop-server --server-id `your-server-id` `` `` aws transfer update-server --server-id `your-server-id` --endpoint-details \ AddressAllocationIds=eipalloc-`abcdef01234567890`,eipalloc-`1234567890abcdef0`,eipalloc-`abcd012345ccccccc` `` `` aws transfer start-server --server-id `your-server-id` `` This `start-server` command automatically creates a DNS record for you that contains the public IP address for your server. To give your trading partner access to the server, you provide them with the following information. In this case, `your-region` refers to your AWS Region. `s-`your-server-id`.server.transfer.`your-region`.amazonaws.com` The full URL that you provide to your trading partner is as follows: `http://s-`your-server-id`.server.transfer.`your-region`.amazonaws.com:5080` 3. To test whether your AS2-enabled server is accessible, use the following commands. Make sure that your server can be accessed either through your VPC endpoint's private DNS address, or through your public endpoint (if you associated an Elastic IP address with your endpoint). If your server is configured correctly, the connection will succeed. However, you will receive an HTTP status code 400 (Bad Request) response because you aren't sending a valid AS2 message. <br>• For a public endpoint (if you associated an Elastic IP address in the previous step), run the following command, substituting your server ID and Region. ``curl -vv -X POST http://s-`your-server-id`.transfer.`your-region`.amazonaws.com:5080`` <br>• If you are connecting within your VPC, look up your VPC endpoint's private DNS name by running the following commands. `` aws transfer describe-server --server-id s-`your-server-id` `` This `describe-server` command returns your VPC endpoint ID in the `VpcEndpointId` parameter. Use this value to run the following command. `` aws ec2 describe-vpc-endpoints --vpc-endpoint-ids vpce-`your-vpc-endpoint-id` `` This `describe-vpc-endpoints` command returns a `DNSEntries` array, with several `DnsName` parameters. Use the Regional DNS name (the one that does not include the Availability Zone) in the following command. ``curl -vv -X POST http://vpce-`your-vpce`.vpce-svc-`your-vpce-svc`.`your-region`.vpce.amazonaws.com:5080`` For example, the following command shows sample values for the placeholders in the previous command. `curl -vv -X POST http://vpce-0123456789abcdefg-fghij123.vpce-svc-11111aaaa2222bbbb.us-east-1.vpce.amazonaws.com:5080` 4. (Optional) Configure a logging role. Transfer Family logs the status of messages sent and received in a structured JSON format to Amazon CloudWatch logs. To provide Transfer Family with access to the CloudWatch logs in your account, you must configure a logging role on your server. Create an AWS Identity and Access Management (IAM) role that trusts `transfer.amazonaws.com`, and attach the `AWSTransferLoggingAccess` managed policy. For details, see [Create an IAM role and policy](requirements-roles.md "requirements-roles.md"). Note the Amazon Resource Name (ARN) of the IAM role that you just created, and associate it with the server by running the following `update-server` command: `` aws transfer update-server --server-id `your-server-id` --logging-role arn:aws:iam::`your-account-id`:role/`logging-role-name` `` ###### Note Even though the logging role is optional, we highly recommend setting it up so that you can see the status of your messages and troubleshoot configuration issues. ## Step 5: Create an agreement between you and your partner This procedure explains how to create AS2 agreements by using the AWS CLI. If you want to use the Transfer Family console instead, see [Create an AS2 agreement](create-as2-transfer-server.md#as2-agreements "create-as2-transfer-server.md#as2-agreements"). Agreements bring together the two profiles (local and partner), their certificates, and a server configuration that allows inbound AS2 transfers between two parties. You can list your items by running the following commands. `aws transfer list-profiles --profile-type LOCAL aws transfer list-profiles --profile-type PARTNER aws transfer list-servers` This step requires an Amazon S3 bucket and IAM role with read/write access to and from the bucket. The instructions for creating this role are the same as for the Transfer Family SFTP, FTP, and FTPS protocols and are available in [Create an IAM role and policy](requirements-roles.md "requirements-roles.md"). To create an agreement, you need the following items: <br>• The Amazon S3 bucket name (and object prefix, if specified) to store your AS2 files. We recommend that you specify separate directories for different file types. <br>• The ARN of the IAM role with access to the bucket <br>• Your Transfer Family server ID <br>• Your profile ID and your partner's profile ID Save the following code into a file, for example, `agreementDetails.json`. Replace each `user input placeholder` with your own information. ``{ "Description": "`ExampleAgreementName`", "ServerId": "`your-server-id`", "LocalProfileId": "`your-profile-id`", "PartnerProfileId": "`your-partner-profile-id`", "AccessRole": "arn:aws:iam::`111111111111`:role/TransferAS2AccessRole", "Status": "ACTIVE", "PreserveFilename": "ENABLED", "EnforceMessageSigning": "ENABLED", "CustomDirectories": { "FailedFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-failed`", "MdnFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-mdn`", "PayloadFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-payload`", "StatusFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-status`", "TemporaryFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-temp`" } }`` ###### Note To use a single base directory instead of separate directories, remove the `CustomDirectories` line and its individual directory lines from the previous code and use the following parameter instead: `"BaseDirectory": "/amzn-s3-demo-destination-bucket`/AS2-inbox``" Do not use both a base directory and separate directory parameters, or the command will fail. Then, run the following command. ``` aws transfer create-agreement --cli-input-json file://agreementDetails.json ``` If successful, this command returns the ID for the agreement. You can then view the details of the agreement with the following command. ``` aws transfer describe-agreement --agreement-id `agreement-id` --server-id `your-server-id` ``` ## Step 6: Create a connector between you and your partner This procedure explains how to create AS2 connectors by using the AWS CLI. If you want to use the Transfer Family console instead, see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md"). You can use the `StartFileTransfer` API operation to send files that are stored in Amazon S3 to your trading partner's AS2 endpoint by using a connector. You can find the profiles that you created earlier by running the following command. ``` aws transfer list-profiles ``` When you create the connector, you must provide your partner's AS2 server URL. Copy the following text to a file named `testAS2Config.json`. ``` { "Compression": "ZLIB", "EncryptionAlgorithm": "AES256_CBC", "LocalProfileId": "`your-profile-id`", "MdnResponse": "SYNC", "MdnSigningAlgorithm": "DEFAULT", "MessageSubject": "`Your Message Subject`", "PartnerProfileId": "`partner-profile-id`", "PreserveContentType": "FALSE", "SigningAlgorithm": "SHA256" } ``` ###### Note For `EncryptionAlgorithm`, do not specify the `DES_EDE3_CBC` algorithm unless you must support a legacy client that requires it, as it is a weak encryption algorithm. Then run the following command to create the connector. ``` aws transfer create-connector --url "http://`partner-as2-server-url`" \ --access-role `your-IAM-role-for-bucket-access` \ --logging-role arn:aws:iam::`your-account-id`:role/service-role/AWSTransferLoggingAccess \ --as2-config file:///`path/to`/testAS2Config.json ``` ## Step 7: Test exchanging files over AS2 by using Transfer Family ### Receive a file from your trading partner If you associated a public Elastic IP address with your VPC endpoint, Transfer Family automatically created a DNS name that contains your public IP address. The subdomain is your AWS Transfer Family server ID (of the format `s-1234567890abcdef0`). Provide your server URL to your trading partner in the following format. ``` http://s-`1234567890abcdef0`.server.transfer.`us-east-1`.amazonaws.com:5080 ``` If you didn't associate a public Elastic IP address with your VPC endpoint, look up the hostname of the VPC endpoint that can accept AS2 messages over HTTP POST from your trading partners on port 5080. To retrieve the VPC endpoint details, use the following command. ``` aws transfer describe-server --server-id s-`1234567890abcdef0` ``` For example, assume the preceding command returns a VPC endpoint ID of `vpce-1234abcd5678efghi`. Then, you would use the following command to retrieve the DNS names. ``` aws ec2 describe-vpc-endpoints --vpc-endpoint-ids vpce-1234abcd5678efghi ``` This command returns all the details for the VPC endpoint that you need to run the following command. The DNS name is listed in the `DnsEntries` array. Your trading partner must be within your VPC to access your VPC endpoint (for example through AWS PrivateLink or a VPN). Provide your VPC endpoint URL to your partner in the following format. ``` http://vpce-`your-vpce-id`.vpce-svc-`your-vpce-svc-id`.`your-region`.vpce.amazonaws.com:5080 ``` For example, the following URL shows sample values for the placeholders in the previous commands. ``` http://vpce-0123456789abcdefg-fghij123.vpce-svc-11111aaaa2222bbbb.us-east-1.vpce.amazonaws.com:5080 ``` In this example, successful transfers are stored at the location that's specified in the `base-directory` parameter that you specified in [Step 5: Create an agreement between you and your partner](#as2-create-agreement-example "#as2-create-agreement-example"). If we successfully receive files named `myfile1.txt` and `myfile2.txt`, the files are stored as `/`path-defined-in-the-agreement`/processed/`original_filename.messageId.original_extension``. Here, the files are stored as `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile1.`messageId`.txt` and `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile2.`messageId`.txt`. If you configured a logging role when you created your Transfer Family server, you can also check your CloudWatch logs for the status of AS2 messages. ### Send a file to your trading partner You can use Transfer Family to send AS2 messages by referencing the connector ID and the paths to the files, as illustrated in the following `start-file-transfer` AWS Command Line Interface (AWS CLI) command: ``aws transfer start-file-transfer --connector-id c-`1234567890abcdef0` \ --send-file-paths "/amzn-s3-demo-source-bucket`/myfile1.txt`" "/amzn-s3-demo-source-bucket`/myfile2.txt`"`` To get the details for your connectors, run the following command: `aws transfer list-connectors` The `list-connectors` command returns the connector IDs, URLs, and Amazon Resource Names (ARNs) for your connectors. To return the properties of a particular connector, run the following command with the ID that you want to use: `` aws transfer describe-connector --connector-id `your-connector-id` `` The `describe-connector` command returns all of the properties for the connector, including its URL, roles, profiles, Message Disposition Notices (MDNs), tags, and monitoring metrics. You can confirm that the partner successfully received the files by viewing the JSON and MDN files. These files are named according to the conventions described in [File names and locations](send-as2-messages.md#file-names-as2 "send-as2-messages.md#file-names-as2"). If you configured a logging role when you created the connector, you can also check your CloudWatch logs for the status of AS2 messages. |
+|      | Name                                              | Description                                                                                                                                                          |
+| ---- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `C`  | Country code                                      | A two-letter code for the country in which your<br>organization is located.                                                                                          |
+| `ST` | State, region, or province                        | The state, region, or province in which your organization<br>is located. (In this case, \*region<br>• does not refer to your<br>AWS Region.)                         |
+| `L`  | Locality name                                     | The city in which your organization is located.                                                                                                                      |
+| `O`  | Organization name                                 | The full legal name of your organization, including<br>suffixes, such as LLC, Corp, and so on.                                                                       |
+| `OU` | Organizational unit name                          | The division in your organization that deals with this<br>certificate.                                                                                               |
+| `CN` | Common name or fully qualified domain name (FQDN) | In this case, we're creating a root certificate, so the<br>value is `ROOTCA`. In these examples, we are<br>using `CN` to describe the purpose of the<br>certificate. |
+
+3. Create a signing key and an encryption key for your local profile.
+
+```
+/usr/bin/openssl genrsa -out signing-key.pem 2048
+/usr/bin/openssl genrsa -out encryption-key.pem 2048
+```
+
+###### Note
+
+Some AS2-enabled servers, such as OpenAS2, require that you use the
+same certificate for both signing and encryption. In this case, you can
+import the same private key and certificate for both purposes. To do so,
+run this command instead of the two previous commands:
+
+```
+/usr/bin/openssl genrsa -out signing-and-encryption-key.pem 2048
+```
+
+4. Run the following commands to create Certificate Signing Requests (CSRs)
+   for the root key to sign.
+
+```
+/usr/bin/openssl req -new -key signing-key.pem -subj \
+"/C=`US`/ST=`MA`/L=`Boston`/O=`TransferFamilyCustomer`/OU=`IT-dept`/CN=Signer" -out signing-key-csr.pem
+```
+
+```
+/usr/bin/openssl req -new -key encryption-key.pem -subj \
+"/C=`US`/ST=`MA`/L=`Boston`/O=`TransferFamilyCustomer`/OU=`IT-dept`/CN=Encrypter" -out encryption-key-csr.pem
+```
+
+5. Next, you must create a `signing-cert.conf` file and an
+   `encryption-cert.conf` file.
+   - Use a text editor to create the
+     `signing-cert.conf` file with the following
+     contents:
+
+   ```
+   authorityKeyIdentifier=keyid,issuer
+   keyUsage = digitalSignature, nonRepudiation
+   ```
+
+   - Use a text editor to create the
+     `encryption-cert.conf` file with the
+     following contents:
+
+   ```
+   authorityKeyIdentifier=keyid,issuer
+   keyUsage = dataEncipherment
+   ```
+
+6. Finally, you create the signed certificates by running the following
+   commands.
+
+```
+/usr/bin/openssl x509 -req -sha256 -CAcreateserial -days 1825 -in signing-key-csr.pem -out signing-cert.pem -CA \
+root-ca.pem -CAkey root-ca-key.pem -extfile signing-cert.conf
+```
+
+```
+/usr/bin/openssl x509 -req -sha256 -CAcreateserial -days 1825 -in encryption-key-csr.pem -out encryption-cert.pem \
+-CA root-ca.pem -CAkey root-ca-key.pem -extfile encryption-cert.conf
+```
+
+## Step 2: Import certificates as Transfer Family
+
+certificate resources
+
+This procedure explains how to import certificates by using the AWS CLI. If you want
+to use the Transfer Family console instead, see [Import AS2 certificates](managing-as2-partners.md#configure-as2-certificate "managing-as2-partners.md#configure-as2-certificate").
+
+To import the signing and encryption certificates that you created in step 1, run
+the following `import-certificate` commands. If you're using the same
+certificate for encryption and signing, import the same certificate twice (once with
+the `SIGNING` usage and again with the `ENCRYPTION`
+usage).
+
+###### Note
+
+If you have a file that contains both a certificate and its chain, you can
+provide that file to the `import-certificate` command using only the
+`certificate` parameter. For example:
+
+```
+aws transfer import-certificate --usage ENCRYPTION --certificate file://`combined-cert-and-chain-file.pem`
+```
+
+If you use the `certificate` parameter to upload both the
+certificate and its chain, don't use the `certificate-chain`
+parameter.
+
+If you combine the certificate and its chain, your key is formatted using
+conventional PEM standards, which includes a newline “\n” every 64 characters.
+The certificate that is stored is functionally equivalent to the one you
+uploaded, with the sole difference that the `DescribeCertificate`
+response via the AWS CLI will contain these newline characters.
+
+```
+aws transfer import-certificate --usage SIGNING --certificate file://signing-cert.pem \
+            --private-key file://signing-key.pem --certificate-chain file://root-ca.pem
+```
+
+This command returns your signing `CertificateId`. In the next section,
+this certificate ID is referred to as
+`my-signing-cert-id`.
+
+```
+aws transfer import-certificate --usage ENCRYPTION --certificate file://encryption-cert.pem \
+            --private-key file://encryption-key.pem --certificate-chain file://root-ca.pem
+```
+
+This command returns your encryption `CertificateId`. In the next
+section, this certificate ID is referred to as
+`my-encrypt-cert-id`.
+
+Next, import your partner's encryption and signing certificates by running the
+following commands.
+
+```
+aws transfer import-certificate --usage ENCRYPTION --certificate file://`partner-encryption-cert`.pem \
+--certificate-chain file://`partner-root-ca`.pem
+```
+
+This command returns your partner's encryption `CertificateId`. In the
+next section, this certificate ID is referred to as
+`partner-encrypt-cert-id`.
+
+```
+aws transfer import-certificate --usage SIGNING --certificate file://`partner-signing-cert`.pem \
+--certificate-chain file://`partner-root-ca`.pem
+```
+
+This command returns your partner's signing `CertificateId`. In the
+next section, this certificate ID is referred to as
+`partner-signing-cert-id`.
+
+## Step 3: Create profiles for you and
+
+your trading partner
+
+This procedure explains how to create AS2 profiles by using AWS CLI. If you want to
+use the Transfer Family console instead, see [Create AS2 profiles](configure-as2-profile.md "configure-as2-profile.md").
+
+Create your local AS2 profile by running the following command. This command
+references the certificates that contain your public and private keys.
+
+```
+aws transfer create-profile --as2-id `MYCORP` --profile-type LOCAL --certificate-ids \
+`my-signing-cert-id` `my-encrypt-cert-id`
+```
+
+This command returns your profile ID. In the next section, this ID is referred to
+as `my-profile-id`.
+
+Now create the partner profile by running the following command. This command uses
+only your partner's public key certificates. To use this command, replace the
+`user input placeholders` with your
+own information; for example, your partner's AS2 name and certificate IDs.
+
+```
+aws transfer create-profile --as2-id `PARTNER-COMPANY` --profile-type PARTNER --certificate-ids \
+`partner-signing-cert-id` `partner-encrypt-cert-id`
+```
+
+This command returns your partner's profile ID. In the next section, this ID is
+referred to as `partner-profile-id`.
+
+###### Note
+
+In the previous commands, replace `MYCORP` with the
+name of your organization, and `PARTNER-COMPANY` with
+the name of your trading partner's organization.
+
+## Step 4: Create a Transfer Family server that uses the AS2
+
+protocol
+
+This procedure explains how to create an AS2-enabled server by using the Transfer Family
+AWS CLI.
+
+###### Note
+
+Many of the example steps use commands that load parameters from a file.
+For more details about using files to load parameters, see
+[How to load parameters from a file](../../../cli/latest/userguide/cli-usage-parameters-file.md "../../../cli/latest/userguide/cli-usage-parameters-file.md").
+
+If you want to use the console instead, see [Create an AS2 server using the Transfer Family
+console](create-as2-transfer-server.md#create-server-as2-console "create-as2-transfer-server.md#create-server-as2-console").
+
+Similar to how you create an SFTP or FTPS AWS Transfer Family server, you create an
+AS2-enabled server by using the `--protocols AS2` parameter of the
+`create-server` AWS CLI command. Currently, Transfer Family supports only VPC
+endpoint types and Amazon S3 storage with the AS2 protocol.
+
+When you create your AS2-enabled server for Transfer Family by using the
+`create-server` command, a VPC endpoint is automatically created for
+you. This endpoint exposes TCP port 5080 so that it can accept AS2 messages.
+
+If you want to expose your VPC endpoint publicly to the internet, you can
+associate Elastic IP addresses with your VPC endpoint.
+
+To use these instructions, you need the following:
+
+- The ID of your VPC (for example, **vpc-abcdef01**).
+- The IDs of your VPC subnets (for example, **subnet-abcdef01**, **subnet-subnet-abcdef01**, **subnet-021345ab**).
+- One or more IDs of the security groups that allow incoming traffic on TCP
+  port 5080 from your trading partners (for example, **sg-1234567890abcdef0** and **sg-abcdef01234567890**).
+- (Optional) The Elastic IP addresses that you want to associate with your
+  VPC endpoint.
+- If your trading partner is not connected to your VPC through a VPN, you
+  need an internet gateway. For more information, see [Connect to the
+  internet using an internet gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md") in the
+  _Amazon VPC User Guide_.
+
+###### To create an AS2-enabled server
+
+1. Run the following command. Replace each `user input
+placeholder` with your own information.
+
+```
+aws transfer create-server --endpoint-type VPC \
+--endpoint-details VpcId=`vpc-abcdef01`,SubnetIds=`subnet-abcdef01`,`subnet-abcdef01`,`subnet-
+021345ab`,SecurityGroupIds=`sg-abcdef01234567890`,`sg-1234567890abcdef0` --protocols AS2 \
+--protocol-details As2Transports=HTTP
+```
+
+2. (Optional) You can make the VPC endpoint public. You can attach Elastic IP
+   addresses to a Transfer Family server only through an `update-server`
+   operation. The following commands stop the server, update it with Elastic IP
+   addresses, and then start it again.
+
+```
+aws transfer stop-server --server-id `your-server-id`
+```
+
+```
+aws transfer update-server --server-id `your-server-id` --endpoint-details \
+AddressAllocationIds=eipalloc-`abcdef01234567890`,eipalloc-`1234567890abcdef0`,eipalloc-`abcd012345ccccccc`
+```
+
+```
+aws transfer start-server --server-id `your-server-id`
+```
+
+This `start-server` command automatically creates a DNS record
+for you that contains the public IP address for your server. To give your
+trading partner access to the server, you provide them with the following
+information. In this case,
+`your-region` refers to your
+AWS Region.
+
+`s-`your-server-id`.server.transfer.`your-region`.amazonaws.com`
+
+The full URL that you provide to your trading partner is as follows:
+
+`http://s-`your-server-id`.server.transfer.`your-region`.amazonaws.com:5080` 3. To test whether your AS2-enabled server is accessible, use the following
+commands. Make sure that your server can be accessed either through your VPC
+endpoint's private DNS address, or through your public endpoint (if you
+associated an Elastic IP address with your endpoint).
+
+If your server is configured correctly, the connection will succeed.
+However, you will receive an HTTP status code 400 (Bad Request) response
+because you aren't sending a valid AS2 message.
+
+    * For a public endpoint (if you associated an Elastic IP address in
+     the previous step), run the following command, substituting your
+     server ID and Region.
+
+
+
+    ```
+    curl -vv -X POST http://s-`your-server-id`.transfer.`your-region`.amazonaws.com:5080
+    ```
+    * If you are connecting within your VPC, look up your VPC endpoint's
+     private DNS name by running the following commands.
+
+
+
+    ```
+    aws transfer describe-server --server-id s-`your-server-id`
+    ```
+
+    This `describe-server` command returns your VPC
+     endpoint ID in the `VpcEndpointId` parameter. Use this
+     value to run the following command.
+
+
+
+    ```
+    aws ec2 describe-vpc-endpoints --vpc-endpoint-ids vpce-`your-vpc-endpoint-id`
+    ```
+
+    This `describe-vpc-endpoints` command returns a
+     `DNSEntries` array, with several `DnsName`
+     parameters. Use the Regional DNS name (the one that does not include
+     the Availability Zone) in the following command.
+
+
+
+    ```
+    curl -vv -X POST http://vpce-`your-vpce`.vpce-svc-`your-vpce-svc`.`your-region`.vpce.amazonaws.com:5080
+    ```
+
+    For example, the following command shows sample values for the
+     placeholders in the previous command.
+
+
+
+    ```
+    curl -vv -X POST http://vpce-0123456789abcdefg-fghij123.vpce-svc-11111aaaa2222bbbb.us-east-1.vpce.amazonaws.com:5080
+    ```
+
+4. (Optional) Configure a logging role. Transfer Family logs the status of messages sent
+   and received in a structured JSON format to Amazon CloudWatch logs. To provide Transfer Family
+   with access to the CloudWatch logs in your account, you must configure a logging
+   role on your server.
+
+Create an AWS Identity and Access Management (IAM) role that trusts
+`transfer.amazonaws.com`, and attach the
+`AWSTransferLoggingAccess` managed policy. For details, see
+[Create an IAM role and policy](requirements-roles.md "requirements-roles.md").
+Note the Amazon Resource Name (ARN) of the IAM role that you just created,
+and associate it with the server by running the following
+`update-server` command:
+
+```
+aws transfer update-server --server-id `your-server-id` --logging-role arn:aws:iam::`your-account-id`:role/`logging-role-name`
+```
+
+###### Note
+
+Even though the logging role is optional, we highly recommend setting
+it up so that you can see the status of your messages and troubleshoot
+configuration issues.
+
+## Step 5: Create an agreement between
+
+you and your partner
+
+This procedure explains how to create AS2 agreements by using the AWS CLI. If you
+want to use the Transfer Family console instead, see [Create an AS2 agreement](create-as2-transfer-server.md#as2-agreements "create-as2-transfer-server.md#as2-agreements").
+
+Agreements bring together the two profiles (local and partner), their
+certificates, and a server configuration that allows inbound AS2 transfers between
+two parties. You can list your items by running the following commands.
+
+```
+aws transfer list-profiles --profile-type LOCAL
+aws transfer list-profiles --profile-type PARTNER
+aws transfer list-servers
+```
+
+This step requires an Amazon S3 bucket and IAM role with read/write access to and
+from the bucket. The instructions for creating this role are the same as for the
+Transfer Family SFTP, FTP, and FTPS protocols and are available in [Create an IAM role and policy](requirements-roles.md "requirements-roles.md").
+
+To create an agreement, you need the following items:
+
+- The Amazon S3 bucket name (and object prefix, if specified) to store your AS2
+  files. We recommend that you specify separate directories for different file
+  types.
+- The ARN of the IAM role with access to the bucket
+- Your Transfer Family server ID
+- Your profile ID and your partner's profile ID
+
+Save the following code into a file, for example,
+`agreementDetails.json`. Replace each `user input
+ placeholder` with your own information.
+
+```
+{
+    "Description": "`ExampleAgreementName`",
+    "ServerId": "`your-server-id`",
+    "LocalProfileId": "`your-profile-id`",
+    "PartnerProfileId": "`your-partner-profile-id`",
+    "AccessRole": "arn:aws:iam::`111111111111`:role/TransferAS2AccessRole",
+    "Status": "ACTIVE",
+    "PreserveFilename": "ENABLED",
+    "EnforceMessageSigning": "ENABLED",
+    "CustomDirectories": {
+        "FailedFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-failed`",
+        "MdnFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-mdn`",
+        "PayloadFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-payload`",
+        "StatusFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-status`",
+        "TemporaryFilesDirectory": "/amzn-s3-demo-destination-bucket`/AS2-temp`"
+    }
+}
+```
+
+###### Note
+
+To use a single base directory instead of separate directories, remove the
+`CustomDirectories` line and its individual directory lines from
+the previous code and use the following parameter instead:
+
+`"BaseDirectory":
+ "/amzn-s3-demo-destination-bucket`/AS2-inbox``"
+
+Do not use both a base directory and separate directory parameters, or the
+command will fail.
+
+Then, run the following command.
+
+```
+aws transfer create-agreement --cli-input-json file://agreementDetails.json
+```
+
+If successful, this command returns the ID for the agreement. You can then view
+the details of the agreement with the following command.
+
+```
+aws transfer describe-agreement --agreement-id `agreement-id` --server-id `your-server-id`
+```
+
+## Step 6: Create a connector between
+
+you and your partner
+
+This procedure explains how to create AS2 connectors by using the AWS CLI. If you
+want to use the Transfer Family console instead, see [Configure AS2 connectors](configure-as2-connector.md "configure-as2-connector.md").
+
+You can use the `StartFileTransfer` API operation to send files that
+are stored in Amazon S3 to your trading partner's AS2 endpoint by using a connector. You
+can find the profiles that you created earlier by running the following
+command.
+
+```
+aws transfer list-profiles
+```
+
+When you create the connector, you must provide your partner's AS2 server URL.
+Copy the following text to a file named
+`testAS2Config.json`.
+
+```
+{
+"Compression": "ZLIB",
+"EncryptionAlgorithm": "AES256_CBC",
+"LocalProfileId": "`your-profile-id`",
+"MdnResponse": "SYNC",
+"MdnSigningAlgorithm": "DEFAULT",
+"MessageSubject": "`Your Message Subject`",
+"PartnerProfileId": "`partner-profile-id`",
+"PreserveContentType": "FALSE",
+"SigningAlgorithm": "SHA256"
+}
+```
+
+###### Note
+
+For `EncryptionAlgorithm`, do not specify the
+`DES_EDE3_CBC` algorithm unless you must support a legacy client
+that requires it, as it is a weak encryption algorithm.
+
+Then run the following command to create the connector.
+
+```
+aws transfer create-connector --url "http://`partner-as2-server-url`" \
+--access-role `your-IAM-role-for-bucket-access` \
+--logging-role arn:aws:iam::`your-account-id`:role/service-role/AWSTransferLoggingAccess \
+--as2-config file:///`path/to`/testAS2Config.json
+```
+
+## Step 7: Test exchanging files over AS2 by using
+
+Transfer Family
+
+### Receive a file from your trading
+
+partner
+
+If you associated a public Elastic IP address with your VPC endpoint, Transfer Family
+automatically created a DNS name that contains your public IP address. The
+subdomain is your AWS Transfer Family server ID (of the format
+`s-1234567890abcdef0`). Provide your server URL to your trading
+partner in the following format.
+
+```
+http://s-`1234567890abcdef0`.server.transfer.`us-east-1`.amazonaws.com:5080
+```
+
+If you didn't associate a public Elastic IP address with your VPC endpoint,
+look up the hostname of the VPC endpoint that can accept AS2 messages over HTTP
+POST from your trading partners on port 5080. To retrieve the VPC endpoint
+details, use the following command.
+
+```
+aws transfer describe-server --server-id s-`1234567890abcdef0`
+```
+
+For example, assume the preceding command returns a VPC endpoint ID of
+`vpce-1234abcd5678efghi`. Then, you would use the following
+command to retrieve the DNS names.
+
+```
+aws ec2 describe-vpc-endpoints --vpc-endpoint-ids vpce-1234abcd5678efghi
+```
+
+This command returns all the details for the VPC endpoint that you need to run
+the following command.
+
+The DNS name is listed in the `DnsEntries` array. Your trading
+partner must be within your VPC to access your VPC endpoint (for example through
+AWS PrivateLink or a VPN). Provide your VPC endpoint URL to your partner in the
+following format.
+
+```
+http://vpce-`your-vpce-id`.vpce-svc-`your-vpce-svc-id`.`your-region`.vpce.amazonaws.com:5080
+```
+
+For example, the following URL shows sample values for the placeholders in the
+previous commands.
+
+```
+http://vpce-0123456789abcdefg-fghij123.vpce-svc-11111aaaa2222bbbb.us-east-1.vpce.amazonaws.com:5080
+```
+
+In this example, successful transfers are stored at the location that's
+specified in the `base-directory` parameter that you specified in
+[Step 5: Create an agreement between
+you and your partner](#as2-create-agreement-example "#as2-create-agreement-example"). If we successfully receive
+files named `myfile1.txt` and
+`myfile2.txt`, the files are stored as
+`/`path-defined-in-the-agreement`/processed/`original_filename.messageId.original_extension``.
+ Here, the files are stored as
+ `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile1.`messageId`.txt`  and
+ `/amzn-s3-demo-destination-bucket/AS2-inbox/processed/myfile2.`messageId`.txt`.
+
+If you configured a logging role when you created your Transfer Family server, you can
+also check your CloudWatch logs for the status of AS2 messages.
+
+### Send a file to your trading partner
+
+You can use Transfer Family to send AS2 messages by referencing the connector ID and the paths
+to the files, as illustrated in the following `start-file-transfer` AWS Command Line Interface (AWS CLI) command:
+
+```
+aws transfer start-file-transfer --connector-id c-`1234567890abcdef0` \
+--send-file-paths "/amzn-s3-demo-source-bucket`/myfile1.txt`" "/amzn-s3-demo-source-bucket`/myfile2.txt`"
+```
+
+To get the details for your connectors, run the following command:
+
+```
+aws transfer list-connectors
+```
+
+The `list-connectors` command returns the connector IDs, URLs, and Amazon Resource Names (ARNs)
+for your connectors.
+
+To return the properties of a particular connector, run the following command with the ID that you want to use:
+
+```
+aws transfer describe-connector --connector-id `your-connector-id`
+```
+
+The `describe-connector` command returns all of the properties for the connector,
+including its URL, roles, profiles, Message Disposition Notices (MDNs), tags, and monitoring metrics.
+
+You can confirm that the partner successfully received the files by viewing
+the JSON and MDN files. These files are named according to the conventions described
+in [File names and locations](send-as2-messages.md#file-names-as2 "send-as2-messages.md#file-names-as2"). If you configured a logging role
+when you created the connector, you can also check your CloudWatch logs for the status of AS2 messages.

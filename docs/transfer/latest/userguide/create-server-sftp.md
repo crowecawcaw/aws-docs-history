@@ -119,7 +119,7 @@ See also
     Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see
     [AWS Transfer Family managed workflows](transfer-workflows.md "transfer-workflows.md").
 
-    ![The Managed workflows console section.](/images/transfer/latest/userguide/images/workflows-addtoserver.png) 3. For **Cryptographic algorithm options**, choose a
+    ![The Managed workflows console section.](images/workflows-addtoserver.png) 3. For **Cryptographic algorithm options**, choose a
     security policy that contains the cryptographic algorithms enabled
     for use by your server. Our latest security policy is the default: for details, see
     [Security policies for AWS Transfer Family servers](security-policies.md "security-policies.md"). 4. (Optional) For **Server Host Key**, enter an RSA,

@@ -43,8 +43,82 @@ AWS Transfer Family web apps are available in all the Transfer Family supported 
 Transfer Family web apps support the following browsers.
 
 | Browser         | Version           | Compatibility |
-| --------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------- | ----------------- | ------------- |
 | Microsoft Edge  | Latest 3 versions | Compatible    |
 | Mozilla Firefox | Latest 3 versions | Compatible    |
 | Google Chrome   | Latest 3 versions | Compatible    |
-| Apple Safari    | Latest 3 versions | Compatible    | ## How to create a Transfer Family web app The following diagram illustrates the Transfer Family web app architecture. ![Architecture diagram showing the AWS services that interact with Transfer Family web apps.](images/webapp-architecture.png) Based on the diagram, you can see that Transfer Family web apps interact with the following AWS services: <br>• Amazon S3 for storage and Amazon S3 Access Grants to acquire session credentials. <br>• AWS IAM Identity Center as the federated identity provider. <br>• Amazon CloudFront if you configure a custom URL for your web app. Note the following limitations when using web apps. <br>• Maximum number of search results per query: 10,000 <br>• The Amazon S3 buckets that are used by the Transfer Family web app must be in the same account as the web app itself. Cross-account buckets are not currently supported. <br>• Maximum search breadth per query: 10,000 searched files <br>• Maximum upload size per file: 160 GB (149 GiB) <br>• Maximum size file for copying: 5.36 GB (5 GiB) <br>• Folder names starting or ending with dots (.) are not supported ###### Prerequisites _In AWS Identity and Access Management, configure the necessary roles._ Paste in the code blocks that we provide in the instructions. For information about configuring the necessary roles, see [Configure IAM roles for Transfer Family web apps](webapp-roles.md "webapp-roles.md"). <br>• Create an identity bearer role. <br>• Create an IAM role to be used by S3 Access Grants. S3 Access Grants assumes this IAM role to vend temporary credentials to the grantee for the registered Amazon S3 location. ###### Process to create a Transfer Family web app To create your web app and get your end users up and running, you perform the following tasks: 1. _Configure IAM Identity Center to act as your federated identity provider_. Perform the following tasks in IAM Identity Center. For more details about configuring IAM Identity Center, see [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md"). 1. Create an IAM Identity Center instance, if you don't already have one. 2. Determine your identity source. It can be the default IAM Identity Center directory or a third-party provider (for example Okta). 3. Create or identify the users or groups that will be using your web app. 4. If you are using the IAM Identity Center directory for your identity source, note the user or group IDs that you create. You need them later when you create an access grant by using S3 Access Grants. 2. _In Amazon S3, configure Amazon S3 Access Grants._ For more information about S3 Access Grants, see [Configure Amazon S3 Access Grants for Transfer Family web apps](webapp-access-grant.md "webapp-access-grant.md"). <br>• Create an S3 Access Grants instance if you don't already have one in that AWS Region. <br>• Register your location using the IAM role. <br>• Create the access grant. 3. _In Transfer Family, perform the following tasks._ 1. Create the Transfer Family web app. For more information about how to create the Transfer Family web app, see [Configure a Transfer Family web app](webapp-configure.md "webapp-configure.md"). ###### Important Set up Cross-origin resource sharing (CORS) for all Amazon S3 buckets that are used by your web app. For information about setting up CORS, see [Set up Cross-origin resource sharing (CORS) for your bucket](access-grant-cors.md "access-grant-cors.md"). 2. Assign users or groups to the web app. For more information about how to assign users and groups, see [Assign or add users or groups to Transfer Family web app](webapp-configure.md#webapp-add-users "webapp-configure.md#webapp-add-users"). 3. (Optional) Update the access endpoint for your web app with a custom URL. For information about creating a custom URL, see [Update your access endpoint with a custom URL](webapp-customize.md "webapp-customize.md"). 4. Provide your end users with the access endpoint URL so that they can log in and interact with your web app. |
+| Apple Safari    | Latest 3 versions | Compatible    |
+
+## How to create a Transfer Family web app
+
+The following diagram illustrates the Transfer Family web app architecture.
+
+![Architecture diagram showing the AWS services that interact with Transfer Family web apps.](images/webapp-architecture.png)
+
+Based on the diagram, you can see that Transfer Family web apps interact with the following
+AWS services:
+
+- Amazon S3 for storage and Amazon S3 Access Grants to acquire session credentials.
+- AWS IAM Identity Center as the federated identity provider.
+- Amazon CloudFront if you configure a custom URL for your web app.
+
+Note the following limitations when using web apps.
+
+- Maximum number of search results per query: 10,000
+- The Amazon S3 buckets that are used by the Transfer Family web app must be in the same account as the web app itself. Cross-account buckets are not currently supported.
+- Maximum search breadth per query: 10,000 searched files
+- Maximum upload size per file: 160 GB (149 GiB)
+- Maximum size file for copying: 5.36 GB (5 GiB)
+- Folder names starting or ending with dots (.) are not supported
+
+###### Prerequisites
+
+_In AWS Identity and Access Management, configure the necessary roles._ Paste in the
+code blocks that we provide in the instructions. For information about configuring
+the necessary roles, see [Configure IAM roles for Transfer Family web apps](webapp-roles.md "webapp-roles.md").
+
+- Create an identity bearer role.
+- Create an IAM role to be used by S3 Access Grants. S3 Access Grants assumes
+  this IAM role to vend temporary credentials to the grantee for the registered
+  Amazon S3 location.
+
+###### Process to create a Transfer Family web app
+
+To create your web app and get your end users up and running, you perform the
+following tasks:
+
+1. _Configure IAM Identity Center to act as your federated identity
+   provider_. Perform the following tasks in IAM Identity Center. For more details
+   about configuring IAM Identity Center, see [Configure your identity provider for Transfer Family web
+   apps](webapp-identity-center.md "webapp-identity-center.md").
+   1. Create an IAM Identity Center instance, if you don't already have one.
+   2. Determine your identity source. It can be the default IAM Identity Center directory
+      or a third-party provider (for example Okta).
+   3. Create or identify the users or groups that will be using your web
+      app.
+   4. If you are using the IAM Identity Center directory for your identity source, note
+      the user or group IDs that you create. You need them later when you
+      create an access grant by using S3 Access Grants.
+
+2. _In Amazon S3, configure Amazon S3 Access Grants._ For more
+   information about S3 Access Grants, see [Configure Amazon S3 Access Grants for Transfer Family web
+   apps](webapp-access-grant.md "webapp-access-grant.md").
+   - Create an S3 Access Grants instance if you don't already have one in
+     that AWS Region.
+   - Register your location using the IAM role.
+   - Create the access grant.
+
+3. _In Transfer Family, perform the following tasks._
+   1. Create the Transfer Family web app. For more information about how to create the
+      Transfer Family web app, see [Configure a Transfer Family web app](webapp-configure.md "webapp-configure.md").
+
+   ###### Important
+
+   Set up Cross-origin resource sharing (CORS) for all Amazon S3 buckets
+   that are used by your web app. For information about setting up
+   CORS, see [Set up Cross-origin resource sharing (CORS) for your
+   bucket](access-grant-cors.md "access-grant-cors.md"). 2. Assign users or groups to the web app. For more information about how
+   to assign users and groups, see [Assign or add users or groups to Transfer Family
+   web app](webapp-configure.md#webapp-add-users "webapp-configure.md#webapp-add-users"). 3. (Optional) Update the access endpoint for your web app with a custom
+   URL. For information about creating a custom URL, see [Update your access endpoint with a custom URL](webapp-customize.md "webapp-customize.md"). 4. Provide your end users with the access endpoint URL so that they can
+   log in and interact with your web app.

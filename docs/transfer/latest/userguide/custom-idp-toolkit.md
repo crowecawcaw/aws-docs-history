@@ -85,12 +85,12 @@ contains your target Transfer Family servers.
 The following list contains details for identity providers that are supported for
 the custom identity provider solution.
 
-| Provider                     | Password flows | Public key flows | Multi-factor | Attribute retrieval | Details                                                                                                       |
-| ---------------------------- | -------------- | ---------------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Active Directory and LDAP    | Yes            | Yes              | No           | Yes                 | User verification can be performed as part of public key authentication flow.                                 |
-| Argon2 (local hash)          | Yes            | No               | No           | No                  | Argon2 hashes are stored in the user record for 'local' password based authentication use cases.              |
-| Amazon Cognito               | Yes            | No               | Yes\*        | No                  | Time-based One-Time Password (TOTP)-based multi-factor authentication only. \*SMS-based MFA is not supported. |
-| Entra ID (formerly Azure AD) | Yes            | No               | No           | No                  |                                                                                                               |
-| Okta                         | Yes            | Yes              | Yes\*        | Yes                 | TOTP-based MFA only.                                                                                          |
-| Public key                   | No             | Yes              | No           | No                  | Public keys are stored in the user record in DynamoDB.                                                        |
-| Secrets Manager              | Yes            | Yes              | No           | No                  |                                                                                                               |
+| Provider                     | Password flows | Public key flows | Multi-factor | Attribute retrieval | Details                                                                                                             |
+| ---------------------------- | -------------- | ---------------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Active Directory and LDAP    | Yes            | Yes              | No           | Yes                 | User verification can be performed as part of public key<br>authentication flow.                                    |
+| Argon2 (local hash)          | Yes            | No               | No           | No                  | Argon2 hashes are stored in the user record for 'local' password<br>based authentication use cases.                 |
+| Amazon Cognito               | Yes            | No               | Yes\*        | No                  | Time-based One-Time Password (TOTP)-based multi-factor<br>authentication only.<br>\*SMS-based MFA is not supported. |
+| Entra ID (formerly Azure AD) | Yes            | No               | No           | No                  |                                                                                                                     |
+| Okta                         | Yes            | Yes              | Yes\*        | Yes                 | TOTP-based MFA only.                                                                                                |
+| Public key                   | No             | Yes              | No           | No                  | Public keys are stored in the user record in DynamoDB.                                                              |
+| Secrets Manager              | Yes            | Yes              | No           | No                  |                                                                                                                     |

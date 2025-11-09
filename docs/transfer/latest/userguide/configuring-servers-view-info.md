@@ -19,10 +19,10 @@ details, see [Edit server details](edit-server-config.md "edit-server-config.md"
 differs slightly. For AS2 servers, see [View AS2 server details](view-as2-server-details.md "view-as2-server-details.md").
 
 ![The server details console page for the server, showing the Endpoint details parameter.](images/edit-server-details-top.png)
-![The server details console page for a server, showing the list of service-managed users.](/images/transfer/latest/userguide/images/edit-server-details-endpoints.png)
+![The server details console page for a server, showing the list of service-managed users.](images/edit-server-details-endpoints.png)
 ![The server details console page for a server, showing the Agreements details.](images/edit-server-details-users.png)
 ![The server details console page, showing the Server host keys for a server.](images/edit-server-details-agreements.png)
-![The server details console page, showing the Server host keys for a server.](/images/transfer/latest/userguide/images/edit-server-details-hostkeys.png)
+![The server details console page, showing the Server host keys for a server.](images/edit-server-details-hostkeys.png)
 
 ###### Note
 

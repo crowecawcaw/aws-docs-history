@@ -21,14 +21,89 @@ More service quotas for SFTP connectors are listed in [AWS Transfer Family
 endpoints and quotas](../../../general/latest/gr/transfer-service.md "../../../general/latest/gr/transfer-service.md") in the
 _Amazon Web Services General Reference_.
 
-| SFTP connector quotas                                                                                | Name                              | Default | Adjustable                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------- | --------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum test connection transactions per second (TPS)                                                | 1 request per second, per account | No      |
-| Maximum queue size for pending file transfers                                                        | 1000                              | No      |
-| Maximum file size                                                                                    | 150 gibibytes (GiB)               | No      |
-| Maximum transfer time per file                                                                       | 12 hours                          | No      |
-| Maximum request wait time per file                                                                   | 12 hours                          | No      |
-| Maximum bandwidth for connectors per account (both SFTP and AS2 connectors contribute to this value) | 50 MBps                           | No      |
-| Maximum number of items for directory listing operations                                             | 10,000                            | No      |
-| Maximum number of files per `StartFileTransfer` request                                              | 10                                | No      |
-| Maximum number of transactions per second for `StartDirectoryListing` request                        | 3                                 | Yes     | ###### Note By default, SFTP connectors process one file at a time, transferring files sequentially. You have an option to accelerate transfer performance by having your connectors create concurrent sessions with remote servers that support concurrent sessions from the same user, and process up to 5 files in parallel. To enable concurrent connections for any connector, you can edit the **Maximum conncurent connections** setting when creating or updating a connector. For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md"). For storing the credentials for SFTP connectors, there are quotas associated with each Secrets Manager secret. If you use the same secret to store multiple types of keys, for multiple purposes, you may encounter these quotas. <br>• Total length for a single secret: 12,000 characters <br>• Maximum length of the `Password` string: 1024 characters <br>• Maximum length of the `PrivateKey` string: 8192 characters <br>• Maximum length of the `Username` string: 100 characters ## Scaling your SFTP connectors This section describes considerations for how to scale your AWS Transfer Family SFTP connector workloads. You need to take into account the following three quotas that apply when you want to scale your workloads with SFTP connectors. <br>• **The maximum queue size.** This refers to the maximum number of pending operations in a connector’s queue that have been requested. A pending operation refers to any previously submitted transfer request that has not yet completed, either successfully or unsuccessfully. The maximum queue depth for pending requests is currently set at 1,000 per connector (as defined in [AWS Transfer Family service quotas](../../../general/latest/gr/transfer-service.md "../../../general/latest/gr/transfer-service.md")). Your workloads may exceed this service limit when you request thousands of transfer operations over a short duration, and you will receive a `ThrottlingException` with the message **`Exceeded maximum pending requests.`** If your workloads are subject to this quota, contact the Transfer Family service team via AWS Support or your account team to discuss your scalability requirements. You can also take either or both of the following actions. + Distribute your file volumes across multiple connectors. + Have your connectors create concurrent sessions with the remote server to process multiple requests from the queue in parallel. <br>• **The number of concurrent sessions.** By default, an SFTP connector transfers one file at a time, transferring files sequentially from its queue. You have an option to accelerate transfer performance by having your connectors transfer multiple files in parallel. You can create concurrent sessions with remote servers that support concurrent sessions from the same user, and process up to 5 files in parallel. When you create an SFTP connector, choose a value up to 5 for the **Maximum concurrent connections** setting when you create or update the connector. For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md"). <br>• **The rate of `StartFileTransfer` requests.** You can request up to 100 file paths per second for transfer with each SFTP connector. The requested file paths are added to your connectors’ queue for processing. You can use the `StartFileTransfer` command recursively to request up to 100 file paths per second per connector, irrespective of the number of files provided in an individual `StartFileTransfer` command. |
+| SFTP connector quotas                                                                                   | Name                              | Default | Adjustable |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------- | ------- | ---------- |
+| Maximum test connection transactions per second (TPS)                                                   | 1 request per second, per account | No      |
+| Maximum queue size for pending file transfers                                                           | 1000                              | No      |
+| Maximum file size                                                                                       | 150 gibibytes (GiB)               | No      |
+| Maximum transfer time per file                                                                          | 12 hours                          | No      |
+| Maximum request wait time per file                                                                      | 12 hours                          | No      |
+| Maximum bandwidth for connectors per account (both SFTP and AS2<br>connectors contribute to this value) | 50 MBps                           | No      |
+| Maximum number of items for directory listing operations                                                | 10,000                            | No      |
+| Maximum number of files per `StartFileTransfer`<br>request                                              | 10                                | No      |
+| Maximum number of transactions per second for<br>`StartDirectoryListing` request                        | 3                                 | Yes     |
+
+###### Note
+
+By default, SFTP connectors process one file at a time, transferring files sequentially.
+You have an option to accelerate transfer performance by having your connectors create
+concurrent sessions with remote servers that support concurrent sessions from the same
+user, and process up to 5 files in parallel.
+
+To enable concurrent connections for any connector, you can edit the **Maximum conncurent connections** setting when creating or updating a connector.
+For details, see [Create an SFTP connector with
+service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
+
+For storing the credentials for SFTP connectors, there are quotas associated with
+each Secrets Manager secret. If you use the same secret to store multiple types of keys, for
+multiple purposes, you may encounter these quotas.
+
+- Total length for a single secret: 12,000 characters
+- Maximum length of the `Password` string: 1024
+  characters
+- Maximum length of the `PrivateKey` string: 8192
+  characters
+- Maximum length of the `Username` string: 100
+  characters
+
+## Scaling your SFTP
+
+connectors
+
+This section describes considerations for how to scale your AWS Transfer Family SFTP
+connector workloads. You need to take into account the following three quotas that
+apply when you want to scale your workloads with SFTP connectors.
+
+- **The maximum queue size.** This refers to
+  the maximum number of pending operations in a connector’s queue that have
+  been requested. A pending operation refers to any previously submitted
+  transfer request that has not yet completed, either successfully or
+  unsuccessfully.
+
+The maximum queue depth for pending requests is currently set at 1,000 per
+connector (as defined in [AWS Transfer Family service
+quotas](../../../general/latest/gr/transfer-service.md "../../../general/latest/gr/transfer-service.md")). Your workloads may exceed this service limit when you
+request thousands of transfer operations over a short duration, and you will
+receive a `ThrottlingException` with the message
+**`Exceeded maximum pending requests.`** If your
+workloads are subject to this quota, contact the Transfer Family service team via
+AWS Support or your account team to discuss your scalability
+requirements.
+
+You can also take either or both of the following actions.
+
+    + Distribute your file volumes across multiple connectors.
+    + Have your connectors create concurrent sessions with the remote
+     server to process multiple requests from the queue in
+     parallel.
+
+- **The number of concurrent sessions.** By
+  default, an SFTP connector transfers one file at a time, transferring files
+  sequentially from its queue.
+
+You have an option to accelerate transfer performance by having your
+connectors transfer multiple files in parallel. You can create concurrent
+sessions with remote servers that support concurrent sessions from the same
+user, and process up to 5 files in parallel. When you create an SFTP
+connector, choose a value up to 5 for the **Maximum concurrent
+connections** setting when you create or update the connector.
+For details, see [Create an SFTP connector with
+service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
+
+- **The rate of `StartFileTransfer`
+  requests.** You can request up to 100 file paths per second for
+  transfer with each SFTP connector. The requested file paths are added to
+  your connectors’ queue for processing. You can use the
+  `StartFileTransfer` command recursively to request up to 100
+  file paths per second per connector, irrespective of the number of files
+  provided in an individual `StartFileTransfer` command.
