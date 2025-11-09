@@ -40,7 +40,7 @@ In your client code that renders the Amazon Kendra search results, insert a
  'kendraFeedback');
 </script>
 
-````
+```
 
 The script asynchronously downloads the JavaScript library from an Amazon Kendra hosted CDN and initializes a global variable called
  `kendraFeedback` that allows you to set optional parameters.
@@ -56,7 +56,7 @@ Replace `library download URL` and `feedback
 | Region | Download URL | Feedback endpoint |
 | --- | --- | --- |
 | us-east-1 | https://d2zm0lpns956f8.cloudfront.net/ksf-v1.js | https://ujxwp5s92h.execute-api.us-east-1.amazonaws.com/prod/submit |
-| us-east-2 |  https://d2crv7fufeg244.cloudfront.net/ksf-v1.js | https://i6h76zwzf3.execute-api.us-east-2.amazonaws.com/prod/submit |
+| us-east-2 | https://d2crv7fufeg244.cloudfront.net/ksf-v1.js | https://i6h76zwzf3.execute-api.us-east-2.amazonaws.com/prod/submit |
 | us-west-2 | https://d2iezfpnpcoujy.cloudfront.net/ksf-v1.js | https://wg6nim909c.execute-api.us-west-2.amazonaws.com/prod/submit |
 | ca-central-1 | https://d1zbkfomowykaq.cloudfront.net/ksf-v1.js | https://budi8txevj.execute-api.ca-central-1.amazonaws.com/prod/submit |
 | eu-west-1 | https://d3gptlxtulu4us.cloudfront.net/ksf-v1.js | https://po2b11740b.execute-api.eu-west-1.amazonaws.com/prod/submit |
@@ -64,5 +64,86 @@ Replace `library download URL` and `feedback
 | ap-southeast-2 | https://dopqntoe6z0ce.cloudfront.net/ksf-v1.js | https://oovf4nvjj7.execute-api.ap-southeast-2.amazonaws.com/prod/submit |
 | ap-south-1 | https://d1ts9ouelsmk3g.cloudfront.net/ksf-v1.js | https://k1abnmd43b.execute-api.ap-south-1.amazonaws.com/prod/submit |
 | ap-northeast-1 | https://d3w0ybsa293kb4.cloudfront.net/ksf-v1.js | https://wg7rz0uzjh.execute-api.ap-northeast-1.amazonaws.com/prod/submit |
-| eu-west-2 | https://d1tsrujswld1d1.cloudfront.net/ksf-v1.js | https://qi7mct3x7f.execute-api.eu-west-2.amazonaws.com/prod/submit | For example, if your index is in US East (N. Virginia), `library download URL` is `https://d2zm0lpns956f8.cloudfront.net/ksf-v1.js` and `feedback endpoint` is `https://ujxwp5s92h.execute-api.us-east-1.amazonaws.com/prod/submit`. There are two optional settings that you can make for the Amazon Kendra JavaScript library: <br>• `disableCookies` – By default, Amazon Kendra sets a cookie that uniquely identifies the user. Set this to `true` to disable the cookie. ``` kendraFeedback('disableCookie', '`true` | `false`'); ``` `searchDivClassName` – By default, Amazon Kendra monitors all links on your search results page for clicks. Set this to a `<div>` class name to monitor only links in the specified class. ``` kendraFeedback('searchDivClassName', '`class name`'); ``` ## Step 2: Add the feedback token to search results On your result page, add an HTML attribute called `data-kendra-token` to the anchor tag or immediate parent div tag that contains a link to the document from the query response. For example: ``` <a href="`document location`" data-kendra-token="`feedback token value`"></a> OR <div data-url="`document location`" data-kendra-token="`feedback token value`"></div> ``` A query response contains a token in the `feedbackToken` field. The token uniquely identifies the response if the user chooses it. Assign the value of the token to the `data-kendra-token` attribute. The Amazon Kendra JavaScript library looks for this token when the user chooses the result and submits it to an Amazon Kendra endpoint as feedback. The Amazon Kendra JavaScript library only submits the feedback token and other metadata such as the time the result was chosen and a unique visitor ID. ## Step 3: Test the feedback script To make sure that the JavaScript library is configured correctly and sending feedback to the right endpoint, do the following. This example uses the Chrome browser. 1. Open the Web developer tools in the browser. On Chrome, open the **Chrome menu** in the upper right corner of the browser, choose **More tools** and then choose **Developer tools**. 2. Make sure that there are no errors related to the Amazon Kendra JavaScript library in the console tab. 3. Make a search and choose any result. In the **Network** tab of the developer tools. You should see a request sent to the feedback endpoint, the token for the result, and a 200 OK status.
-````
+| eu-west-2 | https://d1tsrujswld1d1.cloudfront.net/ksf-v1.js | https://qi7mct3x7f.execute-api.eu-west-2.amazonaws.com/prod/submit |
+
+
+For example, if your index is in US East (N. Virginia), `library
+ download URL` is
+ `https://d2zm0lpns956f8.cloudfront.net/ksf-v1.js` and
+ `feedback endpoint` is
+ `https://ujxwp5s92h.execute-api.us-east-1.amazonaws.com/prod/submit`.
+
+
+There are two optional settings that you can make for the Amazon Kendra
+ JavaScript library:
+
+
+
+* `disableCookies` – By default, Amazon Kendra sets a
+ cookie that uniquely identifies the user. Set this to `true` to
+ disable the cookie.
+
+
+
+```
+
+kendraFeedback('disableCookie', '`true` | `false`');
+
+```
+
+`searchDivClassName` – By default, Amazon Kendra
+ monitors all links on your search results page for clicks. Set this to a
+ `<div>` class name to monitor only links in the
+ specified class.
+
+
+
+```
+
+kendraFeedback('searchDivClassName', '`class name`');
+
+```
+
+## Step 2: Add the feedback token to search
+ results
+
+
+On your result page, add an HTML attribute called `data-kendra-token`
+ to the anchor tag or immediate parent div tag that contains a link to the document
+ from the query response. For example:
+
+
+
+```
+
+<a href="`document location`" data-kendra-token="`feedback token value`"></a>
+OR
+
+<div data-url="`document location`" data-kendra-token="`feedback token value`"></div>
+```
+
+A query response contains a token in the `feedbackToken` field. The
+token uniquely identifies the response if the user chooses it. Assign the value of
+the token to the `data-kendra-token` attribute. The Amazon Kendra
+JavaScript library looks for this token when the user chooses the result and submits
+it to an Amazon Kendra endpoint as feedback.
+
+The Amazon Kendra JavaScript library only submits the feedback token and
+other metadata such as the time the result was chosen and a unique visitor
+ID.
+
+## Step 3: Test the feedback script
+
+To make sure that the JavaScript library is configured correctly and sending
+feedback to the right endpoint, do the following. This example uses the Chrome
+browser.
+
+1. Open the Web developer tools in the browser. On Chrome, open the
+   **Chrome menu** in the upper right corner of the
+   browser, choose **More tools** and then choose
+   **Developer tools**.
+2. Make sure that there are no errors related to the Amazon Kendra
+   JavaScript library in the console tab.
+3. Make a search and choose any result. In the **Network**
+   tab of the developer tools. You should see a request sent to the feedback
+   endpoint, the token for the result, and a 200 OK status.

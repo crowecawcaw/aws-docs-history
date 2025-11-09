@@ -28,39 +28,57 @@ only support simple keyword matching. Languages that support full semantic searc
 marked with an asterisk and are in bold text in the following table. English (default
 language) is also supported with full semantic search.
 
-| **Language name**                          | **Language code** |
-| ------------------------------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arabic                                     | `ar`              |
-| Armenian                                   | `hy`              |
-| Basque                                     | `eu`              |
-| Bengali                                    | `bn`              |
-| Bulgarian                                  | `bg`              |
-| Catalan                                    | `ca`              |
-| **Chinese – simplified and traditional\*** | `zh`              |
-| Czech                                      | `cs`              |
-| Danish                                     | `da`              |
-| Dutch                                      | `nl`              |
-| Finnish                                    | `fi`              |
-| **French – includes French (Canada)\***    | `fr`              |
-| Galician                                   | `gl`              |
-| **German\***                               | `de`              |
-| Greek                                      | `el`              |
-| Hindi                                      | `hi`              |
-| Hungarian                                  | `hu`              |
-| Indonesian                                 | `id`              |
-| Irish                                      | `ga`              |
-| Italian                                    | `it`              |
-| **Japanese\***                             | `ja`              |
-| **Korean\***                               | `ko`              |
-| Latvian                                    | `lv`              |
-| Lithuanian                                 | `lt`              |
-| Norwegian                                  | `no`              |
-| Persian                                    | `fa`              |
-| Portuguese                                 | `pt`              |
-| **Portuguese (Brazil)\***                  | `pt-BR`           |
-| Romanian                                   | `ro`              |
-| Russian                                    | `ru`              |
-| Sorani                                     | `ckb`             |
-| **Spanish – includes Spanish (Mexico)\***  | `es`              |
-| Swedish                                    | `sv`              |
-| Turkish                                    | `tr`              | _\*Semantic search is supported for the language._ For languages that support semantic search, the following features are supported. <br>• Document relevance beyond simple keyword matching. <br>• FAQs beyond simple keyword matching. <br>• Extracting answers from documents based on Amazon Kendra's reading comprehension. <br>• Confidence buckets (very high, high, medium, and low) of the search results. For languages that don't support semantic search, simple keyword matching is supported for document relevance and FAQs. [Synonyms](index-synonyms.md "index-synonyms.md") (including custom synonyms), [incremental learning and feedback](submitting-feedback.md "submitting-feedback.md"), and [query suggestions](query-suggestions.md "query-suggestions.md") are only supported for English (default language). |
+| **Language name**                             | **Language code** |
+| --------------------------------------------- | ----------------- |
+| Arabic                                        | `ar`              |
+| Armenian                                      | `hy`              |
+| Basque                                        | `eu`              |
+| Bengali                                       | `bn`              |
+| Bulgarian                                     | `bg`              |
+| Catalan                                       | `ca`              |
+| **Chinese – simplified and<br>traditional\*** | `zh`              |
+| Czech                                         | `cs`              |
+| Danish                                        | `da`              |
+| Dutch                                         | `nl`              |
+| Finnish                                       | `fi`              |
+| **French – includes French<br>(Canada)\***    | `fr`              |
+| Galician                                      | `gl`              |
+| **German\***                                  | `de`              |
+| Greek                                         | `el`              |
+| Hindi                                         | `hi`              |
+| Hungarian                                     | `hu`              |
+| Indonesian                                    | `id`              |
+| Irish                                         | `ga`              |
+| Italian                                       | `it`              |
+| **Japanese\***                                | `ja`              |
+| **Korean\***                                  | `ko`              |
+| Latvian                                       | `lv`              |
+| Lithuanian                                    | `lt`              |
+| Norwegian                                     | `no`              |
+| Persian                                       | `fa`              |
+| Portuguese                                    | `pt`              |
+| **Portuguese (Brazil)\***                     | `pt-BR`           |
+| Romanian                                      | `ro`              |
+| Russian                                       | `ru`              |
+| Sorani                                        | `ckb`             |
+| **Spanish – includes Spanish<br>(Mexico)\***  | `es`              |
+| Swedish                                       | `sv`              |
+| Turkish                                       | `tr`              |
+
+_\*Semantic search is supported for the language._
+
+For languages that support semantic search, the following features are
+supported.
+
+- Document relevance beyond simple keyword matching.
+- FAQs beyond simple keyword matching.
+- Extracting answers from documents based on Amazon Kendra's reading
+  comprehension.
+- Confidence buckets (very high, high, medium, and low) of the search
+  results.
+  For languages that don't support semantic search, simple keyword matching is supported
+  for document relevance and FAQs.
+
+[Synonyms](index-synonyms.md "index-synonyms.md") (including custom synonyms), [incremental learning and
+feedback](submitting-feedback.md "submitting-feedback.md"), and [query suggestions](query-suggestions.md "query-suggestions.md") are only
+supported for English (default language).

@@ -159,10 +159,54 @@ keys for tag-based access control. Each action is authorized based on the tags
 associated with the corresponding resource type.
 
 | Action                                                                             | Resource type           | Condition keys                  |
-| ---------------------------------------------------------------------------------- | ----------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------------------- | ----------------------- | ------------------------------- |
 | [CreateDataSource](API_CreateDataSource.md "API_CreateDataSource.md")              |                         | `aws:RequestTag`, `aws:TagKeys` |
 | [CreateFaq](API_CreateFaq.md "API_CreateFaq.md")                                   |                         | `aws:RequestTag`, `aws:TagKeys` |
 | [CreateIndex](API_CreateIndex.md "API_CreateIndex.md")                             |                         | `aws:RequestTag`, `aws:TagKeys` |
 | [API_ListTagsForResource](API_ListTagsForResource.md "API_ListTagsForResource.md") | data source, FAQ, index |                                 |
 | [TagResource](API_TagResource.md "API_TagResource.md")                             | data source, FAQ, index | `aws:RequestTag`, `aws:TagKeys` |
-| [UntagResource](API_UntagResource.md "API_UntagResource.md")                       | data source, FAQ, index | `aws:TagKeys`                   | For information about tagging Amazon Kendra resources, see [Tags](tagging.md "tagging.md"). For an example identity-based policy that limits access to a resource based on resource tags, see [Tag-based policy examples](security_iam_id-based-policy-examples.md#examples-tagging "security_iam_id-based-policy-examples.md#examples-tagging"). For more information about using tags to limit access to resources, see [Controlling access using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_. ## Amazon Kendra IAM Roles An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific permissions. ### Using temporary credentials with Amazon Kendra You can use temporary credentials to sign in with federation, assume an IAM role, or to assume a cross-account role. You obtain temporary security credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md"). Amazon Kendra supports using temporary credentials. ### Service roles This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access resources in other services to complete an action on your behalf. Service roles appear in your IAM account and are owned by the account. This means that an IAM administrator can change the permissions for this role. However, doing so might break the functionality of the service. Amazon Kendra supports service roles. ### Choosing an IAM role in Amazon Kendra When you create an index, call the `BatchPutDocument` operation, create a data source or create an FAQ, you must provide an access role Amazon Resource Name (ARN) that Amazon Kendra uses to access the required resources on your behalf. If you have previously created a role, then the Amazon Kendra console provides you with a list of roles to choose from. It's important to choose a role that allows access to the resources that you require. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md "iam-roles.md"). |
+| [UntagResource](API_UntagResource.md "API_UntagResource.md")                       | data source, FAQ, index | `aws:TagKeys`                   |
+
+For information about tagging Amazon Kendra resources, see [Tags](tagging.md "tagging.md"). For an example identity-based policy that limits access to
+a resource based on resource tags, see [Tag-based policy examples](security_iam_id-based-policy-examples.md#examples-tagging "security_iam_id-based-policy-examples.md#examples-tagging"). For more information about using tags to limit
+access to resources, see [Controlling access using
+tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM User Guide_.
+
+## Amazon Kendra IAM
+
+Roles
+
+An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
+your AWS account that has specific permissions.
+
+### Using temporary
+
+credentials with Amazon Kendra
+
+You can use temporary credentials to sign in with federation, assume an IAM
+role, or to assume a cross-account role. You obtain temporary security credentials by
+calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
+
+Amazon Kendra supports using temporary credentials.
+
+### Service roles
+
+This feature allows a service to assume a [service
+role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access resources in
+other services to complete an action on your behalf. Service roles appear in your
+IAM account and are owned by the account. This means that an IAM administrator
+can change the permissions for this role. However, doing so might break the
+functionality of the service.
+
+Amazon Kendra supports service roles.
+
+### Choosing an IAM role
+
+in Amazon Kendra
+
+When you create an index, call the `BatchPutDocument` operation, create
+a data source or create an FAQ, you must provide an access role Amazon Resource Name
+(ARN) that Amazon Kendra uses to access the required resources on your behalf. If
+you have previously created a role, then the Amazon Kendra console provides you
+with a list of roles to choose from. It's important to choose a role that allows
+access to the resources that you require. For more information, see [IAM access roles for Amazon Kendra](iam-roles.md "iam-roles.md").

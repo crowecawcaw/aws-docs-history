@@ -40,17 +40,134 @@ format that includes custom fields. The default format is basic CSV.
 The following provides information on each supported document format and how
 Amazon Kendra treats each format when indexing documents.
 
-| Document format                                      | Treated as   | How document is treated                                                                                                              | Original structure                                  |
-| ---------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Portable Document Format (PDF)                       | HTML         | Converted to HTML, then content is extracted.                                                                                        | Unstructured                                        |
-| HyperText Markup Language (HTML)                     | HTML         | HTML tags are filtered out to extract content. Content must between the main `HTML` start and closing tags (`<HTML>content</HTML>`). | Semi-structured                                     |
-| Extensible Markup Language (XML)                     | XML          | XML tags are filtered out to extract content.                                                                                        | Semi-structured                                     |
-| Extensible Stylesheet Language Transformation (XSLT) | XSLT         | Tags are filtered out to extract content.                                                                                            | Semi-structured                                     |
-| MarkDown (MD)                                        | Plain text   | Content is extracted with MarkDown syntax included.                                                                                  | Semi-structured                                     |
-| Comma Separated Values (CSV)                         | CSV          | Content extracted from each cell, with a single file treated as a single document result.                                            | Structured for FAQ files, otherwise semi-structured |
-| Microsoft Excel (XLS and XLSX)                       | XLS and XLSX | Content extracted from each cell, with a single file treated as a single document result.                                            | Semi-structured                                     |
-| JavaScript Object Notation (JSON)                    | Plain text   | Content is extracted with JSON syntax included.                                                                                      | Semi-structured                                     |
-| Rich Text Format (RTF)                               | RTF          | RTF syntax is filtered out to extract content.                                                                                       | Semi-structured                                     |
-| Microsoft PowerPoint (PPT)                           | PPT, PPTX    | Only text content is extracted from PowerPoint slides for search. Images and other content are not extracted.                        | Unstructured                                        |
-| Microsoft Word                                       | DOC, DOCX    | Only text content is extracted from Word pages for search. Images and other content are not extracted.                               | Unstructured                                        |
-| Plain text (TXT)                                     | TXT          | All text in the text document is extracted.                                                                                          | Unstructured                                        | ## Document attributes or fields A document has attributes or fields associated with it. Fields of a document are the properties of a document or what is contained within the structure of a document. For example, each of your documents might contain title, body text, and author. You can also add custom fields for your particular documents. For example, if your index searches tax documents, you might specify a custom field for the type of tax document such as W-2, 1099, and so on. Before you can use a document field in a query, it must be mapped to an index field. For example, the title field can be mapped to the field `_document_title`. For more information, see [Mapping fields](field-mapping.md "field-mapping.md"). To add a new field, you must create an index field to map the field to. You create index fields using the console or by using the [UpdateIndex](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md") API. You can use document fields to filter responses and to make faceted search results. For example, you can filter a response to only return a specific version of a document, or you can filter searches to only return 1099 type of tax documents that match the search term. For more information, see [Filtering and facet search](filtering.md "filtering.md"). You can also use document fields to manually tune the query response. For example, you can choose to increase the importance of the title field to increase the weight that Amazon Kendra assigns to the field when determining which documents to return in the response. For more information, see [Tuning search relevance](tuning.md "tuning.md"). If you are adding a document directly to an index, you specify the fields in the [Document](../APIReference/API_Document.md "../APIReference/API_Document.md") input parameter to the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API. You specify the custom field values in a [DocumentAttribute](../APIReference/API_DocumentAttribute.md "../APIReference/API_DocumentAttribute.md") object array. If you are using a data source, the method that you use to add the document fields depends on the data source. For more information, see [Mapping data source fields](field-mapping.md "field-mapping.md"). ### Using Amazon Kendra reserved or common document fields With the [UpdateIndex API](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md"), you can create reserved or common fields using `DocumentMetadataConfigurationUpdates` and specifying the Amazon Kendra reserved index field name to map to your equivalent document attribute/field name. You can also create custom fields. If you use a data source connector, most include field mappings that map your data source document fields to Amazon Kendra index fields. If you use the console, you update fields by selecting your data source, selecting the edit action, and then proceeding next to the field mappings section for configuring the data source. You can configure the `Search` object to set a field as either displayable, facetable, searchable, and sortable. You can configure the `Relevance` object to set a field's rank order, boost duration or time period to apply to boosting, freshness, importance value, and importance values mapped to specific field values. If you use the console, you can set the search settings for a field by selecting the facet option in the navigation menu. To set relevance tuning, select the option to search your index in the navigation menu, enter a query, and use the side panel options to tune the search relevance. You cannot change the field type once you have created the field. Amazon Kendra has the following reserved or common document fields that you can use: <br>• `_authors`—A list of one or more authors responsible for the content of the document. <br>• `_category`—A category that places a document in a specific group. <br>• `_created_at`—The date and time in ISO 8601 format that the document was created. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time. <br>• `_data_source_id`—The identifier of the data source that contains the document. <br>• `_document_body`—The content of the document. <br>• `_document_id`—A unique identifier for the document. <br>• `_document_title`—The title of the document. <br>• `_excerpt_page_number`—The page number in a PDF file where the document excerpt appears. If your index was created before September 8, 2020, you must re-index your documents before you can use this attribute. <br>• `_faq_id`—If this is a question-answer type document (FAQ), a unique identifier for the FAQ. <br>• `_file_type`—The file type of the document, such as pdf or doc. <br>• `_last_updated_at`—The date and time in ISO 8601 format that the document was last updated. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central European Time. <br>• `_source_uri`—The URI where the document is available. For example, the URI of the document on a company website. <br>• `_version`—An identifier for the specific version of a document. <br>• `_view_count`—The number of times that the document has been viewed. <br>• `_language_code` (String)—The code for a language that applies to the document. This defaults to English if you do not specify a language. For more information on supported languages, including their codes, see [Adding documents in languages other than English](in-adding-languages.md "in-adding-languages.md"). For custom fields, you create these fields using `DocumentMetadataConfigurationUpdates` with the `UpdateIndex` API, just as you do when creating a reserved or common field. You must set the appropriate data type for your custom field. If you use the console, you update fields by selecting your data source, selecting the edit action, and then proceeding next to the field mappings section for configuring the data source. Some data sources don't support adding new fields or custom fields. You cannot change the field type once you have created the field. The following are the types you can set for custom fields: <br>• Date <br>• Number <br>• String <br>• String list If you added documents to the index using [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API, `Attributes` lists the fields/attributes of your documents and you create fields using the `DocumentAttribute` object. For documents indexed from an Amazon S3 data source, you create fields using a [JSON metadata file](s3-metadata.md "s3-metadata.md") that includes the fields information. If you use a supported database as your data source, you can configure your fields using the [field mappings option](data-source-database.md#data-source-procedure-database "data-source-database.md#data-source-procedure-database"). |
+| Document format                                      | Treated as   | How document is treated                                                                                                                    | Original structure                                  |
+| ---------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| Portable Document Format (PDF)                       | HTML         | Converted to HTML, then content is extracted.                                                                                              | Unstructured                                        |
+| HyperText Markup Language (HTML)                     | HTML         | HTML tags are filtered out to extract content. Content must<br>between the main `HTML` start and closing tags<br>(`<HTML>content</HTML>`). | Semi-structured                                     |
+| Extensible Markup Language (XML)                     | XML          | XML tags are filtered out to extract content.                                                                                              | Semi-structured                                     |
+| Extensible Stylesheet Language Transformation (XSLT) | XSLT         | Tags are filtered out to extract content.                                                                                                  | Semi-structured                                     |
+| MarkDown (MD)                                        | Plain text   | Content is extracted with MarkDown syntax included.                                                                                        | Semi-structured                                     |
+| Comma Separated Values (CSV)                         | CSV          | Content extracted from each cell, with a single file treated as a<br>single document result.                                               | Structured for FAQ files, otherwise semi-structured |
+| Microsoft Excel (XLS and XLSX)                       | XLS and XLSX | Content extracted from each cell, with a single file treated as a<br>single document result.                                               | Semi-structured                                     |
+| JavaScript Object Notation (JSON)                    | Plain text   | Content is extracted with JSON syntax included.                                                                                            | Semi-structured                                     |
+| Rich Text Format (RTF)                               | RTF          | RTF syntax is filtered out to extract content.                                                                                             | Semi-structured                                     |
+| Microsoft PowerPoint (PPT)                           | PPT, PPTX    | Only text content is extracted from PowerPoint slides for search.<br>Images and other content are not extracted.                           | Unstructured                                        |
+| Microsoft Word                                       | DOC, DOCX    | Only text content is extracted from Word pages for search. Images<br>and other content are not extracted.                                  | Unstructured                                        |
+| Plain text (TXT)                                     | TXT          | All text in the text document is extracted.                                                                                                | Unstructured                                        |
+
+## Document attributes or fields
+
+A document has attributes or fields associated with it. Fields of a document are
+the properties of a document or what is contained within the structure of a
+document. For example, each of your documents might contain title, body text, and
+author. You can also add custom fields for your particular documents. For example,
+if your index searches tax documents, you might specify a custom field for the type
+of tax document such as W-2, 1099, and so on.
+
+Before you can use a document field in a query, it must be mapped to an index
+field. For example, the title field can be mapped to the field
+`_document_title`. For more information, see [Mapping
+fields](field-mapping.md "field-mapping.md"). To add a new field, you must create an index field to map the
+field to. You create index fields using the console or by using the [UpdateIndex](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md") API.
+
+You can use document fields to filter responses and to make faceted search
+results. For example, you can filter a response to only return a specific version of
+a document, or you can filter searches to only return 1099 type of tax documents
+that match the search term. For more information, see [Filtering and facet search](filtering.md "filtering.md").
+
+You can also use document fields to manually tune the query response. For example,
+you can choose to increase the importance of the title field to increase the weight
+that Amazon Kendra assigns to the field when determining which documents to
+return in the response. For more information, see [Tuning search relevance](tuning.md "tuning.md").
+
+If you are adding a document directly to an index, you specify the fields in the
+[Document](../APIReference/API_Document.md "../APIReference/API_Document.md") input parameter to the [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API. You specify the custom field values in a [DocumentAttribute](../APIReference/API_DocumentAttribute.md "../APIReference/API_DocumentAttribute.md") object array. If you are using a data source, the
+method that you use to add the document fields depends on the data source. For more
+information, see [Mapping data source
+fields](field-mapping.md "field-mapping.md").
+
+### Using Amazon Kendra reserved or common document
+
+fields
+
+With the [UpdateIndex API](../APIReference/API_UpdateIndex.md "../APIReference/API_UpdateIndex.md"), you can create reserved or common fields using
+`DocumentMetadataConfigurationUpdates` and specifying the Amazon Kendra
+reserved index field name to map to your equivalent document attribute/field name. You can
+also create custom fields. If you use a data source connector, most include field mappings
+that map your data source document fields to Amazon Kendra index fields. If you use the
+console, you update fields by selecting your data source, selecting the edit action, and
+then proceeding next to the field mappings section for configuring the data source.
+
+You can configure the `Search` object to set a field as either displayable,
+facetable, searchable, and sortable. You can configure the `Relevance` object to
+set a field's rank order, boost duration or time period to apply to boosting, freshness,
+importance value, and importance values mapped to specific field values. If you use the
+console, you can set the search settings for a field by selecting the facet option in the
+navigation menu. To set relevance tuning, select the option to search your index in the
+navigation menu, enter a query, and use the side panel options to tune the search relevance.
+You cannot change the field type once you have created the field.
+
+Amazon Kendra has the following reserved or common document fields that you can
+use:
+
+- `_authors`—A list of one or more authors responsible for the
+  content of the document.
+- `_category`—A category that places a document in a specific
+  group.
+- `_created_at`—The date and time in ISO 8601 format that the
+  document was created. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601
+  date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central
+  European Time.
+- `_data_source_id`—The identifier of the data source that
+  contains the document.
+- `_document_body`—The content of the document.
+- `_document_id`—A unique identifier for the document.
+- `_document_title`—The title of the document.
+- `_excerpt_page_number`—The page number in a PDF file where the
+  document excerpt appears. If your index was created before September 8, 2020, you
+  must re-index your documents before you can use this attribute.
+- `_faq_id`—If this is a question-answer type document (FAQ), a
+  unique identifier for the FAQ.
+- `_file_type`—The file type of the document, such as pdf or
+  doc.
+- `_last_updated_at`—The date and time in ISO 8601 format that the
+  document was last updated. For example, 2012-03-25T12:30:10+01:00 is the ISO 8601
+  date-time format for March 25th 2012 at 12:30PM (plus 10 seconds) in Central
+  European Time.
+- `_source_uri`—The URI where the document is available. For
+  example, the URI of the document on a company website.
+- `_version`—An identifier for the specific version of a
+  document.
+- `_view_count`—The number of times that the document has been
+  viewed.
+- `_language_code` (String)—The code for a language that applies
+  to the document. This defaults to English if you do not specify a language. For more
+  information on supported languages, including their codes, see [Adding
+  documents in languages other than English](in-adding-languages.md "in-adding-languages.md").
+
+For custom fields, you create these fields using
+`DocumentMetadataConfigurationUpdates` with the `UpdateIndex` API,
+just as you do when creating a reserved or common field. You must set the appropriate data
+type for your custom field. If you use the console, you update fields by selecting your data
+source, selecting the edit action, and then proceeding next to the field mappings section
+for configuring the data source. Some data sources don't support adding new fields or custom
+fields. You cannot change the field type once you have created the field.
+
+The following are the types you can set for custom fields:
+
+- Date
+- Number
+- String
+- String list
+
+If you added documents to the index using [BatchPutDocument](../APIReference/API_BatchPutDocument.md "../APIReference/API_BatchPutDocument.md") API,
+`Attributes` lists the fields/attributes of your documents and you create
+fields using the `DocumentAttribute` object.
+
+For documents indexed from an Amazon S3 data source, you create fields using a
+[JSON metadata
+file](s3-metadata.md "s3-metadata.md") that includes the fields information.
+
+If you use a supported database as your data source, you can configure your fields using
+the [field
+mappings option](data-source-database.md#data-source-procedure-database "data-source-database.md#data-source-procedure-database").

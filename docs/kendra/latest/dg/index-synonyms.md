@@ -58,7 +58,29 @@ synonyms are not affected.
 
 A general guideline for how synonyms affect latency:
 
-| **Use case**                                                     | **Increase in latency\*** |
-| ---------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Typical natural language or keyword queries of 3 to 5 words each | Less than 15 percent      |
-| 1 query term expands to 3 synonyms                               |                           | Index of about 500,000 documents (averaging 10.48 KB of extracted text per document) or 30,000 FAQ / question pairs | \*_Performance varies based on your specific use of synonyms and configurations on your index. It’s best to test search performance to obtain more accurate benchmarks for your specific use case._ If your thesaurus is large, has a high term expansion ratio, and your latency increase is not within acceptable boundaries, you can try one or both of the following: <br>• Trim your thesaurus to reduce the expansion ratio (number of synonyms per term). <br>• Trim the overall coverage of terms (number of lines in your thesaurus). Alternatively, you can increase the provisioning capacity (virtual storage units) to offset the latency increase. ###### Topics <br>• [Creating a thesaurus file](index-synonyms-creating-thesaurus-file.md "index-synonyms-creating-thesaurus-file.md") <br>• [Adding a thesaurus to an index](index-synonyms-adding-thesaurus-file.md "index-synonyms-adding-thesaurus-file.md") <br>• [Updating a thesaurus](index-synonyms-update.md "index-synonyms-update.md") <br>• [Deleting a thesaurus](index-synonyms-delete.md "index-synonyms-delete.md") <br>• [Highlights in search results](index-synonyms-enabling-synonyms-in-results.md "index-synonyms-enabling-synonyms-in-results.md") |
+| **Use case**                                                                                                           | **Increase in latency\*** |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Typical natural language or keyword queries of 3 to 5 words each                                                       | Less than 15 percent      |
+| 1 query term expands to 3 synonyms                                                                                     |
+| Index of about 500,000 documents (averaging 10.48 KB of extracted text per<br>document) or 30,000 FAQ / question pairs |
+
+\*_Performance varies based on your specific use of synonyms and configurations on
+your index. It’s best to test search performance to obtain more accurate benchmarks for your
+specific use case._
+
+If your thesaurus is large, has a high term expansion ratio, and your latency increase is
+not within acceptable boundaries, you can try one or both of the following:
+
+- Trim your thesaurus to reduce the expansion ratio (number of synonyms per term).
+- Trim the overall coverage of terms (number of lines in your thesaurus).
+  Alternatively, you can increase the provisioning capacity (virtual storage units) to offset
+  the latency increase.
+
+###### Topics
+
+- [Creating a thesaurus file](index-synonyms-creating-thesaurus-file.md "index-synonyms-creating-thesaurus-file.md")
+- [Adding a thesaurus to an index](index-synonyms-adding-thesaurus-file.md "index-synonyms-adding-thesaurus-file.md")
+- [Updating a thesaurus](index-synonyms-update.md "index-synonyms-update.md")
+- [Deleting a thesaurus](index-synonyms-delete.md "index-synonyms-delete.md")
+- [Highlights in search
+  results](index-synonyms-enabling-synonyms-in-results.md "index-synonyms-enabling-synonyms-in-results.md")
