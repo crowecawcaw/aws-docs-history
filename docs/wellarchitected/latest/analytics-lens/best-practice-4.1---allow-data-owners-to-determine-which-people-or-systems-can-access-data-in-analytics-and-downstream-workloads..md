@@ -30,12 +30,16 @@ roles for two schemas with a table in them:
 
 Table 1: Example Access Control Matrix for Users and Roles
 
-| **Permissions**
-| **Read**
-| **Write**
-|
-| --- | --- | --- |
-| Schema 1 | User1, User2, Role1, Role2 | Role1 |
-| Schema 1 / Table 1 | User1, User2, Role1, Role2 | Role2 |
-| Schema 2 | User1, User2, Role1, Role2 | User1, Role1 |
-| Schema 2 / Table 2v | User1, User2, Role1, Role2 | User2, Role2 | The matrix format can help identify the least permissions that are required by various resources and to avoid overlaps. An Access Control Matrix should be thought of as an abstract model of permissions at a given point in time. Periodically review the actual access permissions against the permission matrix document to ensure accuracy.
+| **Permissions**     | **Read**                   | **Write**    |
+| ------------------- | -------------------------- | ------------ |
+| Schema 1            | User1, User2, Role1, Role2 | Role1        |
+| Schema 1 / Table 1  | User1, User2, Role1, Role2 | Role2        |
+| Schema 2            | User1, User2, Role1, Role2 | User1, Role1 |
+| Schema 2 / Table 2v | User1, User2, Role1, Role2 | User2, Role2 |
+
+The matrix format can help identify the least permissions
+that are required by various resources and to avoid
+overlaps. An Access Control Matrix should be thought of as
+an abstract model of permissions at a given point in time.
+Periodically review the actual access permissions against
+the permission matrix document to ensure accuracy.

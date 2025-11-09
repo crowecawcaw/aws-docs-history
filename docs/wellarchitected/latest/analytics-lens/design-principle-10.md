@@ -6,9 +6,25 @@ best-performing file format and data partitioning for
 data-at-rest can have a large impact on the overall analytics
 workload efficiency.
 
-| **ID**    | **Priority** | **Best practice**                                                                                     |
-| --------- | ------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ☐ BP 10.1 | Recommended  | Select format based on data write frequency and patterns for append-only compared to in-place update. |
-| ☐ BP 10.2 | Recommended  | Choose data formatting based on your data access pattern                                              |
-| ☐ BP 10.3 | Recommended  | Utilize compression techniques to both decrease storage requirements and enhance I/O efficiency.      |
-| ☐ BP 10.4 | Recommended  | Partition your data to enable efficient data pruning and reduce unnecessary file reads.               | For more details, refer to the following information: <br>• Amazon Redshift Database Developer Guide: [Creating data files for queries in Amazon Redshift](../../../redshift/latest/dg/c-spectrum-data-files.md "../../../redshift/latest/dg/c-spectrum-data-files.md") [Spectrum](../../../redshift/latest/dg/c-spectrum-data-files.md "../../../redshift/latest/dg/c-spectrum-data-files.md") <br>• Amazon EMR Release Guide: [Hudi](../../../emr/latest/ReleaseGuide/emr-hudi.md "../../../emr/latest/ReleaseGuide/emr-hudi.md") <br>• AWS Big Data Blog: [Apply record level changes from relational databases to Amazon S3 data lake](https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/ "https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/") [using Apache Hudi on Amazon EMR and AWS Database Migration service](https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/ "https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/") |
+| **ID**       | **Priority** | **Best practice**                                                                                        |
+| ------------ | ------------ | -------------------------------------------------------------------------------------------------------- |
+| ☐<br>BP 10.1 | Recommended  | Select format based on data write frequency and patterns<br>for append-only compared to in-place update. |
+| ☐<br>BP 10.2 | Recommended  | Choose data formatting based on your data access pattern                                                 |
+| ☐<br>BP 10.3 | Recommended  | Utilize compression techniques to both decrease storage requirements and enhance I/O efficiency.         |
+| ☐<br>BP 10.4 | Recommended  | Partition your data to enable efficient data pruning and reduce unnecessary file reads.                  |
+
+For more details, refer to the following information:
+
+- Amazon Redshift Database Developer Guide:
+  [Creating
+  data files for queries in Amazon Redshift](../../../redshift/latest/dg/c-spectrum-data-files.md "../../../redshift/latest/dg/c-spectrum-data-files.md")
+  [Spectrum](../../../redshift/latest/dg/c-spectrum-data-files.md "../../../redshift/latest/dg/c-spectrum-data-files.md")
+- Amazon EMR Release Guide:
+  [Hudi](../../../emr/latest/ReleaseGuide/emr-hudi.md "../../../emr/latest/ReleaseGuide/emr-hudi.md")
+- AWS Big Data Blog:
+  [Apply
+  record level changes from relational databases to Amazon S3
+  data lake](https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/ "https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/")
+  [using
+  Apache Hudi on Amazon EMR and AWS Database Migration
+  service](https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/ "https://aws.amazon.com/blogs/big-data/apply-record-level-changes-from-relational-databases-to-amazon-s3-data-lake-using-apache-hudi-on-amazon-emr-and-aws-database-migration-service/")

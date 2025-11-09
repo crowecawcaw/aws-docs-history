@@ -1,63 +1,36 @@
-# Best practice 15.7 – Efficiently manage your analytics infrastructure to reduce
+# Best practice 15.1 – Define your organization’s current environmental impact
 
-underutilized resources
+As an organization, you should track your progress towards your sustainability goals. By determining your current environmental impact, you can track and report improvements as you make changes over time. Without knowing where you are you can’t know how far you’ve come.
 
-Ensuring your organization has the correct amount of resource provisioned for your workload is a diﬃcult and challenging task. The common approach for ensuring your organization has the suﬃcient number of resources available for unpredicted peaks is to overprovision your resources. However, this approach generally leads to underutilization, and energy waste.
+**How do you track your analytics
+carbon footprint?**
 
-When designing your analytics workloads, consider using managed and serverless services. Managed services shift responsibility for maintaining high average utilization, and sustainability optimization of the deployed hardware, to AWS. Use managed services to distribute the sustainability impact of the service across all tenants of the service, reducing your individual contribution.
+## Suggestion 15.1.1 – Determine the carbon emissions of your workload using the AWS Customer Carbon Footprint Tool
 
-For a wider understanding of optimizing infrastructure for sustainability, refer to the
-following information:
+Determining the current carbon emissions of your analytics workloads at the start of your optimization journey is important as it enables you to track your changes and see what efforts have the biggest impact. If you are an AWS user, your
+organization can use the AWS Customer Carbon Footprint Tool. The AWS Customer Carbon
+Footprint Tool is a data tracking and visualization tool that reports on your AWS accounts carbon usage.
 
-- Well-Architected Sustainability: [Optimizing your AWS Infrastructure for Sustainability, Part I: Compute](https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/ "https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/")
-- Well-Architected Sustainability: [Optimizing your AWS Infrastructure for Sustainability, Part II: Storage](https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-ii-storage/ "https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-ii-storage/")
-
-**How does your organization ensure efficient infrastructure
-usage?**
-
-## Suggestion 15.7.1– Use managed and serverless services
-
-Serverless is ideal when it is diﬃcult to predict compute needs, such as with variable workloads, periodic workloads with idle time, and steady-state workloads with spikes. These kinds of workloads are common in analytics applications. Data processing pipelines, running reports, and as-necessary queries are some examples.
-
-Use serverless services AWS Glue ETL and Amazon EMR Serverless to run your data processing jobs and let AWS manage and optimize the underlying resources efficiently. Similarly, using Amazon Athena and Amazon Redshift Serverless for data lakes and data warehousing ensures that you only use compute resources when needed, and allow these services to optimize resource utilization behind the scenes.
+Your organization should maintain an audit trail of the changes that your team
+have made, when they were made, and the impact that the changes had on the carbon
+footprint of each workload.
 
 For more details, refer to the following information:
 
-- [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")
-- [AWS Glue](https://aws.amazon.com/glue/engines/ "https://aws.amazon.com/glue/engines/")
-- [Amazon Redshift Serverless](https://aws.amazon.com/redshift/redshift-serverless/ "https://aws.amazon.com/redshift/redshift-serverless/")
-- [Amazon EMR Serverless](https://aws.amazon.com/emr/serverless/ "https://aws.amazon.com/emr/serverless/")
+- [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/")
+- [AWS Customer Carbon
+  Footprint Tool Overview](https://www.youtube.com/watch?v=WqhAnLdg3rg "https://www.youtube.com/watch?v=WqhAnLdg3rg")
+- [Sustainability Pillar Improvement Process](../sustainability-pillar/improvement-process.md "../sustainability-pillar/improvement-process.md")
+- [Sustainability Pillar Improvement Process](../sustainability-pillar/improvement-process.md "../sustainability-pillar/improvement-process.md")
 
-## Suggestion 15.7.2– Pause your data warehouse and compute clusters when not in use
+## Suggestion 15.1.2 – Define and track your progress using proxy metrics
 
-Compute resources should only be allocated when needed. If your workload cannot leverage serverless technologies, you should implement a process of stopping your compute clusters if there are periods when they will not be used (for example, during nights and weekends).
+When something is hard or impractical or very difficult to measure directly, you can instead use a related measurements in its place. This is called a _proxy metric_.
 
-If your data warehouse uses Amazon Redshift, you can use the pause and resume feature. This retains the underlying data structures so that you can resume the cluster when needed. You can pause and resume clusters using the console, or the API, or even create a schedule that automatically pauses and resumes the cluster at set times.
-
-Pausing data warehouse and compute clusters when not in use ensures there are fewer underutilized resources and reduces the environmental impact of your analytics workload.
-
-For more details, refer to the following information:
-
-- [Amazon Redshift pause and resume: Lower your costs with the new pause and resume actions on Amazon Redshift](https://aws.amazon.com/blogs/big-data/lower-your-costs-with-the-new-pause-and-resume-actions-on-amazon-redshift/ "https://aws.amazon.com/blogs/big-data/lower-your-costs-with-the-new-pause-and-resume-actions-on-amazon-redshift/")
-- [Amazon Redshift pause and resume: Pausing and resuming clusters](../../../redshift/latest/mgmt/managing-cluster-operations.md#rs-mgmt-pause-resume-cluster "../../../redshift/latest/mgmt/managing-cluster-operations.md#rs-mgmt-pause-resume-cluster")
-- [AWS Well-Architected Framework Data Analytics: Decouple storage from compute](best-practice-11.1---decouple-storage-from-compute..md "best-practice-11.1---decouple-storage-from-compute..md")
-
-## Suggestion 15.7.3 – Scale your data warehouses and compute clusters to match demand
-
-Only the necessary amount of compute resources should be allocated at any time. Scaling your data warehouse and compute clusters to match demand helps you maximize resource utilization, and reduce the environmental impact of your analytics workload.
+Environmental impact is hard to measure directly, especially when you want fine-grained measurements. However, in the cloud, the environmental impact of a workload is often correlated with efficiency, which is also often correlated with cost. Just like you can apply many of the best practices of the performance efficiency and cost optimization pillars to lower your environmental impact, you can also use performance metrics and cost as proxy metrics to track your progress.
 
 For more details, refer to the following information:
 
-- [AWS Well-Architected Framework: SUS05-BP01 Use the minimum amount of hardware to meet your needs](../sustainability-pillar/sus_sus_hardware_a2.md "../sustainability-pillar/sus_sus_hardware_a2.md")
-- AWS Well-Architected Framework Data Analytics: Best practice 11.4 – Use auto scaling where appropriate
-- [Scale Amazon Redshift to meet high throughput query requirements](https://aws.amazon.com/blogs/big-data/scale-amazon-redshift-to-meet-high-throughput-query-requirements/ "https://aws.amazon.com/blogs/big-data/scale-amazon-redshift-to-meet-high-throughput-query-requirements/")
-- [Amazon Redshift: Elastic resize](../../../redshift/latest/mgmt/managing-cluster-operations.md#elastic-resize "../../../redshift/latest/mgmt/managing-cluster-operations.md#elastic-resize")
-- [Amazon Redshift: Working with concurrency scaling](../../../redshift/latest/dg/concurrency-scaling.md "../../../redshift/latest/dg/concurrency-scaling.md")
-
-## Suggestion 15.7.4 – Run your analytics workloads on spare capacity in your Amazon EKS environment for optimal application infrastructure usage
-
-If you use Amazon EKS to run your applications, you can use Amazon EMR on Amazon EKS to also run your analytics workloads, such as Apache Spark jobs, on the same infrastructure. This can make it possible to increase the utilization of your existing compute resources.
-
-For more details, refer to the following information:
-
-- [Amazon EMR on Amazon EKS](https://aws.amazon.com/emr/features/eks/ "https://aws.amazon.com/emr/features/eks/")
+- [Evaluate specific improvements](../sustainability-pillar/evaluate-specific-improvements.md "../sustainability-pillar/evaluate-specific-improvements.md")
+- [Turning Cost and Usage Reports into Efficiency Reports](https://catalog.workshops.aws/well-architected-sustainability/en-US/5-process-and-culture/cur-reports-as-efficiency-reports "https://catalog.workshops.aws/well-architected-sustainability/en-US/5-process-and-culture/cur-reports-as-efficiency-reports")
+- [Best practice 8.3 – Define and measure the computing performance metrics](best-practice-8.3---define-and-measure-the-computing-performance-metrics..md "best-practice-8.3---define-and-measure-the-computing-performance-metrics..md")

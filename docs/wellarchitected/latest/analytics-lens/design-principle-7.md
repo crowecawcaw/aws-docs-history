@@ -8,8 +8,8 @@ difficult to anticipate the impact of these changes. It also
 makes downstream systems harder to manage data quality issues
 of their own.
 
-| **ID**   | **Priority** | **Best practice**                                                         |
-| -------- | ------------ | ------------------------------------------------------------------------- |
-| ☐ BP 7.1 | Required     | Build a central Data Catalog to store, share, and track metadata changes. |
-| ☐ BP 7.2 | Required     | Monitor for data quality anomalies.                                       |
-| ☐ BP 7.3 | Required     | Trace data lineage.                                                       |
+| **ID**      | **Priority** | **Best practice**                                                            |
+| ----------- | ------------ | ---------------------------------------------------------------------------- |
+| ☐<br>BP 7.1 | Required     | Build a central Data Catalog to store, share, and track<br>metadata changes. |
+| ☐<br>BP 7.2 | Required     | Monitor for data quality anomalies.                                          |
+| ☐<br>BP 7.3 | Required     | Trace data lineage.                                                          |
