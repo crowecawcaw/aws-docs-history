@@ -111,10 +111,10 @@ state and then the `completed` state. Otherwise, it is permanently deleted.
 
 The following table summarizes the snapshot states.
 
-| Status        | Description                                                                                                                                                     |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pending`     | The snapshot creation process is still in progress. A snapshot can't be used while it is in the `pending` state.                                                |
-| `completed`   | The snapshot creation process has completed and the snapshot is ready for use.                                                                                  |
-| `recoverable` | The snapshot is currently in the Recycle Bin. To use the snapshot, you must first recover it from the Recycle Bin.                                              |
-| `recovering`  | The snapshot is being recovered from the Recycle Bin. After the snapshot has been recovered, it transitions to the `completed` state and becomes ready for use. |
-| `error`       | The snapshot creation process has failed. A snapshot can't be used if it is in the `error` state.                                                               |
+| Status        | Description                                                                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pending`     | The snapshot creation process is still in progress. A snapshot can't<br>be used while it is in the `pending` state.                                                   |
+| `completed`   | The snapshot creation process has completed and the snapshot is<br>ready for use.                                                                                     |
+| `recoverable` | The snapshot is currently in the Recycle Bin. To use the snapshot,<br>you must first recover it from the Recycle Bin.                                                 |
+| `recovering`  | The snapshot is being recovered from the Recycle Bin. After the snapshot<br>has been recovered, it transitions to the `completed` state and<br>becomes ready for use. |
+| `error`       | The snapshot creation process has failed. A snapshot can't be used<br>if it is in the `error` state.                                                                  |

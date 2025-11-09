@@ -26,32 +26,60 @@ enabled for [encryption by default](encryption-by-default.md "encryption-by-defa
 The following table describes the encryption outcome for each possible combination of settings
 when specifying an unencrypted parent snapshot.
 
-| ParentSnapshotId | Encrypted                                                                                                             | KmsKeyArn | Encryption by default | Result                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- | --------- | --------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Unencrypted      | Omitted                                                                                                               | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         | The snapshot is unencrypted.                                                                                          |           | Specified             | Enabled                                                                  |
+| ParentSnapshotId | Encrypted                    | KmsKeyArn | Encryption by default | Result                                        |
+| ---------------- | ---------------------------- | --------- | --------------------- | --------------------------------------------- |
+| Unencrypted      | Omitted                      | Omitted   | Enabled               | The request fails with `ValidationException`. |
+| Disabled         | The snapshot is unencrypted. |
+| Specified        | Enabled                      |
 | Disabled         |
-| Unencrypted      | True                                                                                                                  | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         |                                                                                                                       | Specified | Enabled               |                                                                          | Disabled                                                                 |
-| Unencrypted      | False                                                                                                                 | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         |                                                                                                                       | Specified | Enabled               |                                                                          | Disabled                                                                 | ## Encryption outcomes: Encrypted parent snapshot The following table describes the encryption outcome for each possible combination of settings when specifying an encrypted parent snapshot. |
-| ParentSnapshotId | Encrypted                                                                                                             | KmsKeyArn | Encryption by default | Result                                                                   |
-| ---              | ---                                                                                                                   | ---       | ---                   | ---                                                                      |
-| Encrypted        | Omitted                                                                                                               | Omitted   | Enabled               | The snapshot is encrypted using the same KMS key as the parent snapshot. |
-| Disabled         |                                                                                                                       | Specified | Enabled               | The request fails with `ValidationException`.                            |
+| Unencrypted      | True                         | Omitted   | Enabled               | The request fails with `ValidationException`. |
 | Disabled         |
-| Encrypted        | True                                                                                                                  | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         |                                                                                                                       | Specified | Enabled               |                                                                          | Disabled                                                                 |
-| Encrypted        | False                                                                                                                 | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         |                                                                                                                       | Specified | Enabled               |                                                                          | Disabled                                                                 | ## Encryption outcomes: No parent snapshot The following tables describe the encryption outcome for each possible combination of settings when not using a parent snapshot.                    |
-| ParentSnapshotId | Encrypted                                                                                                             | KmsKeyArn | Encryption by default | Result                                                                   |
-| ---              | ---                                                                                                                   | ---       | ---                   | ---                                                                      |
-| Omitted          | True                                                                                                                  | Omitted   | Enabled               | The snapshot is encrypted using the default KMS key for your account. \* |
-| Disabled         |                                                                                                                       | Specified | Enabled               | The snapshot is encrypted using the KMS key specified for **KmsKeyArn**. |
+| Specified        | Enabled                      |
 | Disabled         |
-| Omitted          | False                                                                                                                 | Omitted   | Enabled               | The request fails with `ValidationException`.                            |
-| Disabled         | The snapshot is unencrypted.                                                                                          |           | Specified             | Enabled                                                                  | The request fails with `ValidationException`.                            |
+| Unencrypted      | False                        | Omitted   | Enabled               | The request fails with `ValidationException`. |
 | Disabled         |
-| Omitted          | Omitted                                                                                                               | Omitted   | Enabled               | The snapshot is encrypted using the default KMS key for your account. \* |
-| Disabled         | The snapshot is unencrypted.                                                                                          |           | Specified             | Enabled                                                                  | The snapshot is encrypted using the KMS key specified for **KmsKeyArn**. |
-| Disabled         | \* This default KMS key could be a customer managed key or the default AWS managed KMS key for Amazon EBS encryption. |
+| Specified        | Enabled                      |
+| Disabled         |
+
+## Encryption outcomes: Encrypted parent snapshot
+
+The following table describes the encryption outcome for each possible combination of settings
+when specifying an encrypted parent snapshot.
+
+| ParentSnapshotId | Encrypted | KmsKeyArn                                     | Encryption by default | Result                                                                      |
+| ---------------- | --------- | --------------------------------------------- | --------------------- | --------------------------------------------------------------------------- |
+| Encrypted        | Omitted   | Omitted                                       | Enabled               | The snapshot is encrypted using the same KMS key<br>as the parent snapshot. |
+| Disabled         |
+| Specified        | Enabled   | The request fails with `ValidationException`. |
+| Disabled         |
+| Encrypted        | True      | Omitted                                       | Enabled               | The request fails with `ValidationException`.                               |
+| Disabled         |
+| Specified        | Enabled   |
+| Disabled         |
+| Encrypted        | False     | Omitted                                       | Enabled               | The request fails with `ValidationException`.                               |
+| Disabled         |
+| Specified        | Enabled   |
+| Disabled         |
+
+## Encryption outcomes: No parent snapshot
+
+The following tables describe the encryption outcome for each possible combination of settings
+when not using a parent snapshot.
+
+| ParentSnapshotId | Encrypted                    | KmsKeyArn                                                                   | Encryption by default | Result                                                                   |
+| ---------------- | ---------------------------- | --------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------ |
+| Omitted          | True                         | Omitted                                                                     | Enabled               | The snapshot is encrypted using the default KMS key for your account. \* |
+| Disabled         |
+| Specified        | Enabled                      | The snapshot is encrypted using the KMS key specified for<br>**KmsKeyArn**. |
+| Disabled         |
+| Omitted          | False                        | Omitted                                                                     | Enabled               | The request fails with `ValidationException`.                            |
+| Disabled         | The snapshot is unencrypted. |
+| Specified        | Enabled                      | The request fails with `ValidationException`.                               |
+| Disabled         |
+| Omitted          | Omitted                      | Omitted                                                                     | Enabled               | The snapshot is encrypted using the default KMS key for your account. \* |
+| Disabled         | The snapshot is unencrypted. |
+| Specified        | Enabled                      | The snapshot is encrypted using the KMS key specified for<br>**KmsKeyArn**. |
+| Disabled         |
+
+\* This default KMS key could be a customer managed key or the default AWS managed KMS key for
+Amazon EBS encryption.

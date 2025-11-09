@@ -30,11 +30,106 @@ The encryption state of the volume depends on whether your account is
 the encryption state of the snapshot, if you choose to use one. The following table
 summarizes thepossible encryption outcomes.
 
-| Encryption by default | Snapshot used?   | Volume encryption outcome | Note                                                                                                                                                                                                        |
-| --------------------- | ---------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Disabled              | No               | Optional encryption       | If you enable encryption, you can specify the KMS key to use. If you enable encryption but do not specify a KMS key, the AWS managed key (`aws/ebs`) is used.                                               |
-| Disabled              | Yes, unencrypted | Optional encryption       | If you enable encryption, you can specify the KMS key to use. If you enable encryption but do not specify a KMS key, the AWS managed key (`aws/ebs`) is used.                                               |
-| Disabled              | Yes, encrypted   | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the volume is encrypted using the same KMS key as the source snapshot.                                                                 |
-| Enabled               | No               | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the key specified for encryption by default is used.                                                                                   |
-| Enabled               | Yes, unencrypted | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the key specified for encryption by default is used.                                                                                   |
-| Enabled               | Yes, encrypted   | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the volume is encrypted using the same key as the source snapshot (console), or the key specified for encryption by default (CLI/API). | ###### Additional considerations <br>• Volumes must be attached to instances in the same Availability Zone. <br>• Volumes are ready for use only after they enter the `available` state. <br>• When you create a volume using the console, `gp3` is the default volume type. For the command line tools, API, and SDK, `gp2` is the default volume type. <br>• To use a volume with an instance running on an outpost, you must create the volume on the same outpost as the instance. <br>• If you create a volume for use with a Windows instance, and it's larger than 2048 GiB, ensure that you configure the volume to use GPT partition tables. For more information, see [Amazon EBS volume constraints](volume_constraints.md "volume_constraints.md") and [Windows support for disks larger than 2 TB.](https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb "https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb"). <br>• Volumes are also created indirectly by launching an Amazon EC2 instance. Either the AMI used to launch the instance, or the instance launch request itself could include block device mappings for Amazon EBS volumes. For more information, see [Block device mappings](../../../AWSEC2/latest/UserGuide/block-device-mapping-concepts.md "../../../AWSEC2/latest/UserGuide/block-device-mapping-concepts.md"). Console ###### To create a volume 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Volumes** and then choose **Create volume**. 3. (_Outpost customers only_) For **Outpost ARN**, enter the ARN of the AWS Outpost on which to create the volume. 4. For **Volume type**, choose the type of volume to create. For more information about the available volume types, see [Amazon EBS volume types](ebs-volume-types.md "ebs-volume-types.md"). 5. For **Size**, enter the size of the volume, in GiB. For more information, see [Amazon EBS volume constraints](volume_constraints.md "volume_constraints.md"). 6. (_For `io1`, `io2`, and `gp3` only_) For **IOPS**, enter the maximum number of input/output operations per second (IOPS) that the volume should provide. 7. (_For `gp3` only_) For **Throughput**, enter the throughput that the volume should provide, in MiB/s. 8. For **Availability Zone**, choose the Availability Zone in which to create the volume. 9. For **Snapshot ID**, do one of the following: <br>• To create an empty volume, keep the default value (**Don't create volume from a snapshot**). <br>• To create the volume from a snapshot, select the snapshot to use. 10. If you have selected a snapshot, for **Volume initialization rate**, you can optionally specify the volume initialization rate, in MiB/s, at which the snapshot blocks are to be downloaded from Amazon S3 to the volume after creation. For more information, see [Use an Amazon EBS Provisioned Rate for Volume Initialization](initalize-volume.md#volume-initialization-rate "initalize-volume.md#volume-initialization-rate"). To use the default initialization rate or fast snapshot restore (if it is enabled for the selected snapshot), don't specify a rate. 11. (_`io1` and `io2` only_) To enable the volume for Amazon EBS Multi-Attach, select **Enable Multi-Attach**. For more information, see [Attach an EBS volume to multiple EC2 instances using Multi-Attach](ebs-volumes-multi.md "ebs-volumes-multi.md"). 12. Set the encryption status for the volume. <br>• If your account is enabled for [encryption by default](encryption-by-default.md "encryption-by-default.md"), encryption is automatic and can't be disabled. <br>• If you selected an encrypted snapshot, encryption is automatic and can't be disabled. <br>• If your account is not enabled for [encryption by default](encryption-by-default.md "encryption-by-default.md"), and you select an unencrypted snapshot or do not select a snapshot, encryption is optional. 13. (_Optional_) To assign custom tags to the volume, in the **Tags** section, choose **Add tag**, and then enter a tag key and value pair. 14. Choose **Create volume**. 15. To use the volume, wait for it to reach the `available` state and then attach it to an Amazon EC2 instance in the same Availability Zone. For more information, see [Attach an Amazon EBS volume to an Amazon EC2 instance](ebs-attaching-volume.md "ebs-attaching-volume.md"). AWS CLI ###### To create a volume Use the [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md") command. The following example creates an empty gp3 volume with a size of 100 GiB in the specified Availability Zone. `` aws ec2 create-volume \ --volume-type `gp3` \ --size `100` \ --availability-zone `us-east-1a` `` PowerShell ###### To create a volume Use the [New-EC2Volume](../../../powershell/latest/reference/items/New-EC2Volume.md "../../../powershell/latest/reference/items/New-EC2Volume.md") cmdlet. The following example creates an empty gp3 volume with a size of 100 GiB in the specified Availability Zone. `` New-EC2Volume ` -VolumeType `gp3` ` -Size `100` ` -AvailabilityZone `us-east-1a` `` |
+| Encryption by default | Snapshot used?   | Volume encryption outcome | Note                                                                                                                                                                                                           |
+| --------------------- | ---------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disabled              | No               | Optional encryption       | If you enable encryption, you can specify the KMS key to use. If you enable encryption<br>but do not specify a KMS key, the AWS managed key (`aws/ebs`) is used.                                               |
+| Disabled              | Yes, unencrypted | Optional encryption       | If you enable encryption, you can specify the KMS key to use. If you enable encryption<br>but do not specify a KMS key, the AWS managed key (`aws/ebs`) is used.                                               |
+| Disabled              | Yes, encrypted   | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the volume is encrypted<br>using the same KMS key as the source snapshot.                                                                 |
+| Enabled               | No               | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the key specified<br>for encryption by default is used.                                                                                   |
+| Enabled               | Yes, unencrypted | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the key specified<br>for encryption by default is used.                                                                                   |
+| Enabled               | Yes, encrypted   | Automatic encryption      | You can specify the KMS key to use. If you do not specify a KMS key, the volume is encrypted<br>using the same key as the source snapshot (console), or the key specified for encryption by default (CLI/API). |
+
+###### Additional considerations
+
+- Volumes must be attached to instances in the same Availability Zone.
+- Volumes are ready for use only after they enter the `available` state.
+- When you create a volume using the console, `gp3` is the default volume type. For the
+  command line tools, API, and SDK, `gp2` is the default volume type.
+- To use a volume with an instance running on an outpost, you must create the volume on
+  the same outpost as the instance.
+- If you create a volume for use with a Windows instance, and it's larger than 2048 GiB,
+  ensure that you configure the volume to use GPT partition tables. For more information, see
+  [Amazon EBS volume constraints](volume_constraints.md "volume_constraints.md") and [Windows support for disks larger than 2 TB.](https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb "https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/support-for-hard-disks-exceeding-2-tb").
+- Volumes are also created indirectly by launching an Amazon EC2 instance. Either the AMI
+  used to launch the instance, or the instance launch request itself could include block
+  device mappings for Amazon EBS volumes. For more information, see [Block device mappings](../../../AWSEC2/latest/UserGuide/block-device-mapping-concepts.md "../../../AWSEC2/latest/UserGuide/block-device-mapping-concepts.md").
+
+Console
+
+###### To create a volume
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Volumes** and then choose
+   **Create volume**.
+3. (_Outpost customers only_) For **Outpost ARN**, enter
+   the ARN of the AWS Outpost on which to create the volume.
+4. For **Volume type**, choose the type of volume to create. For more
+   information about the available volume types, see [Amazon EBS volume types](ebs-volume-types.md "ebs-volume-types.md").
+5. For **Size**, enter the size of the volume, in GiB. For more information,
+   see [Amazon EBS volume constraints](volume_constraints.md "volume_constraints.md").
+6. (_For `io1`, `io2`, and `gp3` only_) For **IOPS**,
+   enter the maximum number of input/output operations per second (IOPS) that the volume should
+   provide.
+7. (_For `gp3` only_) For **Throughput**, enter the
+   throughput that the volume should provide, in MiB/s.
+8. For **Availability Zone**, choose the Availability Zone in which to
+   create the volume.
+9. For **Snapshot ID**, do one of the following:
+   - To create an empty volume, keep the default value (**Don't create volume from
+     a snapshot**).
+   - To create the volume from a snapshot, select the snapshot to use.
+
+10. If you have selected a snapshot, for **Volume initialization rate**, you
+    can optionally specify the volume initialization rate, in MiB/s, at which the snapshot blocks
+    are to be downloaded from Amazon S3 to the volume after creation. For more information, see
+    [Use an Amazon EBS Provisioned Rate for Volume Initialization](initalize-volume.md#volume-initialization-rate "initalize-volume.md#volume-initialization-rate").
+    To use the default initialization rate or fast snapshot restore (if it is enabled for the
+    selected snapshot), don't specify a rate.
+11. (_`io1` and `io2` only_) To enable the volume for Amazon EBS Multi-Attach,
+    select **Enable Multi-Attach**. For more information, see
+    [Attach an EBS volume to multiple EC2 instances using Multi-Attach](ebs-volumes-multi.md "ebs-volumes-multi.md").
+12. Set the encryption status for the volume.
+    - If your account is enabled for [encryption by
+      default](encryption-by-default.md "encryption-by-default.md"), encryption is automatic and can't be disabled.
+    - If you selected an encrypted snapshot, encryption is automatic and can't be disabled.
+    - If your account is not enabled for [encryption
+      by default](encryption-by-default.md "encryption-by-default.md"), and you select an unencrypted snapshot or do not select a snapshot,
+      encryption is optional.
+
+13. (_Optional_) To assign custom tags to the volume, in the **Tags**
+    section, choose **Add tag**, and then enter a tag key and value pair.
+14. Choose **Create volume**.
+15. To use the volume, wait for it to reach the `available` state and then attach
+    it to an Amazon EC2 instance in the same Availability Zone. For more information, see
+    [Attach an Amazon EBS volume to an Amazon EC2 instance](ebs-attaching-volume.md "ebs-attaching-volume.md").
+
+AWS CLI
+
+###### To create a volume
+
+Use the [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md") command.
+The following example creates an empty gp3 volume with a size of 100 GiB in the specified
+Availability Zone.
+
+```
+aws ec2 create-volume \
+    --volume-type `gp3` \
+    --size `100` \
+    --availability-zone `us-east-1a`
+```
+
+PowerShell
+
+###### To create a volume
+
+Use the [New-EC2Volume](../../../powershell/latest/reference/items/New-EC2Volume.md "../../../powershell/latest/reference/items/New-EC2Volume.md") cmdlet.
+The following example creates an empty gp3 volume with a size of 100 GiB in the specified
+Availability Zone.
+
+```
+New-EC2Volume `
+    -VolumeType `gp3` `
+    -Size `100` `
+    -AvailabilityZone `us-east-1a`
+```

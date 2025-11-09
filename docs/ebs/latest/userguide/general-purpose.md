@@ -160,10 +160,40 @@ of the volume, the burst duration (when starting with 5.4 million I/O credits), 
 time needed to refill an empty I/O credits balance.
 
 | Volume size (GiB)                        | Baseline performance (IOPS) | Burst duration at 3,000 IOPS (seconds) | Time to refill empty credit balance (seconds) |
-| ---------------------------------------- | --------------------------- | -------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------- | --------------------------- | -------------------------------------- | --------------------------------------------- |
 | 1 to 33.33                               | 100                         | 1,862                                  | 54,000                                        |
 | 100                                      | 300                         | 2,000                                  | 18,000                                        |
 | 334 (min size for max throughput)        | 1,002                       | 2,703                                  | 5,389                                         |
 | 750                                      | 2,250                       | 7,200                                  | 2,400                                         |
 | 1,000                                    | 3,000                       | N/A\*                                  | N/A\*                                         |
-| 5,334 (min size for max IOPS) and larger | 16,000                      | N/A\*                                  | N/A\*                                         | \* The baseline performance of the volume exceeds the maximum burst performance. You can monitor the I/O credit balance for a volume using the Amazon EBS `BurstBalance` metric in Amazon CloudWatch. This metric shows the percentage of I/O credits for `gp2` remaining. For more information, see [Amazon EBS I/O characteristics and monitoring](ebs-io-characteristics.md "ebs-io-characteristics.md"). You can set an alarm that notifies you when the `BurstBalance` value falls to a certain level. For more information, see [Creating CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). ###### Throughput performance `gp2` volumes deliver throughput between 128 MiB/s and 250 MiB/s, depending on the volume size. Throughput performance is provisioned as follows: <br>• Volumes that are 170 GiB and smaller deliver a maximum throughput of 128 MiB/s. <br>• Volumes larger than 170 GiB but smaller than 334 GiB can burst to a maximum throughput of 250 MiB/s. <br>• Volumes that are 334 GiB and larger deliver 250 MiB/s. Throughput for a `gp2` volume can be calculated using the following formula, up to the throughput limit of 250 MiB/s: `Throughput in MiB/s = IOPS performance × I/O size in KiB / 1,024` ### `gp2` volume size A `gp2` volume can range in size from 1 GiB to 16 TiB. Keep in mind that volume performance scales linearly with the volume size. |
+| 5,334 (min size for max IOPS) and larger | 16,000                      | N/A\*                                  | N/A\*                                         |
+
+\* The baseline performance of the volume exceeds the maximum burst performance.
+
+You can monitor the I/O credit balance for a volume using the Amazon EBS
+`BurstBalance` metric in Amazon CloudWatch. This metric shows the percentage of I/O
+credits for `gp2` remaining. For more information, see [Amazon EBS I/O characteristics and monitoring](ebs-io-characteristics.md "ebs-io-characteristics.md"). You can set
+an alarm that notifies you when the `BurstBalance` value falls to a certain
+level. For more information, see [Creating CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
+
+###### Throughput performance
+
+`gp2` volumes deliver throughput between 128 MiB/s and 250 MiB/s, depending on the
+volume size. Throughput performance is provisioned as follows:
+
+- Volumes that are 170 GiB and smaller deliver a maximum throughput of 128 MiB/s.
+- Volumes larger than 170 GiB but smaller than 334 GiB can burst to a maximum
+  throughput of 250 MiB/s.
+- Volumes that are 334 GiB and larger deliver 250 MiB/s.
+
+Throughput for a `gp2` volume can be calculated using the following formula, up to the
+throughput limit of 250 MiB/s:
+
+```
+Throughput in MiB/s = IOPS performance × I/O size in KiB / 1,024
+```
+
+### `gp2` volume size
+
+A `gp2` volume can range in size from 1 GiB to 16 TiB. Keep in mind that volume
+performance scales linearly with the volume size.

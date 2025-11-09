@@ -152,16 +152,30 @@ this avoids potential problems with hidden folders.
 The following table describes the encryption outcome for each possible combination of settings.
 
 | Is encryption enabled? | Is encryption by default enabled? | Source of volume                             | Default (no customer managed key specified) | Custom (customer managed key specified)           |
-| ---------------------- | --------------------------------- | -------------------------------------------- | ------------------------------------------- | ------------------------------------------------- | --- | --- | ------------------------------------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | --------------------------------- | -------------------------------------------- | ------------------------------------------- | ------------------------------------------------- |
 | No                     | No                                | New (empty) volume                           | Unencrypted                                 | N/A                                               |
-| No                     | No                                | Unencrypted snapshot that you own            | Unencrypted                                 |                                                   | No  | No  | Encrypted snapshot that you own            | Encrypted by same key                       |
-| No                     | No                                | Unencrypted snapshot that is shared with you | Unencrypted                                 |                                                   | No  | No  | Encrypted snapshot that is shared with you | Encrypted by default customer managed key\* |
+| No                     | No                                | Unencrypted snapshot that you own            | Unencrypted                                 |
+| No                     | No                                | Encrypted snapshot that you own              | Encrypted by same key                       |
+| No                     | No                                | Unencrypted snapshot that is shared with you | Unencrypted                                 |
+| No                     | No                                | Encrypted snapshot that is shared with you   | Encrypted by default customer managed key\* |
 | Yes                    | No                                | New volume                                   | Encrypted by default customer managed key   | Encrypted by a specified customer managed key\*\* |
-| Yes                    | No                                | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |                                                   | Yes | No  | Encrypted snapshot that you own            | Encrypted by same key                       |
-| Yes                    | No                                | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |                                                   | Yes | No  | Encrypted snapshot that is shared with you | Encrypted by default customer managed key   |
+| Yes                    | No                                | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |
+| Yes                    | No                                | Encrypted snapshot that you own              | Encrypted by same key                       |
+| Yes                    | No                                | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |
+| Yes                    | No                                | Encrypted snapshot that is shared with you   | Encrypted by default customer managed key   |
 | No                     | Yes                               | New (empty) volume                           | Encrypted by default customer managed key   | N/A                                               |
-| No                     | Yes                               | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |                                                   | No  | Yes | Encrypted snapshot that you own            | Encrypted by same key                       |
-| No                     | Yes                               | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |                                                   | No  | Yes | Encrypted snapshot that is shared with you | Encrypted by default customer managed key   |
+| No                     | Yes                               | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |
+| No                     | Yes                               | Encrypted snapshot that you own              | Encrypted by same key                       |
+| No                     | Yes                               | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |
+| No                     | Yes                               | Encrypted snapshot that is shared with you   | Encrypted by default customer managed key   |
 | Yes                    | Yes                               | New volume                                   | Encrypted by default customer managed key   | Encrypted by a specified customer managed key     |
-| Yes                    | Yes                               | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |                                                   | Yes | Yes | Encrypted snapshot that you own            | Encrypted by same key                       |
-| Yes                    | Yes                               | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |                                                   | Yes | Yes | Encrypted snapshot that is shared with you | Encrypted by default customer managed key   | \* This is the default customer managed key used for EBS encryption for the AWS account and Region. By default this is a unique AWS managed key for EBS, or you can specify a customer managed key. \*\* This is a customer managed key specified for the volume at launch time. This customer managed key is used instead of the default customer managed key for the AWS account and Region. |
+| Yes                    | Yes                               | Unencrypted snapshot that you own            | Encrypted by default customer managed key   |
+| Yes                    | Yes                               | Encrypted snapshot that you own              | Encrypted by same key                       |
+| Yes                    | Yes                               | Unencrypted snapshot that is shared with you | Encrypted by default customer managed key   |
+| Yes                    | Yes                               | Encrypted snapshot that is shared with you   | Encrypted by default customer managed key   |
+
+\* This is the default customer managed key used for EBS encryption for the AWS account and Region.
+By default this is a unique AWS managed key for EBS, or you can specify a customer managed key.
+
+\*\* This is a customer managed key specified for the volume at launch time. This
+customer managed key is used instead of the default customer managed key for the AWS account and Region.

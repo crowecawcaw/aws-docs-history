@@ -58,9 +58,57 @@ them. For more information, see [Manually initialize the volumes after creation]
 
 The following table lists statuses for Amazon EBS volumes.
 
-| Volume status       | I/O enabled status                                                                                                                    | I/O performance status (`io1`, `io2`, and `gp3` volumes only)                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ok`                | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                             | Normal (Volume performance is as expected)                                                                                    |
-| `warning`           | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                             | Degraded (Volume performance is below expectations) Severely Degraded (Volume performance is well below expectations)         |
-| `impaired`          | Enabled (I/O Enabled or I/O Auto-Enabled) Disabled (Volume is offline and pending recovery, or is waiting for the user to enable I/O) | Stalled (Volume performance is severely impacted) Not Available (Unable to determine I/O performance because I/O is disabled) |
-| `insufficient-data` | Enabled (I/O Enabled or I/O Auto-Enabled) Insufficient Data                                                                           | Insufficient Data                                                                                                             | Console ###### To view status checks 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Volumes**. The **Volume status** column displays the operational status of each volume. 3. To view the status details of a specific volume, select it in the grid and choose the **Status checks** tab. 4. If you have a volume with a failed status check (status is `impaired`), see [Work with an impaired Amazon EBS volume](work_volumes_impaired.md "work_volumes_impaired.md"). Alternatively, you can choose **Events** in the navigator to view all the events for your instances and volumes. For more information, see [Amazon EBS volume events](monitoring-vol-events.md "monitoring-vol-events.md"). AWS CLI ###### To view volume status information Use the [describe-volume-status](../../../cli/latest/reference/ec2/describe-volume-status.md "../../../cli/latest/reference/ec2/describe-volume-status.md") command. `` aws ec2 describe-volume-status --volume-ids `vol-01234567890abcdef` `` Use the following example to identify impaired volumes. `aws ec2 describe-volume-status --filters Name=volume-status.status,Values=impaired` PowerShell ###### To view volume status information Use the [Get-EC2VolumeStatus](../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md "../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md") cmdlet. `` Get-EC2VolumeStatus -VolumeId `vol-01234567890abcdef` `` Use the following example to identify impaired volumes. `Get-EC2VolumeStatus -Filter @{Name="volume-status.status"; Values="impaired"}` |
+| Volume status       | I/O enabled status                                                                                                                          | I/O performance status (`io1`, `io2`, and `gp3` volumes only)                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `ok`                | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                                   | Normal (Volume performance is as expected)                                                                                          |
+| `warning`           | Enabled (I/O Enabled or I/O Auto-Enabled)                                                                                                   | Degraded (Volume performance is below expectations)<br>Severely Degraded (Volume performance is well below<br>expectations)         |
+| `impaired`          | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Disabled (Volume is offline and pending recovery, or is waiting<br>for the user to enable I/O) | Stalled (Volume performance is severely impacted)<br>Not Available (Unable to determine I/O performance because I/O is<br>disabled) |
+| `insufficient-data` | Enabled (I/O Enabled or I/O Auto-Enabled)<br>Insufficient Data                                                                              | Insufficient Data                                                                                                                   |
+
+Console
+
+###### To view status checks
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Volumes**.
+
+The **Volume status** column displays the operational status of
+each volume. 3. To view the status details of a specific volume, select it in the
+grid and choose the **Status checks** tab. 4. If you have a volume with a failed status check (status is `impaired`),
+see [Work with an impaired Amazon EBS volume](work_volumes_impaired.md "work_volumes_impaired.md").
+
+Alternatively, you can choose **Events** in the navigator to view all
+the events for your instances and volumes. For more information, see [Amazon EBS volume events](monitoring-vol-events.md "monitoring-vol-events.md").
+
+AWS CLI
+
+###### To view volume status information
+
+Use the [describe-volume-status](../../../cli/latest/reference/ec2/describe-volume-status.md "../../../cli/latest/reference/ec2/describe-volume-status.md") command.
+
+```
+aws ec2 describe-volume-status --volume-ids `vol-01234567890abcdef`
+```
+
+Use the following example to identify impaired volumes.
+
+```
+aws ec2 describe-volume-status --filters Name=volume-status.status,Values=impaired
+```
+
+PowerShell
+
+###### To view volume status information
+
+Use the [Get-EC2VolumeStatus](../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md "../../../powershell/latest/reference/items/Get-EC2VolumeStatus.md") cmdlet.
+
+```
+Get-EC2VolumeStatus -VolumeId `vol-01234567890abcdef`
+```
+
+Use the following example to identify impaired volumes.
+
+```
+Get-EC2VolumeStatus -Filter @{Name="volume-status.status"; Values="impaired"}
+```

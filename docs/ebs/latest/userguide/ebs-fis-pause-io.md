@@ -17,9 +17,9 @@ Keep in mind the following considerations for pausing volume I/O:
 
       + The volume's status transitions to `impaired` within 120 seconds. For more
        information, see [Amazon EBS volume status checks](monitoring-volume-checks.md "monitoring-volume-checks.md").
+      + The CloudWatch metric for `VolumeStalledIOCheck` will be `1` if volume I/O is paused for over 60 seconds. For more information see [Metrics for Amazon EBS volumes](using_cloudwatch_ebs.md#ebs-volume-metrics "using_cloudwatch_ebs.md#ebs-volume-metrics").
       + The CloudWatch metrics for queue length (`VolumeQueueLength`) will be non-zero.
-       Any alarms or monitoring should monitor for a non-zero queue depth. For more information see
-       [Metrics for Amazon EBS volumes](using_cloudwatch_ebs.md#ebs-volume-metrics "using_cloudwatch_ebs.md#ebs-volume-metrics").
+       Any alarms or monitoring should monitor for a non-zero queue depth.
       + The CloudWatch metrics for `VolumeReadOps` or `VolumeWriteOps` will be
        `0`, which indicates that the volume is no longer processing I/O.
 

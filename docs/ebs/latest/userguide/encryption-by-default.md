@@ -14,10 +14,6 @@ Encryption by default has no effect on existing EBS volumes or snapshots.
 - Amazon EBS encryption by default is supported on all [current generation](../../../AWSEC2/latest/UserGuide/instance-types.md#current-gen-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#current-gen-instances") and [previous generation](../../../AWSEC2/latest/UserGuide/instance-types.md#previous-gen-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#previous-gen-instances") instance types.
 - If you copy a snapshot and encrypt it to a new KMS key, a complete
   (non-incremental) copy is created. This results in additional storage costs.
-- When migrating servers using AWS Server Migration Service (SMS), do not turn on encryption by default.
-  If encryption by default is already on and you are experiencing delta replication
-  failures, turn off encryption by default. Instead, enable AMI encryption when you
-  create the replication job.
 
 Console
 

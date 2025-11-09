@@ -62,6 +62,40 @@ Retention rules also apply to disabled AMIs.
 The following quotas apply to Recycle Bin.
 
 | Quota                                      | Default quota |
-| ------------------------------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------ | ------------- |
 | Retention rules per Region                 | 250           |
-| Tag key and value pairs per retention rule | 50            | ## Related services Recycle Bin works with the following services: <br>• **AWS CloudTrail** — Enables you to record events that occur in Recycle Bin. For more information, see [Monitor Recycle Bin using AWS CloudTrail](recycle-bin-ct.md "recycle-bin-ct.md"). ## Pricing There are no additional charges for using Recycle Bin and retention rules. For more information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/"). <br>• **Amazon EBS snapshots** — Snapshots in the Recycle Bin are billed at the same rate as regular snapshots in your account. <br>• **EBS-backed AMIs** — AMIs in the Recycle Bin do not incur any additional charges. ###### Note Some resources might still appear in the Recycle Bin console or in the AWS CLI and API output for a short period after their retention periods have expired and they have been permanently deleted. You are not billed for these resources. Billing stops as soon as the retention period expires. You can use the following AWS generated cost allocation tags for cost tracking and allocation purposes when using AWS Billing and Cost Management. <br>• Key: `aws:recycle-bin:resource-in-bin` <br>• Value: `true` For more information, see [AWS-generated cost allocation tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing and Cost Management User Guide_. |
+| Tag key and value pairs per retention rule | 50            |
+
+## Related services
+
+Recycle Bin works with the following services:
+
+- **AWS CloudTrail** — Enables you to record events
+  that occur in Recycle Bin. For more information, see [Monitor Recycle Bin using AWS CloudTrail](recycle-bin-ct.md "recycle-bin-ct.md").
+
+## Pricing
+
+There are no additional charges for using Recycle Bin and retention rules. For more
+information, see [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/ "https://aws.amazon.com/ebs/pricing/").
+
+- **Amazon EBS snapshots** — Snapshots
+  in the Recycle Bin are billed at the same rate as regular snapshots
+  in your account.
+- **EBS-backed AMIs** — AMIs in the
+  Recycle Bin do not incur any additional charges.
+
+###### Note
+
+Some resources might still appear in the Recycle Bin console or in the AWS CLI and
+API output for a short period after their retention periods have expired and they
+have been permanently deleted. You are not billed for these resources. Billing stops
+as soon as the retention period expires.
+
+You can use the following AWS generated cost allocation tags for cost tracking and
+allocation purposes when using AWS Billing and Cost Management.
+
+- Key: `aws:recycle-bin:resource-in-bin`
+- Value: `true`
+
+For more information, see [AWS-generated cost
+allocation tags](../../../awsaccountbilling/latest/aboutv2/aws-tags.md "../../../awsaccountbilling/latest/aboutv2/aws-tags.md") in the _AWS Billing and Cost Management User Guide_.

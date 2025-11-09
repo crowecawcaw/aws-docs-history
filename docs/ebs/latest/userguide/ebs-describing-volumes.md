@@ -185,11 +185,74 @@ to a different instance or delete it. You can delete a volume when you no longer
 
 The following table summarizes the volume states.
 
-| State       | Description                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `creating`  | The volume is being created.                                                                                                                                                                                                                                                                                                                                                     |
-| `available` | The volume is not attached to an instance.                                                                                                                                                                                                                                                                                                                                       |
-| `in-use`    | The volume is attached to an instance.                                                                                                                                                                                                                                                                                                                                           |
-| `deleting`  | The volume is being deleted.                                                                                                                                                                                                                                                                                                                                                     |
-| `deleted`   | The volume is deleted.                                                                                                                                                                                                                                                                                                                                                           |
-| `error`     | The underlying hardware related to your EBS volume has failed, and the data associated with the volume is unrecoverable. For information about how to restore the volume or recover the data on the volume, see [Why does my EBS volume have a status of "error"?](https://repost.aws/knowledge-center/ebs-error-status "https://repost.aws/knowledge-center/ebs-error-status"). | ## View volume metrics You can get additional information about your EBS volumes from Amazon CloudWatch. For more information, see [Amazon CloudWatch metrics for Amazon EBS](using_cloudwatch_ebs.md "using_cloudwatch_ebs.md"). ## View free disk space You can get additional information about your EBS volumes, such as how much disk space is available, from the operating system on the instance. Use the **df -hT** command and specify the device name: `` `[ec2-user ~]$` `df -hT `/dev/xvda1``Filesystem Type Size Used Avail Use% Mounted on /dev/xvda1 xfs 8.0G 1.2G 6.9G 15% /` ``` You can view the free disk space by opening File Explorer and selecting **This PC**. You can also view the free disk space using the following `dir` command and examining the last line of the output: ``` `C:\>` `dir C:``Volume in drive C has no label. Volume Serial Number is 68C3-8081 Directory of C:\ 03/25/2018 02:10 AM <DIR> . 03/25/2018 02:10 AM <DIR> .. 03/25/2018 03:47 AM <DIR> Contacts 03/25/2018 03:47 AM <DIR> Desktop 03/25/2018 03:47 AM <DIR> Documents 03/25/2018 03:47 AM <DIR> Downloads 03/25/2018 03:47 AM <DIR> Favorites 03/25/2018 03:47 AM <DIR> Links 03/25/2018 03:47 AM <DIR> Music 03/25/2018 03:47 AM <DIR> Pictures 03/25/2018 03:47 AM <DIR> Saved Games 03/25/2018 03:47 AM <DIR> Searches 03/25/2018 03:47 AM <DIR> Videos 0 File(s) 0 bytes 13 Dir(s) 18,113,662,976 bytes free` ``` You can also view the free disk space using the following `fsutil` command: ``` `C:\>` `fsutil volume diskfree C:``Total # of free bytes : 18113204224 Total # of bytes : 32210153472 Total # of avail free bytes : 18113204224` ``` ###### Tip You can also use the CloudWatch agent to collect disk space usage metrics from an Amazon EC2 instance without connecting to the instance. For more information, see [Create the CloudWatch agent configuration file](../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md "../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md") and [Installing the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md") in the _Amazon CloudWatch User Guide_. If you need to monitor disk space usage for multiple instances, you can install and configure the CloudWatch agent on those instances using Systems Manager. For more information, see [Installing the CloudWatch agent using Systems Manager](../../../AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.md "../../../AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.md"). |
+| State       | Description                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `creating`  | The volume is being created.                                                                                                                                                                                                                                                                                                                                                              |
+| `available` | The volume is not attached to an instance.                                                                                                                                                                                                                                                                                                                                                |
+| `in-use`    | The volume is attached to an instance.                                                                                                                                                                                                                                                                                                                                                    |
+| `deleting`  | The volume is being deleted.                                                                                                                                                                                                                                                                                                                                                              |
+| `deleted`   | The volume is deleted.                                                                                                                                                                                                                                                                                                                                                                    |
+| `error`     | The underlying hardware related to your EBS volume has failed, and the data<br>associated with the volume is unrecoverable. For information about how to restore<br>the volume or recover the data on the volume, see [Why does my EBS volume have a status<br>of "error"?](https://repost.aws/knowledge-center/ebs-error-status "https://repost.aws/knowledge-center/ebs-error-status"). |
+
+## View volume metrics
+
+You can get additional information about your EBS volumes from Amazon CloudWatch. For more
+information, see [Amazon CloudWatch metrics for Amazon EBS](using_cloudwatch_ebs.md "using_cloudwatch_ebs.md").
+
+## View free disk space
+
+You can get additional information about your EBS volumes, such as how much disk space
+is available, from the operating system on the instance.
+
+Use the **df -hT** command and specify the device name:
+
+````
+`[ec2-user ~]$` `df -hT `/dev/xvda1```Filesystem Type Size Used Avail Use% Mounted on
+/dev/xvda1 xfs 8.0G 1.2G 6.9G 15% /`
+````
+
+You can view the free disk space by opening File Explorer and selecting **This
+PC**.
+
+You can also view the free disk space using the following `dir` command and
+examining the last line of the output:
+
+```
+`C:\>` `dir C:``Volume in drive C has no label.
+ Volume Serial Number is 68C3-8081
+
+ Directory of C:\
+
+03/25/2018 02:10 AM <DIR> .
+03/25/2018 02:10 AM <DIR> ..
+03/25/2018 03:47 AM <DIR> Contacts
+03/25/2018 03:47 AM <DIR> Desktop
+03/25/2018 03:47 AM <DIR> Documents
+03/25/2018 03:47 AM <DIR> Downloads
+03/25/2018 03:47 AM <DIR> Favorites
+03/25/2018 03:47 AM <DIR> Links
+03/25/2018 03:47 AM <DIR> Music
+03/25/2018 03:47 AM <DIR> Pictures
+03/25/2018 03:47 AM <DIR> Saved Games
+03/25/2018 03:47 AM <DIR> Searches
+03/25/2018 03:47 AM <DIR> Videos
+ 0 File(s) 0 bytes
+ 13 Dir(s) 18,113,662,976 bytes free`
+```
+
+You can also view the free disk space using the following `fsutil`
+command:
+
+```
+`C:\>` `fsutil volume diskfree C:``Total # of free bytes : 18113204224
+Total # of bytes : 32210153472
+Total # of avail free bytes : 18113204224`
+```
+
+###### Tip
+
+You can also use the CloudWatch agent to collect disk space usage metrics from an Amazon EC2 instance without connecting
+to the instance. For more information, see [Create the CloudWatch agent configuration file](../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md "../../../AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md") and [Installing the CloudWatch
+agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md") in the _Amazon CloudWatch User Guide_. If you need to monitor disk space usage for
+multiple instances, you can install and configure the CloudWatch agent on those instances using Systems Manager. For more
+information, see [Installing the CloudWatch agent using Systems Manager](../../../AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.md "../../../AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.md").

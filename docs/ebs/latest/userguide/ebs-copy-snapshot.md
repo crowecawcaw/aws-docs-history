@@ -138,9 +138,116 @@ use Amazon EBS encryption.
 The following table describes the encryption outcomes when copying snapshots that
 you own and snapshots that are shared with you.
 
-| Encryption by default for destination Region | Source snapshot | Snapshot copy encryption outcome | Note                                                                                                                                                                    |
-| -------------------------------------------- | --------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Disabled                                     | Unencrypted     | Optional encryption              | If you encrypt the copy, you can specify the KMS key to use. If you encrypt the copy but do not specify a KMS key, the key specified for encryption by default is used. |
-| Disabled                                     | Encrypted       | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the AWS managed key (`aws/ebs`) is used.                                                           |
-| Enabled                                      | Unencrypted     | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the key specified for encryption by default is used.                                               |
-| Enabled                                      | Encrypted       | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the key specified for encryption by default is used.                                               | ## Copy a snapshot You can copy snapshots from one Region to another. You can copy an unencrypted snapshot to an encrypted snapshot. However, if you attempt to copy an encrypted snapshot without having permissions to use the encryption key, the operation fails silently and the snapshot copy receives the "Given key ID is not accessible" status message. Console ###### To copy a snapshot 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Snapshots**. 3. Select the snapshot to copy, and then choose **Actions**, **Copy snapshot**. 4. For **Description**, enter a brief description for the snapshot copy. By default, the description includes information about the source snapshot so that you can identify a copy from the original. 5. Specify the destination for the snapshot copy. <br>• To copy the snapshot to the same Region or to a different Region, select **AWS Region** and then select the destination Region. <br>• To copy the snapshot to a Local Zone, select **AWS Local Zone** and then select the destination Local Zone. <br>• (_Outpost customers only_) To copy the snapshot to an Outpost, select **AWS Outpost** and then enter the ARN of the destination Outpost. 6. If you need the snapshot copy to be completed within a specific timeframe, select **Enable time-based copy**. For **Completion duration**, enter the required completion duration, in 15-minute increments. For more information, [Time-based copies for Amazon EBS snapshots and EBS-backed AMIs](time-based-copies.md "time-based-copies.md"). If you do not need the snapshot copy to be completed in a specific timeframe, do not enable time-based copy. In this case, the snapshot copy is completed on a best-effort basis. 7. (_Outpost customers only_) To create the snapshot copy on an Outpost in the selected Region, for **Snapshot destination** choose **AWS Outpost**, and then for **Destination Outpost ARN**, enter the ARN of the Outpost to which to copy the snapshot. The **Snapshot destination** field appears only if you have and Outpost in the selected Region. 8. Specify the encryption status for the snapshot copy. If the source snapshot is encrypted, or if your account is enabled for [encryption by default](encryption-by-default.md "encryption-by-default.md"), the snapshot copy is automatically encrypted. If the source snapshot is unencrypted and your account is not enabled for encryption by default, encryption is optional. 9. Choose **Copy snapshot**. AWS CLI ###### To copy a snapshot to another Region Use the [copy-snapshot](../../../cli/latest/reference/ec2/copy-snapshot.md "../../../cli/latest/reference/ec2/copy-snapshot.md") command. The following example copies the specified snapshot from the source Region to the current Region, which is specified by the `--region` option. `` aws ec2 copy-snapshot \ --source-snapshot-id `snap-0abcdef1234567890` \ --source-region `us-east-1` \ --region `us-west-2` `` ###### To copy an unencrypted snapshot to an encrypted snapshot Use the [copy-snapshot](../../../cli/latest/reference/ec2/copy-snapshot.md "../../../cli/latest/reference/ec2/copy-snapshot.md") command. The following example copies the specified unencrypted snapshot from the source Region to the current Region, encrypting the new snapshot using the specified KMS key. `` aws ec2 copy-snapshot \ --source-snapshot-id `snap-0abcdef1234567890` \ --source-region `us-east-1` \ --encrypted \ --kms-key-id `alias/my-kms-key` `` PowerShell ###### To copy a snapshot to another Region Use the [Copy-EC2Snapshot](../../../powershell/latest/reference/items/Copy-EC2Snapshot.md "../../../powershell/latest/reference/items/Copy-EC2Snapshot.md") cmdlet. The following example copies the specified snapshot from the source Region to the current Region, which is specified by the `--region` option. `` Copy-EC2Snapshot ` -SourceSnapshotId `snap-0abcdef1234567890` ` -SourceRegion `us-east-1` ` -Region `us-west-2` `` ###### To copy an unencrypted snapshot to an encrypted snapshot Use the [Copy-EC2Snapshot](../../../powershell/latest/reference/items/Copy-EC2Snapshot.md "../../../powershell/latest/reference/items/Copy-EC2Snapshot.md") cmdlet. The following example copies the specified unencrypted snapshot from the source Region to the current Region, encrypting the new snapshot using the specified KMS key. `` Copy-EC2Snapshot ` -SourceSnapshotId `snap-0abcdef1234567890` ` -SourceRegion `us-east-1` ` -Encrypted $true ` -KmsKeyId `alias/my-kms-key` `` |
+| Encryption by default for destination Region | Source snapshot | Snapshot copy encryption outcome | Note                                                                                                                                                                          |
+| -------------------------------------------- | --------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disabled                                     | Unencrypted     | Optional encryption              | If you encrypt the copy, you can specify the KMS key to use. If you encrypt<br>the copy but do not specify a KMS key, the key specified for encryption by default<br>is used. |
+| Disabled                                     | Encrypted       | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the<br>AWS managed key (`aws/ebs`) is used.                                                              |
+| Enabled                                      | Unencrypted     | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the key<br>specified for encryption by default is used.                                                  |
+| Enabled                                      | Encrypted       | Automatically encrypted          | You can specify the KMS key to use. If you do not specify a KMS key, the key<br>specified for encryption by default is used.                                                  |
+
+## Copy a snapshot
+
+You can copy snapshots from one Region to another. You can copy an unencrypted snapshot
+to an encrypted snapshot. However, if you attempt to copy an encrypted snapshot without
+having permissions to use the encryption key, the operation fails silently and the snapshot
+copy receives the "Given key ID is not accessible" status message.
+
+Console
+
+###### To copy a snapshot
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Snapshots**.
+3. Select the snapshot to copy, and then choose **Actions**,
+   **Copy snapshot**.
+4. For **Description**, enter a brief description for the
+   snapshot copy.
+
+By default, the description includes information about the source snapshot
+so that you can identify a copy from the original. 5. Specify the destination for the snapshot copy.
+
+    * To copy the snapshot to the same Region or to a different Region, select
+     **AWS Region** and then select the destination Region.
+    * To copy the snapshot to a Local Zone, select **AWS Local Zone**
+     and then select the destination Local Zone.
+    * (*Outpost customers only*) To copy the snapshot to an
+     Outpost, select **AWS Outpost** and then enter the ARN of
+     the destination Outpost.
+
+6. If you need the snapshot copy to be completed within a specific timeframe, select
+   **Enable time-based copy**. For **Completion duration**,
+   enter the required completion duration, in 15-minute increments. For more information,
+   [Time-based copies for Amazon EBS snapshots and EBS-backed AMIs](time-based-copies.md "time-based-copies.md").
+
+If you do not need the snapshot copy to be completed in a specific timeframe, do
+not enable time-based copy. In this case, the snapshot copy is completed on a best-effort
+basis. 7. (_Outpost customers only_) To create the snapshot copy
+on an Outpost in the selected Region, for **Snapshot destination**
+choose **AWS Outpost**, and then for **Destination Outpost
+ARN**, enter the ARN of the Outpost to which to copy the snapshot. The
+**Snapshot destination** field appears only if you have and Outpost
+in the selected Region. 8. Specify the encryption status for the snapshot copy.
+
+If the source snapshot is encrypted, or if your account is enabled for [encryption by default](encryption-by-default.md "encryption-by-default.md"), the snapshot
+copy is automatically encrypted. If the source snapshot is unencrypted and
+your account is not enabled for encryption by default, encryption is optional. 9. Choose **Copy snapshot**.
+
+AWS CLI
+
+###### To copy a snapshot to another Region
+
+Use the [copy-snapshot](../../../cli/latest/reference/ec2/copy-snapshot.md "../../../cli/latest/reference/ec2/copy-snapshot.md")
+command. The following example copies the specified snapshot from the source
+Region to the current Region, which is specified by the `--region` option.
+
+```
+aws ec2 copy-snapshot \
+    --source-snapshot-id `snap-0abcdef1234567890` \
+    --source-region `us-east-1` \
+    --region `us-west-2`
+```
+
+###### To copy an unencrypted snapshot to an encrypted snapshot
+
+Use the [copy-snapshot](../../../cli/latest/reference/ec2/copy-snapshot.md "../../../cli/latest/reference/ec2/copy-snapshot.md")
+command. The following example copies the specified unencrypted snapshot from the
+source Region to the current Region, encrypting the new snapshot using the
+specified KMS key.
+
+```
+aws ec2 copy-snapshot \
+    --source-snapshot-id `snap-0abcdef1234567890` \
+    --source-region `us-east-1` \
+    --encrypted \
+    --kms-key-id `alias/my-kms-key`
+```
+
+PowerShell
+
+###### To copy a snapshot to another Region
+
+Use the [Copy-EC2Snapshot](../../../powershell/latest/reference/items/Copy-EC2Snapshot.md "../../../powershell/latest/reference/items/Copy-EC2Snapshot.md")
+cmdlet. The following example copies the specified snapshot from the source Region
+to the current Region, which is specified by the `--region` option.
+
+```
+ Copy-EC2Snapshot `
+    -SourceSnapshotId `snap-0abcdef1234567890` `
+    -SourceRegion `us-east-1` `
+    -Region `us-west-2`
+```
+
+###### To copy an unencrypted snapshot to an encrypted snapshot
+
+Use the [Copy-EC2Snapshot](../../../powershell/latest/reference/items/Copy-EC2Snapshot.md "../../../powershell/latest/reference/items/Copy-EC2Snapshot.md") cmdlet. The following example copies the specified
+unencrypted snapshot from the source Region to the current Region, encrypting the
+new snapshot using the specified KMS key.
+
+```
+ Copy-EC2Snapshot `
+    -SourceSnapshotId `snap-0abcdef1234567890` `
+    -SourceRegion `us-east-1` `
+    -Encrypted $true `
+    -KmsKeyId `alias/my-kms-key`
+```

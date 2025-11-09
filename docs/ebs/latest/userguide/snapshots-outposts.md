@@ -408,8 +408,26 @@ stored in an AWS Region to an Outpost.
 The following table provides an overview of the supported features.
 
 | Resource location | Snapshot destination | Cross-region copy | Fast snapshot restore | Cross-account sharing |
-| ----------------- | -------------------- | ----------------- | --------------------- | --------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------- | -------------------- | ----------------- | --------------------- | --------------------- | --- |
 | To Region         | To Outpost           |
 | Region            | Region               | ✓                 | ✓                     | ✓                     | ✓   |
 | Outpost           | Region               | ✓                 | ✓                     | ✓                     | ✓   |
-| Outpost           | Outpost              | ✗                 | ✗                     | ✗                     | ✗   | ###### Considerations <br>• Only Amazon EBS snapshot lifecycle policies are currently supported. EBS-backed AMI policies and Cross-account sharing event policies are not supported. <br>• If a policy manages snapshots for volumes or instances in a Region, then snapshots are created in the same Region as the source resource. <br>• If a policy manages snapshots for volumes or instances on an Outpost, then snapshots can be created on the source Outpost, or in the Region for that Outpost. <br>• A single policy can't manage both snapshots in a Region and snapshots on an Outpost. If you need to automate snapshots in a Region and on an Outpost, you must create separate policies. <br>• Fast snapshot restore is not supported for snapshots created on an Outpost, or for snapshots copied to an Outpost. <br>• Cross-account sharing is not supported for snapshots created on an Outpost. For more information about creating a snapshot lifecycle that manages local snapshots, see [Automating snapshot lifecycles](snapshot-ami-policy.md "snapshot-ami-policy.md"). |
+| Outpost           | Outpost              | ✗                 | ✗                     | ✗                     | ✗   |
+
+###### Considerations
+
+- Only Amazon EBS snapshot lifecycle policies are currently supported. EBS-backed AMI policies
+  and Cross-account sharing event policies are not supported.
+- If a policy manages snapshots for volumes or instances in a Region, then snapshots are
+  created in the same Region as the source resource.
+- If a policy manages snapshots for volumes or instances on an Outpost, then snapshots can
+  be created on the source Outpost, or in the Region for that Outpost.
+- A single policy can't manage both snapshots in a Region and snapshots on an Outpost. If
+  you need to automate snapshots in a Region and on an Outpost, you must
+  create separate policies.
+- Fast snapshot restore is not supported for snapshots created on an Outpost, or for snapshots
+  copied to an Outpost.
+- Cross-account sharing is not supported for snapshots created on an Outpost.
+
+For more information about creating a snapshot lifecycle that manages local snapshots, see
+[Automating snapshot lifecycles](snapshot-ami-policy.md "snapshot-ami-policy.md").

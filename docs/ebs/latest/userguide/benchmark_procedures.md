@@ -92,11 +92,232 @@ attaches the volume to the instance at `/dev/xvdf`.
 The following tables lists some of the possible tools you can use to benchmark the
 performance of EBS volumes.
 
-| Tool                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fio                                                                                                                                                                                          | For benchmarking I/O performance. (Note that **fio** has a dependency on `libaio-devel`.) To install **fio** on Amazon Linux, run the following command: `` `$` `sudo yum install -y fio` `` To install **fio** on Ubuntu, run the following command: `` `sudo apt-get install -y fio` ``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [Oracle Orion Calibration Tool](https://docs.oracle.com/cd/E18283_01/server.112/e16638/iodesign.htm#BABFCFBC "https://docs.oracle.com/cd/E18283_01/server.112/e16638/iodesign.htm#BABFCFBC") | For calibrating the I/O performance of storage systems to be used with Oracle databases.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Tool                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---                                                                                                                                                                                          | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| [DiskSpd](https://github.com/microsoft/diskspd/releases "https://github.com/microsoft/diskspd/releases")                                                                                     | DiskSpd is a storage performance tool from the Windows, Windows Server, and Cloud Server Infrastructure engineering teams at Microsoft. It is available for download at [https://github.com/Microsoft/diskspd/releases](https://github.com/Microsoft/diskspd/releases "https://github.com/Microsoft/diskspd/releases"). After you download the `diskspd.exe` executable file, open a command prompt with administrative rights (by choosing "Run as Administrator"), and then navigate to the directory where you copied the `diskspd.exe` file. Copy the desired `diskspd.exe` executable file from the appropriate executable folder (`amd64fre`, `armfre` or `x86fre)` to a short, simple path like `C:\DiskSpd`. In most cases you will want the 64-bit version of DiskSpd from the `amd64fre` folder. The source code for DiskSpd is hosted on GitHub at: [https://github.com/Microsoft/diskspd](https://github.com/Microsoft/diskspd "https://github.com/Microsoft/diskspd"). |
-| CrystalDiskMark                                                                                                                                                                              | CrystalDiskMark is a simple disk benchmark software. It is available for download at [https://crystalmark.info/en/software/crystaldiskmark/](https://crystalmark.info/en/software/crystaldiskmark/ "https://crystalmark.info/en/software/crystaldiskmark/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | These benchmarking tools support a wide variety of test parameters. You should use commands that approximate the workloads your volumes will support. These commands provided below are intended as examples to help you get started. ## Choose the volume queue length Choosing the best volume queue length based on your workload and volume type. ### Queue length on SSD-backed volumes To determine the optimal queue length for your workload on SSD-backed volumes, we recommend that you target a queue length of 1 for every 1000 IOPS available (baseline for General Purpose SSD volumes and the provisioned amount for Provisioned IOPS SSD volumes). Then you can monitor your application performance and tune that value based on your application requirements. Increasing the queue length is beneficial until you achieve the provisioned IOPS, throughput or optimal system queue length value, which is currently set to 32. For example, a volume with 3,000 provisioned IOPS should target a queue length of 3. You should experiment with tuning these values up or down to see what performs best for your application. ### Queue length on HDD-backed volumes To determine the optimal queue length for your workload on HDD-backed volumes, we recommend that you target a queue length of at least 4 while performing 1MiB sequential I/Os. Then you can monitor your application performance and tune that value based on your application requirements. For example, a 2 TiB `st1` volume with burst throughput of 500 MiB/s and IOPS of 500 should target a queue length of 4, 8, or 16 while performing 1,024 KiB, 512 KiB, or 256 KiB sequential I/Os respectively. You should experiment with tuning these values value up or down to see what performs best for your application. ## Disable C-states Before you run benchmarking, you should disable processor C-states. Temporarily idle cores in a supported CPU can enter a C-state to save power. When the core is called on to resume processing, a certain amount of time passes until the core is again fully operational. This latency can interfere with processor benchmarking routines. For more information about C-states and which EC2 instance types support them, see [Processor state control for your EC2 instance](../../../AWSEC2/latest/UserGuide/processor_state_control.md "../../../AWSEC2/latest/UserGuide/processor_state_control.md"). You can disable C-states on Amazon Linux, RHEL, and CentOS as follows: 1. Get the number of C-states. ``` `$` `cpupower idle-info | grep "Number of idle states:"` ``` 2. Disable the C-states from c1 to cN. Ideally, the cores should be in state c0. ``` `$` `for i in `seq 1 $((N-1))`; do cpupower idle-set -d $i; done` ``` You can disable C-states on Windows as follows: 1. In PowerShell, get the current active power scheme. ``` $current_scheme = powercfg /getactivescheme ``` 2. Get the power scheme GUID. ``` (Get-WmiObject -class Win32_PowerPlan -Namespace "root\cimv2\power" -Filter "ElementName='High performance'").InstanceID ``` 3. Get the power setting GUID. ``` (Get-WmiObject -class Win32_PowerSetting -Namespace "root\cimv2\power" -Filter "ElementName='Processor idle disable'").InstanceID ``` 4. Get the power setting subgroup GUID. ``` (Get-WmiObject -class Win32_PowerSettingSubgroup -Namespace "root\cimv2\power" -Filter "ElementName='Processor power management'").InstanceID ``` 5. Disable C-states by setting the value of the index to 1. A value of 0 indicates that C-states are disabled. ``` powercfg /setacvalueindex `<power_scheme_guid>` `<power_setting_subgroup_guid>` `<power_setting_guid>` 1 ``` 6. Set active scheme to ensure the settings are saved. ``` powercfg /setactive `<power_scheme_guid>` ``` ## Perform benchmarking The following procedures describe benchmarking commands for various EBS volume types. Run the following commands on an EBS-optimized instance with attached EBS volumes. If the EBS volumes were created from snapshots, be sure to initialize them before benchmarking. For more information, see [Manually initialize the volumes after creation](initalize-volume.md#ebs-initialize "initalize-volume.md#ebs-initialize"). ###### Tip You can use the I/O latency histograms provided by the EBS detailed performance statistics to compare the distribution of I/O performance in your benchmarking tests. For more information, see [Amazon EBS detailed performance statistics](nvme-detailed-performance-stats.md "nvme-detailed-performance-stats.md"). When you are finished testing your volumes, see the following topics for help cleaning up: [Delete an Amazon EBS volume](ebs-deleting-volume.md "ebs-deleting-volume.md") and [Terminate your instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md"). ### Benchmark Provisioned IOPS SSD and General Purpose SSD volumes Run **fio** on the RAID 0 array that you created. The following command performs 16 KB random write operations. ``` `$`sudo fio`--directory=/mnt/``p_iops_vol0` --ioengine=psync `--name` `fio_test_file` `--direct=1 --rw=randwrite --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap` ``` The following command performs 16 KB random read operations. ``` `$` sudo fio `--directory=/mnt/``p_iops_vol0` `--name` `fio_test_file` `--direct=1 --rw=randread --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap` ``` For more information about interpreting the results, see this tutorial: [Inspecting disk IO performance with fio](https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/ "https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/"). Run **DiskSpd** on the volume that you created. The following command will run a 30 second random I/O test using a 20GB test file located on the `C:`drive, with a 25% write and 75% read ratio, and an 8K block size. It will use eight worker threads, each with four outstanding I/Os, and a write entropy value seed of 1GB. The results of the test will be saved to a text file called`DiskSpeedResults.txt`. These parameters simulate a SQL Server OLTP workload. ``` `diskspd -b8K -d30 -o4 -t8 -h -r -w25 -L -Z1G -c20G C:\iotest.dat > DiskSpeedResults.txt` ``` For more information about interpreting the results, see this tutorial: [Inspecting disk IO performance with DiskSPd](https://sqlperformance.com/2015/08/io-subsystem/diskspd-test-storage "https://sqlperformance.com/2015/08/io-subsystem/diskspd-test-storage"). ### Benchmark `st1`and`sc1`volumes (Linux instances) Run **fio** on your`st1`or`sc1`volume. ###### Note Prior to running these tests, set buffered I/O on your instance as described in [Increase read-ahead for high-throughput, read-heavy workloads on st1 and sc1 (Linux instances only)](ebs-performance.md#read_ahead "ebs-performance.md#read_ahead"). The following command performs 1 MiB sequential read operations against an attached`st1`block device (for example,`/dev/xvdf`): ``` `$` **sudo fio** `--filename=/dev/``<device>` `--direct=1 --rw=read` `--randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180` `--name=fio_direct_read_test` ``` The following command performs 1 MiB sequential write operations against an attached `st1` block device: ``` `$`**sudo fio**`--filename=/dev/``<device>` `--direct=1 --rw=write` `--randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180` `--name=fio_direct_write_test` ``Some workloads perform a mix of sequential reads and sequential writes to different parts of the block device. To benchmark such a workload, we recommend that you use separate, simultaneous **fio** jobs for reads and writes, and use the **fio** `offset_increment` option to target different block device locations for each job. Running this workload is a bit more complicated than a sequential-write or sequential-read workload. Use a text editor to create a fio job file, called `fio_rw_mix.cfg` in this example, that contains the following:`` [global] clocksource=clock_gettime randrepeat=0 runtime=180 [sequential-write] bs=1M ioengine=libaio direct=1 iodepth=8 filename=/dev/`<device>` do_verify=0 rw=write rwmixread=0 rwmixwrite=100 [sequential-read] bs=1M ioengine=libaio direct=1 iodepth=8 filename=/dev/`<device>` do_verify=0 rw=read rwmixread=100 rwmixwrite=0 offset=100g `Then run the following command:` `$` sudo fio `fio_rw_mix.cfg` ```For more information about interpreting the results, see this tutorial: [Inspecting disk I/O performance with fio](https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/ "https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/"). Multiple **fio** jobs for direct I/O, even though using sequential read or write operations, can result in lower than expected throughput for`st1`and`sc1`volumes. We recommend that you use one direct I/O job and use the`iodepth` parameter to control the number of concurrent I/O operations. |
+| Tool                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fio                                                                                                                                                                                          | For benchmarking I/O performance. (Note that **fio\*<br>• has a<br>dependency on `libaio-devel`.)<br>To install **fio*<br>• on Amazon Linux, run the following command:<br>``<br>`$` `sudo yum install -y fio`<br>``<br>To install \*\*fio*<br>• on Ubuntu, run the following command:<br>``<br>`sudo apt-get install -y fio`<br>`` |
+| [Oracle Orion Calibration Tool](https://docs.oracle.com/cd/E18283_01/server.112/e16638/iodesign.htm#BABFCFBC "https://docs.oracle.com/cd/E18283_01/server.112/e16638/iodesign.htm#BABFCFBC") | For calibrating the I/O performance of storage systems to be used with Oracle<br>databases.                                                                                                                                                                                                                                         |
+
+| Tool                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [DiskSpd](https://github.com/microsoft/diskspd/releases "https://github.com/microsoft/diskspd/releases") | DiskSpd is a storage performance tool from the Windows, Windows Server, and Cloud Server<br>Infrastructure engineering teams at Microsoft. It is available for download at<br>[https://github.com/Microsoft/diskspd/releases](https://github.com/Microsoft/diskspd/releases "https://github.com/Microsoft/diskspd/releases").<br>After you download the `diskspd.exe` executable file, open a<br>command prompt with administrative rights (by choosing "Run as Administrator"),<br>and then navigate to the directory where you copied the `diskspd.exe` file.<br>Copy the<br>desired `diskspd.exe` executable file from the appropriate executable folder<br>(`amd64fre`, `armfre` or `x86fre)` to a short, simple path like `C:\DiskSpd`. In most cases<br>you will want the 64-bit version of DiskSpd from the `amd64fre` folder.<br>The source<br>code for DiskSpd is hosted on GitHub at: [https://github.com/Microsoft/diskspd](https://github.com/Microsoft/diskspd "https://github.com/Microsoft/diskspd"). |
+| CrystalDiskMark                                                                                          | CrystalDiskMark is a simple disk benchmark software. It is available for download at<br>[https://crystalmark.info/en/software/crystaldiskmark/](https://crystalmark.info/en/software/crystaldiskmark/ "https://crystalmark.info/en/software/crystaldiskmark/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+These benchmarking tools support a wide variety of test parameters. You should use
+commands that approximate the workloads your volumes will support. These commands provided
+below are intended as examples to help you get started.
+
+## Choose the volume queue length
+
+Choosing the best volume queue length based on your workload and volume type.
+
+### Queue length on SSD-backed volumes
+
+To determine the optimal queue length for your workload on SSD-backed volumes, we
+recommend that you target a queue length of 1 for every 1000 IOPS available (baseline for
+General Purpose SSD volumes and the provisioned amount for Provisioned IOPS SSD volumes). Then you can monitor your
+application performance and tune that value based on your application requirements.
+
+Increasing the queue length is beneficial until you achieve the provisioned IOPS,
+throughput or optimal system queue length value, which is currently set to 32.
+For example, a volume with 3,000 provisioned IOPS should target a queue length
+of 3. You should experiment with tuning these values up or down to see what
+performs best for your application.
+
+### Queue length on HDD-backed volumes
+
+To determine the optimal queue length for your workload on HDD-backed volumes, we
+recommend that you target a queue length of at least 4 while performing 1MiB sequential
+I/Os. Then you can monitor your application performance and tune that value based on your
+application requirements. For example, a 2 TiB `st1` volume with burst throughput of 500
+MiB/s and IOPS of 500 should target a queue length of 4, 8, or 16 while performing 1,024
+KiB, 512 KiB, or 256 KiB sequential I/Os respectively. You should experiment with tuning
+these values value up or down to see what performs best for your application.
+
+## Disable C-states
+
+Before you run benchmarking, you should disable processor C-states. Temporarily idle
+cores in a supported CPU can enter a C-state to save power. When the core is called on to
+resume processing, a certain amount of time passes until the core is again fully
+operational. This latency can interfere with processor benchmarking routines. For more
+information about C-states and which EC2 instance types support them, see [Processor state control for your EC2
+instance](../../../AWSEC2/latest/UserGuide/processor_state_control.md "../../../AWSEC2/latest/UserGuide/processor_state_control.md").
+
+You can disable C-states on Amazon Linux, RHEL, and CentOS as follows:
+
+1. Get the number of C-states.
+
+```
+`$` `cpupower idle-info | grep "Number of idle states:"`
+```
+
+2. Disable the C-states from c1 to cN. Ideally, the cores should be in state c0.
+
+```
+`$` `for i in `seq 1 $((N-1))`; do cpupower idle-set -d $i; done`
+```
+
+You can disable C-states on Windows as follows:
+
+1. In PowerShell, get the current active power scheme.
+
+```
+$current_scheme = powercfg /getactivescheme
+```
+
+2. Get the power scheme GUID.
+
+```
+(Get-WmiObject -class Win32_PowerPlan -Namespace "root\cimv2\power" -Filter "ElementName='High performance'").InstanceID
+```
+
+3. Get the power setting GUID.
+
+```
+(Get-WmiObject -class Win32_PowerSetting -Namespace "root\cimv2\power" -Filter "ElementName='Processor idle disable'").InstanceID
+```
+
+4. Get the power setting subgroup GUID.
+
+```
+(Get-WmiObject -class Win32_PowerSettingSubgroup -Namespace "root\cimv2\power" -Filter "ElementName='Processor power management'").InstanceID
+```
+
+5. Disable C-states by setting the value of the index to 1. A value of 0 indicates that C-states
+   are disabled.
+
+```
+powercfg /setacvalueindex `<power_scheme_guid>` `<power_setting_subgroup_guid>` `<power_setting_guid>` 1
+```
+
+6. Set active scheme to ensure the settings are saved.
+
+```
+powercfg /setactive `<power_scheme_guid>`
+```
+
+## Perform benchmarking
+
+The following procedures describe benchmarking commands for various EBS volume types.
+
+Run the following commands on an EBS-optimized instance with attached EBS volumes. If
+the EBS volumes were created from snapshots, be sure to initialize them before
+benchmarking. For more information, see [Manually initialize the volumes after creation](initalize-volume.md#ebs-initialize "initalize-volume.md#ebs-initialize").
+
+###### Tip
+
+You can use the I/O latency histograms provided by the EBS detailed performance statistics to
+compare the distribution of I/O performance in your benchmarking tests. For more information,
+see [Amazon EBS detailed performance statistics](nvme-detailed-performance-stats.md "nvme-detailed-performance-stats.md").
+
+When you are finished testing your volumes, see the following topics for help cleaning
+up: [Delete an Amazon EBS volume](ebs-deleting-volume.md "ebs-deleting-volume.md") and [Terminate your instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md").
+
+### Benchmark Provisioned IOPS SSD and General Purpose SSD volumes
+
+Run **fio** on the RAID 0 array that you created.
+
+The following command performs 16 KB random write operations.
+
+```
+`$` sudo fio `--directory=/mnt/``p_iops_vol0` --ioengine=psync `--name` `fio_test_file` `--direct=1 --rw=randwrite --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap`
+```
+
+The following command performs 16 KB random read operations.
+
+```
+`$` sudo fio `--directory=/mnt/``p_iops_vol0` `--name` `fio_test_file` `--direct=1 --rw=randread --bs=16k --size=1G --numjobs=16 --time_based --runtime=180 --group_reporting --norandommap`
+```
+
+For more information about interpreting the results, see this tutorial: [Inspecting disk IO performance with fio](https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/ "https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/").
+
+Run **DiskSpd** on the volume that you created.
+
+The following command will run a 30 second random I/O test using a 20GB
+test file located on the `C:` drive, with a 25% write and 75% read ratio, and
+an 8K block size. It will use eight worker threads, each with four outstanding I/Os, and a
+write entropy value seed of 1GB. The results of the test will be saved to a text file
+called `DiskSpeedResults.txt`. These parameters simulate a SQL Server OLTP
+workload.
+
+```
+`diskspd -b8K -d30 -o4 -t8 -h -r -w25 -L -Z1G -c20G C:\iotest.dat > DiskSpeedResults.txt`
+```
+
+For more information about interpreting the results, see this tutorial: [Inspecting disk IO performance with DiskSPd](https://sqlperformance.com/2015/08/io-subsystem/diskspd-test-storage "https://sqlperformance.com/2015/08/io-subsystem/diskspd-test-storage").
+
+### Benchmark `st1` and `sc1` volumes (Linux instances)
+
+Run **fio** on your `st1` or `sc1` volume.
+
+###### Note
+
+Prior to running these tests, set buffered I/O on your instance as described in
+[Increase read-ahead for high-throughput, read-heavy workloads on st1 and sc1 (Linux instances only)](ebs-performance.md#read_ahead "ebs-performance.md#read_ahead").
+
+The following command performs 1 MiB sequential read operations against an attached
+`st1` block device (for example, `/dev/xvdf`):
+
+```
+`$` **sudo fio** `--filename=/dev/``<device>` `--direct=1 --rw=read` `--randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180` `--name=fio_direct_read_test`
+```
+
+The following command performs 1 MiB sequential write operations against an attached
+`st1` block device:
+
+```
+`$` **sudo fio** `--filename=/dev/``<device>` `--direct=1 --rw=write` `--randrepeat=0 --ioengine=libaio --bs=1024k --iodepth=8 --time_based=1 --runtime=180` `--name=fio_direct_write_test`
+```
+
+Some workloads perform a mix of sequential reads and sequential writes to different
+parts of the block device. To benchmark such a workload, we recommend that you use
+separate, simultaneous **fio** jobs for reads and writes, and use the
+**fio**
+`offset_increment` option to target different block device locations for each
+job.
+
+Running this workload is a bit more complicated than a sequential-write or
+sequential-read workload. Use a text editor to create a fio job file,
+called `fio_rw_mix.cfg` in this example, that contains the following:
+
+```
+[global]
+clocksource=clock_gettime
+randrepeat=0
+runtime=180
+
+[sequential-write]
+bs=1M
+ioengine=libaio
+direct=1
+iodepth=8
+filename=/dev/`<device>`
+do_verify=0
+rw=write
+rwmixread=0
+rwmixwrite=100
+
+[sequential-read]
+bs=1M
+ioengine=libaio
+direct=1
+iodepth=8
+filename=/dev/`<device>`
+do_verify=0
+rw=read
+rwmixread=100
+rwmixwrite=0
+offset=100g
+```
+
+Then run the following command:
+
+```
+`$` sudo fio `fio_rw_mix.cfg`
+```
+
+For more information about interpreting the results, see this tutorial: [Inspecting disk I/O performance with fio](https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/ "https://www.linux.com/training-tutorials/inspecting-disk-io-performance-fio/").
+
+Multiple **fio** jobs for direct I/O, even though using sequential read
+or write operations, can result in lower than expected throughput for `st1` and `sc1`
+volumes. We recommend that you use one direct I/O job and use the `iodepth`
+parameter to control the number of concurrent I/O operations.

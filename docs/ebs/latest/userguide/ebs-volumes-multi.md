@@ -67,9 +67,25 @@ Multi-Attach enabled `io1` volumes do not support I/O fencing.
   `io1` and `io2` volumes after creation.
 
 |                         | `io2` volumes | `io1` volumes |
-| ----------------------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | ------------- | ------------- |
 | Modify volume type      | ✗             | ✗             |
 | Modify volume size      | ✓             | ✗             |
 | Modify provisioned IOPS | ✓             | ✗             |
 | Enable Multi-Attach     | ✓ \*          | ✗             |
-| Disable Multi-Attach    | ✓ \*          | ✗             | \* You can't enable or disable Multi-Attach while the volume is attached to an instance. <br>• Multi-Attach enabled volumes are deleted on instance termination if the last attached instance is terminated and if that instance is configured to delete the volume on termination. If the volume is attached to multiple instances that have different delete on termination settings in their volume block device mappings, the last attached instance's block device mapping setting determines the delete on termination behavior. To ensure predictable delete on termination behavior, enable or disable delete on termination for all of the instances to which the volume is attached. For more information, see [Preserve data when an instance is terminated](../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md "../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md"). <br>• You can monitor a Multi-Attach enabled volume using the CloudWatch Metrics for Amazon EBS volumes. Data is aggregated across all of the attached instances. You can't monitor metrics for individual attached instances. For more information, see [Amazon CloudWatch metrics for Amazon EBS](using_cloudwatch_ebs.md "using_cloudwatch_ebs.md"). |
+| Disable Multi-Attach    | ✓ \*          | ✗             |
+
+\* You can't enable or disable Multi-Attach while the volume is attached to an instance.
+
+- Multi-Attach enabled volumes are deleted on instance termination if the last attached instance
+  is terminated and if that instance is configured to delete the volume on termination. If the
+  volume is attached to multiple instances that have different delete on termination settings in
+  their volume block device mappings, the last attached instance's block device mapping setting
+  determines the delete on termination behavior.
+
+To ensure predictable delete on termination behavior, enable or disable delete on termination
+for all of the instances to which the volume is attached. For more information, see
+[Preserve data when an instance is terminated](../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md "../../../AWSEC2/latest/UserGuide/preserving-volumes-on-termination.md").
+
+- You can monitor a Multi-Attach enabled volume using the CloudWatch Metrics for Amazon EBS volumes. Data is
+  aggregated across all of the attached instances. You can't monitor metrics for individual
+  attached instances. For more information, see [Amazon CloudWatch metrics for Amazon EBS](using_cloudwatch_ebs.md "using_cloudwatch_ebs.md").

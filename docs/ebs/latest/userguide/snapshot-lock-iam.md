@@ -23,6 +23,31 @@ snapshots, and to view snapshot lock settings. It includes the `ec2:DescribeSnap
 permission for console users. If some permissions are not needed, you can remove them from
 the policy.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowSnapshotLockOperations",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:LockSnapshot",
+ "ec2:UnlockSnapshot",
+ "ec2:DescribeLockedSnapshots",
+ "ec2:DescribeSnapshots"
+ ],
+ "Resource": [
+ "arn:aws:ec2:*::snapshot/*",
+ "arn:aws:ec2:*:`111122223333`:volume/*"
+ ]
+ }
+ ]
+}`
+
+```
+
 To provide access, add permissions to your users, groups, or roles:
 
 - Users and groups in AWS IAM Identity Center:
@@ -55,6 +80,31 @@ to specific lock durations when locking snapshots.
 The following example policy restricts users to specifying a lock duration between
 `10` and `50` days.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowSnapshotLockWithDurationCondition",
+ "Effect": "Allow",
+ "Action": "ec2:LockSnapshot",
+ "Resource": "arn:aws:ec2:*::snapshot/*",
+ "Condition": {
+ "NumericGreaterThan": {
+ "ec2:SnapshotLockDuration": 10
+ },
+ "NumericLessThan": {
+ "ec2:SnapshotLockDuration": 50
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 ### ec2:CoolOffPeriod
 
 You can use the `ec2:CoolOffPeriod` condition key to prevent users
@@ -62,3 +112,25 @@ from locking snapshots in compliance mode without a cooling-off period.
 
 The following example policy restricts users to specifying a cooling-off period
 greater than `48` hours when locking snapshots in compliance mode.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowSnapshotLockWithCondition",
+ "Effect": "Allow",
+ "Action": "ec2:LockSnapshot",
+ "Resource": "arn:aws:ec2:*::snapshot/*",
+ "Condition": {
+ "NumericGreaterThan": {
+ "ec2:SnapshotTime": 48
+ }
+ }
+ }
+ ]
+}`
+
+```
