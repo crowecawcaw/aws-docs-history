@@ -57,20 +57,82 @@ AWS Clean Rooms converts _pattern_ to the data type of _expression_.
 
 SIMILAR TO supports the following pattern-matching metacharacters:
 
-| Operator                                                         | Description                                         |
-| ---------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------- | -------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------- | --------------------------------------- | ---------------------------------- | ----------------------------------- | ----------------------- |
-| `%`                                                              | Matches any sequence of zero or more characters.    |
-| `_`                                                              | Matches any single character.                       |
-| `                                                                | `                                                   | Denotes alternation (either of two alternatives).                                                                                 |
-| `*`                                                              | Repeat the previous item zero or more times.        |                                                                                                                                   | `+`                                                                                                                                                                                                                                                                                                                                                                      | Repeat the previous item one or more times.                                             |
-| `?`                                                              | Repeat the previous item zero or one time.          |                                                                                                                                   | `{m}`                                                                                                                                                                                                                                                                                                                                                                    | Repeat the previous item exactly _m_ times.                                             |
-| `{m,}`                                                           | Repeat the previous item _m_ or more times.         |                                                                                                                                   | `{m,n}`                                                                                                                                                                                                                                                                                                                                                                  | Repeat the previous item at least _m_ and not more than _n_ times.                      |
-| `()`                                                             | Parentheses group items into a single logical item. |                                                                                                                                   | `[...]`                                                                                                                                                                                                                                                                                                                                                                  | A bracket expression specifies a character class, just as in POSIX regular expressions. | ## Examples The following table shows examples of pattern matching using SIMILAR TO: |
-| Expression                                                       | Returns                                             |                                                                                                                                   | ---                                                                                                                                                                                                                                                                                                                                                                      | ---                                                                                     |
-| `'abc' SIMILAR TO 'abc'`                                         | True                                                |                                                                                                                                   | `'abc' SIMILAR TO '_b_'`                                                                                                                                                                                                                                                                                                                                                 | True                                                                                    |
-| `'abc' SIMILAR TO '_A_'`                                         | False                                               |
-| `'abc' SIMILAR TO '%(b                                           | d)%'`                                               | True                                                                                                                              |
-| `'abc' SIMILAR TO '(b                                            | c)%'`                                               | False                                                                                                                             |
-| `'AbcAbcdefgefg12efgefg12' SIMILAR TO '((Ab)?c)+d((efg)+(12))+'` | True                                                |
-| `'aaaaaab11111xy' SIMILAR TO 'a{6}\_ [0-9]{5}(x                  | y){2}'`                                             | True                                                                                                                              |
-| `'$0.87' SIMILAR TO '$[0-9]+(.[0-9][0-9])?'`                     | True                                                | The following example finds cities whose names contain "E" or "H": ``` SELECT DISTINCT city FROM users WHERE city SIMILAR TO '%E% | %H%' ORDER BY city LIMIT 5; city ----------------- Agoura Hills Auburn Hills Benton Harbor Beverly Hills Chicago Heights ``The following example uses the default escape string ('`\\`') to search for strings that include "`_`":`` SELECT tablename, "column" FROM my*table_def WHERE "column" SIMILAR TO '%start\\*%' ORDER BY tablename, "column" LIMIT 5; tablename | column --------------------------+--------------------- my_abort_idle                   | idle_start_time my_abort_idle                                                        | txn_start_time my_analyze_compression | start_time my_auto_worker_levels | start_level my_auto_worker_levels | start*wlm_occupancy ``` The following example specifies '`^`' as the escape string, then uses the escape string to search for strings that include "`*`": ``` SELECT tablename, "column" FROM my*table_def WHERE "column" SIMILAR TO '%start^*%' ESCAPE '^' ORDER BY tablename, "column" LIMIT 5; tablename | column --------------------------+--------------------- stcs_abort_idle | idle_start_time stcs_abort_idle | txn_start_time stcs_analyze_compression | start_time stcs_auto_worker_levels | start_level stcs_auto_worker_levels | start_wlm_occupancy ``` |
+| Operator | Description                                                                                |
+| -------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| `%`      | Matches any sequence of zero or more characters.                                           |
+| `_`      | Matches any single character.                                                              |
+| `        | `                                                                                          | Denotes alternation (either of two alternatives). |
+| `*`      | Repeat the previous item zero or more times.                                               |
+| `+`      | Repeat the previous item one or more times.                                                |
+| `?`      | Repeat the previous item zero or one time.                                                 |
+| `{m}`    | Repeat the previous item exactly \*m<br>• times.                                           |
+| `{m,}`   | Repeat the previous item \*m<br>• or more times.                                           |
+| `{m,n}`  | Repeat the previous item at least *m<br>• and not more<br>than *n<br>• times.              |
+| `()`     | Parentheses group items into a single logical item.                                        |
+| `[...]`  | A bracket expression specifies a character class, just as in POSIX<br>regular expressions. |
+
+## Examples
+
+The following table shows examples of pattern matching using SIMILAR TO:
+
+| Expression                                                       | Returns |
+| ---------------------------------------------------------------- | ------- | ----- |
+| `'abc' SIMILAR TO 'abc'`                                         | True    |
+| `'abc' SIMILAR TO '_b_'`                                         | True    |
+| `'abc' SIMILAR TO '_A_'`                                         | False   |
+| `'abc' SIMILAR TO '%(b                                           | d)%'`   | True  |
+| `'abc' SIMILAR TO '(b                                            | c)%'`   | False |
+| `'AbcAbcdefgefg12efgefg12' SIMILAR TO '((Ab)?c)+d((efg)+(12))+'` | True    |
+| `'aaaaaab11111xy' SIMILAR TO 'a{6}\_ [0-9]{5}(x                  | y){2}'` | True  |
+| `'$0.87' SIMILAR TO '$[0-9]+(.[0-9][0-9])?'`                     | True    |
+
+The following example finds cities whose names contain "E" or "H":
+
+```
+SELECT DISTINCT city FROM users
+WHERE city SIMILAR TO '%E%|%H%' ORDER BY city LIMIT 5;
+
+      city
+-----------------
+ Agoura Hills
+ Auburn Hills
+ Benton Harbor
+ Beverly Hills
+ Chicago Heights
+```
+
+The following example uses the default escape string ('`\\`') to search for
+strings that include "`_`":
+
+```
+SELECT tablename, "column" FROM my_table_def
+WHERE "column" SIMILAR TO '%start\\_%'
+
+ORDER BY tablename, "column" LIMIT 5;
+
+        tablename         |       column
+--------------------------+---------------------
+ my_abort_idle          | idle_start_time
+ my_abort_idle          | txn_start_time
+ my_analyze_compression | start_time
+ my_auto_worker_levels  | start_level
+ my_auto_worker_levels  | start_wlm_occupancy
+```
+
+The following example specifies '`^`' as the escape string, then uses the escape
+string to search for strings that include "`_`":
+
+```
+SELECT tablename, "column" FROM my_table_def
+
+WHERE "column" SIMILAR TO '%start^_%' ESCAPE '^'
+ORDER BY tablename, "column" LIMIT 5;
+
+        tablename         |       column
+--------------------------+---------------------
+ stcs_abort_idle          | idle_start_time
+ stcs_abort_idle          | txn_start_time
+ stcs_analyze_compression | start_time
+ stcs_auto_worker_levels  | start_level
+ stcs_auto_worker_levels  | start_wlm_occupancy
+```

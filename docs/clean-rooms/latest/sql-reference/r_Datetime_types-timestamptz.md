@@ -21,9 +21,18 @@ You can also find current information about time zones in the [IANA Time Zone Da
 The following table has examples of time zone formats.
 
 | Format                    | Example                           |
-| ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | --------------------------------- |
 | dd mon hh:mi:ss yyyy tz   | 17 Dec 07:37:16 1997 PST          |
 | mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 PST        |
 | mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 US/Pacific |
 | yyyy-mm-dd hh:mi:ss+/-tz  | 1997-12-17 07:37:16-08            |
-| dd.mm.yyyy hh:mi:ss tz    | 17.12.1997 07:37:16.00 PST        | TIMESTAMPTZ columns store values with up to a maximum of six digits of precision for fractional seconds. If you insert a date into a TIMESTAMPTZ column, or a date with a partial timestamp, the value is implicitly converted into a full timestamp value. This full timestamp value has default values (00) for missing hours, minutes, and seconds. TIMESTAMPTZ values are UTC in user tables. |
+| dd.mm.yyyy hh:mi:ss tz    | 17.12.1997 07:37:16.00 PST        |
+
+TIMESTAMPTZ columns store values with up to a maximum of six digits of precision for
+fractional seconds.
+
+If you insert a date into a TIMESTAMPTZ column, or a date with a partial timestamp,
+the value is implicitly converted into a full timestamp value. This full timestamp value
+has default values (00) for missing hours, minutes, and seconds.
+
+TIMESTAMPTZ values are UTC in user tables.

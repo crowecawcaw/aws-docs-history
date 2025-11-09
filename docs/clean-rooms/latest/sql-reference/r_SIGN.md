@@ -30,11 +30,13 @@ DECIMAL, the output is DECIMAL(1,0).
 To determine the sign of the commission paid for a given transaction from the SALES
 table, use the following example.
 
-````
+```
 SELECT commission, SIGN(commission)
 FROM sales WHERE salesid=10000;
 
 +------------+------+
-| commission | sign | +------------+------+
-|      28.05 |    1 | +------------+------+ ```
-````
+| commission | sign |
++------------+------+
+|      28.05 |    1 |
++------------+------+
+```

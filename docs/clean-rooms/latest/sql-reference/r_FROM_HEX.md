@@ -26,10 +26,12 @@ To convert the hexadecimal representation of `'6162'` to a binary
 value, use the following example. The result is automatically shown as the
 hexadecimal representation of the binary value.
 
-````
+```
 `SELECT FROM_HEX('6162');`
 
 `+----------+
-| from_hex | +----------+
-| 6162 | +----------+` ```
-````
+| from_hex |
++----------+
+| 6162 |
++----------+`
+```

@@ -6,24 +6,47 @@ values that a column or argument can contain.
 
 The following table lists the data types that you can use in AWS Clean Rooms SQL.
 
-| Data type name   | Data type                                                      | Aliases                   | Description                                                                                                                |
-| ---------------- | -------------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ARRAY            | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Array nested data type                                                                                                     |
-| BIGINT           | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | Not applicable            | Signed eight-byte integer                                                                                                  |
-| BOOLEAN          | [Boolean type](r_Boolean_type.md "r_Boolean_type.md")          | BOOL                      | Logical Boolean (true/false)                                                                                               |
-| CHAR             | [Character types](r_Character_types.md "r_Character_types.md") | CHARACTER                 | Fixed-length character string                                                                                              |
-| DATE             | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Calendar date (year, month, day)                                                                                           |
-| DECIMAL          | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | NUMERIC                   | Exact numeric of selectable precision                                                                                      |
-| DOUBLE PRECISION | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | FLOAT8, FLOAT             | Double precision floating-point number                                                                                     |
-| INTEGER          | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | INT                       | Signed four-byte integer                                                                                                   |
-| MAP              | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Map nested data type                                                                                                       |
-| REAL             | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | FLOAT4                    | Single precision floating-point number                                                                                     |
-| SMALLINT         | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | Not applicable            | Signed two-byte integer                                                                                                    |
-| STRUCT           | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Struct nested data type                                                                                                    |
-| SUPER            | [SUPER type](r_SUPER_type.md "r_SUPER_type.md")                | Not applicable            | Superset data type that encompasses all scalar types of AWS Clean Rooms including complex types such as ARRAY and STRUCTS. |
-| TIME             | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Time of day                                                                                                                |
-| TIMESTAMP        | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Date and the time of day                                                                                                   |
-| TIMESTAMPTZ      | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Date, the time of day, and a time zone                                                                                     |
-| TIMETZ           | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Time of day with time zone                                                                                                 |
-| VARBYTE          | [VARBYTE type](r_VARBYTE_type.md "r_VARBYTE_type.md")          | VARBINARY, BINARY VARYING | Variable-length binary value                                                                                               |
-| VARCHAR          | [Character types](r_Character_types.md "r_Character_types.md") | CHARACTER VARYING         | Variable-length character string with a user-defined limit                                                                 | ###### Note The ARRAY, STRUCT, and MAP nested data types are currently only enabled for the custom analysis rule. For more information, see [Nested type](nested-data-type.md "nested-data-type.md"). ## Multibyte characters The VARCHAR data type supports UTF-8 multibyte characters up to a maximum of four bytes. Five-byte or longer characters are not supported. To calculate the size of a VARCHAR column that contains multibyte characters, multiply the number of characters by the number of bytes per character. For example, if a string has four Chinese characters, and each character is three bytes long, then you will need a VARCHAR(12) column to store the string. The VARCHAR data type doesn't support the following invalid UTF-8 codepoints: `0xD800 – 0xDFFF` (Byte sequences: `ED A0 80` – `ED BF BF`) The CHAR data type doesn't support multibyte characters. |
+| Data type name   | Data type                                                      | Aliases                   | Description                                                                                                                   |
+| ---------------- | -------------------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| ARRAY            | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Array nested data type                                                                                                        |
+| BIGINT           | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | Not applicable            | Signed eight-byte integer                                                                                                     |
+| BOOLEAN          | [Boolean type](r_Boolean_type.md "r_Boolean_type.md")          | BOOL                      | Logical Boolean (true/false)                                                                                                  |
+| CHAR             | [Character types](r_Character_types.md "r_Character_types.md") | CHARACTER                 | Fixed-length character string                                                                                                 |
+| DATE             | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Calendar date (year, month, day)                                                                                              |
+| DECIMAL          | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | NUMERIC                   | Exact numeric of selectable precision                                                                                         |
+| DOUBLE PRECISION | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | FLOAT8, FLOAT             | Double precision floating-point number                                                                                        |
+| INTEGER          | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | INT                       | Signed four-byte integer                                                                                                      |
+| MAP              | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Map nested data type                                                                                                          |
+| REAL             | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | FLOAT4                    | Single precision floating-point number                                                                                        |
+| SMALLINT         | [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md") | Not applicable            | Signed two-byte integer                                                                                                       |
+| STRUCT           | [Nested type](nested-data-type.md "nested-data-type.md")       | Not applicable            | Struct nested data type                                                                                                       |
+| SUPER            | [SUPER type](r_SUPER_type.md "r_SUPER_type.md")                | Not applicable            | Superset data type that encompasses all scalar types of AWS Clean Rooms<br>including complex types such as ARRAY and STRUCTS. |
+| TIME             | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Time of day                                                                                                                   |
+| TIMESTAMP        | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Date and the time of day                                                                                                      |
+| TIMESTAMPTZ      | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Date, the time of day, and a time zone                                                                                        |
+| TIMETZ           | [Datetime types](r_Datetime_types.md "r_Datetime_types.md")    | Not applicable            | Time of day with time zone                                                                                                    |
+| VARBYTE          | [VARBYTE type](r_VARBYTE_type.md "r_VARBYTE_type.md")          | VARBINARY, BINARY VARYING | Variable-length binary value                                                                                                  |
+| VARCHAR          | [Character types](r_Character_types.md "r_Character_types.md") | CHARACTER VARYING         | Variable-length character string with a user-defined limit                                                                    |
+
+###### Note
+
+The ARRAY, STRUCT, and MAP nested data types are currently only enabled for the custom
+analysis rule. For more information, see [Nested type](nested-data-type.md "nested-data-type.md").
+
+## Multibyte
+
+characters
+
+The VARCHAR data type supports UTF-8 multibyte characters up to a maximum of four bytes.
+Five-byte or longer characters are not supported. To calculate the size of a VARCHAR column
+that contains multibyte characters, multiply the number of characters by the number of
+bytes per character. For example, if a string has four Chinese characters, and each
+character is three bytes long, then you will need a VARCHAR(12) column to store the
+string.
+
+The VARCHAR data type doesn't support the following invalid UTF-8 codepoints:
+
+`0xD800 – 0xDFFF` (Byte sequences: `ED A0 80` –
+`ED BF BF`)
+
+The CHAR data type doesn't support multibyte characters.

@@ -49,9 +49,74 @@ GROUP clause. The following table shows the return type for each ORDER BY expres
 type.
 
 | Input type                                  | Return type |
-| ------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ------------------------------------------------------ | --- | --- | ----- | --- | --- | ----- | --- | --- | ----- | --- | --- | ------ | --- | --- | ------ | --- | --- | ------ | --- | --- | ------ | --- | --- | ------ | --- | --- | ------ | --- | --- | ------- |
+| ------------------------------------------- | ----------- |
 | SMALLINT, INTEGER, BIGINT, NUMERIC, DECIMAL | DECIMAL     |
 | FLOAT, DOUBLE                               | DOUBLE      |
 | DATE                                        | DATE        |
 | TIMESTAMP                                   | TIMESTAMP   |
-| TIMESTAMPTZ                                 | TIMESTAMPTZ | ## Usage notes If the ORDER BY expression is a DECIMAL data type defined with the maximum precision of 38 digits, it is possible that PERCENTILE_CONT will return either an inaccurate result or an error. If the return value of the PERCENTILE_CONT function exceeds 38 digits, the result is truncated to fit, which causes a loss of precision. If, during interpolation, an intermediate result exceeds the maximum precision, a numeric overflow occurs and the function returns an error. To avoid these conditions, we recommend either using a data type with lower precision or casting the ORDER BY expression to a lower precision. If a statement includes multiple calls to sort-based aggregate functions (LISTAGG, PERCENTILE_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that MEDIAN applies an implicit order by on the expression value. For example, the following statement returns an error. `select top 10 salesid, sum(pricepaid), percentile_cont(0.6) within group (order by salesid), median (pricepaid) from sales group by salesid, pricepaid; An error occurred when executing the SQL command: select top 10 salesid, sum(pricepaid), percentile_cont(0.6) within group (order by salesid), median (pricepaid) from sales group by salesid, pricepai... ERROR: within group ORDER BY clauses for aggregate functions must be the same` The following statement runs successfully. `select top 10 salesid, sum(pricepaid), percentile_cont(0.6) within group (order by salesid), median (salesid) from sales group by salesid, pricepaid;` ## Examples The following example shows that MEDIAN produces the same results as PERCENTILE_CONT(0.5). ``` select top 10 distinct sellerid, qtysold, percentile_cont(0.5) within group (order by qtysold), median (qtysold) from sales group by sellerid, qtysold; sellerid | qtysold | percentile_cont | median ---------+---------+-----------------+------- 1 | 1   | 1.0 | 1.0 2 | 3   | 3.0 | 3.0 5 | 2   | 2.0 | 2.0 9 | 4   | 4.0 | 4.0 12 | 1   | 1.0 | 1.0 16 | 1   | 1.0 | 1.0 19 | 2   | 2.0 | 2.0 19 | 3   | 3.0 | 3.0 22 | 2   | 2.0 | 2.0 25 | 2   | 2.0 | 2.0 ``` |
+| TIMESTAMPTZ                                 | TIMESTAMPTZ |
+
+## Usage notes
+
+If the ORDER BY expression is a DECIMAL data type defined with the maximum precision of 38
+digits, it is possible that PERCENTILE_CONT will return either an inaccurate result or an error.
+If the return value of the PERCENTILE_CONT function exceeds 38 digits, the result is truncated
+to fit, which causes a loss of precision. If, during interpolation, an intermediate result
+exceeds the maximum precision, a numeric overflow occurs and the function returns an error. To
+avoid these conditions, we recommend either using a data type with lower precision or casting
+the ORDER BY expression to a lower precision.
+
+If a statement includes multiple calls to sort-based aggregate functions (LISTAGG,
+PERCENTILE_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that MEDIAN
+applies an implicit order by on the expression value.
+
+For example, the following statement returns an error.
+
+```
+select top 10 salesid, sum(pricepaid),
+percentile_cont(0.6) within group (order by salesid),
+median (pricepaid)
+from sales group by salesid, pricepaid;
+
+An error occurred when executing the SQL command:
+select top 10 salesid, sum(pricepaid),
+percentile_cont(0.6) within group (order by salesid),
+median (pricepaid)
+from sales group by salesid, pricepai...
+
+ERROR: within group ORDER BY clauses for aggregate functions must be the same
+```
+
+The following statement runs successfully.
+
+```
+select top 10 salesid, sum(pricepaid),
+percentile_cont(0.6) within group (order by salesid),
+median (salesid)
+from sales group by salesid, pricepaid;
+```
+
+## Examples
+
+The following example shows that MEDIAN produces the same results as PERCENTILE_CONT(0.5).
+
+```
+select top 10  distinct sellerid, qtysold,
+percentile_cont(0.5) within group (order by qtysold),
+median (qtysold)
+from sales
+group by sellerid, qtysold;
+
+sellerid | qtysold | percentile_cont | median
+---------+---------+-----------------+-------
+       1 |       1 |             1.0 |    1.0
+       2 |       3 |             3.0 |    3.0
+       5 |       2 |             2.0 |    2.0
+       9 |       4 |             4.0 |    4.0
+      12 |       1 |             1.0 |    1.0
+      16 |       1 |             1.0 |    1.0
+      19 |       2 |             2.0 |    2.0
+      19 |       3 |             3.0 |    3.0
+      22 |       2 |             2.0 |    2.0
+      25 |       2 |             2.0 |    2.0
+```

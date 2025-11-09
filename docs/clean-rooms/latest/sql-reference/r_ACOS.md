@@ -23,10 +23,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc cosine of `-1`, use the following example.
 
-````
+```
 `SELECT ACOS(-1);`
 
 `+-------------------+
-| acos | +-------------------+
-| 3.141592653589793 | +-------------------+` ```
-````
+| acos |
++-------------------+
+| 3.141592653589793 |
++-------------------+`
+```

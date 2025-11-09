@@ -18,9 +18,11 @@ TRUE | FALSE
 The following example shows a column with a specified value of `TRUE`
 .
 
-````
+```
 SELECT TRUE AS col;
 +----+
-| col| +----+
-|true| +----+ ```
-````
+| col|
++----+
+|true|
++----+
+```

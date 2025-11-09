@@ -26,10 +26,12 @@ An expression that returns serialized JSON in the `VARBYTE` or
 To see if the JSON array `[10001,10002,"abc"]` can be converted into the
 `SUPER` data type, use the following example.
 
-````
+```
 `SELECT CAN_JSON_PARSE('[10001,10002,"abc"]');`
 
 `+----------------+
-| can_json_parse | +----------------+
-| true | +----------------+` ```
-````
+| can_json_parse |
++----------------+
+| true |
++----------------+`
+```

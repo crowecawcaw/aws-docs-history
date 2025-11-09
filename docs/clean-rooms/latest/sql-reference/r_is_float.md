@@ -29,7 +29,7 @@ A `SUPER` expression or column.
 To check if `2.22::FLOAT` is a `FLOAT` using the IS_FLOAT
 function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES(2.22::FLOAT);
@@ -37,6 +37,8 @@ INSERT INTO t VALUES(2.22::FLOAT);
 SELECT s, IS_FLOAT(s) FROM t;`
 
 `+---------+----------+
-| s | is_float | +---------+----------+
-| 2.22e+0 | true | +---------+----------+` ```
-````
+| s | is_float |
++---------+----------+
+| 2.22e+0 | true |
++---------+----------+`
+```

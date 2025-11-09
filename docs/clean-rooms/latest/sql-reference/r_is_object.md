@@ -26,7 +26,7 @@ A `SUPER` expression or column.
 To check if `{"name": "Joe"}` is an object using the IS_OBJECT
 function, use the following example.
 
-````
+```
 `CREATE TABLE t(s super);
 
 INSERT INTO t VALUES (JSON_PARSE('{"name": "Joe"}'));
@@ -34,6 +34,8 @@ INSERT INTO t VALUES (JSON_PARSE('{"name": "Joe"}'));
 SELECT s, IS_OBJECT(s) FROM t;`
 
 `+----------------+-----------+
-| s | is_object | +----------------+-----------+
-| {"name":"Joe"} | true | +----------------+-----------+` ```
-````
+| s | is_object |
++----------------+-----------+
+| {"name":"Joe"} | true |
++----------------+-----------+`
+```

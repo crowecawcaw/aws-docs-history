@@ -26,10 +26,12 @@ A `SUPER` expression or column.
 To check the type of JSON for the array `[1,2]` using the JSON_TYPEOF
 function, use the following example.
 
-````
+```
 `SELECT JSON_TYPEOF(ARRAY(1,2));`
 
 `+-------------+
-| json_typeof | +-------------+
-| array | +-------------+` ```
-````
+| json_typeof |
++-------------+
+| array |
++-------------+`
+```

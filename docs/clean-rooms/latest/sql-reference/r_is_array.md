@@ -26,10 +26,12 @@ A `SUPER` expression or column.
 To check if `[1,2]` is an array using the IS_ARRAY function, use the
 following example.
 
-````
+```
 `SELECT IS_ARRAY(JSON_PARSE('[1,2]'));`
 
 `+----------+
-| is_array | +----------+
-| true | +----------+` ```
-````
+| is_array |
++----------+
+| true |
++----------+`
+```

@@ -126,17 +126,251 @@ a DAY TO SECOND interval.
 Operations where the first operand is an `interval` produce the
 following results for the given second operand:
 
-| Operator | Date    | Timestamp      | Interval       | Numeric   |
-| -------- | ------- | -------------- | -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -        | N/A     | N/A            | Interval       | N/A       |
-| +        | Date    | Date/Timestamp | Interval       | N/A       |
-| \*       | N/A     | N/A            | N/A            | Interval  |
-| /        | N/A     | N/A            | N/A            | Interval  | Operations where the first operand is a `date` produce the following results for the given second operand:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Operator | Date    | Timestamp      | Interval       | Numeric   |
-| ---      | ---     | ---            | ---            | ---       |
-| -        | Numeric | Interval       | Date/Timestamp | Date      |
-| +        | N/A     | N/A            | N/A            | N/A       | Operations where the first operand is a `timestamp` produce the following results for the given second operand:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Operator | Date    | Timestamp      | Interval       | Numeric   |
-| ---      | ---     | ---            | ---            | ---       |
-| -        | Numeric | Interval       | Timestamp      | Timestamp |
-| +        | N/A     | N/A            | N/A            | N/A       | ## Interval styles <br>• `postgres` – follows PostgreSQL style. This is the default. <br>• `postgres_verbose` – follows PostgreSQL verbose style. <br>• `sql_standard` – follows the SQL standard interval literals style. The following command sets the interval style to `sql_standard`. `SET IntervalStyle to 'sql_standard';` **postgres output format** The following is the output format for `postgres` interval style. Each numeric value can be negative. `'<numeric> <unit> [, <numeric> <unit> ...]'` `` `select INTERVAL '1-2' YEAR TO MONTH::text` `varchar --------------- 1 year 2 mons` `` `` `select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text` `varchar ------------------ 1 day 02:03:04.5678` `` **postgres_verbose output format** postgres_verbose syntax is similar to postgres, but postgres_verbose outputs also contain the unit of time. `'[@] <numeric> <unit> [, <numeric> <unit> ...] [direction]'` `` `select INTERVAL '1-2' YEAR TO MONTH::text` `varchar ----------------- @ 1 year 2 mons` `` `` `select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text` `varchar --------------------------- @ 1 day 2 hours 3 mins 4.56 secs` `` **sql_standard output format** Interval year to month values are formatted as the following. Specifying a negative sign before the interval indicates the interval is a negative value and applies to the entire interval. `'[-]yy-mm'` Interval day to second values are formatted as the following. `'[-]dd hh:mm:ss.ffffff'` `` `SELECT INTERVAL '1-2' YEAR TO MONTH::text` `varchar ------- 1-2` `` `` `select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text` `varchar --------------- 1 2:03:04.5678` `` ## Examples of interval data type The following examples demonstrate how to use INTERVAL data types with tables. ``` `create table sample_intervals (y2m interval month, h2m interval hour to minute); insert into sample_intervals values (interval '20' month, interval '2 days 1:1:1.123456' day to second); select y2m::text, h2m::text from sample_intervals;` `y2m | h2m ---------------+----------------- 1 year 8 mons | 2 days 01:01:00` ``` ``` `update sample_intervals set y2m = interval '2' year where y2m = interval '1-8' year to month; select \* from sample_intervals;` `y2m | h2m ---------+----------------- 2 years | 2 days 01:01:00` ``` ``` `delete from sample_intervals where h2m = interval '2 1:1:0' day to second; select \* from sample_intervals;` `y2m | h2m -----+-----` ``` ## Examples of interval literals The following examples are run with interval style set to `postgres`. The following example demonstrates how to create an INTERVAL literal of 1 year. ``` `select INTERVAL '1' YEAR` `intervaly2m --------------- 1 years 0 mons` ``` If you specify a *quoted-string* that exceeds the qualifier, the remaining units of time are truncated from the interval. In the following example, an interval of 13 months becomes 1 year and 1 month, but the remaining 1 month is left out because of the YEAR qualifier. ``` `select INTERVAL '13 months' YEAR` `intervaly2m --------------- 1 years 0 mons` ``` If you use a qualifier lower than your interval string, leftover units are included. ``` `select INTERVAL '13 months' MONTH` `intervaly2m --------------- 1 years 1 mons` ``` Specifying a precision in your interval truncates the number of fractional digits to the specified precision. ``` `select INTERVAL '1.234567' SECOND (3)` `intervald2s -------------------------------- 0 days 0 hours 0 mins 1.235 secs` ``` If you don't specify a precision, AWS Clean Rooms uses the maximum precision of 6. ``` `select INTERVAL '1.23456789' SECOND` `intervald2s ----------------------------------- 0 days 0 hours 0 mins 1.234567 secs` ``` The following example demonstrates how to create a ranged interval. ``` `select INTERVAL '2:2' MINUTE TO SECOND` `intervald2s ------------------------------ 0 days 0 hours 2 mins 2.0 secs` ``` Qualifiers dictate the units that you're specifying. For example, even though the following example uses the same *quoted-string* of '2:2' as the previous example, AWS Clean Rooms recognizes that it uses different units of time because of the qualifier. ``` `select INTERVAL '2:2' HOUR TO MINUTE` `intervald2s ------------------------------ 0 days 2 hours 2 mins 0.0 secs` ``` Abbreviations and plurals of each unit are also supported. For example, `5s`, `5 second`, and `5 seconds` are equivalent intervals. Supported units are years, months, hours, minutes, and seconds. ``` `select INTERVAL '5s' SECOND` `intervald2s ------------------------------ 0 days 0 hours 0 mins 5.0 secs` ``` ``` `select INTERVAL '5 HOURS' HOUR` `intervald2s ------------------------------ 0 days 5 hours 0 mins 0.0 secs` ``` ``` `select INTERVAL '5 h' HOUR` `intervald2s ------------------------------ 0 days 5 hours 0 mins 0.0 secs` ``` |
+| Operator | Date | Timestamp      | Interval | Numeric  |
+| -------- | ---- | -------------- | -------- | -------- |
+| -        | N/A  | N/A            | Interval | N/A      |
+| +        | Date | Date/Timestamp | Interval | N/A      |
+| \*       | N/A  | N/A            | N/A      | Interval |
+| /        | N/A  | N/A            | N/A      | Interval |
+
+Operations where the first operand is a `date` produce the following
+results for the given second operand:
+
+| Operator | Date    | Timestamp | Interval       | Numeric |
+| -------- | ------- | --------- | -------------- | ------- |
+| -        | Numeric | Interval  | Date/Timestamp | Date    |
+| +        | N/A     | N/A       | N/A            | N/A     |
+
+Operations where the first operand is a `timestamp` produce the
+following results for the given second operand:
+
+| Operator | Date    | Timestamp | Interval  | Numeric   |
+| -------- | ------- | --------- | --------- | --------- |
+| -        | Numeric | Interval  | Timestamp | Timestamp |
+| +        | N/A     | N/A       | N/A       | N/A       |
+
+## Interval styles
+
+- `postgres` – follows PostgreSQL style. This is the
+  default.
+- `postgres_verbose` – follows PostgreSQL verbose
+  style.
+- `sql_standard` – follows the SQL standard interval
+  literals style.
+
+The following command sets the interval style to `sql_standard`.
+
+```
+SET IntervalStyle to 'sql_standard';
+```
+
+**postgres output format**
+
+The following is the output format for `postgres` interval style. Each
+numeric value can be negative.
+
+```
+'<numeric> <unit> [, <numeric> <unit> ...]'
+```
+
+```
+`select INTERVAL '1-2' YEAR TO MONTH::text`
+`varchar
+---------------
+1 year 2 mons`
+```
+
+```
+`select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text`
+`varchar
+------------------
+1 day 02:03:04.5678`
+```
+
+**postgres_verbose output format**
+
+postgres_verbose syntax is similar to postgres, but postgres_verbose outputs also
+contain the unit of time.
+
+```
+'[@] <numeric> <unit> [, <numeric> <unit> ...] [direction]'
+```
+
+```
+`select INTERVAL '1-2' YEAR TO MONTH::text`
+`varchar
+-----------------
+@ 1 year 2 mons`
+```
+
+```
+`select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text`
+`varchar
+---------------------------
+@ 1 day 2 hours 3 mins 4.56 secs`
+```
+
+**sql_standard output format**
+
+Interval year to month values are formatted as the following. Specifying a
+negative sign before the interval indicates the interval is a negative value and
+applies to the entire interval.
+
+```
+'[-]yy-mm'
+```
+
+Interval day to second values are formatted as the following.
+
+```
+'[-]dd hh:mm:ss.ffffff'
+```
+
+```
+`SELECT INTERVAL '1-2' YEAR TO MONTH::text`
+ `varchar
+-------
+1-2`
+```
+
+```
+`select INTERVAL '1 2:3:4.5678' DAY TO SECOND::text`
+`varchar
+---------------
+1 2:03:04.5678`
+```
+
+## Examples of interval data
+
+type
+
+The following examples demonstrate how to use INTERVAL data types with
+tables.
+
+```
+`create table sample_intervals (y2m interval month, h2m interval hour to minute);
+insert into sample_intervals values (interval '20' month, interval '2 days 1:1:1.123456' day to second);
+select y2m::text, h2m::text from sample_intervals;`
+`y2m | h2m
+---------------+-----------------
+ 1 year 8 mons | 2 days 01:01:00`
+```
+
+```
+`update sample_intervals set y2m = interval '2' year where y2m = interval '1-8' year to month;
+select * from sample_intervals;`
+`y2m | h2m
+---------+-----------------
+ 2 years | 2 days 01:01:00`
+```
+
+```
+`delete from sample_intervals where h2m = interval '2 1:1:0' day to second;
+select * from sample_intervals;`
+`y2m | h2m
+-----+-----`
+```
+
+## Examples of interval
+
+literals
+
+The following examples are run with interval style set to
+`postgres`.
+
+The following example demonstrates how to create an INTERVAL literal of 1
+year.
+
+```
+`select INTERVAL '1' YEAR`
+`intervaly2m
+---------------
+1 years 0 mons`
+```
+
+If you specify a _quoted-string_ that exceeds the qualifier,
+the remaining units of time are truncated from the interval. In the following
+example, an interval of 13 months becomes 1 year and 1 month, but the remaining 1
+month is left out because of the YEAR qualifier.
+
+```
+`select INTERVAL '13 months' YEAR`
+`intervaly2m
+---------------
+1 years 0 mons`
+```
+
+If you use a qualifier lower than your interval string, leftover units are
+included.
+
+```
+`select INTERVAL '13 months' MONTH`
+`intervaly2m
+---------------
+1 years 1 mons`
+```
+
+Specifying a precision in your interval truncates the number of fractional digits
+to the specified precision.
+
+```
+`select INTERVAL '1.234567' SECOND (3)`
+`intervald2s
+--------------------------------
+0 days 0 hours 0 mins 1.235 secs`
+```
+
+If you don't specify a precision, AWS Clean Rooms uses the maximum precision of 6.
+
+```
+`select INTERVAL '1.23456789' SECOND`
+`intervald2s
+-----------------------------------
+0 days 0 hours 0 mins 1.234567 secs`
+```
+
+The following example demonstrates how to create a ranged interval.
+
+```
+`select INTERVAL '2:2' MINUTE TO SECOND`
+`intervald2s
+------------------------------
+0 days 0 hours 2 mins 2.0 secs`
+```
+
+Qualifiers dictate the units that you're specifying. For example, even though the
+following example uses the same _quoted-string_ of '2:2' as the
+previous example, AWS Clean Rooms recognizes that it uses different units of time because of
+the qualifier.
+
+```
+`select INTERVAL '2:2' HOUR TO MINUTE`
+`intervald2s
+------------------------------
+0 days 2 hours 2 mins 0.0 secs`
+```
+
+Abbreviations and plurals of each unit are also supported. For example,
+`5s`, `5 second`, and `5 seconds` are equivalent
+intervals. Supported units are years, months, hours, minutes, and seconds.
+
+```
+`select INTERVAL '5s' SECOND`
+`intervald2s
+------------------------------
+0 days 0 hours 0 mins 5.0 secs`
+```
+
+```
+`select INTERVAL '5 HOURS' HOUR`
+`intervald2s
+------------------------------
+0 days 5 hours 0 mins 0.0 secs`
+```
+
+```
+`select INTERVAL '5 h' HOUR`
+`intervald2s
+------------------------------
+0 days 5 hours 0 mins 0.0 secs`
+```

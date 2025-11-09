@@ -28,7 +28,7 @@ A `SUPER` expression or column.
 To check if `{"name": "Joe"}` is a scalar using the IS_SCALAR function,
 use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (JSON_PARSE('{"name": "Joe"}'));
@@ -36,6 +36,8 @@ INSERT INTO t VALUES (JSON_PARSE('{"name": "Joe"}'));
 SELECT s, IS_SCALAR(s.name) FROM t;`
 
 `+----------------+-----------+
-| s | is_scalar | +----------------+-----------+
-| {"name":"Joe"} | true | +----------------+-----------+` ```
-````
+| s | is_scalar |
++----------------+-----------+
+| {"name":"Joe"} | true |
++----------------+-----------+`
+```

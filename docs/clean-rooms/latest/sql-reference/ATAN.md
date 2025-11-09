@@ -24,10 +24,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 To return the arc tangent of `1` and multiply it by 4, use the following
 example.
 
-````
+```
 `SELECT ATAN(1) * 4 AS pi;`
 
 `+-------------------+
-| pi | +-------------------+
-| 3.141592653589793 | +-------------------+` ```
-````
+| pi |
++-------------------+
+| 3.141592653589793 |
++-------------------+`
+```

@@ -66,7 +66,7 @@ NULL`
 In the following example, the query returns null when the LISTID and SALESID values
 match:
 
-````
+```
 select nullif(listid,salesid), salesid
 from sales where salesid<10 order by 1, 2 desc;
 
@@ -80,5 +80,6 @@ listid  | salesid
      10 |       8
      10 |       7
      10 |       6
-|       1 (9 rows) ```
-````
+        |       1
+(9 rows)
+```

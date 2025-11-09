@@ -50,13 +50,90 @@ AWS Clean Rooms converts _pattern_ to the data type of _expression_.
 
 LIKE supports the following pattern-matching metacharacters:
 
-| Operator           | Description                                      |
-| ------------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------- | ----------------------- | --------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------- | ----------------------- | --------------------------- | --------------------------- | ---------------------- |
-| `%`                | Matches any sequence of zero or more characters. |
-| `_`                | Matches any single character.                    | ## Examples The following table shows examples of pattern matching using LIKE:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Expression         | Returns                                          |
-| ---                | ---                                              |
-| `'abc' LIKE 'abc'` | True                                             |
-| `'abc' LIKE 'a%'`  | True                                             |
-| `'abc' LIKE '_B_'` | False                                            |
-| `'abc' LIKE 'c%'`  | False                                            | The following example finds all cities whose names start with "E": `select distinct city from users where city like 'E%' order by city; city --------------- East Hartford East Lansing East Rutherford East St. Louis Easthampton Easton Eatontown Eau Claire ...` The following example finds users whose last name contains "ten" : `select distinct lastname from users where lastname like '%ten%' order by lastname; lastname ------------- Christensen Wooten ...` The following example uses the default escape string (\\) to search for strings that include "start\_" (the text `start` followed by an underscore `_`): ``` select tablename, "column" from my*table_def where "column" like '%start\\*%' limit 5; tablename | column -------------------+--------------- my_s3client | start_time my_tr_conflict | xact_start_ts my_undone | undo_start_ts my_unload_log | start_time my_vacuum_detail | start*row (5 rows) ```The following example specifies '^' as the escape character, then uses the escape character to search for strings that include "start\_" (the text`start`followed by an underscore`*`): ``` select tablename, "column" from my*table_def where "column" like '%start^*%' escape '^' limit 5; tablename | column -------------------+--------------- my_s3client | start_time my_tr_conflict | xact_start_ts my_undone | undo_start_ts my_unload_log | start_time my_vacuum_detail | start_row (5 rows) ``` |
+| Operator | Description                                      |
+| -------- | ------------------------------------------------ |
+| `%`      | Matches any sequence of zero or more characters. |
+| `_`      | Matches any single character.                    |
+
+## Examples
+
+The following table shows examples of pattern matching using LIKE:
+
+| Expression         | Returns |
+| ------------------ | ------- |
+| `'abc' LIKE 'abc'` | True    |
+| `'abc' LIKE 'a%'`  | True    |
+| `'abc' LIKE '_B_'` | False   |
+| `'abc' LIKE 'c%'`  | False   |
+
+The following example finds all cities whose names start with "E":
+
+```
+select distinct city from users
+where city like 'E%' order by city;
+city
+---------------
+East Hartford
+East Lansing
+East Rutherford
+East St. Louis
+Easthampton
+Easton
+Eatontown
+Eau Claire
+...
+
+```
+
+The following example finds users whose last name contains "ten" :
+
+```
+select distinct lastname from users
+where lastname like '%ten%' order by lastname;
+lastname
+-------------
+Christensen
+Wooten
+...
+
+```
+
+The following example uses the default escape string (\\) to search for strings that
+include "start\_" (the text `start` followed by an underscore `_`):
+
+```
+select tablename, "column" from my_table_def
+
+
+where "column" like '%start\\_%'
+limit 5;
+
+     tablename     |    column
+-------------------+---------------
+ my_s3client      | start_time
+ my_tr_conflict   | xact_start_ts
+ my_undone        | undo_start_ts
+ my_unload_log    | start_time
+ my_vacuum_detail | start_row
+(5 rows)
+```
+
+The following example specifies '^' as the escape character, then uses the escape character
+to search for strings that include "start\_" (the text `start` followed by an
+underscore `_`):
+
+```
+select tablename, "column" from my_table_def
+
+where "column" like '%start^_%' escape '^'
+limit 5;
+
+     tablename     |    column
+-------------------+---------------
+ my_s3client      | start_time
+ my_tr_conflict   | xact_start_ts
+ my_undone        | undo_start_ts
+ my_unload_log    | start_time
+ my_vacuum_detail | start_row
+(5 rows)
+```

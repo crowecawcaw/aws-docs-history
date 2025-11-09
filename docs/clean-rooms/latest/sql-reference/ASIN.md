@@ -23,10 +23,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc sine of `1`, use the following example.
 
-````
+```
 `SELECT ASIN(1) AS halfpi;`
 
 `+--------------------+
-| halfpi | +--------------------+
-| 1.5707963267948966 | +--------------------+` ```
-````
+| halfpi |
++--------------------+
+| 1.5707963267948966 |
++--------------------+`
+```

@@ -16,6 +16,6 @@ contain multibyte characters, up to a maximum of four bytes per character. For e
 a VARCHAR(12) column can contain 12 single-byte characters, 6 two-byte characters, 4
 three-byte characters, or 3 four-byte characters.
 
-| Name                         | Storage                                                                         | Range (width of column) |
-| ---------------------------- | ------------------------------------------------------------------------------- | ----------------------- |
-| VARCHAR or CHARACTER VARYING | 4 bytes + total bytes for characters, where each character can be 1 to 4 bytes. | 65535 bytes (64K -1)    |
+| Name                         | Storage                                                                            | Range (width of column) |
+| ---------------------------- | ---------------------------------------------------------------------------------- | ----------------------- |
+| VARCHAR or CHARACTER VARYING | 4 bytes + total bytes for characters, where each<br>character can be 1 to 4 bytes. | 65535 bytes (64K -1)    |

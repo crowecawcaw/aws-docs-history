@@ -23,10 +23,12 @@ converted.
 
 To convert a number to its hexadecimal representation, use the following example.
 
-````
+```
 `SELECT TO_HEX(2147676847);`
 
 `+----------+
-| to_hex | +----------+
-| 8002f2af | +----------+`To create a table, insert the `VARBYTE` representation of `'abc'` to a hexadecimal number, and select the column with the value, use the following example. ```
-````
+| to_hex |
++----------+
+| 8002f2af |
++----------+`To create a table, insert the `VARBYTE` representation of `'abc'` to a hexadecimal number, and select the column with the value, use the following example.
+```

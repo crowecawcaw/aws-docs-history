@@ -28,12 +28,14 @@ Power to raise _expression1_. Must be an
 
 ## Example
 
-````
+```
 `SELECT (SELECT SUM(qtysold) FROM sales, date
 WHERE sales.dateid=date.dateid
 AND year=2008) * POW((1+7::FLOAT/100),10) qty2010;`
 
 `+-------------------+
-| qty2010 | +-------------------+
-| 679353.7540885945 | +-------------------+` ```
-````
+| qty2010 |
++-------------------+
+| 679353.7540885945 |
++-------------------+`
+```

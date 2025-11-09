@@ -22,13 +22,15 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 ## Example
 
-````
+```
 `SELECT (SELECT SUM(qtysold)
 FROM sales, date
 WHERE sales.dateid=date.dateid
 AND year=2008) * DEXP((7::FLOAT/100)*10) qty2010;`
 
 `+-------------------+
-| qty2010 | +-------------------+
-| 695447.4837722216 | +-------------------+` ```
-````
+| qty2010 |
++-------------------+
+| 695447.4837722216 |
++-------------------+`
+```

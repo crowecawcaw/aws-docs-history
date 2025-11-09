@@ -87,38 +87,64 @@ The following table lists the data types that can be converted implicitly in
 assignments or expressions. You can also use an explicit conversion function to perform
 these conversions.
 
-| From type                 | To type                                                                                                                                                                                                                                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
-| BIGINT                    | BOOLEAN                                                                                                                                                                                                                                                                                                |
-| CHAR                      |                                                                                                                                                                                                                                                                                                        | DECIMAL (NUMERIC)         |
-| DOUBLE PRECISION (FLOAT8) |                                                                                                                                                                                                                                                                                                        | INTEGER                   |
-| REAL (FLOAT4)             |                                                                                                                                                                                                                                                                                                        | SMALLINT or SHORT         |
+| From type                 | To type        |
+| ------------------------- | -------------- |
+| BIGINT                    | BOOLEAN        |
+| CHAR                      |
+| DECIMAL (NUMERIC)         |
+| DOUBLE PRECISION (FLOAT8) |
+| INTEGER                   |
+| REAL (FLOAT4)             |
+| SMALLINT or SHORT         |
 | VARCHAR                   |
-| CHAR                      | VARCHAR                                                                                                                                                                                                                                                                                                |
-| DATE                      | CHAR                                                                                                                                                                                                                                                                                                   |
-| VARCHAR                   |                                                                                                                                                                                                                                                                                                        | TIMESTAMP                 |
+| CHAR                      | VARCHAR        |
+| DATE                      | CHAR           |
+| VARCHAR                   |
+| TIMESTAMP                 |
 | TIMESTAMPTZ               |
-| DECIMAL (NUMERIC)         | BIGINT or LONG                                                                                                                                                                                                                                                                                         |
-| CHAR                      |                                                                                                                                                                                                                                                                                                        | DOUBLE PRECISION (FLOAT8) |
-| INTEGER INT)              |                                                                                                                                                                                                                                                                                                        | REAL (FLOAT4)             |
-| SMALLINT or SHORT         |                                                                                                                                                                                                                                                                                                        | VARCHAR                   |
-| DOUBLE PRECISION (FLOAT8) | BIGINT or LONG                                                                                                                                                                                                                                                                                         |
-| CHAR                      |                                                                                                                                                                                                                                                                                                        | DECIMAL (NUMERIC)         |
-| INTEGER (INT)             |                                                                                                                                                                                                                                                                                                        | REAL (FLOAT4)             |
-| SMALLINT or SHORT         |                                                                                                                                                                                                                                                                                                        | VARCHAR                   |
-| INTEGER (INT)             | BIGINT or LONG                                                                                                                                                                                                                                                                                         |
-| BOOLEAN                   |                                                                                                                                                                                                                                                                                                        | CHAR                      |
-| DECIMAL (NUMERIC)         |                                                                                                                                                                                                                                                                                                        | DOUBLE PRECISION (FLOAT8) |
-| REAL (FLOAT4)             |                                                                                                                                                                                                                                                                                                        | SMALLINT or SHORT         |
+| DECIMAL (NUMERIC)         | BIGINT or LONG |
+| CHAR                      |
+| DOUBLE PRECISION (FLOAT8) |
+| INTEGER INT)              |
+| REAL (FLOAT4)             |
+| SMALLINT or SHORT         |
 | VARCHAR                   |
-| REAL (FLOAT4)             | BIGINT or LONG                                                                                                                                                                                                                                                                                         |
-| CHAR                      |                                                                                                                                                                                                                                                                                                        | DECIMAL (NUMERIC)         |
-| INTEGER (INT)             |                                                                                                                                                                                                                                                                                                        | SMALLINT or SHORT         |
+| DOUBLE PRECISION (FLOAT8) | BIGINT or LONG |
+| CHAR                      |
+| DECIMAL (NUMERIC)         |
+| INTEGER (INT)             |
+| REAL (FLOAT4)             |
+| SMALLINT or SHORT         |
 | VARCHAR                   |
-| SMALLINT                  | BIGINT or LONG                                                                                                                                                                                                                                                                                         |
-| BOOLEAN                   |                                                                                                                                                                                                                                                                                                        | CHAR                      |
-| DECIMAL (NUMERIC)         |                                                                                                                                                                                                                                                                                                        | DOUBLE PRECISION (FLOAT8) |
-| INTEGER (INT)             |                                                                                                                                                                                                                                                                                                        | REAL (FLOAT4)             |
+| INTEGER (INT)             | BIGINT or LONG |
+| BOOLEAN                   |
+| CHAR                      |
+| DECIMAL (NUMERIC)         |
+| DOUBLE PRECISION (FLOAT8) |
+| REAL (FLOAT4)             |
+| SMALLINT or SHORT         |
 | VARCHAR                   |
-| TIME                      | VARCHAR                                                                                                                                                                                                                                                                                                |
-| TIMETZ                    | ###### Note Implicit conversions between DATE, TIME, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or character strings use the current session time zone. The VARBYTE data type can't be implicitly converted to any other data type. For more information, see [CAST function](CAST_function.md "CAST_function.md"). |
+| REAL (FLOAT4)             | BIGINT or LONG |
+| CHAR                      |
+| DECIMAL (NUMERIC)         |
+| INTEGER (INT)             |
+| SMALLINT or SHORT         |
+| VARCHAR                   |
+| SMALLINT                  | BIGINT or LONG |
+| BOOLEAN                   |
+| CHAR                      |
+| DECIMAL (NUMERIC)         |
+| DOUBLE PRECISION (FLOAT8) |
+| INTEGER (INT)             |
+| REAL (FLOAT4)             |
+| VARCHAR                   |
+| TIME                      | VARCHAR        |
+| TIMETZ                    |
+
+###### Note
+
+Implicit conversions between DATE, TIME, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or
+character strings use the current session time zone.
+
+The VARBYTE data type can't be implicitly converted to any other data type.
+For more information, see [CAST function](CAST_function.md "CAST_function.md").

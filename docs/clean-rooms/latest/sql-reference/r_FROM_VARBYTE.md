@@ -29,10 +29,12 @@ and `utf8`.
 To convert the binary value `'ab'` to hexadecimal, use the following
 example.
 
-````
+```
 `SELECT FROM_VARBYTE('ab', 'hex');`
 
 `+--------------+
-| from_varbyte | +--------------+
-| 6162 | +--------------+` ```
-````
+| from_varbyte |
++--------------+
+| 6162 |
++--------------+`
+```
