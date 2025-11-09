@@ -1430,15 +1430,15 @@ format with another resource type. When this happens, Resource Explorer can repo
 as that other resource type. This affects the resource types in the following
 table.
 
-| Actual resource type                                                                            | Reported as resource type           |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `ec2:securitygroupegress` `ec2:securitygroupingress`                                            | `ec2:security-group-rule`           |
-| `elasticloadbalancingv2:loadbalancer`                                                           | `elasticloadbalancing:loadbalancer` |
-| `docdb:dbcluster` `neptune:dbcluster` `rds:dbcluster`                                           | `rds:cluster`                       |
-| `docdb:dbclusterparametergroup` `neptune:dbclusterparametergroup` `rds:dbclusterparametergroup` | `rds:cluster-pg`                    |
-| `docdb:clustersnapshot` `neptune:dbclustersnapshot` `rds:clustersnapshot`                       | `rds:cluster-snapshot`              |
-| `docdb:dbinstance` `neptune:dbinstance` `rds:dbinstance`                                        | `rds:db`                            |
-| `docdb:eventsubscription` `neptune:eventsubscription` `rds:eventsubscription`                   | `rds:es`                            |
-| `docdb:globalcluster` `rds:globalcluster`                                                       | `rds:global-cluster`                |
-| `neptune:dbparametergroup` `rds:dbparametergroup`                                               | `rds:pg`                            |
-| `docdb:dbsubnetgroup` `neptune:dbsubnetgroup` `rds:dbsubnetgroup`                               | `rds:subgrp`                        |
+| Actual resource type                                                                                  | Reported as resource type           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `ec2:securitygroupegress`<br>`ec2:securitygroupingress`                                               | `ec2:security-group-rule`           |
+| `elasticloadbalancingv2:loadbalancer`                                                                 | `elasticloadbalancing:loadbalancer` |
+| `docdb:dbcluster`<br>`neptune:dbcluster`<br>`rds:dbcluster`                                           | `rds:cluster`                       |
+| `docdb:dbclusterparametergroup`<br>`neptune:dbclusterparametergroup`<br>`rds:dbclusterparametergroup` | `rds:cluster-pg`                    |
+| `docdb:clustersnapshot`<br>`neptune:dbclustersnapshot`<br>`rds:clustersnapshot`                       | `rds:cluster-snapshot`              |
+| `docdb:dbinstance`<br>`neptune:dbinstance`<br>`rds:dbinstance`                                        | `rds:db`                            |
+| `docdb:eventsubscription`<br>`neptune:eventsubscription`<br>`rds:eventsubscription`                   | `rds:es`                            |
+| `docdb:globalcluster`<br>`rds:globalcluster`                                                          | `rds:global-cluster`                |
+| `neptune:dbparametergroup`<br>`rds:dbparametergroup`                                                  | `rds:pg`                            |
+| `docdb:dbsubnetgroup`<br>`neptune:dbsubnetgroup`<br>`rds:dbsubnetgroup`                               | `rds:subgrp`                        |

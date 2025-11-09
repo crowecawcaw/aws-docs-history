@@ -18,10 +18,11 @@ form](https://console.aws.amazon.com/support/home#/case/create?issueType=service
 
 The following quotas are the defaults and maximums for Resource Explorer.
 
-| Maximum value quotas                       | Default value | Maximum value |
-| ------------------------------------------ | ------------- | ------------- |
-| Number of views in an AWS Region           | 10            | 10            |
+| Maximum value quotas             | Default value | Maximum value |
+| -------------------------------- | ------------- | ------------- |
+| Number of views in an AWS Region | 10            | 10            |
+
 | Rate limits for operations                 | Default value | Maximum value |
-| ---                                        | ---           | ---           |
+| ------------------------------------------ | ------------- | ------------- |
 | Maximum `Search` operations per second     | 5             | 5             |
 | Maximum non-`Search` operations per second | 3             | 3             |
