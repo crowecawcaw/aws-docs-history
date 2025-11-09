@@ -97,21 +97,35 @@ these tables, IPv6 routes are included for a dualstack configuration.
 This route table must have a route that sends traffic destined for the application
 servers to the Gateway Load Balancer endpoint.
 
-| Destination                    | Target                |
-| ------------------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `VPC IPv4 CIDR`                | Local                 |
-| `VPC IPv6 CIDR`                | Local                 |
-| `Application subnet IPv4 CIDR` | `vpc-endpoint-id`     |
-| `Application subnet IPv6 CIDR` | `vpc-endpoint-id`     | ###### Route table for the subnet with the application servers This route table must have a route that sends all traffic from the application servers to the Gateway Load Balancer endpoint.                                                                                                                                                                                                               |
-| Destination                    | Target                |
-| ---                            | ---                   |
-| `VPC IPv4 CIDR`                | Local                 |
-| `VPC IPv6 CIDR`                | Local                 |
-| 0.0.0.0/0                      | `vpc-endpoint-id`     |
-| ::/0                           | `vpc-endpoint-id`     | ###### Route table for the subnet with the Gateway Load Balancer endpoint This route table must send traffic that is returned from inspection to its final destination. For traffic that originated from the internet, the local route sends the traffic to the application servers. For traffic that originated from the application servers, add a route that sends all traffic to the internet gateway. |
-| Destination                    | Target                |
-| ---                            | ---                   |
-| `VPC IPv4 CIDR`                | Local                 |
-| `VPC IPv6 CIDR`                | Local                 |
-| 0.0.0.0/0                      | `internet-gateway-id` |
-| ::/0                           | `internet-gateway-id` |
+| Destination                    | Target            |
+| ------------------------------ | ----------------- |
+| `VPC IPv4 CIDR`                | Local             |
+| `VPC IPv6 CIDR`                | Local             |
+| `Application subnet IPv4 CIDR` | `vpc-endpoint-id` |
+| `Application subnet IPv6 CIDR` | `vpc-endpoint-id` |
+
+###### Route table for the subnet with the application servers
+
+This route table must have a route that sends all traffic from the application servers
+to the Gateway Load Balancer endpoint.
+
+| Destination     | Target            |
+| --------------- | ----------------- |
+| `VPC IPv4 CIDR` | Local             |
+| `VPC IPv6 CIDR` | Local             |
+| 0.0.0.0/0       | `vpc-endpoint-id` |
+| ::/0            | `vpc-endpoint-id` |
+
+###### Route table for the subnet with the Gateway Load Balancer endpoint
+
+This route table must send traffic that is returned from inspection to its final
+destination. For traffic that originated from the internet, the local route sends the
+traffic to the application servers. For traffic that originated from the application
+servers, add a route that sends all traffic to the internet gateway.
+
+| Destination     | Target                |
+| --------------- | --------------------- |
+| `VPC IPv4 CIDR` | Local                 |
+| `VPC IPv6 CIDR` | Local                 |
+| 0.0.0.0/0       | `internet-gateway-id` |
+| ::/0            | `internet-gateway-id` |

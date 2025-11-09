@@ -30,11 +30,11 @@ Use the following procedure to create a VPC resource endpoint. After you create 
 6. For **Resource configurations**, select the resource configuration.
 7. For **Network settings**, select the VPC from which you'll access the
    resource.
-8. If, you want to configure private DNS support for resource configurations
-   that use ARNs, select **Additional
+8. If, you want to configure private DNS support for resource configurations,
+   select **Additional
    settings**, **Enable DNS name**. To use this feature, ensure that
    the attributes **Enable DNS hostnames** and **Enable DNS
-   support** are enabled for your VPC.
+   support** are enabled for your VPC. For more information, see [Custom domain names for resource consumers](resource-configuration.md#custom-domain-name-resource-consumers "resource-configuration.md#custom-domain-name-resource-consumers").
 9. For **Subnets**, select a subnet to create the endpoint network interface in.
 
 In a production environment, for high availability and resiliency, we recommend configuring at least two Availability Zones for each VPC endpoint. 10. For **Security groups**, select a security group.

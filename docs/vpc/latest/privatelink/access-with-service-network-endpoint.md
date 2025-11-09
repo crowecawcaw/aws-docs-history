@@ -43,7 +43,7 @@ you. After you create a service-network endpoint, you can only modify its securi
 7. For **Network settings**, select your VPC from which you'll access the
    service network.
 8. If, you want to configure private DNS support, select **Additional
-   settings**, **Enable DNS name**. To use this feature, ensure that
+   settings**, **Enable private DNS name**. To use this feature, ensure that
    the attributes **Enable DNS hostnames** and **Enable DNS
    support** are enabled for your VPC.
 9. For **Subnets**, select a subnet to create the endpoint network interface in.

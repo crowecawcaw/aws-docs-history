@@ -246,13 +246,30 @@ return A records, AAAA records, or both A and AAAA records. You can customize wh
 record types your AWS service returns by modifying the DNS record IP type. The following
 table shows the supported DNS record IP types and the returned record types:
 
-| DNS record IP type | Returned record types                    |
-| ------------------ | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IPv4               | A                                        |
-| IPv6               | AAAA                                     |
-| Dualstack          | A and AAAA                               | By default, the DNS record type is the same as the IP address type. You can choose a different DNS record IP type, but you must use a compatible IP address type for the endpoint service. The following table shows the supported DNS record IP type for each IP address types for interface endpoints:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| IP address type    | Supported DNS record IP types            |
-| ---                | ---                                      |
-| IPv4               | IPv4                                     |
-| IPv6               | IPv6                                     |
-| Dualstack          | Dualstack\*, IPv4, IPv6, service-defined | \* Represents the default DNS record IP type. A service-defined DNS record IP type returns DNS records based on the service endpoint you call. If you use a service-defined DNS record IP type, make sure your service can handle variable calls from service endpoints. To see the DNS records supported by your interface endpoint, see the DNS names for your VPC endpoint in the AWS Management Console, or use [DescribeVpcEndpoints](../../../AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.md "../../../AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.md"). The DNS record IP type behavior is different for gateway endpoints. For more information, see [DNS record IP type for gateway endpoints](gateway-endpoints.md#gateway-endpoint-dns-record-ip-type "gateway-endpoints.md#gateway-endpoint-dns-record-ip-type"). |
+| DNS record IP type | Returned record types |
+| ------------------ | --------------------- |
+| IPv4               | A                     |
+| IPv6               | AAAA                  |
+| Dualstack          | A and AAAA            |
+
+By default, the DNS record type is the same as the IP address type. You can choose a
+different DNS record IP type, but you must use a compatible IP address type for the endpoint
+service. The following table shows the supported DNS record IP type for each IP address types
+for interface endpoints:
+
+| IP address type | Supported DNS record IP types            |
+| --------------- | ---------------------------------------- |
+| IPv4            | IPv4                                     |
+| IPv6            | IPv6                                     |
+| Dualstack       | Dualstack\*, IPv4, IPv6, service-defined |
+
+\* Represents the default DNS record IP type.
+
+A service-defined DNS record IP type returns DNS records based on the service endpoint you
+call. If you use a service-defined DNS record IP type, make sure your service can handle
+variable calls from service endpoints. To see the DNS records supported by your interface
+endpoint, see the DNS names for your VPC endpoint in the AWS Management Console, or use [DescribeVpcEndpoints](../../../AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.md "../../../AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.md").
+
+The DNS record IP type behavior is different for gateway endpoints. For more information, see
+[DNS record IP type for gateway
+endpoints](gateway-endpoints.md#gateway-endpoint-dns-record-ip-type "gateway-endpoints.md#gateway-endpoint-dns-record-ip-type").

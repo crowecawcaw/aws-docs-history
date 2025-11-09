@@ -10,6 +10,9 @@ gateway through which it receives traffic.
 
 - [Types of resource configurations](#resource-configuration-types "#resource-configuration-types")
 - [Resource gateway](#resource-gateway "#resource-gateway")
+- [Custom domain names for resource providers](#custom-domain-name-resource-providers "#custom-domain-name-resource-providers")
+- [Custom domain names for resource consumers](#custom-domain-name-resource-consumers "#custom-domain-name-resource-consumers")
+- [Custom domain names for service network owners](#resource-configuration-custom-domain-name-service-network-owners "#resource-configuration-custom-domain-name-service-network-owners")
 - [Resource definition](#resource-definition "#resource-definition")
 - [Protocol](#resource-configuration-protocol "#resource-configuration-protocol")
 - [Port ranges](#resource-configuration-port "#resource-configuration-port")
@@ -51,6 +54,112 @@ ENIs that serve as a point of ingress into the VPC in which the resource is in. 
 resource configurations can be associated with the same resource gateway. When clients in other
 VPCs or accounts access a resource in your VPC, the resource sees traffic coming locally
 from the resource gateway in that VPC.
+
+## Custom domain names for resource providers
+
+Resource providers can attach a custom domain name to a resource configuration, such
+as `example.com`, which resource consumers can use to access the resource
+configuration. The custom domain name can be owned and verified by the resource
+provider, or it can be a third-party or AWS domain. Resource providers can use
+resource configurations to share cache clusters and Kafka clusters, TLS-based
+applications, or other AWS resources.
+
+The following considerations apply to providers of resource configurations:
+
+- A resource configuration can only have one custom domain.
+- The custom domain name of a resource configuration cannot be changed.
+- The custom domain name is visible to all resource configuration consumers.
+- You can verify your custom domain name using the domain name verification
+  process in VPC Lattice. For more information For more information, see [https://docs.aws.amazon.com/vpc-lattice/latest/ug/create-and-verify.html](../../../vpc-lattice/latest/ug/create-and-verify.md "../../../vpc-lattice/latest/ug/create-and-verify.md").
+- For resource configurations of type group and child, you must first specify a
+  group domain on the group resource configuration. After, the child resource
+  configurations can have custom domains that are subdomains of the group domain.
+  If the group doesn’t have a group domain, you can use any custom domain name for
+  the child, but VPC Lattice will not provision any hosted zones for the child
+  domain names in the resource consumer’s VPC.
+
+## Custom domain names for resource consumers
+
+When resource consumers enable connectivity to a resource configuration that has a
+custom domain name, they can allow VPC Lattice to manage a Route 53 private hosted zone
+in their VPC. Resource consumers have granular options for which domains they want to allow
+VPC Lattice to manage private hosted zones for.
+
+Resource consumers can set the `private-dns-enabled` parameter when
+enabling connectivity to resource configurations through a resource endpoint, a service
+network endpoint, or a service network VPC association. Along with the
+`private-dns-enabled` parameter, consumers can use DNS options to specify
+which domains that they want VPC Lattice to manage private hosted zones for. Consumers can
+choose between the following private DNS preferences:
+
+**`ALL_DOMAINS`**
+
+VPC Lattice provisions private hosted zones for all custom domain names.
+
+**`VERIFIED_DOMAINS_ONLY`**
+
+VPC Lattice provisions a private hosted zone only if custom domain name has
+been verified by the provider.
+
+**`VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`**
+
+VPC Lattice provisions private hosted zones for all verified custom domain
+names and other domain names that the resource consumer specifies. The
+resource consumer specifies the domain names in the `private DNS specified
+ domains` parameter.
+
+**`SPECIFIED_DOMAINS_ONLY`**
+
+VPC Lattice provisions a private hosted zone for domain names specified by
+the resource consumer. The resource consumer specifies the domain names in
+the `private DNS specified domains` parameter.
+
+When you enable private DNS, VPC Lattice creates a private hosted zone in your VPC for
+the custom domain name associated with the resource configuration. By default, the
+private DNS preference is set to `VERIFIED_DOMAINS_ONLY`. This means that
+private hosted zones are created only if the custom domain name has been verified by
+the resource provider. If you set your private DNS preference to
+`ALL_DOMAINS`
+or
+`SPECIFIED_DOMAINS_ONLY` then VPC Lattice creates private hosted zones
+regardless of the verification status of the custom domain name. When a private hosted
+zone is created for a given domain, all traffic to that domain from your VPC is routed
+through VPC Lattice. We recommend that you use the `ALL_DOMAINS`,
+`VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, or
+`SPECIFIED_DOMAINS_ONLY` preferences only when you want traffic to these
+custom domain names to go through VPC Lattice.
+
+We recommend that resource consumers set their private DNS preference to
+`VERIFIED_DOMAINS_ONLY`. This lets consumers tighten their security
+perimeter by only allowing VPC Lattice to provision private hosted zones for verified
+domains in the resource consumer's account.
+
+To select domains in the private DNS specified domains, resource consumers can enter a
+fully qualified domain name, such as `my.example.com` or use a wildcard such as
+`*.example.com`.
+
+The following considerations apply to consumers of resource configurations:
+
+- The private DNS enabled parameter cannot be changed.
+- Private DNS should be enabled on a service network resource association for
+  private hosted to be created in a VPC. For a resource configuration, the private
+  DNS enabled status of the service network resource association overrides the
+  private DNS enabled status of either the service network endpoint or service
+  network VPC association.
+
+## Custom domain names for service network owners
+
+The private DNS enabled property of the service network resource association overrides
+the private DNS enabled property of the service network endpoint and the service network
+VPC association.
+
+If a service network owner creates a service network resource association and doesn't
+enable private DNS, VPC Lattice won’t provision private hosted zones for that resource
+configuration in any VPCs that the service network is connected to, even though private
+DNS is enabled on the service network endpoint or service network VPC
+associations.
+
+For resource configurations of type ARN the private DNS flag is true and immutable.
 
 ## Resource definition
 
