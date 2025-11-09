@@ -13,7 +13,7 @@ environment.
 
 ## Version
 
-You can use the code example on this page with **Apache Airflow v2** in [Python 3.10](https://peps.python.org/pep-0619/ "https://peps.python.org/pep-0619/").
+The code samples on this page are specific to Apache Airflow v2 supported on Amazon MWAA. Refer to the [supported Apache Airflow versions](airflow-versions.md "airflow-versions.md").
 
 ###### Tip
 

@@ -42,7 +42,7 @@ To create an environment, you need the following:
 Amazon MWAA is available in the following AWS Regions. To learn more about each region, such as which are enabled or disabled by default, refer to [AWS Regions](../../../global-infrastructure/latest/regions/aws-regions.md "../../../global-infrastructure/latest/regions/aws-regions.md").
 
 | Code           | Name                      |
-| -------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------------- |
 | us-east-1      | US East (N. Virginia)     |
 | us-east-2      | US East (Ohio)            |
 | us-west-1      | US West (N. California)   |
@@ -72,4 +72,8 @@ Amazon MWAA is available in the following AWS Regions. To learn more about each 
 | il-central-1   | Israel (Tel Aviv)         |
 | me-south-1     | Middle East (Bahrain)     |
 | me-central-1   | Middle East (UAE)         |
-| sa-east-1      | South America (São Paulo) | ## What's next? <br>• Learn how to create an Amazon S3 bucket in [Create an Amazon S3 bucket for Amazon MWAA](mwaa-s3-bucket.md "mwaa-s3-bucket.md"). |
+| sa-east-1      | South America (São Paulo) |
+
+## What's next?
+
+- Learn how to create an Amazon S3 bucket in [Create an Amazon S3 bucket for Amazon MWAA](mwaa-s3-bucket.md "mwaa-s3-bucket.md").

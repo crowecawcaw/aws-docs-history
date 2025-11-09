@@ -25,9 +25,68 @@ Amazon MWAA can send Apache Airflow logs to Amazon CloudWatch. You can access lo
 Amazon MWAA creates a log group for each Airflow logging option you enable, and pushes the logs to the CloudWatch Logs groups associated with an environment. Log groups are named in the following format: `YourEnvironmentName-`LogType``. For example, if your environment's named `Airflow-v202-Public`, Apache Airflow task logs are sent to `Airflow-v202-Public-`Task``.
 
 | Log type                              | Description                                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `YourEnvironmentName-`DAGProcessing`` | The logs of the DAG processor manager (the part of the scheduler that processes DAG files). |
 | `YourEnvironmentName-`Scheduler``     | The logs the Airflow scheduler generates.                                                   |
 | `YourEnvironmentName-`Task``          | The task logs a DAG generates.                                                              |
 | `YourEnvironmentName-`WebServer``     | The logs the Airflow web interface generates.                                               |
-| `YourEnvironmentName-`Worker``        | The logs generated as part of workflow and DAG execution.                                   | ## Enabling Apache Airflow logs You can enable Apache Airflow logs at the `INFO`, `WARNING`, `ERROR`, or `CRITICAL` level. When you choose a log level, Amazon MWAA sends logs for that level and all higher levels of severity. For example, if you enable logs at the `INFO` level, Amazon MWAA sends `INFO` logs and `WARNING`, `ERROR`, and `CRITICAL` log levels to CloudWatch Logs. 1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console. 2. Choose an environment. 3. Choose **Edit**. 4. Choose **Next**. 5. Choose one or more of the following logging options: 1. Choose the **Airflow scheduler log group** on the **Monitoring** pane. 2. Choose the **Airflow webserver log group** on the **Monitoring** pane. 3. Choose the **Airflow worker log group** on the **Monitoring** pane. 4. Choose the **Airflow DAG processing log group** on the **Monitoring** pane. 5. Choose the **Airflow task log group** on the **Monitoring** pane. 6. Choose the logging level in **Log level**. 6. Choose **Next**. 7. Choose **Save**. ## Accessing Apache Airflow logs The following section describes how to access Apache Airflow logs in the CloudWatch console. 1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console. 2. Choose an environment. 3. Choose a log group in the **Monitoring** pane. 4. Choose a log in **Log stream**. ## Example scheduler logs You can access Apache Airflow logs for the scheduler scheduling your workflows and parsing your `dags` folder. The following steps describe how to open the log group for the scheduler on the Amazon MWAA console, and access Apache Airflow logs on the CloudWatch Logs console. ###### To access logs for a `requirements.txt` 1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console. 2. Choose an environment. 3. Choose the **Airflow scheduler log group** on the **Monitoring** pane. 4. Choose the `requirements_install_ip` log in **Log streams**. 5. Refer to the list of packages that were installed on the environment at `/usr/local/airflow/.local/bin`. For example: `Collecting appdirs==1.4.4 (from -r /usr/local/airflow/.local/bin (line 1)) Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb28kjdsfiuyweb47389789vxbmnbjhsdgf5463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl Collecting astroid==2.4.2 (from -r /usr/local/airflow/.local/bin (line 2))` 6. Review the list of packages and whether any of these encountered an error during installation. If something went wrong, you might get an error similar to the following: `2021-03-05T14:34:42.731-07:00 No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4)) No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))` ## What's next? <br>• Learn how to configure a CloudWatch alarm in [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"). <br>• Learn how to create a CloudWatch dashboard in [Using CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md"). |
+| `YourEnvironmentName-`Worker``        | The logs generated as part of workflow and DAG execution.                                   |
+
+## Enabling Apache Airflow logs
+
+You can enable Apache Airflow logs at the `INFO`, `WARNING`, `ERROR`, or `CRITICAL` level. When you choose a log level, Amazon MWAA sends logs for that level and all higher levels of severity. For example, if you enable logs at the `INFO` level, Amazon MWAA sends `INFO` logs and `WARNING`, `ERROR`, and `CRITICAL` log levels to CloudWatch Logs.
+
+1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console.
+2. Choose an environment.
+3. Choose **Edit**.
+4. Choose **Next**.
+5. Choose one or more of the following logging options:
+   1. Choose the **Airflow scheduler log group** on the **Monitoring** pane.
+   2. Choose the **Airflow webserver log group** on the **Monitoring** pane.
+   3. Choose the **Airflow worker log group** on the **Monitoring** pane.
+   4. Choose the **Airflow DAG processing log group** on the **Monitoring** pane.
+   5. Choose the **Airflow task log group** on the **Monitoring** pane.
+   6. Choose the logging level in **Log level**.
+
+6. Choose **Next**.
+7. Choose **Save**.
+
+## Accessing Apache Airflow logs
+
+The following section describes how to access Apache Airflow logs in the CloudWatch console.
+
+1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console.
+2. Choose an environment.
+3. Choose a log group in the **Monitoring** pane.
+4. Choose a log in **Log stream**.
+
+## Example scheduler logs
+
+You can access Apache Airflow logs for the scheduler scheduling your workflows and parsing your `dags` folder. The following steps describe how to open the log group for the scheduler on the Amazon MWAA console, and access Apache Airflow logs on the CloudWatch Logs console.
+
+###### To access logs for a `requirements.txt`
+
+1. Open the [Environments](https://console.aws.amazon.com/mwaa/home#/environments "https://console.aws.amazon.com/mwaa/home#/environments") page on the Amazon MWAA console.
+2. Choose an environment.
+3. Choose the **Airflow scheduler log group** on the **Monitoring** pane.
+4. Choose the `requirements_install_ip` log in **Log streams**.
+5. Refer to the list of packages that were installed on the environment at `/usr/local/airflow/.local/bin`. For example:
+
+```
+Collecting appdirs==1.4.4 (from -r /usr/local/airflow/.local/bin (line 1))
+Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb28kjdsfiuyweb47389789vxbmnbjhsdgf5463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+Collecting astroid==2.4.2 (from -r /usr/local/airflow/.local/bin (line 2))
+```
+
+6. Review the list of packages and whether any of these encountered an error during installation. If something went wrong, you might get an error similar to the following:
+
+```
+2021-03-05T14:34:42.731-07:00
+No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))
+No matching distribution found for LibraryName==1.0.0 (from -r /usr/local/airflow/.local/bin (line 4))
+```
+
+## What's next?
+
+- Learn how to configure a CloudWatch alarm in [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
+- Learn how to create a CloudWatch dashboard in [Using CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").

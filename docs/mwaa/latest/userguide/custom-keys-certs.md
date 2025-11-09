@@ -7,7 +7,136 @@ For more information about creating keys, refer to [Creating Keys](../../../kms/
 ## What's supported
 
 | AWS KMS feature                                                                                                                                                     | Supported |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | An [AWS KMS key ID or ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md").                          | Yes       |
 | An [AWS KMS key alias](../../../kms/latest/developerguide/kms-alias.md "../../../kms/latest/developerguide/kms-alias.md").                                          | No        |
-| An [AWS KMS multi-region key](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md"). | No        | ## Using Grants for Encryption This topic describes the grants Amazon MWAA attaches to a customer-managed KMS key on your behalf to encrypt and decrypt your data. ### How it works There are two resource-based access control mechanisms supported by AWS KMS for customer-managed KMS key: a [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") and [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"). A key policy is used when the permission is mostly static and used in synchronous service mode. A grant is used when more dynamic and granular permissions are required, such as when a service needs to define different access permissions for itself or other accounts. Amazon MWAA uses and attaches four grant policies to your customer-managed KMS key. This is due to the granular permissions required for an environment to encrypt data at rest from CloudWatch Logs, Amazon SQS queue, Aurora PostgreSQL database database, Secrets Manager secrets, Amazon S3 bucket and DynamoDB tables. When you create an Amazon MWAA environment and specify a customer-managed KMS key, Amazon MWAA attaches the grant policies to your customer-managed KMS key. These policies allow Amazon MWAA in `airflow.`us-east-1`.amazonaws.com` to use your customer-managed KMS key to encrypt resources on your behalf that are owned by Amazon MWAA. Amazon MWAA creates, and attaches, additional grants to a specified KMS key on your behalf. This includes policies to retire a grant if you delete your environment, to use your customer-managed KMS key for Client-Side Encryption (CSE), and for the AWS Fargate execution role that needs to access secrets protected by your customer-managed key in Secrets Manager. ## Grant policies Amazon MWAA adds the following [resource based policy](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") grants on your behalf to a customer-managed KMS key. These policies allow the grantee and the principal (Amazon MWAA) to perform actions defined in the policy. ### Grant 1: used to create data plane resources ``{ "Name": "mwaa-grant-for-env-mgmt-role-`environment name`", "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com", "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com", "Operations": [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:CreateGrant", "kms:DescribeKey", "kms:RetireGrant" ] }`` ### Grant 2: used for `ControllerLambdaExecutionRole` access ``{ "Name": "mwaa-grant-for-lambda-exec-`environment name`", "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com", "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com", "Operations": [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:DescribeKey", "kms:RetireGrant" ] }`` ### Grant 3: used for `CfnManagementLambdaExecutionRole` access ``{ "Name": " mwaa-grant-for-cfn-mgmt-`environment name`", "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com", "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com", "Operations": [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:DescribeKey" ] }`` ### Grant 4: used for Fargate execution role to access backend secrets ``{ "Name": "mwaa-fargate-access-for-`environment name`", "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com", "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com", "Operations": [ "kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:DescribeKey", "kms:RetireGrant" ] }`` ## Attaching key policies to a customer-managed key If you choose to use your own customer-managed KMS key with Amazon MWAA, you must attach the following policy to the key to allow Amazon MWAA to use it to encrypt your data. If the customer-managed KMS key you used for your Amazon MWAA environment is not already configured to work with CloudWatch, you must update the [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") to allow for encrypted CloudWatch Logs. For more information, refer to the [Encrypt log data in CloudWatch using AWS Key Management Service service](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md"). The following example represents a key policy for CloudWatch Logs. Substitute the sample values provided for the region. ``{ "Effect": "Allow", "Principal": { "Service": "logs.`us-east-1`.amazonaws.com" }, "Action": [ "kms:Encrypt*", "kms:Decrypt*", "kms:ReEncrypt*", "kms:GenerateDataKey*", "kms:Describe*" ], "Resource": "*", "Condition": { "ArnLike": { "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:`us-east-1`:*:*" } } }`` |
+| An [AWS KMS multi-region key](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md"). | No        |
+
+## Using Grants for Encryption
+
+This topic describes the grants Amazon MWAA attaches to a customer-managed KMS key on your behalf to encrypt and decrypt your data.
+
+### How it works
+
+There are two resource-based access control mechanisms supported by AWS KMS for customer-managed KMS key: a
+[key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") and [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md").
+
+A key policy is used when the permission is mostly static and used in synchronous service mode. A grant is used when more dynamic and granular permissions are required, such as when a
+service needs to define different access permissions for itself or other accounts.
+
+Amazon MWAA uses and attaches four grant policies to your customer-managed KMS key. This is due to the granular permissions required for an environment to encrypt data at rest from CloudWatch Logs,
+Amazon SQS queue, Aurora PostgreSQL database database, Secrets Manager secrets, Amazon S3 bucket and DynamoDB tables.
+
+When you create an Amazon MWAA environment and specify a customer-managed KMS key, Amazon MWAA attaches the grant policies to your customer-managed KMS key. These policies allow Amazon MWAA in
+`airflow.`us-east-1`.amazonaws.com` to use your customer-managed KMS key to encrypt resources on your behalf that are owned by Amazon MWAA.
+
+Amazon MWAA creates, and attaches, additional grants to a specified KMS key on your behalf. This includes policies to retire a grant if you delete your environment, to use your customer-managed KMS key for Client-Side Encryption (CSE),
+and for the AWS Fargate execution role that needs to access secrets protected by your customer-managed key in Secrets Manager.
+
+## Grant policies
+
+Amazon MWAA adds the following [resource based policy](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") grants on your behalf to a customer-managed KMS key.
+These policies allow the grantee and the principal (Amazon MWAA) to perform actions defined in the policy.
+
+### Grant 1: used to create data plane resources
+
+```
+{
+  "Name": "mwaa-grant-for-env-mgmt-role-`environment name`",
+  "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "Operations": [
+    "kms:Encrypt",
+    "kms:Decrypt",
+    "kms:ReEncrypt*",
+    "kms:GenerateDataKey*",
+    "kms:CreateGrant",
+    "kms:DescribeKey",
+    "kms:RetireGrant"
+  ]
+}
+```
+
+### Grant 2: used for `ControllerLambdaExecutionRole` access
+
+```
+{
+  "Name": "mwaa-grant-for-lambda-exec-`environment name`",
+  "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "Operations": [
+    "kms:Encrypt",
+    "kms:Decrypt",
+    "kms:ReEncrypt*",
+    "kms:GenerateDataKey*",
+    "kms:DescribeKey",
+    "kms:RetireGrant"
+  ]
+}
+```
+
+### Grant 3: used for `CfnManagementLambdaExecutionRole` access
+
+```
+{
+  "Name": " mwaa-grant-for-cfn-mgmt-`environment name`",
+  "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "Operations": [
+    "kms:Encrypt",
+    "kms:Decrypt",
+    "kms:ReEncrypt*",
+    "kms:GenerateDataKey*",
+    "kms:DescribeKey"
+  ]
+}
+```
+
+### Grant 4: used for Fargate execution role to access backend secrets
+
+```
+{
+  "Name": "mwaa-fargate-access-for-`environment name`",
+  "GranteePrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "RetiringPrincipal": "airflow.`us-east-1`.amazonaws.com",
+  "Operations": [
+    "kms:Encrypt",
+    "kms:Decrypt",
+    "kms:ReEncrypt*",
+    "kms:GenerateDataKey*",
+    "kms:DescribeKey",
+    "kms:RetireGrant"
+  ]
+}
+```
+
+## Attaching key policies to a customer-managed key
+
+If you choose to use your own customer-managed KMS key with Amazon MWAA, you must attach the following policy to the key to allow Amazon MWAA to use it to encrypt your data.
+
+If the customer-managed KMS key you used for your Amazon MWAA environment is not already configured to work with CloudWatch, you must update the [key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md")
+to allow for encrypted CloudWatch Logs. For more information, refer to the [Encrypt log data in CloudWatch using AWS Key Management Service service](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md").
+
+The following example represents a key policy for CloudWatch Logs. Substitute the sample values provided for the region.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "logs.`us-east-1`.amazonaws.com"
+  },
+  "Action": [
+    "kms:Encrypt*",
+    "kms:Decrypt*",
+    "kms:ReEncrypt*",
+    "kms:GenerateDataKey*",
+    "kms:Describe*"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "ArnLike": {
+      "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:`us-east-1`:*:*"
+    }
+  }
+}
+```

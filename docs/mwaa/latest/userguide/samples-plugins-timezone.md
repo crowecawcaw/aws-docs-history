@@ -52,8 +52,87 @@ time.tzset()
 
 3. In the `plugins` directory, create an empty Python file named `__init__.py`. Your `plugins` directory should be similar to the following:
 
-````
+```
 plugins/
-|-- __init__.py
-|-- dag-timezone-plugin.py ``` ## Create a `plugins.zip` The following steps explain how to create `plugins.zip`. The content of this example can be combined with other plugins and binaries into a single `plugins.zip` file. 1. In your command prompt, navigate to the `plugins` directory from the previous step. For example: ``` cd plugins ``` 2. Zip the contents within your `plugins` directory. ``` `zip -r ../plugins.zip ./` ``` 3. Upload `plugins.zip` to your S3 bucket ``` `aws s3 cp plugins.zip s3://`your-mwaa-bucket`/` ``` ## Code sample To change the default timezone (UTC+0) in which the DAG runs, we'll use a library called [Pendulum](https://pypi.org/project/pendulum/ "https://pypi.org/project/pendulum/"), a Python library for working with timezone-aware datetime. 1. In your command prompt, navigate to the directory where your DAGs are stored. For example: ``` `cd dags` ``` 2. Copy the content of the following example and save as `tz-aware-dag.py`. ``` from airflow import DAG from airflow.operators.bash_operator import BashOperator from datetime import datetime, timedelta # Import the Pendulum library. import pendulum # Instantiate Pendulum and set your timezone. local_tz = pendulum.timezone("America/Los_Angeles") with DAG( dag_id = "tz_test", schedule_interval="0 12 * * *", catchup=False, start_date=datetime(2022, 1, 1, tzinfo=local_tz) ) as dag: bash_operator_task = BashOperator( task_id="tz_aware_task", dag=dag, bash_command="date" ) ``` 3. Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI. ``` `aws s3 cp `your-dag`.py s3://`your-environment-bucket`/dags/` ``` 4. If successful, you'll output similar to the following in the task logs for the `tz_aware_task` in the `tz_test` DAG: ``` [2022-08-01, 12:00:00 PDT] {{subprocess.py:74}} INFO - Running command: ['bash', '-c', 'date'] [2022-08-01, 12:00:00 PDT] {{subprocess.py:85}} INFO - Output: [2022-08-01, 12:00:00 PDT] {{subprocess.py:89}} INFO - **Mon Aug 1 12:00:00 PDT 2022** [2022-08-01, 12:00:00 PDT] {{subprocess.py:93}} INFO - Command exited with return code 0 [2022-08-01, 12:00:00 PDT] {{taskinstance.py:1280}} INFO - Marking task as SUCCESS. dag_id=tz_test, task_id=tz_aware_task, execution_date=20220801T190033, start_date=20220801T190035, end_date=20220801T190035 [2022-08-01, 12:00:00 PDT] {{local_task_job.py:154}} INFO - Task exited with return code 0 [2022-08-01, 12:00:00 PDT] {{local_task_job.py:264}} INFO - 0 downstream tasks scheduled from follow-on schedule check ``` ## What's next? <br>• Learn more about how to upload the `plugins.zip` file in this example to your Amazon S3 bucket in [Installing custom plugins](configuring-dag-import-plugins.md "configuring-dag-import-plugins.md").
-````
+ |-- __init__.py
+ |-- dag-timezone-plugin.py
+```
+
+## Create a `plugins.zip`
+
+The following steps explain how to create `plugins.zip`. The content of this example can be combined with other plugins and binaries into a single `plugins.zip` file.
+
+1. In your command prompt, navigate to the `plugins` directory from the previous step. For example:
+
+```
+cd plugins
+```
+
+2. Zip the contents within your `plugins` directory.
+
+```
+`zip -r ../plugins.zip ./`
+```
+
+3. Upload `plugins.zip` to your S3 bucket
+
+```
+`aws s3 cp plugins.zip s3://`your-mwaa-bucket`/`
+```
+
+## Code sample
+
+To change the default timezone (UTC+0) in which the DAG runs, we'll use a library called [Pendulum](https://pypi.org/project/pendulum/ "https://pypi.org/project/pendulum/"), a Python library for working with timezone-aware datetime.
+
+1. In your command prompt, navigate to the directory where your DAGs are stored. For example:
+
+```
+`cd dags`
+```
+
+2. Copy the content of the following example and save as `tz-aware-dag.py`.
+
+```
+from airflow import DAG
+from airflow.operators.bash_operator import BashOperator
+from datetime import datetime, timedelta
+# Import the Pendulum library.
+import pendulum
+
+# Instantiate Pendulum and set your timezone.
+local_tz = pendulum.timezone("America/Los_Angeles")
+
+with DAG(
+    dag_id = "tz_test",
+    schedule_interval="0 12 * * *",
+    catchup=False,
+    start_date=datetime(2022, 1, 1, tzinfo=local_tz)
+) as dag:
+    bash_operator_task = BashOperator(
+        task_id="tz_aware_task",
+        dag=dag,
+        bash_command="date"
+    )
+```
+
+3. Run the following AWS CLI command to copy the DAG to your environment's bucket, then trigger the DAG using the Apache Airflow UI.
+
+```
+`aws s3 cp `your-dag`.py s3://`your-environment-bucket`/dags/`
+```
+
+4. If successful, you'll output similar to the following in the task logs for the `tz_aware_task` in the `tz_test` DAG:
+
+```
+[2022-08-01, 12:00:00 PDT] {{subprocess.py:74}} INFO - Running command: ['bash', '-c', 'date']
+[2022-08-01, 12:00:00 PDT] {{subprocess.py:85}} INFO - Output:
+[2022-08-01, 12:00:00 PDT] {{subprocess.py:89}} INFO - **Mon Aug 1 12:00:00 PDT 2022**
+[2022-08-01, 12:00:00 PDT] {{subprocess.py:93}} INFO - Command exited with return code 0
+[2022-08-01, 12:00:00 PDT] {{taskinstance.py:1280}} INFO - Marking task as SUCCESS. dag_id=tz_test, task_id=tz_aware_task, execution_date=20220801T190033, start_date=20220801T190035, end_date=20220801T190035
+[2022-08-01, 12:00:00 PDT] {{local_task_job.py:154}} INFO - Task exited with return code 0
+[2022-08-01, 12:00:00 PDT] {{local_task_job.py:264}} INFO - 0 downstream tasks scheduled from follow-on schedule check
+```
+
+## What's next?
+
+- Learn more about how to upload the `plugins.zip` file in this example to your Amazon S3 bucket in [Installing custom plugins](configuring-dag-import-plugins.md "configuring-dag-import-plugins.md").
