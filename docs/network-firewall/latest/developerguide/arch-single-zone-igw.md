@@ -21,7 +21,7 @@ the subnet association in place. The VPC has an internet gateway for internet
 access. All incoming and outgoing traffic for the VPC routes through the
 firewall.
 
-![An AWS Region is shown with a single Availability Zone. The Region also has an internet gateway, which has arrows out to and in from an internet cloud. Inside the Region, spanning part of the Availability Zone, is a VPC. Inside the VPC is a customer subnet. One arrow shows traffic going between the customer subnet and the firewall subnet. Another arrow shows traffic going between the firewall subnet and the internet gateway.](images/arch-igw-simple.png)
+![An AWS Region is shown with a single Availability Zone. The Region also has an internet gateway, which has arrows out to and in from an internet cloud. Inside the Region, spanning part of the Availability Zone, is a VPC. Inside the VPC is a customer subnet. One arrow shows traffic going between the customer subnet and the firewall subnet. Another arrow shows traffic going between the firewall subnet and the internet gateway.](/images/network-firewall/latest/developerguide/images/arch-igw-simple.png)
 To include the firewall in your Amazon Virtual Private Cloud VPC, you need to modify the VPC route tables so
 that traffic between the customer subnets and the internet passes through the
 firewall, for both incoming and outgoing traffic.
