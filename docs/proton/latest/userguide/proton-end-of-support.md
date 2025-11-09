@@ -117,27 +117,6 @@ control.
 CI/CD example: [Integrating with
 GitHub Actions – CI/CD pipeline to deploy a Web App to Amazon EC2](https://aws.amazon.com/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/ "https://aws.amazon.com/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/")
 
-### Spacelift
-
-**Best for:** Teams needing advanced governance and compliance capabilities
-
-AWS Partner solution that combines Infrastructure as Code and CI/CD capabilities on a single platform. It provides
-governance controls, drift detection, and approval workflows that help teams maintain security and compliance while
-enabling developer self-service for infrastructure deployments.
-
-#### Key Benefits:
-
-1. Advanced drift detection and dashboarding
-2. Approval workflows for security and compliance
-3. Works with various Infrastructure as Code tools
-4. Can be self-hosted on AWS
-
-#### Limitations:
-
-1. Third-party solution with separate billing
-
-Learn more: [https://spacelift.io/](https://spacelift.io/ "https://spacelift.io/")
-
 ## Migration Guidance
 
 The migration process depends on your implementation and chosen alternative. General steps:
@@ -171,7 +150,6 @@ specific use case:
 2. For enterprises needing a developer portal: Harmonix On AWS
 3. For maximum flexibility: AWS CodePipeline and AWS CodeBuild
 4. For teams already on GitHub: GitHub Actions
-5. For advanced governance needs: Spacelift
 
 **Q: What happens if I don't migrate by October 7, 2026?** A: You'll no longer be
 able to access AWS Proton. Your existing infrastructure will continue to function, but you won't be able to use AWS Proton to

@@ -86,7 +86,7 @@ The example shows how to write a robust service template that doesn't break if a
 
 ###### Example service CloudFormation IaC file using a component
 
-````
+```
 # service/instance_infrastructure/cloudformation.yaml
 
 Resources:
@@ -112,5 +112,96 @@ Resources:
       ManagedPolicyArns:
         - !Ref BaseTaskRoleManagedPolicy
         **{{ service\_instance.components.default.outputs
-| proton\_cfn\_iam\_policy\_arns }}** # Basic permissions for the task BaseTaskRoleManagedPolicy: Type: AWS::IAM::ManagedPolicy Properties: # ... ``` 4. Create a new service template minor version that declares directly defined components as supported. <br>• Template bundle in Amazon S3 – In the AWS Proton console, when you create a service template version, for **Supported component sources**, choose **Directly defined**. If you're using the AWS Proton API or AWS CLI, specify `DIRECTLY_DEFINED` in the `supportedComponentSources` parameter of the [CreateServiceTemplateVersion](../APIReference/API_CreateServiceTemplateVersion.md "../APIReference/API_CreateServiceTemplateVersion.md") or [UpdateServiceTemplateVersion](../APIReference/API_UpdateServiceTemplateVersion.md "../APIReference/API_UpdateServiceTemplateVersion.md") API actions. <br>• Template sync – Commit a change to your service template bundle repository, where you specify `DIRECTLY_DEFINED` as an item of `supported_component_sources:` in the `.template-registration.yaml` file in the major version directory. For more information about this file, see [Syncing service templates](create-template-sync.md#create-template-sync-service-templates "create-template-sync.md#create-template-sync-service-templates"). 5. Publish the new service template minor version. For more information, see [Register and publish templates](template-create.md "template-create.md"). 6. Be sure to allow the `proton:CreateComponent` in the IAM role of developers that use this service template. ## Developer steps ###### To use a directly defined component with a service instance 1. Create a service that uses the service template version that the administrator created with component support. Alternatively, update one of your existing service instances to use the latest template version. 2. Write a component IaC template file that provisions an Amazon S3 bucket and a related access policy and exposes these resources as outputs. ###### Example component CloudFormation IaC file ``` # cloudformation.yaml # A component that defines an S3 bucket and a policy for accessing the bucket. Resources: S3Bucket: Type: AWS::S3::Bucket Properties: BucketName: **'{{environment.name}}-{{service.name}}-{{service\_instance.name}}-{{component.name}}'** S3BucketAccessPolicy: Type: AWS::IAM::ManagedPolicy Properties: PolicyDocument: Version: "2012-10-17" Statement: <br>• Effect: Allow Action: <br>• 's3:Get*' <br>• 's3:List*' <br>• 's3:PutObject' Resource: !GetAtt S3Bucket.Arn **Outputs: BucketName: Description: "Bucket to access" Value: !GetAtt S3Bucket.Arn BucketAccessPolicyArn: Value: !Ref S3BucketAccessPolicy** ``` 3. If you're using the AWS Proton API or AWS CLI, write a manifest file for the component. ###### Example directly defined component manifest ``` infrastructure: templates: <br>• file: "cloudformation.yaml" rendering_engine: jinja template_language: cloudformation ``` 4. Create a directly defined component. AWS Proton assumes the component role that the administrator defined to provision the component. In the AWS Proton console, on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") page, choose **Create component**. For **Component settings**, enter a **Component name** and an optional **Component description**. For **Component attachment**, choose **Attach the component to a service instance.** Select your environment, service, and service instance. For **Component source**, choose **AWS CloudFormation**, and then choose the component IaC file. ###### Note You don't need to provide a manifest—the console creates one for you. If you're using the AWS Proton API or AWS CLI, use the [CreateComponent](../APIReference/API_CreateComponent.md "../APIReference/API_CreateComponent.md") API action. Set a component `name` and optional `description`. Set `environmentName`, `serviceName`, and `serviceInstanceName`. Set `templateSource` and `manifest` to the paths of the files you created. ###### Note Specifying an environment name is optional when you specify service and service instance names. The combination of these two is unique in your AWS account, and AWS Proton can determine the environment from the service instance. 5. Update your service instance to redeploy it. AWS Proton uses outputs from your component in the rendered service instance template, to enable your application to use the Amazon S3 bucket that the component provisioned.
-````
+ | proton\_cfn\_iam\_policy\_arns }}**
+
+  # Basic permissions for the task
+  BaseTaskRoleManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      # ...
+```
+
+4. Create a new service template minor version that declares directly defined components as supported.
+   - Template bundle in Amazon S3 – In the AWS Proton console, when you create a service template version, for
+     **Supported component sources**, choose **Directly defined**. If you're using the AWS Proton API or AWS CLI,
+     specify `DIRECTLY_DEFINED` in the `supportedComponentSources` parameter of the [CreateServiceTemplateVersion](../APIReference/API_CreateServiceTemplateVersion.md "../APIReference/API_CreateServiceTemplateVersion.md") or [UpdateServiceTemplateVersion](../APIReference/API_UpdateServiceTemplateVersion.md "../APIReference/API_UpdateServiceTemplateVersion.md") API actions.
+   - Template sync – Commit a change to your service template bundle repository, where you specify
+     `DIRECTLY_DEFINED` as an item of `supported_component_sources:` in the `.template-registration.yaml`
+     file in the major version directory. For more information about this file, see [Syncing service templates](create-template-sync.md#create-template-sync-service-templates "create-template-sync.md#create-template-sync-service-templates").
+
+5. Publish the new service template minor version. For more information, see [Register and publish templates](template-create.md "template-create.md").
+6. Be sure to allow the `proton:CreateComponent` in the IAM role of developers that use this service template.
+
+## Developer steps
+
+###### To use a directly defined component with a service instance
+
+1. Create a service that uses the service template version that the administrator created with component support. Alternatively, update one of your
+   existing service instances to use the latest template version.
+2. Write a component IaC template file that provisions an Amazon S3 bucket and a related access policy and exposes these resources as outputs.
+
+###### Example component CloudFormation IaC file
+
+```
+# cloudformation.yaml
+
+# A component that defines an S3 bucket and a policy for accessing the bucket.
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: **'{{environment.name}}-{{service.name}}-{{service\_instance.name}}-{{component.name}}'**
+  S3BucketAccessPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - 's3:Get*'
+              - 's3:List*'
+              - 's3:PutObject'
+            Resource: !GetAtt S3Bucket.Arn
+**Outputs:
+ BucketName:
+ Description: "Bucket to access"
+ Value: !GetAtt S3Bucket.Arn
+ BucketAccessPolicyArn:
+ Value: !Ref S3BucketAccessPolicy**
+```
+
+3. If you're using the AWS Proton API or AWS CLI, write a manifest file for the component.
+
+###### Example directly defined component manifest
+
+```
+infrastructure:
+  templates:
+    - file: "cloudformation.yaml"
+      rendering_engine: jinja
+      template_language: cloudformation
+
+```
+
+4. Create a directly defined component. AWS Proton assumes the component role that the administrator defined to provision the component.
+
+In the AWS Proton console, on the [Components](https://console.aws.amazon.com/proton/#/components "https://console.aws.amazon.com/proton/#/components") page, choose **Create
+component**. For **Component settings**, enter a **Component name** and an optional **Component
+description**. For **Component attachment**, choose **Attach the component to a service instance.**
+Select your environment, service, and service instance. For **Component source**, choose **AWS CloudFormation**, and then
+choose the component IaC file.
+
+###### Note
+
+You don't need to provide a manifest—the console creates one for you.
+
+If you're using the AWS Proton API or AWS CLI, use the [CreateComponent](../APIReference/API_CreateComponent.md "../APIReference/API_CreateComponent.md") API action. Set a component `name` and optional
+`description`. Set `environmentName`, `serviceName`,
+and `serviceInstanceName`. Set `templateSource` and `manifest` to the paths of the files you created.
+
+###### Note
+
+Specifying an environment name is optional when you specify service and service instance names. The combination of these two is unique in your
+AWS account, and AWS Proton can determine the environment from the service instance. 5. Update your service instance to redeploy it. AWS Proton uses outputs from your component in the rendered service instance template, to enable your
+application to use the Amazon S3 bucket that the component provisioned.

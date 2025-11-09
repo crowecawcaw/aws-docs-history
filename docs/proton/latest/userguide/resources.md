@@ -65,10 +65,136 @@ AWS Proton applies tags to your resources by AWS Proton accounts, registered tem
 described in the following table. You can use AWS managed tags to view and manage your AWS Proton resources, but you can't modify them.
 
 | AWS managed tag key           | Propagated customer managed key | Description                                                    |
-| ----------------------------- | ------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | ------------------------------- | -------------------------------------------------------------- |
 | `aws:proton:account`          | `proton:account`                | The AWS account that creates and deploys AWS Proton resources. |
 | `aws:proton:template`         | `proton:template`               | The ARN of a selected template.                                |
 | `aws:proton:environment`      | `proton:environment`            | The ARN of a selected environment.                             |
 | `aws:proton:service`          | `proton:service`                | The ARN of a selected service.                                 |
 | `aws:proton:service-instance` | `proton:service-instance`       | The ARN of a selected service instance.                        |
-| `aws:proton:component`        | `proton:component`              | The ARN of a selected component.                               | The following is an example of an AWS managed tag for an AWS Proton resource. ``"aws:proton:template" = "arn:aws:proton:`region-id`:`account-id`:environment-template/`env-template`"`` The following is an example of a customer managed tag applied to a provisioned resource that was propagated from an AWS managed tag. ``"proton:environment:database" = "arn:aws:proton:`region-id`:`account-id`:rds/`env-db`"`` With [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct"), AWS Proton applies propagated tags directly to provisioned resources. With [self-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-self "ag-works-prov-methods.md#ag-works-prov-methods-self"), AWS Proton makes propagated tags available together with the rendered IaC files that it submits in the provisioning pull request (PR). Tags are provided in the string map variable `proton_tags`. We recommend that you make a reference to this variable in your Terraform configuration to include AWS Proton tags in `default_tags`. This propagates AWS Proton tags to all provisioned resources. The following example shows this method of tag propagation in an environment Terraform template. Here's the `proton_tags` variable definition: **proton.environment.variables.tf:** `variable "environment" { type = object({ inputs = map(string) name = string }) } variable "proton_tags" { type = map(string) default = null }` Here's how tag values are assigned to this variable: **proton.auto.tfvars.json:** `{ "environment": { "name": "dev", "inputs": { "ssm_parameter_value": "MyNewParamValue" } } "proton_tags" : { "proton:account" : "123456789012", "proton:template" : "arn:aws:proton:us-east-1:123456789012:environment-template/fargate-env", "proton:environment" : "arn:aws:proton:us-east-1:123456789012:environment/dev" } }` And here's how you can add AWS Proton tags to your Terraform configuration so that they're added to provisioned resources: ``# Configure the AWS Provider provider "aws" { region = var.aws_region `default_tags { tags = var.proton_tags }` }`` ### Customer managed tags Each AWS Proton resource has a maximum quota of 50 customer managed tags. Customer managed tags propagate to child AWS Proton resources in the same way that AWS managed tags do, except they don't propagate to existing AWS Proton resources or to provisioned resources. If you apply a new tag to an AWS Proton resource with existing child resources and you want the existing child resources to be tagged with the new tag, you need to tag each existing child resource manually, using the console or AWS CLI. ### Create tags using the console and CLI When you create an AWS Proton resource using the console, you're given the opportunity to create customer managed tags either on the first or second page of the create procedure as shown in the following console snapshot. Choose **Add new tag**, enter the key and value and proceed. ![A snapshot of the console create tag interface.](images/tag-create.PNG) After you create a new resource using the AWS Proton console, you can view its list of AWS managed and customer managed tags from the detail page. ###### Create or edit a tag 1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), open an AWS Proton resource detail page where you can see a list of tags. 2. Choose **Manage tags**. 3. In the **Manage tags** page, you can view, create, remove and edit tags. You can’t modify the AWS managed tags listed at the top. However, you can add to and modify the customer managed tags with editing fields, listed after the AWS managed tags. Choose **Add new tag** to create a new tag. 4. Enter a key and value for the new tag. 5. To edit a tag, enter a value in the tag value field for a selected key. 6. To delete a tag choose **Remove** for a selected tag. 7. When you have completed your changes, choose **Save changes**. ### Create tags using the AWS Proton​ AWS CLI You can view, create, remove and edit tags using the AWS Proton AWS CLI. You can create or edit a tag for a resource as shown in the following example. `` `$` `aws proton tag-resource \ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`" \ --tags '[{"key":"`mykey1`","value":"`myval1`"},{"key":"`mykey2`","value":"`myval2`"}]'` `` You can remove a tag for a resource as shown in the next example. `` `$` `aws proton untag-resource \ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`" \ --tag-keys '["`mykey1`","`mykey2`"]'` `` You can list tags for a resource as shown in the final example. `` `$` `aws proton list-tags-for-resource \ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`"` `` |
+| `aws:proton:component`        | `proton:component`              | The ARN of a selected component.                               |
+
+The following is an example of an AWS managed tag for an AWS Proton resource.
+
+```
+"aws:proton:template" = "arn:aws:proton:`region-id`:`account-id`:environment-template/`env-template`"
+```
+
+The following is an example of a customer managed tag applied to a provisioned resource that was propagated from an AWS managed tag.
+
+```
+"proton:environment:database" = "arn:aws:proton:`region-id`:`account-id`:rds/`env-db`"
+```
+
+With [AWS-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-direct "ag-works-prov-methods.md#ag-works-prov-methods-direct"), AWS Proton applies propagated tags directly to provisioned
+resources.
+
+With [self-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-self "ag-works-prov-methods.md#ag-works-prov-methods-self"), AWS Proton makes propagated tags available together with the rendered
+IaC files that it submits in the provisioning pull request (PR). Tags are provided in the string map variable `proton_tags`. We recommend
+that you make a reference to this variable in your Terraform configuration to include AWS Proton tags in `default_tags`. This propagates AWS Proton
+tags to all provisioned resources.
+
+The following example shows this method of tag propagation in an environment Terraform template.
+
+Here's the `proton_tags` variable definition:
+
+**proton.environment.variables.tf:**
+
+```
+variable "environment" {
+  type = object({
+    inputs = map(string)
+    name = string
+  })
+}
+
+variable "proton_tags" {
+  type = map(string)
+  default = null
+}
+```
+
+Here's how tag values are assigned to this variable:
+
+**proton.auto.tfvars.json:**
+
+```
+{
+  "environment": {
+    "name": "dev",
+    "inputs": {
+      "ssm_parameter_value": "MyNewParamValue"
+    }
+  }
+
+  "proton_tags" : {
+    "proton:account" : "123456789012",
+    "proton:template" : "arn:aws:proton:us-east-1:123456789012:environment-template/fargate-env",
+    "proton:environment" : "arn:aws:proton:us-east-1:123456789012:environment/dev"
+  }
+}
+```
+
+And here's how you can add AWS Proton tags to your Terraform configuration so that they're added to provisioned resources:
+
+```
+# Configure the AWS Provider
+provider "aws" {
+  region = var.aws_region
+  `default_tags {
+ tags = var.proton_tags
+ }`
+}
+```
+
+### Customer managed tags
+
+Each AWS Proton resource has a maximum quota of 50 customer managed tags. Customer managed tags propagate to child AWS Proton resources in the same way
+that AWS managed tags do, except they don't propagate to existing AWS Proton resources or to provisioned resources. If you apply a new tag to an AWS Proton
+resource with existing child resources and you want the existing child resources to be tagged with the new tag, you need to tag each existing child
+resource manually, using the console or AWS CLI.
+
+### Create tags using the console and CLI
+
+When you create an AWS Proton resource using the console, you're given the opportunity to create customer managed tags either on the first or second page
+of the create procedure as shown in the following console snapshot. Choose **Add new tag**, enter the key and value and proceed.
+
+![A snapshot of the console create tag interface.](images/tag-create.PNG)
+
+After you create a new resource using the AWS Proton console, you can view its list of AWS managed and customer managed tags from the detail
+page.
+
+###### Create or edit a tag
+
+1. In the [AWS Proton console](https://console.aws.amazon.com/proton/ "https://console.aws.amazon.com/proton/"), open an AWS Proton resource detail page where you can see a list of tags.
+2. Choose **Manage tags**.
+3. In the **Manage tags** page, you can view, create, remove and edit tags. You can’t modify the AWS managed tags listed at the
+   top. However, you can add to and modify the customer managed tags with editing fields, listed after the AWS managed tags.
+
+Choose **Add new tag** to create a new tag. 4. Enter a key and value for the new tag. 5. To edit a tag, enter a value in the tag value field for a selected key. 6. To delete a tag choose **Remove** for a selected tag. 7. When you have completed your changes, choose **Save changes**.
+
+### Create tags using the AWS Proton​ AWS CLI
+
+You can view, create, remove and edit tags using the AWS Proton AWS CLI.
+
+You can create or edit a tag for a resource as shown in the following example.
+
+```
+`$` `aws proton tag-resource \
+ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`" \
+ --tags '[{"key":"`mykey1`","value":"`myval1`"},{"key":"`mykey2`","value":"`myval2`"}]'`
+```
+
+You can remove a tag for a resource as shown in the next example.
+
+```
+`$` `aws proton untag-resource \
+ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`" \
+ --tag-keys '["`mykey1`","`mykey2`"]'`
+```
+
+You can list tags for a resource as shown in the final example.
+
+```
+`$` `aws proton list-tags-for-resource \
+ --resource-arn "arn:aws:proton:`region-id`:`account-id`:service-template/`webservice`"`
+```

@@ -48,7 +48,7 @@ As an administrator, you author the service IaC template file.
 
 ###### Example service CloudFormation IaC file using a component
 
-````
+```
 # service/instance_infrastructure/cloudformation.yaml
 
 Resources:
@@ -74,5 +74,80 @@ Resources:
       ManagedPolicyArns:
         - !Ref BaseTaskRoleManagedPolicy
         **{{ service\_instance.components.default.outputs
-| proton\_cfn\_iam\_policy\_arns }}** # Basic permissions for the task BaseTaskRoleManagedPolicy: Type: AWS::IAM::ManagedPolicy Properties: # ... ``` As a developer, you author the component IaC template file. ###### Example component CloudFormation IaC file ``` # cloudformation.yaml # A component that defines an S3 bucket and a policy for accessing the bucket. Resources: S3Bucket: Type: AWS::S3::Bucket Properties: BucketName: **'{{environment.name}}-{{service.name}}-{{service\_instance.name}}-{{component.name}}'** S3BucketAccessPolicy: Type: AWS::IAM::ManagedPolicy Properties: PolicyDocument: Version: "2012-10-17" Statement: <br>• Effect: Allow Action: <br>• 's3:Get*' <br>• 's3:List*' <br>• 's3:PutObject' Resource: !GetAtt S3Bucket.Arn **Outputs: BucketName: Description: "Bucket to access" Value: !GetAtt S3Bucket.Arn BucketAccessPolicyArn: Value: !Ref S3BucketAccessPolicy** ``` When AWS Proton renders an AWS CloudFormation template for your service instance and replaces all parameters with actual values, the template might look like the following file. ###### Example service instance CloudFormation rendered IaC file ``` Resources: TaskDefinition: Type: AWS::ECS::TaskDefinition Properties: TaskRoleArn: !Ref TaskRole ContainerDefinitions: <br>• Name: '{{service_instance.name}}' # ... Environment: <br>• Name: **BucketName** Value: arn:aws:s3:us-east-1:123456789012:`environment_name`-`service_name`-`service_instance_name`-`component_name` <br>• Name: **BucketAccessPolicyArn** Value: arn:aws:iam::123456789012:policy/`cfn-generated-policy-name` # ... TaskRole: Type: AWS::IAM::Role Properties: # ... ManagedPolicyArns: <br>• !Ref BaseTaskRoleManagedPolicy <br>• arn:aws:iam::123456789012:policy/`cfn-generated-policy-name` # Basic permissions for the task BaseTaskRoleManagedPolicy: Type: AWS::IAM::ManagedPolicy Properties: # ... ```
-````
+ | proton\_cfn\_iam\_policy\_arns }}**
+
+  # Basic permissions for the task
+  BaseTaskRoleManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      # ...
+```
+
+As a developer, you author the component IaC template file.
+
+###### Example component CloudFormation IaC file
+
+```
+# cloudformation.yaml
+
+# A component that defines an S3 bucket and a policy for accessing the bucket.
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: **'{{environment.name}}-{{service.name}}-{{service\_instance.name}}-{{component.name}}'**
+  S3BucketAccessPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - 's3:Get*'
+              - 's3:List*'
+              - 's3:PutObject'
+            Resource: !GetAtt S3Bucket.Arn
+**Outputs:
+ BucketName:
+ Description: "Bucket to access"
+ Value: !GetAtt S3Bucket.Arn
+ BucketAccessPolicyArn:
+ Value: !Ref S3BucketAccessPolicy**
+```
+
+When AWS Proton renders an AWS CloudFormation template for your service instance and replaces all parameters with actual values, the template might look like the
+following file.
+
+###### Example service instance CloudFormation rendered IaC file
+
+```
+Resources:
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      TaskRoleArn: !Ref TaskRole
+      ContainerDefinitions:
+        - Name: '{{service_instance.name}}'
+          # ...
+          Environment:
+            - Name: **BucketName**
+              Value: arn:aws:s3:us-east-1:123456789012:`environment_name`-`service_name`-`service_instance_name`-`component_name`
+            - Name: **BucketAccessPolicyArn**
+              Value: arn:aws:iam::123456789012:policy/`cfn-generated-policy-name`
+  # ...
+
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # ...
+      ManagedPolicyArns:
+        - !Ref BaseTaskRoleManagedPolicy
+        - arn:aws:iam::123456789012:policy/`cfn-generated-policy-name`
+
+  # Basic permissions for the task
+  BaseTaskRoleManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      # ...
+```

@@ -37,15 +37,69 @@ For each AWS Proton resource that can emit events, the following table lists the
 to a list of values for the `status` and `previousStatus` detail fields. When a resource is deleted, the `status`
 detail field value is `DELETED`.
 
-| Resource                       | Detail-type value                                       | Detail fields                                                                                                                                                                                                                                                                     |
-| ------------------------------ | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `EnvironmentTemplate`          | AWS Proton Environment Template Status Change           | `name` `status` `previousStatus`                                                                                                                                                                                                                                                  |
-| `EnvironmentTemplateVersion`   | AWS Proton Environment Template Version Status Change   | `name` `majorVersion` `minorVersion` `status` `previousStatus` [status values](../APIReference/API_EnvironmentTemplateVersion.md#proton-Type-EnvironmentTemplateVersion-status "../APIReference/API_EnvironmentTemplateVersion.md#proton-Type-EnvironmentTemplateVersion-status") |
-| `ServiceTemplate`              | AWS Proton Service Template Status Change               | `name` `status` `previousStatus`                                                                                                                                                                                                                                                  |
-| `ServiceTemplateVersion`       | AWS Proton Service Template Version Status Change       | `name` `majorVersion` `minorVersion` `status` `previousStatus` [status values](../APIReference/API_ServiceTemplateVersion.md#proton-Type-ServiceTemplateVersion-status "../APIReference/API_ServiceTemplateVersion.md#proton-Type-ServiceTemplateVersion-status")                 |
-| `Environment`                  | AWS Proton Environment Status Change                    | `name` `status` `previousStatus`                                                                                                                                                                                                                                                  |
-| `Service`                      | AWS Proton Service Status Change                        | `name` `status` `previousStatus` [status values](../APIReference/API_Service.md#proton-Type-Service-status "../APIReference/API_Service.md#proton-Type-Service-status")                                                                                                           |
-| `ServiceInstance`              | AWS Proton Service Instance Status Change               | `name` `serviceName` `status` `previousStatus`                                                                                                                                                                                                                                    |
-| `ServicePipeline`              | AWS Proton Service Pipeline Status Change               | `serviceName` `status` `previousStatus`                                                                                                                                                                                                                                           |
-| `EnvironmentAccountConnection` | AWS Proton Environment Account Connection Status Change | `id` `status` `previousStatus` [status values](../APIReference/API_EnvironmentAccountConnection.md#proton-Type-EnvironmentAccountConnection-status "../APIReference/API_EnvironmentAccountConnection.md#proton-Type-EnvironmentAccountConnection-status")                         |
-| `Component`                    | AWS Proton Component Status Change                      | `name` `status` `previousStatus`                                                                                                                                                                                                                                                  | ## AWS Proton event examples The following examples show the ways that AWS Proton can send events to EventBridge. Service template `{ "source": "aws.proton", "detail-type": ["AWS Proton Service Template Status Change"], "time": "2021-03-22T23:21:40.734Z", "resources": ["arn:aws:proton:region_id:123456789012:service-template/sample-service-template-name"], "detail": { "name": "sample-service-template-name", "status": "PUBLISHED", "previousStatus": "DRAFT" } }` Service template version `{ "source": "aws.proton", "detail-type": ["AWS Proton Service Template Version Status Change"], "time": "2021-03-22T23:21:40.734Z", "resources": ["arn:aws:proton:region_id:123456789012:service-template/sample-service-template-name:1.0"], "detail": { "name": "sample-service-template-name", "majorVersion": "1", "minorVersion": "0", "status": "REGISTRATION_FAILED", "previousStatus": "REGISTRATION_IN_PROGRESS" } }` Environment `{ "source": "aws.proton", "detail-type": ["AWS Proton Environment Status Change"], "time": "2021-03-22T23:21:40.734Z", "resources": ["arn:aws:proton:region_id:123456789012:environment/sample-environment"], "detail": { "name": "sample-environment", "status": "DELETE_FAILED", "previousStatus": "DELETE_IN_PROGRESS" } }` |
+| Resource                       | Detail-type value                                       | Detail fields                                                                                                                                                                                                                                                                                       |
+| ------------------------------ | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EnvironmentTemplate`          | AWS Proton Environment Template Status Change           | `name`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                                              |
+| `EnvironmentTemplateVersion`   | AWS Proton Environment Template Version Status Change   | `name`<br>`majorVersion`<br>`minorVersion`<br>`status`<br>`previousStatus`<br>[status<br>values](../APIReference/API_EnvironmentTemplateVersion.md#proton-Type-EnvironmentTemplateVersion-status "../APIReference/API_EnvironmentTemplateVersion.md#proton-Type-EnvironmentTemplateVersion-status") |
+| `ServiceTemplate`              | AWS Proton Service Template Status Change               | `name`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                                              |
+| `ServiceTemplateVersion`       | AWS Proton Service Template Version Status Change       | `name`<br>`majorVersion`<br>`minorVersion`<br>`status`<br>`previousStatus`<br>[status values](../APIReference/API_ServiceTemplateVersion.md#proton-Type-ServiceTemplateVersion-status "../APIReference/API_ServiceTemplateVersion.md#proton-Type-ServiceTemplateVersion-status")                    |
+| `Environment`                  | AWS Proton Environment Status Change                    | `name`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                                              |
+| `Service`                      | AWS Proton Service Status Change                        | `name`<br>`status`<br>`previousStatus`<br>[status values](../APIReference/API_Service.md#proton-Type-Service-status "../APIReference/API_Service.md#proton-Type-Service-status")                                                                                                                    |
+| `ServiceInstance`              | AWS Proton Service Instance Status Change               | `name`<br>`serviceName`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                             |
+| `ServicePipeline`              | AWS Proton Service Pipeline Status Change               | `serviceName`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                                       |
+| `EnvironmentAccountConnection` | AWS Proton Environment Account Connection Status Change | `id`<br>`status`<br>`previousStatus`<br>[status<br>values](../APIReference/API_EnvironmentAccountConnection.md#proton-Type-EnvironmentAccountConnection-status "../APIReference/API_EnvironmentAccountConnection.md#proton-Type-EnvironmentAccountConnection-status")                               |
+| `Component`                    | AWS Proton Component Status Change                      | `name`<br>`status`<br>`previousStatus`                                                                                                                                                                                                                                                              |
+
+## AWS Proton event examples
+
+The following examples show the ways that AWS Proton can send events to EventBridge.
+
+Service template
+
+```
+{
+    "source": "aws.proton",
+    "detail-type": ["AWS Proton Service Template Status Change"],
+    "time": "2021-03-22T23:21:40.734Z",
+    "resources": ["arn:aws:proton:region_id:123456789012:service-template/sample-service-template-name"],
+    "detail": {
+        "name": "sample-service-template-name",
+        "status": "PUBLISHED",
+        "previousStatus": "DRAFT"
+    }
+}
+```
+
+Service template version
+
+```
+{
+    "source": "aws.proton",
+    "detail-type": ["AWS Proton Service Template Version Status Change"],
+    "time": "2021-03-22T23:21:40.734Z",
+    "resources": ["arn:aws:proton:region_id:123456789012:service-template/sample-service-template-name:1.0"],
+    "detail": {
+        "name": "sample-service-template-name",
+        "majorVersion": "1",
+        "minorVersion": "0",
+        "status": "REGISTRATION_FAILED",
+        "previousStatus": "REGISTRATION_IN_PROGRESS"
+    }
+}
+```
+
+Environment
+
+```
+{
+    "source": "aws.proton",
+    "detail-type": ["AWS Proton Environment Status Change"],
+    "time": "2021-03-22T23:21:40.734Z",
+    "resources": ["arn:aws:proton:region_id:123456789012:environment/sample-environment"],
+    "detail": {
+        "name": "sample-environment",
+        "status": "DELETE_FAILED",
+        "previousStatus": "DELETE_IN_PROGRESS"
+    }
+}
+```
