@@ -85,11 +85,131 @@ day-of-week, and one optional field, year, as shown in the following.
 cron(`minutes` `hours` `day-of-month` `month` `day-of-week` `year`)
 ```
 
-| **Field**    | **Values**      | **Wildcards**  |
-| ------------ | --------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Minutes      | 0-59            | , - \* /       |
-| Hours        | 0-23            | , - \* /       |
-| Day-of-month | 1-31            | , - \* ? / L W |
-| Month        | 1-12 or JAN-DEC | , - \* /       |
-| Day-of-week  | 1-7 or SUN-SAT  | , - \* ? L #   |
-| Year         | 1970-2199       | , - \* /       | ###### Wildcards <br>• The **,** (comma) wildcard includes additional values. In the Month field, JAN,FEB,MAR includes January, February, and March. <br>• The **-** (dash) wildcard specifies ranges. In the Day field, 1-15 includes days 1 through 15 of the specified month. <br>• The **\*** (asterisk) wildcard includes all values in the field. In the Hours field, **\*** includes every hour. You can't use **\*** in both the Day-of-month and Day-of-week fields. If you use it in one, you must use **?** in the other. <br>• The **/** (slash) wildcard specifies increments. In the Minutes field, you could enter 1/10 to specify every tenth minute, starting from the first minute of the hour (for example, the 11th, 21st, and 31st minute, and so on). <br>• The **?** (question mark) wildcard specifies any. In the Day-of-month field you could enter **7** and if any day of the week was acceptable, you could enter **?** in the Day-of-week field. <br>• The **L** wildcard in the Day-of-month or Day-of-week fields specifies the last day of the month or week. <br>• The `W` wildcard in the Day-of-month field specifies a weekday. In the Day-of-month field, `3W` specifies the weekday closest to the third day of the month. <br>• The **#** wildcard in the Day-of-week field specifies a certain instance of the specified day of the week within a month. For example, 3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it is the third day of each week, and the 2 refers to the second day of that type within the month. ###### Note If you use a '#' character, you can define only one expression in the day-of-week field. For example, `"3#1,6#3"` is not valid because it is interpreted as two expressions. ### Examples The following example shows how to use cron expressions with the AWS CLI `create-schedule` command to configure a cron-based schedule. This example creates a schedule that runs at 10:15am UTC+0 on the last Friday of each month during the years 2022 to 2023, and delivers a message to an Amazon SQS queue, using the templated `SqsParameters` target type. `` `$` `aws scheduler create-schedule --schedule-expression "cron(**15 10 ? \* 6L 2022-2023**)" --name `schedule-name` \ --target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "`TEST_PAYLOAD`" }' \ --flexible-time-window '{ "Mode": "OFF"}'` `` ## One-time schedules A one-time schedule will invoke a target only once at the date and time that you specify using a valid date, and a timestamp. EventBridge Scheduler supports scheduling in Universal Coordinated Time (UTC), or in the time zone that you specify when you create your schedule. ###### Note A one-time schedule still count against your account quota _after_ it has completed running and invoking it's target. We recommend [deleting](managing-schedule-delete.md "managing-schedule-delete.md") your one-time schedules after they've completed running. You configure a one-time schedule using an _at expression_. An at expression consists of the date and time at which you want EventBridge Scheduler to invoke your schedule, as shown in the following. ### Syntax ``at(`yyyy-mm-ddThh:mm:ss`)`` When you configure a one-time schedule, EventBridge Scheduler ignores the `StartDate` and `EndDate` you specify for the schedule. ### Examples The following example shows how to use at expressions with the AWS CLI `create-schedule` command to configure a one-time schedule. This example creates a schedule that runs once at 1pm UTC-8 on November 20, 2022, and delivers a message to an Amazon SQS queue, using the templated `SqsParameters` target type. `` `$` `aws scheduler create-schedule --schedule-expression "at(**2022-11-20T13:00:00**)" --name `schedule-name` \ --target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "`TEST_PAYLOAD`" }' \ --schedule-expression-timezone "America/Los_Angeles" --flexible-time-window '{ "Mode": "OFF"}'` `` ## Time zones on EventBridge Scheduler EventBridge Scheduler supports configuring cron-based and one-time schedules in any time zone that you specify. EventBridge Scheduler uses the [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") maintained by the Internet Assigned Numbers Authority (IANA). With the AWS CLI, you can set the time zone in which you want EventBridge Scheduler to evaluate your schedule using the `--schedule-expression-timezone` parameter. For example, the following command creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` target in **America/New_York** every day at 8:30 a.m. `` `$` `aws scheduler create-schedule --schedule-expression "cron(30 8 * * ? *)" --name schedule-in-est \ --target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "This schedule runs in the America/New_York time zone." }' \ **--schedule-expression-timezone "America/New\_York"** --flexible-time-window '{ "Mode": "OFF"}'` `` ## Daylight savings time on EventBridge Scheduler EventBridge Scheduler automatically adjusts your schedule for daylight saving time. When time shifts _forward_ in the Spring, if a cron expression falls on a non-existent date and time, your schedule invocation is skipped. When time shifts _backwards_ in the Fall, your schedule runs only once and does not repeat its invocation. The following invocations occur normally at the specified date and time. EventBridge Scheduler adjusts your schedule depending on the time zone you specify when you create the schedule. If you configure a schedule in **America/New_York**, your schedule adjusts when the time changes in that time zone, while a schedule in **America/Los_Angeles** is adjusted three hours later when the time changes on the west coast. For rate-based schedules that use `days` as the unit, such as `rate(1 days)`, `days` represents a 24-hour duration on the clock. This means that when daylight savings time causes a day to shorten to 23 hours, or extend to 25 hours, EventBridge Scheduler still evaluates the rate expression 24 hours after the schedule's last invocation. ###### Note Some time zones do not observe daylight savings time, according to local rules and regulations. If you create a schedule in a time zone that does not observe daylight savings time, EventBridge Scheduler does not adjust your schedule. Daylight-savings time adjustments do not apply to schedules in universal coordinated time (UTC). ###### Example Consider a scenario where you create a schedule using the following cron expression in **America/Los_Angeles**: `cron(30 2 * * ? *)`. This schedule runs every day at 2:30 a.m. in the specified time zone. <br>• **Spring-forward** – When time shifts forward in the Spring from 1:59 a.m. to 3:00 a.m., EventBridge Scheduler skips the schedule invocation on that day, and resumes running the schedule normally the following day. <br>• **Fall-back** – When time shifts backwards in the Fall from 2:59 a.m. to 2:00 a.m., EventBridge Scheduler runs the schedule only once at 2:30 a.m. before the shift occurs, but does not repeat the schedule invocation again at 2:30 a.m. after the time shift. |
+| **Field**    | **Values**      | **Wildcards**         |
+| ------------ | --------------- | --------------------- |
+| Minutes      | 0-59            | ,<br>• \<br>• /       |
+| Hours        | 0-23            | ,<br>• \<br>• /       |
+| Day-of-month | 1-31            | ,<br>• \<br>• ? / L W |
+| Month        | 1-12 or JAN-DEC | ,<br>• \<br>• /       |
+| Day-of-week  | 1-7 or SUN-SAT  | ,<br>• \<br>• ? L #   |
+| Year         | 1970-2199       | ,<br>• \<br>• /       |
+
+###### Wildcards
+
+- The **,** (comma) wildcard includes additional values. In the
+  Month field, JAN,FEB,MAR includes January, February, and March.
+- The **-** (dash) wildcard specifies ranges. In the Day field,
+  1-15 includes days 1 through 15 of the specified month.
+- The **\*** (asterisk) wildcard includes all values in the
+  field. In the Hours field, **\*** includes every hour. You can't
+  use **\*** in both the Day-of-month and Day-of-week fields. If
+  you use it in one, you must use **?** in the other.
+- The **/** (slash) wildcard specifies increments. In the
+  Minutes field, you could enter 1/10 to specify every tenth minute, starting from
+  the first minute of the hour (for example, the 11th, 21st, and 31st minute, and
+  so on).
+- The **?** (question mark) wildcard specifies any. In the
+  Day-of-month field you could enter **7** and if any day of the
+  week was acceptable, you could enter **?** in the Day-of-week
+  field.
+- The **L** wildcard in the Day-of-month or Day-of-week fields
+  specifies the last day of the month or week.
+- The `W` wildcard in the Day-of-month field specifies a
+  weekday. In the Day-of-month field, `3W` specifies the
+  weekday closest to the third day of the month.
+- The **#** wildcard in the Day-of-week field specifies a
+  certain instance of the specified day of the week within a month. For example,
+  3#2 would be the second Tuesday of the month: the 3 refers to Tuesday because it
+  is the third day of each week, and the 2 refers to the second day of that type
+  within the month.
+
+###### Note
+
+If you use a '#' character, you can define only one expression in the
+day-of-week field. For example, `"3#1,6#3"` is not valid because
+it is interpreted as two expressions.
+
+### Examples
+
+The following example shows how to use cron expressions with the AWS CLI `create-schedule` command to configure a cron-based schedule.
+This example creates a schedule that runs at 10:15am UTC+0 on the last Friday of each month during the years 2022 to 2023, and delivers a message to an Amazon SQS queue, using the templated `SqsParameters` target type.
+
+```
+`$` `aws scheduler create-schedule --schedule-expression "cron(**15 10 ? \* 6L 2022-2023**)" --name `schedule-name` \
+--target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "`TEST_PAYLOAD`" }' \
+--flexible-time-window '{ "Mode": "OFF"}'`
+```
+
+## One-time schedules
+
+A one-time schedule will invoke a target only once at the date and time that you specify using a valid date, and a timestamp. EventBridge Scheduler supports
+scheduling in Universal Coordinated Time (UTC), or in the time zone that you specify when you create your schedule.
+
+###### Note
+
+A one-time schedule still count against your account quota _after_ it has completed running and invoking it's target.
+We recommend [deleting](managing-schedule-delete.md "managing-schedule-delete.md") your one-time schedules after they've completed running.
+
+You configure a one-time schedule using an _at expression_. An at expression consists of the date and time at which you want
+EventBridge Scheduler to invoke your schedule, as shown in the following.
+
+### Syntax
+
+```
+at(`yyyy-mm-ddThh:mm:ss`)
+```
+
+When you configure a one-time schedule, EventBridge Scheduler ignores the `StartDate` and `EndDate` you specify for the schedule.
+
+### Examples
+
+The following example shows how to use at expressions with the AWS CLI `create-schedule` command to configure a one-time schedule.
+This example creates a schedule that runs once at 1pm UTC-8 on November 20, 2022, and delivers a message to an Amazon SQS queue, using the templated `SqsParameters` target type.
+
+```
+`$` `aws scheduler create-schedule --schedule-expression "at(**2022-11-20T13:00:00**)" --name `schedule-name` \
+--target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "`TEST_PAYLOAD`" }' \
+--schedule-expression-timezone "America/Los_Angeles"
+--flexible-time-window '{ "Mode": "OFF"}'`
+```
+
+## Time zones on EventBridge Scheduler
+
+EventBridge Scheduler supports configuring cron-based and one-time schedules in any time zone that you specify. EventBridge Scheduler uses the [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") maintained by the
+Internet Assigned Numbers Authority (IANA).
+
+With the AWS CLI, you can set the time zone in which you want EventBridge Scheduler to evaluate your schedule using the `--schedule-expression-timezone` parameter. For example, the following command
+creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` target in **America/New_York** every day at 8:30 a.m.
+
+```
+`$` `aws scheduler create-schedule --schedule-expression "cron(30 8 * * ? *)" --name schedule-in-est \
+ --target '{"RoleArn": "`role-arn`", "Arn": "`QUEUE_ARN`", "Input": "This schedule runs in the America/New_York time zone." }' \
+ **--schedule-expression-timezone "America/New\_York"**
+ --flexible-time-window '{ "Mode": "OFF"}'`
+```
+
+## Daylight savings time on EventBridge Scheduler
+
+EventBridge Scheduler automatically adjusts your schedule for daylight saving time. When time shifts _forward_ in the Spring, if a cron expression falls on a non-existent date and time, your schedule invocation is skipped.
+When time shifts _backwards_ in the Fall, your schedule runs only once and does not repeat its invocation. The following invocations occur normally at the specified date and time.
+
+EventBridge Scheduler adjusts your schedule depending on the time zone you specify when you create the schedule. If you configure a schedule in **America/New_York**, your schedule adjusts when
+the time changes in that time zone, while a schedule in **America/Los_Angeles** is adjusted three hours later when the time changes on the west coast.
+
+For rate-based schedules that use `days` as the unit, such as `rate(1 days)`, `days` represents a 24-hour duration on the clock. This means that when daylight savings time causes
+a day to shorten to 23 hours, or extend to 25 hours, EventBridge Scheduler still evaluates the rate expression 24 hours after the schedule's last invocation.
+
+###### Note
+
+Some time zones do not observe daylight savings time, according to local rules and regulations. If you create a schedule in a time zone that does not observe daylight savings time,
+EventBridge Scheduler does not adjust your schedule. Daylight-savings time adjustments do not apply to schedules in universal coordinated time (UTC).
+
+###### Example
+
+Consider a scenario where you create a schedule using the following cron expression in **America/Los_Angeles**: `cron(30 2 * * ? *)`.
+This schedule runs every day at 2:30 a.m. in the specified time zone.
+
+- **Spring-forward** – When time shifts forward in the Spring from 1:59 a.m. to 3:00 a.m., EventBridge Scheduler skips the schedule invocation on that day, and resumes running the schedule normally
+  the following day.
+- **Fall-back** – When time shifts backwards in the Fall from 2:59 a.m. to 2:00 a.m., EventBridge Scheduler runs the schedule only once at 2:30 a.m. before the shift occurs, but does not repeat the
+  schedule invocation again at 2:30 a.m. after the time shift.
