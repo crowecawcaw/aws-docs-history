@@ -54,12 +54,28 @@ Then, further narrow down target log entries by customizing the query. Here are 
 
 **List of logs that contain the keyword: `error`**
 
-````
+```
 fields @timestamp, @message
 | filter @message like 'error'
-| sort @timestamp desc ``` **Debug logs from the Testing environment:** ``` fields @timestamp, @message
+| sort @timestamp desc
+```
+
+**Debug logs from the Testing environment:**
+
+```
+fields @timestamp, @message
 | filter namespace = "DebugLogClient"
-| sort @timestamp desc ``` **Overall 504/404/500 error counts over 5 minute intervals:** ``` filter @message like '/api/automation' and (@message like ': 404' or @message like ': 500' or @message like ': 504')
+| sort @timestamp desc
+```
+
+**Overall 504/404/500 error counts over 5 minute intervals:**
+
+```
+filter @message like '/api/automation' and (@message like ': 404' or @message like ': 500' or @message like ': 504')
 | fields @timestamp, method, path, statusCode
-| stats count(*) as errorCount by bin(5m) ``` For more information about CloudWatch Logs Insights, [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in the Amazon CloudWatch Logs User Guide.
-````
+| stats count(*) as errorCount by bin(5m)
+```
+
+For more information
+about CloudWatch Logs Insights, [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")
+in the Amazon CloudWatch Logs User Guide.

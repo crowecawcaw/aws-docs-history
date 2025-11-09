@@ -96,11 +96,52 @@ The following table shows which data action condition operators are supported by
 connect to App Studio.
 
 |              | =, !=, <, >, <=, >= | LIKE, NOT LIKE | Contains, Not Contains | Starts With, Not Starts With | IS NULL, IS NOT NULL |
-| ------------ | ------------------- | -------------- | ---------------------- | ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | ------------------- | -------------- | ---------------------- | ---------------------------- | -------------------- |
 | **DynamoDB** | Yes                 | No             | Yes                    | Yes                          | Yes                  |
 | **Aurora**   | Yes                 | Yes            | No                     | No                           | Yes                  |
-| **Redshift** | Yes                 | Yes            | No                     | No                           | Yes                  | ### Data action condition examples Consider the following database table, which includes multiple items with `name`, `city`, and `hireDate` fields. |
-| name         | city                | hireDate       |                        | ---                          | ---                  | ---                                                                                                                                                 |
-| Adam         | Seattle             | 2025-03-01     |                        | Adrienne                     | Boston               | 2025-03-05                                                                                                                                          |
-| Bob          | Albuquerque         | 2025-03-06     |                        | Carlos                       | Chicago              | 2025-03-10                                                                                                                                          |
-| Caroline     | NULL                | 2025-03-12     |                        | Rita                         | Miami                | 2025-03-15                                                                                                                                          | Now, consider creating data actions in App Studio that return the `name` field for items that match specified conditions. The following list contains condition examples and the values that the table returns for each. ###### Note The examples are formatted as SQL examples– they may not appear as they do in App Studio, but are used to illustrate the behavior of the operators. <br>• `WHERE name LIKE 'Adam'`: Returns `Adam`. <br>• `WHERE name LIKE 'A%'`: Returns `Adam` and `Adrienne`. <br>• `WHERE name NOT LIKE 'B_B'`: Returns `Adam`, `Adrienne`, `Carlos`, `Caroline`, and `Rita`. <br>• `WHERE contains(name, 'ita')`: Returns `Rita`. <br>• `WHERE begins_with(name, 'Car')`: Returns `Carlos` and `Caroline`. <br>• `WHERE city IS NULL`: Returns `Caroline`. <br>• `WHERE hireDate < "2025-03-06"`: Returns `Adam` and `Adrienne`. <br>• `WHERE hireDate >= DateTime.now().toISODate()`: Note that `DateTime.now().toISODate()` returns the current date. In a scenario where the current date is 2025-03-10, the expression returns `Carlos`, `Caroline`, and `Rita`. ###### Tip For more information about comparing dates and times in expressions, see [Date and time](expressions.md#expressions-date-time "expressions.md#expressions-date-time"). ## Deleting data actions Use the following procedure to delete data actions from an App Studio entity. 1. If necessary, navigate to the entity for which you want to delete data actions. 2. Choose the **Data actions** tab. 3. For each data action you want to delete, choose the dropdown menu next to **Edit** and choose **Delete**. 4. Choose **Confirm** in the dialog box. |
+| **Redshift** | Yes                 | Yes            | No                     | No                           | Yes                  |
+
+### Data action condition examples
+
+Consider the following database table, which includes multiple items with `name`, `city`, and `hireDate` fields.
+
+| name     | city        | hireDate   |
+| -------- | ----------- | ---------- |
+| Adam     | Seattle     | 2025-03-01 |
+| Adrienne | Boston      | 2025-03-05 |
+| Bob      | Albuquerque | 2025-03-06 |
+| Carlos   | Chicago     | 2025-03-10 |
+| Caroline | NULL        | 2025-03-12 |
+| Rita     | Miami       | 2025-03-15 |
+
+Now, consider creating data actions in App Studio that return the `name` field for items that match specified conditions.
+The following list contains condition examples and the values that the table returns for each.
+
+###### Note
+
+The examples are formatted as SQL examples– they may
+not appear as they do in App Studio, but are used to illustrate the behavior of the operators.
+
+- `WHERE name LIKE 'Adam'`: Returns `Adam`.
+- `WHERE name LIKE 'A%'`: Returns `Adam` and `Adrienne`.
+- `WHERE name NOT LIKE 'B_B'`: Returns `Adam`, `Adrienne`, `Carlos`, `Caroline`, and `Rita`.
+- `WHERE contains(name, 'ita')`: Returns `Rita`.
+- `WHERE begins_with(name, 'Car')`: Returns `Carlos` and `Caroline`.
+- `WHERE city IS NULL`: Returns `Caroline`.
+- `WHERE hireDate < "2025-03-06"`: Returns `Adam` and `Adrienne`.
+- `WHERE hireDate >= DateTime.now().toISODate()`: Note that `DateTime.now().toISODate()` returns the current date. In a scenario
+  where the current date is 2025-03-10, the expression returns `Carlos`, `Caroline`, and `Rita`.
+
+###### Tip
+
+For more information about comparing dates and times in expressions, see [Date and time](expressions.md#expressions-date-time "expressions.md#expressions-date-time").
+
+## Deleting data actions
+
+Use the following procedure to delete data actions from an App Studio entity.
+
+1. If necessary, navigate to the entity for which you want to delete data actions.
+2. Choose the **Data actions** tab.
+3. For each data action you want to delete, choose the dropdown
+   menu next to **Edit** and choose **Delete**.
+4. Choose **Confirm** in the dialog box.
