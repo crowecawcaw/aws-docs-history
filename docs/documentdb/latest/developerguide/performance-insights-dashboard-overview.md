@@ -85,10 +85,13 @@ Choose any of the following dimension tabs.
 
 The following table provides a brief description of each tab.
 
-| Tab              | Description                                                   |
-| ---------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Top waits        | The event for which the database backend is waiting           |
-| Top queries      | The query statements that are currently running               |
-| Top hosts        | The host IP and port of the connected client                  |
-| Top databases    | The name of the database to which the client is connected     |
-| Top applications | The name of the application that is connected to the database | To learn how to analyze queries by using the **Top queries** tab, see [Overview of the Top queries tab](performance-insights-top-queries.md "performance-insights-top-queries.md"). |
+| Tab              | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| Top waits        | The event for which the database backend is<br>waiting           |
+| Top queries      | The query statements that are currently running                  |
+| Top hosts        | The host IP and port of the connected client                     |
+| Top databases    | The name of the database to which the client is<br>connected     |
+| Top applications | The name of the application that is connected to the<br>database |
+
+To learn how to analyze queries by using the **Top
+queries** tab, see [Overview of the Top queries tab](performance-insights-top-queries.md "performance-insights-top-queries.md").

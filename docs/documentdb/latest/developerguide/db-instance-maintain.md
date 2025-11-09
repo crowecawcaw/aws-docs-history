@@ -294,7 +294,7 @@ If you don't specify a preferred maintenance window when you create the instance
 The following table lists the time blocks for each Region from which default maintenance windows are assigned.
 
 | Region Name               | Region         | UTC Time Block |
-| ------------------------- | -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- | -------------- |
 | US East (Ohio)            | us-east-2      | 03:00-11:00    |
 | US East (N. Virginia)     | us-east-1      | 03:00-11:00    |
 | US West (Oregon)          | us-west-2      | 06:00-14:00    |
@@ -324,4 +324,98 @@ The following table lists the time blocks for each Region from which default mai
 | South America (São Paulo) | sa-east-1      | 00:00-08:00    |
 | Israel (Tel Aviv)         | il-central-1   | 04:00-12:00    |
 | AWS GovCloud (US-East)    | us-gov-east-1  | 17:00-01:00    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | 06:00-14:00    | ### Changing your Amazon DocumentDB maintenance windows The maintenance window should fall at the time of lowest usage and thus might need changing from time to time. Your cluster or instance is unavailable during this time only if system changes (such as a scale storage operation or an instance class change) are being applied and require an outage. And then it is unavailable only for the minimum amount of time required to make the necessary changes. For upgrades to the database engine, Amazon DocumentDB uses the cluster's preferred maintenance window and not the maintenance window for individual instances. ###### To change the maintenance window <br>• For a cluster, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md"). <br>• For an instance, see [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md"). ## Amazon DocumentDB operating system updates Instances in Amazon DocumentDB clusters occasionally require operating system updates. Amazon DocumentDB upgrades the operating system to a newer version to improve database performance and customers’ overall security posture. Operating system updates don't change the cluster engine version or instance class of an Amazon DocumentDB instance. We recommend that you update the reader instances in a cluster first, then the writer instance to maximize the availability of your cluster. We don't recommend updating reader and writer instances at the same time, because you might incur longer downtime in the event of a failover. Most operating system updates for Amazon DocumentDB are optional and don't have a set date to apply them. However, if you don't apply these updates for a while, they may eventually become required and automatically applied during your instance's maintenance window. This is to help maintain the security posture of your database. To avoid any unexpected downtime, we recommend that you apply operating system updates to your Amazon DocumentDB instances as soon as they become available and set your instance maintenance window at a time of your convenience as per your business needs. To be notified when a new optional update becomes available, you can subscribe to RDS-EVENT-0230 in the security patching event category. For information about subscribing to Amazon DocumentDB events, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.md "event-subscriptions.md"). You should expect that when maintenance is performed on your cluster or instance, if the instance is a primary instance, it will fail over. To improve your availability, we recommend that you use more than one instance for your Amazon DocumentDB clusters. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md"). ###### Note For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS). ###### Important Your Amazon DocumentDB instance will be taken offline during the operating system upgrade. You can minimize cluster downtime by having a multi-instance cluster. If you do not have a multi-instance cluster then you can choose to temporarily create one by adding secondary instance(s) to perform this maintenance, then deleting the additional reader instance(s) once the maintenance is completed (regular charges for the secondary instance will apply). ###### Note Staying current on all optional and mandatory updates might be required to meet various compliance obligations. We recommend that you apply all updates made available by Amazon DocumentDB routinely during your maintenance windows. You can use the AWS Management Console or the AWS CLI to determine whether an update is available. Using the AWS Management Console To determine whether an update is available using the AWS Management Console: 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb"). 2. In the navigation pane, choose **Clusters**, and then select the instance. 3. Choose **Maintenance**. 4. In the **Pending Maintenance** section, find the operating system update. ![Amazon DocumentDB console showing the Maintenance column for clusters.](images/maintenance-available-1.png) You can select the operating system update and click **Apply now** or **Apply at next maintenance window** in the **Pending Maintenance** section. If the maintenance value is **next window**, defer the maintenance items by choosing **Defer upgrade**. You can't defer a maintenance action if it has already started. Alternatively, you can choose the instance from a list of clusters by clicking on **Clusters** in the navigation pane and select **Apply now** or **Apply at next maintenance window** from the **Actions** menu. Using the AWS CLI To determine whether an update is available using the AWS CLI, call the `describe-pending-maintenance-actions` command: `aws docdb describe-pending-maintenance-actions` `{ "ResourceIdentifier": "arn:aws:docdb:us-east-1:123456789012:db:mydb2", "PendingMaintenanceActionDetails": [ { "Action": "system-update", "Description": "New Operating System update is available" } ] }` Operating system updates are specific to Amazon DocumentDB engine versions and instance classes. Therefore, Amazon DocumentDB instances receive or require updates at different times. When an operating system update is available for your instance based on its engine version and instance class, the update appears in the console. It can also be viewed by running the AWS CLI `describe-pending-maintenance-actions` command or by calling the `DescribePendingMaintenanceActions` API operation. If you are not running the latest cluster patch release of your Amazon DocumentDB engine, you may not see operating system update listed as available maintenance. In order to view and manage the operating system update, you should first upgrade to the latest engine patch version. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | 06:00-14:00    |
+
+### Changing your Amazon DocumentDB maintenance windows
+
+The maintenance window should fall at the time of lowest usage and thus might need changing from time to time.
+Your cluster or instance is unavailable during this time only if system changes (such as a scale storage operation or an instance class change) are being applied and require an outage.
+And then it is unavailable only for the minimum amount of time required to make the necessary changes.
+
+For upgrades to the database engine, Amazon DocumentDB uses the cluster's preferred maintenance window and not the maintenance window for individual instances.
+
+###### To change the maintenance window
+
+- For a cluster, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md").
+- For an instance, see [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md").
+
+## Amazon DocumentDB operating system updates
+
+Instances in Amazon DocumentDB clusters occasionally require operating system updates.
+Amazon DocumentDB upgrades the operating system to a newer version to improve database performance and customers’ overall security posture.
+Operating system updates don't change the cluster engine version or instance class of an Amazon DocumentDB instance.
+
+We recommend that you update the reader instances in a cluster first, then the writer instance to maximize the availability of your cluster.
+We don't recommend updating reader and writer instances at the same time, because you might incur longer downtime in the event of a failover.
+
+Most operating system updates for Amazon DocumentDB are optional and don't have a set date to apply them.
+However, if you don't apply these updates for a while, they may eventually become required and automatically applied during your instance's maintenance window.
+This is to help maintain the security posture of your database.
+To avoid any unexpected downtime, we recommend that you apply operating system updates to your Amazon DocumentDB instances as soon as they become available and set your instance maintenance window at a time of your convenience as per your business needs.
+
+To be notified when a new optional update becomes available, you can subscribe to RDS-EVENT-0230 in the security patching event category.
+For information about subscribing to Amazon DocumentDB events, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.md "event-subscriptions.md").
+
+You should expect that when maintenance is performed on your cluster or instance, if the instance is a primary instance, it will fail over.
+To improve your availability, we recommend that you use more than one instance for your Amazon DocumentDB clusters.
+For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+
+###### Note
+
+For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
+
+###### Important
+
+Your Amazon DocumentDB instance will be taken offline during the operating system upgrade.
+You can minimize cluster downtime by having a multi-instance cluster.
+If you do not have a multi-instance cluster then you can choose to temporarily create one by adding secondary instance(s) to perform this maintenance, then deleting the additional reader instance(s) once the maintenance is completed (regular charges for the secondary instance will apply).
+
+###### Note
+
+Staying current on all optional and mandatory updates might be required to meet various compliance obligations.
+We recommend that you apply all updates made available by Amazon DocumentDB routinely during your maintenance windows.
+
+You can use the AWS Management Console or the AWS CLI to determine whether an update is available.
+
+Using the AWS Management Console
+To determine whether an update is available using the AWS Management Console:
+
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Clusters**, and then select the instance.
+3. Choose **Maintenance**.
+4. In the **Pending Maintenance** section, find the operating system update.
+
+![Amazon DocumentDB console showing the Maintenance column for clusters.](images/maintenance-available-1.png)
+
+You can select the operating system update and click **Apply now** or **Apply at next maintenance window** in the **Pending Maintenance** section.
+If the maintenance value is **next window**, defer the maintenance items by choosing **Defer upgrade**.
+You can't defer a maintenance action if it has already started.
+
+Alternatively, you can choose the instance from a list of clusters by clicking on **Clusters** in the navigation pane and select **Apply now** or **Apply at next maintenance window** from the **Actions** menu.
+
+Using the AWS CLI
+To determine whether an update is available using the AWS CLI, call the `describe-pending-maintenance-actions` command:
+
+```
+aws docdb describe-pending-maintenance-actions
+```
+
+```
+{
+  "ResourceIdentifier": "arn:aws:docdb:us-east-1:123456789012:db:mydb2",
+  "PendingMaintenanceActionDetails": [
+    {
+      "Action": "system-update",
+      "Description": "New Operating System update is available"
+    }
+  ]
+}
+```
+
+Operating system updates are specific to Amazon DocumentDB engine versions and instance classes.
+Therefore, Amazon DocumentDB instances receive or require updates at different times.
+When an operating system update is available for your instance based on its engine version and instance class, the update appears in the console.
+It can also be viewed by running the AWS CLI `describe-pending-maintenance-actions` command or by calling the `DescribePendingMaintenanceActions` API operation.
+
+If you are not running the latest cluster patch release of your Amazon DocumentDB engine, you may not see operating system update listed as available maintenance.
+In order to view and manage the operating system update, you should first upgrade to the latest engine patch version.

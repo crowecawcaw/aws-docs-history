@@ -30,7 +30,7 @@ Unless you specify differently when you create a cluster, your cluster is create
     ###### Tip
 
     If you don't see the navigation pane on the left side of your screen, choose the menu icon
-    (![Hamburger menu icon with three horizontal lines.](images/docdb-menu-icon.png))
+    (![Hamburger menu icon with three horizontal lines.](/images/documentdb/latest/developerguide/images/docdb-menu-icon.png))
     in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the screenshot below for reference.
 
     ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster that

@@ -103,7 +103,7 @@ The four types of index builds are:
 #### Index build stages
 
 | Stage                               | Foreground | Foreground (unique) | Background | Background (unique) |
-| ----------------------------------- | ---------- | ------------------- | ---------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ---------- | ------------------- | ---------- | ------------------- |
 | Initializing                        | 1          | 1                   | 1          | 1                   |
 | building index: initializing        | 2          | 2                   | 2          | 2                   |
 | building index: scanning collection | 3          | 3                   | 3          | 3                   |
@@ -112,4 +112,160 @@ The four types of index builds are:
 | building index: inserting keys      | 5          | 6                   | 5          | 6                   |
 | validating: scanning index          |            |                     | 6          | 7                   |
 | validating: sorting tuples          |            |                     | 7          | 8                   |
-| validating: scanning collection     |            |                     | 8          | 9                   | <br>• **initializing** - createIndex is preparing the index builder. This phase should be very brief. <br>• **building index: initializing** - The index builder is preparing to create the index. This phase should be very brief. <br>• **building index: scanning collection** - The index builder is performing a collection scan to collect index keys. The unit of measure is “blocks”. ###### Note If more than one worker is configured for the index build, it is displayed in this stage. The “scanning collection” stage is the only stage that uses multiple workers during the index build process. All other stages will display a single worker. <br>• **building index: sorting keys 1** - The index builder is sorting the collected index keys. The unit of measure is “keys”. <br>• **building index: sorting keys 2** - The index builder is sorting the collected index keys that correspond to dead tuples. This phase only exists for unique index building. The unit of measure is “keys”. <br>• **building index: inserting keys** - The index builder is inserting index keys into the new index. The unit of measure is “keys”. <br>• **validating: scanning index** - createIndex is scanning the index to find keys that need to be validated. The unit of measure is “blocks”. <br>• **validating: sorting tuples** - createIndex is sorting the output of the index scanning phase. <br>• **validating: scanning collection** - createIndex is scanning the collection to validate the index keys found in the previous two phases. The unit of measure is “blocks”. #### Index build output example In the output example below (foreground index build), the status of the index creation is shown. The “msg” field summarizes the build progress by indicating the stage and the completion percentage of the build. The “workers” field indicates the number of workers used during that stage of the index build. The “progress” field shows the actual numbers used to calculate the percentage of completion. ###### Note The “currentIndexBuildName”, “msg”, and “progress” fields are not supported on Amazon DocumentDB version 4.0. `{ "inprog" : [{ … "command": { "createIndexes": "test", "indexes": [{ "v": 2, "key": { "user_name": 1 }, "name": "user_name_1" }], "lsid": { "id": UUID(“094d0fba-8f41-4373-82c3-7c4c7b5ff13b”) }, "$db": "test" }, "currentIndexBuildName": user_name_1, "msg": "Index Build: building index number_1, stage 6/6 building index: 656860/1003520 (keys) 65%", "workers": 1, "progress": { "done": 656861, "total": 1003520 }, … ], "ok" : 1 }` ## Maintaining Amazon DocumentDB indexes ###### Topics <br>• [Index bloat](#db-index-bloat "#db-index-bloat") <br>• [Index maintenance using reIndex](#reIndex "#reIndex") ### Index bloat Amazon DocumentDB uses Multi-Version Concurrency Control (MVCC) to manage concurrent transactions. When documents are deleted or updated, their previous versions remain in collections and indexes as "dead" versions. The garbage collection process automatically reclaims space from these dead versions for future operations. Index bloat occurs when a collection's indexes become larger due to the accumulation of dead or obsolete index entries or fragmentation within the pages. The percentage reported represents the amount of index space that can be used by future index entries. This bloat consumes space in both the buffer cache and storage. If you want to remove the bloat, you will need to rebuild indexes. ###### Example Run the following command to determine unused storage for your index: `db.coll.aggregate({$indexStats:{}});` The result looks similar to this: ``{ "name" : "_id_", "key" : { "_id" : 1 }, "host" : "devbox-test.localhost.a2z.com:27317", "size" : NumberLong(827392), "accesses" : { "ops" : NumberLong(40000), "docsRead" : NumberLong(46049), "since" : ISODate("2025-04-03T21:44:51.251Z") }, "cacheStats" : { "blksRead" : NumberLong(264), "blksHit" : NumberLong(140190), "hitRatio" : 99.8121 }, "unusedStorageSize" : { "unusedSizeBytes" : `409600`, "unusedSizePercent" : `49.51` } }`` You can rebuild indexes without downtime using the `reIndex` command, which requires a scan of the entire collection. See [Index maintenance using reIndex](#reIndex "#reIndex"). ### Index maintenance using `reIndex` `reIndex` is a command used to rebuild an index. It is typically used when an index has become corrupted or inefficient. Over time, indexes can accumulate unused space due to many updates, inserts, or deletes, leading to degraded performance. Reindexing helps to remove such unused space and restore the efficiency of the index. #### `reIndex` guidelines <br>• `reIndex` is only supported on Amazon DocumentDB 5.0. <br>• Amazon DocumentDB supports `reindex` of a single index in the background, allowing for multiple workers. The old index is usable by queries when the `reIndex` process is running. <br>• Amazon DocumentDB supports indexing progress report through `currentOp`. You can see index build stages similar to the [Index build stages](#index-build-stages "#index-build-stages") viewed during index creation. The only difference is that `reIndex` always has eight stages, regardless if it’s unique or not. There’s no “building index: sorting keys 2” stage. <br>• `reIndex` can run concurrently with any command except index-related commands on the same collection: `createIndexes`, `dropIndexes`, `collMod`, and `renameCollection`. <br>• `reIndex` is currently not supported for text, geospatial, vector, and partial indexes. ##### `reIndex` build Use the following command to rebuild your index: ``db.runCommand({ reIndex: "`collection-name`", index: "`index-name`"})`` Optionally, you can also control the number of workers assigned to the rebuild process: ``db.runCommand({ reIndex: "`collection-name`", index: "`index-name`", workers: `number` })`` |
+| validating: scanning collection     |            |                     | 8          | 9                   |
+
+- **initializing** - createIndex is preparing the index builder.
+  This phase should be very brief.
+- **building index: initializing** - The index builder is preparing to create the index.
+  This phase should be very brief.
+- **building index: scanning collection** - The index builder is performing a collection scan to collect index keys.
+  The unit of measure is “blocks”.
+
+###### Note
+
+If more than one worker is configured for the index build, it is displayed in this stage.
+The “scanning collection” stage is the only stage that uses multiple workers during the index build process.
+All other stages will display a single worker.
+
+- **building index: sorting keys 1** - The index builder is sorting the collected index keys. The unit of measure is “keys”.
+- **building index: sorting keys 2** - The index builder is sorting the collected index keys that correspond to dead tuples.
+  This phase only exists for unique index building. The unit of measure is “keys”.
+- **building index: inserting keys** - The index builder is inserting index keys into the new index.
+  The unit of measure is “keys”.
+- **validating: scanning index** - createIndex is scanning the index to find keys that need to be validated.
+  The unit of measure is “blocks”.
+- **validating: sorting tuples** - createIndex is sorting the output of the index scanning phase.
+- **validating: scanning collection** - createIndex is scanning the collection to validate the index keys found in the previous two phases.
+  The unit of measure is “blocks”.
+
+#### Index build output example
+
+In the output example below (foreground index build), the status of the index creation is shown.
+The “msg” field summarizes the build progress by indicating the stage and the completion percentage of the build.
+The “workers” field indicates the number of workers used during that stage of the index build.
+The “progress” field shows the actual numbers used to calculate the percentage of completion.
+
+###### Note
+
+The “currentIndexBuildName”, “msg”, and “progress” fields are not supported on Amazon DocumentDB version 4.0.
+
+```
+{
+    "inprog" : [{
+    …
+        "command": {
+            "createIndexes": "test",
+            "indexes": [{
+                "v": 2,
+                "key": {
+                    "user_name": 1
+                },
+                "name": "user_name_1"
+            }],
+            "lsid": {
+                "id": UUID(“094d0fba-8f41-4373-82c3-7c4c7b5ff13b”)
+            },
+            "$db": "test"
+        },
+        "currentIndexBuildName": user_name_1,
+        "msg": "Index Build: building index number_1, stage 6/6 building index: 656860/1003520 (keys) 65%",
+        "workers": 1,
+        "progress": {
+            "done": 656861,
+            "total": 1003520
+        },
+    …
+    ],
+
+    "ok" : 1
+}
+```
+
+## Maintaining Amazon DocumentDB indexes
+
+###### Topics
+
+- [Index bloat](#db-index-bloat "#db-index-bloat")
+- [Index maintenance using reIndex](#reIndex "#reIndex")
+
+### Index bloat
+
+Amazon DocumentDB uses Multi-Version Concurrency Control (MVCC) to manage concurrent transactions.
+When documents are deleted or updated, their previous versions remain in collections and indexes as "dead" versions.
+The garbage collection process automatically reclaims space from these dead versions for future operations.
+
+Index bloat occurs when a collection's indexes become larger due to the accumulation of dead or obsolete index entries or fragmentation within the pages.
+The percentage reported represents the amount of index space that can be used by future index entries.
+This bloat consumes space in both the buffer cache and storage.
+If you want to remove the bloat, you will need to rebuild indexes.
+
+###### Example
+
+Run the following command to determine unused storage for your index:
+
+```
+db.coll.aggregate({$indexStats:{}});
+```
+
+The result looks similar to this:
+
+```
+{
+    "name" : "_id_",
+    "key" : {
+        "_id" : 1
+    },
+    "host" : "devbox-test.localhost.a2z.com:27317",
+    "size" : NumberLong(827392),
+    "accesses" : {
+        "ops" : NumberLong(40000),
+        "docsRead" : NumberLong(46049),
+        "since" : ISODate("2025-04-03T21:44:51.251Z")
+    },
+    "cacheStats" : {
+        "blksRead" : NumberLong(264),
+        "blksHit" : NumberLong(140190),
+        "hitRatio" : 99.8121
+    },
+    "unusedStorageSize" : {
+        "unusedSizeBytes" : `409600`,
+        "unusedSizePercent" : `49.51`
+    }
+}
+```
+
+You can rebuild indexes without downtime using the `reIndex` command, which requires a scan of the entire collection.
+See [Index maintenance using reIndex](#reIndex "#reIndex").
+
+### Index maintenance using `reIndex`
+
+`reIndex` is a command used to rebuild an index.
+It is typically used when an index has become corrupted or inefficient.
+Over time, indexes can accumulate unused space due to many updates, inserts, or deletes, leading to degraded performance.
+Reindexing helps to remove such unused space and restore the efficiency of the index.
+
+#### `reIndex` guidelines
+
+- `reIndex` is only supported on Amazon DocumentDB 5.0.
+- Amazon DocumentDB supports `reindex` of a single index in the background, allowing for multiple workers.
+  The old index is usable by queries when the `reIndex` process is running.
+- Amazon DocumentDB supports indexing progress report through `currentOp`.
+  You can see index build stages similar to the [Index build stages](#index-build-stages "#index-build-stages") viewed during index creation.
+  The only difference is that `reIndex` always has eight stages, regardless if it’s unique or not.
+  There’s no “building index: sorting keys 2” stage.
+- `reIndex` can run concurrently with any command except index-related commands on the same collection: `createIndexes`, `dropIndexes`, `collMod`, and `renameCollection`.
+- `reIndex` is currently not supported for text, geospatial, vector, and partial indexes.
+
+##### `reIndex` build
+
+Use the following command to rebuild your index:
+
+```
+db.runCommand({ reIndex: "`collection-name`", index: "`index-name`"})
+```
+
+Optionally, you can also control the number of workers assigned to the rebuild process:
+
+```
+db.runCommand({ reIndex: "`collection-name`", index: "`index-name`", workers: `number` })
+```

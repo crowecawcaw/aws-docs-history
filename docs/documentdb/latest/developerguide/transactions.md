@@ -1589,18 +1589,98 @@ assert updated_bob_balance == new_bob_balance
 
 ## Supported commands
 
-| Command                                                  | Supported                                                                                                                                    |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `abortTransaction`                                       | Yes                                                                                                                                          |
-| `commitTransaction`                                      | Yes                                                                                                                                          |
-| `endSessions`                                            | Yes                                                                                                                                          |
-| `killSession`                                            | Yes                                                                                                                                          |
-| `killAllSession`                                         | Yes                                                                                                                                          |
-| `killAllSessionsByPattern`                               | No                                                                                                                                           |
-| `refreshSessions`                                        | No                                                                                                                                           |
-| `startSession`                                           | Yes                                                                                                                                          | ## Unsupported capabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Methods                                                  | Stages or Commands                                                                                                                           |
-| ---                                                      | ---                                                                                                                                          |
-| `db.collection.aggregate()`                              | `$collStats` `$currentOp` `$indexStats` `$listSessions` `$out`                                                                               |
-| `db.collection.count()` `db.collection.countDocuments()` | `$where` `$near` `$nearSphere`                                                                                                               |
-| `db.collection.insert()`                                 | `insert` is not supported if it is not run against an existing collection. This method is supported if it targets a pre-existing collection. | ## Sessions MongoDB sessions are a framework that is used to support retryable writes, causal consistency, transactions, and manage operations across databases. When a session is created, a logical session identifier (lsid) is generated by the client and is used to tag all operations within that session when sending commands to the server. Amazon DocumentDB supports the use of sessions to enable transactions, but does not support causal consistency or retryable writes. When utilizing transactions within Amazon DocumentDB, a transaction will be initiated from within a session using the `session.startTransaction()` API and a session supports a single transaction at a time. Similarly, transactions are completed using either the commit (`session.commitTransaction()`) or abort (`session.abortTransaction()`) APIs. ### Causal consistency Causal consistency guarantees that within a single client session the client will observe read-after-write consistency, monatomic reads/writes, and writes will follow reads and these guarantees apply across all instances in a cluster, not just the primary. Amazon DocumentDB does not support causal consistency and the following statement will result in an error. `var mySession = db.getMongo().startSession(); var mySessionObject = mySession.getDatabase('test').getCollection('account'); mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}}); //Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 } mySessionObject.find() //Error: error: { //         "ok" : 0, //         "code" : 303, //         "errmsg" : "Feature not supported: 'causal consistency'", //         "operationTime" : Timestamp(1603461817, 493214) //} mySession.endSession()` You can disable causal consistency within a session. Please note, doing so will enable you to utilize the session framework, but will not provide causal consistency guarantees for reads. When using Amazon DocumentDB, reads from the primary will be read-after-write consistent and reads from the replica instances will be eventually consistent. Transactions are the primary use case for utilizing sessions. `var mySession = db.getMongo().startSession({causalConsistency: **false**}); var mySessionObject = mySession.getDatabase('test').getCollection('account'); mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}}); //Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 } mySessionObject.find() //{ "_id" : 1, "name" : "Bob", "balance" : 100 } //{ "_id" : 2, "name" : "Alice", "balance" : 1700 }` ### Retryable writes Retryable writes is a capability in which the client will attempt to retry write operations, one time, when network errors occur or if the client is unable to find the primary. In Amazon DocumentDB, retryable writes are not supported and must be disabled. You can disable it with the command (`retryWrites=false`) in the connection string. ###### Note If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string. By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands. ## Transaction errors When using transactions, there are scenarios that can yield an error that states that a transaction number does not match any in progress transaction. The error can be generated in at least two different scenarios: <br>• After the one-minute transaction timeout. <br>• After an instance restart (due to patching, crash recovery, etc.), it is possible to receive this error even in cases where the transaction successfully committed. During an instance restart, the database can't tell the difference between a transaction that successfully completed versus a transaction that aborted. In other words, the transaction completion state is ambiguous. The best way to handle this error is to make transactional updates idempotent -- for example, by using the `$set` mutator instead of an increment/decrement operation. See below: `{ "ok" : 0, "operationTime" : Timestamp(1603938167, 1), "code" : 251, "errmsg" : "Given transaction number 1 does not match any in-progress transactions." }` |
+| Command                    | Supported |
+| -------------------------- | --------- |
+| `abortTransaction`         | Yes       |
+| `commitTransaction`        | Yes       |
+| `endSessions`              | Yes       |
+| `killSession`              | Yes       |
+| `killAllSession`           | Yes       |
+| `killAllSessionsByPattern` | No        |
+| `refreshSessions`          | No        |
+| `startSession`             | Yes       |
+
+## Unsupported capabilities
+
+| Methods                                                     | Stages or Commands                                                                                                                           |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `db.collection.aggregate()`                                 | `$collStats`<br>`$currentOp`<br>`$indexStats`<br>`$listSessions`<br>`$out`                                                                   |
+| `db.collection.count()`<br>`db.collection.countDocuments()` | `$where`<br>`$near`<br>`$nearSphere`                                                                                                         |
+| `db.collection.insert()`                                    | `insert` is not supported if it is not run against an existing collection. This method is supported if it targets a pre-existing collection. |
+
+## Sessions
+
+MongoDB sessions are a framework that is used to support retryable writes, causal consistency, transactions, and manage operations across databases. When a session is created, a logical session identifier (lsid) is generated by the client and is used to tag all operations within that session when sending commands to the server.
+
+Amazon DocumentDB supports the use of sessions to enable transactions, but does not support causal consistency or retryable writes.
+
+When utilizing transactions within Amazon DocumentDB, a transaction will be initiated from within a session using the `session.startTransaction()` API and a session supports a single transaction at a time. Similarly, transactions are completed using either the commit (`session.commitTransaction()`) or abort (`session.abortTransaction()`) APIs.
+
+### Causal consistency
+
+Causal consistency guarantees that within a single client session the client will observe read-after-write consistency, monatomic reads/writes, and writes will follow reads and these guarantees apply across all instances in a cluster, not just the primary. Amazon DocumentDB does not support causal consistency and the following statement will result in an error.
+
+```
+
+var mySession = db.getMongo().startSession();
+var mySessionObject = mySession.getDatabase('test').getCollection('account');
+
+mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}});
+//Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+mySessionObject.find()
+//Error: error: {
+//         "ok" : 0,
+//         "code" : 303,
+//         "errmsg" : "Feature not supported: 'causal consistency'",
+//         "operationTime" : Timestamp(1603461817, 493214)
+//}
+
+mySession.endSession()
+```
+
+You can disable causal consistency within a session. Please note, doing so will enable you to utilize the session framework, but will not provide causal consistency guarantees for reads. When using Amazon DocumentDB, reads from the primary will be read-after-write consistent and reads from the replica instances will be eventually consistent. Transactions are the primary use case for utilizing sessions.
+
+```
+
+var mySession = db.getMongo().startSession({causalConsistency: **false**});
+var mySessionObject = mySession.getDatabase('test').getCollection('account');
+
+mySessionObject.updateOne({"_id": 2}, {"$inc": {"balance": 400}});
+//Result:{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+mySessionObject.find()
+//{ "_id" : 1, "name" : "Bob", "balance" : 100 }
+//{ "_id" : 2, "name" : "Alice", "balance" : 1700 }
+```
+
+### Retryable writes
+
+Retryable writes is a capability in which the client will attempt to retry write operations, one time, when network errors occur or if the client is unable to find the primary.
+In Amazon DocumentDB, retryable writes are not supported and must be disabled. You can disable it with the command (`retryWrites=false`) in the connection string.
+
+###### Note
+
+If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string.
+By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
+
+## Transaction errors
+
+When using transactions, there are scenarios that can yield an error that states that a transaction number does not match any in progress transaction.
+
+The error can be generated in at least two different scenarios:
+
+- After the one-minute transaction timeout.
+- After an instance restart (due to patching, crash recovery, etc.), it is possible to receive this error even in cases where the transaction successfully committed.
+  During an instance restart, the database can't tell the difference between a transaction that successfully completed versus a transaction that aborted.
+  In other words, the transaction completion state is ambiguous.
+
+The best way to handle this error is to make transactional updates idempotent -- for example, by using the `$set` mutator instead of an increment/decrement operation. See below:
+
+```
+{ "ok" : 0,
+"operationTime" : Timestamp(1603938167, 1),
+"code" : 251,
+"errmsg" : "Given transaction number 1 does not match any in-progress transactions."
+}
+```

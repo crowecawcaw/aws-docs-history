@@ -75,16 +75,93 @@ aws docdb describe-db-clusters \
     --output table
 ```
 
-````
+```
 --------------------------------------------------------------------------------------------------------
-|                                          DescribeDBClusters                                          | +--------------------------------+---------------------------------+------------------+----------------+
-|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  | +--------------------------------+---------------------------------+------------------+----------------+
+|                                          DescribeDBClusters                                          |
++--------------------------------+---------------------------------+------------------+----------------+
+|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  |
++--------------------------------+---------------------------------+------------------+----------------+
 |  in-sync                       |  sample-provisioned-instance-2  |  False           |  1             |
-|  in-sync                       |  sample-provisioned-instance-1  |  True            |  1             | +--------------------------------+---------------------------------+------------------+----------------+ ``` Add the scaling configuration for the cluster: ``` aws docdb modify-db-cluster \ --db-cluster-identifier `sample-cluster` \ --serverless-v2-scaling-configuration MinCapacity=`0.5`,MaxCapacity=`16` ``` Add the serverless instances. In this example, new serverless instances named `sample-serverless-instance-1` and `sample-serverless-instance-2` are added: ``` aws docdb create-db-instance \ --db-cluster-identifier `sample-cluster` \ --db-instance-identifier `sample-serverless-instance-1` \ --db-instance-class db.serverless \ --engine docdb aws docdb create-db-instance \ --db-cluster-identifier `sample-cluster` \ --db-instance-identifier `sample-serverless-instance-2` \ --db-instance-class db.serverless \ --engine docdb ``` Enter the following to wait for the serverless instances to be available before proceeding: ``` aws docdb wait db-instance-available \ --db-instance-identifier sample-serverless-instance-1 aws docdb wait db-instance-available \ --db-instance-identifier sample-serverless-instance-2 ``` Perform a failover to make the new `sample-serverless-instance-1` instance the cluster writer: ``` aws docdb failover-db-cluster \ --db-cluster-identifier `sample-cluster` \ --target-db-instance-identifier `sample-serverless-instance-1` ``` The failover takes a few seconds to complete, after which sample-serverless-instance-1 becomes the cluster writer. Verify this with the following input: ``` aws docdb describe-db-clusters \ --db-cluster-identifier `sample-cluster` \ --query 'DBClusters[*].DBClusterMembers' \ --output table ``` ``` --------------------------------------------------------------------------------------------------------
-|                                          DescribeDBClusters                                          | +--------------------------------+---------------------------------+------------------+----------------+
-|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  | +--------------------------------+---------------------------------+------------------+----------------+
+|  in-sync                       |  sample-provisioned-instance-1  |  True            |  1             |
++--------------------------------+---------------------------------+------------------+----------------+
+```
+
+Add the scaling configuration for the cluster:
+
+```
+aws docdb modify-db-cluster \
+    --db-cluster-identifier `sample-cluster` \
+    --serverless-v2-scaling-configuration MinCapacity=`0.5`,MaxCapacity=`16`
+```
+
+Add the serverless instances.
+In this example, new serverless instances named `sample-serverless-instance-1` and `sample-serverless-instance-2` are added:
+
+```
+aws docdb create-db-instance \
+    --db-cluster-identifier `sample-cluster` \
+    --db-instance-identifier `sample-serverless-instance-1` \
+    --db-instance-class db.serverless \
+    --engine docdb
+
+aws docdb create-db-instance \
+    --db-cluster-identifier `sample-cluster` \
+    --db-instance-identifier `sample-serverless-instance-2` \
+    --db-instance-class db.serverless \
+    --engine docdb
+```
+
+Enter the following to wait for the serverless instances to be available before proceeding:
+
+```
+aws docdb wait db-instance-available \
+    --db-instance-identifier sample-serverless-instance-1
+
+aws docdb wait db-instance-available \
+    --db-instance-identifier sample-serverless-instance-2
+```
+
+Perform a failover to make the new `sample-serverless-instance-1` instance the cluster writer:
+
+```
+aws docdb failover-db-cluster \
+    --db-cluster-identifier `sample-cluster` \
+    --target-db-instance-identifier `sample-serverless-instance-1`
+```
+
+The failover takes a few seconds to complete, after which sample-serverless-instance-1 becomes the cluster writer. Verify this with the following input:
+
+```
+aws docdb describe-db-clusters \
+    --db-cluster-identifier `sample-cluster` \
+    --query 'DBClusters[*].DBClusterMembers' \
+    --output table
+```
+
+```
+--------------------------------------------------------------------------------------------------------
+|                                          DescribeDBClusters                                          |
++--------------------------------+---------------------------------+------------------+----------------+
+|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  |
++--------------------------------+---------------------------------+------------------+----------------+
 |  in-sync                       |  sample-provisioned-instance-2  |  False           |  1             |
 |  in-sync                       |  sample-provisioned-instance-1  |  False           |  1             |
 |  in-sync                       |  sample-serverless-instance-2   |  False           |  1             |
-|  in-sync                       |  sample-serverless-instance-1   |  True            |  1             | +--------------------------------+---------------------------------+------------------+----------------+ ``` Finally, delete the original provisioned instances: ``` aws docdb delete-db-instance \ --db-instance-identifier `sample-provisioned-instance-1` aws docdb delete-db-instance \ --db-instance-identifier `sample-provisioned-instance-2` ``` ## Migrating from MongoDB to DocumentDB serverless You can migrate your MongoDB databases to DocumentDB serverless, just as with provisioned Amazon DocumentDB. For more information, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
-````
+|  in-sync                       |  sample-serverless-instance-1   |  True            |  1             |
++--------------------------------+---------------------------------+------------------+----------------+
+```
+
+Finally, delete the original provisioned instances:
+
+```
+aws docdb delete-db-instance \
+    --db-instance-identifier `sample-provisioned-instance-1`
+
+aws docdb delete-db-instance \
+    --db-instance-identifier `sample-provisioned-instance-2`
+```
+
+## Migrating from MongoDB to DocumentDB serverless
+
+You can migrate your MongoDB databases to DocumentDB serverless, just as with provisioned Amazon DocumentDB.
+For more information, see [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").

@@ -60,7 +60,7 @@ with your cluster's Region. You can change your preferred backup
 window by modifying the cluster. For more information, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md").
 
 | Region Name               | Region         | UTC Time Block |
-| ------------------------- | -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------- | -------------- | -------------- |
 | US East (Ohio)            | us-east-2      | 03:00-11:00    |
 | US East (N. Virginia)     | us-east-1      | 03:00-11:00    |
 | US West (Oregon)          | us-west-2      | 06:00-14:00    |
@@ -90,4 +90,35 @@ window by modifying the cluster. For more information, see [Modifying an Amazon 
 | South America (São Paulo) | sa-east-1      | 00:00-08:00    |
 | Israel (Tel Aviv)         | il-central-1   | 04:00-12:00    |
 | AWS GovCloud (US-East)    | us-gov-east-1  | 17:00-01:00    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | 06:00-14:00    | ## Backup retention period The backup retention period is the number of days an automatic backup is retained before being automatically deleted. Amazon DocumentDB supports a backup retention period of 1–35 days. You can set the backup retention period when you create a cluster. If you don't explicitly set the backup retention period, the default backup retention period of 1 day is assigned to your cluster. After you create a cluster, you can modify the backup retention period by modifying the cluster using either the AWS Management Console or the AWS CLI. For more information, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md"). ## Copy cluster snapshot encryption Cluster and snapshot encryption is based on a KMS encryption key. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key. The following guidelines and limitations apply: <br>• Encryption is inferred from the cluster when creating a snapshot. If the cluster is encrypted, the snapshot of that cluster is encrypted with the same KMS key. If the cluster is not encrypted, the snapshot is not encrypted. <br>• If you copy an encrypted cluster snapshot from your Amazon Web Services account, you can specify a value for `KmsKeyId` to encrypt the copy with a new KMS encryption key. If you don't specify a value for `KmsKeyId` , then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot. <br>• If you copy an encrypted cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for `KmsKeyId`. <br>• To copy an encrypted cluster snapshot to another Amazon Web Services Region, set `KmsKeyId` to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region. KMS encryption keys are specific to the Amazon Web Services Region that they are created in, and you can't use encryption keys from one Amazon Web Services Region in another Amazon Web Services Region. <br>• If you copy an unencrypted cluster snapshot and specify a value for the `KmsKeyId` parameter, an error is returned. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | 06:00-14:00    |
+
+## Backup retention period
+
+The backup retention period is the number of days an automatic
+backup is retained before being automatically deleted. Amazon DocumentDB
+supports a backup retention period of 1–35
+days.
+
+You can set the backup retention period when you create a cluster.
+If you don't explicitly set the backup retention period, the default
+backup retention period of 1 day is assigned to your cluster. After
+you create a cluster, you can modify the backup retention period by
+modifying the cluster using either the AWS Management Console or the AWS CLI. For
+more information, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md").
+
+## Copy cluster snapshot encryption
+
+Cluster and snapshot encryption is based on a KMS encryption key.
+The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+
+The following guidelines and limitations apply:
+
+- Encryption is inferred from the cluster when creating a snapshot.
+  If the cluster is encrypted, the snapshot of that cluster is encrypted with the same KMS key.
+  If the cluster is not encrypted, the snapshot is not encrypted.
+- If you copy an encrypted cluster snapshot from your Amazon Web Services account, you can specify a value for `KmsKeyId` to encrypt the copy with a new KMS encryption key.
+  If you don't specify a value for `KmsKeyId` , then the copy of the cluster snapshot is encrypted with the same KMS key as the source cluster snapshot.
+- If you copy an encrypted cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for `KmsKeyId`.
+- To copy an encrypted cluster snapshot to another Amazon Web Services Region, set `KmsKeyId` to the KMS key ID that you want to use to encrypt the copy of the cluster snapshot in the destination Region.
+  KMS encryption keys are specific to the Amazon Web Services Region that they are created in, and you can't use encryption keys from one Amazon Web Services Region in another Amazon Web Services Region.
+- If you copy an unencrypted cluster snapshot and specify a value for the `KmsKeyId` parameter, an error is returned.

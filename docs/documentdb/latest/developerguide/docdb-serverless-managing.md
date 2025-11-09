@@ -156,10 +156,21 @@ aws docdb describe-db-clusters \
 
 The following is the output of this command:
 
-````
+```
 --------------------------------------------------------------------------------------------------------
-|                                          DescribeDBClusters                                          | +--------------------------------+---------------------------------+------------------+----------------+
-|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  | +--------------------------------+---------------------------------+------------------+----------------+
+|                                          DescribeDBClusters                                          |
++--------------------------------+---------------------------------+------------------+----------------+
+|  DBClusterParameterGroupStatus |      DBInstanceIdentifier       | IsClusterWriter  | PromotionTier  |
++--------------------------------+---------------------------------+------------------+----------------+
 |  in-sync                       |  sample-serverless-instance-2   |  False           |  1             |
-|  in-sync                       |  sample-serverless-instance-1   |  True            |  1             | +--------------------------------+---------------------------------+------------------+----------------+ ``` The promotion tier of a specific instance can be modified using the `modify-db-instance` command: ``` aws docdb modify-db-instance \ --db-instance-identifier `sample-serverless-instance-2` \ --promotion-tier `3` ```
-````
+|  in-sync                       |  sample-serverless-instance-1   |  True            |  1             |
++--------------------------------+---------------------------------+------------------+----------------+
+```
+
+The promotion tier of a specific instance can be modified using the `modify-db-instance` command:
+
+```
+aws docdb modify-db-instance \
+    --db-instance-identifier `sample-serverless-instance-2` \
+    --promotion-tier `3`
+```

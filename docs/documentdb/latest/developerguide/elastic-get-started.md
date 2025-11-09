@@ -326,22 +326,14 @@ db.Employee.find({name: "Katie"})
 The following output is displayed:
 
 ```
-[
-
-   {
-
-     _id: ObjectId('679d02cd6b5a0581be78bcc0'),
-
-     Employeeid: 4,
-
-     name: 'Katie',
-
-     lastname: 'Schaper',
-
-     level: 3
-
-   }
-
+[ 
+   { 
+     _id: ObjectId('679d02cd6b5a0581be78bcc0'), 
+     Employeeid: 4, 
+     name: 'Katie', 
+     lastname: 'Schaper', 
+     level: 3 
+   } 
 ]
 ```
 
@@ -357,18 +349,12 @@ db.Employee.findAndModify({
 The following output is displayed (note that the level has not changed yet):
 
 ```
-{
-
-   _id: ObjectId('679d02cd6b5a0581be78bcbd'),
-
-   Employeeid: 1,
-
-   name: 'Matt',
-
-   lastname: 'Winkle',
-
-   level: 12
-
+{ 
+   _id: ObjectId('679d02cd6b5a0581be78bcbd'), 
+   Employeeid: 1, 
+   name: 'Matt', 
+   lastname: 'Winkle', 
+   level: 12 
 }
 ```
 
@@ -382,18 +368,12 @@ The following output is displayed:
 
 ```
 [
-   {
-
-   _id: ObjectId('679d02cd6b5a0581be78bcbd'),
-
-   Employeeid: 1,
-
-   name: 'Matt',
-
-   lastname: 'Winkle',
-
-   level: 14
-
+   { 
+   _id: ObjectId('679d02cd6b5a0581be78bcbd'), 
+   Employeeid: 1, 
+   name: 'Matt', 
+   lastname: 'Winkle', 
+   level: 14 
    }
 ]
 ```

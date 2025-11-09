@@ -64,7 +64,7 @@ Amazon DocumentDB elastic clusters integrate with other AWS services in the same
 The following table shows the AWS regions where Amazon DocumentDB elastic clusters are currently available and the endpoint for each region.
 
 | Region name               | Region           | Availability zones |
-| ------------------------- | ---------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ---------------- | ------------------ |
 | US East (N. Virginia)     | `us-east-1`      | 5                  |
 | US East (Ohio)            | `us-east-2`      | 3                  |
 | US West (Oregon)          | `us-west-2`      | 3                  |
@@ -80,4 +80,69 @@ The following table shows the AWS regions where Amazon DocumentDB elastic cluste
 | Europe (Ireland)          | `eu-west-1`      | 3                  |
 | Europe (London)           | `eu-west-2`      | 3                  |
 | Europe (Milan)            | `eu-south-1`     | 3                  |
-| Europe (Paris)            | `eu-west-3`      | 3                  | ### Version availability Elastic clusters support the MongoDB 5.0-compatable wire protocol. For differences between Amazon DocumentDB 4.0 instance-based clusters and elastic clusters, see [Functional differences between Amazon DocumentDB 4.0 and elastic clusters](elastic-how-it-works.md#elastic-functional-differences "elastic-how-it-works.md#elastic-functional-differences"). ## Limitations ### Elastic cluster management The following cluster management features and capabilities are not supported in this release: <br>• Custom port (only 27017 is supported) <br>• Ability to use IAM users and roles to authenticate into the database <br>• Ability to create global clusters <br>• Existing Amazon DocumentDB events and subscribing to events <br>• Range sharding <br>• Shard existing collection <br>• Multi-field shard key <br>• Change shard key <br>• Point-in-time restore <br>• Cloning <br>• Performance Insights ###### Note For information about elastic cluster limits, see [Amazon DocumentDB Quotas and limits](limits.md "limits.md"). ### Query and write operations The following query and write operation commands and capabilities are not supported in this release: <br>• DDL commands during scaling operations <br>• Profiler <br>• Parameter groups <br>• AWS Config <br>• AWS Backup ### Collection and index management The following collection and index management features are not supported in this release: <br>• Unique indexes <br>• Partial indexes <br>• Text indexes <br>• Vector indexes <br>• Document compression ### Administration and diagnostics The following administration and diagnostic commands and capabilities are not supported in this release: <br>• AWS Secrets Manager <br>• Role-based-access-control (RBAC) custom roles. <br>• When connecting, write concern of 0 is not supported. <br>• Changing subnets belonging to an VPC that is not currently assigned to an existing elastic cluster. ### Opt-in features The following Amazon DocumentDB opt-in features are not supported in this release: <br>• ACID transactions <br>• DDL/DML auditing <br>• Change streams <br>• Session commands |
+| Europe (Paris)            | `eu-west-3`      | 3                  |
+
+### Version availability
+
+Elastic clusters support the MongoDB 5.0-compatable wire protocol.
+For differences between Amazon DocumentDB 4.0 instance-based clusters and elastic clusters, see [Functional differences between Amazon DocumentDB 4.0 and elastic clusters](elastic-how-it-works.md#elastic-functional-differences "elastic-how-it-works.md#elastic-functional-differences").
+
+## Limitations
+
+### Elastic cluster management
+
+The following cluster management features and capabilities are not supported in this release:
+
+- Custom port (only 27017 is supported)
+- Ability to use IAM users and roles to authenticate into the database
+- Ability to create global clusters
+- Existing Amazon DocumentDB events and subscribing to events
+- Range sharding
+- Shard existing collection
+- Multi-field shard key
+- Change shard key
+- Point-in-time restore
+- Cloning
+- Performance Insights
+
+###### Note
+
+For information about elastic cluster limits, see [Amazon DocumentDB Quotas and limits](limits.md "limits.md").
+
+### Query and write operations
+
+The following query and write operation commands and capabilities are not supported in this release:
+
+- DDL commands during scaling operations
+- Profiler
+- Parameter groups
+- AWS Config
+- AWS Backup
+
+### Collection and index management
+
+The following collection and index management features are not supported in this release:
+
+- Unique indexes
+- Partial indexes
+- Text indexes
+- Vector indexes
+- Document compression
+
+### Administration and diagnostics
+
+The following administration and diagnostic commands and capabilities are not supported in this release:
+
+- AWS Secrets Manager
+- Role-based-access-control (RBAC) custom roles.
+- When connecting, write concern of 0 is not supported.
+- Changing subnets belonging to an VPC that is not currently assigned to an existing elastic cluster.
+
+### Opt-in features
+
+The following Amazon DocumentDB opt-in features are not supported in this release:
+
+- ACID transactions
+- DDL/DML auditing
+- Change streams
+- Session commands

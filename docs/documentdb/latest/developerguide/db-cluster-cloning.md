@@ -313,9 +313,9 @@ aws docdb create-db-instance ^
 The following table summarizes the various parameters used with `restore-db-cluster-to-point-in-time` to clone
 Amazon DocumentDB clusters.
 
-| Parameter                      | Description                                                                                                                                                                       |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --source-db-cluster-identifier | Use the name of the source Amazon DocumentDB cluster that you want to clone.                                                                                                      |
-| --db-cluster-identifier        | Choose a meaningful name for your clone. You name your clone with the `restore-db-cluster-to-point-in-time` command. Then you pass this name to the `create-db-instance` command. |
-| --restore-type                 | Specify `copy-on-write` as the `--restore-type` to create a clone of the source DB cluster rather than restoring the source Amazon DocumentDB cluster.                            |
-| --use-latest-restorable-time   | This value points to the latest restorable volume data for the clone.                                                                                                             |
+| Parameter                      | Description                                                                                                                                                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --source-db-cluster-identifier | Use the name of the source Amazon DocumentDB cluster that you want to clone.                                                                                                         |
+| --db-cluster-identifier        | Choose a meaningful name for your clone. You name your clone with the `restore-db-cluster-to-point-in-time` command. Then you pass this name<br>to the `create-db-instance` command. |
+| --restore-type                 | Specify `copy-on-write` as the `--restore-type` to create a clone of the source DB cluster rather<br>than restoring the source Amazon DocumentDB cluster.                            |
+| --use-latest-restorable-time   | This value points to the latest restorable volume data for the clone.                                                                                                                |
