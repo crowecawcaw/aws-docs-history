@@ -80,21 +80,218 @@ ways:
 - The syntax formatting of Cedar entities and Verified Permissions entities differs in the
   following ways:
 
-| **Cedar format**          | **Verified Permissions format**       |
-| ------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `uid`                     | `Identifier`                          |
-| `type`                    | `EntityType`                          |
-| `id`                      | `EntityId`                            |
-| `attrs`                   | `Attributes`                          |
-| `parents`                 | `Parents`                             | ###### Example - Lists The following examples show how a list of entities is expressed in Cedar and Verified Permissions, respectively. Cedar `[ { "number": 1 }, { "sentence": "Here is an example sentence" }, { "Question": false } ]` Verified Permissions `{ "Set": [ { "Record": { "number": { "Long": 1 } } }, { "Record": { "sentence": { "String": "Here is an example sentence" } } }, { "Record": { "question": { "Boolean": false } } } ] }` ###### Example - Policy evaluation The following examples shows how entities are formatted for evaluating a policy in an authorization request in Cedar and Verified Permissions, respectively. Cedar `[ { "uid": { "type": "PhotoApp::User", "id": "alice" }, "attrs": { "age": 25, "name": "alice", "userId": "123456789012" }, "parents": [ { "type": "PhotoApp::UserGroup", "id": "alice_friends" }, { "type": "PhotoApp::UserGroup", "id": "AVTeam" } ] }, { "uid": { "type": "PhotoApp::Photo", "id": "vacationPhoto.jpg" }, "attrs": { "private": false, "account": { "__entity": { "type": "PhotoApp::Account", "id": "ahmad" } } }, "parents": [] }, { "uid": { "type": "PhotoApp::UserGroup", "id": "alice_friends" }, "attrs": {}, "parents": [] }, { "uid": { "type": "PhotoApp::UserGroup", "id": "AVTeam" }, "attrs": {}, "parents": [] } ]` Verified Permissions `[ { "Identifier": { "EntityType": "PhotoApp::User", "EntityId": "alice" }, "Attributes": { "age": { "Long": 25 }, "name": { "String": "alice" }, "userId": { "String": "123456789012" } }, "Parents": [ { "EntityType": "PhotoApp::UserGroup", "EntityId": "alice_friends" }, { "EntityType": "PhotoApp::UserGroup", "EntityId": "AVTeam" } ] }, { "Identifier": { "EntityType": "PhotoApp::Photo", "EntityId": "vacationPhoto.jpg" }, "Attributes": { "private": { "Boolean": false }, "account": { "EntityIdentifier": { "EntityType": "PhotoApp::Account", "EntityId": "ahmad" } } }, "Parents": [] }, { "Identifier": { "EntityType": "PhotoApp::UserGroup", "EntityId": "alice_friends" }, "Parents": [] }, { "Identifier": { "EntityType": "PhotoApp::UserGroup", "EntityId": "AVTeam" }, "Parents": [] } ]` ## Length and size limits Verified Permissions supports storage in the form of policy stores to hold your schema, policies, and policy templates. That storage causes Verified Permissions to impose some length and size limits that aren't relevant to Cedar. |
-| Object                    | Verified Permissions limit (in bytes) | Cedar limit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---                       | ---                                   | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Policy size¹              | 10,000                                | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Inline policy description | 150                                   | Not applicable to Cedar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Policy template size      | 10,000                                | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Schema size               | 100,000                               | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Entity type               | 200                                   | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Policy ID                 | 64                                    | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Policy template ID        | 64                                    | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Entity ID                 | 200                                   | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Policy store ID           | 64                                    | Not applicable to Cedar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ¹ There is a limit for policies per policy store in Verified Permissions based on the combined size of principals, actions, and resources of policies created in the policy store. The total size of all policies pertaining to a single resource can't exceed 200,000 bytes. For template-linked policies, the size of the policy template is counted only once, plus the size of each set of parameters used to instantiate each template-linked policy. |
+| **Cedar format** | **Verified Permissions format** |
+| ---------------- | ------------------------------- |
+| `uid`            | `Identifier`                    |
+| `type`           | `EntityType`                    |
+| `id`             | `EntityId`                      |
+| `attrs`          | `Attributes`                    |
+| `parents`        | `Parents`                       |
+
+###### Example - Lists
+
+The following examples show how a list of entities is expressed in Cedar and Verified Permissions,
+respectively.
+
+Cedar
+
+```
+[
+  {
+    "number": 1
+  },
+  {
+    "sentence": "Here is an example sentence"
+  },
+  {
+    "Question": false
+  }
+]
+
+```
+
+Verified Permissions
+
+```
+{
+  "Set": [
+    {
+      "Record": {
+        "number": {
+          "Long": 1
+        }
+      }
+    },
+    {
+      "Record": {
+        "sentence": {
+          "String": "Here is an example sentence"
+        }
+      }
+    },
+    {
+      "Record": {
+        "question": {
+          "Boolean": false
+        }
+      }
+    }
+  ]
+}
+
+```
+
+###### Example - Policy evaluation
+
+The following examples shows how entities are formatted for evaluating a policy in an
+authorization request in Cedar and Verified Permissions, respectively.
+
+Cedar
+
+```
+[
+    {
+        "uid": {
+            "type": "PhotoApp::User",
+            "id": "alice"
+        },
+        "attrs": {
+            "age": 25,
+            "name": "alice",
+            "userId": "123456789012"
+        },
+        "parents": [
+            {
+                "type": "PhotoApp::UserGroup",
+                "id": "alice_friends"
+            },
+            {
+                "type": "PhotoApp::UserGroup",
+                "id": "AVTeam"
+            }
+        ]
+    },
+    {
+        "uid": {
+            "type": "PhotoApp::Photo",
+            "id": "vacationPhoto.jpg"
+        },
+        "attrs": {
+            "private": false,
+            "account": {
+                "__entity": {
+                    "type": "PhotoApp::Account",
+                    "id": "ahmad"
+                }
+            }
+        },
+        "parents": []
+    },
+    {
+        "uid": {
+            "type": "PhotoApp::UserGroup",
+            "id": "alice_friends"
+        },
+        "attrs": {},
+        "parents": []
+    },
+    {
+        "uid": {
+            "type": "PhotoApp::UserGroup",
+            "id": "AVTeam"
+        },
+        "attrs": {},
+        "parents": []
+    }
+]
+```
+
+Verified Permissions
+
+```
+[
+    {
+        "Identifier": {
+            "EntityType": "PhotoApp::User",
+            "EntityId": "alice"
+        },
+        "Attributes": {
+            "age": {
+                "Long": 25
+            },
+            "name": {
+                "String": "alice"
+            },
+            "userId": {
+                "String": "123456789012"
+            }
+        },
+        "Parents": [
+            {
+                "EntityType": "PhotoApp::UserGroup",
+                "EntityId": "alice_friends"
+            },
+            {
+                "EntityType": "PhotoApp::UserGroup",
+                "EntityId": "AVTeam"
+            }
+        ]
+    },
+    {
+        "Identifier": {
+            "EntityType": "PhotoApp::Photo",
+            "EntityId": "vacationPhoto.jpg"
+        },
+        "Attributes": {
+            "private": {
+                "Boolean": false
+            },
+            "account": {
+                "EntityIdentifier": {
+                    "EntityType": "PhotoApp::Account",
+                    "EntityId": "ahmad"
+                }
+            }
+        },
+        "Parents": []
+    },
+    {
+        "Identifier": {
+            "EntityType": "PhotoApp::UserGroup",
+            "EntityId": "alice_friends"
+        },
+        "Parents": []
+    },
+    {
+        "Identifier": {
+            "EntityType": "PhotoApp::UserGroup",
+            "EntityId": "AVTeam"
+        },
+        "Parents": []
+    }
+]
+```
+
+## Length and size limits
+
+Verified Permissions supports storage in the form of policy stores to hold your schema, policies, and policy templates.
+That storage causes Verified Permissions to impose some length and size limits that aren't relevant to
+Cedar.
+
+| Object                    | Verified Permissions limit (in bytes) | Cedar limit             |
+| ------------------------- | ------------------------------------- | ----------------------- |
+| Policy size¹              | 10,000                                | None                    |
+| Inline policy description | 150                                   | Not applicable to Cedar |
+| Policy template size      | 10,000                                | None                    |
+| Schema size               | 100,000                               | None                    |
+| Entity type               | 200                                   | None                    |
+| Policy ID                 | 64                                    | None                    |
+| Policy template ID        | 64                                    | None                    |
+| Entity ID                 | 200                                   | None                    |
+| Policy store ID           | 64                                    | Not applicable to Cedar |
+
+¹ There is a limit for policies per policy store in Verified Permissions based on the combined size of
+principals, actions, and resources of policies created in the policy store. The total size of
+all policies pertaining to a single resource can't exceed 200,000 bytes. For template-linked policies, the
+size of the policy template is counted only once, plus the size of each set of parameters used to
+instantiate each template-linked policy.

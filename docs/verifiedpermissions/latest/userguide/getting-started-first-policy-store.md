@@ -181,9 +181,24 @@ you can test with the Verified Permissions test bench. The table includes the au
 decision based on the static policies included with the PhotoFlash sample policy store and the policy you
 created in step 2.
 
-| **Principal value**  | **Principal Account: Entity value** | **Resource value**      | **Resource parent value** | **Action**            | **Authorization decision** |
-| -------------------- | ----------------------------------- | ----------------------- | ------------------------- | --------------------- | -------------------------- | ----------------------- | ------------------------------------- | ------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **PhotoFlash::User** | bob                                 | **PhotoFlash::Account** | alice-account             | **PhotoFlash::Album** | alice-favorites-album      | N/A                     | **PhotoFlash::Action::"UpdateAlbum"** | Deny                                  |
-| **PhotoFlash::User** | alice                               | **PhotoFlash::Account** | alice-account             | **PhotoFlash::Photo** | photo.jpeg                 | **PhotoFlash::Account** | bob-account                           | **PhotoFlash::Action::"ViewPhoto"**   | Deny  |
-| **PhotoFlash::User** | alice                               | **PhotoFlash::Account** | alice-account             | **PhotoFlash::Photo** | photo.jpeg                 | **PhotoFlash::Account** | alice-account                         | **PhotoFlash::Action::"ViewPhoto"**   | Allow |
-| **PhotoFlash::User** | alice                               | **PhotoFlash::Account** | alice-account             | **PhotoFlash::Photo** | bob-photo.jpeg             | **PhotoFlash::Album**   | Bob-Vacation-Album                    | **PhotoFlash::Action::"DeletePhoto"** | Deny  | ## Step 4: Clean up resources After you have finished exploring your policy store, delete it. ###### To delete a policy store 1. In the [Verified Permissions console](https://console.aws.amazon.com/verifiedpermissions "https://console.aws.amazon.com/verifiedpermissions"), choose the policy store you created in step 1. 2. In the navigation, choose **Settings**. 3. Under **Delete policy store**, choose **Delete this policy store**. 4. In the **Delete this policy store?** dialog box, enter _delete_, and then choose **Delete**. |
+| **Principal value**       | **Principal Account: Entity value** | **Resource value**           | **Resource parent value** | **Action**                 | **Authorization decision** |
+| ------------------------- | ----------------------------------- | ---------------------------- | ------------------------- | -------------------------- | -------------------------- | ---------------------------- | ------------------------------------- | ------------------------------------- | ----- |
+| \*_PhotoFlash::User_<br>• | bob                                 | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Album_<br>• | <br>alice-favorites-album  | N/A                          | **PhotoFlash::Action::"UpdateAlbum"** | Deny                                  |
+| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | photo.jpeg                 | \*_PhotoFlash::Account_<br>• | bob-account                           | **PhotoFlash::Action::"ViewPhoto"**   | Deny  |
+| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | photo.jpeg                 | \*_PhotoFlash::Account_<br>• | alice-account                         | **PhotoFlash::Action::"ViewPhoto"**   | Allow |
+| \*_PhotoFlash::User_<br>• | alice                               | \*_PhotoFlash::Account_<br>• | alice-account             | \*_PhotoFlash::Photo_<br>• | bob-photo.jpeg             | \*_PhotoFlash::Album_<br>•   | Bob-Vacation-Album                    | **PhotoFlash::Action::"DeletePhoto"** | Deny  |
+
+## Step 4: Clean up resources
+
+After you have finished exploring your policy store, delete it.
+
+###### To delete a policy store
+
+1. In the [Verified Permissions console](https://console.aws.amazon.com/verifiedpermissions "https://console.aws.amazon.com/verifiedpermissions"),
+   choose the policy store you created in step 1.
+2. In the navigation, choose **Settings**.
+3. Under **Delete policy store**, choose **Delete this
+   policy store**.
+4. In the **Delete this policy store?** dialog box, enter
+   _delete_, and then choose
+   **Delete**.
