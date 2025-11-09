@@ -12,10 +12,196 @@ Combine ACM condition keys with AWS [global condition keys](../../../IAM/latest/
 
 Use the scroll bars to see the rest of the table.
 
-| ACM API operations and supported conditions | Condition Key                                                                                               | Supported ACM API Operations    | Type                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ACM API operations and supported conditions | Condition Key                                                                                               | Supported ACM API Operations    | Type                                                                                                                                                    | Description |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `acm:ValidationMethod`                      | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | String (`DNS`, `EMAIL`, `HTTP`) | Filter requests based on ACM [validation method](domain-ownership-validation.md "domain-ownership-validation.md")                                       |
 | `acm:DomainNames`                           | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | ArrayOfString                   | Filter based on [domain names](acm-concepts.md#concept-dn "acm-concepts.md#concept-dn") in the ACM request                                              |
 | `acm:KeyAlgorithm`                          | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | String                          | Filter requests based on ACM [key algorithm and size](acm-certificate.md#algorithms "acm-certificate.md#algorithms")                                    |
 | `acm:CertificateTransparencyLogging`        | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | String (`ENABLED`, `DISABLED`)  | Filter requests based on ACM [certificate transparency logging preference](acm-concepts.md#concept-transparency "acm-concepts.md#concept-transparency") |
-| `acm:CertificateAuthority`                  | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | ARN                             | Filter requests based on [certificate authorities](acm-concepts.md#concept-ca "acm-concepts.md#concept-ca") in the ACM request                          | ## Example 1: Restricting validation method The following policy denies new certificate requests using the [Email Validation](domain-ownership-validation.md "domain-ownership-validation.md") method except for a request made using the `arn:aws:iam::123456789012:role/AllowedEmailValidation` role. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition":{ "StringLike" : { "acm:ValidationMethod":"EMAIL" }, "ArnNotLike": { "aws:PrincipalArn": [ "arn:aws:iam::123456789012:role/AllowedEmailValidation"] } } } }` `` ## Example 2: Preventing wildcard domains The following policy denies any new ACM certificate request that uses wildcard domains. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition": { "ForAnyValue:StringLike": { "acm:DomainNames": [ "${*}.*" ] } } } }` `` ## Example 3: Restricting certificate domains The following policy denies any new ACM certificate request for domains that don't end with `*.amazonaws.com` JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition": { "ForAnyValue:StringNotLike": { "acm:DomainNames": ["*.amazonaws.com"] } } } }` `` The policy could be further restricted to specific subdomains. This policy would only allow requests where every domain matches at least one of the conditional domain names. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition": { "ForAllValues:StringNotLike": { "acm:DomainNames": ["support.amazonaws.com", "developer.amazonaws.com"] } } } }` `` ## Example 4: Restricting key algorithm The following policy uses the condition key `StringNotLike` to allow only certificates requested with the ECDSA 384 bit (`EC_secp384r1`) key algorithm. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition":{ "StringNotLike" : { "acm:KeyAlgorithm":"EC_secp384r1" } } } }` `` The following policy uses the condition key `StringLike` and wildcard `*` matching to prevent requests for new certificates in ACM with any `RSA` key algorithm. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition":{ "StringLike" : { "acm:KeyAlgorithm":"RSA*" } } } }` `` ## Example 5: Restricting certificate authority The following policy would only allow requests for private certificates using the provided Private Certificate Authority (PCA) ARN. JSON ``` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition":{ "StringNotLike": { "acm:CertificateAuthority":" `arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID``" } } } }` ``` This policy uses the `acm:CertificateAuthority` condition to allow only requests for publicly trusted certificates issued by Amazon Trust Services. Setting the Certificate Authority ARN to `false` prevents requests for private certificates from PCA. JSON `` `{ "Version":"2012-10-17", "Statement":{ "Effect":"Deny", "Action":"acm:RequestCertificate", "Resource":"*", "Condition":{ "Null" : { "acm:CertificateAuthority":"false" } } } }` `` |
+| `acm:CertificateAuthority`                  | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | ARN                             | Filter requests based on [certificate authorities](acm-concepts.md#concept-ca "acm-concepts.md#concept-ca") in the ACM request                          |
+
+## Example 1: Restricting validation method
+
+The following policy denies new certificate requests using the [Email Validation](domain-ownership-validation.md "domain-ownership-validation.md")
+method except for a request made using the `arn:aws:iam::123456789012:role/AllowedEmailValidation` role.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition":{
+ "StringLike" : {
+ "acm:ValidationMethod":"EMAIL"
+ },
+ "ArnNotLike": {
+ "aws:PrincipalArn": [ "arn:aws:iam::123456789012:role/AllowedEmailValidation"]
+ }
+ }
+ }
+}`
+
+```
+
+## Example 2: Preventing wildcard domains
+
+The following policy denies any new ACM certificate request that uses wildcard domains.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition": {
+ "ForAnyValue:StringLike": {
+ "acm:DomainNames": [
+ "${*}.*"
+ ]
+ }
+ }
+ }
+}`
+
+```
+
+## Example 3: Restricting certificate domains
+
+The following policy denies any new ACM certificate request for domains that don't end with `*.amazonaws.com`
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition": {
+ "ForAnyValue:StringNotLike": {
+ "acm:DomainNames": ["*.amazonaws.com"]
+ }
+ }
+ }
+}`
+
+```
+
+The policy could be further restricted to specific subdomains. This policy
+would only allow requests where every domain matches at least one of the conditional domain names.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition": {
+ "ForAllValues:StringNotLike": {
+ "acm:DomainNames": ["support.amazonaws.com", "developer.amazonaws.com"]
+ }
+ }
+ }
+}`
+
+```
+
+## Example 4: Restricting key algorithm
+
+The following policy uses the condition key `StringNotLike` to allow only certificates requested with the ECDSA 384 bit (`EC_secp384r1`) key algorithm.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition":{
+ "StringNotLike" : {
+ "acm:KeyAlgorithm":"EC_secp384r1"
+ }
+ }
+ }
+}`
+
+```
+
+The following policy uses the condition key `StringLike` and wildcard `*` matching to prevent requests for new certificates in ACM with any `RSA` key algorithm.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition":{
+ "StringLike" : {
+ "acm:KeyAlgorithm":"RSA*"
+ }
+ }
+ }
+}`
+
+```
+
+## Example 5: Restricting certificate authority
+
+The following policy would only allow requests for private certificates using the provided Private Certificate Authority (PCA) ARN.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition":{
+ "StringNotLike": {
+ "acm:CertificateAuthority":" `arn:aws:acm-pca:`region`:`account`:certificate-authority/`CA_ID``"
+ }
+ }
+ }
+}`
+
+```
+
+This policy uses the `acm:CertificateAuthority` condition to allow only requests for publicly trusted certificates issued by
+Amazon Trust Services. Setting the Certificate Authority ARN to `false` prevents requests for private certificates from PCA.
+
+JSON
+
+```
+`{
+"Version":"2012-10-17",
+ "Statement":{
+ "Effect":"Deny",
+ "Action":"acm:RequestCertificate",
+ "Resource":"*",
+ "Condition":{
+ "Null" : {
+ "acm:CertificateAuthority":"false"
+ }
+ }
+ }
+}`
+
+```

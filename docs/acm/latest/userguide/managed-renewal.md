@@ -29,11 +29,23 @@ considerations:
 2. Domain names beginning with "xn--" must also be valid Internationalized Domain
    Names.
 
-| Punycode examples | Domain Name | Fulfills #1 | Fulfills #2 | Allowed                                                  | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ----------- | ----------- | ----------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Punycode examples | Domain Name | Fulfills #1 | Fulfills #2 | Allowed                                                  | Note |
+| ----------------- | ----------- | ----------- | ----------- | -------------------------------------------------------- | ---- |
 | example.com       | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
 | a--example.com    | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
 | abc--example.com  | n/a         | n/a         | ✓           | Does not start with "<character><character>--"           |
 | xn--xyz.com       | Yes         | Yes         | ✓           | Valid Internationalized Domain Name (resolves to 简.com) |
 | xn--example.com   | Yes         | No          | ✗           | Not a valid Internationalized Domain Name                |
-| ab--example.com   | No          | No          | ✗           | Must start with "xn--"                                   | When ACM renews a certificate, the certificate's Amazon Resource Name (ARN) remains the same. Also, ACM certificates are [regional resources](acm-overview.md#acm-regions "acm-overview.md#acm-regions"). If you have certificates for the same domain name in multiple AWS Regions, each of these certificates must be renewed independently. ###### Topics <br>• [Renew ACM public certificates](renew-publicly-trusted.md "renew-publicly-trusted.md") <br>• [Private certificate renewal in AWS Certificate Manager](renew-private-cert.md "renew-private-cert.md") <br>• [Check a certificate's renewal status](check-certificate-renewal-status.md "check-certificate-renewal-status.md") |
+| ab--example.com   | No          | No          | ✗           | Must start with "xn--"                                   |
+
+When ACM renews a certificate, the certificate's Amazon Resource Name (ARN) remains the
+same. Also, ACM certificates are [regional resources](acm-overview.md#acm-regions "acm-overview.md#acm-regions"). If
+you have certificates for the same domain name in multiple AWS Regions, each of these
+certificates must be renewed independently.
+
+###### Topics
+
+- [Renew ACM public certificates](renew-publicly-trusted.md "renew-publicly-trusted.md")
+- [Private certificate renewal in AWS Certificate Manager](renew-private-cert.md "renew-private-cert.md")
+- [Check a certificate's renewal
+  status](check-certificate-renewal-status.md "check-certificate-renewal-status.md")

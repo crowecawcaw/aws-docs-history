@@ -7,6 +7,13 @@ expiration.
 
 The `AWS/CertificateManager` namespace includes the following metric.
 
-| Metric         | Description                                                                                               | Unit    | Dimensions                                         |
-| -------------- | --------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DaysToExpiry` | Number of days until a certificate expires. ACM stops publishing this metric after a certificate expires. | Integer | CertificateArn <br>• Value: ARN of the certificate | For more information about CloudWatch metrics, see the following topics: <br>• [Using Amazon CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") <br>• [Creating Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") |
+| Metric         | Description                                                                                                  | Unit    | Dimensions                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------ | ------- | ------------------------------------------------- |
+| `DaysToExpiry` | Number of days until a certificate expires. ACM stops publishing<br>this metric after a certificate expires. | Integer | CertificateArn<br>• Value: ARN of the certificate |
+
+For more information about CloudWatch metrics, see the following topics:
+
+- [Using Amazon CloudWatch
+  Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
+- [Creating Amazon CloudWatch
+  Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")

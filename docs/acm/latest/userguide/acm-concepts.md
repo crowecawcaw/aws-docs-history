@@ -132,8 +132,275 @@ The public end-entity certificates issued by ACM derive their trust from the
 following Amazon root CAs:
 
 | Distinguished name                | Encryption algorithm                           |
-| --------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------- | ---------------------------------------------- |
 | CN=Amazon Root CA 1,O=Amazon,C=US | 2048-bit RSA (`RSA_2048`)                      |
 | CN=Amazon Root CA 2,O=Amazon,C=US | 4096-bit RSA (`RSA_4096`)                      |
 | CN=Amazon Root CA 3,O=Amazon,C=US | Elliptic Prime Curve 256 bit (`EC_prime256v1`) |
-| CN=Amazon Root CA 4,O=Amazon,C=US | Elliptic Prime Curve 384 bit (`EC_secp384r1`)  | The default root of trust for ACM-issued certificates is CN=Amazon Root CA 1,O=Amazon,C=US, which offers 2048-bit RSA security. The other roots are reserved for future use. All of the roots are cross-signed by the Starfield Services Root Certificate Authority certificate. For more information, see [Amazon Trust Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/"). ## Apex Domain See [Domain Names](#concept-dn "#concept-dn"). ## Asymmetric Key Cryptography Unlike [Symmetric Key Cryptography](#concept-symmetric "#concept-symmetric"), asymmetric cryptography uses different but mathematically related keys to encrypt and decrypt content. One of the keys is public and is typically made available in an X.509 v3 certificate. The other key is private and is stored securely. The X.509 certificate binds the identity of a user, computer, or other resource (the certificate subject) to the public key. ACM certificates are X.509 SSL/TLS certificates that bind the identity of your website and the details of your organization to the public key that is contained in the certificate. ACM uses your AWS KMS key to encrypt the private key. For more information, see [Security for certificate private keys](data-protection.md#kms "data-protection.md#kms"). ## Certificate Authority A certificate authority (CA) is an entity that issues digital certificates. Commercially, the most common type of digital certificate is based on the ISO X.509 standard. The CA issues signed digital certificates that affirm the identity of the certificate subject and bind that identity to the public key contained in the certificate. A CA also typically manages certificate revocation. ## Certificate Transparency Logging To guard against SSL/TLS certificates that are issued by mistake or by a compromised CA, some browsers require that public certificates issued for your domain be recorded in a certificate transparency log. The domain name is recorded. The private key is not. Certificates that are not logged typically generate an error in the browser. You can monitor the logs to make sure that only certificates you have authorized have been issued for your domain. You can use a service such as [Certificate Search](https://crt.sh/ "https://crt.sh/") to check the logs. Before the Amazon CA issues a publicly trusted SSL/TLS certificate for your domain, it submits the certificate to at least three certificate transparency log servers. These servers add the certificate to their public databases and return a signed certificate timestamp (SCT) to the Amazon CA. The CA then embeds the SCT in the certificate, signs the certificate, and issues it to you. The timestamps are included with other X.509 extensions. `` X509v3 extensions: CT Precertificate SCTs: Signed Certificate Timestamp: Version   : v1(0) Log ID    : `BB:D9:DF:...8E:1E:D1:85` Timestamp : Apr 24 23:43:15.598 2018 GMT Extensions: none Signature : ecdsa-with-SHA256 `30:45:02:...18:CB:79:2F` Signed Certificate Timestamp: Version   : v1(0) Log ID    : `87:75:BF:...A0:83:0F` Timestamp : Apr 24 23:43:15.565 2018 GMT Extensions: none Signature : ecdsa-with-SHA256 `30:45:02:...29:8F:6C` `` Certificate transparency logging is automatic when you request or renew a certificate unless you choose to opt out. For more information about opt out, see [Opting out of certificate transparency logging](acm-bestpractices.md#best-practices-transparency "acm-bestpractices.md#best-practices-transparency"). ## Domain Name System The Domain Name System (DNS) is a hierarchical distributed naming system for computers and other resources connected to the internet or a private network. DNS is primarily used to translate textual domain names, such as `aws.amazon.com`, into numerical IP (Internet Protocol) addresses of the form `111.122.133.144`. The DNS database for your domain, however, contains a number of records that can be used for other purposes. For example, with ACM you can use a CNAME record to validate that you own or control a domain when you request a certificate. For more information, see [AWS Certificate Manager DNS validation](dns-validation.md "dns-validation.md"). ## Domain Names A domain name is a text string such as `www.example.com` that can be translated by the Domain Name System (DNS) into an IP address. Computer networks, including the internet, use IP addresses rather than text names. A domain name consists of distinct labels separated by periods: ###### TLD The rightmost label is called the top-level domain (TLD). Common examples include `.com`, `.net`, and `.edu`. Also, the TLD for entities registered in some countries is an abbreviation of the country name and is called a country code. Examples include `.uk` for the United Kingdom, `.ru` for Russia, and `.fr` for France. When country codes are used, a second-level hierarchy for the TLD is often introduced to identify the type of the registered entity. For example, the `.co.uk` TLD identifies commercial enterprises in the United Kingdom. ###### Apex domain The apex domain name includes and expands on the top-level domain. For domain names that include a country code, the apex domain includes the code and the labels, if any, that identify the type of the registered entity. The apex domain does not include subdomains (see the following paragraph). In `www.example.com`, the name of the apex domain is `example.com`. In `www.example.co.uk`, the name of the apex domain is `example.co.uk`. Other names that are often used instead of apex include base, bare, root, root apex, or zone apex. ###### Subdomain Subdomain names precede the apex domain name and are separated from it and from each other by a period. The most common subdomain name is `www`, but any name is possible. Subdomain names can also have multiple levels. For example, in `jake.dog.animals.example.com`, the subdomains are `jake`, `dog`, and `animals` in that order. ###### Superdomain The domain to which a subdomain belongs. ###### FQDN A fully qualified domain name (FQDN) is the complete DNS name for a computer, website, or other resource connected to a network or to the internet. For example `aws.amazon.com` is the FQDN for Amazon Web Services. An FQDN includes all domains up to the top–level domain. For example, `[subdomain1].[subdomain2]...[subdomainn].[apex domain].[top–level domain]` represents the general format of an FQDN. ###### PQDN A domain name that is not fully qualified is called a partially qualified domain name (PQDN) and is ambiguous. A name such as `[subdomain1.subdomain2.]` is a PQDN because the root domain cannot be determined. ## Encryption and Decryption Encryption is the process of providing data confidentiality. Decryption reverses the process and recovers the original data. Unencrypted data is typically called plaintext whether it is text or not. Encrypted data is typically called ciphertext. HTTPS encryption of messages between clients and servers uses algorithms and keys. Algorithms define the step-by-step procedure by which plaintext data is converted into ciphertext (encryption) and ciphertext is converted back into the original plaintext (decryption). Keys are used by algorithms during the encryption or decryption process. Keys can be either private or public. ## Fully Qualified Domain Name (FQDN) See [Domain Names](#concept-dn "#concept-dn"). ## Hypertext Transfer Protocol (HTTP) The Hypertext Transfer Protocol (HTTP) is the foundation of data communication on the World Wide Web. It's an application-layer protocol that enables the exchange of various content types. HTTP operates on a client-server model, where web browsers typically act as clients requesting resources from web servers. As a stateless protocol, HTTP treats each request independently, without retaining information from previous requests. In the context of ACM, HTTP can be used for domain validation when issuing SSL/TLS certificates. This process involves ACM sending specific HTTP requests to verify domain ownership. The server's ability to respond correctly to these requests demonstrates control over the domain. Unlike email or DNS-validated certificates, ACM customers can't issue HTTP-validated certificates directly from ACM. Instead, these certificates are automatically issued and managed as part of the CloudFront provisioning process. Customers can use ACM to view, monitor, and manage these certificates, but the initial issuance is handled by the integration between ACM and CloudFront. While HTTP is widely used, it's important to note that it transmits data in plain text. For secure communication, HTTPS (HTTP Secure) is used, which encrypts the data using SSL/TLS protocols. For more information on secure communications, see [Secure HTTPS](#concept-https "#concept-https"). ## Public Key Infrastructure (PKI) Public Key Infrastructure (PKI) is a system of processes, technologies, and policies that enables secure communication over public networks. In the context of ACM, PKI plays a crucial role in the issuance, management, and validation of digital certificates. PKI uses a pair of cryptographic keys: a public key that is freely distributed, and a private key that is kept secret by the owner. This system allows for secure data transmission, digital signatures, and authentication of digital entities. ACM implements several key components of PKI. It acts as a Certificate Authority (CA), a trusted third party that issues digital certificates, binding public keys to entities such as domains or organizations. ACM issues X.509 certificates, which contain information about the entity, its public key, and the certificate's validity period. It also handles the complete lifecycle of certificates, including issuance, renewal, and revocation. To ensure the legitimacy of certificate requests, ACM supports various methods to validate domain ownership, such as DNS validation and HTTP validation. By leveraging PKI, ACM enables secure HTTPS connections, digital signatures, and encrypted communication for AWS resources and applications. This infrastructure is essential for maintaining the confidentiality, integrity, and authenticity of data transmitted over the internet. For more information on how ACM implements PKI, see [Getting started with AWS Certificate Manager certificates](gs.md "gs.md"). ## Root Certificate A certificate authority (CA) typically exists within a hierarchical structure that contains multiple other CAs with clearly defined parent-child relationships between them. Child or subordinate CAs are certified by their parent CAs, creating a certificate chain. The CA at the top of the hierarchy is referred to as the root CA, and its certificate is called the root certificate. This certificate is typically self-signed. ## Secure Sockets Layer (SSL) Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic protocols that provide communication security over a computer network. TLS is the successor of SSL. They both use X.509 certificates to authenticate the server. Both protocols negotiate a symmetric key between the client and the server that is used to encrypt data flowing between the two entities. ## Secure HTTPS HTTPS stands for HTTP over SSL/TLS, a secure form of HTTP that is supported by all major browsers and servers. All HTTP requests and responses are encrypted before being sent across a network. HTTPS combines the HTTP protocol with symmetric, asymmetric, and X.509 certificate-based cryptographic techniques. HTTPS works by inserting a cryptographic security layer below the HTTP application layer and above the TCP transport layer in the Open Systems Interconnection (OSI) model. The security layer uses the Secure Sockets Layer (SSL) protocol or the Transport Layer Security (TLS) protocol. ## SSL Server Certificates HTTPS transactions require server certificates to authenticate a server. A server certificate is an X.509 v3 data structure that binds the public key in the certificate to the subject of the certificate. An SSL/TLS certificate is signed by a certificate authority (CA) and contains the name of the server, the validity period, the public key, the signature algorithm, and more. ## Symmetric Key Cryptography Symmetric key cryptography uses the same key to both encrypt and decrypt digital data. See also [Asymmetric Key Cryptography](#concept-asymmetric "#concept-asymmetric"). ## Transport Layer Security (TLS) See [Secure Sockets Layer (SSL)](#concept-ssl "#concept-ssl"). ## Trust In order for a web browser to trust the identity of a website, the browser must be able to verify the website's certificate. Browsers, however, trust only a small number of certificates known as CA root certificates. A trusted third party, known as a certificate authority (CA), validates the identity of the website and issues a signed digital certificate to the website's operator. The browser can then check the digital signature to validate the identity of the website. If validation is successful, the browser displays a lock icon in the address bar. |
+| CN=Amazon Root CA 4,O=Amazon,C=US | Elliptic Prime Curve 384 bit (`EC_secp384r1`)  |
+
+The default root of trust for ACM-issued certificates is CN=Amazon Root CA
+1,O=Amazon,C=US, which offers 2048-bit RSA security. The other roots are reserved
+for future use. All of the roots are cross-signed by the Starfield Services Root
+Certificate Authority certificate.
+
+For more information, see [Amazon Trust Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
+
+## Apex Domain
+
+See [Domain Names](#concept-dn "#concept-dn").
+
+## Asymmetric Key Cryptography
+
+Unlike [Symmetric Key Cryptography](#concept-symmetric "#concept-symmetric"),
+asymmetric cryptography uses different but mathematically related keys to encrypt
+and decrypt content. One of the keys is public and is typically made available in an
+X.509 v3 certificate. The other key is private and is stored securely. The X.509
+certificate binds the identity of a user, computer, or other resource (the
+certificate subject) to the public key.
+
+ACM certificates are X.509 SSL/TLS certificates that bind the identity of your
+website and the details of your organization to the public key that is contained in
+the certificate. ACM uses your AWS KMS key to encrypt the private key. For more
+information, see [Security for certificate private keys](data-protection.md#kms "data-protection.md#kms").
+
+## Certificate Authority
+
+A certificate authority (CA) is an entity that issues digital certificates.
+Commercially, the most common type of digital certificate is based on the ISO X.509
+standard. The CA issues signed digital certificates that affirm the identity of the
+certificate subject and bind that identity to the public key contained in the
+certificate. A CA also typically manages certificate revocation.
+
+## Certificate Transparency Logging
+
+To guard against SSL/TLS certificates that are issued by mistake or by a
+compromised CA, some browsers require that public certificates issued for your
+domain be recorded in a certificate transparency log. The domain name is recorded.
+The private key is not. Certificates that are not logged typically generate an error
+in the browser.
+
+You can monitor the logs to make sure that only certificates you have authorized
+have been issued for your domain. You can use a service such as [Certificate Search](https://crt.sh/ "https://crt.sh/") to check the logs.
+
+Before the Amazon CA issues a publicly trusted SSL/TLS certificate for your
+domain, it submits the certificate to at least three certificate transparency log
+servers. These servers add the certificate to their public databases and return a
+signed certificate timestamp (SCT) to the Amazon CA. The CA then embeds the SCT in
+the certificate, signs the certificate, and issues it to you. The timestamps are
+included with other X.509 extensions.
+
+```
+
+ X509v3 extensions:
+
+   CT Precertificate SCTs:
+     Signed Certificate Timestamp:
+       Version   : v1(0)
+         Log ID    : `BB:D9:DF:...8E:1E:D1:85`
+         Timestamp : Apr 24 23:43:15.598 2018 GMT
+         Extensions: none
+         Signature : ecdsa-with-SHA256
+                     `30:45:02:...18:CB:79:2F`
+     Signed Certificate Timestamp:
+       Version   : v1(0)
+         Log ID    : `87:75:BF:...A0:83:0F`
+         Timestamp : Apr 24 23:43:15.565 2018 GMT
+         Extensions: none
+         Signature : ecdsa-with-SHA256
+                     `30:45:02:...29:8F:6C`
+
+```
+
+Certificate transparency logging is automatic when you request or renew a
+certificate unless you choose to opt out. For more information about opt out, see
+[Opting out of certificate transparency
+logging](acm-bestpractices.md#best-practices-transparency "acm-bestpractices.md#best-practices-transparency").
+
+## Domain Name System
+
+The Domain Name System (DNS) is a hierarchical distributed naming system for
+computers and other resources connected to the internet or a private network. DNS is
+primarily used to translate textual domain names, such as
+`aws.amazon.com`, into numerical IP (Internet Protocol) addresses of
+the form `111.122.133.144`. The DNS database for your domain, however,
+contains a number of records that can be used for other purposes. For example, with
+ACM you can use a CNAME record to validate that you own or control a domain when
+you request a certificate. For more information, see [AWS Certificate Manager DNS validation](dns-validation.md "dns-validation.md").
+
+## Domain Names
+
+A domain name is a text string such as `www.example.com` that can be
+translated by the Domain Name System (DNS) into an IP address. Computer networks,
+including the internet, use IP addresses rather than text names. A domain name
+consists of distinct labels separated by periods:
+
+###### TLD
+
+The rightmost label is called the top-level domain (TLD). Common examples
+include `.com`, `.net`, and `.edu`. Also, the
+TLD for entities registered in some countries is an abbreviation of the country
+name and is called a country code. Examples include `.uk` for the
+United Kingdom, `.ru` for Russia, and `.fr` for France.
+When country codes are used, a second-level hierarchy for the TLD is often
+introduced to identify the type of the registered entity. For example, the
+`.co.uk` TLD identifies commercial enterprises in the United
+Kingdom.
+
+###### Apex domain
+
+The apex domain name includes and expands on the top-level domain. For domain
+names that include a country code, the apex domain includes the code and the
+labels, if any, that identify the type of the registered entity. The apex domain
+does not include subdomains (see the following paragraph). In
+`www.example.com`, the name of the apex domain is
+`example.com`. In `www.example.co.uk`, the name of the
+apex domain is `example.co.uk`. Other names that are often used
+instead of apex include base, bare, root, root apex, or zone apex.
+
+###### Subdomain
+
+Subdomain names precede the apex domain name and are separated from it and
+from each other by a period. The most common subdomain name is `www`,
+but any name is possible. Subdomain names can also have multiple levels. For
+example, in `jake.dog.animals.example.com`, the subdomains are
+`jake`, `dog`, and `animals` in that order.
+
+###### Superdomain
+
+The domain to which a subdomain belongs.
+
+###### FQDN
+
+A fully qualified domain name (FQDN) is the complete DNS name for a computer,
+website, or other resource connected to a network or to the internet. For
+example `aws.amazon.com` is the FQDN for Amazon Web Services. An FQDN includes
+all domains up to the top–level domain. For example,
+`[subdomain1].[subdomain2]...[subdomainn].[apex
+ domain].[top–level domain]` represents the general format of an
+FQDN.
+
+###### PQDN
+
+A domain name that is not fully qualified is called a partially qualified
+domain name (PQDN) and is ambiguous. A name such as
+`[subdomain1.subdomain2.]`
+is a PQDN because the root domain cannot be determined.
+
+## Encryption and Decryption
+
+Encryption is the process of providing data confidentiality. Decryption reverses
+the process and recovers the original data. Unencrypted data is typically called
+plaintext whether it is text or not. Encrypted data is typically called ciphertext.
+HTTPS encryption of messages between clients and servers uses algorithms and keys.
+Algorithms define the step-by-step procedure by which plaintext data is converted
+into ciphertext (encryption) and ciphertext is converted back into the original
+plaintext (decryption). Keys are used by algorithms during the encryption or
+decryption process. Keys can be either private or public.
+
+## Fully Qualified Domain Name (FQDN)
+
+See [Domain Names](#concept-dn "#concept-dn").
+
+## Hypertext Transfer Protocol (HTTP)
+
+The Hypertext Transfer Protocol (HTTP) is the foundation of data communication on
+the World Wide Web. It's an application-layer protocol that enables the exchange of
+various content types. HTTP operates on a client-server model, where web browsers
+typically act as clients requesting resources from web servers. As a stateless
+protocol, HTTP treats each request independently, without retaining information from
+previous requests.
+
+In the context of ACM, HTTP can be used for domain validation when issuing
+SSL/TLS certificates. This process involves ACM sending specific HTTP requests to
+verify domain ownership. The server's ability to respond correctly to these requests
+demonstrates control over the domain.
+
+Unlike email or DNS-validated certificates, ACM customers can't issue
+HTTP-validated certificates directly from ACM. Instead, these certificates are
+automatically issued and managed as part of the CloudFront provisioning process. Customers
+can use ACM to view, monitor, and manage these certificates, but the initial
+issuance is handled by the integration between ACM and CloudFront.
+
+While HTTP is widely used, it's important to note that it transmits data in plain
+text. For secure communication, HTTPS (HTTP Secure) is used, which encrypts the data
+using SSL/TLS protocols. For more information on secure communications, see [Secure HTTPS](#concept-https "#concept-https").
+
+## Public Key Infrastructure (PKI)
+
+Public Key Infrastructure (PKI) is a system of processes, technologies, and
+policies that enables secure communication over public networks. In the context of
+ACM, PKI plays a crucial role in the issuance, management, and validation of
+digital certificates. PKI uses a pair of cryptographic keys: a public key that is
+freely distributed, and a private key that is kept secret by the owner. This system
+allows for secure data transmission, digital signatures, and authentication of
+digital entities.
+
+ACM implements several key components of PKI. It acts as a Certificate Authority
+(CA), a trusted third party that issues digital certificates, binding public keys to
+entities such as domains or organizations. ACM issues X.509 certificates, which
+contain information about the entity, its public key, and the certificate's validity
+period. It also handles the complete lifecycle of certificates, including issuance,
+renewal, and revocation. To ensure the legitimacy of certificate requests, ACM
+supports various methods to validate domain ownership, such as DNS validation and
+HTTP validation.
+
+By leveraging PKI, ACM enables secure HTTPS connections, digital signatures, and
+encrypted communication for AWS resources and applications. This infrastructure is
+essential for maintaining the confidentiality, integrity, and authenticity of data
+transmitted over the internet. For more information on how ACM implements PKI, see
+[Getting started with AWS Certificate Manager certificates](gs.md "gs.md").
+
+## Root Certificate
+
+A certificate authority (CA) typically exists within a hierarchical structure that
+contains multiple other CAs with clearly defined parent-child relationships between
+them. Child or subordinate CAs are certified by their parent CAs, creating a
+certificate chain. The CA at the top of the hierarchy is referred to as the root CA,
+and its certificate is called the root certificate. This certificate is typically
+self-signed.
+
+## Secure Sockets Layer (SSL)
+
+Secure Sockets Layer (SSL) and Transport Layer Security (TLS) are cryptographic
+protocols that provide communication security over a computer network. TLS is the
+successor of SSL. They both use X.509 certificates to authenticate the server. Both
+protocols negotiate a symmetric key between the client and the server that is used
+to encrypt data flowing between the two entities.
+
+## Secure HTTPS
+
+HTTPS stands for HTTP over SSL/TLS, a secure form of HTTP that is supported by all
+major browsers and servers. All HTTP requests and responses are encrypted before
+being sent across a network. HTTPS combines the HTTP protocol with symmetric,
+asymmetric, and X.509 certificate-based cryptographic techniques. HTTPS works by
+inserting a cryptographic security layer below the HTTP application layer and above
+the TCP transport layer in the Open Systems Interconnection (OSI) model. The
+security layer uses the Secure Sockets Layer (SSL) protocol or the Transport Layer
+Security (TLS) protocol.
+
+## SSL Server Certificates
+
+HTTPS transactions require server certificates to authenticate a server. A server
+certificate is an X.509 v3 data structure that binds the public key in the
+certificate to the subject of the certificate. An SSL/TLS certificate is signed by a
+certificate authority (CA) and contains the name of the server, the validity period,
+the public key, the signature algorithm, and more.
+
+## Symmetric Key Cryptography
+
+Symmetric key cryptography uses the same key to both encrypt and decrypt digital
+data. See also [Asymmetric Key Cryptography](#concept-asymmetric "#concept-asymmetric").
+
+## Transport Layer Security (TLS)
+
+See [Secure Sockets Layer (SSL)](#concept-ssl "#concept-ssl").
+
+## Trust
+
+In order for a web browser to trust the identity of a website, the browser must be
+able to verify the website's certificate. Browsers, however, trust only a small
+number of certificates known as CA root certificates. A trusted third party, known
+as a certificate authority (CA), validates the identity of the website and issues a
+signed digital certificate to the website's operator. The browser can then check the
+digital signature to validate the identity of the website. If validation is
+successful, the browser displays a lock icon in the address bar.

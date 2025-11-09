@@ -69,14 +69,154 @@ created for its base domain, `example.com`. Otherwise, the paired
 **Record Name** and **Record
 Value** differ for each domain name.
 
-| Example CNAME records      | Domain name                                     | Record Name                  | Record Value                                            | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------- | ----------------------------------------------- | ---------------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*.example.com             | \_`x1`.example.com.                             | \_`x2`.acm-validations.aws.  | Identical                                               |
-| example.com                | \_`x1`.example.com.                             | \_`x2`.acm-validations.aws.  |
-| www.example.com            | \_`x3`.www.example.com.                         | \_`x4`.acm-validations.aws.  | Unique                                                  |
-| host.example.com           | \_`x5`.host.example.com.                        | \_`x6`.acm-validations.aws.  | Unique                                                  |
-| subdomain.example.com      | \_`x7`.subdomain.example.com.                   | \_`x8`.acm-validations.aws.  | Unique                                                  |
-| host.subdomain.example.com | \_`x9`.host.subdomain.example.com.              | \_`x10`.acm-validations.aws. | Unique                                                  | The `xN` values following the underscore ( \_ ) are long strings generated by ACM. For example, ``_`3639ac514e785e898d2646601fa951d5`.example.com.`` is representative of a resulting generated **Record Name**. The associated **Record Value** might be ``_`98d2646601fa951d53639ac514e785e8`.acm-validation.aws.`` for the same DNS record. ###### Note If your DNS provider does not support CNAME values with a leading underscore, see [Troubleshoot DNS Validation Problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md"). When you request a certificate and specify DNS validation, ACM provides CNAME information in the following format:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Domain Name                | Record Name                                     | Record Type                  | Record Value                                            |
-| ---                        | ---                                             | ---                          | ---                                                     |
-| example.com                | \_a79865eb4cd1a6ab990a45779b4e0b96.example.com. | CNAME                        | \_424c7224e9b0146f9a8808af955727d0.acm-validations.aws. | _Domain Name_ is the FQDN associated with the certificate. _Record Name_ identifies the record uniquely, serving as the key of the key-value pair. _Record Value_ serves as the value of the key-value pair. All three of these values (_Domain Name_, _Record Name_, and _Record Value_) must be entered into the appropriates fields of your DNS provider's web interface for adding DNS records. Providers are inconsistent in their handling of the record name (or just "name") field. In some cases, you are expected to provide the entire string as shown above. Other providers automatically append the domain name to whatever string you enter, meaning (in this example) that you should only enter `_a79865eb4cd1a6ab990a45779b4e0b96` into the name field. If you guess wrong about this, and enter a record name that contains a domain name (such as _`.example.com`_), you might end up with the following: `_a79865eb4cd1a6ab990a45779b4e0b96.example.com.example.com.` Validation will fail in this case. Consequently, you should try to determine in advance which type of input your provider expects. ## Setting up DNS validation This section describes how to configure a public certificate to use DNS validation. ###### To set up DNS validation in the console ###### Note This procedure assumes that you have already created at least one certificate and that you are working in the AWS Region where you created it. If you try to open the console and see the first-use screen instead, or you succeed in opening the console and don't see your certificate in the list, confirm that you have specified the correct Region. 1. Open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/"). 2. In the list of certificates, choose the **Certificate ID** of a certificate with status **Pending validation** that you want to configure. This opens a details page for the certificate. 3. In the **Domains** section, complete one of the following two procedures: 1. (Optional) Validate with Route 53. An active **Create records in Route 53** button appears if the following conditions are true: <br>• You use Route 53 as your DNS provider. <br>• You have permission to write to the zone hosted by Route 53. <br>• Your FQDN has _not_ already been validated. ###### Note If you are in fact using Route 53 but the **Create records in Route 53** is missing or disabled, see [ACM Console does not display "Create records in Route 53" button](troubleshooting-DNS-validation.md#troubleshooting-route53-1 "troubleshooting-DNS-validation.md#troubleshooting-route53-1"). Choose the **Create records in Route 53**, then choose **Create records**. The **Certificate status** page should open with a status banner reporting **Successfully created DNS records**. Your new certificate might continue to display a status of **Pending validation** for up to 30 minutes. ###### Tip You cannot programmatically request that ACM automatically create your record in Route 53. You can, however, make an AWS CLI or API call to Route 53 to create the record in the Route 53 DNS database. For more information about Route 53 record sets, see [Working with Resource Record Sets](../../../Route53/latest/DeveloperGuide/rrsets-working-with.md "../../../Route53/latest/DeveloperGuide/rrsets-working-with.md"). 2. (Optional) If you are not using Route 53 as your DNS provider, you must retrieve the CNAME information and add it your DNS database. On the details page for the new certificate, you can do this in either of two ways: <br>• Copy the CNAME components displayed in the **Domains** section. This information needs to be added manually to your DNS database. <br>• Alternatively, choose **Export to CSV**. The information in the resulting file needs to be added manually to your DNS database. ###### Important To avoid validation problems, review [How CNAME records for ACM work](#cnames-overview "#cnames-overview") before you add information to your DNS provider's database. If you do encounter problems, see [Troubleshoot DNS validation problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md"). If ACM is not able to validate the domain name within 72 hours from the time it generates a CNAME value for you, ACM changes the certificate status to **Validation timed out**. The most likely reason for this result is that you did not successfully update your DNS configuration with the value that ACM generated. To remedy this issue, you must request a new certificate after reviewing the CNAME instructions. |
+| Example CNAME records      | Domain name                        | Record Name                  | Record Value | Comment |
+| -------------------------- | ---------------------------------- | ---------------------------- | ------------ | ------- |
+| \*.example.com             | \_`x1`.example.com.                | \_`x2`.acm-validations.aws.  | Identical    |
+| example.com                | \_`x1`.example.com.                | \_`x2`.acm-validations.aws.  |
+| www.example.com            | \_`x3`.www.example.com.            | \_`x4`.acm-validations.aws.  | Unique       |
+| host.example.com           | \_`x5`.host.example.com.           | \_`x6`.acm-validations.aws.  | Unique       |
+| subdomain.example.com      | \_`x7`.subdomain.example.com.      | \_`x8`.acm-validations.aws.  | Unique       |
+| host.subdomain.example.com | \_`x9`.host.subdomain.example.com. | \_`x10`.acm-validations.aws. | Unique       |
+
+The `xN` values following the underscore ( \_ ) are long
+strings generated by ACM. For example,
+
+```
+_`3639ac514e785e898d2646601fa951d5`.example.com.
+```
+
+is representative of a resulting generated **Record
+Name**. The associated **Record Value**
+might be
+
+```
+_`98d2646601fa951d53639ac514e785e8`.acm-validation.aws.
+```
+
+for the same DNS record.
+
+###### Note
+
+If your DNS provider does not support CNAME values with a leading underscore,
+see [Troubleshoot DNS Validation
+Problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md").
+
+When you request a certificate and specify DNS validation, ACM provides CNAME
+information in the following format:
+
+| Domain Name | Record Name                                     | Record Type | Record Value                                            |
+| ----------- | ----------------------------------------------- | ----------- | ------------------------------------------------------- |
+| example.com | \_a79865eb4cd1a6ab990a45779b4e0b96.example.com. | CNAME       | \_424c7224e9b0146f9a8808af955727d0.acm-validations.aws. |
+
+_Domain Name_ is the FQDN associated with the
+certificate. _Record Name_ identifies the record
+uniquely, serving as the key of the key-value pair. _Record
+Value_ serves as the value of the key-value pair.
+
+All three of these values (_Domain Name_,
+_Record Name_, and _Record Value_) must be entered into the appropriates fields of your
+DNS provider's web interface for adding DNS records. Providers are inconsistent in
+their handling of the record name (or just "name") field. In some cases, you are
+expected to provide the entire string as shown above. Other providers automatically
+append the domain name to whatever string you enter, meaning (in this example) that
+you should only enter
+
+```
+_a79865eb4cd1a6ab990a45779b4e0b96
+```
+
+into the name field. If you guess wrong about this, and enter a record name that
+contains a domain name (such as _`.example.com`_), you
+might end up with the following:
+
+```
+_a79865eb4cd1a6ab990a45779b4e0b96.example.com.example.com.
+```
+
+Validation will fail in this case. Consequently, you should try to determine in
+advance which type of input your provider expects.
+
+## Setting up DNS
+
+validation
+
+This section describes how to configure a public certificate to use DNS
+validation.
+
+###### To set up DNS validation in the console
+
+###### Note
+
+This procedure assumes that you have already created at least one
+certificate and that you are working in the AWS Region where you created
+it. If you try to open the console and see the first-use screen instead, or
+you succeed in opening the console and don't see your certificate in the
+list, confirm that you have specified the correct Region.
+
+1.  Open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/").
+2.  In the list of certificates, choose the **Certificate
+    ID** of a certificate with status **Pending
+    validation** that you want to configure. This opens a details
+    page for the certificate.
+3.  In the **Domains** section, complete one of the following
+    two procedures:
+    1. (Optional) Validate with Route 53.
+
+    An active **Create records in Route 53** button
+    appears if the following conditions are true:
+
+        * You use Route 53 as your DNS provider.
+        * You have permission to write to the zone hosted by
+         Route 53.
+        * Your FQDN has *not*
+         already been validated.
+
+    ###### Note
+
+    If you are in fact using Route 53 but the **Create
+    records in Route 53** is missing or disabled, see
+    [ACM Console does not display "Create records
+    in Route 53" button](troubleshooting-DNS-validation.md#troubleshooting-route53-1 "troubleshooting-DNS-validation.md#troubleshooting-route53-1").
+
+    Choose the **Create records in Route 53**, then
+    choose **Create records**. The
+    **Certificate status** page should open with a
+    status banner reporting **Successfully created DNS
+    records**.
+
+    Your new certificate might continue to display a status of
+    **Pending validation** for up to 30
+    minutes.
+
+    ###### Tip
+
+    You cannot programmatically request that ACM automatically
+    create your record in Route 53. You can, however, make an AWS CLI or
+    API call to Route 53 to create the record in the Route 53 DNS
+    database. For more information about Route 53 record sets, see
+    [Working
+    with Resource Record Sets](../../../Route53/latest/DeveloperGuide/rrsets-working-with.md "../../../Route53/latest/DeveloperGuide/rrsets-working-with.md"). 2. (Optional) If you are not using Route 53 as your DNS provider, you
+    must retrieve the CNAME information and add it your DNS database. On
+    the details page for the new certificate, you can do this in either
+    of two ways:
+
+        * Copy the CNAME components displayed in the
+         **Domains** section. This information
+         needs to be added manually to your DNS database.
+        * Alternatively, choose **Export to CSV**.
+         The information in the resulting file needs to be added
+         manually to your DNS database.
+
+    ###### Important
+
+    To avoid validation problems, review [How CNAME records for ACM work](#cnames-overview "#cnames-overview")
+    before you add information to your DNS provider's database. If
+    you do encounter problems, see [Troubleshoot DNS validation
+    problems](troubleshooting-DNS-validation.md "troubleshooting-DNS-validation.md").
+
+If ACM is not able to validate the domain name within 72 hours from the time it
+generates a CNAME value for you, ACM changes the certificate status to
+**Validation timed out**. The most likely reason for this
+result is that you did not successfully update your DNS configuration with the value
+that ACM generated. To remedy this issue, you must request a new certificate after
+reviewing the CNAME instructions.
