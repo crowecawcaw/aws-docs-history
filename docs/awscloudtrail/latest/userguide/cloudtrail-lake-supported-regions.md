@@ -3,7 +3,7 @@
 Currently, CloudTrail Lake is supported in the following AWS Regions:
 
 | Region Name               | Region         |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | US East (N. Virginia)     | us-east-1      |
 | US East (Ohio)            | us-east-2      |
 | US West (N. California)   | us-west-1      |
@@ -33,4 +33,8 @@ Currently, CloudTrail Lake is supported in the following AWS Regions:
 | Middle East (UAE)         | me-central-1   |
 | South America (São Paulo) | sa-east-1      |
 | AWS GovCloud (US-East)    | us-gov-east-1  |
-| AWS GovCloud (US-West)    | us-gov-west-1  | For information about CloudTrail service endpoints, see [AWS CloudTrail endpoints and quotas](../../../general/latest/gr/ct.md "../../../general/latest/gr/ct.md"). For more information about using CloudTrail in the AWS GovCloud (US) Regions, see [Service Endpoints](../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md "../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md") in the _AWS GovCloud (US) User Guide_. |
+| AWS GovCloud (US-West)    | us-gov-west-1  |
+
+For information about CloudTrail service endpoints, see [AWS CloudTrail endpoints and quotas](../../../general/latest/gr/ct.md "../../../general/latest/gr/ct.md").
+
+For more information about using CloudTrail in the AWS GovCloud (US) Regions, see [Service Endpoints](../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md "../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md") in the _AWS GovCloud (US) User Guide_.

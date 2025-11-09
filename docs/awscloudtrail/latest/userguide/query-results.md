@@ -14,8 +14,7 @@ are viewable in the S3 bucket since CloudTrail delivers the query results after 
 completes. While most queries complete within a few minutes, depending on the size of
 your event data store, it can take considerably longer for CloudTrail to deliver query results
 to your S3 bucket. CloudTrail delivers the query results to the S3 bucket in compressed gzip
-format.
-On average, after the query scan completes you can expect a latency of 60 to 90
+format.  On average, after the query scan completes you can expect a latency of 60 to 90
 seconds for every GB of data delivered to the S3 bucket. For more information about
 finding and downloading saved query results, see [Download saved query results](view-download-cloudtrail-lake-query-results.md "view-download-cloudtrail-lake-query-results.md").
 

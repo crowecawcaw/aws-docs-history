@@ -41,22 +41,46 @@ You can have a maximum of three CloudTrail delegated administrators per organiza
 The following table shows the capabilities of the management account, delegated administrator accounts, and
 accounts that are members within the AWS Organizations organization.
 
-| Capabilities                                                                                     | Management account | Delegated administrator account | Member accounts |
-| ------------------------------------------------------------------------------------------------ | ------------------ | ------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Add or remove delegated administrator accounts.                                                  | Yes                | No                              | No              |
-| Create an organization trail.                                                                    | Yes                | Yes1                            | No              |
-| View a list of organization trails.                                                              | Yes                | Yes                             | Yes             |
-| Update an organization trail.                                                                    | Yes                | Yes1, 2                         | No              |
-| Delete an organization trail.                                                                    | Yes                | Yes                             | No              |
-| Create an organization event data store for CloudTrail events or AWS Config configuration items. | Yes                | Yes                             | No              |
-| Enable Insights on an organization event data store.                                             | Yes                | No                              | No              |
-| Update an organization event data store.                                                         | Yes                | Yes2                            | No              |
-| Start and stop event ingestion on an organization event data store.                              | Yes                | Yes                             | No              |
-| Enable Lake query federation on an organization event data store3.                               | Yes                | Yes                             | No              |
-| Disable Lake query federation on an organization event data store.                               | Yes                | Yes                             | No              |
-| Delete an organization event data store.                                                         | Yes                | Yes                             | No              |
-| Copy trail events to an organization event data store.                                           | Yes                | No                              | No              |
-| Run queries on organization event data stores.                                                   | Yes                | Yes                             | No              |
-| View a managed dashboard for an organization event data store.                                   | Yes                | No                              | No              |
-| Enable the Highlights dashboard for organization event data stores.                              | Yes                | No                              | No              |
-| Create a widget for a custom dashboard that queries an organization event data store.            | Yes                | No                              | No              | 1The delegated administrator can only configure a CloudWatch Logs log group using the AWS CLI or CloudTrail `CreateTrail` or `UpdateTrail` API operations. Both the CloudWatch Logs log group and log role must exist in the calling account. 2Only the management account can convert an organization trail or event data store to an account-level trail or event data store, or convert an account-level trail or event data store to an organization trail or event data store. These actions are not allowed for the delegated administrator because organization trails and event data stores only exist in the management account. When an organization trail or event data store is converted to an account-level trail or event data store, only the management account has access to the trail or event data store. 3Only a single delegated administrator account or the management account can enable federation on an organization event data store. Other delegated administrator accounts can query and share information using the [Lake Formation data sharing feature](../../../lake-formation/latest/dg/data-sharing-overivew.md "../../../lake-formation/latest/dg/data-sharing-overivew.md"). Any delegated administrator account as well as the organization's management account can disable federation. ###### Topics <br>• [Required permissions to assign a delegated administrator](cloudtrail-delegated-administrator-permissions.md "cloudtrail-delegated-administrator-permissions.md") <br>• [Add a CloudTrail delegated administrator](cloudtrail-add-delegated-administrator.md "cloudtrail-add-delegated-administrator.md") <br>• [Remove a CloudTrail delegated administrator](cloudtrail-remove-delegated-administrator.md "cloudtrail-remove-delegated-administrator.md") |
+| Capabilities                                                                                        | Management account | Delegated administrator account | Member accounts |
+| --------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------- | --------------- |
+| Add or remove delegated administrator accounts.                                                     | Yes                | No                              | No              |
+| Create an organization trail.                                                                       | Yes                | Yes1                            | No              |
+| View a list of organization trails.                                                                 | Yes                | Yes                             | Yes             |
+| Update an organization trail.                                                                       | Yes                | Yes1, 2                         | No              |
+| Delete an organization trail.                                                                       | Yes                | Yes                             | No              |
+| Create an organization event data store for<br>CloudTrail events or AWS Config configuration items. | Yes                | Yes                             | No              |
+| Enable Insights on an organization event data store.                                                | Yes                | No                              | No              |
+| Update an organization event data store.                                                            | Yes                | Yes2                            | No              |
+| Start and stop event ingestion on an organization event data store.                                 | Yes                | Yes                             | No              |
+| Enable Lake query federation on an organization event data store3.                                  | Yes                | Yes                             | No              |
+| Disable Lake query federation on an organization event data store.                                  | Yes                | Yes                             | No              |
+| Delete an organization event data store.                                                            | Yes                | Yes                             | No              |
+| Copy trail events to an organization event data store.                                              | Yes                | No                              | No              |
+| Run queries on organization event data stores.                                                      | Yes                | Yes                             | No              |
+| View a managed dashboard for an organization event data<br>store.                                   | Yes                | No                              | No              |
+| Enable the Highlights dashboard for organization event data<br>stores.                              | Yes                | No                              | No              |
+| Create a widget for a custom dashboard that queries an organization event data<br>store.            | Yes                | No                              | No              |
+
+1The delegated administrator can only configure a CloudWatch Logs
+log group using the AWS CLI or CloudTrail `CreateTrail` or `UpdateTrail` API operations.
+Both the CloudWatch Logs log group and log role must exist in the calling account.
+
+2Only the management account can convert an organization trail
+or event data store to an account-level trail or event data store, or convert an
+account-level trail or event data store to an organization trail or event data store. These
+actions are not allowed for the delegated administrator because organization trails and
+event data stores only exist in the management account. When an organization trail or event
+data store is converted to an account-level trail or event data store, only the management
+account has access to the trail or event data store.
+
+3Only a single delegated administrator account or the
+management account can enable federation on an organization event
+data store. Other delegated administrator accounts can query
+and share information using the [Lake Formation data sharing feature](../../../lake-formation/latest/dg/data-sharing-overivew.md "../../../lake-formation/latest/dg/data-sharing-overivew.md").
+Any delegated administrator account as well as the organization's management account can disable federation.
+
+###### Topics
+
+- [Required permissions to assign a delegated administrator](cloudtrail-delegated-administrator-permissions.md "cloudtrail-delegated-administrator-permissions.md")
+- [Add a CloudTrail delegated administrator](cloudtrail-add-delegated-administrator.md "cloudtrail-add-delegated-administrator.md")
+- [Remove a CloudTrail delegated administrator](cloudtrail-remove-delegated-administrator.md "cloudtrail-remove-delegated-administrator.md")

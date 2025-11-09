@@ -56,7 +56,7 @@ The information in the **Source name** column is required when calling the `Crea
 You specify the source name as the value for the `Source` parameter.
 
 | Partner name (console)    | Source name (API)             | Integration type |
-| ------------------------- | ----------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ----------------------------- | ---------------- |
 | My custom integration     | `Custom`                      | solution         |
 | Cloud Storage Security    | `CloudStorageSecurityConsole` | solution         |
 | Clumio                    | `Clumio`                      | direct           |
@@ -72,4 +72,16 @@ You specify the source name as the value for the `Source` parameter.
 | One Identity              | `OneLogin`                    | solution         |
 | Shoreline.io              | `Shoreline`                   | solution         |
 | Snyk.io                   | `Snyk`                        | direct           |
-| Wiz                       | `WizAuditLogs`                | solution         | ### View partner documentation You can learn more about a partner's integration with CloudTrail Lake by viewing their documentation. **To view partner documentation** 1. Sign in to the AWS Management Console and open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/"). 2. From the navigation pane, under **Lake**, choose **Integrations**. 3. From the **Integrations** page, choose **Available sources**, then choose **Learn more** for the partner whose documentation you want to view. |
+| Wiz                       | `WizAuditLogs`                | solution         |
+
+### View partner documentation
+
+You can learn more about a partner's integration with CloudTrail Lake by viewing their documentation.
+
+**To view partner documentation**
+
+1. Sign in to the AWS Management Console and open the CloudTrail console at
+   [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
+2. From the navigation pane, under **Lake**, choose **Integrations**.
+3. From the **Integrations** page, choose **Available sources**,
+   then choose **Learn more** for the partner whose documentation you want to view.

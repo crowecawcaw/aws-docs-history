@@ -175,8 +175,8 @@ The following AWS services support IAM global condition keys for enriched events
 The following table lists the supported IAM global condition keys for CloudTrail enriched
 events, with example values:
 
-| Global Condition Keys and Sample Values | Key                                               | Example value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Global Condition Keys and Sample Values | Key                                               | Example value |
+| --------------------------------------- | ------------------------------------------------- | ------------- |
 | `aws:FederatedProvider`                 | "`IdP`"                                           |
 | `aws:TokenIssueTime`                    | "`123456789`"                                     |
 | `aws:MultiFactorAuthAge`                | "99"                                              |
@@ -198,4 +198,65 @@ events, with example values:
 | `aws:CurrentTime`                       | "`2025-04-30 15:30:00`"                           |
 | `aws:EpochTime`                         | "`1746049800`"                                    |
 | `aws:SourceAccount`                     | "`111111111111`"                                  |
-| `aws:SourceOrgID`                       | "`o-rganization`"                                 | ## Event examples In the following example, the `eventContext` field includes IAM global condition key `aws:ViaAWSService` with a value of `false`, which indicates the API call was not made by an AWS service. `{ "eventVersion": "1.11", "userIdentity": { "type": "AssumedRole", "principalId": "ASIAIOSFODNN7EXAMPLE", "arn": "arn:aws:sts::123456789012:assumed-role/admin", "accountId": "123456789012", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "ASIAIOSFODNN7EXAMPLE", "arn": "arn:aws:iam::123456789012:role/admin", "accountId": "123456789012", "userName": "admin" }, "attributes": { "creationDate": "2025-01-22T22:05:56Z", "mfaAuthenticated": "false" } } }, "eventTime": "2025-01-22T22:06:16Z", "eventSource": "cloudtrail.amazonaws.com", "eventName": "GetTrailStatus", "awsRegion": "us-east-1", "sourceIPAddress": "192.168.0.0", "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0", "requestParameters": { "name": "arn:aws:cloudtrail:us-east-1:123456789012:trail/myTrail" }, "responseElements": null, "requestID": "d09c4dd2-5698-412b-be7a-example1a23", "eventID": "9cb5f426-7806-46e5-9729-exampled135d", "readOnly": true, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "123456789012", "eventCategory": "Management", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "cloudtrail.us-east-1.amazonaws.com" }, "sessionCredentialFromConsole": "true", "eventContext": { "requestContext": { "aws:ViaAWSService": "false" }, "tagContext": {} } }` |
+| `aws:SourceOrgID`                       | "`o-rganization`"                                 |
+
+## Event examples
+
+In the following example, the `eventContext` field includes IAM global
+condition key `aws:ViaAWSService` with a value of `false`, which
+indicates the API call was not made by an AWS service.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "ASIAIOSFODNN7EXAMPLE",
+        "arn": "arn:aws:sts::123456789012:assumed-role/admin",
+        "accountId": "123456789012",
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "ASIAIOSFODNN7EXAMPLE",
+                "arn": "arn:aws:iam::123456789012:role/admin",
+                "accountId": "123456789012",
+                "userName": "admin"
+            },
+            "attributes": {
+                "creationDate": "2025-01-22T22:05:56Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2025-01-22T22:06:16Z",
+    "eventSource": "cloudtrail.amazonaws.com",
+    "eventName": "GetTrailStatus",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "192.168.0.0",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0",
+    "requestParameters": {
+        "name": "arn:aws:cloudtrail:us-east-1:123456789012:trail/myTrail"
+    },
+    "responseElements": null,
+    "requestID": "d09c4dd2-5698-412b-be7a-example1a23",
+    "eventID": "9cb5f426-7806-46e5-9729-exampled135d",
+    "readOnly": true,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "cloudtrail.us-east-1.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true",
+    "eventContext": {
+        "requestContext": {
+            "aws:ViaAWSService": "false"
+        },
+        "tagContext": {}
+    }
+}
+```

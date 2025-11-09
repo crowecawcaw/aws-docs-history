@@ -216,35 +216,89 @@ CloudTrail event record contents are described in more detail in [CloudTrail rec
 - [Fields that are provided by your
   events](#fields-config "#fields-config")
 
-| Fields that are provided by CloudTrail after ingestion | Field name | Input type | Requirement                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------ | ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ----------- | ----------- |
-| eventVersion                                           | string     | Required   | The version of the AWS event format.                                                                                                                                                                                                                               |
-| eventCategory                                          | string     | Required   | The event category. For configuration items, the valid value is `ConfigurationItem`.                                                                                                                                                                               |
-| eventType                                              | string     | Required   | The event type. For configuration items, the valid value is `AwsConfigurationItem`.                                                                                                                                                                                |
-| eventID                                                | string     | Required   | A unique ID for an event.                                                                                                                                                                                                                                          |
-| eventTime                                              | string     | Required   | The event timestamp, in `yyyy-MM-DDTHH:mm:ss` format, in Universal Coordinated Time (UTC).                                                                                                                                                                         |
-| awsRegion                                              | string     | Required   | The AWS Region to which to assign an event.                                                                                                                                                                                                                        |
-| recipientAccountId                                     | string     | Required   | Represents the AWS account ID that received this event.                                                                                                                                                                                                            |
-| addendum                                               | addendum   | Optional   | Shows information about why an event was delayed. If information was missing from an existing event, the addendum block includes the missing information and a reason for why it was missing.                                                                      | Fields in `eventData` are provided by your configuration items                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Field name | Input type | Requirement | Description |
-| ---                                                    | ---        | ---        | ---                                                                                                                                                                                                                                                                |
-| eventData                                              | -          | Required   | Fields in eventData are provided by your configuration items.                                                                                                                                                                                                      |
-| <br>• configurationItemVersion                         | string     | Optional   | The version of the configuration item from its source.                                                                                                                                                                                                             |
-| <br>• configurationItemCaptureTime                     | string     | Optional   | The time when the configuration recording was initiated.                                                                                                                                                                                                           |
-| <br>• configurationItemStatus                          | string     | Optional   | The configuration item status. Valid values are `OK`, `ResourceDiscovered`, `ResourceNotRecorded`, `ResourceDeleted`, and `ResourceDeletedNotRecorded`.                                                                                                            |
-| <br>• accountId                                        | string     | Optional   | The 12-digit AWS account ID associated with the resource.                                                                                                                                                                                                          |
-| <br>• resourceType                                     | string     | Optional   | The type of AWS resource. For more information about valid resource types, see [ConfigurationItem](../../../config/latest/APIReference/API_ConfigurationItem.md "../../../config/latest/APIReference/API_ConfigurationItem.md") in the _AWS Config API Reference_. |
-| <br>• resourceId                                       | string     | Optional   | The ID of the resource (for example., sg-`xxxxxx`).                                                                                                                                                                                                                |
-| <br>• resourceName                                     | string     | Optional   | The custom name of the resource, if available.                                                                                                                                                                                                                     |
-| <br>• arn                                              | string     | Optional   | Amazon Resource Name (ARN) associated with the resource.                                                                                                                                                                                                           |
-| <br>• awsRegion                                        | string     | Optional   | The AWS Region where the resource resides.                                                                                                                                                                                                                         |
-| <br>• availabilityZone                                 | string     | Optional   | The Availability Zone associated with the resource.                                                                                                                                                                                                                |
-| <br>• resourceCreationTime                             | string     | Optional   | The time stamp when the resource was created.                                                                                                                                                                                                                      |
-| <br>• configuration                                    | JSON       | Optional   | The description of the resource configuration.                                                                                                                                                                                                                     |
-| <br>• supplementaryConfiguration                       | JSON       | Optional   | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.                                                                                                                |
-| <br>• relatedEvents                                    | string     | Optional   | A list of CloudTrail event IDs.                                                                                                                                                                                                                                    |
-| <br>• relationships                                    | -          | Optional   | A list of related AWS resources.                                                                                                                                                                                                                                   |
-| <br>• + name                                           | string     | Optional   | The type of relationship with the related resource.                                                                                                                                                                                                                |
-| <br>• + resourceType                                   | string     | Optional   | The resource type of the related resource.                                                                                                                                                                                                                         |
-| <br>• + resourceId                                     | string     | Optional   | The ID of the related resource (for example, sg-`xxxxxx`).                                                                                                                                                                                                         |
-| <br>• + resourceName                                   | string     | Optional   | The custom name of the related resource, if available.                                                                                                                                                                                                             |
-| <br>• tags                                             | JSON       | Optional   | A mapping of key value tags associated with the resource.                                                                                                                                                                                                          | The following example shows the hierarchy of schema elements that match those in configuration item records. `{ "eventVersion": String, "eventCategory: String, "eventType": String, "eventID": String, "eventTime": String, "awsRegion": String, "recipientAccountId": String, "addendum": Addendum, "eventData": { "configurationItemVersion": String, "configurationItemCaptureTime": String, "configurationItemStatus": String, "configurationStateId": String, "accountId": String, "resourceType": String, "resourceId": String, "resourceName": String, "arn": String, "awsRegion": String, "availabilityZone": String, "resourceCreationTime": String, "configuration": { JSON, }, "supplementaryConfiguration": { JSON, }, "relatedEvents": [ String ], "relationships": [ struct{ "name" : String, "resourceType": String, "resourceId": String, "resourceName": String } ], "tags": { JSON } } } }` |
+| Fields that are provided by CloudTrail after ingestion | Field name | Input type | Requirement                                                                                                                                                                                            | Description |
+| ------------------------------------------------------ | ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| eventVersion                                           | string     | Required   | The version of the AWS event format.                                                                                                                                                                   |
+| eventCategory                                          | string     | Required   | The event category. For configuration items, the valid value<br>is `ConfigurationItem`.                                                                                                                |
+| eventType                                              | string     | Required   | The event type. For configuration items, the valid value is<br>`AwsConfigurationItem`.                                                                                                                 |
+| eventID                                                | string     | Required   | A unique ID for an event.                                                                                                                                                                              |
+| eventTime                                              | string     | Required   | The event timestamp, in `yyyy-MM-DDTHH:mm:ss`<br>format, in Universal Coordinated Time (UTC).                                                                                                          |
+| awsRegion                                              | string     | Required   | The AWS Region to which to assign an event.                                                                                                                                                            |
+| recipientAccountId                                     | string     | Required   | Represents the AWS account ID that received this<br>event.                                                                                                                                             |
+| addendum                                               | addendum   | Optional   | Shows information about why an event was delayed. If<br>information was missing from an existing event, the addendum<br>block includes the missing information and a reason for why it<br>was missing. |
+
+Fields in `eventData` are provided by your configuration
+items| Field name | Input type | Requirement | Description |
+| --- | --- | --- | --- |
+| eventData | - | Required | Fields in eventData are provided by your configuration<br>items. |
+| • configurationItemVersion | string | Optional | The version of the configuration item from its source. |
+| • configurationItemCaptureTime | string | Optional | The time when the configuration recording was<br>initiated. |
+| • configurationItemStatus | string | Optional | The configuration item status. Valid values are<br>`OK`, `ResourceDiscovered`,<br>`ResourceNotRecorded`, `ResourceDeleted`, and<br>`ResourceDeletedNotRecorded`. |
+| • accountId | string | Optional | The 12-digit AWS account ID associated with the<br>resource. |
+| • resourceType | string | Optional | The type of AWS resource. For more information about valid<br>resource types, see [ConfigurationItem](../../../config/latest/APIReference/API_ConfigurationItem.md "../../../config/latest/APIReference/API_ConfigurationItem.md") in the _AWS Config API<br>Reference_. |
+| • resourceId | string | Optional | The ID of the resource (for example.,<br>sg-`xxxxxx`). |
+| • resourceName | string | Optional | The custom name of the resource, if available. |
+| • arn | string | Optional | Amazon Resource Name (ARN) associated with the resource. |
+| • awsRegion | string | Optional | The AWS Region where the resource resides. |
+| • availabilityZone | string | Optional | The Availability Zone associated with the resource. |
+| • resourceCreationTime | string | Optional | The time stamp when the resource was created. |
+| • configuration | JSON | Optional | The description of the resource configuration. |
+| • supplementaryConfiguration | JSON | Optional | Configuration attributes that AWS Config returns for certain<br>resource types to supplement the information returned for the<br>configuration parameter. |
+| • relatedEvents | string | Optional | A list of CloudTrail event IDs. |
+| • relationships | - | Optional | A list of related AWS resources. |
+| • + name | string | Optional | The type of relationship with the related resource. |
+| • + resourceType | string | Optional | The resource type of the related resource. |
+| • + resourceId | string | Optional | The ID of the related resource (for example,<br>sg-`xxxxxx`). |
+| • + resourceName | string | Optional | The custom name of the related resource, if available. |
+| • tags | JSON | Optional | A mapping of key value tags associated with the<br>resource. |
+
+The following example shows the hierarchy of schema elements that match those in
+configuration item records.
+
+```
+{
+  "eventVersion": String,
+  "eventCategory: String,
+  "eventType": String,
+  "eventID": String,
+  "eventTime": String,
+  "awsRegion": String,
+  "recipientAccountId": String,
+  "addendum": Addendum,
+  "eventData": {
+      "configurationItemVersion": String,
+      "configurationItemCaptureTime": String,
+      "configurationItemStatus": String,
+      "configurationStateId": String,
+      "accountId": String,
+      "resourceType": String,
+      "resourceId": String,
+      "resourceName": String,
+      "arn": String,
+      "awsRegion": String,
+      "availabilityZone": String,
+      "resourceCreationTime": String,
+      "configuration": {
+        JSON,
+      },
+      "supplementaryConfiguration": {
+        JSON,
+      },
+      "relatedEvents": [
+        String
+      ],
+      "relationships": [
+        struct{
+          "name" : String,
+          "resourceType": String,
+          "resourceId": String,
+          "resourceName": String
+        }
+      ],
+     "tags": {
+       JSON
+     }
+    }
+  }
+}
+```

@@ -218,26 +218,19 @@ the field content is only omitted if the event payload exceeds 1 MB and the maxi
 
 The response elements, if any, for actions that make changes (create, update, or delete
 actions). For `readOnly` APIs, this field is `null`. If the action
-
-doesn't return response elements, this field is `null`. The response elements for actions are documented in the
-API reference
-documentation for the appropriate AWS service.
+ doesn't return response elements, this field is `null`. The response elements for actions are documented in the
+API reference  documentation for the appropriate AWS service.
 
 This field has a
 maximum size of 100 KB. When the field size exceeds 100 KB, the
 `reponseElements` content is omitted. For event data stores configured to have a maximum event size of 1 MB,
 the field content is only omitted if the event payload exceeds 1 MB and the maximum field size is exceeded.
 
-The `responseElements` value is useful to help you trace a request
-with AWS Support.
-Both `x-amz-request-id` and `x-amz-id-2`
-contain information that helps
-you trace a request with Support. These values are
-the same as those
-that the service returns in the response to the request that
-initiates the events,
-so you can use them to match the event to the
-request.
+The `responseElements` value is useful to help you trace a request  with AWS Support.
+Both `x-amz-request-id` and `x-amz-id-2`  contain information that helps
+you trace a request with Support. These values are  the same as those
+that the service returns in the response to the request that  initiates the events,
+so you can use them to match the event to the  request.
 
 **Since:** 1.0
 

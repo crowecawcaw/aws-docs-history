@@ -155,7 +155,7 @@ event that matches with the checksum; it helps verify the integrity of events.
 The checksum value is a base64-SHA256 algorithm that you calculate by running
 the following command.
 
-````
+```
 printf %s "{"eventData": "{\"version\":\"eventData.version\",\"UID\":\"UID\",
         \"userIdentity\":{\"type\":\"CustomUserIdentity\",\"principalId\":\"principalId\",
         \"details\":{\"key\":\"value\"}},\"eventTime\":\"2021-10-27T12:13:14Z\",\"eventName\":\"eventName\",
@@ -165,5 +165,16 @@ printf %s "{"eventData": "{\"version\":\"eventData.version\",\"UID\":\"UID\",
         \"sourceIPAddress\":\"`source_IP_address`\",
         \"recipientAccountId\":\"`recipient_account_ID`\"}",
         "id": "1"}" \
-| openssl dgst -binary -sha256 | base64 ``` The command returns the checksum. The following is an example. ``` EXAMPLEHjkI8iehvCUCWTIAbNYkOgO/t0YNw+7rrQE= ``` The checksum value becomes the value of `EventDataChecksum` in your `PutAuditEvents` request. If the checksum doesn't match with the one for the provided event, CloudTrail rejects the event with an `InvalidChecksum` error.
-````
+ | openssl dgst -binary -sha256 | base64
+```
+
+The command returns the checksum. The following is an example.
+
+```
+EXAMPLEHjkI8iehvCUCWTIAbNYkOgO/t0YNw+7rrQE=
+```
+
+The checksum value becomes the value of `EventDataChecksum` in your
+`PutAuditEvents` request. If the checksum doesn't match with the
+one for the provided event, CloudTrail rejects the event with an
+`InvalidChecksum` error.

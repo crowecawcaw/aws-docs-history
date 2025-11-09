@@ -21,10 +21,8 @@ creation.
   policy, or an equivalent policy, to that role or user. You must also have
   sufficient permissions in IAM and Organizations to create the service-linked role and
   enable trusted access. If you choose to create a new S3 bucket for an
-  organization trail using the CloudTrail console,
-  your policy also needs to include
-  the `s3:PutEncryptionConfiguration`
-  action because by default
+  organization trail using the CloudTrail console,  your policy also needs to include
+  the `s3:PutEncryptionConfiguration`  action because by default
   server-side encryption is enabled for the bucket. The following example policy
   shows the minimum required permissions.
 

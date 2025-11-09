@@ -7,7 +7,7 @@ For information about Regions supported by CloudTrail Lake, see [CloudTrail Lake
 For information about data plane endpoints, see [Data plane endpoints](../../../general/latest/gr/ct.md#ct_region_data_plane "../../../general/latest/gr/ct.md#ct_region_data_plane") in the _AWS General Reference_.
 
 | Region name               | Region         | Control plane endpoint                     | Protocol | Support date |
-| ------------------------- | -------------- | ------------------------------------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- | ------------------------------------------ | -------- | ------------ |
 | US East (N. Virginia)     | us-east-1      | cloudtrail.us-east-1.amazonaws.com         | HTTPS    | 11/13/2013   |
 | US East (Ohio)            | us-east-2      | cloudtrail.us-east-2.amazonaws.com         | HTTPS    | 10/17/2016   |
 | US West (N. California)   | us-west-1      | cloudtrail.us-west-1.amazonaws.com         | HTTPS    | 05/13/2014   |
@@ -43,4 +43,10 @@ For information about data plane endpoints, see [Data plane endpoints](../../../
 | Middle East (UAE)         | me-central-1   | cloudtrail.me-central-1.amazonaws.com      | HTTPS    | 08/30/2022   |
 | South America (São Paulo) | sa-east-1      | cloudtrail.sa-east-1.amazonaws.com         | HTTPS    | 06/30/2014   |
 | AWS GovCloud (US-East)    | us-gov-east-1  | cloudtrail.us-gov-east-1.amazonaws.com     | HTTPS    | 11/12/2018   |
-| AWS GovCloud (US-West)    | us-gov-west-1  | cloudtrail.us-gov-west-1.amazonaws.com     | HTTPS    | 08/16/2011   | For more information about using CloudTrail in the AWS GovCloud (US) Regions, see [Service Endpoints](../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md "../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md") in the _AWS GovCloud (US) User Guide_. For more information about using CloudTrail in the China (Beijing) Region, see [Endpoints and ARNs for AWS in China](https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-arns.html#cnnorth_region "https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-arns.html#cnnorth_region") in the _Amazon Web Services General Reference_. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | cloudtrail.us-gov-west-1.amazonaws.com     | HTTPS    | 08/16/2011   |
+
+For more information about using CloudTrail in the AWS GovCloud (US) Regions, see [Service Endpoints](../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md "../../../govcloud-us/latest/UserGuide/using-govcloud-endpoints.md") in the _AWS GovCloud (US) User Guide_.
+
+For more information about using CloudTrail in the China (Beijing) Region, see
+[Endpoints
+and ARNs for AWS in China](https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-arns.html#cnnorth_region "https://docs.amazonaws.cn/en_us/aws/latest/userguide/endpoints-arns.html#cnnorth_region") in the _Amazon Web Services General Reference_.
