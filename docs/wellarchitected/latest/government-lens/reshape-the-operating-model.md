@@ -13,18 +13,244 @@ staff that slows or prevents the realization of new strategic intent. Meanwhile,
 context of a rapidly changing world, many government organizations are actively seeking
 solution and service agility.
 
-| GL-OPS-01: How do you adjust the organizational structure to better realize strategic policy outcomes? |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                        | <br>• **Support the establishment of persistent and multi-disciplinary team structures:** When services are developed as projects, and teams assembled for the project are disbanded at the end of the project, the service is left without persistent product management. Establish team structures and governance models that can persist beyond the end of project. + **Improvement plan** – Encourage the organization to consider persistent team structures that span policy and delivery in their forward planning for the service. Consider running a Cloud Adoption Framework assessment to support operational assessment and planning. <br>• **Enable team structures and appropriate governance to delegate delivery decision making:** Delivery and innovation happen at the speed of trust. Service and product owners require a reasonable amount of decision-making autonomy to realize continuous improvement and operational reform in a timely manner. This autonomy has the benefit of streamlining escalation, unblocking slow and laborious go-live protocols, and minimizing decision gaps between business owners and technology people, and can be complemented by oversight mechanisms without slowing or impeding good service delivery. + **Improvement plan** – Encourage the organization to consider delegation of two-door decision making, including continuous improvement and operational reforms in their forward planning for the service. <br>• **Support the creation of a Concept of Operations for the service:** Create a _Concept of Operations document_ that explicitly describes how the service will continually improve over time, with supported and authorized product management and team. Its contents might include delegated decision-making mechanisms, product management in government, outcomes or product-based funding, and how to bring multi-disciplinary teams together to manage aspects of the service. + **Improvement plan** – If the organization does not have a Concept of Operations document, or equivalent documentation, encourage the organization to consider it in their forward planning for the service. <br>• **Consider all relevant feedback loops:** Consider what additional feedback loops might complement the [feedback loops defined in the Operational Excellence Pillar](../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md "../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md") in the special context of the department and jurisdiction. For example, how might staff or the public report legal or impact concerns. + **Improvement plan** – Identify and document additional feedback loops, and build these into the service architecture, escalation mechanisms and operating model as appropriate. <br>• **Consider a minimum viable product (MVP) deployment model where viable:** Many government projects take a _big bang_ deployment model approach, attempting to develop all features and then launch a fully formed product. This approach can create substantial risk, which can be minimized through iterative and MVP-based deployment. An MVP deployment model identifies the minimum features needed for a functional product to launch, often initially to a subset of end users, and then scales and adds features in a test-driven way. This method accelerates early identification of and validation of product goals, while minimizing risk, delivering early value, and ensuring that all product features are tested for effectiveness with end users. + **Improvement plan** – If the organization does not want to adopt an MVP-based deployment model, advise on the risk and encourage the organization to consider it in their forward planning for the service. Provide use cases where appropriate. <br>• **Document and engage with cultural context:** Understand the cultural context, including indigenous or First Nations needs. Ensure culturally diverse needs are included in user research, user testing, and other service engagements, and where possible diverse representation in product teams and governance can be applied. + **Improvement plan** – Encourage the organization to consider cultural context in their forward planning for the service. |
-| GL-OPS-02: How do you verify that digital experiences remain operational and relevant over time?       |
-| ---                                                                                                    |
-|                                                                                                        | Some government departments can only fund changes to a service through a new funding application, which can make change slow and expensive. This funding model can lead to a great product becoming less than great over time. <br>• **Ensure that government and other staff are well supported to operate the service:** The more empowered public servants are to understand, manage, and improve their services, the more they are positioned to be proactive and effective in delivering great services, both directly and with vendors. + **Improvement plan** – Provide information and access to relevant AWS skills and capabilities training for the service, and support the organization to identify gaps throughout the process, with AWS digital transformation guides, whitepapers, and case studies. <br>• **Embed continuous improvement into the operating model:** Continuous improvement helps make sure that public-facing government digital experiences don’t deteriorate over time. Investment must be made to maintain the continuous evolution and maintenance of the service to match the expectations and feedback of consumers. If you have a fixed or scheduled approach to improvement, support the best practices possible. + **Improvement plan** – Run change scenarios with the organization, including small and significant changes to the service, to identify and document how continuous improvements will be enabled, and with what oversight and decision making. <br>• **Implement a design-led agile development and funding framework:** Ensure that the operating and funding model supports a design-led agile approach that incorporates: + Early feedback on requirements from citizens, industry, and government + Testing and evolving of non-technical go-live processes the government might need to conduct + Consistently and continuously evolve functionality as the service feedback and requirements mature over time + Align with the concept of operations document to make sure that expectations are met during service development. + **Improvement plan** – Support the need for an agile development framework, providing use cases where helpful, and AWS digital transformation guides, whitepapers, and case studies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| GL-OPS-03: How do you verify that the service meets operational transparency requirements?             |
-| ---                                                                                                    |
-|                                                                                                        | <br>• **Document how the service delivers operational accountability requirements:** Many governments have strong requirements around operational accountability through various audit and reporting mechanisms. In some jurisdictions, there are public reporting requirements for public facing services. + **Improvement plan** – Include any reporting requirements in the concept of operations document, along with the chain of those responsible. <br>• **Document how citizens and companies will be kept informed:** To manage expectations and make it simple for consumers to use the service, create high quality communications (both marketing and transactional), supporting information, and technical documentation for the service. + **Improvement plan** – Include the public communications approach in the concept of operations document, including who is responsible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| GL-OPS-04: How can you improve solution definition criteria?                                           |
-| ---                                                                                                    |
-|                                                                                                        | Taking time to ensure the right solution is defined from the start can save money, time, and effort down the line. This best practice encourages ways to validate and likely iterate the solution definition through policy, problem, and opportunity validation, and testing with end users. <br>• **Ensure that multiple concepts are tested with end users prior to deciding on a solution:** Testing concepts provides the opportunity to validate assumptions about what might work, and to proceed only with tested policy interventions. Sometimes the best solution is no solution at all, a regulation, or a change to an existing service. + **Improvement plan** – Encourage the use of the AWS Digital Innovation program, including Working Backwards workshops, to explore and identify the purpose and goals for the service. Leverage service and system design, as is helpful. <br>• **Identify patterns in the desired service capabilities and intended service usage:** Patterns might appear as emergent (such as self-sovereign digital identity), or common (such as a notification service, or application of government legislation and rules in a desired service capability). Patterns should have broad use case applicability with high volumes of reuse and could be candidates for whole of government reusable capabilities. + **Improvement plan** – Identify and recommend potential reusable patterns for consideration in the solution architecture. <br>• **Define foundational reusable components:** Informed by the previous pattern identification, look for opportunities to standardize people, processes, and technology solutions to optimize delivery, implementation, and operation of one or many components that support a service capability. + **Improvement plan** – Consider relevant government architectural frameworks, including from the [Scenarios](scenarios.md "scenarios.md") section of this whitepaper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| GL-OPS-05: How can you improve solution acquisition criteria?                                          |
-| ---                                                                                                    |
-|                                                                                                        | When considering technology acquisition for a service, you’ll need a business or organization level understanding of the government mission and policy objectives, government process, standards, and how these map to service capabilities, which then inform solution requirements. For more information, see [Enabling services outcomes for government](enabling-services-outcomes-for-government.md "enabling-services-outcomes-for-government.md"). Not all components have the same business and technical requirements. Consider the following best practices when designing, evaluating, or acquiring solutions and technologies: <br>• **Consider and prioritize reuse where appropriate:** Leverage modular architecture and use existing design systems, tools, environments, and open-source government solutions, where feasible, to minimize duplication of systems and efforts, and to enable future system agility and extendability of the solution. Provide relevant AWS reference architectures to support modular, virtualized, and utility based approaches, enabling greatest extendibility and scalability of the service, ideally with an omni-channel approach if public facing. + **Improvement plan** – Look for relevant existing tools, solutions, or capabilities available in the jurisdiction or globally, and consider the AWS open source catalog. <br>• **Consider build versus buy/acquire strategically:** If an existing solution can be used with minor modification, you might prefer an off the shelf (proprietary or open source) tool. If you require system agility, if a solution does not yet exist, or if you want to integrate multiple systems into a channel, consider the benefits of building it yourself. The capabilities and strengths of the customer's team should be considered and planned for to ensure service viability, both technically and financially. + **Improvement plan** – Consider an AWS Digital Innovation program to work backwards from the problem and identify the requirements and capabilities needed for a new solution. Support the customer to take a strategic approach to designing the architecture and sourcing of the service components. Where minimal customization is required and the solution is mission-aligned, consider purchasing a solution to meet a particular need, noting most modern services will require a blend of solutions. <br>• **Consider where code, research, and efforts can be shared:** Reusable foundational components and solutions could be shared back to the open government community through open-source licensing. + **Improvement plan** – Provide guidance on sharing and contributing back to projects or to government. <br>• **Consider a sustainable and delivery focused approach to sourcing:** Outsourcing might be suitable in the short term if there is a staffing constraint for design, implementation, and ongoing operations. Customers are encouraged to develop and maintain a minimum viable internal expertise and delivery capability, to maintain control over the strategic direction, product management, continuous improvement, and the selection criteria as above. These competencies can support and leverage vendors, while maintaining the necessary internal agility for operational excellence. Explore flexible procurement arrangements, such as sprint or outcome-based procurement. + **Improvement plan** – Provide guidance, support, and training materials to support capability uplift. <br>• **Consider the suitability of solution licensing:** Licensing conditions can sometimes constrain the effectiveness or financial viability of a service in several ways, such as: + If a user-based license model is used for a government service with significant citizen uptake. + License terms that are bound by hardware configurations can have an impact on service agility with financial consequences to scaling the government service as demand evolves. + Creating a preferential technology ecosystem that inhibits the government’s use of other technologies can limit the ability to innovate and scale. + **Improvement plan** – Organizations will have their own capabilities for this domain.                                               |
+| GL-OPS-01: How do you adjust<br>the organizational structure to better realize strategic policy<br>outcomes? |
+| ------------------------------------------------------------------------------------------------------------ |
+|                                                                                                              |
+
+- **Support the establishment of persistent and multi-disciplinary
+  team structures:** When services are developed as projects, and teams
+  assembled for the project are disbanded at the end of the project, the service is left
+  without persistent product management. Establish team structures and governance models
+  that can persist beyond the end of project.
+  - **Improvement plan** – Encourage the organization
+    to consider persistent team structures that span policy and delivery in their
+    forward planning for the service. Consider running a Cloud Adoption Framework
+    assessment to support operational assessment and planning.
+
+- **Enable team structures and appropriate governance to delegate
+  delivery decision making:** Delivery and innovation happen at the speed of
+  trust. Service and product owners require a reasonable amount of decision-making
+  autonomy to realize continuous improvement and operational reform in a timely manner.
+  This autonomy has the benefit of streamlining escalation, unblocking slow and laborious
+  go-live protocols, and minimizing decision gaps between business owners and technology
+  people, and can be complemented by oversight mechanisms without slowing or impeding good
+  service delivery.
+  - **Improvement plan** – Encourage the organization
+    to consider delegation of two-door decision making, including continuous improvement
+    and operational reforms in their forward planning for the service.
+
+- **Support the creation of a Concept of Operations for the
+  service:** Create a _Concept of Operations
+  document_ that explicitly describes how the service will continually improve
+  over time, with supported and authorized product management and team. Its contents might
+  include delegated decision-making mechanisms, product management in government, outcomes
+  or product-based funding, and how to bring multi-disciplinary teams together to manage
+  aspects of the service.
+  - **Improvement plan** – If the organization does not
+    have a Concept of Operations document, or equivalent documentation, encourage the
+    organization to consider it in their forward planning for the service.
+
+- **Consider all relevant feedback loops:** Consider what
+  additional feedback loops might complement the [feedback loops defined in the Operational Excellence Pillar](../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md "../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md") in the special
+  context of the department and jurisdiction. For example, how might staff or the public
+  report legal or impact concerns.
+  - **Improvement plan** – Identify and document
+    additional feedback loops, and build these into the service architecture, escalation
+    mechanisms and operating model as appropriate.
+
+- **Consider a minimum viable product (MVP) deployment model where
+  viable:** Many government projects take a _big bang_
+  deployment model approach, attempting to develop all features and then launch a fully
+  formed product. This approach can create substantial risk, which can be minimized
+  through iterative and MVP-based deployment. An MVP deployment model identifies the
+  minimum features needed for a functional product to launch, often initially to a subset
+  of end users, and then scales and adds features in a test-driven way. This method
+  accelerates early identification of and validation of product goals, while minimizing
+  risk, delivering early value, and ensuring that all product features are tested for
+  effectiveness with end users.
+  - **Improvement plan** – If the organization does not
+    want to adopt an MVP-based deployment model, advise on the risk and encourage the
+    organization to consider it in their forward planning for the service. Provide use
+    cases where appropriate.
+
+- **Document and engage with cultural context:** Understand
+  the cultural context, including indigenous or First Nations needs. Ensure culturally
+  diverse needs are included in user research, user testing, and other service
+  engagements, and where possible diverse representation in product teams and governance
+  can be applied.
+  - **Improvement plan** – Encourage the organization
+    to consider cultural context in their forward planning for the service.
+
+| GL-OPS-02: How do you verify that digital experiences remain operational and<br>relevant over time? |
+| --------------------------------------------------------------------------------------------------- |
+|                                                                                                     |
+
+Some government departments can only fund changes to a service through a new funding
+application, which can make change slow and expensive. This funding model can lead to a
+great product becoming less than great over time.
+
+- **Ensure that government and other staff are well supported to
+  operate the service:** The more empowered public servants are to understand,
+  manage, and improve their services, the more they are positioned to be proactive and
+  effective in delivering great services, both directly and with vendors.
+  - **Improvement plan** – Provide information and
+    access to relevant AWS skills and capabilities training for the service, and
+    support the organization to identify gaps throughout the process, with AWS digital
+    transformation guides, whitepapers, and case studies.
+
+- **Embed continuous improvement into the operating model:**
+  Continuous improvement helps make sure that public-facing government digital experiences
+  don’t deteriorate over time. Investment must be made to maintain the continuous
+  evolution and maintenance of the service to match the expectations and feedback of
+  consumers. If you have a fixed or scheduled approach to improvement, support the best
+  practices possible.
+  - **Improvement plan** – Run change scenarios with
+    the organization, including small and significant changes to the service, to
+    identify and document how continuous improvements will be enabled, and with what
+    oversight and decision making.
+
+- **Implement a design-led agile development and funding
+  framework:** Ensure that the operating and funding model supports a
+  design-led agile approach that incorporates:
+  - Early feedback on requirements from citizens, industry,
+    and government
+  - Testing and evolving of non-technical go-live processes
+    the government might need to conduct
+  - Consistently and continuously evolve functionality as
+    the service feedback and requirements mature over time
+  - Align with the concept of operations document to make sure that expectations
+    are met during service development.
+
+  - **Improvement plan** – Support the need for an
+    agile development framework, providing use cases where helpful, and AWS digital
+    transformation guides, whitepapers, and case studies.
+
+| GL-OPS-03: How do you verify that the service meets operational transparency<br>requirements? |
+| --------------------------------------------------------------------------------------------- |
+|                                                                                               |
+
+- **Document how the service delivers
+  operational accountability requirements:** Many
+  governments have strong requirements around operational
+  accountability through various audit and reporting
+  mechanisms. In some jurisdictions, there are public
+  reporting requirements for public facing services.
+  - **Improvement plan** – Include any reporting
+    requirements in the concept of operations document, along with the chain of those
+    responsible.
+
+- **Document how citizens and companies will be kept
+  informed:** To manage expectations and make it simple for consumers to use
+  the service, create high quality communications (both marketing and transactional),
+  supporting information, and technical documentation for the service. 
+  - **Improvement plan** – Include the public
+    communications approach in the concept of operations document, including who is
+    responsible.
+
+| GL-OPS-04: How can you improve<br>solution definition criteria? |
+| --------------------------------------------------------------- |
+|                                                                 |
+
+Taking time to ensure the right solution is defined from the start can save money, time,
+and effort down the line. This best practice encourages ways to validate and likely iterate
+the solution definition through policy, problem, and opportunity validation, and testing
+with end users.
+
+- **Ensure that multiple concepts are tested with end users prior to
+  deciding on a solution:** Testing concepts provides the opportunity to
+  validate assumptions about what might work, and to proceed only with tested policy
+  interventions. Sometimes the best solution is no solution at all, a regulation, or a
+  change to an existing service.
+  - **Improvement plan** – Encourage the use of the
+    AWS Digital Innovation program, including Working Backwards workshops, to explore
+    and identify the purpose and goals for the service. Leverage service and system
+    design, as is helpful.
+
+- **Identify patterns in the desired service capabilities and intended
+  service usage:** Patterns might appear as emergent (such as self-sovereign
+  digital identity), or common (such as a notification service, or application of
+  government legislation and rules in a desired service capability). Patterns should have
+  broad use case applicability with high volumes of reuse and could be candidates for
+  whole of government reusable capabilities.
+  - **Improvement plan** – Identify and recommend
+    potential reusable patterns for consideration in the solution architecture.
+
+- **Define foundational reusable
+  components:** Informed by the previous pattern
+  identification, look for opportunities to standardize
+  people, processes, and technology solutions to optimize
+  delivery, implementation, and operation of one or many
+  components that support a service capability.
+  - **Improvement plan** – Consider relevant government
+    architectural frameworks, including from the [Scenarios](scenarios.md "scenarios.md") section of this whitepaper.
+
+| GL-OPS-05: How can you improve solution acquisition criteria? |
+| ------------------------------------------------------------- |
+|                                                               |
+
+When considering technology acquisition for a service, you’ll need a business or
+organization level understanding of the government mission and policy objectives, government
+process, standards, and how these map to service capabilities, which then inform solution
+requirements. For more information, see [Enabling services outcomes for government](enabling-services-outcomes-for-government.md "enabling-services-outcomes-for-government.md").
+
+Not all components have the same business and technical requirements. Consider the
+following best practices when designing, evaluating, or acquiring solutions and
+technologies:
+
+- **Consider and prioritize reuse where appropriate:**
+  Leverage modular architecture and use existing design systems, tools, environments, and
+  open-source government solutions, where feasible, to minimize duplication of systems and
+  efforts, and to enable future system agility and extendability of the solution. Provide
+  relevant AWS reference architectures to support modular, virtualized, and utility
+  based approaches, enabling greatest extendibility and scalability of the service,
+  ideally with an omni-channel approach if public facing.
+  - **Improvement plan** – Look for relevant existing
+    tools, solutions, or capabilities available in the jurisdiction or globally, and
+    consider the AWS open source catalog.
+
+- **Consider build versus buy/acquire strategically:** If an
+  existing solution can be used with minor modification, you might prefer an off the shelf
+  (proprietary or open source) tool. If you require system agility, if a solution does not
+  yet exist, or if you want to integrate multiple systems into a channel, consider the
+  benefits of building it yourself. The capabilities and strengths of the customer's team
+  should be considered and planned for to ensure service viability, both technically and
+  financially.
+  - **Improvement plan** – Consider an AWS Digital
+    Innovation program to work backwards from the problem and identify the requirements
+    and capabilities needed for a new solution. Support the customer to take a strategic
+    approach to designing the architecture and sourcing of the service components. Where
+    minimal customization is required and the solution is mission-aligned, consider
+    purchasing a solution to meet a particular need, noting most modern services will
+    require a blend of solutions.
+
+- **Consider where code, research, and efforts can be
+  shared:** Reusable foundational components and solutions could be shared back
+  to the open government community through open-source licensing.
+  - **Improvement plan** – Provide guidance on sharing
+    and contributing back to projects or to government.
+
+- **Consider a sustainable and delivery focused approach to
+  sourcing:** Outsourcing might be suitable in the short term if there is a
+  staffing constraint for design, implementation, and ongoing operations. Customers are
+  encouraged to develop and maintain a minimum viable internal expertise and delivery
+  capability, to maintain control over the strategic direction, product management,
+  continuous improvement, and the selection criteria as above. These competencies can
+  support and leverage vendors, while maintaining the necessary internal agility for
+  operational excellence. Explore flexible procurement arrangements, such as sprint or
+  outcome-based procurement.
+  - **Improvement plan** – Provide guidance, support,
+    and training materials to support capability uplift.
+
+- **Consider the suitability of solution licensing:**
+  Licensing conditions can sometimes constrain the effectiveness or financial viability of
+  a service in several ways, such as:
+  - If a user-based license model is used for a government service with significant
+    citizen uptake.
+  - License terms that are bound by hardware configurations can have an impact on
+    service agility with financial consequences to scaling the government service as
+    demand evolves.
+  - Creating a preferential technology ecosystem that inhibits the government’s use
+    of other technologies can limit the ability to innovate and scale.
+
+  - **Improvement plan** – Organizations will have
+    their own capabilities for this domain.

@@ -9,14 +9,140 @@ parties involved to develop effective services with, or for, government customer
 chapter should be considered for government services to maintain appropriate outcomes.
 
 | Identify the policy or purpose of this service with measurable success criteria |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                 | Most systems and services traditionally only measure operational performance (such as uptime, and the number of concurrent users) and efficiency (such as cost per transaction, staying within budget, and revenue). In the case of government systems and services, it’s increasingly important to understand how *effective* a system is regardless of its performance or efficiency. Service effectiveness measurement could include both the policy and purpose measures, and the ongoing human impact measures. <br>• **Policy outcomes:** Every service is meant to deliver on some form of policy outcome. The purpose or intention of a system or service might be found in government policy, legislation, regulation, the mission or mandate of a department or ministry, or perhaps even in the constitutional foundations of that government. Whatever the intended policy outcome, relevant metrics and indicators should be identified which the system or service needs to measure and monitor in order to demonstrate the policy effectiveness of the system or service. <br>• **Human outcomes and impact:** Because government services can affect a large percentage of the population, and because these services are often either unavoidable or required, it’s important to identify some baseline quality of life measurements to measure and monitor for unintended impacts on people and communities. For example, monitoring known quality of life measures, such as health indicators, employment, homelessness, and household debt, and constantly seeking unknown patterns of impacts of specific cohorts. This helps grow and maintain public trust and confidence in government systems and services, and also helps verify that any unintended harm from a system or service is able to be quickly identified and mitigated. <br>• **Establish mechanisms to measure, monitor, and escalate trends or patterns of policy or human impacts:** Verify that your service measurement infrastructure includes policy and human outcomes measurement and monitoring, with deviations or divergent trends being escalated in the same way that security or performance issues are escalated, and enable real-time response to change and unintended impacts. Policy impacts might include the target measures and metrics of the relevant policy. Intended human impacts might include quality of life measures like positive housing, health, or well-being outcomes for that person and their family as a result of the service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Identify and test multiple ways to meet the desired outcome                     |
-| ---                                                                             |
-|                                                                                 | <br>• **Produce a discovery report with concept testing outcomes:** Verify that each service includes a _discovery phase_ to describe the problem or opportunity space, and explore and test with end users a variety of concepts before heading into prototyping or solution design and architecture. Document the concepts, the results of user testing, and the resulting preferred solutions with rationale.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Identify the user needs and measures for success                                |
-| ---                                                                             |
-|                                                                                 | <br>• **Document the user needs and measures for success:** Government services that a person or business interact with should also measure the user outcomes and satisfaction of the service. + **User outcomes:** Identify what _done_ is for a user, and measure it to verify that the service is delivering as expected outcomes for users. For example, a service might intend to support people to live at home longer, reducing the pressure on aged care services. Or a service might be intended to alleviate the costs of living. + **User satisfaction:** A combination of measures should be used to monitor and measure the end-user experience of the service, whether that user is a citizen, resident, refugee, a business, or even an internal team. Customer experience (CX) measures expectations using polling and other tools to verify that the user experience of the system or service is good. Government services are different from those in the private sector as the end user might not have a choice and must interact with the service (for example, tax, social support, and emergency services). User satisfaction isn’t just about CX, it’s also about whether the service meets the public expectations for that government system or service. <br>• **Document how the service has been designed inclusively:** Demonstrate and document how the service was designed and tested with a diverse variety of users that represent the needs of the population, and that there are multiple channels supported that take into account different access requirements. <br>• **Document how the public have been engaged:**Ideally, the government customer would be engaging with the general public on the reporting, design, delivery, and operational transparency of the service to grow and maintain public trust, confidence, and perceived legitimacy of the system or service, and AWS can encourage and support this approach. Engagement with the public is also useful to design and test a range of public feedback mechanisms to verify that the continuous improvement of the service over time aligns with changing public needs. Citizen participation is increasingly expected through novel forms of public engagement and participation in the design, delivery, and governance of policies and services. <br>• **Identify and document the cultural context:** Every government organization serves the public, so understanding the cultural context of the service is important to inform the architecture, design, needs, and what it would take for the service to be considered welcoming and dignified. As part of this, it’s helpful to consider both the demographic range of cultural needs, as well as the Indigenous and First Nations cultural context and needs, which will be different in every country.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Identify the special requirements of the government customer for this service   |
-| ---                                                                             |
-|                                                                                 | <br>• **Document and understand the portfolio and jurisdictional policy context of the government customer:** All systems administered by public institutions need to be compliant with and supportive of the jurisdictional context (the constitutional and whole of government framework of that government) and of the portfolio context (the specific legislative or regulatory responsibilities of that department). Building in or documenting this context should be done in early stages to inform and influence design, architecture, and delivery.  Understanding these can help you to hone in on the special obligations, responsibilities, and mission of your government customer, and to engage in conversations about what _success_ looks like, so you can demonstrably and measurably design and deliver in accordance with the jurisdictional and portfolio context of your customer. A portfolio mandate might include things such as the Social Security Act. A jurisdictional mandate might include the Constitution, or legislation that applies to the whole jurisdiction of a government customer, at a federal, state, or local level, like the Privacy Act. This might also include policy requirements like whether the service must consider open source options first (a requirement in the UK Government), or whether there are architectural standards or Indigenous engagement or procurement requirements (a requirement in the New Zealand Government). <br>• **Document how the service will meet public transparency and appeal-ability requirements:** How will your service provide ease of citizens’ and Parliamentary access to information on service delivery, performance, reporting, explanations, and ease of avenues to appeal? Most governments have transparency requirements, such as publishing certain types of data, public reporting of metrics, and annual reports, so identifying the transparency and open government requirements for the customer is also important. <br>• **Align with compliance to the jurisdictional equivalent of Administrative Law:** In all governments, there are rules that govern how the public sector has to operate. For example, in [Westminster-based governments](https://en.wikipedia.org/wiki/Westminster_system "https://en.wikipedia.org/wiki/Westminster_system"), all systems and processes need to comply with the principles of [Administrative Law](https://en.wikipedia.org/wiki/Administrative_law "https://en.wikipedia.org/wiki/Administrative_law") and [Rule of Law](https://en.wikipedia.org/wiki/Rule_of_law "https://en.wikipedia.org/wiki/Rule_of_law"), which requires among other things, that decision making is explainable, accountable, appealable, consistent with the law, and consistently applied. Alternatively, if you can't explain a decision, you should at least be able to validate that it’s legally compliant. High-integrity records keeping is also critical. A service can be beautifully designed, architected, delivered, and operating perfectly, but if it isn’t demonstrably lawful or considered legitimate in the context of government, then it creates significant issues for the government organization and for the public, resulting in public distrust. Ideally, a modern government service should be *auditable in real time*, and have _governance_ that assures oversight and escalation of issues as they emerge. |
+| ------------------------------------------------------------------------------- |
+|                                                                                 |
+
+Most systems and services traditionally only measure operational
+performance (such as uptime, and the number of concurrent users) and
+efficiency (such as cost per transaction, staying within budget, and
+revenue). In the case of government systems and services, it’s
+increasingly important to understand
+how *effective* a system is regardless of its
+performance or efficiency. Service effectiveness measurement could
+include both the policy and purpose measures, and the ongoing human
+impact measures. 
+
+- **Policy outcomes:** Every service is meant to deliver on some
+  form of policy outcome. The purpose or intention of a system or service might be found in
+  government policy, legislation, regulation, the mission or mandate of a department or
+  ministry, or perhaps even in the constitutional foundations of that government. Whatever the
+  intended policy outcome, relevant metrics and indicators should be identified which the
+  system or service needs to measure and monitor in order to demonstrate the policy
+  effectiveness of the system or service.
+- **Human outcomes and impact:** Because government services can
+  affect a large percentage of the population, and because these services are often either
+  unavoidable or required, it’s important to identify some baseline quality of life
+  measurements to measure and monitor for unintended impacts on people and communities. For
+  example, monitoring known quality of life measures, such as health indicators, employment,
+  homelessness, and household debt, and constantly seeking unknown patterns of impacts of
+  specific cohorts. This helps grow and maintain public trust and confidence in government
+  systems and services, and also helps verify that any unintended harm from a system or
+  service is able to be quickly identified and mitigated.
+- **Establish mechanisms to measure, monitor, and escalate trends or
+  patterns of policy or human impacts:** Verify that your service measurement
+  infrastructure includes policy and human outcomes measurement and monitoring, with
+  deviations or divergent trends being escalated in the same way that security or performance
+  issues are escalated, and enable real-time response to change and unintended impacts. Policy
+  impacts might include the target measures and metrics of the relevant policy. Intended human
+  impacts might include quality of life measures like positive housing, health, or well-being
+  outcomes for that person and their family as a result of the service.
+
+| Identify and test multiple ways to meet the desired outcome |
+| ----------------------------------------------------------- |
+|                                                             |
+
+- **Produce a discovery report with concept testing outcomes:**
+  Verify that each service includes a _discovery phase_ to describe the
+  problem or opportunity space, and explore and test with end users a variety of concepts
+  before heading into prototyping or solution design and architecture. Document the concepts,
+  the results of user testing, and the resulting preferred solutions with rationale.
+
+| Identify the user needs and measures for success |
+| ------------------------------------------------ |
+|                                                  |
+
+- **Document the user needs and measures for success:**
+  Government services that a person or business interact with should also measure the user
+  outcomes and satisfaction of the service. 
+  - **User outcomes:** Identify what _done_
+    is for a user, and measure it to verify that the service is delivering as expected
+    outcomes for users. For example, a service might intend to support people to live at
+    home longer, reducing the pressure on aged care services. Or a service might be intended
+    to alleviate the costs of living.
+  - **User satisfaction:** A combination of measures should be
+    used to monitor and measure the end-user experience of the service, whether that user is
+    a citizen, resident, refugee, a business, or even an internal team. Customer experience
+    (CX) measures expectations using polling and other tools to verify that the user
+    experience of the system or service is good. Government services are different from
+    those in the private sector as the end user might not have a choice and must interact
+    with the service (for example, tax, social support, and emergency services). User
+    satisfaction isn’t just about CX, it’s also about whether the service meets the public
+    expectations for that government system or service.
+
+- **Document how the service has been designed inclusively:**
+  Demonstrate and document how the service was designed and tested with a diverse variety of
+  users that represent the needs of the population, and that there are multiple channels
+  supported that take into account different access requirements.
+- **Document how the public have been engaged:**Ideally, the
+  government customer would be engaging with the general public on the reporting, design,
+  delivery, and operational transparency of the service to grow and maintain public trust,
+  confidence, and perceived legitimacy of the system or service, and AWS can encourage and
+  support this approach. Engagement with the public is also useful to design and test a range
+  of public feedback mechanisms to verify that the continuous improvement of the service over
+  time aligns with changing public needs. Citizen participation is increasingly expected
+  through novel forms of public engagement and participation in the design, delivery, and
+  governance of policies and services.
+- **Identify and document the cultural
+  context:** Every government organization serves the
+  public, so understanding the cultural context of the service is
+  important to inform the architecture, design, needs, and what it
+  would take for the service to be considered welcoming and
+  dignified. As part of this, it’s helpful to consider both the
+  demographic range of cultural needs, as well as the Indigenous
+  and First Nations cultural context and needs, which will be
+  different in every country.
+
+| Identify the special requirements of the government customer for this<br>service |
+| -------------------------------------------------------------------------------- |
+|                                                                                  |
+
+- **Document and understand the portfolio and jurisdictional policy
+  context of the government customer:** All systems administered by public
+  institutions need to be compliant with and supportive of the jurisdictional context (the
+  constitutional and whole of government framework of that government) and of the portfolio
+  context (the specific legislative or regulatory responsibilities of that department).
+  Building in or documenting this context should be done in early stages to inform and
+  influence design, architecture, and delivery.  Understanding these can help you to hone in
+  on the special obligations, responsibilities, and mission of your government customer, and
+  to engage in conversations about what _success_ looks like, so you can
+  demonstrably and measurably design and deliver in accordance with the jurisdictional and
+  portfolio context of your customer. A portfolio mandate might include things such as the
+  Social Security Act. A jurisdictional mandate might include the Constitution, or legislation
+  that applies to the whole jurisdiction of a government customer, at a federal, state, or
+  local level, like the Privacy Act. This might also include policy requirements like whether
+  the service must consider open source options first (a requirement in the UK Government), or
+  whether there are architectural standards or Indigenous engagement or procurement
+  requirements (a requirement in the New Zealand Government).
+- **Document how the service will meet public transparency and
+  appeal-ability requirements:** How will your service provide ease of citizens’
+  and Parliamentary access to information on service delivery, performance, reporting,
+  explanations, and ease of avenues to appeal? Most governments have transparency
+  requirements, such as publishing certain types of data, public reporting of metrics, and
+  annual reports, so identifying the transparency and open government requirements for the
+  customer is also important.
+- **Align with compliance to the jurisdictional equivalent of Administrative
+  Law:** In all governments, there are rules that govern how the public sector has
+  to operate. For example, in [Westminster-based governments](https://en.wikipedia.org/wiki/Westminster_system "https://en.wikipedia.org/wiki/Westminster_system"), all systems and processes need to comply with the
+  principles of [Administrative
+  Law](https://en.wikipedia.org/wiki/Administrative_law "https://en.wikipedia.org/wiki/Administrative_law") and [Rule of
+  Law](https://en.wikipedia.org/wiki/Rule_of_law "https://en.wikipedia.org/wiki/Rule_of_law"), which requires among other things, that decision making is explainable,
+  accountable, appealable, consistent with the law, and consistently applied.
+
+Alternatively, if you can't explain a decision, you should at least be able to validate that
+it’s legally compliant. High-integrity records keeping is also critical. A service can be
+beautifully designed, architected, delivered, and operating perfectly, but if it isn’t
+demonstrably lawful or considered legitimate in the context of government, then it creates
+significant issues for the government organization and for the public, resulting in public
+distrust. Ideally, a modern government service should be *auditable in real
+time*, and have _governance_ that assures oversight and
+escalation of issues as they emerge.
