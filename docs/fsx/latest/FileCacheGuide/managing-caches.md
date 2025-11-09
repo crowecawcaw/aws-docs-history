@@ -147,10 +147,10 @@ To return descriptions of all existing caches, omit the
 You can view the status of a cache by using the AWS Management Console, the AWS CLI command [describe-caches](../../../cli/latest/reference/fsx/describe-file-caches.md "../../../cli/latest/reference/fsx/describe-file-caches.md"), or the
 [DescribeFileCaches](../APIReference/API_DescribeFileCaches.md "../APIReference/API_DescribeFileCaches.md") API operation.
 
-| Cache status | Description                                                                                                                            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| AVAILABLE    | The cache has been successfully created and is available for use.                                                                      |
-| CREATING     | A new cache is being created.                                                                                                          |
-| DELETING     | An existing cache is being deleted.                                                                                                    |
-| UPDATING     | The cache is undergoing a customer-initiated update.                                                                                   |
-| FAILED       | This status can mean either of the following: <br>• The cache has failed and cannot be recovered. <br>• The cache couldn't be created. |
+| Cache status | Description                                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| AVAILABLE    | The cache has been successfully created and is available for use.                                                                    |
+| CREATING     | A new cache is being created.                                                                                                        |
+| DELETING     | An existing cache is being deleted.                                                                                                  |
+| UPDATING     | The cache is undergoing a customer-initiated update.                                                                                 |
+| FAILED       | This status can mean either of the following:<br>• The cache has failed and cannot be recovered.<br>• The cache couldn't be created. |

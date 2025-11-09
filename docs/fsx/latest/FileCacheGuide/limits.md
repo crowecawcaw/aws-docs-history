@@ -13,10 +13,40 @@ Learn about quotas when working with Amazon File Cache.
 The following are quotas for Amazon File Cache per AWS account, per AWS Region, which you
 can increase.
 
-| Resource                        | Default         | Description                                                                                                                                                                     |
-| ------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lustre Cache_1 caches           | 100             | The maximum number of Amazon File Cache caches with cache type `Lustre` and deployment type `Cache_1` that you can create in this account.                                      |
-| Lustre Cache_1 storage capacity | 100800          | The maximum amount of storage capacity (in GiB) that you can configure in this account for all Amazon File Cache caches with cache type `Lustre` and deployment type `Cache_1`. | ###### To request a quota increase 1. Open the AWS Management Console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). 2. In the navigation pane, choose **FSx on Service Quotas**. 3. Choose a Lustre Cache quota. 4. Choose **Request increase at account-level**, and follow the directions to request a quota increase. 5. To view the status of the quota request, repeat the first three steps and see the **Recent quota increase requests** pane for details. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_. ## Resource quotas for each cache The following are limits on Amazon File Cache resources for each cache in an AWS Region. |
-| Resource                        | Limit per cache |                                                                                                                                                                                 | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ---                |
-| Maximum number of tags          | 50              |                                                                                                                                                                                 | Number of file updates from linked S3 bucket per caches                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 10 million / month |
-| Minimum storage capacity        | 1.2 TiB         |                                                                                                                                                                                 | Maximum throughput per unit of storage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1000 MBps          | ## Additional considerations In addition, note the following: <br>• You can use each AWS Key Management Service (AWS KMS) key on up to 125 Amazon File Cache caches. <br>• For a list of AWS Regions where you can create caches, see [Amazon File Cache availability](what-is.md#cache-availability "what-is.md#cache-availability"). |
+| Resource                        | Default | Description                                                                                                                                                                        |
+| ------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lustre Cache_1 caches           | 100     | The maximum number of Amazon File Cache caches with cache type `Lustre`<br>and deployment type `Cache_1` that you can create in this account.                                      |
+| Lustre Cache_1 storage capacity | 100800  | The maximum amount of storage capacity (in GiB) that you can configure in this account<br>for all Amazon File Cache caches with cache type `Lustre` and deployment type `Cache_1`. |
+
+###### To request a quota increase
+
+1. Open the AWS Management Console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. In the navigation pane, choose **FSx on Service Quotas**.
+3. Choose a Lustre Cache quota.
+4. Choose **Request increase at account-level**, and follow
+   the directions to request a quota increase.
+5. To view the status of the quota request, repeat the first three steps and see the
+   **Recent quota increase requests** pane for details.
+
+For more information, see [Requesting a quota
+increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User Guide_.
+
+## Resource quotas for each cache
+
+The following are limits on Amazon File Cache resources for each cache in an
+AWS Region.
+
+| Resource                                                | Limit per cache    |
+| ------------------------------------------------------- | ------------------ |
+| Maximum number of tags                                  | 50                 |
+| Number of file updates from linked S3 bucket per caches | 10 million / month |
+| Minimum storage capacity                                | 1.2 TiB            |
+| Maximum throughput per unit of storage                  | 1000 MBps          |
+
+## Additional considerations
+
+In addition, note the following:
+
+- You can use each AWS Key Management Service (AWS KMS) key on up to 125 Amazon File Cache caches.
+- For a list of AWS Regions where you can create caches, see
+  [Amazon File Cache availability](what-is.md#cache-availability "what-is.md#cache-availability").

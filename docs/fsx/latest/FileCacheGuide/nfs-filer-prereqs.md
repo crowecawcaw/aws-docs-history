@@ -33,10 +33,30 @@ Amazon VPC and your on-premises network. For more information, see [What is AWS 
   system. The following ports must be open for the daemons involved in sharing data
   via NFS:
 
-| Port | Protocol | Description                                                                                                                                                 |
-| ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 111  | TCP/UDP  | Port for the **portmapper** daemon. The port number is fixed.                                                                                               |
-| 2049 | TCP/UDP  | Port for the **nfsd** daemon. The port number is fixed.                                                                                                     |
-| 635  | TCP/UDP  | Port for the **mountd** daemon. The port assignment is dynamic and could be another port number. You must verify the actual port and make sure it's open.   |
-| 4045 | TCP/UDP  | Port for the **nlockmgr** daemon. The port assignment is dynamic and could be another port number. You must verify the actual port and make sure it's open. |
-| 4046 | TCP/UDP  | Port for the **status** daemon. The port assignment is dynamic and could be another port number. You must verify the actual port and make sure it's open.   | You can use the following command to look up dynamic ports for your on-premises NFS servers: `rpcinfo -p localhost` <br>• Your on-premises NFSv3 file system is configured to allow access to IP addresses on the Amazon VPC where the cache is located. <br>• The Amazon VPC Security Group used for your cache must be configured to allow outbound traffic to the IP addresses of the DNS server and on-premises NFSv3 file system. Make sure to add outbound rules to allow port 53 for both UDP and TCP for DNS traffic, and to allow the TCP ports used by the on-premises NFSv3 file system for NFS. For more information, see [Controlling access using inbound and outbound rules](limit-access-security-groups.md#inbound-outbound-rules "limit-access-security-groups.md#inbound-outbound-rules"). <br>• While Amazon File Cache supports NFSv3 file systems with most NFSv3 export policies, you must not use the NFS export option `all_squash`. This configuration is required so that Amazon File Cache has the necessary permissions to read and write files owned by all users on your NFSv3 file system. |
+| Port | Protocol | Description                                                                                                                                                         |
+| ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 111  | TCP/UDP  | Port for the \*_portmapper_<br>• daemon. The port number is fixed.                                                                                                  |
+| 2049 | TCP/UDP  | Port for the \*_nfsd_<br>• daemon. The port number is fixed.                                                                                                        |
+| 635  | TCP/UDP  | Port for the \*_mountd_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
+| 4045 | TCP/UDP  | Port for the \*_nlockmgr_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open. |
+| 4046 | TCP/UDP  | Port for the \*_status_<br>• daemon. The port assignment is dynamic and<br>could be another port number. You must verify the actual port and make sure it's open.   |
+
+You can use the following command to look up dynamic ports for your on-premises NFS servers:
+
+```
+rpcinfo -p localhost
+```
+
+- Your on-premises NFSv3 file system is configured to allow access to IP addresses
+  on the Amazon VPC where the cache is located.
+- The Amazon VPC Security Group used for your cache must be configured to allow
+  outbound traffic to the IP addresses of the DNS server and on-premises NFSv3 file system.
+  Make sure to add outbound rules to allow port 53 for both UDP and TCP for DNS traffic,
+  and to allow the TCP ports used by the on-premises NFSv3 file system for NFS.
+  For more information, see
+  [Controlling access using inbound and
+  outbound rules](limit-access-security-groups.md#inbound-outbound-rules "limit-access-security-groups.md#inbound-outbound-rules").
+- While Amazon File Cache supports NFSv3 file systems with most NFSv3 export
+  policies, you must not use the NFS export option
+  `all_squash`. This configuration is required so that Amazon File Cache has the
+  necessary permissions to read and write files owned by all users on your NFSv3 file system.
