@@ -65,11 +65,11 @@ the workflow has analyzed. The Station App polls for new analysis results at 500
         * Zoom image — Zoom in an out of the image with the zoom in button (
         ![Zoom in](images/zoom-in.png)
         ) and the zoom out button
-        ![Zoom out](/images/lookout-for-vision/latest/dda-user-guide/images/zoom-out.png)
+        ![Zoom out](images/zoom-out.png)
         . Double-click the image to zoom 2x into to the
          image. Use the mouse scroll wheel to zoom in and out of the image. The
          mouse cursor position is the center position for zooming (in or
          out).
         * Reset image size — Choose the reset button (
-        ![Reset image](/images/lookout-for-vision/latest/dda-user-guide/images/reset.png)
+        ![Reset image](images/reset.png)
         ) or press Ctrl + 0.
