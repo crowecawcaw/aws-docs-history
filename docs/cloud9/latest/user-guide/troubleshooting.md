@@ -1179,26 +1179,467 @@ If your web browser allows this granularity, you can enable third-party cookies 
 for AWS Cloud9. To do this, specify the following domains, depending on the supported
 AWS Regions where you want to use AWS Cloud9.
 
-| **AWS Region**            | **Domains**                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `*.vfs.cloud9.us-east-1.amazonaws.com` `vfs.cloud9.us-east-1.amazonaws.com`           |
-| US East (Ohio)            | `*.vfs.cloud9.us-east-2.amazonaws.com` `vfs.cloud9.us-east-2.amazonaws.com`           |
-| US West (N. California)   | `*.vfs.cloud9.us-west-1.amazonaws.com` `vfs.cloud9.us-west-1.amazonaws.com`           |
-| US West (Oregon)          | `*.vfs.cloud9.us-west-2.amazonaws.com` `vfs.cloud9.us-west-2.amazonaws.com`           |
-| Africa (Cape Town)        | `*.vfs.cloud9.af-south-1.amazonaws.com` `vfs.cloud9.af-south-1.amazonaws.com`         |
-| Asia Pacific (Hong Kong)  | `*.vfs.cloud9.ap-east-1.amazonaws.com` `vfs.cloud9.ap-east-1.amazonaws.com`           |
-| Asia Pacific (Mumbai)     | `*.vfs.cloud9.ap-south-1.amazonaws.com` `vfs.cloud9.ap-south-1.amazonaws.com`         |
-| Asia Pacific (Osaka)      | `*.vfs.cloud9.ap-northeast-3.amazonaws.com` `vfs.cloud9.ap-northeast-3.amazonaws.com` |
-| Asia Pacific (Seoul)      | `*.vfs.cloud9.ap-northeast-2.amazonaws.com` `vfs.cloud9.ap-northeast-2.amazonaws.com` |
-| Asia Pacific (Singapore)  | `*.vfs.cloud9.ap-southeast-1.amazonaws.com` `vfs.cloud9.ap-southeast-1.amazonaws.com` |
-| Asia Pacific (Sydney)     | `*.vfs.cloud9.ap-southeast-2.amazonaws.com` `vfs.cloud9.ap-southeast-2.amazonaws.com` |
-| Asia Pacific (Tokyo)      | `*.vfs.cloud9.ap-northeast-1.amazonaws.com` `vfs.cloud9.ap-northeast-1.amazonaws.com` |
-| Canada (Central)          | `*.vfs.cloud9.ca-central-1.amazonaws.com` `vfs.cloud9.ca-central-1.amazonaws.com`     |
-| Europe (Frankfurt)        | `*.vfs.cloud9.eu-central-1.amazonaws.com` `vfs.cloud9.eu-central-1.amazonaws.com`     |
-| Europe (Ireland)          | `*.vfs.cloud9.eu-west-1.amazonaws.com` `vfs.cloud9.eu-west-1.amazonaws.com`           |
-| Europe (London)           | `*.vfs.cloud9.eu-west-2.amazonaws.com` `vfs.cloud9.eu-west-2.amazonaws.com`           |
-| Europe (Milan)            | `*.vfs.cloud9.eu-south-1.amazonaws.com` `vfs.cloud9.eu-south-1.amazonaws.com`         |
-| Europe (Paris)            | `*.vfs.cloud9.eu-west-3.amazonaws.com` `vfs.cloud9.eu-west-3.amazonaws.com`           |
-| Europe (Stockholm)        | `*.vfs.cloud9.eu-north-1.amazonaws.com` `vfs.cloud9.eu-north-1.amazonaws.com`         |
-| Middle East (Bahrain)     | `*.vfs.cloud9.me-south-1.amazonaws.com` `vfs.cloud9.me-south-1.amazonaws.com`         |
-| South America (São Paulo) | `*.vfs.cloud9.sa-east-1.amazonaws.com` `vfs.cloud9.sa-east-1.amazonaws.com`           | ### Application preview tab displays an error or is blank **Issue:** On the menu bar in the IDE, when you choose **Preview, Preview Running Application** or **Tools, Preview, Preview Running Application** to try to display your application on a preview tab in the IDE, the tab displays an error, or the tab is blank. **Possible causes:** <br>• Your application isn't running in the IDE. <br>• Your application isn't running using HTTP. <br>• Your application is running over more than one port. <br>• Your application is running over a port other than `8080`, `8081`, or `8082`. <br>• Your application is running with an IP other than `127.0.0.1`, `localhost`, or `0.0.0.0`. <br>• The port (`8080`, `8081`, or `8082`) isn't specified in the URL on the preview tab. <br>• Your network blocks inbound traffic to port `8080`, `8081`, or `8082`. <br>• You're trying to go to an address that contains an IP of `127.0.0.1`, `localhost`, or `0.0.0.0`. By default, the AWS Cloud9 IDE attempts to go to your local computer. It doesn't attempt to go the instance or your own server that's connected to the environment. **Recommended solutions:** <br>• Ensure that the application is running in the IDE. <br>• Ensure that the application is running using HTTP. For examples in Node.js and Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app"). <br>• Ensure that the application is running over only one port. For examples in Node.js and Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app"). <br>• Ensure that the application is running over port `8080`, `8081`, or `8082`. For examples in Node.js and Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app"). <br>• Ensure that the application is running with an IP of `127.0.0.1`, `localhost`, or `0.0.0.0`. For examples in Node.js and Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app"). <br>• Add `:8080`, `:8081`, or `:8082` to the URL on the preview tab. <br>• Ensure that your network allows inbound traffic over ports `8080`, `8081`, or `8082`. If you can't make changes to your network, see your network administrator. <br>• If you're trying to go to an address that contains an IP of `127.0.0.1`, `localhost`, or `0.0.0.0`, try going to the following address instead: `https://12a34567b8cd9012345ef67abcd890e1.vfs.cloud9.us-east-2.amazonaws.com/`. In this address, `12a34567b8cd9012345ef67abcd890e1` is the ID that AWS Cloud9 assigns to the environment. `us-east-2` is the ID of the AWS Region for the environment. You can also try to go to this address outside of the IDE. However, this works only when the IDE for the environment is open and the application is running in the same web browser. <br>• After you're sure that all of the preceding conditions are met, try stopping the application and then starting it again. <br>• If you stopped the application and then started it again, try choosing **Preview, Preview Running Application** or **Tools, Preview, Preview Running Application** on the menu bar again. Or try choosing the **Refresh** button (the circular arrow) on the corresponding application preview tab, if the tab is already visible. ### Can't preview web content in the IDE because the connection to the site isn't secure **Issue:** When you try to access web content such as a WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't display it. **Possible causes:** By default, all web pages that you access in the application preview tab of the AWS Cloud9 IDE automatically use the HTTPS protocol. If a page's URI features the insecure `http` protocol, it's automatically replaced by `https`. And you can't access the insecure content by manually changing `https` back to `http`. **Recommended solutions**: Remove the insecure HTTP scripts or content from the web site that you're trying to preview in the IDE. Follow instructions for your web server or content management system for guidance on implementing HTTPS. ### Previewing a file returns a 499 error **Issue:** When you try to use the AWS Cloud9 IDE to preview a file that contains a `<script>` element that contains the `src` attribute and with the `type` attribute set to `module`, a 499 error occurs and the script doesn't run as expected. **Cause:** File preview fetch requests in the AWS Cloud9 IDE require cookies to be sent by the web browser to authenticate. By default, web browsers send cookies for regular script requests. They don't send cookies for module script requests unless you add the `crossorigin` attribute. **Solution:** Add the `crossorigin` attribute to the `<script>` element. For example, `<script type="module" src="index.js" crossorigin></script>`. Then, save the changed file, and try to preview it again. ## Performance The following section outlines troubleshooting issues related to performance. ### AWS Cloud9 IDE freezing for a significant amount of time **Issue:** During start-up, and when performing a refresh, the AWS Cloud9 IDE terminal freezes for a significant amount of time and becomes unusable. **Cause:** You might have a large amount of files in your environment that are being recursively watched by the file watching module of AWS Cloud9. **Recommended solutions:** You can decrease the file watching depth (the minimum value is 1) and consider adding large folders or folders not related to the source code (build outputs/artifacts, 3rd party packages) to the ignored patterns. To do this navigate to _Preferences > User Settings > File Watching_. Be aware that this will cause CodeLenses in AWS Toolkit to not work correctly. Another possible solution is to consider ignoring large files and folders that aren't related to the source code by decreasing the _Maximum number of files to search_. To do this navigate to _Preferences > Project Settings > Find in Files_. Be aware that this will cause folders that are ignored to not show up in a file search. ### Console warning: "Switching to the minimal code completion engine..." **Issue:** When working in the AWS Cloud9 console (for example, when opening the IDE or refreshing the IDE's web page), you see this message: "One or more sessions or collaborators are active on this environment. Switching to the minimal code completion engine to conserve memory." In correlation with this message, the code-completion behavior might be slow or intermittent. **Cause:** Running the code-completion engine takes memory and CPU cycles from the environment. Additionally, a separate code-completion engine is required for each collaborator and each additional session. To avoid using too many resources, especially on small instance sizes such as t2.nano and t2.micro, AWS Cloud9 switches to the minimal code-completion engine. **Recommended solution:** If you plan to collaborate often and for long periods of time, choose a larger Amazon EC2 instance when creating your EC2 environment. Or, alternatively, connect your SSH environment to an instance with more capacity. ###### Note Choosing a larger Amazon EC2 instance might cause your AWS account to incur additional charges. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/"). ### IDE warning: "This environment is running low on memory" or "This environment has high CPU load" **Issue:** While the IDE is running, you see a message that contains the phrase "this environment is running low on memory" or "this environment has high CPU load." **Cause:** The IDE might not have enough compute resources available to continue running without delays or hangs. **Recommended solutions:** <br>• Stop one or more running processes to free up available memory. To do this, on the menu bar in the IDE for the environment, choose **Tools, Process List**. For each process you want to stop, choose the process, and then choose **Force Kill**. <br>• Create a swap file in the environment. A _swap file_ is a file in the environment that the operating system can use as virtual memory. To confirm that the environment is currently using swap memory, run the **`top`** command in a terminal session in the environment. If swap memory is being used, the output displays non-zero `Swap` memory statistics (for example, `Swap: 499996k total, 1280k used, 498716 free, 110672k cached`). To stop showing real-time memory information, press `Ctrl + C`. To create a swap file, run a command such as the following in the environment. ``` sudo fallocate --length 512MB /var/swapfile && sudo chmod 600 /var/swapfile && sudo mkswap /var/swapfile && echo '/var/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab > /dev/null ``The preceding command does the following: 1. Creates a 512 MB file that's named `swapfile` in the `/var` directory. 2. Changes access permissions for the `swapfile` file to read-write for the owner only. 3. Sets up the `swapfile` file as a swap file. 4. Writes information to the `/etc/fstab file`. This makes this swap file available whenever the system reboots. After you run the preceding command, to make this swap file available immediately, run the following command.`` sudo swapon /var/swapfile ``<br>• Move or resize the environment to an instance or server with more compute resources. To move or resize Amazon EC2 instances, see [Moving an AWS Cloud9 IDE from Amazon EBS volumes](move-environment.md "move-environment.md"). For other instance or server types, refer to your instance's or server's documentation. ### Unable to upload files in the AWS Cloud9 IDE **Issue:** Users are unable to upload a large file in the AWS Cloud9 IDE. These uploads are failing. **Cause:** AWS Cloud9 throttles the upload speed to the AWS Cloud9 IDE, and as a result the file upload request times out. **Recommended solution:** We recommend uploading the file to Amazon S3, and then use Amazon S3 to download the file to the environment with the CLI in the AWS Cloud9 IDE. For more information on uploading objects to Amazon S3, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the *Amazon S3 User Guide*. ### Slow download speed in AWS Cloud9 IDE **Issue:** Users are dealing with slow download speeds when attempting to download files from AWS Cloud9 IDE. **Cause:** When you download files from the IDE to the local file system the speed of transfer will be limited to a speed of 0.1 megabyte/second. **Recommended solution:** To increase the speed of transferring files, use the CLI in your AWS Cloud9 IDE to upload files to Amazon S3 and then use Amazon S3 to download the files from there. ### Can't preview web content in the IDE because the connection to the site isn't secure **Issue:** When you try to access web content such as a WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't display it. **Possible causes:** By default, all web pages that you access in the application preview tab of the AWS Cloud9 IDE automatically use the HTTPS protocol. If a page's URI features the insecure `http` protocol, it's automatically replaced by `https`. And you can't access the insecure content by manually changing `https` back to `http`. **Recommended solutions**: Remove the insecure HTTP scripts or content from the web site that you're trying to preview in the IDE. Follow instructions for your web server or content management system for guidance on implementing HTTPS. ([back to top](troubleshooting.md "troubleshooting.md")) ## Third party applications and services The following section outlines troubleshooting issues related to third party applications and services. ### Can't interact with the terminal window in AWS Cloud9 because of `tmux` session errors **Issue:** When you attempt to launch a new terminal window in AWS Cloud9, the expected command line interface isn't available. There's no command prompt and you can't enter text. Error messages such as `tmux: need UTF-8 locale (LC_CTYPE)` and `invalid LC_ALL, LC_CTYPE or LANG` are returned. **Possible causes:** An unresponsive terminal might be caused by a tmux error. AWS Cloud9 uses the [tmux](https://en.wikipedia.org/wiki/Tmux "https://en.wikipedia.org/wiki/Tmux") utility. This way, information that's displayed in the terminal is persisted even when the page reloads or you reconnect to your development environment. In a `tmux` session, what's displayed in the terminal window is handled by a client. The client communicates to a server that can manage multiple sessions. The server and client communicate through a socket located in the `tmp` folder. If the `tmp` folder is missing from your development environment or overly restrictive permissions are applied to it, `tmux` sessions can't run. If this occurs, the terminal window in the IDE becomes unresponsive. **Recommended solutions**: If `tmux` errors are preventing you from interacting with the terminal window, use an alternative way to create a `tmp` folder with the right permissions. That way, `tmux` sessions can run. One solution is to export `LC_CTYPE` in `.bash_profile` or in the `.bashrc` file. Another recommended solution is to use AWS Systems Manager to set up a host management configuration. This allows access to the relevant instance through the Amazon EC2 console. **Setting up host management** 1. First, in the AWS Cloud9 console, find the name of your environment's instance. You can do so by choosing the relevant panel in the **Your environments** page and choosing **View details**. In the **Environment details** page, choose **Go to Instance**. In the Amazon EC2 console, confirm the name of the instance that you need to access. 2. Now go to the AWS Systems Manager console, and in the navigation pane, choose **Quick Setup**. 3. In the **Quick Setup** page, choose **Create**. 4. For **Configuration types**, go to **Host Management** and choose **Create**. 5. For **Customize Host Management configuration options**, in the **Targets** section, choose **Manual**. 6. Select the EC2 instance that you want to access and then choose **Create**. **Connecting to the instance and running commands** ###### Note The following steps are for the new EC2 console. 1. In the Amazon EC2 console, in the navigation pane, choose **Instances** and select the instance that you want to connect to. 2. Choose **Connect**. If **Connect** isn't activated, you might need to start the instance first. 3. In the **Connect to your instance** pane, for **Connection method**, choose **Session Manager** and then choose **Connect**. 4. In the terminal session window that appears, enter the following commands. These commands create the `tmp` folder with the right permissions so that the tmux socket is available.`` sudo mkdir /tmp sudo chmod 777 /tmp sudo rmdir /tmp/tmux-* ``### Can't load IDE using earlier versions of Microsoft Edge browser **Issue:** `HTTP403: FORBIDDEN` error is returned when trying to load AWS Cloud9 IDE using the Microsoft Edge web browser. **Possible causes:** The AWS Cloud9 IDE doesn't support certain older versions of Microsoft Edge. **Recommended solutions:** To update the browser, choose the ellipsis (...) button in the Microsoft Edge toolbar. From the menu, choose **Settings** and then choose **About Microsoft Edge**. If an update is required, it's automatically downloaded and installed. ### Error with `gdb` when debugging C++ projects **Issue:** Error reported for `gdb` debugger when trying to debug C++ project in the IDE. **Possible causes:** Suppose that your AWS Cloud9 environment uses certain EC2 instance types (for example, `t3.small` or `m5.large`). Then, a debug error might occur when you try to run and debug a C++ project using the IDE's built-in runner. This error can happen because the version of the `gdb` (the GNU Project Debugger) that's pre-installed for your environment doesn't work on certain processor platforms. You might see the following error code.`` GDB server terminated with code 1 ```**Recommended solutions:** The problem with`gdb` not supporting certain processor platforms was fixed from version *3.0\* onwards. Uninstall the older version of the debugger and upgrade to a newer version of `gdb`: 1. Remove the existing version of the debugger by running the following command in the AWS Cloud9 terminal. `sudo yum -y remove gdb` 2. Retrieve the archive for `gdb`, unpack it, and then navigate to the directory that contains the extracted files by running the following commands. `wget "http://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.gz" tar xzf gdb-8.3.tar.gz cd gdb-8.3` 3. Build the debugger by running the following command. To do this, copy and paste the following text as a single block and press **Return** to run `make`. `./configure --prefix=/usr \ --with-system-readline \ --with-python=/usr/bin/python3 && make` 4. Install the debugger. `sudo make -C gdb install` 5. Confirm that the updated version of the debugger is installed. `` gdb `--version` `` ### Issues with PHP runner in AWS Cloud9 **Issue:** Users are unable to view any output in the PHP CLI runner terminal. **Cause:** CLI runner needs to be set to PHP and the debugger mode needs to be enabled. **Recommended solution:** Set the CLI runner to PHP and ensure the debugger mode is enabled. ### GLIBC errors related to Node.js **Issue:** Users are unable to run Node.js and are getting GLIBC errors. An example of these error messages is outlined below: ``node: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by node) node: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by node)`` **Cause:** Potentially it could be Node.js version issues related to the instance being used. **Recommended solution:** Refer to the [Step 1: Install required tools](sample-nodejs.md#sample-nodejs-install "sample-nodejs.md#sample-nodejs-install") section for information on how to install Node.js for AWS Cloud9. |
+| **AWS Region**            | **Domains**                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `*.vfs.cloud9.us-east-1.amazonaws.com`<br>`vfs.cloud9.us-east-1.amazonaws.com`           |
+| US East (Ohio)            | `*.vfs.cloud9.us-east-2.amazonaws.com`<br>`vfs.cloud9.us-east-2.amazonaws.com`           |
+| US West (N. California)   | `*.vfs.cloud9.us-west-1.amazonaws.com`<br>`vfs.cloud9.us-west-1.amazonaws.com`           |
+| US West (Oregon)          | `*.vfs.cloud9.us-west-2.amazonaws.com`<br>`vfs.cloud9.us-west-2.amazonaws.com`           |
+| Africa (Cape Town)        | `*.vfs.cloud9.af-south-1.amazonaws.com`<br>`vfs.cloud9.af-south-1.amazonaws.com`         |
+| Asia Pacific (Hong Kong)  | `*.vfs.cloud9.ap-east-1.amazonaws.com`<br>`vfs.cloud9.ap-east-1.amazonaws.com`           |
+| Asia Pacific (Mumbai)     | `*.vfs.cloud9.ap-south-1.amazonaws.com`<br>`vfs.cloud9.ap-south-1.amazonaws.com`         |
+| Asia Pacific (Osaka)      | `*.vfs.cloud9.ap-northeast-3.amazonaws.com`<br>`vfs.cloud9.ap-northeast-3.amazonaws.com` |
+| Asia Pacific (Seoul)      | `*.vfs.cloud9.ap-northeast-2.amazonaws.com`<br>`vfs.cloud9.ap-northeast-2.amazonaws.com` |
+| Asia Pacific (Singapore)  | `*.vfs.cloud9.ap-southeast-1.amazonaws.com`<br>`vfs.cloud9.ap-southeast-1.amazonaws.com` |
+| Asia Pacific (Sydney)     | `*.vfs.cloud9.ap-southeast-2.amazonaws.com`<br>`vfs.cloud9.ap-southeast-2.amazonaws.com` |
+| Asia Pacific (Tokyo)      | `*.vfs.cloud9.ap-northeast-1.amazonaws.com`<br>`vfs.cloud9.ap-northeast-1.amazonaws.com` |
+| Canada (Central)          | `*.vfs.cloud9.ca-central-1.amazonaws.com`<br>`vfs.cloud9.ca-central-1.amazonaws.com`     |
+| Europe (Frankfurt)        | `*.vfs.cloud9.eu-central-1.amazonaws.com`<br>`vfs.cloud9.eu-central-1.amazonaws.com`     |
+| Europe (Ireland)          | `*.vfs.cloud9.eu-west-1.amazonaws.com`<br>`vfs.cloud9.eu-west-1.amazonaws.com`           |
+| Europe (London)           | `*.vfs.cloud9.eu-west-2.amazonaws.com`<br>`vfs.cloud9.eu-west-2.amazonaws.com`           |
+| Europe (Milan)            | `*.vfs.cloud9.eu-south-1.amazonaws.com`<br>`vfs.cloud9.eu-south-1.amazonaws.com`         |
+| Europe (Paris)            | `*.vfs.cloud9.eu-west-3.amazonaws.com`<br>`vfs.cloud9.eu-west-3.amazonaws.com`           |
+| Europe (Stockholm)        | `*.vfs.cloud9.eu-north-1.amazonaws.com`<br>`vfs.cloud9.eu-north-1.amazonaws.com`         |
+| Middle East (Bahrain)     | `*.vfs.cloud9.me-south-1.amazonaws.com`<br>`vfs.cloud9.me-south-1.amazonaws.com`         |
+| South America (São Paulo) | `*.vfs.cloud9.sa-east-1.amazonaws.com`<br>`vfs.cloud9.sa-east-1.amazonaws.com`           |
+
+### Application preview tab displays an error
+
+or is blank
+
+**Issue:** On the menu bar in the IDE, when you choose
+**Preview, Preview Running Application** or **Tools,
+Preview, Preview Running Application** to try to display your application on
+a preview tab in the IDE, the tab displays an error, or the tab is blank.
+
+**Possible causes:**
+
+- Your application isn't running in the IDE.
+- Your application isn't running using HTTP.
+- Your application is running over more than one port.
+- Your application is running over a port other than `8080`,
+  `8081`, or `8082`.
+- Your application is running with an IP other than `127.0.0.1`,
+  `localhost`, or `0.0.0.0`.
+- The port (`8080`, `8081`, or `8082`) isn't
+  specified in the URL on the preview tab.
+- Your network blocks inbound traffic to port `8080`,
+  `8081`, or `8082`.
+- You're trying to go to an address that contains an IP of
+  `127.0.0.1`, `localhost`, or `0.0.0.0`. By
+  default, the AWS Cloud9 IDE attempts to go to your local computer. It doesn't attempt to
+  go the instance or your own server that's connected to the environment.
+
+**Recommended solutions:**
+
+- Ensure that the application is running in the IDE.
+- Ensure that the application is running using HTTP. For examples in Node.js and
+  Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app").
+- Ensure that the application is running over only one port. For examples in
+  Node.js and Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app").
+- Ensure that the application is running over port `8080`,
+  `8081`, or `8082`. For examples in Node.js and Python,
+  see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app").
+- Ensure that the application is running with an IP of `127.0.0.1`,
+  `localhost`, or `0.0.0.0`. For examples in Node.js and
+  Python, see [Run an application](app-preview.md#app-preview-run-app "app-preview.md#app-preview-run-app").
+- Add `:8080`, `:8081`, or `:8082` to the URL on
+  the preview tab.
+- Ensure that your network allows inbound traffic over ports `8080`,
+  `8081`, or `8082`. If you can't make changes to your
+  network, see your network administrator.
+- If you're trying to go to an address that contains an IP of
+  `127.0.0.1`, `localhost`, or `0.0.0.0`, try
+  going to the following address instead:
+  `https://12a34567b8cd9012345ef67abcd890e1.vfs.cloud9.us-east-2.amazonaws.com/`.
+  In this address, `12a34567b8cd9012345ef67abcd890e1` is the ID that
+  AWS Cloud9 assigns to the environment. `us-east-2` is the ID of the AWS Region
+  for the environment. You can also try to go to this address outside of the IDE.
+  However, this works only when the IDE for the environment is open and the application
+  is running in the same web browser.
+- After you're sure that all of the preceding conditions are met, try stopping
+  the application and then starting it again.
+- If you stopped the application and then started it again, try choosing
+  **Preview, Preview Running Application** or **Tools,
+  Preview, Preview Running Application** on the menu bar again. Or try
+  choosing the **Refresh** button (the circular arrow) on the
+  corresponding application preview tab, if the tab is already visible.
+
+### Can't preview web content in the IDE
+
+because the connection to the site isn't secure
+
+**Issue:** When you try to access web content such as a
+WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't
+display it.
+
+**Possible causes:** By default, all web pages that you
+access in the application preview tab of the AWS Cloud9 IDE automatically use the HTTPS
+protocol. If a page's URI features the insecure `http` protocol, it's
+automatically replaced by `https`. And you can't access the insecure content
+by manually changing `https` back to `http`.
+
+**Recommended solutions**: Remove the insecure HTTP
+scripts or content from the web site that you're trying to preview in the IDE. Follow
+instructions for your web server or content management system for guidance on
+implementing HTTPS.
+
+### Previewing a file returns a
+
+499 error
+
+**Issue:** When you try to use the AWS Cloud9 IDE to preview a
+file that contains a `<script>` element that contains the
+`src` attribute and with the `type` attribute set to
+`module`, a 499 error occurs and the script doesn't run as
+expected.
+
+**Cause:** File preview fetch requests in the AWS Cloud9 IDE
+require cookies to be sent by the web browser to authenticate. By default, web browsers
+send cookies for regular script requests. They don't send cookies for module script
+requests unless you add the `crossorigin` attribute.
+
+**Solution:** Add the `crossorigin` attribute to
+the `<script>` element. For example, `<script type="module"
+ src="index.js" crossorigin></script>`. Then, save the changed file,
+and try to preview it again.
+
+## Performance
+
+The following section outlines troubleshooting issues related to performance.
+
+### AWS Cloud9 IDE freezing for a significant
+
+amount of time
+
+**Issue:** During start-up, and when performing a refresh,
+the AWS Cloud9 IDE terminal freezes for a significant amount of time and becomes
+unusable.
+
+**Cause:** You might have a large amount of files in your
+environment that are being recursively watched by the file watching module of
+AWS Cloud9.
+
+**Recommended solutions:** You can decrease the file
+watching depth (the minimum value is 1) and consider adding large folders or folders not
+related to the source code (build outputs/artifacts, 3rd party packages) to the ignored
+patterns. To do this navigate to _Preferences > User Settings > File
+Watching_. Be aware that this will cause CodeLenses in AWS Toolkit to not
+work correctly.
+
+Another possible solution is to consider ignoring large files and folders that aren't
+related to the source code by decreasing the _Maximum number of files to
+search_. To do this navigate to _Preferences > Project Settings >
+Find in Files_. Be aware that this will cause folders that are ignored to
+not show up in a file search.
+
+### Console warning: "Switching to
+
+the minimal code completion engine..."
+
+**Issue:** When working in the AWS Cloud9 console (for
+example, when opening the IDE or refreshing the IDE's web page), you see this message:
+"One or more sessions or collaborators are active on this environment. Switching to the
+minimal code completion engine to conserve memory." In correlation with this message,
+the code-completion behavior might be slow or intermittent.
+
+**Cause:** Running the code-completion engine takes
+memory and CPU cycles from the environment. Additionally, a separate code-completion
+engine is required for each collaborator and each additional session. To avoid using too
+many resources, especially on small instance sizes such as t2.nano and
+t2.micro, AWS Cloud9 switches to the minimal code-completion engine.
+
+**Recommended solution:** If you plan to collaborate
+often and for long periods of time, choose a larger Amazon EC2 instance when creating your
+EC2 environment. Or, alternatively, connect your SSH environment to an instance with more
+capacity.
+
+###### Note
+
+Choosing a larger Amazon EC2 instance might cause your AWS account to incur
+additional charges. For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
+
+### IDE warning: "This environment is running
+
+low on memory" or "This environment has high CPU load"
+
+**Issue:** While the IDE is running, you see a message
+that contains the phrase "this environment is running low on memory" or "this environment has high
+CPU load."
+
+**Cause:** The IDE might not have enough compute
+resources available to continue running without delays or hangs.
+
+**Recommended solutions:**
+
+- Stop one or more running processes to free up available memory. To do this, on
+  the menu bar in the IDE for the environment, choose **Tools, Process
+  List**. For each process you want to stop, choose the process, and
+  then choose **Force Kill**.
+- Create a swap file in the environment. A _swap file_ is a file in
+  the environment that the operating system can use as virtual memory.
+
+To confirm that the environment is currently using swap memory, run the **`top`** command in a terminal session in the environment. If swap memory is being
+used, the output displays non-zero `Swap` memory statistics (for
+example, `Swap: 499996k total, 1280k used, 498716 free, 110672k
+ cached`). To stop showing real-time memory information, press `Ctrl +
+ C`.
+
+To create a swap file, run a command such as the following in the environment.
+
+```
+sudo fallocate --length 512MB /var/swapfile && sudo chmod 600 /var/swapfile && sudo mkswap /var/swapfile && echo '/var/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab > /dev/null
+```
+
+The preceding command does the following:
+
+    1. Creates a 512 MB file that's named `swapfile` in the
+     `/var` directory.
+    2. Changes access permissions for the `swapfile` file to
+     read-write for the owner only.
+    3. Sets up the `swapfile` file as a swap file.
+    4. Writes information to the `/etc/fstab file`. This
+     makes this swap file available whenever the system reboots.
+
+After you run the preceding command, to make this swap file available
+immediately, run the following command.
+
+```
+sudo swapon /var/swapfile
+```
+
+- Move or resize the environment to an instance or server with more compute resources.
+  To move or resize Amazon EC2 instances, see [Moving an AWS Cloud9 IDE
+  from
+  Amazon EBS volumes](move-environment.md "move-environment.md"). For other instance or server types, refer
+  to your instance's or server's documentation.
+
+### Unable to upload files in the AWS Cloud9 IDE
+
+**Issue:** Users are unable to upload a large file in the AWS Cloud9 IDE. These uploads are failing.
+
+**Cause:** AWS Cloud9 throttles the upload speed to the AWS Cloud9 IDE, and as a result the file upload request times out.
+
+**Recommended solution:** We recommend uploading the file to Amazon S3, and then use Amazon S3 to download the file to the
+environment with the CLI in the AWS Cloud9 IDE. For more information on uploading objects to Amazon S3,
+see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the _Amazon S3 User Guide_.
+
+### Slow download speed in AWS Cloud9 IDE
+
+**Issue:** Users are dealing with slow download speeds when
+attempting to download files from AWS Cloud9 IDE.
+
+**Cause:** When you download files from the IDE to the
+local file system the speed of transfer will be limited to a speed of 0.1
+megabyte/second.
+
+**Recommended solution:** To increase the speed of
+transferring files, use the CLI in your AWS Cloud9 IDE to upload files to Amazon S3 and then use
+Amazon S3 to download the files from there.
+
+### Can't preview web content in the IDE
+
+because the connection to the site isn't secure
+
+**Issue:** When you try to access web content such as a
+WordPress site that's hosted in an AWS Cloud9 EC2 environment, the IDE preview window can't
+display it.
+
+**Possible causes:** By default, all web pages that you
+access in the application preview tab of the AWS Cloud9 IDE automatically use the HTTPS
+protocol. If a page's URI features the insecure `http` protocol, it's
+automatically replaced by `https`. And you can't access the insecure content
+by manually changing `https` back to `http`.
+
+**Recommended solutions**: Remove the insecure HTTP
+scripts or content from the web site that you're trying to preview in the IDE. Follow
+instructions for your web server or content management system for guidance on
+implementing HTTPS.
+
+([back to top](troubleshooting.md "troubleshooting.md"))
+
+## Third party applications and
+
+services
+
+The following section outlines troubleshooting issues related to third party
+applications and services.
+
+### Can't interact with the terminal window in AWS Cloud9
+
+because of `tmux` session errors
+
+**Issue:** When you attempt to launch a new terminal
+window in AWS Cloud9, the expected command line interface isn't available. There's no command
+prompt and you can't enter text. Error messages such as `tmux: need UTF-8 locale
+ (LC_CTYPE)` and `invalid LC_ALL, LC_CTYPE or LANG` are
+returned.
+
+**Possible causes:** An unresponsive terminal might be
+caused by a tmux error. AWS Cloud9 uses the [tmux](https://en.wikipedia.org/wiki/Tmux "https://en.wikipedia.org/wiki/Tmux") utility. This way, information that's displayed in the terminal is
+persisted even when the page reloads or you reconnect to your development
+environment.
+
+In a `tmux` session, what's displayed in the terminal window is handled by
+a client. The client communicates to a server that can manage multiple sessions. The
+server and client communicate through a socket located in the `tmp`
+folder. If the `tmp` folder is missing from your development
+environment or overly restrictive permissions are applied to it, `tmux`
+sessions can't run. If this occurs, the terminal window in the IDE becomes
+unresponsive.
+
+**Recommended solutions**: If `tmux` errors
+are preventing you from interacting with the terminal window, use an alternative way to
+create a `tmp` folder with the right permissions. That way,
+`tmux` sessions can run. One solution is to export `LC_CTYPE`
+in `.bash_profile` or in the `.bashrc` file. Another
+recommended solution is to use AWS Systems Manager to set up a host management configuration. This
+allows access to the relevant instance through the Amazon EC2 console.
+
+**Setting up host management**
+
+1. First, in the AWS Cloud9 console, find the name of your environment's instance. You
+   can do so by choosing the relevant panel in the **Your
+   environments** page and choosing **View details**.
+   In the **Environment details** page, choose **Go to
+   Instance**. In the Amazon EC2 console, confirm the name of the instance
+   that you need to access.
+2. Now go to the AWS Systems Manager console, and in the navigation pane, choose
+   **Quick Setup**.
+3. In the **Quick Setup** page, choose
+   **Create**.
+4. For **Configuration types**, go to **Host
+   Management** and choose **Create**.
+5. For **Customize Host Management configuration options**, in
+   the **Targets** section, choose **Manual**.
+6. Select the EC2 instance that you want to access and then choose
+   **Create**.
+
+**Connecting to the instance and running
+commands**
+
+###### Note
+
+The following steps are for the new EC2 console.
+
+1. In the Amazon EC2 console, in the navigation pane, choose
+   **Instances** and select the instance that you want to connect
+   to.
+2. Choose **Connect**.
+
+If **Connect** isn't activated, you might need to start the
+instance first. 3. In the **Connect to your instance** pane, for
+**Connection method**, choose **Session
+Manager** and then choose **Connect**. 4. In the terminal session window that appears, enter the following commands.
+These commands create the `tmp` folder with the right
+permissions so that the tmux socket is available.
+
+```
+sudo mkdir /tmp
+sudo chmod 777 /tmp
+sudo rmdir /tmp/tmux-*
+```
+
+### Can't load IDE using earlier versions of
+
+Microsoft Edge browser
+
+**Issue:**
+`HTTP403: FORBIDDEN` error is returned when trying to load AWS Cloud9 IDE using
+the Microsoft Edge web browser.
+
+**Possible causes:** The AWS Cloud9 IDE doesn't support
+certain older versions of Microsoft Edge.
+
+**Recommended solutions:** To update the browser, choose
+the ellipsis (...) button in the Microsoft Edge toolbar. From the menu,
+choose **Settings** and then choose **About Microsoft
+Edge**. If an update is required, it's automatically downloaded
+and installed.
+
+### Error with `gdb`
+
+when debugging C++ projects
+
+**Issue:** Error reported for `gdb`
+debugger when trying to debug C++ project in the IDE.
+
+**Possible causes:** Suppose that your AWS Cloud9 environment uses
+certain EC2 instance types (for example, `t3.small` or
+`m5.large`). Then, a debug error might occur when you try to run
+and debug a C++ project using the IDE's built-in runner. This error can
+happen because the version of the `gdb` (the GNU Project Debugger)
+that's pre-installed for your environment doesn't work on certain processor platforms. You
+might see the following error code.
+
+```
+GDB server terminated with code 1
+```
+
+**Recommended solutions:** The problem with
+`gdb` not supporting certain processor platforms was fixed from
+version _3.0_ onwards. Uninstall the older version of the debugger
+and upgrade to a newer version of `gdb`:
+
+1. Remove the existing version of the debugger by running the following command in
+   the AWS Cloud9 terminal.
+
+```
+sudo yum -y remove gdb
+```
+
+2. Retrieve the archive for `gdb`, unpack it, and then navigate
+   to the directory that contains the extracted files by running the following
+   commands.
+
+```
+wget "http://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.gz"
+tar xzf gdb-8.3.tar.gz
+cd gdb-8.3
+```
+
+3. Build the debugger by running the following command. To do this, copy and paste
+   the following text as a single block and press **Return** to run `make`.
+
+```
+./configure --prefix=/usr \
+            --with-system-readline \
+            --with-python=/usr/bin/python3 &&
+make
+```
+
+4. Install the debugger.
+
+```
+sudo make -C gdb install
+```
+
+5. Confirm that the updated version of the debugger is installed.
+
+```
+ gdb `--version`
+```
+
+### Issues with PHP runner in AWS Cloud9
+
+**Issue:** Users are unable to view any output in the PHP
+CLI runner terminal.
+
+**Cause:** CLI runner needs to be set to PHP and the
+debugger mode needs to be enabled.
+
+**Recommended solution:** Set the CLI runner to PHP and
+ensure the debugger mode is enabled.
+
+### GLIBC errors related to Node.js
+
+**Issue:** Users are unable to run Node.js and are getting GLIBC errors. An example of these error messages is outlined below:
+
+```
+node: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by node)
+node: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by node)
+```
+
+**Cause:** Potentially it could be Node.js version issues related to the instance being used.
+
+**Recommended solution:** Refer to the [Step 1: Install required tools](sample-nodejs.md#sample-nodejs-install "sample-nodejs.md#sample-nodejs-install") section for information on how to install Node.js for AWS Cloud9.

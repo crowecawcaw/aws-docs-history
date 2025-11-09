@@ -250,30 +250,398 @@ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -Darchety
 The preceding command creates the following directory structure for the project in
 your environment.
 
-````
+```
 my-app
-|- src
-|   `- main
-|        `- java
-|             `- com
-|                 `- mycompany
-|                      `- app
-|                          `-App.java
-|- test
-|   `- java
-|        `- com
-|            `- mycompany
-|                 `- app
-|                     `- AppTest.java `- pom.xml ``` For more information about the preceding directory structure, see [Maven Quickstart Archetype](https://maven.apache.org/archetypes/maven-archetype-quickstart/ "https://maven.apache.org/archetypes/maven-archetype-quickstart/") and [Introduction to the Standard Directory Layout](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html "https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html") on the Apache Maven Project website. 5. Modify the Project Object Model (POM) file for the project. (A POM file defines a Maven project's settings.) To do this, from the **Environment** window, open the `my-app/pom.xml` file. In the editor, replace the file's current contents with the following code, and then save the `pom.xml` file. ``` <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> <modelVersion>4.0.0</modelVersion> <groupId>com.mycompany.app</groupId> <artifactId>my-app</artifactId> <packaging>jar</packaging> <version>1.0-SNAPSHOT</version> <build> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> <version>3.6.0</version> <configuration> <descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> <archive> <manifest> <mainClass>com.mycompany.app.App</mainClass> </manifest> </archive> </configuration> <executions> <execution> <phase>package</phase> <goals> <goal>single</goal> </goals> </execution> </executions> </plugin> </plugins> </build> <dependencies> <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> <version>3.8.1</version> <scope>test</scope> </dependency> <dependency> <groupId>com.amazonaws</groupId> <artifactId>aws-java-sdk</artifactId> <version>1.11.330</version> </dependency> </dependencies> </project> ``` The preceding POM file includes project settings that specify declarations such as the following: <br>• The `artifactid` setting of `my-app` sets the project's root directory name, and the `group-id` setting of `com.mycompany.app` sets the `com/mycompany/app` subdirectory structure and the `package` declaration in the `App.Java` and `AppTest.java` files. <br>• The `artifactId` setting of `my-app`, with the `packaging` setting of `jar`, the `version` setting of `1.0-SNAPSHOT`, and the `descriptorRef` setting of `jar-with-dependencies` set the output JAR file's name of `my-app-1.0-SNAPSHOT-jar-with-dependencies.jar`. <br>• The `plugin` section declares that a single JAR, which includes all dependencies, will be built. <br>• The `dependency` section with the `groupId` setting of `com.amazon.aws` and the `artifactId` setting of `aws-java-sdk` includes the AWS SDK for Java library files. The AWS SDK for Java version to use is declared by the `version` setting. To use a different version, replace this version number. Skip ahead to [Step 5: Set up AWS credentials management in your environment](#sample-java-sdk-creds "#sample-java-sdk-creds"). ### Set up with Gradle 1. Install Gradle in your environment. To see whether Gradle is already installed, using the terminal in the AWS Cloud9 IDE, run Gradle with the **`-version`** option. ``` gradle -version ``` If successful, the output contains the Gradle version number. If Gradle is already installed, skip ahead to step 4 in this procedure to use Gradle to generate a new Java project in your environment. 2. Install Gradle by using the terminal to run the following commands. These commands install and run the SDKMAN! tool, and then use SDKMAN! to install the latest version of Gradle. ``` curl -s "https://get.sdkman.io" | bash source "$HOME/.sdkman/bin/sdkman-init.sh" sdk install gradle ``` For more information about the preceding commands, see [Installation](https://sdkman.io/install "https://sdkman.io/install") on the SDKMAN! website and [Install with a package manager](https://gradle.org/install/#with-a-package-manager "https://gradle.org/install/#with-a-package-manager") on the Gradle website. 3. Confirm the installation by running Gradle with the **`-version`** option. ``` gradle -version ``` 4. Use Gradle to generate a new Java project in your environment. To do this, use the terminal to run the following commands to create a directory for the project, and then switch to that directory. ``` mkdir my-app cd my-app ``` 5. Run the following command to have Gradle generate a new Java application project in the `my-app` directory in your environment. ``` gradle init --type java-application ``` The preceding command creates the following directory structure for the project in your environment. ``` my-app
-|- .gradle
-|   `- (various supporting project folders and files)
-|- gradle
-|   `- (various supporting project folders and files)
-|- src
-|   |- main
-|   |    `- java
-|   |         `- App.java
-|   `- test |        `- java
-|             `- AppTest.java |- build.gradle
-|- gradlew |- gradlew.bat `- settings.gradle ``` 6. Modify the `AppTest.java` for the project. (If you do not do this, the project might not build or run as expected). To do this, from the **Environment** window, open the `my-app/src/test/java/AppTest.java` file. In the editor, replace the file's current contents with the following code, and then save the `AppTest.java` file. ``` import org.junit.Test; import static org.junit.Assert.*; public class AppTest { @Test public void testAppExists () { try { Class.forName("com.mycompany.app.App"); } catch (ClassNotFoundException e) { fail("Should have a class named App."); } } } ``` 7. Modify the `build.gradle` file for the project. (A `build.gradle` file defines a Gradle project's settings.) To do this, from the **Environment** window, open the `my-app/build.gradle` file. In the editor, replace the file's current contents with the following code, and then save the `build.gradle` file. ``` apply plugin: 'java' apply plugin: 'application' repositories { jcenter() mavenCentral() } buildscript { repositories { mavenCentral() } dependencies { classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE" } } apply plugin: "io.spring.dependency-management" dependencyManagement { imports { mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.330' } } dependencies { compile 'com.amazonaws:aws-java-sdk-s3' testCompile group: 'junit', name: 'junit', version: '4.12' } run { if (project.hasProperty("appArgs")) { args Eval.me(appArgs) } } mainClassName = 'App' ``` The preceding `build.gradle` file includes project settings that specify declarations such as the following: <br>• The `io.spring.dependency-management` plugin is used to import the AWS SDK for Java Maven Bill of Materials (BOM) to manage AWS SDK for Java dependencies for the project. `classpath` declares the version to use. To use a different version, replace this version number. <br>• `com.amazonaws:aws-java-sdk-s3` includes the Amazon S3 portion of the AWS SDK for Java library files. `mavenBom` declares the version to use. If you want to use a different version, replace this version number. ## Step 5: Set up AWS credentials management in your environment Each time you use the AWS SDK for Java to call an AWS service, you must provide a set of AWS credentials with the call. These credentials determine whether the AWS SDK for Java has the appropriate permissions to make that call. If the credentials don't cover the appropriate permissions, the call will fail. In this step, you store your credentials within the environment. To do this, follow the instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then return to this topic. For additional information, see [Set up AWS Credentials and Region for Development](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials") in the *AWS SDK for Java Developer Guide*. ## Step 6: Add AWS SDK code In this step, you add code to interact with Amazon S3 to create a bucket, list your available buckets, and then delete the bucket you just created. From the **Environment** window, open the `my-app/src/main/java/com/mycompany/app/App.java` file for Maven or the `my-app/src/main/java/App.java` file for Gradle. In the editor, replace the file's current contents with the following code, and then save the `App.java` file. ``` package com.mycompany.app; import com.amazonaws.auth.profile.ProfileCredentialsProvider; import com.amazonaws.services.s3.AmazonS3; import com.amazonaws.services.s3.AmazonS3ClientBuilder; import com.amazonaws.services.s3.model.AmazonS3Exception; import com.amazonaws.services.s3.model.Bucket; import com.amazonaws.services.s3.model.CreateBucketRequest; import java.util.List; public class App { private static AmazonS3 s3; public static void main(String[] args) { if (args.length < 2) { System.out.format("Usage: <the bucket name> <the AWS Region to use>\n" + "Example: my-test-bucket us-east-2\n"); return; } String bucket_name = args[0]; String region = args[1]; s3 = AmazonS3ClientBuilder.standard() .withCredentials(new ProfileCredentialsProvider()) .withRegion(region) .build(); // List current buckets. ListMyBuckets(); // Create the bucket. if (s3.doesBucketExistV2(bucket_name)) { System.out.format("\nCannot create the bucket. \n" + "A bucket named '%s' already exists.", bucket_name); return; } else { try { System.out.format("\nCreating a new bucket named '%s'...\n\n", bucket_name); s3.createBucket(new CreateBucketRequest(bucket_name, region)); } catch (AmazonS3Exception e) { System.err.println(e.getErrorMessage()); } } // Confirm that the bucket was created. ListMyBuckets(); // Delete the bucket. try { System.out.format("\nDeleting the bucket named '%s'...\n\n", bucket_name); s3.deleteBucket(bucket_name); } catch (AmazonS3Exception e) { System.err.println(e.getErrorMessage()); } // Confirm that the bucket was deleted. ListMyBuckets(); } private static void ListMyBuckets() { List<Bucket> buckets = s3.listBuckets(); System.out.println("My buckets now are:"); for (Bucket b : buckets) { System.out.println(b.getName()); } } } ``` ## Step 7: Build and run the AWS SDK code To run the code from the previous step, run the following commands from the terminal. These commands use Maven or Gradle to create an executable JAR file for the project, and then use the Java runner to run the JAR. The JAR runs with the name of the bucket to create in Amazon S3 (for example, `my-test-bucket`) and the ID of the AWS Region to create the bucket in as input (for example, `us-east-2`). For Maven, run the following commands. ``` cd my-app mvn package java -cp target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.mycompany.app.App my-test-bucket us-east-2 ``` For Gradle, run the following commands. ``` gradle build gradle run -PappArgs="['my-test-bucket', 'us-east-2']" ``` Compare your results to the following output. ``` My buckets now are: Creating a new bucket named 'my-test-bucket'... My buckets now are: my-test-bucket Deleting the bucket named 'my-test-bucket'... My buckets now are: ``` ## Step 8: Clean up To prevent ongoing charges to your AWS account after you're done using this sample, you should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").
-````
+  |- src
+  |   `- main
+  |        `- java
+  |             `- com
+  |                 `- mycompany
+  |                      `- app
+  |                          `-App.java
+  |- test
+  |   `- java
+  |        `- com
+  |            `- mycompany
+  |                 `- app
+  |                     `- AppTest.java
+  `- pom.xml
+```
+
+For more information about the preceding directory structure, see [Maven Quickstart
+Archetype](https://maven.apache.org/archetypes/maven-archetype-quickstart/ "https://maven.apache.org/archetypes/maven-archetype-quickstart/") and [Introduction to the Standard Directory Layout](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html "https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html") on the Apache Maven Project
+website. 5. Modify the Project Object Model (POM) file for the project. (A POM file defines a
+Maven project's settings.) To do this, from the **Environment** window,
+open the `my-app/pom.xml` file. In the editor, replace the file's
+current contents with the following code, and then save the `pom.xml`
+file.
+
+```
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>com.mycompany.app.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk</artifactId>
+      <version>1.11.330</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+The preceding POM file includes project settings that specify declarations such as
+the following:
+
+    * The `artifactid` setting of `my-app` sets the project's
+     root directory name, and the `group-id` setting of
+     `com.mycompany.app` sets the `com/mycompany/app`
+     subdirectory structure and the `package` declaration in the
+     `App.Java` and `AppTest.java` files.
+    * The `artifactId` setting of `my-app`, with the
+     `packaging` setting of `jar`, the `version`
+     setting of `1.0-SNAPSHOT`, and the `descriptorRef` setting of
+     `jar-with-dependencies` set the output JAR file's name of
+     `my-app-1.0-SNAPSHOT-jar-with-dependencies.jar`.
+    * The `plugin` section declares that a single JAR, which includes all
+     dependencies, will be built.
+    * The `dependency` section with the `groupId` setting of
+     `com.amazon.aws` and the `artifactId` setting of
+     `aws-java-sdk` includes the AWS SDK for Java library files. The AWS SDK for Java
+     version to use is declared by the `version` setting. To use a different
+     version, replace this version number.
+
+Skip ahead to [Step 5: Set up AWS credentials management in your
+environment](#sample-java-sdk-creds "#sample-java-sdk-creds").
+
+### Set up with Gradle
+
+1. Install Gradle in your environment. To see whether Gradle is already installed, using the
+   terminal in the AWS Cloud9 IDE, run Gradle with the **`-version`** option.
+
+```
+gradle -version
+```
+
+If successful, the output contains the Gradle version number. If Gradle is already
+installed, skip ahead to step 4 in this procedure to use Gradle to generate a new Java
+project in your environment. 2. Install Gradle by using the terminal to run the following commands. These commands
+install and run the SDKMAN! tool, and then use SDKMAN! to install the latest version of
+Gradle.
+
+```
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk install gradle
+```
+
+For more information about the preceding commands, see [Installation](https://sdkman.io/install "https://sdkman.io/install") on the SDKMAN! website and [Install with a package
+manager](https://gradle.org/install/#with-a-package-manager "https://gradle.org/install/#with-a-package-manager") on the Gradle website. 3. Confirm the installation by running Gradle with the **`-version`** option.
+
+```
+gradle -version
+```
+
+4. Use Gradle to generate a new Java project in your environment. To do this, use the
+   terminal to run the following commands to create a directory for the project, and then
+   switch to that directory.
+
+```
+mkdir my-app
+cd my-app
+```
+
+5. Run the following command to have Gradle generate a new Java application project in
+   the `my-app` directory in your environment.
+
+```
+gradle init --type java-application
+```
+
+The preceding command creates the following directory structure for the project in
+your environment.
+
+```
+my-app
+  |- .gradle
+  |   `- (various supporting project folders and files)
+  |- gradle
+  |   `- (various supporting project folders and files)
+  |- src
+  |   |- main
+  |   |    `- java
+  |   |         `- App.java
+  |   `- test
+  |        `- java
+  |             `- AppTest.java
+  |- build.gradle
+  |- gradlew
+  |- gradlew.bat
+  `- settings.gradle
+```
+
+6. Modify the `AppTest.java` for the project. (If you do not do
+   this, the project might not build or run as expected). To do this, from the
+   **Environment** window, open the
+   `my-app/src/test/java/AppTest.java` file. In the editor, replace
+   the file's current contents with the following code, and then save the
+   `AppTest.java` file.
+
+```
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class AppTest {
+  @Test public void testAppExists () {
+    try {
+      Class.forName("com.mycompany.app.App");
+    } catch (ClassNotFoundException e) {
+      fail("Should have a class named App.");
+    }
+  }
+}
+```
+
+7. Modify the `build.gradle` file for the project. (A
+   `build.gradle` file defines a Gradle project's settings.) To do
+   this, from the **Environment** window, open the
+   `my-app/build.gradle` file. In the editor, replace the file's
+   current contents with the following code, and then save the
+   `build.gradle` file.
+
+```
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+  }
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement {
+  imports {
+    mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.330'
+  }
+}
+
+dependencies {
+  compile 'com.amazonaws:aws-java-sdk-s3'
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run {
+  if (project.hasProperty("appArgs")) {
+    args Eval.me(appArgs)
+  }
+}
+
+mainClassName = 'App'
+```
+
+The preceding `build.gradle` file includes project settings that
+specify declarations such as the following:
+
+    * The `io.spring.dependency-management` plugin is used to import the
+     AWS SDK for Java Maven Bill of Materials (BOM) to manage AWS SDK for Java dependencies for the
+     project. `classpath` declares the version to use. To use a different
+     version, replace this version number.
+    * `com.amazonaws:aws-java-sdk-s3` includes the Amazon S3 portion of the
+     AWS SDK for Java library files. `mavenBom` declares the version to use. If you
+     want to use a different version, replace this version number.
+
+## Step 5: Set up AWS credentials management in your
+
+environment
+
+Each time you use the AWS SDK for Java to call an AWS service, you must provide a set of AWS
+credentials with the call. These credentials determine whether the AWS SDK for Java has the
+appropriate permissions to make that call. If the credentials don't cover the appropriate
+permissions, the call will fail.
+
+In this step, you store your credentials within the environment. To do this, follow the
+instructions in [Calling AWS services from an environment in AWS Cloud9](credentials.md "credentials.md"), and then return to
+this topic.
+
+For additional information, see [Set up
+AWS Credentials and Region for Development](../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials "../../../sdk-for-java/latest/developer-guide/setup.md#setup-credentials") in the
+_AWS SDK for Java Developer Guide_.
+
+## Step 6: Add AWS SDK code
+
+In this step, you add code to interact with Amazon S3 to create a bucket, list your available
+buckets, and then delete the bucket you just created.
+
+From the **Environment** window, open the
+`my-app/src/main/java/com/mycompany/app/App.java` file for Maven or the
+`my-app/src/main/java/App.java` file for Gradle. In the editor, replace
+the file's current contents with the following code, and then save the
+`App.java` file.
+
+```
+package com.mycompany.app;
+
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
+import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.CreateBucketRequest;
+
+import java.util.List;
+
+public class App {
+
+    private static AmazonS3 s3;
+
+    public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.format("Usage: <the bucket name> <the AWS Region to use>\n" +
+                    "Example: my-test-bucket us-east-2\n");
+            return;
+        }
+
+        String bucket_name = args[0];
+        String region = args[1];
+
+        s3 = AmazonS3ClientBuilder.standard()
+                .withCredentials(new ProfileCredentialsProvider())
+                .withRegion(region)
+                .build();
+
+        // List current buckets.
+        ListMyBuckets();
+
+        // Create the bucket.
+        if (s3.doesBucketExistV2(bucket_name)) {
+            System.out.format("\nCannot create the bucket. \n" +
+                    "A bucket named '%s' already exists.", bucket_name);
+            return;
+        } else {
+            try {
+                System.out.format("\nCreating a new bucket named '%s'...\n\n", bucket_name);
+                s3.createBucket(new CreateBucketRequest(bucket_name, region));
+            } catch (AmazonS3Exception e) {
+                System.err.println(e.getErrorMessage());
+            }
+        }
+
+        // Confirm that the bucket was created.
+        ListMyBuckets();
+
+        // Delete the bucket.
+        try {
+            System.out.format("\nDeleting the bucket named '%s'...\n\n", bucket_name);
+            s3.deleteBucket(bucket_name);
+        } catch (AmazonS3Exception e) {
+            System.err.println(e.getErrorMessage());
+        }
+
+        // Confirm that the bucket was deleted.
+        ListMyBuckets();
+
+    }
+
+    private static void ListMyBuckets() {
+        List<Bucket> buckets = s3.listBuckets();
+        System.out.println("My buckets now are:");
+
+        for (Bucket b : buckets) {
+            System.out.println(b.getName());
+        }
+    }
+
+}
+
+```
+
+## Step 7: Build and run the AWS SDK code
+
+To run the code from the previous step, run the following commands from the terminal.
+These commands use Maven or Gradle to create an executable JAR file for the project, and then
+use the Java runner to run the JAR. The JAR runs with the name of the bucket to create in Amazon S3
+(for example, `my-test-bucket`) and the ID of the AWS Region to create the bucket
+in as input (for example, `us-east-2`).
+
+For Maven, run the following commands.
+
+```
+cd my-app
+mvn package
+java -cp target/my-app-1.0-SNAPSHOT-jar-with-dependencies.jar com.mycompany.app.App my-test-bucket us-east-2
+```
+
+For Gradle, run the following commands.
+
+```
+gradle build
+gradle run -PappArgs="['my-test-bucket', 'us-east-2']"
+```
+
+Compare your results to the following output.
+
+```
+My buckets now are:
+
+Creating a new bucket named 'my-test-bucket'...
+
+My buckets now are:
+
+my-test-bucket
+
+Deleting the bucket named 'my-test-bucket'...
+
+My buckets now are:
+```
+
+## Step 8: Clean up
+
+To prevent ongoing charges to your AWS account after you're done using this sample, you
+should delete the environment. For instructions, see [Deleting an environment in AWS Cloud9](delete-environment.md "delete-environment.md").

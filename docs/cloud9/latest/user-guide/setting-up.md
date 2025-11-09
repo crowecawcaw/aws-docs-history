@@ -6,8 +6,17 @@ AWS Cloud9 can continue to use the service as normal.
 
 To start using AWS Cloud9, follow one of these sets of procedures, depending on how you plan to use AWS Cloud9.
 
-| **Usage pattern**                                                                             | **Follow these procedures**                                   |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| I am the only **individual** using my AWS account, and I am _not_ a student.                  | [Individual User Setup](setup-express.md "setup-express.md")  |
-| I belong to a **team** that has multiple users within a single AWS account.                   | [Team Setup](setup.md "setup.md")                             |
-| I belong to an **enterprise** that has one or more AWS accounts within a single organization. | [Enterprise Setup](setup-enterprise.md "setup-enterprise.md") | For general information about AWS Cloud9, see [What Is AWS Cloud9?](welcome.md "welcome.md"). ###### Topics <br>• [Individual user setup](setup-express.md "setup-express.md") <br>• [Team setup](setup.md "setup.md") <br>• [Enterprise setup](setup-enterprise.md "setup-enterprise.md") <br>• [Additional setup options (team and enterprise)](setup-teams.md "setup-teams.md") |
+| **Usage pattern**                                                                                  | **Follow these procedures**                                   |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| I am the only \*_individual_<br>• using my AWS account, and I am \*not<br>• a student.             | [Individual User Setup](setup-express.md "setup-express.md")  |
+| I belong to a \*_team_<br>• that has multiple users within a single AWS account.                   | [Team Setup](setup.md "setup.md")                             |
+| I belong to an \*_enterprise_<br>• that has one or more AWS accounts within a single organization. | [Enterprise Setup](setup-enterprise.md "setup-enterprise.md") |
+
+For general information about AWS Cloud9, see [What Is AWS Cloud9?](welcome.md "welcome.md").
+
+###### Topics
+
+- [Individual user setup](setup-express.md "setup-express.md")
+- [Team setup](setup.md "setup.md")
+- [Enterprise setup](setup-enterprise.md "setup-enterprise.md")
+- [Additional setup options (team and enterprise)](setup-teams.md "setup-teams.md")

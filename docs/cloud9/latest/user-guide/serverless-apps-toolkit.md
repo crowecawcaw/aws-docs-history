@@ -194,7 +194,300 @@ the source code that can be directly invoked.
 The Lambda handlers that are detected by context-aware links depend on the language
 and runtime you're using for your application.
 
-| Language/runtime                          | Conditions for Lambda functions to be identified by context-aware links                                                                                                                    |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JavaScript (Node.js 10.x, 12.x, and 14.x) | The function has the following features: <br>• It's an exported function with up to three parameters. <br>• It has a `package.json` file in its parent folder within the workspace folder. |
-| Python (3.7, 3.8, 3.9, and 3.10)          | The function has the following features: <br>• It's a top-level function. <br>• It has a `requirements.txt` file in its parent folder within the workspace folder.                         | ### To run and debug a serverless application directly from the application code 1. To view your serverless application files, navigate to the application folder by choosing the folder icon next to the editor. 2. From the application folder (for example, _my-sample-app_), expand the function folder (in this example, _hello-world_) and open the `app.js` file. 3. In the inline action that identifies an eligible Lambda handler function, choose `Add Debug Configuration`. If the add debug configuration option doesn't appear, you must enable code lenses. To enable code lenses, see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") . ![Access the Add Debug Configuration option in the inline action for a Lambda function handler.](images/direct_invoke_config.png) 4. Select the runtime where your SAM application runs. 5. In the editor for the `launch.json` file, edit or confirm values for the following configuration properties: <br>• `"name"` – Enter a reader-friendly name. <br>• `"target"` – Ensure that the value is `"code"` so that a Lambda function handler is directly invoked. <br>• `"lambdaHandler"` – Enter the name of the method within your code that Lambda calls to invoke your function. For example, for applications in JavaScript, the default is `app.lambdaHandler`. <br>• `"projectRoot"` – Enter the path to the application file that contains the Lambda function. <br>• `"runtime"` – Enter or confirm a valid runtime for the Lambda execution environment (for example, `"nodejs.12x"`). <br>• `"payload"` – Choose one of the following options to define the event payload that you want to provide to your Lambda function as input: + `"json"`: JSON-formatted key-value pairs that define the event payload. + `"path"`: A path to the file that's used as the event payload. 6. If you're satisfied with the debug configuration, choose the green play arrow next to **RUN** to start debugging. When the debugging sessions starts, the **DEBUG CONSOLE** panel shows debugging output and displays any values that are returned by the Lambda function. When debugging SAM applications, **AWS Toolkit** is selected as the **Output** channel in the **Output** panel. ###### Note If you see Docker mentioned in error messages, see this [note](#docker-problem "#docker-problem"). ### Running and debugging local Amazon API Gateway resources You can run or debug AWS SAM API Gateway local resources that are specified in `template.yaml`. Do so by running an AWS Cloud9 launch configuration of `type=aws-sam` with the `invokeTarget.target=api`. ###### Note API Gateway supports two types of APIs. They are REST and HTTP APIs. However, the API Gateway feature with the AWS Toolkit only supports REST APIs. Sometimes HTTP APIs are called "API Gateway V2 APIs." ###### To run and debug local API Gateway resources 1. Choose one of the following approaches to create a launch config for an AWS SAM API Gateway resource: <br>• **Option 1**: Visit the handler source code (specifically, a .js, .cs, or .py file) in your AWS SAM project, hover over the Lambda handler, and choose **Add Debug Configuration** If the add debug configuration option doesn't appear, enable code lenses. To enable code lenses, see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") .). Then, in the menu, choose the item marked API Event. <br>• **Option 2** Edit `launch.json` and create a new launch configuration using the following syntax. `{ "type": "aws-sam", "request": "direct-invoke", "name": "myConfig", "invokeTarget": { "target": "api", "templatePath": "n12/template.yaml", "logicalId": "HelloWorldFunction" }, "api": { "path": "/hello", "httpMethod": "post", "payload": { "json": {} } }, "sam": {}, "aws": {} }` 2. In the dropdown menu next to the **Run** button, choose the launch configuration (named `myConfig` in the preceding example). 3. (Optional) Add breakpoints to your Lambda project code. 4. Choose the **Run** button beside the green **"play" button**. 5. In the output pane, view the results. #### Configuration When you use the `invokeTarget.target` property value `api`, the Toolkit changes the launch configuration validation and behavior to support an `api` field. `{ "type": "aws-sam", "request": "direct-invoke", "name": "myConfig", "invokeTarget": { "target": "api", "templatePath": "n12/template.yaml", "logicalId": "HelloWorldFunction" }, "api": { "path": "/hello", "httpMethod": "post", "payload": { "json": {} }, "querystring": "abc=def&qrs=tuv", "headers": { "cookie": "name=value; name2=value2; name3=value3" } }, "sam": {}, "aws": {} }` Replace the values in the example as follows: **invokeTarget.logicalId** An API resource. **path** The API path that the launch config requests (for example, `"path": "/hello"`). Must be a valid API path resolved from the `template.yaml` that's specified by `invokeTarget.templatePath`. **httpMethod** Use one of the following verbs: "delete," "get," "head," "options," "patch," "post," and "put." **payload** The JSON payload (HTTP body) to send in the request with the same structure and rules as the lambda.payload field. `payload.path` points to a file that contains the JSON payload. `payload.json` specifies a JSON payload inline. **headers** Optional map of name-value pairs. Use it to specify HTTP headers to include in the request. `"headers": { "accept-encoding": "deflate, gzip;q=1.0, *;q=0.5", "accept-language": "fr-CH, fr;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5", "cookie": "name=value; name2=value2; name3=value3", "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36", }` **querystring** (Optional) Use this string to set the `querystring` of the request (for example, `"querystring": "abc=def&ghi=jkl"`). **aws** How AWS connection information is provided. For more information, see the **AWS connection (`aws`) properties** table in [Configuration options for debugging serverless applications](sam-debug-config-ref.md "sam-debug-config-ref.md"). **sam** How the AWS SAM CLI builds the application. For more information, see the **AWS SAM CLI ("`sam`") properties** in [Configuration options for debugging serverless applications](sam-debug-config-ref.md "sam-debug-config-ref.md"). ## Syncing a serverless application This example shows how to sync the serverless application that was created in the previous topic ([Creating a serverless application](#sam-create "#sam-create")) to AWS using the AWS Toolkit for Visual Studio Code. ### Prerequisites <br>• Make sure to choose a globally unique Amazon S3 bucket name. <br>• Ensure that the credentials you configured in include the appropriate read/write access to the following services: Amazon S3, AWS CloudFormation, AWS Lambda, and Amazon API Gateway. <br>• For applications with deployment type `Image`, make sure that you have both a globally unique Amazon S3 bucket name and an Amazon ECR repository URI to use for the deployment. ### Syncing a serverless application 1. In the **AWS Explorer** window, open the context (right-click) menu for the **Lambda** node and select **Sync SAM Application**. 2. Choose the AWS Region to deploy to. 3. Choose the `template.yaml` file to use for the deployment. 4. Enter the name of an Amazon S3 bucket that this deployment can use. The bucket must be in the Region that you're deploying to. ###### Warning The Amazon S3 bucket name must be globally unique across all existing bucket names in Amazon S3. Add a unique identifier to the name given in the following example or choose another name. 5. If your serverless application includes a function with package type `Image`, enter the name of an Amazon ECR repository that this deployment can use. The repository must be in the Region that you're deploying to. 6. Enter a name for the deployed stack, either a new stack name or an existing stack name. 7. Verify the success of the deployment on the **AWS Toolkit** tab of the **Console**. If an error occurs, a message pops up in the lower right. If this happens, check the text in the **AWS Toolkit** tab for details. The following is an example of error details. `Error with child process: Unable to upload artifact HelloWorldFunction referenced by CodeUri parameter of HelloWorldFunction resource. S3 Bucket does not exist. Execute the command to create a new bucket aws s3 mb s3://pbart-my-sam-app-bucket An error occurred while deploying a SAM Application. Check the logs for more information by running the "View AWS Toolkit Logs" command from the Command Palette.` In this example, the error occurred because the Amazon S3 bucket didn't exist. When the deployment is complete, you'll see your application that's listed in the **AWS Explorer**. To learn how to invoke the Lambda function that was created as part of the application, see [Invoking remote Lambda functions](lambda-toolkit.md#remote-lambda "lambda-toolkit.md#remote-lambda"). ## Deleting a serverless application from the AWS Cloud Deleting a serverless application involves deleting the AWS CloudFormation stack that you previously deployed to the AWS Cloud. Note that this procedure does not delete your application directory from your local host. 1. Open the **AWS Explorer**. 2. In the **AWS Explorer** window, expand the Region containing the deployed application that you want to delete, and then expand **AWS CloudFormation**. 3. Open the context (right-click) menu for the name of the AWS CloudFormation stack that corresponds to the serverless application that you want to delete. Then, choose **Delete CloudFormation Stack**. 4. To confirm that you want to delete the selected stack, choose **Delete**. If the stack deletion succeeds, the AWS Toolkit removes the stack name from the AWS CloudFormation list in **AWS Explorer**. |
+| Language/runtime                          | Conditions for Lambda functions to be identified by context-aware<br>links                                                                                                                     |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JavaScript (Node.js 10.x, 12.x, and 14.x) | The function has the following features:<br>• It's an exported function with up to three<br>parameters.<br>• It has a `package.json` file in its<br>parent folder within the workspace folder. |
+| Python (3.7, 3.8, 3.9, and 3.10)          | The function has the following features:<br>• It's a top-level function.<br>• It has a `requirements.txt` file in<br>its parent folder within the workspace folder.                            |
+
+### To run and debug a serverless application
+
+directly from the application code
+
+1. To view your serverless application files, navigate to the application
+   folder by choosing the folder icon next to the editor.
+2. From the application folder (for example,
+   _my-sample-app_), expand the function folder (in this
+   example, _hello-world_) and open the
+   `app.js` file.
+3. In the inline action that identifies an eligible Lambda handler function,
+   choose `Add Debug Configuration`. If the add debug configuration
+   option doesn't appear, you must enable code lenses. To enable code lenses,
+   see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") .
+
+![Access the Add Debug Configuration option in the inline action for a Lambda function handler.](images/direct_invoke_config.png) 4. Select the runtime where your SAM application runs. 5. In the editor for the `launch.json` file, edit or
+confirm values for the following configuration properties:
+
+    * `"name"` – Enter a reader-friendly name.
+    * `"target"` – Ensure that the value is
+     `"code"` so that a Lambda function handler is directly
+     invoked.
+    * `"lambdaHandler"` – Enter the name of the method
+     within your code that Lambda calls to invoke your function. For
+     example, for applications in JavaScript, the default is
+     `app.lambdaHandler`.
+    * `"projectRoot"` – Enter the path to the
+     application file that contains the Lambda function.
+    * `"runtime"` – Enter or confirm a valid runtime
+     for the Lambda execution environment (for example,
+     `"nodejs.12x"`).
+    * `"payload"` – Choose one of the following
+     options to define the event payload that you want to provide to your
+     Lambda function as input:
+
+
+
+
+    	+ `"json"`: JSON-formatted key-value pairs that
+    	 define the event payload.
+    	+ `"path"`: A path to the file that's used as the
+    	 event payload.
+
+6. If you're satisfied with the debug configuration, choose the green play
+   arrow next to **RUN** to start debugging.
+
+When the debugging sessions starts, the **DEBUG CONSOLE**
+panel shows debugging output and displays any values that are returned by
+the Lambda function. When debugging SAM applications, **AWS
+Toolkit** is selected as the **Output**
+channel in the **Output** panel.
+
+###### Note
+
+If you see Docker mentioned in error messages, see this [note](#docker-problem "#docker-problem").
+
+### Running and debugging local Amazon API Gateway
+
+resources
+
+You can run or debug AWS SAM API Gateway local resources that are specified in
+`template.yaml`. Do so by running an AWS Cloud9 launch configuration of
+`type=aws-sam` with the `invokeTarget.target=api`.
+
+###### Note
+
+API Gateway supports two types of APIs. They are REST and HTTP APIs. However, the
+API Gateway feature with the AWS Toolkit only supports REST APIs. Sometimes HTTP APIs
+are called "API Gateway V2 APIs."
+
+###### To run and debug local API Gateway resources
+
+1. Choose one of the following approaches to create a launch config for an
+   AWS SAM API Gateway resource:
+   - **Option 1**: Visit the handler
+     source code (specifically, a .js, .cs, or .py file) in your AWS SAM
+     project, hover over the Lambda handler, and choose **Add
+     Debug Configuration** If the add debug configuration
+     option doesn't appear, enable code lenses. To enable code lenses,
+     see [Enabling AWS Toolkit code lenses](enable-code-lenses.md "enable-code-lenses.md") .). Then, in the menu,
+     choose the item marked API Event.
+   - **Option 2** Edit
+     `launch.json` and create a new launch configuration
+     using the following syntax.
+
+   ```
+   {
+       "type": "aws-sam",
+       "request": "direct-invoke",
+       "name": "myConfig",
+       "invokeTarget": {
+           "target": "api",
+           "templatePath": "n12/template.yaml",
+           "logicalId": "HelloWorldFunction"
+       },
+       "api": {
+           "path": "/hello",
+           "httpMethod": "post",
+           "payload": {
+               "json": {}
+           }
+       },
+       "sam": {},
+       "aws": {}
+   }
+
+   ```
+
+2. In the dropdown menu next to the **Run** button, choose
+   the launch configuration (named `myConfig` in the preceding
+   example).
+3. (Optional) Add breakpoints to your Lambda project code.
+4. Choose the **Run** button beside the green
+   **"play" button**.
+5. In the output pane, view the results.
+
+#### Configuration
+
+When you use the `invokeTarget.target` property value
+`api`, the Toolkit changes the launch configuration validation
+and behavior to support an `api` field.
+
+```
+{
+    "type": "aws-sam",
+    "request": "direct-invoke",
+    "name": "myConfig",
+    "invokeTarget": {
+        "target": "api",
+        "templatePath": "n12/template.yaml",
+        "logicalId": "HelloWorldFunction"
+    },
+    "api": {
+        "path": "/hello",
+        "httpMethod": "post",
+        "payload": {
+            "json": {}
+        },
+        "querystring": "abc=def&qrs=tuv",
+        "headers": {
+            "cookie": "name=value; name2=value2; name3=value3"
+        }
+    },
+    "sam": {},
+    "aws": {}
+}
+
+```
+
+Replace the values in the example as follows:
+
+**invokeTarget.logicalId**
+
+An API resource.
+
+**path**
+
+The API path that the launch config requests (for example,
+`"path": "/hello"`).
+
+Must be a valid API path resolved from the
+`template.yaml` that's specified by
+`invokeTarget.templatePath`.
+
+**httpMethod**
+
+Use one of the following verbs: "delete," "get," "head,"
+"options," "patch," "post," and "put."
+
+**payload**
+
+The JSON payload (HTTP body) to send in the request with the same
+structure and rules as the lambda.payload field.
+
+`payload.path` points to a file that contains the JSON
+payload.
+
+`payload.json` specifies a JSON payload inline.
+
+**headers**
+
+Optional map of name-value pairs. Use it to specify HTTP headers
+to include in the request.
+
+```
+
+"headers": {
+     "accept-encoding": "deflate, gzip;q=1.0, *;q=0.5",
+     "accept-language": "fr-CH, fr;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5",
+     "cookie": "name=value; name2=value2; name3=value3",
+     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36",
+}
+
+```
+
+**querystring**
+
+(Optional) Use this string to set the `querystring` of
+the request (for example, `"querystring":
+ "abc=def&ghi=jkl"`).
+
+**aws**
+
+How AWS connection information is provided. For more
+information, see the **AWS connection (`aws`)
+properties** table in [Configuration options for debugging serverless
+applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
+
+**sam**
+
+How the AWS SAM CLI builds the application. For more information,
+see the **AWS SAM CLI ("`sam`")
+properties** in [Configuration options for debugging serverless
+applications](sam-debug-config-ref.md "sam-debug-config-ref.md").
+
+## Syncing a serverless application
+
+This example shows how to sync the serverless application that was created in the
+previous topic ([Creating a serverless application](#sam-create "#sam-create")) to AWS
+using the AWS Toolkit for Visual Studio Code.
+
+### Prerequisites
+
+- Make sure to choose a globally unique Amazon S3 bucket name.
+- Ensure that the credentials you configured in include the appropriate
+  read/write access to the following services: Amazon S3, AWS CloudFormation, AWS Lambda, and
+  Amazon API Gateway.
+- For applications with deployment type `Image`, make sure that
+  you have both a globally unique Amazon S3 bucket name and an Amazon ECR repository URI
+  to use for the deployment.
+
+### Syncing a serverless application
+
+1. In the **AWS Explorer** window, open the context
+   (right-click) menu for the **Lambda** node and select
+   **Sync SAM Application**.
+2. Choose the AWS Region to deploy to.
+3. Choose the `template.yaml` file to use for the
+   deployment.
+4. Enter the name of an Amazon S3 bucket that this deployment can use. The bucket
+   must be in the Region that you're deploying to.
+
+###### Warning
+
+The Amazon S3 bucket name must be globally unique across all existing
+bucket names in Amazon S3. Add a unique identifier to the name given in the
+following example or choose another name. 5. If your serverless application includes a function with package type
+`Image`, enter the name of an Amazon ECR repository that this
+deployment can use. The repository must be in the Region that you're
+deploying to. 6. Enter a name for the deployed stack, either a new stack name or an
+existing stack name. 7. Verify the success of the deployment on the **AWS
+Toolkit** tab of the **Console**.
+
+If an error occurs, a message pops up in the lower right.
+
+If this happens, check the text in the **AWS Toolkit**
+tab for details. The following is an example of error details.
+
+```
+Error with child process: Unable to upload artifact HelloWorldFunction referenced by CodeUri parameter of HelloWorldFunction resource.
+S3 Bucket does not exist. Execute the command to create a new bucket
+aws s3 mb s3://pbart-my-sam-app-bucket
+An error occurred while deploying a SAM Application. Check the logs for more information by running the "View AWS Toolkit Logs" command from the Command Palette.
+```
+
+In this example, the error occurred because the Amazon S3 bucket didn't
+exist.
+
+When the deployment is complete, you'll see your application that's listed in the
+**AWS Explorer**. To learn how to invoke the Lambda function
+that was created as part of the application, see [Invoking remote Lambda functions](lambda-toolkit.md#remote-lambda "lambda-toolkit.md#remote-lambda").
+
+## Deleting a serverless application from the AWS
+
+Cloud
+
+Deleting a serverless application involves deleting the AWS CloudFormation stack that you
+previously deployed to the AWS Cloud. Note that this procedure does not delete your
+application directory from your local host.
+
+1. Open the **AWS Explorer**.
+2. In the **AWS Explorer** window, expand the Region
+   containing the deployed application that you want to delete, and then expand
+   **AWS CloudFormation**.
+3. Open the context (right-click) menu for the name of the AWS CloudFormation stack that
+   corresponds to the serverless application that you want to delete. Then, choose
+   **Delete CloudFormation Stack**.
+4. To confirm that you want to delete the selected stack, choose
+   **Delete**.
+
+If the stack deletion succeeds, the AWS Toolkit removes the stack name from the AWS CloudFormation
+list in **AWS Explorer**.

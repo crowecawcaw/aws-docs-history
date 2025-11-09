@@ -71,7 +71,7 @@ current file and `$args` with any arguments entered after the file name. For mor
   The following table shows the variables you can use.
 
 | **Variable**         | **Description**                                                                                                               |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `$file_path`         | The directory of the current file, for example, `/home/ec2-user/environment` or `/home/ubuntu/environment`.                   |
 | `$file`              | The full path to the current file, for example, `/home/ec2-user/environment/hello.py` or `/home/ubuntu/environment/hello.py`. |
 | `$args`              | Any arguments entered after the file name, for example, `"5" "9"`.                                                            |
@@ -88,4 +88,39 @@ current file and `$args` with any arguments entered after the file name. For mor
 | `$hostname_path`     | The hostname of the environment with the relative path to the project file, for example, `https://192.0.2.0/hello.js`.        |
 | `$url`               | The full URL to access the environment, for example, `https://192.0.2.0.`.                                                    |
 | `$port`              | The port assigned to the environment, for example, `8080`.                                                                    |
-| `$ip`                | The IP address to run a process against the environment, for example, `0.0.0.0`.                                              | As an example, the following builder file named `G++.build` defines a builder for GCC that runs the **`g++`** command with the `-o` option to compile the current file (for example, `hello.cpp`) into an object module. Then it links the object module into a program with the same name as the current file (for example, `hello`). Here the equivalent command is `g++ -o hello hello.cpp`. `{ "cmd": [ "g++", "-o", "$file_base_name", "$file_name" ], "info": "Compiling $file_name and linking to $file_base_name...", "selector": "source.cpp" }` As another example, the following runner file named `Python.run` defines a runner that uses Python to run the current file with any arguments that were provided. For example, if the current file is named `hello.py` and the arguments `5` and `9` were provided, the equivalent command is `python hello.py 5 9`. `{ "cmd": [ "python", "$file_name", "$args" ], "info": "Running $file_name...", "selector": "source.py" }` Finally, the following runner file named `Print Run Variables.run` defines a runner that simply outputs the value of each available variable and then stops. `{ "info": "file_path = $file_path, file = $file, args = $args, file_name = $file_name, file_extension = $file_extension, file_base_name = $file_base_name, packages = $packages, project = $project, project_path = $project_path, project_name = $project_name, project_extension = $project_extension, project_base_name = $project_base_name, hostname = $hostname, hostname_path = $hostname_path, url = $url, port = $port, ip = $ip" }` |
+| `$ip`                | The IP address to run a process against the environment, for example, `0.0.0.0`.                                              |
+
+As an example, the following builder file named `G++.build` defines a builder for GCC that runs
+the **`g++`** command with the
+`-o` option to compile the current file (for example, `hello.cpp`) into an object module.
+Then it links the object module into a program
+with the same name as the current file (for example, `hello`). Here the equivalent command is `g++
+-o hello hello.cpp`.
+
+```
+{
+  "cmd": [ "g++", "-o", "$file_base_name", "$file_name" ],
+  "info": "Compiling $file_name and linking to $file_base_name...",
+  "selector": "source.cpp"
+}
+```
+
+As another example, the following runner file named `Python.run` defines a runner that uses Python to run the current file with
+any arguments that were provided. For example, if the current file is named `hello.py` and the arguments `5` and `9` were provided, the
+equivalent command is `python hello.py 5 9`.
+
+```
+{
+  "cmd": [ "python", "$file_name", "$args" ],
+  "info": "Running $file_name...",
+  "selector": "source.py"
+}
+```
+
+Finally, the following runner file named `Print Run Variables.run` defines a runner that simply outputs the value of each available variable and then stops.
+
+```
+{
+  "info": "file_path = $file_path, file = $file, args = $args, file_name = $file_name, file_extension = $file_extension, file_base_name = $file_base_name, packages = $packages, project = $project, project_path = $project_path, project_name = $project_name, project_extension = $project_extension, project_base_name = $project_base_name, hostname = $hostname, hostname_path = $hostname_path, url = $url, port = $port, ip = $ip"
+}
+```

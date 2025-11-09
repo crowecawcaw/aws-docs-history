@@ -179,7 +179,158 @@ IDE.
 Complete one of the following sets of procedures based on your type of
 AWS Cloud9 development environment.
 
-| **Environment type** | **Follow these procedures**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| EC2 environment      | 1. From a terminal session in the IDE, run the following two commands: `git config --global credential.helper '!aws codecommit credential-helper $@' git config --global credential.UseHttpPath true` For more information, see [Step 2: Configure the AWS CLI Credential Helper On Your AWS Cloud9 EC2 Development Environment](../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials "../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials") in _Integrate AWS Cloud9 with AWS CodeCommit_ in the _AWS CodeCommit User Guide_. 2. Skip ahead to [Step 4: Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in this topic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| SSH environment      | 1. If Git isn't already installed in the environment, use a terminal session in the IDE to install it. For more information, see [Step 2: Install Git](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in _Setup Steps for SSH Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix_ in the _AWS CodeCommit User Guide_. 2. Complete [Step 3: Configure Credentials on Linux, macOS, or Unix](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in _Setup Steps for SSH Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix_ in the _AWS CodeCommit User Guide_. When you're instructed to sign in to the AWS Management Console and open the IAM console, we recommend you sign in using credentials for an administrator user in your AWS account. If you cannot do this, check with your AWS account administrator. 3. Skip ahead to [Step 4: Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in this topic. | ## Step 4: Clone the remote repository into your environment In this step, you use the AWS Cloud9 IDE to clone the remote repository in CodeCommit into your environment. To clone the repository, run the **`git clone`** command. Replace `*CLONE\_URL*` with the repository's clone URL. `git clone CLONE_URL` For an EC2 environment, you supply an HTTPS clone URL that starts with `https://`. For an SSH environment, you supply an SSH clone URL that starts with `ssh://`. To get the repository's full clone URL, see [Use the AWS CodeCommit Console to View Repository Details](../../../codecommit/latest/userguide/how-to-view-repository-details.md#how-to-view-repository-details-console "../../../codecommit/latest/userguide/how-to-view-repository-details.md#how-to-view-repository-details-console") in the _AWS CodeCommit User Guide_. If your repository doesn't have any files in it, a warning message is displayed, such as `You appear to have cloned an empty repository.` This is expected. You will address later. ## Step 5: Add files to the repository In this step, you create three simple files in the cloned repository in your AWS Cloud9 environment. Next, you add the files to the Git staging area in your cloned repository. Last, you commit the staged files and push the commit to your remote repository in CodeCommit. If the cloned repository already has files in it, you're done and can skip the rest of this sample. ###### To add files to the repository 1. Create a new file. On the menu bar, choose **File**, **New File**. 2. Enter the following content into the file, and then choose **File**, **Save** to save the file as `bird.txt` in the `MyDemoCloud9Repo` directory in your AWS Cloud9 environment. `bird.txt -------- Birds are a group of endothermic vertebrates, characterized by feathers, toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic rate, a four-chambered heart, and a lightweight but strong skeleton.` ###### Note To confirm that you're saving this file in the correct directory, in the **Save As** dialog box, choose the `MyDemoCloud9Repo` folder. Then, make sure **Folder** displays `/MyDemoCloud9Repo`. 3. Create two more files, named `insect.txt` and `reptile.txt`, with the following content. Save the files in the same `MyDemoCloud9Repo` directory. `insect.txt ---------- Insects are a class of invertebrates within the arthropod phylum that have a chitinous exoskeleton, a three-part body (head, thorax, and abdomen), three pairs of jointed legs, compound eyes, and one pair of antennae.` `reptile.txt ----------- Reptiles are tetrapod (four-limbed vertebrate) animals in the class Reptilia, comprising today's turtles, crocodilians, snakes, amphisbaenians, lizards, tuatara, and their extinct relatives.` 4. In the terminal, run the **`cd`** command to switch to the `MyDemoCloud9Repo` directory. `cd MyDemoCloud9Repo` 5. Confirm that the files were successfully saved in the `MyDemoCloud9Repo` directory by running the **`git status`** command. All three files will be listed as untracked files. `Untracked files: (use "git add <file>..." to include in what will be committed) bird.txt insect.txt reptile.txt` 6. Add the files to the Git staging area by running the **`git add`** command. `git add --all` 7. Confirm that the files were successfully added to the Git staging area by running the **`git status`** command again. All three files are now listed as changes to commit. `Changes to be committed: (use "git rm --cached <file>..." to unstage) new file:   bird.txt new file:   insect.txt new file:   reptile.txt` 8. Commit the staged files by running the **`git commit`** command. `git commit -m "Added information about birds, insects, and reptiles."` 9. Push the commit to your remote repository in CodeCommit by running the **`git push`** command. `git push -u origin master` 10. Confirm whether the files were successfully pushed. Open the CodeCommit console, if it isn't already open, at [https://console.aws.amazon.com/codecommit](https://console.aws.amazon.com/codecommit "https://console.aws.amazon.com/codecommit"). 11. In the top navigation bar, near the right edge, choose the AWS Region where you created the repository (for example, **US East (Ohio)**). 12. On the **Dashboard** page, choose **MyDemoCloud9Repo**. The three files are displayed. To continue experimenting with your CodeCommit repository, see [Browse the Contents of Your Repository](../../../codecommit/latest/userguide/getting-started-cc.md#getting-started-cc-browse "../../../codecommit/latest/userguide/getting-started-cc.md#getting-started-cc-browse") in the _AWS CodeCommit User Guide_. If you're new to Git and you don't want to mess up your CodeCommit repository, experiment with a sample Git repository on the [Try Git](https://try.github.io/ "https://try.github.io/") website. ## Step 6: Clean up To prevent ongoing charges to your AWS account after you're done using this sample, delete the CodeCommit repository. For instructions, see [Delete an AWS CodeCommit Repository](../../../codecommit/latest/userguide/how-to-delete-repository.md "../../../codecommit/latest/userguide/how-to-delete-repository.md") in the _AWS CodeCommit User Guide_. Make sure also to delete the environment. For instructions, see [Deleting an Environment](delete-environment.md "delete-environment.md"). |
+| **Environment type** | **Follow these procedures**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EC2 environment      | 1. From a terminal session in the IDE, run the following two<br>commands:<br>`<br>git config --global credential.helper '!aws codecommit credential-helper $@'<br>git config --global credential.UseHttpPath true<br>`<br>For more information, see [Step 2: Configure the AWS CLI Credential Helper On Your AWS Cloud9<br>EC2 Development Environment](../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials "../../../codecommit/latest/userguide/setting-up-ide-c9.md#setting-up-ide-c9-credentials") in *Integrate AWS Cloud9 with AWS CodeCommit<br>• in the<br>*AWS CodeCommit User Guide\*.<br>2. Skip ahead to [Step 4:<br>Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in<br>this topic.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| SSH environment      | 1. If Git isn't already installed in the environment, use a<br>terminal session in the IDE to install it. For more information, see<br>[Step 2: Install Git](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in *Setup<br>Steps for SSH Connections to AWS CodeCommit Repositories on Linux,<br>macOS, or Unix<br>• in the<br>*AWS CodeCommit User Guide*.<br>2. Complete [Step 3: Configure Credentials on Linux, macOS, or Unix](../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git "../../../codecommit/latest/userguide/setting-up-ssh-unixes.md#setting-up-ssh-unixes-install-git") in<br>*Setup Steps for SSH Connections to AWS CodeCommit Repositories on Linux, macOS, or Unix<br>• in the<br>_AWS CodeCommit User Guide_.<br>When you're instructed to sign in to the AWS Management Console and open the<br>IAM console, we recommend you sign in using credentials for an<br>administrator user in your AWS account. If you cannot do this, check<br>with your AWS account administrator.<br>3. Skip ahead to [Step 4:<br>Clone the Remote Repository into Your Environment](#sample-codecommit-clone-repo "#sample-codecommit-clone-repo") later in<br>this topic. |
+
+## Step 4: Clone the remote repository into
+
+your environment
+
+In this step, you use the AWS Cloud9 IDE to clone the remote repository in CodeCommit into your
+environment.
+
+To clone the repository, run the **`git clone`**
+command. Replace `*CLONE\_URL*` with the repository's clone
+URL.
+
+```
+git clone CLONE_URL
+```
+
+For an EC2 environment, you supply an HTTPS clone URL that starts with `https://`.
+For an SSH environment, you supply an SSH clone URL that starts with `ssh://`.
+
+To get the repository's full clone URL, see [Use the AWS CodeCommit Console to View Repository Details](../../../codecommit/latest/userguide/how-to-view-repository-details.md#how-to-view-repository-details-console "../../../codecommit/latest/userguide/how-to-view-repository-details.md#how-to-view-repository-details-console") in the
+_AWS CodeCommit User Guide_.
+
+If your repository doesn't have any files in it, a warning message is displayed, such as
+`You appear to have cloned an empty repository.` This is expected. You will
+address later.
+
+## Step 5: Add files to the repository
+
+In this step, you create three simple files in the cloned repository in your AWS Cloud9
+environment. Next, you add the files to the Git staging area in your cloned
+repository. Last, you commit the staged files and push the commit to your remote repository
+in CodeCommit.
+
+If the cloned repository already has files in it, you're done and can skip the rest of
+this sample.
+
+###### To add files to the repository
+
+1. Create a new file. On the menu bar, choose **File**,
+   **New File**.
+2. Enter the following content into the file, and then choose
+   **File**, **Save** to save the file as
+   `bird.txt` in the `MyDemoCloud9Repo`
+   directory in your AWS Cloud9 environment.
+
+```
+bird.txt
+--------
+Birds are a group of endothermic vertebrates, characterized by feathers,
+toothless beaked jaws, the laying of hard-shelled eggs, a high metabolic
+rate, a four-chambered heart, and a lightweight but strong skeleton.
+```
+
+###### Note
+
+To confirm that you're saving this file in the correct directory, in the
+**Save As** dialog box, choose the
+`MyDemoCloud9Repo` folder. Then, make sure
+**Folder** displays
+`/MyDemoCloud9Repo`. 3. Create two more files, named `insect.txt` and
+`reptile.txt`, with the following content. Save the files in
+the same `MyDemoCloud9Repo` directory.
+
+```
+insect.txt
+----------
+Insects are a class of invertebrates within the arthropod phylum that
+have a chitinous exoskeleton, a three-part body (head, thorax, and abdomen),
+three pairs of jointed legs, compound eyes, and one pair of antennae.
+```
+
+```
+reptile.txt
+-----------
+Reptiles are tetrapod (four-limbed vertebrate) animals in the class
+Reptilia, comprising today's turtles, crocodilians, snakes,
+amphisbaenians, lizards, tuatara, and their extinct relatives.
+```
+
+4. In the terminal, run the **`cd`** command
+   to switch to the `MyDemoCloud9Repo` directory.
+
+```
+cd MyDemoCloud9Repo
+```
+
+5. Confirm that the files were successfully saved in the
+   `MyDemoCloud9Repo` directory by running the **`git status`** command. All three files will be listed as
+   untracked files.
+
+```
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        bird.txt
+        insect.txt
+        reptile.txt
+```
+
+6. Add the files to the Git staging area by running the **`git add`** command.
+
+```
+git add --all
+```
+
+7. Confirm that the files were successfully added to the Git staging area by running
+   the **`git status`** command again. All three
+   files are now listed as changes to commit.
+
+```
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   bird.txt
+        new file:   insect.txt
+        new file:   reptile.txt
+```
+
+8. Commit the staged files by running the **`git
+commit`** command.
+
+```
+git commit -m "Added information about birds, insects, and reptiles."
+```
+
+9. Push the commit to your remote repository in CodeCommit by running the **`git push`** command.
+
+```
+git push -u origin master
+```
+
+10. Confirm whether the files were successfully pushed. Open the CodeCommit console, if it
+    isn't already open, at [https://console.aws.amazon.com/codecommit](https://console.aws.amazon.com/codecommit "https://console.aws.amazon.com/codecommit").
+11. In the top navigation bar, near the right edge, choose the AWS Region where you
+    created the repository (for example, **US East (Ohio)**).
+12. On the **Dashboard** page, choose
+    **MyDemoCloud9Repo**. The three files are displayed.
+
+To continue experimenting with your CodeCommit repository, see [Browse the Contents of Your Repository](../../../codecommit/latest/userguide/getting-started-cc.md#getting-started-cc-browse "../../../codecommit/latest/userguide/getting-started-cc.md#getting-started-cc-browse") in the
+_AWS CodeCommit User Guide_.
+
+If you're new to Git and you don't want to mess up your CodeCommit repository,
+experiment with a sample Git repository on the [Try Git](https://try.github.io/ "https://try.github.io/") website.
+
+## Step 6: Clean up
+
+To prevent ongoing charges to your AWS account after you're done using this sample,
+delete the CodeCommit repository. For instructions, see [Delete
+an AWS CodeCommit Repository](../../../codecommit/latest/userguide/how-to-delete-repository.md "../../../codecommit/latest/userguide/how-to-delete-repository.md") in the _AWS CodeCommit User Guide_.
+
+Make sure also to delete the environment. For instructions, see [Deleting an Environment](delete-environment.md "delete-environment.md").

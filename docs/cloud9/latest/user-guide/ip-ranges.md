@@ -71,8 +71,8 @@ Middle East (Bahrain). The following table lists the IP ranges for those Regions
 Each Region has two IP address ranges to support the AWS Cloud9 control plane (information
 routing) and data plane (information processing) services.
 
-| AWS Region               | Code         | IP ranges (CIDR notation)             |
-| ------------------------ | ------------ | ------------------------------------- |
-| Asia Pacific (Hong Kong) | `ap-east1`   | `18.163.201.96/27` `18.163.139.32/27` |
-| Europe (Milan)           | `eu-south-1` | `15.161.135.64/27` `15.161.135.96/27` |
-| Middle East (Bahrain)    | `me-south-1` | `15.185.141.160/27` `15.185.91.32/27` |
+| AWS Region               | Code         | IP ranges (CIDR notation)                |
+| ------------------------ | ------------ | ---------------------------------------- |
+| Asia Pacific (Hong Kong) | `ap-east1`   | `18.163.201.96/27`<br>`18.163.139.32/27` |
+| Europe (Milan)           | `eu-south-1` | `15.161.135.64/27`<br>`15.161.135.96/27` |
+| Middle East (Bahrain)    | `me-south-1` | `15.185.141.160/27`<br>`15.185.91.32/27` |

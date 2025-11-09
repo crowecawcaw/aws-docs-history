@@ -133,10 +133,11 @@ in the _IAM User Guide_.
 
 ## Next steps
 
-| **Task for learning**                                                                                                    | **Topic**                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| Learn how to use the AWS Cloud9 IDE.                                                                                     | [Getting started: basic tutorials](tutorials-basic.md "tutorials-basic.md") and [Working with the IDE](ide.md "ide.md") |
-| **More advanced tasks**                                                                                                  | **Topics**                                                                                                              |
-| ---                                                                                                                      | ---                                                                                                                     |
-| Create an AWS Cloud9 development environment, and then use the AWS Cloud9 IDE to work with code in your new environment. | [Creating an Environment](create-environment.md "create-environment.md")                                                |
-| Invite others to use your new environment along with you in real time and with text chat support.                        | [Working with Shared Environments](share-environment.md "share-environment.md")                                         |
+| **Task for learning**                | **Topic**                                                                                                                  |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| Learn how to use the AWS Cloud9 IDE. | [Getting started: basic<br>tutorials](tutorials-basic.md "tutorials-basic.md") and [Working with the IDE](ide.md "ide.md") |
+
+| **More advanced tasks**                                                                                                  | **Topics**                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Create an AWS Cloud9 development environment, and then use the AWS Cloud9 IDE to work with code in your new environment. | [Creating an Environment](create-environment.md "create-environment.md")        |
+| Invite others to use your new environment along with you in real time and with<br>text chat support.                     | [Working with Shared Environments](share-environment.md "share-environment.md") |

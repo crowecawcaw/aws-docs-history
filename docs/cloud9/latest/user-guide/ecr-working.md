@@ -193,8 +193,179 @@ authenticate Docker with your registry:
 2. Use the **get-login-password** method to authenticate to
    your private ECR registry and enter your region and AWS account ID.
 
-````
+```
 aws ecr get-login-password \
     --region <`region`> \
-| docker login \ --username AWS \ --password-stdin <`aws_account_id`>.dkr.ecr.<region>.amazonaws.com ``` ###### Important In the preceding command, replace `region` and the `AWS_account_id` with information that's specific to your AWS account. A valid `region` value is *us-east-1*. ###### Tagging and pushing an image to your repository After you authenticated Docker with your instance of AWS, push an image to your repository. 1. Use the **docker images** command to view the images that you stored locally and identify the one you want to tag. ``` docker images ``` The output is as follows. ``` REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE hello-world         latest              e9ffedc8c286        4 minutes ago       241MB ``` 2. Tag your image with the **Docker tag** command. ``` docker tag hello-world:latest `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest ``` 3. Push the tagged image to your repository with the **Docker push** command. ###### Important Make sure that name of your local repository is the same as your AWS Amazon EC2 repository. In this example, both repositories must be called `hello-world`. For more information about pushing images with docker, see [Pushing a Docker image](../../../AmazonECR/latest/userguide/docker-push-ecr-image.md "../../../AmazonECR/latest/userguide/docker-push-ecr-image.md"). ``` docker push `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest ``` The output is as follows. ``` The push refers to a repository [`AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world] (len: 1) e9ae3c220b23: Pushed a6785352b25c: Pushed 0998bf8fb9e9: Pushed 0a85502c06c9: Pushed latest: digest: sha256:215d7e4121b30157d8839e81c4e0912606fca105775bb0636b95aed25f52c89b size: 6774 ``` After your tagged image is successfully uploaded to your repository, refresh the AWS Toolkit by choosing **Refresh Explorer** from the AWS Explorer tab. It's then visible in the AWS Explorer menu in AWS Cloud9 IDE. ###### Pulling an image from Amazon ECR <br>• You can pull an image to your local instance of **Docker tag** command. ``` docker pull `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest ``` The output is as follows. ``` azonaws.com/hello-world:latest latest: Pulling from hello-world Digest: sha256:e02c521fd65eae4ef1acb746883df48de85d55fc85a4172a09a124b11b339f5e Status: Image is up to date for 922327013870.dkr.ecr.us-west-2.amazonaws.com/hello-world.latest ``` ###### Deleting an image from your Amazon ECR repository There are two methods for deleting an image from AWS Cloud9 IDE. The first method is to use the AWS Explorer. 1. From the AWS Explorer, expand the **ECR** menu. 2. Expand the repository that you want to delete an image from. 3. Open the context (right-click) menu for the image tag that's associated with the image that you want to delete. 4. To delete all the stored images that are associated with that tag, choose **Delete Tag...**. ###### Deleting an image using the AWS CLI <br>• You can also delete an image from your repository with the **AWS ecr batch-delete-image** command. ``` aws ecr batch-delete-image \ --repository-name `hello-world` \ --image-ids imageTag=latest ``` The output is as follows. ``` { "failures": [], "imageIds": [ { "imageTag": "latest", "imageDigest": "sha256:215d7e4121b30157d8839e81c4e0912606fca105775bb0636b95aed25f52c89b" } ] } ``` ###### Deleting a repository from your Amazon ECR instance There are two methods for deleting a repository from AWS Cloud9 IDE. The first method is to use the AWS Explorer: 1. From the AWS Explorer, expand the **ECR** menu. 2. Open the context (right-click) menu for the repository that you want to delete. 3. Choose **Delete Repository...**. ###### Deleting an Amazon ECR repository from the AWS CLI <br>• You can delete a repository with the **AWS ecr delete-repository** command. ###### Note You normally can't delete a repository without first deleting the images that are contained in it. However, if you add the **--force** flag, you can delete a repository and all of its images in one step. ``` aws ecr delete-repository \ --repository-name `hello-world` \ --force ``` The output is as follows. ``` --repository-name hello-world --force { "repository": { "repositoryUri": "922327013870.dkr.ecr.us-west-2.amazonaws.com/hello-world", "registryId": "922327013870", "imageTagMutability": "MUTABLE", "repositoryArn": "arn:aws:ecr:us-west-2:922327013870:repository/hello-world", "repositoryName": "hello-world", "createdAt": 1664469874.0 } } ```
-````
+| docker login \
+    --username AWS \
+    --password-stdin <`aws_account_id`>.dkr.ecr.<region>.amazonaws.com
+```
+
+###### Important
+
+In the preceding command, replace `region` and the
+`AWS_account_id` with information that's specific to your
+AWS account. A valid `region` value is
+_us-east-1_.
+
+###### Tagging and pushing an image to your repository
+
+After you authenticated Docker with your instance of AWS, push an image to your
+repository.
+
+1. Use the **docker images** command to view the images that
+   you stored locally and identify the one you want to tag.
+
+```
+docker images
+```
+
+The output is as follows.
+
+```
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              e9ffedc8c286        4 minutes ago       241MB
+
+```
+
+2. Tag your image with the **Docker tag** command.
+
+```
+docker tag hello-world:latest `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest
+```
+
+3. Push the tagged image to your repository with the **Docker
+   push** command.
+
+###### Important
+
+Make sure that name of your local repository is the same as your AWS Amazon EC2
+repository. In this example, both repositories must be called
+`hello-world`. For more information about pushing images with
+docker, see [Pushing a Docker image](../../../AmazonECR/latest/userguide/docker-push-ecr-image.md "../../../AmazonECR/latest/userguide/docker-push-ecr-image.md").
+
+```
+docker push `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest
+```
+
+The output is as follows.
+
+```
+
+The push refers to a repository [`AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world] (len: 1)
+e9ae3c220b23: Pushed
+a6785352b25c: Pushed
+0998bf8fb9e9: Pushed
+0a85502c06c9: Pushed
+latest: digest: sha256:215d7e4121b30157d8839e81c4e0912606fca105775bb0636b95aed25f52c89b size: 6774
+
+```
+
+After your tagged image is successfully uploaded to your repository, refresh the
+AWS Toolkit by choosing **Refresh Explorer** from the AWS Explorer tab.
+It's then visible in the AWS Explorer menu in AWS Cloud9 IDE.
+
+###### Pulling an image from Amazon ECR
+
+- You can pull an image to your local instance of **Docker
+  tag** command.
+
+```
+docker pull `AWS_account_id`.dkr.ecr.`region`.amazonaws.com/hello-world:latest
+```
+
+The output is as follows.
+
+```
+
+azonaws.com/hello-world:latest
+latest: Pulling from hello-world
+Digest: sha256:e02c521fd65eae4ef1acb746883df48de85d55fc85a4172a09a124b11b339f5e
+Status: Image is up to date for 922327013870.dkr.ecr.us-west-2.amazonaws.com/hello-world.latest
+
+```
+
+###### Deleting an image from your Amazon ECR repository
+
+There are two methods for deleting an image from AWS Cloud9 IDE. The first method is to use
+the AWS Explorer.
+
+1. From the AWS Explorer, expand the **ECR** menu.
+2. Expand the repository that you want to delete an image from.
+3. Open the context (right-click) menu for the image tag that's associated with the image
+   that you want to delete.
+4. To delete all the stored images that are associated with that tag, choose **Delete Tag...**.
+
+###### Deleting an image using the AWS CLI
+
+- You can also delete an image from your repository with the **AWS
+  ecr batch-delete-image** command.
+
+```
+aws ecr batch-delete-image \
+      --repository-name `hello-world` \
+      --image-ids imageTag=latest
+
+```
+
+The output is as follows.
+
+```
+
+{
+    "failures": [],
+    "imageIds": [
+        {
+            "imageTag": "latest",
+            "imageDigest": "sha256:215d7e4121b30157d8839e81c4e0912606fca105775bb0636b95aed25f52c89b"
+        }
+    ]
+}
+
+```
+
+###### Deleting a repository from your Amazon ECR instance
+
+There are two methods for deleting a repository from AWS Cloud9 IDE. The first method is to
+use the AWS Explorer:
+
+1. From the AWS Explorer, expand the **ECR** menu.
+2. Open the context (right-click) menu for the repository that you want to delete.
+3. Choose **Delete Repository...**.
+
+###### Deleting an Amazon ECR repository from the AWS CLI
+
+- You can delete a repository with the **AWS ecr
+  delete-repository** command.
+
+###### Note
+
+You normally can't delete a repository without first deleting the images that are
+contained in it. However, if you add the **--force** flag,
+you can delete a repository and all of its images in one step.
+
+```
+
+        aws ecr delete-repository \
+      --repository-name `hello-world` \
+      --force
+
+```
+
+The output is as follows.
+
+```
+--repository-name hello-world --force
+{
+    "repository": {
+        "repositoryUri": "922327013870.dkr.ecr.us-west-2.amazonaws.com/hello-world",
+        "registryId": "922327013870",
+        "imageTagMutability": "MUTABLE",
+        "repositoryArn": "arn:aws:ecr:us-west-2:922327013870:repository/hello-world",
+        "repositoryName": "hello-world",
+        "createdAt": 1664469874.0
+    }
+}
+
+```

@@ -151,8 +151,8 @@ Replace `123456789012` with the AWS account ID. And replace
 
 ## Next steps
 
-| **Task**                                                                                                                 | **See this topic**                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| Create an AWS Cloud9 development environment, and then use the AWS Cloud9 IDE to work with code in your new environment. | [Creating an environment](create-environment.md "create-environment.md")                                                |
-| Learn how to use the AWS Cloud9 IDE.                                                                                     | [Getting started: basic tutorials](tutorials-basic.md "tutorials-basic.md") and [Working with the IDE](ide.md "ide.md") |
-| Invite others to use your new environment along with you in real time and with text chat support.                        | [Working with Shared Environments](share-environment.md "share-environment.md")                                         |
+| **Task**                                                                                                                    | **See this topic**                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Create an AWS Cloud9 development environment, and then use the AWS Cloud9 IDE to work with code in your new<br>environment. | [Creating an environment](create-environment.md "create-environment.md")                                                   |
+| Learn how to use the AWS Cloud9 IDE.                                                                                        | [Getting started: basic<br>tutorials](tutorials-basic.md "tutorials-basic.md") and [Working with the IDE](ide.md "ide.md") |
+| Invite others to use your new environment along with you in real time and with text<br>chat support.                        | [Working with Shared Environments](share-environment.md "share-environment.md")                                            |
