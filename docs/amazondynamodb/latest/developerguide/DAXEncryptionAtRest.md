@@ -28,8 +28,45 @@ cluster is shut down. Customer-specified AWS KMS keys are not supported.
 
 DAX encryption at rest is available for the following cluster node types.
 
-| Family                            | Node type                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Memory-optimized (R4, R5, and R7) | dax.r4.large dax.r4.xlarge dax.r4.2xlarge dax.r4.4xlarge dax.r4.8xlarge dax.r4.16xlarge dax.r5.large dax.r5.xlarge dax.r5.2xlarge dax.r5.4xlarge dax.r5.8xlarge dax.r5.12xlarge dax.r5.16xlarge dax.r5.24xlarge dax.r7i.large dax.r7i.xlarge dax.r7i.2xlarge dax.r7i.4xlarge dax.r7i.8xlarge dax.r7i.12xlarge dax.r7i.16xlarge dax.r7i.24xlarge |
-| General purpose (T2)              | dax.t2.small dax.t2.medium                                                                                                                                                                                                                                                                                                                      |
-| General purpose (T3)              | dax.t3.small dax.t3.medium                                                                                                                                                                                                                                                                                                                      | ###### Important DAX encryption at rest is not supported for `dax.r3.*` node types. You cannot enable or disable encryption at rest after a cluster has been created. You must re-create the cluster to enable encryption at rest if it was not enabled at creation. DAX encryption at rest is offered at no additional cost (AWS KMS encryption key usage charges apply). For information about pricing, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing"). ## Enabling encryption at rest using the AWS Management Console Follow these steps to enable DAX encryption at rest on a table using the console. ###### To enable DAX encryption at rest 1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/"). 2. In the navigation pane on the left side of the console, under **DAX**, choose **Clusters**. 3. Choose **Create cluster**. 4. For **Cluster name**, enter a short name for your cluster. Choose the **node type** for all of the nodes in the cluster, and for the cluster size, use `3` nodes. 5. In **Encryption**, make sure that **Enable encryption** is selected. ![Screenshot of cluster settings in the console showing the enable encryption setting.](images/dax_encrypt.PNG) 6. After choosing the IAM role, subnet group, security groups, and cluster settings, choose **Launch cluster**. To confirm that the cluster is encrypted, check the cluster details under the **Clusters** pane. Encryption should be **ENABLED**. |
+| Family                            | Node type                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Memory-optimized (R4, R5, and R7) | dax.r4.large<br>dax.r4.xlarge<br>dax.r4.2xlarge<br>dax.r4.4xlarge<br>dax.r4.8xlarge<br>dax.r4.16xlarge<br>dax.r5.large<br>dax.r5.xlarge<br>dax.r5.2xlarge<br>dax.r5.4xlarge<br>dax.r5.8xlarge<br>dax.r5.12xlarge<br>dax.r5.16xlarge<br>dax.r5.24xlarge<br>dax.r7i.large<br>dax.r7i.xlarge<br>dax.r7i.2xlarge<br>dax.r7i.4xlarge<br>dax.r7i.8xlarge<br>dax.r7i.12xlarge<br>dax.r7i.16xlarge<br>dax.r7i.24xlarge |
+| General purpose (T2)              | dax.t2.small<br>dax.t2.medium                                                                                                                                                                                                                                                                                                                                                                                  |
+| General purpose (T3)              | dax.t3.small<br>dax.t3.medium                                                                                                                                                                                                                                                                                                                                                                                  |
+
+###### Important
+
+DAX encryption at rest is not supported for `dax.r3.*` node types.
+
+You cannot enable or disable encryption at rest after a cluster has been created. You must
+re-create the cluster to enable encryption at rest if it was not enabled at creation.
+
+DAX encryption at rest is offered at no additional cost (AWS KMS encryption key usage
+charges apply). For information about pricing, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing").
+
+## Enabling encryption at rest using the
+
+AWS Management Console
+
+Follow these steps to enable DAX encryption at rest on a table using the
+console.
+
+###### To enable DAX encryption at rest
+
+1. Sign in to the AWS Management Console and open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane on the left side of the console, under
+   **DAX**, choose **Clusters**.
+3. Choose **Create cluster**.
+4. For **Cluster name**, enter a short name for your cluster.
+   Choose the **node type** for all of the nodes in the cluster,
+   and for the cluster size, use `3` nodes.
+5. In **Encryption**, make sure that **Enable
+   encryption** is selected.
+
+![Screenshot of cluster settings in the console showing the enable encryption setting.](images/dax_encrypt.PNG) 6. After choosing the IAM role, subnet group, security groups, and cluster
+settings, choose **Launch cluster**.
+
+To confirm that the cluster is encrypted, check the cluster details under the
+**Clusters** pane. Encryption should be
+**ENABLED**.

@@ -1,21 +1,31 @@
-# Use PartiQL functions with DynamoDB
+# Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB
 
-PartiQL in Amazon DynamoDB supports the following built-in variants of SQL standard
-functions.
+Returns `TRUE` if the attribute at the specified path is of a particular
+data type.
 
-###### Note
+## Syntax
 
-Any SQL functions that are not included in this list are not currently supported in
-DynamoDB.
+```
+attribute_type( `attributename`, `type` )
+```
 
-## Aggregate functions
+## Arguments
 
-- [Using the SIZE function with PartiQL for amazon DynamoDB](ql-functions.md "ql-functions.md")
+`attributename`
 
-## Conditional functions
+(Required) The attribute name to use.
 
-- [Using the EXISTS function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the ATTRIBUTE_TYPE function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the BEGINS_WITH function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the CONTAINS function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
-- [Using the MISSING function with PartiQL for DynamoDB](ql-functions.md "ql-functions.md")
+`type`
+
+(Required) The attribute type to check for. For a list of valid
+values, see DynamoDB [attribute_type](Expressions.md#Expressions.OperatorsAndFunctions.Functions "Expressions.md#Expressions.OperatorsAndFunctions.Functions").
+
+## Return type
+
+`bool`
+
+## Examples
+
+```
+SELECT * FROM "Music" WHERE attribute_type("Artist", 'S')
+```

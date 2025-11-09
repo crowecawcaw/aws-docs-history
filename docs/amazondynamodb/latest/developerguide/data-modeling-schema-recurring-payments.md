@@ -133,11 +133,51 @@ All access patterns and how the schema design addresses them are summarized in t
 table below:
 
 | Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value               |
-| ------------------------- | ------------------ | ---------- | ------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ------------------ | ---------- | ------------------- | ---------------------------- |
 | createSubscription        | Base table         | PutItem    | ACC#account_id      | SUB#<SUBID>#SKU<SKUID>       |
 | createReceipt             | Base table         | PutItem    | ACC#account_id      | REC#<RecieptDate>#SKU<SKUID> |
 | updateSubscription        | Base table         | UpdateItem | ACC#account_id      | SUB#<SUBID>#SKU<SKUID>       |
 | getDueRemindersByDate     | GSI-1              | Query      | <NextReminderDate>  |                              |
 | getDuePaymentsByDate      | GSI-2              | Query      | <NextPaymentDate>   |                              |
 | getSubscriptionsByAccount | Base table         | Query      | ACC#account_id      | SK begins_with “SUB#”        |
-| getReceiptsByAccount      | Base table         | Query      | ACC#account_id      | SK begins_with “REC#”        | ## Recurring payments final schema Here are the final schema designs. To download this schema design as a JSON file, see [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json") on GitHub. **Base table** ![Base table design showing account information, and its subscription and receipt details.](images/DataModeling/ReoccurringPayments-7-Base.png) **GSI-1** ![GSI-1 schema with subscription details, such as email address and NextPaymentDate.](images/DataModeling/ReoccurringPayments-8-GSI1.png) **GSI-2** ![GSI-2 schema with payment details, such as PaymentAmount and PaymentDay.](images/DataModeling/ReoccurringPayments-9-GSI2.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| getReceiptsByAccount      | Base table         | Query      | ACC#account_id      | SK begins_with “REC#”        |
+
+## Recurring
+
+payments final schema
+
+Here are the final schema designs. To download this schema design as a JSON file, see
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json") on GitHub.
+
+**Base table**
+
+![Base table design showing account information, and its subscription and receipt details.](images/DataModeling/ReoccurringPayments-7-Base.png)
+
+**GSI-1**
+
+![GSI-1 schema with subscription details, such as email address and NextPaymentDate.](images/DataModeling/ReoccurringPayments-8-GSI1.png)
+
+**GSI-2**
+
+![GSI-2 schema with payment details, such as PaymentAmount and PaymentDay.](images/DataModeling/ReoccurringPayments-9-GSI2.png)
+
+## Using NoSQL Workbench
+
+with this schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.

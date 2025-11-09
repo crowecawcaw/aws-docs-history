@@ -1,7 +1,11 @@
-# AWS SDK for Go 1.x examples
+# AWS SDK for Java 1.x examples
 
-This section contains example code for DAX applications using Go 1.x.
+This section contains example code for DAX applications using SDK for Java 1.x.
 
 ###### Topics
 
-- [DAX SDK for Go](DAX.client.md "DAX.client.md")
+- [Using DAX with AWS SDK for Java 1.x](DAX.client.md "DAX.client.md")
+- [Modifying an existing SDK for Java 1.x
+  application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md")
+- [Querying global secondary indexes with SDK for Java
+  1.x](DAX.client.QueryGSI.md "DAX.client.QueryGSI.md")

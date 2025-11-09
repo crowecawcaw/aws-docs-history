@@ -154,11 +154,49 @@ All access patterns and how the schema design addresses them are summarized in t
 table below:
 
 | Access pattern                                         | Base table/GSI/LSI | Operation | Partition key value        | Sort key value                        | Other conditions/filters |
-| ------------------------------------------------------ | ------------------ | --------- | -------------------------- | ------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------------ | ------------------ | --------- | -------------------------- | ------------------------------------- | ------------------------ |
 | createLogEntryForSpecificDevice                        | Base table         | PutItem   | DeviceID=deviceId          | State#Date=state#date                 |                          |
 | getLogsForSpecificDevice                               | Base table         | Query     | DeviceID=deviceId          | State#Date begins_with "state1#"      | ScanIndexForward = False |
 | getWarningLogsForSpecificDevice                        | Base table         | Query     | DeviceID=deviceId          | State#Date begins_with "WARNING"      |                          |
 | getLogsForOperatorBetweenTwoDates                      | GSI-1              | Query     | Operator=operatorName      | Date between date1 and date2          |                          |
 | getEscalatedLogsForSupervisor                          | GSI-2              | Query     | EscalatedTo=supervisorName |                                       |                          |
 | getEscalatedLogsWithSpecificStatusForSupervisor        | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins_with "state1#"      |                          |
-| getEscalatedLogsWithSpecificStatusForSupervisorForDate | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins_with "state1#date1" |                          | ## Final schema Here are the final schema designs. To download this schema design as a JSON file, see [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples") on GitHub. **Base table** ![Base table design with device status metadata, such as Device ID, State, and Date.](images/DataModeling/DeviceStatus-9-Table.png) **GSI-1** ![GSI-1 design. It shows the primary key and attributes: DeviceID, State#Date, and State.](images/DataModeling/DeviceStatus-10-GSI1.png) **GSI-2** ![GSI-2 design. It shows the primary key and attributes: DeviceID, Operator, Date, and State.](images/DataModeling/DeviceStatus-11-GSI2.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| getEscalatedLogsWithSpecificStatusForSupervisorForDate | GSI-2              | Query     | EscalatedTo=supervisorName | State#Date begins_with "state1#date1" |                          |
+
+## Final schema
+
+Here are the final schema designs. To download this schema design as a JSON file, see
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples") on GitHub.
+
+**Base table**
+
+![Base table design with device status metadata, such as Device ID, State, and Date.](images/DataModeling/DeviceStatus-9-Table.png)
+
+**GSI-1**
+
+![GSI-1 design. It shows the primary key and attributes: DeviceID, State#Date, and State.](images/DataModeling/DeviceStatus-10-GSI1.png)
+
+**GSI-2**
+
+![GSI-2 design. It shows the primary key and attributes: DeviceID, Operator, Date, and State.](images/DataModeling/DeviceStatus-11-GSI2.png)
+
+## Using NoSQL Workbench with
+
+this schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.

@@ -1,173 +1,148 @@
-# KeyConditions (legacy)
+# AttributeUpdates (legacy)
 
 ###### Note
 
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible.
 For more information, see [Using expressions in DynamoDB](Expressions.md "Expressions.md").
 For specific information on the new parameter replacing this one,
-[use KeyConditionExpression instead.](#KeyConditionExpression.instead "#KeyConditionExpression.instead").
+[use UpdateExpression instead.](#UpdateExpression.instead "#UpdateExpression.instead").
 
-The legacy conditional parameter `KeyConditions` contains selection criteria for a
-`Query` operation. For a query on a table, you can have
-conditions only on the table primary key attributes. You must provide the partition key
-name and value as an `EQ` condition. You can optionally provide a second
-condition, referring to the sort key.
+In an `UpdateItem` operation, the legacy conditional parameter `AttributeUpdates`
+contains the names of attributes to be modified, the action to perform on each, and the new
+value for each. If you are updating an attribute that is an index key attribute for any
+indexes on that table, the attribute type must match the index key type defined in the
+`AttributesDefinition` of the table description. You can use
+`UpdateItem` to update any non-key attributes.
 
-###### Note
+Attribute values cannot be null. String and Binary type attributes must have lengths
+greater than zero. Set type attributes must not be empty. Requests with empty values
+will be rejected with a `ValidationException` exception.
 
-If you don't provide a sort key condition, all of the items that match the
-partition key will be retrieved. If a `FilterExpression` or
-`QueryFilter` is present, it will be applied after the items
-are retrieved.
+Each `AttributeUpdates` element consists of an attribute name to
+modify, along with the following:
 
-For a query on an index, you can have conditions only on the index key attributes. You
-must provide the index partition key name and value as an `EQ` condition. You
-can optionally provide a second condition, referring to the index sort key.
+- `Value` - The new value, if applicable, for this
+  attribute.
+- `Action` - A value that specifies how to perform the update.
+  This action is only valid for an existing attribute whose data type is Number or
+  is a set; do not use `ADD` for other data types.
 
-Each `KeyConditions` element consists of an attribute name to
-compare, along with the following:
+If an item with the specified primary key is found in the table, the following
+values perform the following actions:
 
-- `AttributeValueList` - One or more values to evaluate against
-  the supplied attribute. The number of values in the list depends on the
-  `ComparisonOperator` being used.
+    + `PUT` - Adds the specified attribute to the item. If the
+     attribute already exists, it is replaced by the new value.
+    + `DELETE` - Removes the attribute and its value, if no value
+     is specified for `DELETE`. The data type of the specified
+     value must match the existing value's data type.
 
-For type Number, value comparisons are numeric.
 
-String value comparisons for greater than, equals, or less than are based on
-Unicode with UTF-8 binary encoding. For example, `a` is greater than
-`A`, and `a` is greater than `B`.
-
-For Binary, DynamoDB treats each byte of the binary data as unsigned when it
-compares binary values.
-
-- `ComparisonOperator` - A comparator for evaluating attributes. For
-  example: equals, greater than, and less than.
-
-For `KeyConditions`, only the following comparison
-operators are supported:
-
-`EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN`
-
-The following are descriptions of these comparison operators.
-
-    + `EQ` : Equal.
+    If a set of values is specified, then those values are subtracted from
+     the old set. For example, if the attribute value was the set
+     `[a,b,c]` and the `DELETE` action specifies
+     `[a,c]`, then the final attribute value is
+     `[b]`. Specifying an empty set is an error.
+    + `ADD` - Adds the specified value to the item, if the
+     attribute does not already exist. If the attribute does exist, then the
+     behavior of `ADD` depends on the data type of the
+     attribute:
 
 
 
-    `AttributeValueList` can contain only one
-     `AttributeValue` of type String, Number, or
-     Binary (not a set type). If an item contains an
-     `AttributeValue` element of a different type than
-     the one specified in the request, the value does not match. For example,
-     `{"S":"6"}` does not equal `{"N":"6"}`. Also,
-     `{"N":"6"}` does not equal `{"NS":["6", "2",
-     "1"]}`.
-    + `LE` : Less than or equal.
+
+    	- If the existing attribute is a number, and if
+    	 `Value` is also a number, then
+    	 `Value` is mathematically added to the
+    	 existing attribute. If `Value` is a negative
+    	 number, then it is subtracted from the existing
+    	 attribute.
 
 
+    	###### Note
 
-    `AttributeValueList` can contain only one
-     `AttributeValue` element of type String, Number,
-     or Binary (not a set type). If an item contains an
-     `AttributeValue` element of a different type than
-     the one provided in the request, the value does not match. For example,
-     `{"S":"6"}` does not equal `{"N":"6"}`. Also,
-     `{"N":"6"}` does not compare to `{"NS":["6", "2",
-     "1"]}`.
-    + `LT` : Less than.
+    	If you use `ADD` to increment or decrement a
+    	 number value for an item that doesn't exist before the
+    	 update, DynamoDB uses 0 as the initial value.
 
-
-
-    `AttributeValueList` can contain only one
-     `AttributeValue` of type String, Number, or
-     Binary (not a set type). If an item contains an
-     `AttributeValue` element of a different type than
-     the one provided in the request, the value does not match. For example,
-     `{"S":"6"}` does not equal `{"N":"6"}`. Also,
-     `{"N":"6"}` does not compare to `{"NS":["6", "2",
-     "1"]}`.
-    + `GE` : Greater than or equal.
-
-
-
-    `AttributeValueList` can contain only one
-     `AttributeValue` element of type String, Number,
-     or Binary (not a set type). If an item contains an
-     `AttributeValue` element of a different type than
-     the one provided in the request, the value does not match. For example,
-     `{"S":"6"}` does not equal `{"N":"6"}`. Also,
-     `{"N":"6"}` does not compare to `{"NS":["6", "2",
-     "1"]}`.
-    + `GT` : Greater than.
+    	Similarly, if you use `ADD` for an existing
+    	 item to increment or decrement an attribute value that
+    	 doesn't exist before the update, DynamoDB uses
+    	 `0` as the initial value. For example,
+    	 suppose that the item you want to update doesn't have an
+    	 attribute named *itemcount*, but you
+    	 decide to `ADD` the number `3` to this
+    	 attribute anyway. DynamoDB will create the
+    	 *itemcount* attribute, set its
+    	 initial value to `0`, and finally add
+    	 `3` to it. The result will be a new
+    	 *itemcount* attribute, with a value
+    	 of `3`.
+    	- If the existing data type is a set, and if
+    	 `Value` is also a set, then
+    	 `Value` is appended to the existing set.
+    	 For example, if the attribute value is the set
+    	 `[1,2]`, and the `ADD` action
+    	 specified `[3]`, then the final attribute value is
+    	 `[1,2,3]`. An error occurs if an `ADD`
+    	 action is specified for a set attribute and the attribute type
+    	 specified does not match the existing set type.
 
 
+    	Both sets must have the same primitive data type. For example,
+    	 if the existing data type is a set of strings,
+    	 `Value` must also be a set of
+    	 strings.
 
-    `AttributeValueList` can contain only one
-     `AttributeValue` element of type String, Number,
-     or Binary (not a set type). If an item contains an
-     `AttributeValue` element of a different type than
-     the one provided in the request, the value does not match. For example,
-     `{"S":"6"}` does not equal `{"N":"6"}`. Also,
-     `{"N":"6"}` does not compare to `{"NS":["6", "2",
-     "1"]}`.
-    + `BEGINS_WITH` : Checks for a prefix.
+If no item with the specified key is found in the table, the following values
+perform the following actions:
 
+    + `PUT` - Causes DynamoDB to create a new item with the
+     specified primary key, and then adds the attribute.
+    + `DELETE` - Nothing happens, because attributes cannot be
+     deleted from a nonexistent item. The operation succeeds, but DynamoDB
+     does not create a new item.
+    + `ADD` - Causes DynamoDB to create an item with the supplied
+     primary key and number (or set of numbers) for the attribute value. The
+     only data types allowed are Number and Number Set.
 
+If you provide any attributes that are part of an index key, then the data types for
+those attributes must match those of the schema in the table's attribute
+definition.
 
-    `AttributeValueList` can contain only one
-     `AttributeValue` of type String or Binary (not a
-     Number or a set type). The target attribute of the comparison must be of
-     type String or Binary (not a Number or a set type).
-    + `BETWEEN` : Greater than or equal to the first value, and
-     less than or equal to the second value.
+## Use _UpdateExpression_ instead – Example
 
-
-
-    `AttributeValueList` must contain two
-     `AttributeValue` elements of the same type, either
-     String, Number, or Binary (not a set type). A target attribute matches
-     if the target value is greater than, or equal to, the first element and
-     less than, or equal to, the second element. If an item contains an
-     `AttributeValue` element of a different type than the one
-     provided in the request, the value does not match. For example,
-     `{"S":"6"}` does not compare to `{"N":"6"}`.
-     Also, `{"N":"6"}` does not compare to `{"NS":["6", "2",
-     "1"]}`.
-
-## Use
-
-_KeyConditionExpression_ instead – Example
-
-Suppose you wanted to retrieve several items with the same partition key from the
-_Music_ table. You could use a `Query` request
-with a `KeyConditions` parameter, as in this AWS CLI example:
+Suppose you wanted to modify an item in the _Music_ table. You
+could use an `UpdateItem` request with an `AttributeUpdates`
+parameter, as in this AWS CLI example:
 
 ```
-aws dynamodb query \
+aws dynamodb update-item \
     --table-name Music \
-    --key-conditions '{
-        "Artist":{
-            "ComparisonOperator":"EQ",
-            "AttributeValueList": [ {"S": "No One You Know"} ]
-        },
-        "SongTitle":{
-            "ComparisonOperator":"BETWEEN",
-            "AttributeValueList": [ {"S": "A"}, {"S": "M"} ]
+    --key '{
+        "SongTitle": {"S":"Call Me Today"},
+        "Artist": {"S":"No One You Know"}
+    }' \
+    --attribute-updates '{
+        "Genre": {
+            "Action": "PUT",
+            "Value": {"S":"Rock"}
         }
     }'
 
 ```
 
-You can use a `KeyConditionExpression` instead:
+You can use a `UpdateExpression` instead:
 
 ```
-aws dynamodb query \
+aws dynamodb update-item \
     --table-name Music \
-    --key-condition-expression 'Artist = :a AND SongTitle BETWEEN :t1 AND :t2' \
+    --key '{
+        "SongTitle": {"S":"Call Me Today"},
+        "Artist": {"S":"No One You Know"}
+    }' \
+    --update-expression 'SET Genre = :g' \
     --expression-attribute-values '{
-        ":a": {"S": "No One You Know"},
-        ":t1": {"S": "A"},
-        ":t2": {"S": "M"}
+        ":g": {"S":"Rock"}
     }'
 
 ```

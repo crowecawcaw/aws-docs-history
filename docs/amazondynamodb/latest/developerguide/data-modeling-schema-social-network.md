@@ -172,11 +172,43 @@ All access patterns and how the schema design addresses them are summarized in t
 table below:
 
 | Access pattern           | Base table/GSI/LSI | Operation | Partition key value   | Sort key value | Other conditions/filters |
-| ------------------------ | ------------------ | --------- | --------------------- | -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------------------ | --------- | --------------------- | -------------- | ------------------------ |
 | getUserInfoByUserID      | Base table         | Query     | PK=<userID>           |                |                          |
 | getFollowerListByUserID  | Base table         | Query     | PK=<userID>#follower  |                |                          |
 | getFollowingListByUserID | Base table         | Query     | PK=<userID>#following |                |                          |
 | getPostListByUserID      | Base table         | Query     | PK=<userID>#post      |                |                          |
 | getUserLikesByPostID     | Base table         | Query     | PK=<postID>#likelist  |                |                          |
 | getLikeCountByPostID     | Base table         | GetItem   | PK=<postID>#likecount |                |                          |
-| getTimelineByUserID      | Base table         | Query     | PK=<userID>#timeline  |                |                          | ## Social network final schema Here is the final schema design. To download this schema design as a JSON file, see [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json") on GitHub. **Base table:** ![Final schema design of a table that contains results of the preceding Query and GetItem operations.](images/DataModeling/SocialNetwork8.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| getTimelineByUserID      | Base table         | Query     | PK=<userID>#timeline  |                |                          |
+
+## Social network final
+
+schema
+
+Here is the final schema design. To download this schema design as a JSON file, see
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json") on GitHub.
+
+**Base table:**
+
+![Final schema design of a table that contains results of the preceding Query and GetItem operations.](images/DataModeling/SocialNetwork8.png)
+
+## Using NoSQL Workbench with
+
+this schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.

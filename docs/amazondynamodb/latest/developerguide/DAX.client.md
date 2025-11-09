@@ -1,111 +1,54 @@
-# Python and DAX
+# Modifying an existing application to use
 
-Follow this procedure to run the Python sample application on your Amazon EC2
-instance.
+DAX
 
-###### To run the Python sample for DAX
+If you already have a Java application that uses Amazon DynamoDB, you can modify it so that
+it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
+application because the DAX Java client is similar to the DynamoDB low-level client
+included in the AWS SDK for Java 2.x. See [Working with
+items in DynamoDB](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-items.md") for details.
 
-1. Install the DAX Python client using the `pip` utility.
+###### Note
 
-```
-pip install amazon-dax-client
-```
+This example uses AWS SDK for Java 2.x. For the legacy SDK for Java 1.x version, see [Modifying an existing SDK for Java 1.x
+application to use DAX](DAX.client.modify-your-app.md "DAX.client.modify-your-app.md").
 
-2. Download the sample program source code (`.zip`
-   file).
-
-```
-wget http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/samples/TryDax.zip
-```
-
-When the download is complete, extract the source files.
+To modify your program, replace the DynamoDB client with a DAX client.
 
 ```
-unzip TryDax.zip
+Region region = Region.US_EAST_1;
+
+// Create an asynchronous DynamoDB client
+DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
+                .region(region)
+                .build();
+
+// Create an asynchronous DAX client
+DynamoDbAsyncClient client = ClusterDaxAsyncClient.builder()
+                .overrideConfiguration(Configuration.builder()
+                    .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+                    .region(region)
+                    .addMetricPublisher(cloudWatchMetricsPub) // optionally enable SDK metric collection
+                    .build())
+                .build();
 ```
 
-3. Run the following Python programs. The first program creates an Amazon DynamoDB
-   table named `TryDaxTable`. The second program writes data
-   to the table.
+You can also use the high-level library that is part of the AWS SDK for Java 2.x, replacing
+the DynamoDB client with a DAX client.
 
 ```
-python 01-create-table.py
-python 02-write-data.py
+Region region = Region.US_EAST_1;
+DynamoDbAsyncClient dax = ClusterDaxAsyncClient.builder()
+        .overrideConfiguration(Configuration.builder()
+            .url(`<cluster url>`) // for example, "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
+            .region(region)
+            .build())
+        .build();
+
+DynamoDbEnhancedAsyncClient enhancedClient = DynamoDbEnhancedAsyncClient.builder()
+        .dynamoDbClient(dax)
+        .build();
 ```
 
-4. Run the following Python programs.
-
-```
-python 03-getitem-test.py
-python 04-query-test.py
-python 05-scan-test.py
-```
-
-Take note of the timing information—the number of milliseconds required
-for the `GetItem`, `Query`, and `Scan`
-tests. 5. In the previous step, you ran the programs against the DynamoDB endpoint. Now
-run the programs again, but this time, the `GetItem`,
-`Query`, and `Scan` operations are processed by
-your DAX cluster.
-
-To determine the endpoint for your DAX cluster, choose one of the
-following:
-
-    * **Using the DynamoDB console** — Choose your
-     DAX cluster. The cluster endpoint is shown on the console, as in
-     the following example.
-
-
-
-    ```
-    dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-    ```
-    * **Using the AWS CLI** — Enter the following
-     command.
-
-
-
-    ```
-    aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
-    ```
-
-    The cluster endpoint is shown in the output, as in this
-     example.
-
-
-
-    ```
-    {
-        "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
-        "Port": 8111,
-        "URL": "dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com"
-    }
-    ```
-
-Run the programs again, but this time, specify the cluster endpoint as a
-command line parameter.
-
-```
-python 03-getitem-test.py dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-python 04-query-test.py dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-python 05-scan-test.py dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
-```
-
-Look at the rest of the output, and take note of the timing information.
-The elapsed times for `GetItem`, `Query`, and
-`Scan` should be significantly lower with DAX than with
-DynamoDB. 6. Run the following Python program to delete
-`TryDaxTable`.
-
-```
-python 06-delete-table.py
-```
-
-For more information about these programs, see the following sections:
-
-- [01-create-table.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
-- [02-write-data.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
-- [03-getitem-test.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
-- [04-query-test.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
-- [05-scan-test.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
-- [06-delete-table.py](DAX.client.run-application-python.md "DAX.client.run-application-python.md")
+For more information, see [Mapping
+items in DynamoDB tables](../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md "../../../sdk-for-java/latest/developer-guide/examples-dynamodb-enhanced.md").

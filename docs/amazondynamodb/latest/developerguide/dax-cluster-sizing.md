@@ -118,7 +118,7 @@ In this example, because the value of `NodeLossTolerance` is greater than `Targe
 Using the [Target RPS formula](#Target-RPS-formula "#Target-RPS-formula"), you can estimate cluster capacity for different node types. The following table shows approximate capacities for clusters with 1, 3, 5, and 11 node types. These capacities don't replace the need to perform load testing of DAX with your own data and request patterns. Additionally, these capacities don't include [t-type](DAX.md "DAX.md") instances because of their lack of fixed CPU capacity. The unit for all values in the following table is Normalized RPS.
 
 | Node type (memory)      | 1 node | 3 nodes | 5 nodes | 11 nodes |
-| ----------------------- | ------ | ------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | ------ | ------- | ------- | -------- |
 | dax.r5.24xlarge (768GB) | 1M     | 3M      | 5M      | 11M      |
 | dax.r5.16xlarge (512GB) | 1M     | 3M      | 5M      | 11M      |
 | dax.r5.12xlarge (384GB) | 1M     | 3M      | 5M      | 11M      |
@@ -126,4 +126,31 @@ Using the [Target RPS formula](#Target-RPS-formula "#Target-RPS-formula"), you c
 | dax.r5.4xlarge (128GB)  | 600k   | 1.8M    | 3M      | 6.6M     |
 | dax.r5.2xlarge (64GB)   | 300k   | 900k    | 1.5M    | 3.3M     |
 | dax.r5.xlarge (32GB)    | 150k   | 450k    | 750k    | 1.65M    |
-| dax.r5.large (16GB)     | 75k    | 225k    | 375k    | 825k     | Because of the maximum limit of 1 million NPS (network operations per second) for each node, nodes of types dax.r5.8xlarge or larger don't contribute additional cluster capacity. Node types larger than 8xlarge might not contribute to total throughput capacity of the cluster. However, such node types can be helpful for storing a larger working data set in memory. ## Scaling write capacity in DAX clusters Each write to DAX consumes 25 normalized requests on every node. Because there's a 1 million RPS limit for each node, a DAX cluster is limited to 40,000 writes per second, not accounting for read usage. If your use case requires more than 40,000 writes per second in the cache, you must use separate DAX clusters and shard the writes among them. Similar to DynamoDB, you can hash the partition key for the data you're writing to the cache. Then, use modulus to determine which shard to write the data to. The following example calculates the hash of an input string. It then calculates the modulus of the hash value with 10. `def hash_modulo(input_string): # Compute the hash of the input string hash_value = hash(input_string) # Compute the modulus of the hash value with 10 bucket_number = hash_value % 10 return bucket_number #Example usage if _name_ == "_main_": input_string = input("Enter a string: ") result = hash_modulo(input_string) print(f"The hash modulo 10 of '{input_string}' is: {result}.")` |
+| dax.r5.large (16GB)     | 75k    | 225k    | 375k    | 825k     |
+
+Because of the maximum limit of 1 million NPS (network operations per second) for each node, nodes of types dax.r5.8xlarge or larger don't contribute additional cluster capacity. Node types larger than 8xlarge might not contribute to total throughput capacity of the cluster. However, such node types can be helpful for storing a larger working data set in memory.
+
+## Scaling write capacity in DAX clusters
+
+Each write to DAX consumes 25 normalized requests on every node. Because there's a 1 million RPS limit for each node, a DAX cluster is limited to 40,000 writes per second, not accounting for read usage.
+
+If your use case requires more than 40,000 writes per second in the cache, you must use separate DAX clusters and shard the writes among them. Similar to DynamoDB, you can hash the partition key for the data you're writing to the cache. Then, use modulus to determine which shard to write the data to.
+
+The following example calculates the hash of an input string. It then calculates the modulus of the hash value with 10.
+
+```
+def hash_modulo(input_string):
+    # Compute the hash of the input string
+    hash_value = hash(input_string)
+
+    # Compute the modulus of the hash value with 10
+    bucket_number = hash_value % 10
+
+    return bucket_number
+
+#Example usage
+if _name_ == "_main_":
+    input_string = input("Enter a string: ")
+    result = hash_modulo(input_string)
+    print(f"The hash modulo 10 of '{input_string}' is: {result}.")
+```

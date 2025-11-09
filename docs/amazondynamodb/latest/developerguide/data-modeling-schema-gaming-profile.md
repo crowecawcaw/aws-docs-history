@@ -189,11 +189,43 @@ more information on transactions, see [DynamoDB transactions example](transactio
 All access patterns and how the schema design addresses them are summarized in the
 table below:
 
-| Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value          | Other conditions/filters                                                                                  |
-| ------------------------- | ------------------ | ---------- | ------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| getPlayerFriends          | Base table         | GetItem    | PK=PlayerID         | SK=“FRIENDS#playerID”   |                                                                                                           |
-| getPlayerAllProfile       | Base table         | Query      | PK=PlayerID         |                         |                                                                                                           |
-| getPlayerAllItems         | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” |                                                                                                           |
-| getPlayerSpecificItem     | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” | filterExpression: "ItemType = :itemType" expressionAttributeValues: { ":itemType": "Weapon" }             |
-| updateCharacterAttributes | Base table         | UpdateItem | PK=PlayerID         | SK=“#METADATA#playerID” | UpdateExpression: "SET currency = currency - :amount" ConditionExpression: "currency >= :minAmount"       |
-| updateItemCount           | Base table         | UpdateItem | PK=PlayerID         | SK =“ITEMS#ItemID”      | update-expression: "SET ItemCount = ItemCount - :incr" expression-attribute-values: '{":incr":{"N":"1"}}' | ## Gaming profile final schema Here is the final schema design. To download this schema design as a JSON file, see [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json") on GitHub. **Base table:** ![Final schema design of a table that contains results of the preceding access pattern implementations.](images/DataModeling/GamingProfile6-FinalSchema.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| Access pattern            | Base table/GSI/LSI | Operation  | Partition key value | Sort key value          | Other conditions/filters                                                                                        |
+| ------------------------- | ------------------ | ---------- | ------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
+| getPlayerFriends          | Base table         | GetItem    | PK=PlayerID         | SK=“FRIENDS#playerID”   |                                                                                                                 |
+| getPlayerAllProfile       | Base table         | Query      | PK=PlayerID         |                         |                                                                                                                 |
+| getPlayerAllItems         | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” |                                                                                                                 |
+| getPlayerSpecificItem     | Base table         | Query      | PK=PlayerID         | SK begins_with “ITEMS#” | filterExpression: "ItemType = :itemType" expressionAttributeValues: {<br>":itemType": "Weapon" }                |
+| updateCharacterAttributes | Base table         | UpdateItem | PK=PlayerID         | SK=“#METADATA#playerID” | UpdateExpression: "SET currency = currency<br>• :amount"<br>ConditionExpression: "currency >= :minAmount"       |
+| updateItemCount           | Base table         | UpdateItem | PK=PlayerID         | SK =“ITEMS#ItemID”      | update-expression: "SET ItemCount = ItemCount<br>• :incr"<br>expression-attribute-values: '{":incr":{"N":"1"}}' |
+
+## Gaming profile final
+
+schema
+
+Here is the final schema design. To download this schema design as a JSON file, see
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json") on GitHub.
+
+**Base table:**
+
+![Final schema design of a table that contains results of the preceding access pattern implementations.](images/DataModeling/GamingProfile6-FinalSchema.png)
+
+## Using NoSQL Workbench with
+
+this schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.

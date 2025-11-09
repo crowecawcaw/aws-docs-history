@@ -1,175 +1,94 @@
-# DynamoDB and optimistic locking with
+# Optional configuration settings for
 
-version number
+DynamoDBMapper
 
-_Optimistic locking_ is a strategy to ensure that the client-side
-item that you are updating (or deleting) is the same as the item in Amazon DynamoDB. If you
-use this strategy, your database writes are protected from being overwritten by the
-writes of others, and vice versa.
+When you create an instance of `DynamoDBMapper`, it has certain default
+behaviors; you can override these defaults by using the
+`DynamoDBMapperConfig` class.
 
-With optimistic locking, each item has an attribute that acts as a version number. If
-you retrieve an item from a table, the application records the version number of that
-item. You can update the item, but only if the version number on the server side has not
-changed. If there is a version mismatch, it means that someone else has modified the
-item before you did. The update attempt fails, because you have a stale version of the
-item. If this happens, try again by retrieving the item and then trying to update it.
-Optimistic locking prevents you from accidentally overwriting changes that were made by
-others. It also prevents others from accidentally overwriting your changes.
+The following code snippet creates a `DynamoDBMapper` with custom
+settings:
 
-While you can implement your own optimistic locking strategy, the AWS SDK for Java provides
-the `@DynamoDBVersionAttribute` annotation. In the mapping class for your
-table, you designate one property to store the version number, and mark it using this
-annotation. When you save an object, the corresponding item in the DynamoDB table will have
-an attribute that stores the version number. The `DynamoDBMapper` assigns a
-version number when you first save the object, and it automatically increments the
-version number each time you update the item. Your update or delete requests succeed
-only if the client-side object version matches the corresponding version number of the
-item in the DynamoDB table.
+```
+AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 
-`ConditionalCheckFailedException` is thrown if:
+DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
+        .withSaveBehavior(DynamoDBMapperConfig.SaveBehavior.CLOBBER)
+        .withConsistentReads(DynamoDBMapperConfig.ConsistentReads.CONSISTENT)
+        .withTableNameOverride(null)
+        .withPaginationLoadingStrategy(DynamoDBMapperConfig.PaginationLoadingStrategy.EAGER_LOADING)
+    .build();
 
-- You use optimistic locking with `@DynamoDBVersionAttribute` and
-  the version value on the server is different from the value on the client side.
-- You specify your own conditional constraints while saving data by using
-  `DynamoDBMapper` with `DynamoDBSaveExpression` and
-  these constraints failed.
+DynamoDBMapper mapper = new DynamoDBMapper(client, mapperConfig);
+```
+
+For more information, see [_DynamoDBMapperConfig_](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md") in the
+[AWS SDK for Java API Reference](../../../sdk-for-java/latest/reference.md "../../../sdk-for-java/latest/reference.md").
+
+You can use the following arguments for an instance of
+`DynamoDBMapperConfig`:
+
+- A `DynamoDBMapperConfig.ConsistentReads` enumeration value:
+
+      + `EVENTUAL`—the mapper instance uses an eventually
+       consistent read request.
+      + `CONSISTENT`—the mapper instance uses a strongly
+       consistent read request. You can use this optional setting with
+       `load`, `query`, or `scan`
+       operations. Strongly consistent reads have implications for performance
+       and billing; see the DynamoDB [product
+       detail page](https://aws.amazon.com/dynamodb "https://aws.amazon.com/dynamodb") for more information.
+
+  If you do not specify a read consistency setting for your mapper instance, the
+  default is `EVENTUAL`.
 
 ###### Note
 
-- DynamoDB global tables use a “last writer wins” reconciliation between
-  concurrent updates. If you use global tables, last writer policy wins. So in
-  this case, the locking strategy does not work as expected.
-- `DynamoDBMapper` transactional write operations do not support
-  `@DynamoDBVersionAttribute` annotation and condition
-  expressions on the same object. If an object within a transactional write is
-  annotated with `@DynamoDBVersionAttribute` and also has a
-  condition expression, then an SdkClientException will be thrown.
-  For example, the following Java code defines a `CatalogItem` class that has
-  several properties. The `Version` property is tagged with the
-  `@DynamoDBVersionAttribute` annotation.
+This value is applied in the `query`, `querypage`,
+`load`, and `batch load` operations of the
+DynamoDBMapper.
 
-###### Example
+- A `DynamoDBMapperConfig.PaginationLoadingStrategy` enumeration
+  value—Controls how the mapper instance processes a paginated list of data,
+  such as the results from a `query` or `scan`:
 
-```
-@DynamoDBTable(tableName="ProductCatalog")
-public class CatalogItem {
+      + `LAZY_LOADING`—the mapper instance loads data when
+       possible, and keeps all loaded results in memory.
+      + `EAGER_LOADING`—the mapper instance loads the data as
+       soon as the list is initialized.
+      + `ITERATION_ONLY`—you can only use an Iterator to read
+       from the list. During the iteration, the list will clear all the
+       previous results before loading the next page, so that the list will
+       keep at most one page of the loaded results in memory. This also means
+       the list can only be iterated once. This strategy is recommended when
+       handling large items, in order to reduce memory overhead.
 
-    private Integer id;
-    private String title;
-    private String ISBN;
-    private Set<String> bookAuthors;
-    private String someProp;
-    private Long version;
+  If you do not specify a pagination loading strategy for your mapper instance,
+  the default is `LAZY_LOADING`.
 
-    @DynamoDBHashKey(attributeName="Id")
-    public Integer getId() { return id; }
-    public void setId(Integer Id) { this.id = Id; }
-
-    @DynamoDBAttribute(attributeName="Title")
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-
-    @DynamoDBAttribute(attributeName="ISBN")
-    public String getISBN() { return ISBN; }
-    public void setISBN(String ISBN) { this.ISBN = ISBN;}
-
-    @DynamoDBAttribute(attributeName = "Authors")
-    public Set<String> getBookAuthors() { return bookAuthors; }
-    public void setBookAuthors(Set<String> bookAuthors) { this.bookAuthors = bookAuthors; }
-
-    @DynamoDBIgnore
-    public String getSomeProp() { return someProp;}
-    public void setSomeProp(String someProp) {this.someProp = someProp;}
-
-    @DynamoDBVersionAttribute
-    public Long getVersion() { return version; }
-    public void setVersion(Long version) { this.version = version;}
-}
-```
-
-You can apply the `@DynamoDBVersionAttribute` annotation to nullable types
-provided by the primitive wrappers classes that provide a nullable type, such as
-`Long` and `Integer`.
-
-Optimistic locking has the following impact on these `DynamoDBMapper`
-methods:
-
-- `save` — For a new item, the `DynamoDBMapper`
-  assigns an initial version number of 1. If you retrieve an item, update one or
-  more of its properties, and attempt to save the changes, the save operation
-  succeeds only if the version number on the client side and the server side
-  match. The `DynamoDBMapper` increments the version number
-  automatically.
-- `delete` — The `delete` method takes an object as
-  a parameter, and the `DynamoDBMapper` performs a version check before
-  deleting the item. The version check can be disabled if
-  `DynamoDBMapperConfig.SaveBehavior.CLOBBER` is specified in the
-  request.
-
-The internal implementation of optimistic locking within
-`DynamoDBMapper` uses conditional update and conditional delete
-support provided by DynamoDB.
-
-- `transactionWrite` —
-  - `Put` — For a new item, the
-    `DynamoDBMapper` assigns an initial version number of 1.
-    If you retrieve an item, update one or more of its properties, and
-    attempt to save the changes, the put operation succeeds only if the
-    version number on the client side and the server side match. The
-    `DynamoDBMapper` increments the version number
-    automatically.
-  - `Update` — For a new item, the
-    `DynamoDBMapper` assigns an initial version number of 1.
-    If you retrieve an item, update one or more of its properties, and
-    attempt to save the changes, the update operation succeeds only if the
-    version number on the client side and the server side match. The
-    `DynamoDBMapper` increments the version number
-    automatically.
-  - `Delete` — The `DynamoDBMapper` performs a
-    version check before deleting the item. The delete operation succeeds
-    only if the version number on the client side and the server side
-    match.
-  - `ConditionCheck` — The
-    `@DynamoDBVersionAttribute` annotation is not supported
-    for `ConditionCheck` operations. An SdkClientException will
-    be thrown when a `ConditionCheck` item is annotated with
-    `@DynamoDBVersionAttribute`.
-
-## Disabling optimistic
-
-locking
-
-To disable optimistic locking, you can change the
-`DynamoDBMapperConfig.SaveBehavior` enumeration value from
-`UPDATE` to `CLOBBER`. You can do this by creating a
-`DynamoDBMapperConfig` instance that skips version checking and use
-this instance for all your requests. For information about
-`DynamoDBMapperConfig.SaveBehavior` and other optional
-`DynamoDBMapper` parameters, see [Optional configuration settings for
-DynamoDBMapper](DynamoDBMapper.md "DynamoDBMapper.md") .
-
-You can also set locking behavior for a specific operation only. For example, the
-following Java snippet uses the `DynamoDBMapper` to save a catalog item.
-It specifies `DynamoDBMapperConfig.SaveBehavior` by adding the optional
-`DynamoDBMapperConfig` parameter to the `save` method.
+- A `DynamoDBMapperConfig.SaveBehavior` enumeration value - Specifies
+  how the mapper instance should deal with attributes during save
+  operations:
+  - `UPDATE`—during a save operation, all modeled
+    attributes are updated, and unmodeled attributes are unaffected.
+    Primitive number types (byte, int, long) are set to 0. Object types are
+    set to null.
+  - `CLOBBER`—clears and replaces all attributes,
+    included unmodeled ones, during a save operation. This is done by
+    deleting the item and re-creating it. Versioned field constraints are
+    also disregarded.
+    If you do not specify the save behavior for your mapper instance, the default
+    is `UPDATE`.
 
 ###### Note
 
-The transactionWrite method does not support DynamoDBMapperConfig.SaveBehavior
-configuration. Disabling optimistic locking for transactionWrite is not
-supported.
+DynamoDBMapper transactional operations do not support
+`DynamoDBMapperConfig.SaveBehavior` enumeration.
 
-###### Example
-
-```
-DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-// Load a catalog item.
-CatalogItem item = mapper.load(CatalogItem.class, 101);
-item.setTitle("This is a new title for the item");
-...
-// Save the item.
-mapper.save(item,
-    new DynamoDBMapperConfig(
-        DynamoDBMapperConfig.SaveBehavior.CLOBBER));
-```
+- A `DynamoDBMapperConfig.TableNameOverride` object—Instructs
+  the mapper instance to ignore the table name specified by a class's
+  `DynamoDBTable` annotation, and instead use a different table
+  name that you supply. This is useful when partitioning your data into multiple
+  tables at runtime.
+  You can override the default configuration object for `DynamoDBMapper` per
+  operation, as needed.

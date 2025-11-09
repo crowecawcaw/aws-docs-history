@@ -1,32 +1,22 @@
-# Importing sample data from a CSV
+# Viewing all tables in a data model
 
-file
+using aggregate view
 
-If you have preexisting sample data in a CSV file, you can import it into NoSQL
-Workbench. This enables you to quickly populate your model with sample data without
-having to enter it line by line.
+The aggregate view in NoSQL Workbench for Amazon DynamoDB represents all the tables in a
+data model. For each table, the following information appears:
 
-The column names in the CSV file must match the attribute names in your data model,
-but they do not need to be in the same order. For example, if your data model has
-attributes called `LoginAlias`, `FirstName`, and
-`LastName`, your CSV columns could be `LastName`,
-`FirstName`, and `LoginAlias`.
+- Table column names
+- Sample data
+- All global secondary indexes that are associated with the table. The following
+  information is displayed for each index:
+  - Index column names
+  - Sample data
 
-Data import from a CSV file is limited to 150 rows at a time.
-
-###### To import data from a CSV file into NoSQL Workbench
+###### To view all table information
 
 1. In the navigation pane on the left side, choose the
    **visualizer** icon.
 
-![Console screenshot showing the visualizer icon.](images/workbench/VisualizerChoose.png) 2. In the visualizer, select the data model and choose the table. 3. Choose the **Action** drop down, and select **Edit Data**. 4. Choose the **Action** drop down again, and select **Import CSV file**. 5. Select your CSV file and choose **Open**. The data in the CSV
-file will be appended to your table.
+![Console screenshot showing the visualizer icon.](images/workbench/VisualizerChoose.png) 2. In the visualizer, choose **Aggregate view**.
 
-###### Note
-
-If your CSV file contains one or more rows that have the same keys as
-items already in your table, you will have the option of overwriting the
-existing items or appending them to the end of the table. If you choose to
-append the items, the suffix "-Copy" will be added to each
-duplicate item's key to differentiate the duplicate items from the items
-that were already in the table.
+![Console screenshot showing the aggregate view button.](images/workbench/VisualizerAggregateView.png)

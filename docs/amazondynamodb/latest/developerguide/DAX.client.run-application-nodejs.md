@@ -1,7 +1,7 @@
-# 04-query-test.js
+# 02-write-data.js
 
-The `04-query-test.js` program performs `Query`
-operations on `TryDaxTable`.
+The `02-write-data.js` program writes test data to
+`TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -14,56 +14,35 @@ AWS.config.update({
 });
 
 var ddbClient = new AWS.DynamoDB.DocumentClient();
-var daxClient = null;
 
-if (process.argv.length > 2) {
-  var dax = new AmazonDaxClient({
-    endpoints: [process.argv[2]],
-    region: region,
-  });
-  daxClient = new AWS.DynamoDB.DocumentClient({ service: dax });
-}
-
-var client = daxClient != null ? daxClient : ddbClient;
 var tableName = "TryDaxTable";
 
-var pk = 5;
-var sk1 = 2;
-var sk2 = 9;
-var iterations = 5;
+var someData = "X".repeat(1000);
+var pkmax = 10;
+var skmax = 10;
 
-var params = {
-  TableName: tableName,
-  KeyConditionExpression: "pk = :pkval and sk between :skval1 and :skval2",
-  ExpressionAttributeValues: {
-    ":pkval": pk,
-    ":skval1": sk1,
-    ":skval2": sk2,
-  },
-};
+for (var ipk = 1; ipk <= pkmax; ipk++) {
+  for (var isk = 1; isk <= skmax; isk++) {
+    var params = {
+      TableName: tableName,
+      Item: {
+        pk: ipk,
+        sk: isk,
+        someData: someData,
+      },
+    };
 
-for (var i = 0; i < iterations; i++) {
-  var startTime = new Date().getTime();
+    //
+    //put item
 
-  client.query(params, function (err, data) {
-    if (err) {
-      console.error(
-        "Unable to read item. Error JSON:",
-        JSON.stringify(err, null, 2)
-      );
-    } else {
-      // Query succeeded
-    }
-  });
-
-  var endTime = new Date().getTime();
-  console.log(
-    "\tTotal time: ",
-    endTime - startTime,
-    "ms - Avg time: ",
-    (endTime - startTime) / iterations,
-    "ms"
-  );
+    ddbClient.put(params, function (err, data) {
+      if (err) {
+        console.error("Unable to write data: ", JSON.stringify(err, null, 2));
+      } else {
+        console.log("PutItem succeeded");
+      }
+    });
+  }
 }
 
 

@@ -40,11 +40,81 @@ content-type: application/x-amz-json-1.0
 }
 ```
 
-| Name              | Description                                                                                                                                                                                                                                                                                     | Required |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TableName`       | The name of the table containing the requested item. Type: String                                                                                                                                                                                                                               | Yes      |
-| `Key`             | The primary key values that define the item. For more information about primary keys, see [Primary key](HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").Type: Map of `HashKeyElement` to its value and `RangeKeyElement` to its value. | Yes      |
-| `AttributesToGet` | Array of Attribute names. If attribute names are not specified then all attributes will be returned. If some attributes are not found, they will not appear in the result.Type: Array                                                                                                           | No       |
-| `ConsistentRead`  | If set to `true`, then a consistent read is issued, otherwise eventually consistent is used.Type: Boolean                                                                                                                                                                                       | No       | ## Responses ### Syntax `HTTP/1.1 200 x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375 content-type: application/x-amz-json-1.0 content-length: 144 {"Item":{ "AttributeName3":{"S":"AttributeValue3"}, "AttributeName4":{"N":"AttributeValue4"}, "AttributeName5":{"B":"dmFsdWU="} }, "ConsumedCapacityUnits": 0.5 }` |
-| Name              | Description                                                                                                                                                                                                                                                                                     |          | ---                                                                                                                                                                                                                                                                                                                          | ---                                                                                                                                                                                                                                                                                                                                                                                   |
-| `Item`            | Contains the requested attributes.Type: Map of attribute name-value pairs.                                                                                                                                                                                                                      |          | `ConsumedCapacityUnits`                                                                                                                                                                                                                                                                                                      | The number of read capacity units consumed by the operation. This value shows the number applied toward your provisioned throughput. Requests for non-existent items consume the minimum read capacity units, depending on the type of read. For more information see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md"). Type: Number | ## Special errors No errors specific to this operation. ## Examples For examples using the AWS SDK, see [Working with items and attributes in DynamoDB](WorkingWithItems.md "WorkingWithItems.md"). ### Sample request `// This header is abbreviated. // For a sample of a complete header, see DynamoDB low-level API. POST / HTTP/1.1 x-amz-target: DynamoDB_20111205.GetItem content-type: application/x-amz-json-1.0 {"TableName":"comptable", "Key": {"HashKeyElement":{"S":"Julie"}, "RangeKeyElement":{"N":"1307654345"}}, "AttributesToGet":["status","friends"], "ConsistentRead":true }` ### Sample response Notice the ConsumedCapacityUnits value is 1, because the optional parameter `ConsistentRead` is set to `true`. If `ConsistentRead` is set to `false` (or not specified) for the same request, the response is eventually consistent and the ConsumedCapacityUnits value would be 0.5. `HTTP/1.1 200 x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375 content-type: application/x-amz-json-1.0 content-length: 72 {"Item": {"friends":{"SS":["Lynda, Aaron"]}, "status":{"S":"online"} }, "ConsumedCapacityUnits": 1 }` |
+| Name              | Description                                                                                                                                                                                                                                                                                              | Required |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `TableName`       | The name of the table containing the requested item.<br>Type: String                                                                                                                                                                                                                                     | Yes      |
+| `Key`             | The primary key values that define the item. For more information about primary keys,<br>see [Primary key](HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey "HowItWorks.md#HowItWorks.CoreComponents.PrimaryKey").Type: Map of `HashKeyElement`<br>to its value and `RangeKeyElement` to its<br>value. | Yes      |
+| `AttributesToGet` | Array of Attribute names. If attribute names are not specified then all attributes will<br>be returned. If some attributes are not found, they will not appear in<br>the result.Type: Array                                                                                                              | No       |
+| `ConsistentRead`  | If set to `true`, then a consistent read is issued, otherwise<br>eventually consistent is used.Type: Boolean                                                                                                                                                                                             | No       |
+
+## Responses
+
+### Syntax
+
+```
+HTTP/1.1 200
+x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375
+content-type: application/x-amz-json-1.0
+content-length: 144
+
+{"Item":{
+	"AttributeName3":{"S":"AttributeValue3"},
+	"AttributeName4":{"N":"AttributeValue4"},
+	"AttributeName5":{"B":"dmFsdWU="}
+	},
+"ConsumedCapacityUnits": 0.5
+}
+```
+
+| Name                    | Description                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Item`                  | Contains the requested attributes.Type: Map of attribute name-value pairs.                                                                                                                                                                                                                                                                                                                        |
+| `ConsumedCapacityUnits` | The number of read capacity units consumed by the operation. This value shows the number<br>applied toward your provisioned throughput. Requests for<br>non-existent items consume the minimum read capacity units,<br>depending on the type of read. For more information see [DynamoDB provisioned capacity mode](provisioned-capacity-mode.md "provisioned-capacity-mode.md").<br>Type: Number |
+
+## Special errors
+
+No errors specific to this operation.
+
+## Examples
+
+For examples using the AWS SDK, see [Working with items and attributes in DynamoDB](WorkingWithItems.md "WorkingWithItems.md").
+
+### Sample request
+
+```
+// This header is abbreviated.
+// For a sample of a complete header, see DynamoDB low-level API.
+POST / HTTP/1.1
+x-amz-target: DynamoDB_20111205.GetItem
+content-type: application/x-amz-json-1.0
+
+{"TableName":"comptable",
+	"Key":
+		{"HashKeyElement":{"S":"Julie"},
+		"RangeKeyElement":{"N":"1307654345"}},
+	"AttributesToGet":["status","friends"],
+	"ConsistentRead":true
+}
+```
+
+### Sample response
+
+Notice the ConsumedCapacityUnits value is 1, because the optional parameter
+`ConsistentRead` is set to `true`. If
+`ConsistentRead` is set to `false` (or not
+specified) for the same request, the response is eventually consistent and the
+ConsumedCapacityUnits value would be 0.5.
+
+```
+HTTP/1.1 200
+x-amzn-RequestId: 8966d095-71e9-11e0-a498-71d736f27375
+content-type: application/x-amz-json-1.0
+content-length: 72
+
+{"Item":
+	{"friends":{"SS":["Lynda, Aaron"]},
+	"status":{"S":"online"}
+	},
+"ConsumedCapacityUnits": 1
+}
+```

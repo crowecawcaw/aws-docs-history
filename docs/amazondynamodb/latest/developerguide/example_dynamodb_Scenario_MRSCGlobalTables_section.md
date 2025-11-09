@@ -494,7 +494,7 @@ Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
 
 Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.
 
-````
+```
     public static void waitForMRSCReplicasActive(
         final DynamoDbClient dynamoDbClient, final String tableName, final int maxWaitTimeSeconds)
         throws InterruptedException {
@@ -524,7 +524,278 @@ Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x
                 StringBuilder statusReport = new StringBuilder();
 
                 if (response.table().multiRegionConsistency() == null
-|| !MultiRegionConsistency.STRONG .toString() .equals(response.table().multiRegionConsistency().toString())) { allActive = false; statusReport .append("MultiRegionConsistency: ") .append(response.table().multiRegionConsistency()) .append(" "); } if (response.table().replicas() == null
-|| response.table().replicas().isEmpty()) { allActive = false; statusReport.append("No replicas found. "); } if (response.table().globalTableWitnesses() == null
-|| response.table().globalTableWitnesses().isEmpty()) { allActive = false; statusReport.append("No witnesses found. "); } // Check table status if (!"ACTIVE".equals(response.table().tableStatus().toString())) { allActive = false; statusReport .append("Table: ") .append(response.table().tableStatus()) .append(" "); } // Check replica status if (response.table().replicas() != null) { for (var replica : response.table().replicas()) { if (!"ACTIVE".equals(replica.replicaStatus().toString())) { allActive = false; statusReport .append("Replica(") .append(replica.regionName()) .append("): ") .append(replica.replicaStatus()) .append(" "); } } } // Check witness status if (response.table().globalTableWitnesses() != null) { for (var witness : response.table().globalTableWitnesses()) { if (!"ACTIVE".equals(witness.witnessStatus().toString())) { allActive = false; statusReport .append("Witness(") .append(witness.regionName()) .append("): ") .append(witness.witnessStatus()) .append(" "); } } } if (allActive) { LOGGER.info("All MRSC replicas and witnesses are now active: " + tableName); return; } LOGGER.info("Waiting for MRSC components to become active. Status: " + statusReport.toString()); LOGGER.info("Next check in " + backoffSeconds + " seconds..."); tempWait(backoffSeconds); // Exponential backoff with cap backoffSeconds = Math.min(backoffSeconds * 2, maxBackoffSeconds); } throw DynamoDbException.builder() .message("Timeout waiting for MRSC replicas to become active after " + maxWaitTimeSeconds + " seconds") .build(); } catch (DynamoDbException | InterruptedException e) { LOGGER.severe("Failed to wait for MRSC replicas to become active: " + tableName + " - " + e.getMessage()); throw e; } } ``` Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x. ``` public static UpdateTableResponse cleanupMRSCReplicas( final DynamoDbClient dynamoDbClient, final String tableName, final Region replicaRegion, final Region witnessRegion) { if (dynamoDbClient == null) { throw new IllegalArgumentException("DynamoDB client cannot be null"); } if (tableName == null || tableName.trim().isEmpty()) { throw new IllegalArgumentException("Table name cannot be null or empty"); } if (replicaRegion == null) { throw new IllegalArgumentException("Replica region cannot be null"); } if (witnessRegion == null) { throw new IllegalArgumentException("Witness region cannot be null"); } try { LOGGER.info("Cleaning up MRSC replicas and witnesses for table: " + tableName); // Remove replica using ReplicationGroupUpdate ReplicationGroupUpdate replicaUpdate = ReplicationGroupUpdate.builder() .delete(DeleteReplicationGroupMemberAction.builder() .regionName(replicaRegion.id()) .build()) .build(); // Remove witness GlobalTableWitnessGroupUpdate witnessUpdate = GlobalTableWitnessGroupUpdate.builder() .delete(DeleteGlobalTableWitnessGroupMemberAction.builder() .regionName(witnessRegion.id()) .build()) .build(); UpdateTableRequest updateTableRequest = UpdateTableRequest.builder() .tableName(tableName) .replicaUpdates(List.of(replicaUpdate)) .globalTableWitnessUpdates(List.of(witnessUpdate)) .build(); UpdateTableResponse response = dynamoDbClient.updateTable(updateTableRequest); LOGGER.info("MRSC cleanup initiated - removing replica and witness. Response: " + response); return response; } catch (DynamoDbException e) { LOGGER.severe("Failed to cleanup MRSC replicas: " + tableName + " - " + e.getMessage()); throw DynamoDbException.builder() .message("Failed to cleanup MRSC replicas: " + tableName) .cause(e) .build(); } } ``` Complete MRSC workflow demonstration using AWS SDK for Java 2.x. ``` public static void demonstrateCompleteMRSCWorkflow( final DynamoDbClient primaryClient, final DynamoDbClient replicaClient, final String tableName, final Region replicaRegion, final Region witnessRegion) throws InterruptedException { if (primaryClient == null) { throw new IllegalArgumentException("Primary DynamoDB client cannot be null"); } if (replicaClient == null) { throw new IllegalArgumentException("Replica DynamoDB client cannot be null"); } if (tableName == null || tableName.trim().isEmpty()) { throw new IllegalArgumentException("Table name cannot be null or empty"); } if (replicaRegion == null) { throw new IllegalArgumentException("Replica region cannot be null"); } if (witnessRegion == null) { throw new IllegalArgumentException("Witness region cannot be null"); } try { LOGGER.info("=== Starting Complete MRSC Workflow Demonstration ==="); // Step 1: Create an empty single-Region table LOGGER.info("Step 1: Creating empty single-Region table"); createRegionalTable(primaryClient, tableName); // Use the existing GlobalTableOperations method for basic table waiting LOGGER.info("Intermediate step: Waiting for table [" + tableName + "] to become active before continuing"); GlobalTableOperations.waitForTableActive(primaryClient, tableName); // Step 2: Convert to MRSC with replica and witness LOGGER.info("Step 2: Converting to MRSC with replica and witness"); convertToMRSCWithWitness(primaryClient, tableName, replicaRegion, witnessRegion); // Wait for MRSC conversion to complete using MRSC-specific waiter LOGGER.info("Waiting for MRSC conversion to complete..."); waitForMRSCReplicasActive(primaryClient, tableName); LOGGER.info("Intermediate step: Waiting for table [" + tableName + "] to become active before continuing"); GlobalTableOperations.waitForTableActive(primaryClient, tableName); // Step 3: Verify MRSC configuration LOGGER.info("Step 3: Verifying MRSC configuration"); describeMRSCTable(primaryClient, tableName); // Step 4: Test strong consistency with data operations LOGGER.info("Step 4: Testing strong consistency with data operations"); // Add test item to primary region putTestItem(primaryClient, tableName, "The Beatles", "Hey Jude", "The Beatles 1967-1970", "1968"); // Immediately read from replica region (no wait needed with MRSC) LOGGER.info("Reading from replica region immediately (strong consistency):"); GetItemResponse getResponse = getItemWithConsistentRead(replicaClient, tableName, "The Beatles", "Hey Jude"); if (getResponse.hasItem()) { LOGGER.info("✓ Strong consistency verified - item immediately available in replica region"); } else { LOGGER.warning("✗ Item not found in replica region"); } // Test conditional update from replica region LOGGER.info("Testing conditional update from replica region:"); performConditionalUpdate(replicaClient, tableName, "The Beatles", "Hey Jude", "5"); LOGGER.info("✓ Conditional update successful - demonstrates strong consistency"); // Step 5: Cleanup LOGGER.info("Step 5: Cleaning up resources"); cleanupMRSCReplicas(primaryClient, tableName, replicaRegion, witnessRegion); // Wait for cleanup to complete using basic table waiter LOGGER.info("Waiting for replica cleanup to complete..."); GlobalTableOperations.waitForTableActive(primaryClient, tableName); // "Halt" until replica/witness cleanup is complete DescribeTableResponse cleanupVerification = describeMRSCTable(primaryClient, tableName); int backoffSeconds = 5; // Start with 5 second intervals while (cleanupVerification.table().multiRegionConsistency() != null) { LOGGER.info("Waiting additional time (" + backoffSeconds + " seconds) for MRSC cleanup to complete..."); tempWait(backoffSeconds); // Exponential backoff with cap backoffSeconds = Math.min(backoffSeconds * 2, 30); cleanupVerification = describeMRSCTable(primaryClient, tableName); } // Delete the primary table deleteTable(primaryClient, tableName); LOGGER.info("=== MRSC Workflow Demonstration Complete ==="); LOGGER.info(""); LOGGER.info("Key benefits of Multi-Region Strong Consistency (MRSC):"); LOGGER.info("- Immediate consistency across all regions (no eventual consistency delays)"); LOGGER.info("- Simplified application logic (no need to handle eventual consistency)"); LOGGER.info("- Support for conditional writes and transactions across regions"); LOGGER.info("- Consistent read operations from any region without waiting"); } catch (DynamoDbException | InterruptedException e) { LOGGER.severe("MRSC workflow failed: " + e.getMessage()); throw e; } } ``` <br>• For API details, see the following topics in *AWS SDK for Java 2.x API Reference*. + [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md") + [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md") + [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md") + [GetItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md") + [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md") + [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md") + [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md") For a complete list of AWS SDK developer guides and code examples, see [Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md"). This topic also includes information about getting started and details about previous SDK versions.
-````
+                    || !MultiRegionConsistency.STRONG
+                        .toString()
+                        .equals(response.table().multiRegionConsistency().toString())) {
+                    allActive = false;
+                    statusReport
+                        .append("MultiRegionConsistency: ")
+                        .append(response.table().multiRegionConsistency())
+                        .append(" ");
+                }
+                if (response.table().replicas() == null
+                    || response.table().replicas().isEmpty()) {
+                    allActive = false;
+                    statusReport.append("No replicas found. ");
+                }
+                if (response.table().globalTableWitnesses() == null
+                    || response.table().globalTableWitnesses().isEmpty()) {
+                    allActive = false;
+                    statusReport.append("No witnesses found. ");
+                }
+
+                // Check table status
+                if (!"ACTIVE".equals(response.table().tableStatus().toString())) {
+                    allActive = false;
+                    statusReport
+                        .append("Table: ")
+                        .append(response.table().tableStatus())
+                        .append(" ");
+                }
+
+                // Check replica status
+                if (response.table().replicas() != null) {
+                    for (var replica : response.table().replicas()) {
+                        if (!"ACTIVE".equals(replica.replicaStatus().toString())) {
+                            allActive = false;
+                            statusReport
+                                .append("Replica(")
+                                .append(replica.regionName())
+                                .append("): ")
+                                .append(replica.replicaStatus())
+                                .append(" ");
+                        }
+                    }
+                }
+
+                // Check witness status
+                if (response.table().globalTableWitnesses() != null) {
+                    for (var witness : response.table().globalTableWitnesses()) {
+                        if (!"ACTIVE".equals(witness.witnessStatus().toString())) {
+                            allActive = false;
+                            statusReport
+                                .append("Witness(")
+                                .append(witness.regionName())
+                                .append("): ")
+                                .append(witness.witnessStatus())
+                                .append(" ");
+                        }
+                    }
+                }
+
+                if (allActive) {
+                    LOGGER.info("All MRSC replicas and witnesses are now active: " + tableName);
+                    return;
+                }
+
+                LOGGER.info("Waiting for MRSC components to become active. Status: " + statusReport.toString());
+                LOGGER.info("Next check in " + backoffSeconds + " seconds...");
+
+                tempWait(backoffSeconds);
+
+                // Exponential backoff with cap
+                backoffSeconds = Math.min(backoffSeconds * 2, maxBackoffSeconds);
+            }
+
+            throw DynamoDbException.builder()
+                .message("Timeout waiting for MRSC replicas to become active after " + maxWaitTimeSeconds + " seconds")
+                .build();
+
+        } catch (DynamoDbException | InterruptedException e) {
+            LOGGER.severe("Failed to wait for MRSC replicas to become active: " + tableName + " - " + e.getMessage());
+            throw e;
+        }
+    }
+
+
+```
+
+Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
+
+```
+    public static UpdateTableResponse cleanupMRSCReplicas(
+        final DynamoDbClient dynamoDbClient,
+        final String tableName,
+        final Region replicaRegion,
+        final Region witnessRegion) {
+
+        if (dynamoDbClient == null) {
+            throw new IllegalArgumentException("DynamoDB client cannot be null");
+        }
+        if (tableName == null || tableName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Table name cannot be null or empty");
+        }
+        if (replicaRegion == null) {
+            throw new IllegalArgumentException("Replica region cannot be null");
+        }
+        if (witnessRegion == null) {
+            throw new IllegalArgumentException("Witness region cannot be null");
+        }
+
+        try {
+            LOGGER.info("Cleaning up MRSC replicas and witnesses for table: " + tableName);
+
+            // Remove replica using ReplicationGroupUpdate
+            ReplicationGroupUpdate replicaUpdate = ReplicationGroupUpdate.builder()
+                .delete(DeleteReplicationGroupMemberAction.builder()
+                    .regionName(replicaRegion.id())
+                    .build())
+                .build();
+
+            // Remove witness
+            GlobalTableWitnessGroupUpdate witnessUpdate = GlobalTableWitnessGroupUpdate.builder()
+                .delete(DeleteGlobalTableWitnessGroupMemberAction.builder()
+                    .regionName(witnessRegion.id())
+                    .build())
+                .build();
+
+            UpdateTableRequest updateTableRequest = UpdateTableRequest.builder()
+                .tableName(tableName)
+                .replicaUpdates(List.of(replicaUpdate))
+                .globalTableWitnessUpdates(List.of(witnessUpdate))
+                .build();
+
+            UpdateTableResponse response = dynamoDbClient.updateTable(updateTableRequest);
+            LOGGER.info("MRSC cleanup initiated - removing replica and witness. Response: " + response);
+
+            return response;
+
+        } catch (DynamoDbException e) {
+            LOGGER.severe("Failed to cleanup MRSC replicas: " + tableName + " - " + e.getMessage());
+            throw DynamoDbException.builder()
+                .message("Failed to cleanup MRSC replicas: " + tableName)
+                .cause(e)
+                .build();
+        }
+    }
+
+
+```
+
+Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
+
+```
+    public static void demonstrateCompleteMRSCWorkflow(
+        final DynamoDbClient primaryClient,
+        final DynamoDbClient replicaClient,
+        final String tableName,
+        final Region replicaRegion,
+        final Region witnessRegion)
+        throws InterruptedException {
+
+        if (primaryClient == null) {
+            throw new IllegalArgumentException("Primary DynamoDB client cannot be null");
+        }
+        if (replicaClient == null) {
+            throw new IllegalArgumentException("Replica DynamoDB client cannot be null");
+        }
+        if (tableName == null || tableName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Table name cannot be null or empty");
+        }
+        if (replicaRegion == null) {
+            throw new IllegalArgumentException("Replica region cannot be null");
+        }
+        if (witnessRegion == null) {
+            throw new IllegalArgumentException("Witness region cannot be null");
+        }
+
+        try {
+            LOGGER.info("=== Starting Complete MRSC Workflow Demonstration ===");
+
+            // Step 1: Create an empty single-Region table
+            LOGGER.info("Step 1: Creating empty single-Region table");
+            createRegionalTable(primaryClient, tableName);
+
+            // Use the existing GlobalTableOperations method for basic table waiting
+            LOGGER.info("Intermediate step: Waiting for table [" + tableName + "] to become active before continuing");
+            GlobalTableOperations.waitForTableActive(primaryClient, tableName);
+
+            // Step 2: Convert to MRSC with replica and witness
+            LOGGER.info("Step 2: Converting to MRSC with replica and witness");
+            convertToMRSCWithWitness(primaryClient, tableName, replicaRegion, witnessRegion);
+
+            // Wait for MRSC conversion to complete using MRSC-specific waiter
+            LOGGER.info("Waiting for MRSC conversion to complete...");
+            waitForMRSCReplicasActive(primaryClient, tableName);
+
+            LOGGER.info("Intermediate step: Waiting for table [" + tableName + "] to become active before continuing");
+            GlobalTableOperations.waitForTableActive(primaryClient, tableName);
+
+            // Step 3: Verify MRSC configuration
+            LOGGER.info("Step 3: Verifying MRSC configuration");
+            describeMRSCTable(primaryClient, tableName);
+
+            // Step 4: Test strong consistency with data operations
+            LOGGER.info("Step 4: Testing strong consistency with data operations");
+
+            // Add test item to primary region
+            putTestItem(primaryClient, tableName, "The Beatles", "Hey Jude", "The Beatles 1967-1970", "1968");
+
+            // Immediately read from replica region (no wait needed with MRSC)
+            LOGGER.info("Reading from replica region immediately (strong consistency):");
+            GetItemResponse getResponse =
+                getItemWithConsistentRead(replicaClient, tableName, "The Beatles", "Hey Jude");
+
+            if (getResponse.hasItem()) {
+                LOGGER.info("✓ Strong consistency verified - item immediately available in replica region");
+            } else {
+                LOGGER.warning("✗ Item not found in replica region");
+            }
+
+            // Test conditional update from replica region
+            LOGGER.info("Testing conditional update from replica region:");
+            performConditionalUpdate(replicaClient, tableName, "The Beatles", "Hey Jude", "5");
+            LOGGER.info("✓ Conditional update successful - demonstrates strong consistency");
+
+            // Step 5: Cleanup
+            LOGGER.info("Step 5: Cleaning up resources");
+            cleanupMRSCReplicas(primaryClient, tableName, replicaRegion, witnessRegion);
+
+            // Wait for cleanup to complete using basic table waiter
+            LOGGER.info("Waiting for replica cleanup to complete...");
+            GlobalTableOperations.waitForTableActive(primaryClient, tableName);
+
+            // "Halt" until replica/witness cleanup is complete
+            DescribeTableResponse cleanupVerification = describeMRSCTable(primaryClient, tableName);
+            int backoffSeconds = 5; // Start with 5 second intervals
+            while (cleanupVerification.table().multiRegionConsistency() != null) {
+                LOGGER.info("Waiting additional time (" + backoffSeconds + " seconds) for MRSC cleanup to complete...");
+                tempWait(backoffSeconds);
+
+                // Exponential backoff with cap
+                backoffSeconds = Math.min(backoffSeconds * 2, 30);
+                cleanupVerification = describeMRSCTable(primaryClient, tableName);
+            }
+
+            // Delete the primary table
+            deleteTable(primaryClient, tableName);
+
+            LOGGER.info("=== MRSC Workflow Demonstration Complete ===");
+            LOGGER.info("");
+            LOGGER.info("Key benefits of Multi-Region Strong Consistency (MRSC):");
+            LOGGER.info("- Immediate consistency across all regions (no eventual consistency delays)");
+            LOGGER.info("- Simplified application logic (no need to handle eventual consistency)");
+            LOGGER.info("- Support for conditional writes and transactions across regions");
+            LOGGER.info("- Consistent read operations from any region without waiting");
+
+        } catch (DynamoDbException | InterruptedException e) {
+            LOGGER.severe("MRSC workflow failed: " + e.getMessage());
+            throw e;
+        }
+    }
+
+
+```
+
+- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+  - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
+  - [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md")
+  - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
+  - [GetItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/GetItem.md")
+  - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
+  - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
+  - [UpdateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateTable.md")
+
+For a complete list of AWS SDK developer guides and code examples, see
+[Using DynamoDB with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
+This topic also includes information about getting started and details about previous SDK versions.

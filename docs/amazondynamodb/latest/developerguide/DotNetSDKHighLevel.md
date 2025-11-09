@@ -132,11 +132,23 @@ Plain Old CLR Objects (POCOs).
 The following table summarizes the mapping of the preceding .NET types to the DynamoDB
 types.
 
-| .NET primitive type  | DynamoDB type                                                                      |
-| -------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| All number types     | `N` (number type)                                                                  |
-| All string types     | `S` (string type)                                                                  |
-| MemoryStream, byte[] | `B` (binary type)                                                                  |
-| bool                 | `N` (number type). 0 represents false and 1 represents true.                       |
-| Collection types     | `BS` (binary set) type, `SS` (string set) type, and `NS` (number set) type         |
-| DateTime             | `S` (string type). The `DateTime` values are stored as ISO-8601 formatted strings. | The object persistence model also supports arbitrary data types. However, you must provide converter code to map the complex types to the DynamoDB types. ###### Note <br>• Empty binary values are supported. <br>• Reading of empty string values is supported. Empty string attribute values are supported within attribute values of string Set type while writing to DynamoDB. Empty string attribute values of string type and empty string values contained within List or Map type are dropped from write requests |
+| .NET primitive type  | DynamoDB type                                                                         |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| All number types     | `N` (number type)                                                                     |
+| All string types     | `S` (string type)                                                                     |
+| MemoryStream, byte[] | `B` (binary type)                                                                     |
+| bool                 | `N` (number type). 0 represents false and 1 represents<br>true.                       |
+| Collection types     | `BS` (binary set) type, `SS` (string set) type,<br>and `NS` (number set) type         |
+| DateTime             | `S` (string type). The `DateTime` values are<br>stored as ISO-8601 formatted strings. |
+
+The object persistence model also supports arbitrary data types. However, you must
+provide converter code to map the complex types to the DynamoDB types.
+
+###### Note
+
+- Empty binary values are supported.
+- Reading of empty string values is supported. Empty string attribute values
+  are supported within attribute values of string Set type while writing to
+  DynamoDB. Empty string attribute values of string type and empty string
+  values contained within List or Map type are dropped from write
+  requests

@@ -312,7 +312,7 @@ All access patterns and how the schema design addresses them are summarized in t
 table below:
 
 | Access pattern                                                | Base table/GSI/LSI     | Operation          | Partition key value     | Sort key value                         | Other conditions/filters          |
-| ------------------------------------------------------------- | ---------------------- | ------------------ | ----------------------- | -------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------- | ---------------------- | ------------------ | ----------------------- | -------------------------------------- | --------------------------------- |
 | createComplaint                                               | Base table             | PutItem            | PK=complaint_id         | SK=metadata                            |                                   |
 | updateComplaint                                               | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
 | updateSeveritybyComplaintID                                   | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
@@ -325,4 +325,48 @@ table below:
 | escalateComplaintByComplaintID                                | Base table             | UpdateItem         | PK=complaint_id         | SK=metadata                            |                                   |
 | getAllEscalatedComplaints                                     | Escalations_GSI        | Scan               | N/A                     | N/A                                    |                                   |
 | getEscalatedComplaintsByAgentID (order from newest to oldest) | Escalations_GSI        | Query              | escalated_to=agent_id   | N/A                                    | scan_index_forward=False          |
-| getCommentsByAgentID (between two dates)                      | Agents_Comments_GSI    | Query              | agent_id=agent_id       | SK between (date1, date2)              |                                   | ## Complaint management system final schema Here are the final schema designs. To download this schema design as a JSON file, see [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json") on GitHub. **Base table** ![Base table design with complaint metadata.](images/DataModeling/ComplaintManagement-20-Complaint_management_system.png) **Customer_Complaint_GSI** ![GSI design showing complaints by a given customer.](images/DataModeling/ComplaintManagement-21-Customer_Complaint_GSI.png) **Escalations_GSI** ![GSI design showing escalation-related attributes.](images/DataModeling/ComplaintManagement-22-Escalations_GSI.png) **Agents_Comments_GSI** ![GSI design showing comments made by a given agent.](images/DataModeling/ComplaintManagement-23-Comments_GSI.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| getCommentsByAgentID (between two dates)                      | Agents_Comments_GSI    | Query              | agent_id=agent_id       | SK between (date1, date2)              |                                   |
+
+## Complaint management
+
+system final schema
+
+Here are the final schema designs. To download this schema design as a JSON file, see
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json") on GitHub.
+
+**Base table**
+
+![Base table design with complaint metadata.](images/DataModeling/ComplaintManagement-20-Complaint_management_system.png)
+
+**Customer_Complaint_GSI**
+
+![GSI design showing complaints by a given customer.](images/DataModeling/ComplaintManagement-21-Customer_Complaint_GSI.png)
+
+**Escalations_GSI**
+
+![GSI design showing escalation-related attributes.](images/DataModeling/ComplaintManagement-22-Escalations_GSI.png)
+
+**Agents_Comments_GSI**
+
+![GSI design showing comments made by a given agent.](images/DataModeling/ComplaintManagement-23-Comments_GSI.png)
+
+## Using NoSQL Workbench
+
+with this schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.

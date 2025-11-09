@@ -328,7 +328,7 @@ All access patterns and how the schema design addresses them are summarized in t
 table below:
 
 | Access pattern                      | Base table/GSI/LSI | Operation | Partition key value | Sort key value                 |
-| ----------------------------------- | ------------------ | --------- | ------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ------------------ | --------- | ------------------- | ------------------------------ |
 | getCustomerByCustomerId             | Base table         | GetItem   | PK=customerId       | SK=customerId                  |
 | getProductByProductId               | Base table         | GetItem   | PK=productId        | SK=productId                   |
 | getWarehouseByWarehouseId           | Base table         | GetItem   | PK=warehouseId      | SK=warehouseId                 |
@@ -344,4 +344,44 @@ table below:
 | getShipmentByWarehouseId            | GSI2               | Query     | PK=warehouseId      | SK begins_with "sh#"           |
 | getProductInventoryByWarehouseId    | GSI2               | Query     | PK=warehouseId      | SK begins_with "p#"            |
 | getInvoiceByCustomerIdForDateRange  | GSI2               | Query     | PK=customerId       | SK between i#date1 and i#date2 |
-| getProductsByCustomerIdForDateRange | GSI2               | Query     | PK=customerId       | SK between p#date1 and p#date2 | ### Online shop final schema Here are the final schema designs. To download this schema design as a JSON file, see [DynamoDB Design Patterns](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples") on GitHub. **Base table** ![Final schema of base table for an online shop with attributes, such as EntityName and Name.](images/DataModeling/OnlineShop-17-Final-BaseTable.png) **GSI1** ![Final GSI1 schema for an online shop's base table with attributes, such as EntityType.](images/DataModeling/OnlineShop-18-Final-GSI1.png) **GSI2** ![Final GSI2 schema for an online shop's base table with attributes, such as EntityType.](images/DataModeling/OnlineShop-19-Final-GSI2.png) ## Using NoSQL Workbench with this schema design You can import this final schema into [NoSQL Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and query development features for DynamoDB, to further explore and edit your new project. Follow these steps to get started: 1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md"). 2. Download the JSON schema file listed above, which is already in the NoSQL Workbench model format. 3. Import the JSON schema file into NoSQL Workbench. For more information, see [Importing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 4. Once you've imported into NOSQL Workbench, you can edit the data model. For more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md"). 5. To visualize your data model, add sample data, or import sample data from a CSV file, use the [Data Visualizer](workbench.md "workbench.md") feature of NoSQL Workbench. |
+| getProductsByCustomerIdForDateRange | GSI2               | Query     | PK=customerId       | SK between p#date1 and p#date2 |
+
+### Online shop
+
+final schema
+
+Here are the final schema designs. To download this schema design as a JSON file,
+see [DynamoDB Design Patterns](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples") on GitHub.
+
+**Base table**
+
+![Final schema of base table for an online shop with attributes, such as EntityName and Name.](images/DataModeling/OnlineShop-17-Final-BaseTable.png)
+
+**GSI1**
+
+![Final GSI1 schema for an online shop's base table with attributes, such as EntityType.](images/DataModeling/OnlineShop-18-Final-GSI1.png)
+
+**GSI2**
+
+![Final GSI2 schema for an online shop's base table with attributes, such as EntityType.](images/DataModeling/OnlineShop-19-Final-GSI2.png)
+
+## Using NoSQL Workbench with this
+
+schema design
+
+You can import this final schema into [NoSQL
+Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and
+query development features for DynamoDB, to further explore and edit your new project.
+Follow these steps to get started:
+
+1. Download NoSQL Workbench. For more information, see [Download NoSQL Workbench for DynamoDB](workbench.md "workbench.md").
+2. Download the JSON schema file listed above, which is already in the NoSQL
+   Workbench model format.
+3. Import the JSON schema file into NoSQL Workbench. For more information, see
+   [Importing an existing data
+   model](workbench.Modeler.md "workbench.Modeler.md").
+4. Once you've imported into NOSQL Workbench, you can edit the data model. For
+   more information, see [Editing an existing data model](workbench.Modeler.md "workbench.Modeler.md").
+5. To visualize your data model, add sample data, or import sample data from a
+   CSV file, use the [Data Visualizer](workbench.md "workbench.md")
+   feature of NoSQL Workbench.
