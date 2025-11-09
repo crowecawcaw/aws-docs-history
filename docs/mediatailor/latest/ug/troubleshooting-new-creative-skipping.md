@@ -76,11 +76,12 @@ To resolve NEW_CREATIVE ad skipping issues:
 Use this CloudWatch Logs Insights query to analyze patterns in NEW_CREATIVE ad
 skipping:
 
-````
+```
 
 fields @timestamp, sessionId, creativeId, skipReason, MediaFileSourceUrl
 | filter skipReason = "NEW_CREATIVE"
 | stats count() by creativeId, MediaFileSourceUrl
 | sort count desc
-| limit 50 ```
-````
+| limit 50
+
+```

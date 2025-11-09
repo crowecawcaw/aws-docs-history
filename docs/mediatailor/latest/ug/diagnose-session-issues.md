@@ -39,17 +39,63 @@ behavior across requests:
     - Maximum of 10 active debug sessions allowed simultaneously
 
 4.  Use CloudWatch Logs queries to validate session behavior:
+    - **Verify debug session is
+      active:**
 
-        * **Verify debug session is
-         active:**
-
-
-
-        ```
-        fields @timestamp, @message
-
+    ```
+    fields @timestamp, @message
     | filter sessionId = "your-session-id-here"
-    | filter eventType = "SESSION_INITIALIZED" # client-side reporting or mediaTailorPath like "/v1/master" # server-side reporting HLS or mediaTailorPath like "/v1/dash" # server-side reporting DASH `<br>• **View all events for a session:**` fields @timestamp, @message, eventType, mediaTailorPath
+    | filter eventType = "SESSION_INITIALIZED" # client-side reporting
+    or mediaTailorPath like "/v1/master" # server-side reporting HLS
+    or mediaTailorPath like "/v1/dash" # server-side reporting DASH
+    ```
+
+    - **View all events for a session:**
+
+    ```
+    fields @timestamp, @message, eventType, mediaTailorPath
     | filter sessionId = "your-session-id-here"
-    | sort @timestamp asc `<br>• **Check manifest generation for a session:**` fields @timestamp, responseBody, @message
-    | filter mediaTailorPath like "/v1/master/" and eventType = "GENERATED_MANIFEST" and sessionId = "your-session-id-here" ```5. Test session parameter forwarding through CDN: <br>• Test manifest requests with session parameters directly against MediaTailor (bypassing CDN) <br>• Compare session behavior with and without CDN to identify forwarding issues <br>• Verify CDN query parameter forwarding configuration includes session-related parameters <br>• Check that CDN doesn't cache responses that should be session-specific **Common session error messages:** <br>•`ConflictException`(HTTP 409) - Multiple simultaneous playlist requests for the same session. **Solution:** Ensure your player requests playlists one at a time according to HLS specification <br>•`NotFoundException`(HTTP 404) - Session is unavailable or configuration doesn't exist. **Solution:** Check your configuration validity and reinitialize the session <br>•`BadRequestException`(HTTP 400) - Invalid session ID or improperly formatted request. **Solution:** Verify request formatting and session ID validity **Additional troubleshooting resources:** <br>• For complete debug logging setup and field reference, see [Generating AWS Elemental MediaTailor debug logs](debug-log-mode.md "debug-log-mode.md") <br>• For CloudWatch Logs query examples and log analysis, see [Writing AWS Elemental MediaTailor logs directly to Amazon CloudWatch Logs](monitoring-cw-logs.md "monitoring-cw-logs.md") <br>• For CDN query parameter forwarding configuration, see [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md") <br>• For comprehensive error code reference, see [Troubleshooting playback from MediaTailor](playback-errors.md "playback-errors.md") **Success criteria:** When resolved, sessions should initialize correctly, maintain consistent session IDs across requests, and debug logs should show proper`SESSION_INITIALIZED` events and manifest generation without errors.
+    | sort @timestamp asc
+    ```
+
+    - **Check manifest generation for a
+      session:**
+
+    ```
+    fields @timestamp, responseBody, @message
+    | filter mediaTailorPath like "/v1/master/" and eventType = "GENERATED_MANIFEST" and sessionId = "your-session-id-here"
+    ```
+
+5.  Test session parameter forwarding through CDN:
+
+        * Test manifest requests with session parameters directly against MediaTailor
+         (bypassing CDN)
+        * Compare session behavior with and without CDN to identify forwarding
+         issues
+        * Verify CDN query parameter forwarding configuration includes
+         session-related parameters
+        * Check that CDN doesn't cache responses that should be
+         session-specific
+
+    **Common session error messages:**
+
+- `ConflictException` (HTTP 409) - Multiple simultaneous playlist
+  requests for the same session. **Solution:** Ensure
+  your player requests playlists one at a time according to HLS
+  specification
+- `NotFoundException` (HTTP 404) - Session is unavailable or
+  configuration doesn't exist. **Solution:** Check
+  your configuration validity and reinitialize the session
+- `BadRequestException` (HTTP 400) - Invalid session ID or improperly
+  formatted request. **Solution:** Verify request
+  formatting and session ID validity
+  **Additional troubleshooting resources:**
+
+- For complete debug logging setup and field reference, see [Generating AWS Elemental MediaTailor debug logs](debug-log-mode.md "debug-log-mode.md")
+- For CloudWatch Logs query examples and log analysis, see [Writing AWS Elemental MediaTailor logs directly to Amazon CloudWatch Logs](monitoring-cw-logs.md "monitoring-cw-logs.md")
+- For CDN query parameter forwarding configuration, see [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md")
+- For comprehensive error code reference, see [Troubleshooting playback from MediaTailor](playback-errors.md "playback-errors.md")
+  **Success criteria:** When resolved, sessions should
+  initialize correctly, maintain consistent session IDs across requests, and debug logs
+  should show proper `SESSION_INITIALIZED` events and manifest generation
+  without errors.

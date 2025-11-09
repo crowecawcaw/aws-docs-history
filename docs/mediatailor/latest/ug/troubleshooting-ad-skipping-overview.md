@@ -24,9 +24,32 @@ Use CloudWatch Logs Insights to query the
 `MediaTailor/AdDecisionServerInteractions` log group for skipped
 ads:
 
-````
+```
 
 fields @timestamp, avail.availId, skippedAds.0.skippedReason, skippedAds.0.creativeUniqueId
 | filter eventType = "FILLED_AVAIL" and ispresent(skippedAds.0.skippedReason)
-| sort @timestamp desc ``` This query returns the most recent ad skip events with their specific reasons to help you identify patterns. ###### Topics <br>• [NEW\_CREATIVE skipping](troubleshooting-new-creative-skipping.md "troubleshooting-new-creative-skipping.md") <br>• [ADS timeout skipping](troubleshooting-ads-timeout-skipping.md "troubleshooting-ads-timeout-skipping.md") <br>• [VAST parsing skipping](troubleshooting-vast-parsing-skipping.md "troubleshooting-vast-parsing-skipping.md") <br>• [Duration mismatch skipping](troubleshooting-duration-mismatch-skipping.md "troubleshooting-duration-mismatch-skipping.md") <br>• [Session variable skipping](troubleshooting-session-variables-skipping.md "troubleshooting-session-variables-skipping.md") <br>• [Monitoring ad skipping](monitoring-ad-skipping-issues.md "monitoring-ad-skipping-issues.md") <br>• [Prevention best practices](preventing-ad-skipping-best-practices.md "preventing-ad-skipping-best-practices.md") <br>• [Reference materials](ad-skipping-reference-materials.md "ad-skipping-reference-materials.md")
-````
+| sort @timestamp desc
+
+```
+
+This query returns the most recent ad skip events with their specific reasons to help
+you identify patterns.
+
+###### Topics
+
+- [NEW_CREATIVE
+  skipping](troubleshooting-new-creative-skipping.md "troubleshooting-new-creative-skipping.md")
+- [ADS timeout
+  skipping](troubleshooting-ads-timeout-skipping.md "troubleshooting-ads-timeout-skipping.md")
+- [VAST parsing
+  skipping](troubleshooting-vast-parsing-skipping.md "troubleshooting-vast-parsing-skipping.md")
+- [Duration
+  mismatch skipping](troubleshooting-duration-mismatch-skipping.md "troubleshooting-duration-mismatch-skipping.md")
+- [Session
+  variable skipping](troubleshooting-session-variables-skipping.md "troubleshooting-session-variables-skipping.md")
+- [Monitoring ad
+  skipping](monitoring-ad-skipping-issues.md "monitoring-ad-skipping-issues.md")
+- [Prevention best
+  practices](preventing-ad-skipping-best-practices.md "preventing-ad-skipping-best-practices.md")
+- [Reference
+  materials](ad-skipping-reference-materials.md "ad-skipping-reference-materials.md")

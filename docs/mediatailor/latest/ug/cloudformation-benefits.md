@@ -18,8 +18,21 @@ offers the following advantages.
   documentation of your infrastructure.
   Here's how the automated workflow compares to manual configuration:
 
-| Manual setup (multiple steps)             | Automated setup (single template)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Create MediaTailor playback configuration | Deploy one AWS CloudFormation template with parameters                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Create CloudFront distribution            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Configure cache behaviors |
-| Set up security configurations            | The automated workflow for setting up MediaTailor with CloudFront follows these steps: 1. Deploy the AWS CloudFormation template with your content origin and ad server parameters 2. AWS CloudFormation creates and configures all necessary resources: <br>• MediaTailor playback configuration for ad insertion <br>• CloudFront distribution with appropriate cache behaviors <br>• Security configurations for content protection 3. Use the AWS CloudFormation outputs to access your ad-enabled stream URLs 4. Stream your content with dynamically inserted ads |
+| Manual setup (multiple steps)             | Automated setup (single template)                      |
+| ----------------------------------------- | ------------------------------------------------------ |
+| Create MediaTailor playback configuration | Deploy one AWS CloudFormation template with parameters |
+| Create CloudFront distribution            |
+| Configure cache behaviors                 |
+| Set up security configurations            |
+
+The automated workflow for setting up MediaTailor with CloudFront follows these steps:
+
+1. Deploy the AWS CloudFormation template with your content origin and ad server
+   parameters
+2. AWS CloudFormation creates and configures all necessary resources:
+   - MediaTailor playback configuration for ad insertion
+   - CloudFront distribution with appropriate cache behaviors
+   - Security configurations for content protection
+
+3. Use the AWS CloudFormation outputs to access your ad-enabled stream URLs
+4. Stream your content with dynamically inserted ads

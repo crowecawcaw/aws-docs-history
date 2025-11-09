@@ -29,13 +29,29 @@ analysis
 
 For detailed analysis of ad insertion behavior for a specific session:
 
-````
+```
 
 fields @timestamp, sessionId, eventType, creativeId, skipReason, adBreakIndex
 | filter sessionId = "your-session-id-here"
 | filter eventType in ["FILLED_AVAIL", "SKIPPED_AVAIL", "MAKING_ADS_REQUEST"]
 | sort @timestamp asc
-| limit 100 ``` ### Finding Creative IDs To identify Creative IDs from FILLED\_AVAIL events: ``` fields @timestamp, sessionId, eventType
+| limit 100
+
+```
+
+### Finding Creative IDs
+
+To identify Creative IDs from FILLED_AVAIL events:
+
+```
+
+fields @timestamp, sessionId, eventType
 | filter sessionId like /sessionId/ and eventType!='BEACON_FIRED'
-| sort @timestamp desc ``` ###### Note Replace `sessionId` with the actual session ID you're investigating.
-````
+| sort @timestamp desc
+
+```
+
+###### Note
+
+Replace `sessionId` with the actual session ID you're
+investigating.
