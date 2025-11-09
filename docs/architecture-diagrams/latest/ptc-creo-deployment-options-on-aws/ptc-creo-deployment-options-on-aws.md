@@ -1,10 +1,10 @@
-# PTC Creo on Amazon AppStream 2.0 – EC2-based File Share for Users
+# PTC Creo on Amazon WorkSpaces Applications – EC2-based File Share for Users
 
 Publication date: **March 24, 2022 ([Diagram history](#diagram-history "#diagram-history"))**
 
 This architecture gives you a blueprint for providing secure access to [PTC Creo](https://www.ptc.com/en/products/creo "https://www.ptc.com/en/products/creo") hosted in the AWS Cloud using Amazon S3 for the private user folder, and an EC2-based file share folder for collaboration with other users before committing their computer-aided designs (CADs) into [PTC Windchill product lifecycle management](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/ptc-windchill-plm-on-aws.pdf?mfgr_ed3 "https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/ptc-windchill-plm-on-aws.pdf?mfgr_ed3") (PLM).
 
-## PTC Creo on Amazon AppStream 2.0 – EC2-based File Share for Users
+## PTC Creo on Amazon WorkSpaces Applications – EC2-based File Share for Users
 
 ![Reference architecture diagram showing.blueprint for providing secure access to PTC Creo hosted in the AWS Cloud using Amazon S3 for the private user folder, and an EC2-based file share folder for collaboration with other users before committing their computer-aided designs (CADs) into PTC Windchill product lifecycle management (PLM).](images/ptc-creo-deployment-options-on-aws.png)
 
@@ -17,16 +17,16 @@ This architecture gives you a blueprint for providing secure access to [PTC Creo
    generated. Licenses are consumed when **Amazon AppStream** instances are
    created and licenses released after **Amazon AppStream** instances are
    deprecated.
-4. The **Amazon AppStream 2.0** fleet is created in private subnets in
+4. The **Amazon WorkSpaces Applications** fleet is created in private subnets in
    two different Availability Zones that users connect to, either on an on-demand or
    always-on basis.
 5. Users connect to the **Amazon AppStream** fleet instances using a
-   web browser, or **Amazon AppStream 2.0** Windows Client.
+   web browser, or **Amazon WorkSpaces Applications** Windows Client.
 6. A file share based on **Amazon EC2** instances backed by
    **Amazon Elastic Block Store** (Amazon EBS) volumes is created for users to use a
    common server message block (SMB) share for collaboration, before committing the final
    CADs into the PTC Windchill file vault.
-7. In the process of setting up the **Amazon AppStream 2.0** stack,
+7. In the process of setting up the **Amazon WorkSpaces Applications** stack,
    users can select an **Amazon S3** folder as a private folder for
    each user to persist application settings, user data, and files.
 
@@ -55,5 +55,9 @@ For additional information, refer to
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description                                     | Date           |
-| ------------------- | ----------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------- |
-| Initial publication | Reference architecture diagram first published. | March 24, 2022 | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| ------------------- | ----------------------------------------------- | -------------- |
+| Initial publication | Reference architecture diagram first published. | March 24, 2022 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
