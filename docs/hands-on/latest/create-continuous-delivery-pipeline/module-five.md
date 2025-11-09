@@ -1,7 +1,208 @@
 # Module 5: Finalize Pipeline and Test
 
 |                      |                                                                                                 |
-| -------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------------------------------------------- |
 | **AWS experience**   | Beginner                                                                                        |
 | **Time to complete** | 5 minutes                                                                                       |
-| **Services used**    | [AWS CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/") | ## Overview In this module, you will use [AWS CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/") to add a review stage to your continuous delivery pipeline. As part of this process, you can add an approval action to a stage at the point where you want the pipeline execution to stop so someone can manually approve or reject the action. Manual approvals are useful to have someone else review a change before deployment. If the action is approved, the pipeline execution resumes. If the action is rejected—or if no one approves or rejects the action within seven days—the result is the same as the action failing, and the pipeline execution does not continue. ## What you will accomplish In this module, you will: <br>• Add a review stage to your pipeline <br>• Manually approve a change before it is deployed ## Key concepts **Approval action—**Type of pipeline action that stops the pipeline execution until someone approves or rejects it. **Pipeline execution—**Set of changes, such as a merged commit, released by a pipeline. Pipeline executions traverse the pipeline stages in order. Each pipeline stage can only process one execution at a time. To do this, a stage is locked while it processes an execution. **Failed execution—**If an execution fails, it stops and does not completely traverse the pipeline. The pipeline status changes to **Failed** and the stage that was processing the execution is unlocked. A failed execution can be retried or replaced by a more recent execution. ## Implementation 1. Open the [AWS CodePipeline console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines"). 2. You should see the pipeline we created in Module 4, which was called **Pipeline-DevOpsGettingStarted.** Select this pipeline. 3. Choose the white **Edit** button near the top of the page. 4. Choose the white**Add stage** button between the **Build** and **Deploy** stages. 5. In the **Stage name** field, enter **Review.** 6. Choose the orange **Add stage** button. 7. In the **Review** stage, choose the white **Add action group** button. 8. Under **Action name,** enter **Manual_Review.** 9. From the **Action provider** dropdown, select **Manual approval.** 10. Confirm that the optional fields have been left blank. 11. Choose the orange **Done** button. 12. Choose the orange **Save** button at the top of the page. 13. Choose the orange **Save** button to confirm the changes. You will now see your pipeline with four stages: **Source, Build, Review,** and **Deploy.** 1. In your favorite code editor, open the **app.js** file from Module 1. 2. Change the message in Line 5. 3. Save the file. 4. Open your preferred Git client. 5. Navigate to the folder created in Module 1. 6. Commit the change with the following commands: `git add app.js git commit -m "Full pipeline test"` 7. Push the local changes to the remote repo hosted on GitHub with the following command: `git push` 1. Navigate to the [AWS CodePipeline console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines"). 2. Select the pipeline named **Pipeline-DevOpsGettingStarted.** You should see the **Source** and **Build** stages switch from blue to green. 3. When the **Review** stage switches to blue, choose the white **Review** button. 4. Write an approval comment in the **Comments** textbox. 5. Choose the orange **Approve** button. 6. Wait for the **Review** and **Deploy** stages to switch to green. 7. Select the **AWS Elastic Beanstalk** link in the **Deploy** stage. A new tab listing your Elastic Beanstalk environments will open. 8. Select the URL in the **Devopsgettingstarted-env** row. You should see a webpage with a white background and the text you had in your most recent GitHub commit. ## Congratulations! You successfully built a continuous delivery pipeline on AWS! As a great next step, dive deeper into specific AWS technologies and take your application to the next level. ## Application architecture With all modules now completed, here is the architecture of what you built: We have used AWS CodePipeline to add a review stage with manual approval to our continuous delivery pipeline. Now, our code changes will have to be reviewed and approved before they are deployed to AWS Elastic Beanstalk. ![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](images/diagram-deployment-workflow-using-acplong.png) ### (Optional) Delete AWS Elastic Beanstalk application 1. In a new browser window, open the [AWS Elastic Beanstalk Console](https://console.aws.amazon.com/elasticbeanstalk/home#/applications "https://console.aws.amazon.com/elasticbeanstalk/home#/applications"). 2. In the left navigation menu, click on **Applications.** You should see the **DevOpsGettingStarted** application listed under **All applications**. 3. Select the radio button next to **DevOpsGettingStarted.** 4. Click the **Actions** at the top of the page. 5. In the dropdown menu, select **Delete application**. 6. Type **DevOpsGettingStarted** in the text box to confirm deletion. 7. Click **Delete**. ### (Optional) Delete pipeline in AWS CodePipeline 1. In a new browser window, open the [AWS CodePipeline Console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines"). 2. Select the **radio button** next to **Pipeline-DevOpsGettingStarted.** 3. Click **Delete pipeline** at the top of the page. 4. Type **delete** in the text box to confirm deletion. 5. Click **Delete**. ### (Optional) Delete pipeline resources from Amazon S3 bucket 1. In a new browser window, open the [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home "https://s3.console.aws.amazon.com/s3/home"). 2. You should see a bucket named **codepipeline-us-west-2** followed by your AWS account number. Click on this bucket. Inside this bucket, you should see a folder named **Pipeline-DevOpsGettingStarted**. 3. Select the checkbox next to the **Pipeline-DevOpsGettingStarted** folder. 4. Click **Actions** from the dropdown menu. 5. In the dropdown menu, select **Delete**. 6. Click **Delete**. ### (Optional) Delete build project in AWS CodeBuild 1. In a new browser window, open the [AWS CodeBuild Console](https://console.aws.amazon.com/codesuite/codebuild/projects "https://console.aws.amazon.com/codesuite/codebuild/projects"). 2. In the left navigation, click **Build projects** under **Build**. You should see the **Build-DevOpsGettingStarted** build project listed under **Build project**. 3. Select the radio button next to **Build-DevOpsGettingStarted.** 4. Click **Delete build project** at the top of the page. 5. Type **delete** in the text box to confirm deletion. 6. Click **Delete**. |
+| **Services used**    | [AWS CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/") |
+
+## Overview
+
+In this module, you will use
+[AWS CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/")
+to add a review stage to your continuous delivery pipeline.
+
+As part of this process, you can add an approval action to a stage at the point where you want the pipeline execution to stop so someone can manually approve or reject the action. Manual approvals are useful to have someone else review a change before deployment. If the action is approved, the pipeline execution resumes. If the action is rejected—or if no one approves or rejects the action within seven days—the result is the same as the action failing, and the pipeline execution does not continue.
+
+## What you will accomplish
+
+In this module, you will:
+
+- Add a review stage to your pipeline
+- Manually approve a change before it is deployed
+
+## Key concepts
+
+**Approval action—**Type of
+pipeline action that stops the pipeline execution until someone
+approves or rejects it.
+
+**Pipeline execution—**Set of
+changes, such as a merged commit, released by a pipeline. Pipeline
+executions traverse the pipeline stages in order. Each pipeline
+stage can only process one execution at a time. To do this, a
+stage is locked while it processes an execution.
+
+**Failed execution—**If an
+execution fails, it stops and does not completely traverse the
+pipeline. The pipeline status changes to
+**Failed** and the stage that was processing the
+execution is unlocked. A failed execution can be retried or
+replaced by a more recent execution.
+
+## Implementation
+
+1. Open the
+   [AWS CodePipeline console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines").
+2. You should see the pipeline we created in Module 4, which was
+   called
+   **Pipeline-DevOpsGettingStarted.** Select
+   this pipeline.
+3. Choose the white **Edit** button
+   near the top of the page.
+4. Choose the white**Add
+   stage** button between the
+   **Build** and
+   **Deploy** stages.
+5. In the **Stage name** field,
+   enter **Review.**
+6. Choose the orange **Add stage**
+   button.
+7. In the **Review** stage, choose
+   the white **Add action group**
+   button.
+8. Under **Action name,** enter
+   **Manual_Review.**
+9. From the **Action
+   provider** dropdown, select
+   **Manual approval.**
+10. Confirm that the optional fields have been left blank.
+11. Choose the orange **Done**
+    button.
+12. Choose the orange **Save** button
+    at the top of the page.
+13. Choose the orange **Save** button
+    to confirm the changes. You will now see your pipeline with four
+    stages: **Source, Build,
+    Review,** and
+    **Deploy.**
+14. In your favorite code editor, open the
+    **app.js** file from Module 1.
+15. Change the message in Line 5.
+16. Save the file.
+17. Open your preferred Git client.
+18. Navigate to the folder created in Module 1.
+19. Commit the change with the following commands:
+
+```
+git add app.js
+git commit -m "Full pipeline test"
+
+```
+
+7. Push the local changes to the remote repo hosted on GitHub with
+   the following command:
+
+```
+git push
+```
+
+1. Navigate to the
+   [AWS CodePipeline console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines").
+2. Select the pipeline named
+   **Pipeline-DevOpsGettingStarted.** You
+   should see the **Source** and
+   **Build** stages switch from blue
+   to green.
+3. When the **Review** stage
+   switches to blue, choose the white
+   **Review** button.
+4. Write an approval comment in the
+   **Comments** textbox.
+5. Choose the orange **Approve**
+   button.
+6. Wait for the **Review** and
+   **Deploy** stages to switch to
+   green.
+7. Select the **AWS Elastic Beanstalk** link in the
+   **Deploy** stage. A new tab
+   listing your Elastic Beanstalk environments will open.
+8. Select the URL in the
+   **Devopsgettingstarted-env** row.
+   You should see a webpage with a white background and the text
+   you had in your most recent GitHub commit.
+
+## Congratulations!
+
+You successfully built a continuous delivery pipeline on AWS! As a
+great next step, dive deeper into specific AWS technologies and take
+your application to the next level.
+
+## Application architecture
+
+With all modules now completed, here is the architecture of what
+you built:
+
+We have used AWS CodePipeline to add a review stage with manual approval to our continuous delivery pipeline. Now, our code changes will have to be reviewed and approved before they are deployed to AWS Elastic Beanstalk.
+
+![A diagram showing a CI/CD deployment workflow using AWS CodePipeline. The flow starts with users pushing source code to a Git repository, which triggers the CodePipeline in AWS Cloud. The pipeline includes steps for source (Git repository), build (AWS CodeBuild), manual approval (review), and deployment to AWS Elastic Beanstalk.](/images/hands-on/latest/create-continuous-delivery-pipeline/images/diagram-deployment-workflow-using-acplong.png)
+
+### (Optional) Delete AWS Elastic Beanstalk application
+
+1. In a new browser window, open the
+   [AWS Elastic Beanstalk Console](https://console.aws.amazon.com/elasticbeanstalk/home#/applications "https://console.aws.amazon.com/elasticbeanstalk/home#/applications").
+2. In the left navigation menu, click on
+   **Applications.** You should see
+   the **DevOpsGettingStarted**
+   application listed under **All
+   applications**.
+3. Select the radio button next to
+   **DevOpsGettingStarted.**
+4. Click the **Actions** at the top
+   of the page.
+5. In the dropdown menu, select **Delete
+   application**.
+6. Type **DevOpsGettingStarted** in
+   the text box to confirm deletion.
+7. Click **Delete**.
+
+### (Optional) Delete pipeline in AWS CodePipeline
+
+1. In a new browser window, open the
+   [AWS CodePipeline Console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines "https://console.aws.amazon.com/codesuite/codepipeline/pipelines").
+2. Select the **radio button** next
+   to
+   **Pipeline-DevOpsGettingStarted.**
+3. Click **Delete pipeline** at the
+   top of the page.
+4. Type **delete** in the text box
+   to confirm deletion.
+5. Click **Delete**.
+
+### (Optional) Delete pipeline resources from Amazon S3
+
+bucket
+
+1. In a new browser window, open the
+   [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home "https://s3.console.aws.amazon.com/s3/home").
+2. You should see a bucket named
+   **codepipeline-us-west-2**
+   followed by your AWS account number. Click on this bucket.
+   Inside this bucket, you should see a folder named
+   **Pipeline-DevOpsGettingStarted**.
+3. Select the checkbox next to the
+   **Pipeline-DevOpsGettingStarted**
+   folder.
+4. Click **Actions** from the
+   dropdown menu.
+5. In the dropdown menu, select
+   **Delete**.
+6. Click **Delete**.
+
+### (Optional) Delete build project in AWS CodeBuild
+
+1. In a new browser window, open the
+   [AWS CodeBuild Console](https://console.aws.amazon.com/codesuite/codebuild/projects "https://console.aws.amazon.com/codesuite/codebuild/projects").
+2. In the left navigation, click **Build
+   projects** under
+   **Build**. You should see the
+   **Build-DevOpsGettingStarted**
+   build project listed under **Build
+   project**.
+3. Select the radio button next to
+   **Build-DevOpsGettingStarted.**
+4. Click **Delete build project** at
+   the top of the page.
+5. Type **delete** in the text box
+   to confirm deletion.
+6. Click **Delete**.
