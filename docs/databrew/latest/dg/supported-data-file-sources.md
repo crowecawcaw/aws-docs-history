@@ -17,10 +17,10 @@ File formats and supported compression algorithms are shown in the following tab
 
 CSV, Excel, and JSON files must be encoded with Unicode (UTF-8).
 
-| **Format**                          | **File extension (optional)** | **Extensions for compressed files (required)** |
-| ----------------------------------- | ----------------------------- | ---------------------------------------------- |
-| Comma-separated values              | `.csv`                        | `.gz` `.snappy` `.lz4` `.bz2` `.deflate`       |
-| Microsoft Excel workbook            | `.xlsx`                       | No compression support                         |
-| JSON (JSON document and JSON lines) | `.json, .jsonl`               | `.gz` `.snappy` `.lz4` `.bz2` `.deflate`       |
-| Apache ORC                          | `.orc`                        | `.zlib` `.snappy`                              |
-| Apache Parquet                      | `.parquet`                    | `.gz` `.snappy` `.lz4`                         |
+| **Format**                          | **File extension (optional)** | **Extensions for compressed files (required)**       |
+| ----------------------------------- | ----------------------------- | ---------------------------------------------------- |
+| Comma-separated values              | `.csv`                        | `.gz`<br>`.snappy`<br>`.lz4`<br>`.bz2`<br>`.deflate` |
+| Microsoft Excel workbook            | `.xlsx`                       | No compression support                               |
+| JSON (JSON document and JSON lines) | `.json, .jsonl`               | `.gz`<br>`.snappy`<br>`.lz4`<br>`.bz2`<br>`.deflate` |
+| Apache ORC                          | `.orc`                        | `.zlib`<br>`.snappy`                                 |
+| Apache Parquet                      | `.parquet`                    | `.gz`<br>`.snappy`<br>`.lz4`                         |

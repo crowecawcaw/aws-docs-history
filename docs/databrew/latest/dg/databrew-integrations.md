@@ -16,21 +16,24 @@ governance:
 - [Amazon S3](../../../AmazonS3/latest/dev/Welcome.md "../../../AmazonS3/latest/dev/Welcome.md")
   DataBrew supports the following file formats and extensions for uploading data.
 
-| **Format**                          | **File extension (optional)**     | **Extensions for compressed files (required)**                                    |
-| ----------------------------------- | --------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Comma-separated values              | `.csv`                            | `.gz` `.snappy` `.lz4` `.bz2` `.deflate`                                          |
-| Microsoft Excel workbook            | `.xlsx`                           | No compression support                                                            |
-| JSON (JSON document and JSON lines) | `.json, .jsonl`                   | `.gz` `.snappy` `.lz4` `.bz2` `.deflate`                                          |
-| Apache ORC                          | `.orc`                            | `.zlib` `.snappy`                                                                 |
-| Apache Parquet                      | `.parquet`                        | `.gz` `.snappy` `.lz4`                                                            | DataBrew writes output files to Amazon S3, and supports the following file formats and extensions. |
-| **Format**                          | **File extension (uncompressed)** | **File extensions (compressed)**                                                  |
-| ---                                 | ---                               | ---                                                                               |
-| Comma-separated values              | `.csv`                            | `.csv.snappy`, `.csv.gz`, `.csv.lz4`, `csv.bz2`, `.csv.deflate`, `csv.br`         |
-| Tab-separated values                | `.csv`                            | `.tsv.snappy`, `.tsv.gz`, `.tsv.lz4`, `tsv.bz2`, `.tsv.deflate`, `tsv.br`         |
-| Apache Parquet                      | `.parquet`                        | `.parquet.snappy`, `.parquet.gz`, `.parquet.lz4`, `.parquet.lzo`, `.parquet.br`   |
-| AWS Glue Parquet                    | Not supported                     | `.glue.parquet.snappy`                                                            |
-| Apache Avro                         | `.avro`                           | `.avro.snappy`, `.avro.gz`, `.avro.lz4`, `.avro.bz2`, `.avro.deflate`, `.avro.br` |
-| Apache ORC                          | `.orc`                            | `.orc.snappy`, `.orc.lzo`, `.orc.zlib`                                            |
-| XML                                 | `.xml`                            | `.xml.snappy`, `.xml.gz`, `.xml.lz4`, `.xml.bz2`, `.xml.deflate`, `.xml.br`       |
-| JSON (JSON Lines format only)       | `.json`                           | `.json.snappy`, `.json.gz`, `.json.lz4`, `json.bz2`, `.json.deflate`, `.json.br`  |
-| Tableau Hyper                       | Not supported                     | Not applicable                                                                    |
+| **Format**                          | **File extension (optional)** | **Extensions for compressed files (required)**       |
+| ----------------------------------- | ----------------------------- | ---------------------------------------------------- |
+| Comma-separated values              | `.csv`                        | `.gz`<br>`.snappy`<br>`.lz4`<br>`.bz2`<br>`.deflate` |
+| Microsoft Excel workbook            | `.xlsx`                       | No compression support                               |
+| JSON (JSON document and JSON lines) | `.json, .jsonl`               | `.gz`<br>`.snappy`<br>`.lz4`<br>`.bz2`<br>`.deflate` |
+| Apache ORC                          | `.orc`                        | `.zlib`<br>`.snappy`                                 |
+| Apache Parquet                      | `.parquet`                    | `.gz`<br>`.snappy`<br>`.lz4`                         |
+
+DataBrew writes output files to Amazon S3, and supports the following file formats and extensions.
+
+| **Format**                    | **File extension (uncompressed)** | **File extensions (compressed)**                                                        |
+| ----------------------------- | --------------------------------- | --------------------------------------------------------------------------------------- |
+| Comma-separated values        | `.csv`                            | `.csv.snappy`, `.csv.gz`,<br>`.csv.lz4`, `csv.bz2`,<br>`.csv.deflate`, `csv.br`         |
+| Tab-separated values          | `.csv`                            | `.tsv.snappy`, `.tsv.gz`,<br>`.tsv.lz4`, `tsv.bz2`,<br>`.tsv.deflate`, `tsv.br`         |
+| Apache Parquet                | `.parquet`                        | `.parquet.snappy`, `.parquet.gz`,<br>`.parquet.lz4`, `.parquet.lzo`,<br>`.parquet.br`   |
+| AWS Glue Parquet              | Not supported                     | `.glue.parquet.snappy`                                                                  |
+| Apache Avro                   | `.avro`                           | `.avro.snappy`, `.avro.gz`,<br>`.avro.lz4`, `.avro.bz2`,<br>`.avro.deflate`, `.avro.br` |
+| Apache ORC                    | `.orc`                            | `.orc.snappy`, `.orc.lzo`,<br>`.orc.zlib`                                               |
+| XML                           | `.xml`                            | `.xml.snappy`, `.xml.gz`,<br>`.xml.lz4`, `.xml.bz2`,<br>`.xml.deflate`, `.xml.br`       |
+| JSON (JSON Lines format only) | `.json`                           | `.json.snappy`, `.json.gz`,<br>`.json.lz4`, `json.bz2`,<br>`.json.deflate`, `.json.br`  |
+| Tableau Hyper                 | Not supported                     | Not applicable                                                                          |

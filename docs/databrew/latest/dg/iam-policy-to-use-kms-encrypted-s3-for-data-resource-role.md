@@ -42,11 +42,39 @@ file.
    `"arn:aws:iam::`111122223333`:role/*"`.
    The following table describes the permissions granted by this policy.
 
-| **Action**               | **Resource**                                               | **Description**                                                        |
-| ------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"s3:GetObject"`         | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows you to preview your files.                                      |
-| `"s3:ListBucket"`        | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows listing of Amazon S3 buckets from projects, datasets, and jobs. |
-| `"s3:PutObject"`         | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows sending output files to S3.                                     |
-| `"s3:DeleteObject"`      | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows deleting an object created by DataBrew.                         |
-| `"kms:Decrypt"`          | `"arn:aws:kms:::key/key_ids"`                              | Allows decrypting for encrypted datasets.                              |
-| `"kms:GenerateDataKey*"` | `"arn:aws:kms:::key/key_ids"`                              | Allows encrypting of job output.                                       | ###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew (console) 1. Download the JSON for the [`AwsGlueDataBrewS3EncryptedPolicy`](samples/AwsGlueDataBrewS3EncryptedPolicy.json.md "samples/AwsGlueDataBrewS3EncryptedPolicy.json.md") IAM policy. 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 3. In the navigation pane, choose **Policies**. 4. For each policy, choose **Create Policy**. 5. On the **Create Policy** screen, navigate to the **JSON** tab. 6. Paste in the policy JSON statement over the sample statement in the editor. 7. Verify that the policy is customized to your account, security requirements, and required AWS resources. If you need to make changes, you can make them in the editor. 8. Choose **Review policy**. ###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew (AWS CLI) 1. Download the JSON for [`AwsGlueDataBrewS3EncryptedPolicy`](samples/AwsGlueDataBrewS3EncryptedPolicy.json.md "samples/AwsGlueDataBrewS3EncryptedPolicy.json.md"). 2. Customize the policy as described in the first step of the previous procedure. 3. Run the following command to create the policy. `aws iam create-policy --policy-name AwsGlueDataBrewS3EncryptedPolicy --policy-document file://iam-policy-AwsGlueDataBrewS3EncryptedPolicy.json` |
+| **Action**               | **Resource**                                                  | **Description**                                                           |
+| ------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `"s3:GetObject"`         | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows you to preview your files.                                         |
+| `"s3:ListBucket"`        | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows listing of Amazon S3 buckets from projects, datasets, and<br>jobs. |
+| `"s3:PutObject"`         | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows sending output files to S3.                                        |
+| `"s3:DeleteObject"`      | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows deleting an object created by DataBrew.                            |
+| `"kms:Decrypt"`          | `"arn:aws:kms:::key/key_ids"`                                 | Allows decrypting for encrypted datasets.                                 |
+| `"kms:GenerateDataKey*"` | `"arn:aws:kms:::key/key_ids"`                                 | Allows encrypting of job output.                                          |
+
+###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew
+
+(console)
+
+1. Download the JSON for the [`AwsGlueDataBrewS3EncryptedPolicy`](samples/AwsGlueDataBrewS3EncryptedPolicy.json.md "samples/AwsGlueDataBrewS3EncryptedPolicy.json.md") IAM policy.
+2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+3. In the navigation pane, choose **Policies**.
+4. For each policy, choose **Create Policy**.
+5. On the **Create Policy** screen, navigate to the
+   **JSON** tab.
+6. Paste in the policy JSON statement over the sample statement in the
+   editor.
+7. Verify that the policy is customized to your account, security requirements, and
+   required AWS resources. If you need to make changes, you can make them in the
+   editor.
+8. Choose **Review policy**.
+
+###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew (AWS CLI)
+
+1. Download the JSON for [`AwsGlueDataBrewS3EncryptedPolicy`](samples/AwsGlueDataBrewS3EncryptedPolicy.json.md "samples/AwsGlueDataBrewS3EncryptedPolicy.json.md").
+2. Customize the policy as described in the first step of the previous
+   procedure.
+3. Run the following command to create the policy.
+
+```
+aws iam create-policy --policy-name AwsGlueDataBrewS3EncryptedPolicy --policy-document file://iam-policy-AwsGlueDataBrewS3EncryptedPolicy.json
+```

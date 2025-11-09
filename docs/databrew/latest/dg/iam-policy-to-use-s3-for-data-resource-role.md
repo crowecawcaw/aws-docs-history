@@ -43,8 +43,38 @@ Examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../.
 
 The following table describes the permissions granted by this policy.
 
-| **Action**                            | **Resource**                                               | **Description**                    |
-| ------------------------------------- | ---------------------------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"s3:GetObject"`                      | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows you to preview your files.  |
-| `"s3:PutObject"` `"s3:PutBucketCORS"` | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows sending output files to S3. |
-| `"s3:DeleteObject"`                   | `"arn:aws:s3:::bucket_name/*", "arn:aws:s3:::bucket_name"` | Allows deleting an object.         | ###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew (console) 1. Download the JSON for the [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md") IAM policy. 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 3. In the navigation pane, choose **Policies**. 4. For each policy, choose **Create Policy**. 5. On the **Create Policy** screen, navigate to the **JSON** tab. 6. Paste in the policy JSON statement over the sample statement in the editor. 7. Verify that the policy is customized to your account, security requirements, and required AWS resources. If you need to make changes, you can make them in the editor. 8. Choose **Review policy**. ###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew (AWS CLI) 1. Download the JSON for [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md"). 2. Customize the policy as described in the first step of the previous procedure. 3. Run the following command to create the policy. `aws iam create-policy --policy-name AwsGlueDataBrewSpecificS3BucketPolicy --policy-document file://iam-policy-AwsGlueDataBrewSpecificS3BucketPolicy.json` |
+| **Action**                               | **Resource**                                                  | **Description**                    |
+| ---------------------------------------- | ------------------------------------------------------------- | ---------------------------------- |
+| `"s3:GetObject"`                         | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows you to preview your files.  |
+| `"s3:PutObject"`<br>`"s3:PutBucketCORS"` | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows sending output files to S3. |
+| `"s3:DeleteObject"`                      | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows deleting an object.         |
+
+###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew
+
+(console)
+
+1. Download the JSON for the [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md") IAM policy.
+2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+3. In the navigation pane, choose **Policies**.
+4. For each policy, choose **Create Policy**.
+5. On the **Create Policy** screen, navigate to the
+   **JSON** tab.
+6. Paste in the policy JSON statement over the sample statement in the
+   editor.
+7. Verify that the policy is customized to your account, security requirements, and
+   required AWS resources. If you need to make changes, you can make them in the
+   editor.
+8. Choose **Review policy**.
+
+###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew
+
+(AWS CLI)
+
+1. Download the JSON for [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md").
+2. Customize the policy as described in the first step of the previous
+   procedure.
+3. Run the following command to create the policy.
+
+```
+aws iam create-policy --policy-name AwsGlueDataBrewSpecificS3BucketPolicy --policy-document file://iam-policy-AwsGlueDataBrewSpecificS3BucketPolicy.json
+```
