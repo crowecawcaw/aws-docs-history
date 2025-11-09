@@ -96,10 +96,101 @@ building your runbook library. You can build your runbooks using
 Markdown. We have provided an example runbook template that you
 can use to start building runbooks.
 
-````
+```
 # Runbook Title
 ## Runbook Info
 | Runbook ID | Description | Tools Used | Special Permissions | Runbook Author | Last Updated | Escalation POC |
 |-------|-------|-------|-------|-------|-------|-------|
-| RUN001 | What is this runbook for? What is the desired outcome? | Tools | Permissions | Your Name | 2022-09-21 | Escalation Name | ## Steps 1. Step one 2. Step two ``` 1. If you don't have an existing documentation repository or wiki, create a new version control repository in your version control system. 2. Identify a process that does not have a runbook. An ideal process is one that is conducted semiregularly, short in number of steps, and has low impact failures. 3. In your document repository, create a new draft Markdown document using the template. Fill in Runbook Title and the required fields under Runbook Info. 4. Starting with the first step, fill in the Steps portion of the runbook. 5. Give the runbook to a team member. Have them use the runbook to validate the steps. If something is missing or needs clarity, update the runbook. 6. Publish the runbook to your internal documentation store. Once published, tell your team and other stakeholders. 7. Over time, you'll build a library of runbooks. As that library grows, start working to automate runbooks. **Level of effort for the implementation plan:** Low. The minimum standard for a runbook is a step-by-step text guide. Automating runbooks can increase the implementation effort. ## Resources **Related best practices:** <br>• [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") <br>• [OPS07-BP04 Use playbooks to investigate issues](ops_ready_to_support_use_playbooks.md "ops_ready_to_support_use_playbooks.md") <br>• [OPS10-BP01 Use a process for event, incident, and problem management](ops_event_response_event_incident_problem_process.md "ops_event_response_event_incident_problem_process.md") <br>• [OPS10-BP02 Have a process per alert](ops_event_response_process_per_alert.md "ops_event_response_process_per_alert.md") <br>• [OPS11-BP04 Perform knowledge management](ops_evolve_ops_knowledge_management.md "ops_evolve_ops_knowledge_management.md") **Related documents:** <br>• [Achieving Operational Excellence using automated playbook and runbook](https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/ "https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/") <br>• [AWS Systems Manager: Working with runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md") <br>• [Migration playbook for AWS large migrations - Task 4: Improving your migration runbooks](../../../prescriptive-guidance/latest/large-migration-migration-playbook/task-four-migration-runbooks.md "../../../prescriptive-guidance/latest/large-migration-migration-playbook/task-four-migration-runbooks.md") <br>• [Use AWS Systems Manager Automation runbooks to resolve operational tasks](https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/ "https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/") **Related videos:** <br>• [AWS re:Invent 2019: DIY guide to runbooks, incident reports, and incident response](https://www.youtube.com/watch?v=E1NaYN_fJUo "https://www.youtube.com/watch?v=E1NaYN_fJUo") <br>• [How to automate IT Operations on AWS | Amazon Web Services](https://www.youtube.com/watch?v=GuWj_mlyTug "https://www.youtube.com/watch?v=GuWj_mlyTug") <br>• [Integrate Scripts into AWS Systems Manager](https://www.youtube.com/watch?v=Seh1RbnF-uE "https://www.youtube.com/watch?v=Seh1RbnF-uE") **Related examples:** <br>• [Well-Architected Labs: Automating operations with Playbooks and Runbooks](https://wellarchitectedlabs.com/operational-excellence/200_labs/200_automating_operations_with_playbooks_and_runbooks/ "https://wellarchitectedlabs.com/operational-excellence/200_labs/200_automating_operations_with_playbooks_and_runbooks/") <br>• [AWS Blog Post: Build a Cloud Automation Practice for Operational Excellence: Best Practices from AWS Managed Services](https://aws.amazon.com/blogs/mt/build-a-cloud-automation-practice-for-operational-excellence-best-practices-from-aws-managed-services/ "https://aws.amazon.com/blogs/mt/build-a-cloud-automation-practice-for-operational-excellence-best-practices-from-aws-managed-services/") <br>• [AWS Systems Manager: Automation walkthroughs](../../../systems-manager/latest/userguide/automation-walk.md "../../../systems-manager/latest/userguide/automation-walk.md") <br>• [AWS Systems Manager: Restore a root volume from the latest snapshot runbook](../../../systems-manager/latest/userguide/automation-document-sample-restore.md "../../../systems-manager/latest/userguide/automation-document-sample-restore.md") <br>• [Building an AWS incident response runbook using Jupyter notebooks and CloudTrail Lake](https://catalog.us-east-1.prod.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US") <br>• [Gitlab <br>• Runbooks](https://gitlab.com/gitlab-com/runbooks "https://gitlab.com/gitlab-com/runbooks") <br>• [Rubix - A Python library for building runbooks in Jupyter Notebooks](https://github.com/Nurtch/rubix "https://github.com/Nurtch/rubix") <br>• [Using Document Builder to create a custom runbook](../../../systems-manager/latest/userguide/automation-walk-document-builder.md "../../../systems-manager/latest/userguide/automation-walk-document-builder.md") **Related services:** <br>• [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
-````
+| RUN001 | What is this runbook for? What is the desired outcome? | Tools | Permissions | Your Name | 2022-09-21 | Escalation Name |
+## Steps
+1. Step one
+2. Step two
+```
+
+1. If you don't have an existing documentation repository or
+   wiki, create a new version control repository in your version
+   control system.
+2. Identify a process that does not have a runbook. An ideal
+   process is one that is conducted semiregularly, short in
+   number of steps, and has low impact failures.
+3. In your document repository, create a new draft Markdown
+   document using the template. Fill in Runbook Title and the
+   required fields under Runbook Info.
+4. Starting with the first step, fill in the Steps portion of the
+   runbook.
+5. Give the runbook to a team member. Have them use the runbook
+   to validate the steps. If something is missing or needs
+   clarity, update the runbook.
+6. Publish the runbook to your internal documentation store. Once
+   published, tell your team and other stakeholders.
+7. Over time, you'll build a library of runbooks. As that library
+   grows, start working to automate runbooks.
+
+**Level of effort for the implementation
+plan:** Low. The minimum standard for a runbook is a
+step-by-step text guide. Automating runbooks can increase the
+implementation effort.
+
+## Resources
+
+**Related best practices:**
+
+- [OPS02-BP02
+  Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md")
+- [OPS07-BP04
+  Use playbooks to investigate issues](ops_ready_to_support_use_playbooks.md "ops_ready_to_support_use_playbooks.md")
+- [OPS10-BP01
+  Use a process for event, incident, and problem
+  management](ops_event_response_event_incident_problem_process.md "ops_event_response_event_incident_problem_process.md")
+- [OPS10-BP02
+  Have a process per alert](ops_event_response_process_per_alert.md "ops_event_response_process_per_alert.md")
+- [OPS11-BP04
+  Perform knowledge management](ops_evolve_ops_knowledge_management.md "ops_evolve_ops_knowledge_management.md")
+
+**Related documents:**
+
+- [Achieving
+  Operational Excellence using automated playbook and
+  runbook](https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/ "https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/")
+- [AWS Systems Manager: Working with runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md")
+- [Migration
+  playbook for AWS large migrations - Task 4: Improving your
+  migration runbooks](../../../prescriptive-guidance/latest/large-migration-migration-playbook/task-four-migration-runbooks.md "../../../prescriptive-guidance/latest/large-migration-migration-playbook/task-four-migration-runbooks.md")
+- [Use
+  AWS Systems Manager Automation runbooks to resolve operational
+  tasks](https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/ "https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/")
+
+**Related videos:**
+
+- [AWS re:Invent 2019: DIY guide to runbooks, incident reports, and
+  incident response](https://www.youtube.com/watch?v=E1NaYN_fJUo "https://www.youtube.com/watch?v=E1NaYN_fJUo")
+- [How
+  to automate IT Operations on AWS | Amazon Web Services](https://www.youtube.com/watch?v=GuWj_mlyTug "https://www.youtube.com/watch?v=GuWj_mlyTug")
+- [Integrate
+  Scripts into AWS Systems Manager](https://www.youtube.com/watch?v=Seh1RbnF-uE "https://www.youtube.com/watch?v=Seh1RbnF-uE")
+
+**Related examples:**
+
+- [Well-Architected
+  Labs: Automating operations with Playbooks and Runbooks](https://wellarchitectedlabs.com/operational-excellence/200_labs/200_automating_operations_with_playbooks_and_runbooks/ "https://wellarchitectedlabs.com/operational-excellence/200_labs/200_automating_operations_with_playbooks_and_runbooks/")
+- [AWS Blog Post: Build a Cloud Automation Practice for Operational
+  Excellence: Best Practices from AWS Managed Services](https://aws.amazon.com/blogs/mt/build-a-cloud-automation-practice-for-operational-excellence-best-practices-from-aws-managed-services/ "https://aws.amazon.com/blogs/mt/build-a-cloud-automation-practice-for-operational-excellence-best-practices-from-aws-managed-services/")
+- [AWS Systems Manager: Automation walkthroughs](../../../systems-manager/latest/userguide/automation-walk.md "../../../systems-manager/latest/userguide/automation-walk.md")
+- [AWS Systems Manager: Restore a root volume from the latest
+  snapshot runbook](../../../systems-manager/latest/userguide/automation-document-sample-restore.md "../../../systems-manager/latest/userguide/automation-document-sample-restore.md")
+- [Building
+  an AWS incident response runbook using Jupyter notebooks and
+  CloudTrail Lake](https://catalog.us-east-1.prod.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US")
+- [Gitlab
+
+* Runbooks](https://gitlab.com/gitlab-com/runbooks "https://gitlab.com/gitlab-com/runbooks")
+
+- [Rubix - A
+  Python library for building runbooks in Jupyter
+  Notebooks](https://github.com/Nurtch/rubix "https://github.com/Nurtch/rubix")
+- [Using
+  Document Builder to create a custom runbook](../../../systems-manager/latest/userguide/automation-walk-document-builder.md "../../../systems-manager/latest/userguide/automation-walk-document-builder.md")
+
+**Related services:**
+
+- [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")

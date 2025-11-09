@@ -107,10 +107,92 @@ You can build your playbooks using Markdown, which is compatible
 with most playbook automation systems. If you are starting from
 scratch, use the following example playbook template.
 
-````
+```
 # Playbook Title
 ## Playbook Info
 | Playbook ID | Description | Tools Used | Special Permissions | Playbook Author | Last Updated | Escalation POC | Stakeholders | Communication Plan |
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| RUN001 | What is this playbook for? What incident is it used for? | Tools | Permissions | Your Name | 2022-09-21 | Escalation Name | Stakeholder Name | How will updates be communicated during the investigation? | ## Steps 1. Step one 2. Step two ``` 1. If you don't have an existing document repository or wiki, create a new version control repository for your playbooks in your version control system. 2. Identify a common issue that requires investigation. This should be a scenario where the root cause is limited to a few issues and resolution is low risk. 3. Using the Markdown template, fill in the Playbook Name section and the fields under Playbook Info. 4. Fill in the troubleshooting steps. Be as clear as possible on what actions to perform or what areas you should investigate. 5. Give a team member the playbook and have them go through it to validate it. If there's anything missing or something isn't clear, update the playbook. 6. Publish your playbook in your document repository and inform your team and any stakeholders. 7. This playbook library will grow as you add more playbooks. Once you have several playbooks, start automating them using tools like AWS Systems Manager Automations to keep automation and playbooks in sync. **Level of effort for the implementation plan:** Low. Your playbooks should be text documents stored in a central location. More mature organizations will move towards automating playbooks. ## Resources **Related best practices:** <br>• [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md") <br>• [OPS07-BP03 Use runbooks to perform procedures](ops_ready_to_support_use_runbooks.md "ops_ready_to_support_use_runbooks.md") <br>• [OPS10-BP01 Use a process for event, incident, and problem management](ops_event_response_event_incident_problem_process.md "ops_event_response_event_incident_problem_process.md") <br>• [OPS10-BP02 Have a process per alert](ops_event_response_process_per_alert.md "ops_event_response_process_per_alert.md") <br>• [OPS11-BP04 Perform knowledge management](ops_evolve_ops_knowledge_management.md "ops_evolve_ops_knowledge_management.md") **Related documents:** <br>• [Achieving Operational Excellence using automated playbook and runbook](https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/ "https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/") <br>• [AWS Systems Manager: Working with runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md") <br>• [Use AWS Systems Manager Automation runbooks to resolve operational tasks](https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/ "https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/") **Related videos:** <br>• [AWS re:Invent 2019: DIY guide to runbooks, incident reports, and incident response (SEC318-R1)](https://www.youtube.com/watch?v=E1NaYN_fJUo "https://www.youtube.com/watch?v=E1NaYN_fJUo") <br>• [AWS Systems Manager Incident Manager - AWS Virtual Workshops](https://www.youtube.com/watch?v=KNOc0DxuBSY "https://www.youtube.com/watch?v=KNOc0DxuBSY") <br>• [Integrate Scripts into AWS Systems Manager](https://www.youtube.com/watch?v=Seh1RbnF-uE "https://www.youtube.com/watch?v=Seh1RbnF-uE") **Related examples:** <br>• [AWS Customer Playbook Framework](https://github.com/aws-samples/aws-customer-playbook-framework "https://github.com/aws-samples/aws-customer-playbook-framework") <br>• [AWS Systems Manager: Automation walkthroughs](../../../systems-manager/latest/userguide/automation-walk.md "../../../systems-manager/latest/userguide/automation-walk.md") <br>• [Building an AWS incident response runbook using Jupyter notebooks and CloudTrail Lake](https://catalog.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US "https://catalog.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US") <br>• [Rubix – A Python library for building runbooks in Jupyter Notebooks](https://github.com/Nurtch/rubix "https://github.com/Nurtch/rubix") <br>• [Using Document Builder to create a custom runbook](../../../systems-manager/latest/userguide/automation-walk-document-builder.md "../../../systems-manager/latest/userguide/automation-walk-document-builder.md") **Related services:** <br>• [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") <br>• [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md")
-````
+| RUN001 | What is this playbook for? What incident is it used for? | Tools | Permissions | Your Name | 2022-09-21 | Escalation Name | Stakeholder Name | How will updates be communicated during the investigation? |
+## Steps
+1. Step one
+2. Step two
+```
+
+1. If you don't have an existing document repository or wiki,
+   create a new version control repository for your playbooks
+   in your version control system.
+2. Identify a common issue that requires investigation. This
+   should be a scenario where the root cause is limited to a
+   few issues and resolution is low risk.
+3. Using the Markdown template, fill in the Playbook Name
+   section and the fields under Playbook Info.
+4. Fill in the troubleshooting steps. Be as clear as possible
+   on what actions to perform or what areas you should
+   investigate.
+5. Give a team member the playbook and have them go through it
+   to validate it. If there's anything missing or something
+   isn't clear, update the playbook.
+6. Publish your playbook in your document repository and inform
+   your team and any stakeholders.
+7. This playbook library will grow as you add more playbooks.
+   Once you have several playbooks, start automating them using
+   tools like AWS Systems Manager Automations to keep
+   automation and playbooks in sync.
+
+**Level of effort for the implementation
+plan:** Low. Your playbooks should be text documents
+stored in a central location. More mature organizations will
+move towards automating playbooks.
+
+## Resources
+
+**Related best practices:**
+
+- [OPS02-BP02
+  Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md")
+- [OPS07-BP03
+  Use runbooks to perform procedures](ops_ready_to_support_use_runbooks.md "ops_ready_to_support_use_runbooks.md")
+- [OPS10-BP01
+  Use a process for event, incident, and problem
+  management](ops_event_response_event_incident_problem_process.md "ops_event_response_event_incident_problem_process.md")
+- [OPS10-BP02
+  Have a process per alert](ops_event_response_process_per_alert.md "ops_event_response_process_per_alert.md")
+- [OPS11-BP04
+  Perform knowledge management](ops_evolve_ops_knowledge_management.md "ops_evolve_ops_knowledge_management.md")
+
+**Related documents:**
+
+- [Achieving
+  Operational Excellence using automated playbook and
+  runbook](https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/ "https://aws.amazon.com/blogs/mt/achieving-operational-excellence-using-automated-playbook-and-runbook/")
+- [AWS Systems Manager: Working with runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../../../systems-manager/latest/userguide/automation-documents.md")
+- [Use
+  AWS Systems Manager Automation runbooks to resolve operational
+  tasks](https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/ "https://aws.amazon.com/blogs/mt/use-aws-systems-manager-automation-runbooks-to-resolve-operational-tasks/")
+
+**Related videos:**
+
+- [AWS re:Invent 2019: DIY guide to runbooks, incident reports, and
+  incident response (SEC318-R1)](https://www.youtube.com/watch?v=E1NaYN_fJUo "https://www.youtube.com/watch?v=E1NaYN_fJUo")
+- [AWS Systems Manager Incident Manager - AWS Virtual
+  Workshops](https://www.youtube.com/watch?v=KNOc0DxuBSY "https://www.youtube.com/watch?v=KNOc0DxuBSY")
+- [Integrate
+  Scripts into AWS Systems Manager](https://www.youtube.com/watch?v=Seh1RbnF-uE "https://www.youtube.com/watch?v=Seh1RbnF-uE")
+
+**Related examples:**
+
+- [AWS Customer Playbook Framework](https://github.com/aws-samples/aws-customer-playbook-framework "https://github.com/aws-samples/aws-customer-playbook-framework")
+- [AWS Systems Manager: Automation walkthroughs](../../../systems-manager/latest/userguide/automation-walk.md "../../../systems-manager/latest/userguide/automation-walk.md")
+- [Building
+  an AWS incident response runbook using Jupyter notebooks and
+  CloudTrail Lake](https://catalog.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US "https://catalog.workshops.aws/workshops/a5801f0c-7bd6-4282-91ae-4dfeb926a035/en-US")
+- [Rubix – A
+  Python library for building runbooks in Jupyter
+  Notebooks](https://github.com/Nurtch/rubix "https://github.com/Nurtch/rubix")
+- [Using
+  Document Builder to create a custom runbook](../../../systems-manager/latest/userguide/automation-walk-document-builder.md "../../../systems-manager/latest/userguide/automation-walk-document-builder.md")
+
+**Related services:**
+
+- [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
+- [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/what-is-incident-manager.md "../../../incident-manager/latest/userguide/what-is-incident-manager.md")

@@ -235,4 +235,16 @@ with a change calendar.
 - [AWS Blog post | Accountability and empowerment are key to
   high-performing agile organizations](https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/ "https://aws.amazon.com/blogs/enterprise-strategy/two-pizza-teams-are-just-the-start-accountability-and-empowerment-are-key-to-high-performing-agile-organizations-part-2/")
 - [AWS Executive Insights | Learn to scale innovation, not complexity
-  | Single-threaded Leaders](https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/#Single-Threaded_Leaders "https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/#Single-Threaded_Leaders") <br>• [AWS Security Bulletins](https://aws.amazon.com/security/security-bulletins "https://aws.amazon.com/security/security-bulletins") <br>• [Open CVE](https://www.opencve.io/welcome "https://www.opencve.io/welcome") <br>• [Support App in Slack to Manage Support Cases](https://aws.amazon.com/blogs/aws/new-aws-support-app-in-slack-to-manage-support-cases/ "https://aws.amazon.com/blogs/aws/new-aws-support-app-in-slack-to-manage-support-cases/") <br>• [Manage AWS resources in your Slack channels with Amazon Q Developer in chat applications](https://aws.amazon.com/blogs/mt/manage-aws-resources-in-your-slack-channels-with-aws-chatbot/ "https://aws.amazon.com/blogs/mt/manage-aws-resources-in-your-slack-channels-with-aws-chatbot/") **Related services:** <br>• [Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md") <br>• [AWS Systems Manager Change Calendar](../../../systems-manager/latest/userguide/systems-manager-change-calendar.md "../../../systems-manager/latest/userguide/systems-manager-change-calendar.md") <br>• [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md")
+  | Single-threaded Leaders](https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/#Single-Threaded_Leaders "https://aws.amazon.com/executive-insights/content/amazon-two-pizza-team/#Single-Threaded_Leaders")
+- [AWS Security Bulletins](https://aws.amazon.com/security/security-bulletins "https://aws.amazon.com/security/security-bulletins")
+- [Open
+  CVE](https://www.opencve.io/welcome "https://www.opencve.io/welcome")
+- [Support App in Slack to Manage Support Cases](https://aws.amazon.com/blogs/aws/new-aws-support-app-in-slack-to-manage-support-cases/ "https://aws.amazon.com/blogs/aws/new-aws-support-app-in-slack-to-manage-support-cases/")
+- [Manage
+  AWS resources in your Slack channels with Amazon Q Developer in chat applications](https://aws.amazon.com/blogs/mt/manage-aws-resources-in-your-slack-channels-with-aws-chatbot/ "https://aws.amazon.com/blogs/mt/manage-aws-resources-in-your-slack-channels-with-aws-chatbot/")
+
+**Related services:**
+
+- [Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md")
+- [AWS Systems Manager Change Calendar](../../../systems-manager/latest/userguide/systems-manager-change-calendar.md "../../../systems-manager/latest/userguide/systems-manager-change-calendar.md")
+- [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md")
