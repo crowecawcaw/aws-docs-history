@@ -96,13 +96,23 @@ This time the script looks for the files that are in
 As a result of the restore command, the following data from the backup is restored
 on the nodes:
 
-| Node                                                                                                                                                                       | Worker nodes | Secondary Conductor | Primary Conductor |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Licenses                                                                                                                                                                   | Yes          | Yes                 | Yes               |
-| Network settings for the node, including Ethernet configurations, DNS information, and host addresses                                                                      | Yes          | Yes                 | Yes               |
-| Timecode configuraton such as NTP, PTP, and chronyd                                                                                                                        | Yes          | Yes                 | Yes               |
-| Firewall settings                                                                                                                                                          | Yes          | Yes                 | Yes               |
-| The user credentials used in various components on the cluster (if you included them in the backup)                                                                        | Yes          | Yes                 | Yes               |
-| Configuration files for features of the AWS Elemental software                                                                                                             | Yes          | Yes                 | Yes               |
-| Remote storage mounts.                                                                                                                                                     |              | Yes                 | Yes               |
-| Cluster data. Data relating to the cluster, including data about the channels, MPTSes, channel and MPTS node assignments, users setup, redundancy groups, cluster members. | Yes          |                     |                   | Notes <br>• The cluster data is only ever stored on the Conductor nodes. It is restored only to the primary Conductor because when you enable HA later is this migration procedure, the primary Conductor pushes the data to the secondary Conductor and to the appropriate worker nodes. <br>• The remote storage mounts is only ever stored on the Conductor nodes. The data specific to the node is restored to that node. |
+| Node                                                                                                                                                                             | Worker nodes | Secondary Conductor | Primary Conductor |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------- | ----------------- |
+| Licenses                                                                                                                                                                         | Yes          | Yes                 | Yes               |
+| Network settings for the node, including Ethernet configurations,<br>DNS information, and host addresses                                                                         | Yes          | Yes                 | Yes               |
+| Timecode configuraton such as NTP, PTP, and chronyd                                                                                                                              | Yes          | Yes                 | Yes               |
+| Firewall settings                                                                                                                                                                | Yes          | Yes                 | Yes               |
+| The user credentials used in various components on the cluster<br>(if you included them in the backup)                                                                           | Yes          | Yes                 | Yes               |
+| Configuration files for features of the AWS Elemental software                                                                                                                   | Yes          | Yes                 | Yes               |
+| Remote storage mounts.                                                                                                                                                           |              | Yes                 | Yes               |
+| Cluster data. Data relating to the cluster, including data about<br>the channels, MPTSes, channel and MPTS node assignments, users<br>setup, redundancy groups, cluster members. | Yes          |                     |                   |
+
+Notes
+
+- The cluster data is only ever stored on the Conductor nodes. It is
+  restored only to the primary Conductor because when you enable HA later is
+  this migration procedure, the primary Conductor pushes the data to the
+  secondary Conductor and to the appropriate worker nodes.
+
+- The remote storage mounts is only ever stored on the Conductor nodes. The
+  data specific to the node is restored to that node.
