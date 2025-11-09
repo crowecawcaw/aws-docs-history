@@ -13,10 +13,30 @@ For information about how to create an Amazon VPC, see [Create a VPC only](../..
 in the _Amazon VPC User Guide_ and use the following table to
 determine what options to select.
 
-| Option              | Value                                                                            |
-| ------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Resources to create | VPC only                                                                         |
-| Name                | Optionally provide a name for your VPC.                                          |
-| IPv4 CIDR block     | IPv4 CIDR manual input The CIDR block size must have a size between /16 and /28. |
-| IPv6 CIDR block     | No IPv6 CIDR block                                                               |
-| Tenancy             | Default                                                                          | For more information about Amazon VPC, see [What is Amazon VPC?](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") in the _Amazon VPC User Guide_. ## Next steps After you have created your VPC, consider the following next steps: <br>• Create security groups for your public and private resources if they require inbound network access. For more information, see [Work with security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups") in the _Amazon VPC User Guide_. <br>• Create an AWS Batch managed compute environment that launches compute resources into your new VPC. For more information, see [Create a compute environment](create-compute-environment.md "create-compute-environment.md"). If you use the compute environment creation wizard in the AWS Batch console, you can specify the VPC that you just created and the public or private subnets that you want to launch your instances into. <br>• Create an AWS Batch job queue that's mapped to your new compute environment. For more information, see [Create a job queue](create-job-queue.md "create-job-queue.md"). <br>• Create a job definition to run your jobs with. For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") . <br>• Submit a job with your job definition to your new job queue. This job lands in the compute environment that you created with your new VPC and subnets. For more information, see [Tutorial: submit a job](submit_job.md "submit_job.md"). |
+| Option              | Value                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------- |
+| Resources to create | VPC only                                                                            |
+| Name                | Optionally provide a name for your VPC.                                             |
+| IPv4 CIDR block     | IPv4 CIDR manual input<br>The CIDR block size must have a size between /16 and /28. |
+| IPv6 CIDR block     | No IPv6 CIDR block                                                                  |
+| Tenancy             | Default                                                                             |
+
+For more information about Amazon VPC, see [What is Amazon
+VPC?](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") in the _Amazon VPC User Guide_.
+
+## Next steps
+
+After you have created your VPC, consider the following next steps:
+
+- Create security groups for your public and private resources if they require inbound
+  network access. For more information, see [Work with security
+  groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-groups") in the _Amazon VPC User Guide_.
+- Create an AWS Batch managed compute environment that launches compute resources into your
+  new VPC. For more information, see [Create a compute environment](create-compute-environment.md "create-compute-environment.md"). If you use the compute environment creation
+  wizard in the AWS Batch console, you can specify the VPC that you just created and the public or
+  private subnets that you want to launch your instances into.
+- Create an AWS Batch job queue that's mapped to your new compute environment. For more
+  information, see [Create a job queue](create-job-queue.md "create-job-queue.md").
+- Create a job definition to run your jobs with. For more information, see [Create a single-node job definition](create-job-definition.md "create-job-definition.md") .
+- Submit a job with your job definition to your new job queue. This job lands in the compute
+  environment that you created with your new VPC and subnets. For more information, see [Tutorial: submit a job](submit_job.md "submit_job.md").

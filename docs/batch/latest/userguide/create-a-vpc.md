@@ -9,10 +9,13 @@ Amazon EC2 Console](../../../AWSEC2/latest/UserGuide/ec2-supported-platforms.md#
 
 For information about how to create an Amazon VPC, see [Create a VPC only](../../../vpc/latest/userguide/working-with-vpcs.md#create-vpc-vpc-only "../../../vpc/latest/userguide/working-with-vpcs.md#create-vpc-vpc-only") in the _Amazon VPC User Guide_. Refer to the following table to determine what options to select.
 
-| Option              | Value                                                                            |
-| ------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Resources to create | VPC only                                                                         |
-| Name                | Optionally provide a name for your VPC.                                          |
-| IPv4 CIDR block     | IPv4 CIDR manual input The CIDR block size must have a size between /16 and /28. |
-| IPv6 CIDR block     | No IPv6 CIDR block                                                               |
-| Tenancy             | Default                                                                          | For more information about Amazon VPC, see [What is Amazon VPC?](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") in the _Amazon VPC User Guide_. |
+| Option              | Value                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------- |
+| Resources to create | VPC only                                                                            |
+| Name                | Optionally provide a name for your VPC.                                             |
+| IPv4 CIDR block     | IPv4 CIDR manual input<br>The CIDR block size must have a size between /16 and /28. |
+| IPv6 CIDR block     | No IPv6 CIDR block                                                                  |
+| Tenancy             | Default                                                                             |
+
+For more information about Amazon VPC, see [What is Amazon VPC?](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") in the
+_Amazon VPC User Guide_.

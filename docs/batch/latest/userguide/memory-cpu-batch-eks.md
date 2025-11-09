@@ -157,8 +157,51 @@ The CPU reservation value is calculated in millicores using the total number of 
 instance.
 
 | vCPU number | Percentage reserved |
-| ----------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ------------------- |
 | 1           | 6%                  |
 | 2           | 1%                  |
 | 3-4         | 0.5%                |
-| 4 and above | 0.25%               | Using the preceding values, the following is true: <br>• The CPU reservation value for a `c5.large` instance with 2 vCPUs is 70 m. This is calculated in the following way: _(1\*60) + (1\*10) = 70 m_. <br>• The CPU reservation value for a `c5.24xlarge` instance with 96 vCPUs is 310 m. This is calculated in the following way: (1\*60) + (1\*10) + (2\*5) + (92\*2.5) = 310 m. In this example, there are 1930 (calculated 2000-70) millicore vCPU units available to run jobs on a `c5.large` instance. Suppose your job requires `2` (2\*1000 m) vCPU units, the job doesn't fit on a single `c5.large` instance. However, a job that requires `1.75` vCPU units fits. ## Example: Node memory reservation The memory reservation value is calculated in mebibytes using the following: <br>• The instance capacity in mebibytes. For example, an 8 GB instance is 7,748 MiB. <br>• The `kubeReserved` value. The `kubeReserved` value is the amount of memory to reserve for system daemons. The `kubeReserved` value is calculated in the following way: _((11 \* maximum number of pods that is supported by the instance type) + 255)_. For information about the maximum number of pods that's supported by an instance type, see [eni-max-pods.txt](https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt "https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt") <br>• The `HardEvictionLimit` value. When available memory falls below the `HardEvictionLimit` value, the instance attempts to evict pods. The formula to calculate the allocatable memory is as follows: (`instance_capacity_in_MiB`) - (11 \* (`maximum_number_of_pods`)) - 255 - (``HardEvictionLimit` value.`)). A `c5.large`instance supports up to 29 pods. For an 8 GB`c5.large`instance with a`HardEvictionLimit` value of 100 MiB, the allocatable memory is 7074 MiB. This is calculated in the following way: _(7748 - (11 \* 29) -255 -100) = 7074 MiB_. In this example, an 8,192 MiB job doesn't fit on this instance even though it's an 8 gibibyte (GiB) instance. ## DaemonSets When you use DaemonSets, consider the following: <br>• If no AWS Batch on Amazon EKS instances are running, DaemonSets can initially affect AWS Batch scaling logic and decision making. AWS Batch initially allocates 0.5 vCPU units and 500 MiB for expected DaemonSets. After the instances are running, AWS Batch adjusts the initial allocations. <br>• If a DaemonSet defines vCPU or memory limits, AWS Batch on Amazon EKS jobs have fewer resources. We recommend that you keep the number of DaemonSets that are assigned to AWS Batch jobs as low as possible. |
+| 4 and above | 0.25%               |
+
+Using the preceding values, the following is true:
+
+- The CPU reservation value for a `c5.large` instance with 2 vCPUs is 70 m. This is calculated in
+  the following way: _(1\*60) + (1\*10) = 70 m_.
+- The CPU reservation value for a `c5.24xlarge` instance with 96 vCPUs is 310 m. This is calculated
+  in the following way: (1\*60) + (1\*10) + (2\*5) + (92\*2.5) = 310 m.
+
+In this example, there are 1930 (calculated 2000-70) millicore vCPU units available to run jobs on a
+`c5.large` instance. Suppose your job requires `2` (2\*1000 m) vCPU units, the job doesn't fit
+on a single `c5.large` instance. However, a job that requires `1.75` vCPU units fits.
+
+## Example: Node memory reservation
+
+The memory reservation value is calculated in mebibytes using the following:
+
+- The instance capacity in mebibytes. For example, an 8 GB instance is 7,748 MiB.
+- The `kubeReserved` value. The `kubeReserved` value is the amount of memory to reserve
+  for system daemons. The `kubeReserved` value is calculated in the following way: _((11 \* maximum number of pods that is supported by the instance type) + 255)_. For
+  information about the maximum number of pods that's supported by an instance type, see [eni-max-pods.txt](https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt "https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm/internal/kubelet/eni-max-pods.txt")
+- The `HardEvictionLimit` value. When available memory falls below the
+  `HardEvictionLimit` value, the instance attempts to evict pods.
+
+The formula to calculate the allocatable memory is as follows:
+(`instance_capacity_in_MiB`) - (11 \* (`maximum_number_of_pods`)) -
+255 - (``HardEvictionLimit` value.`)).
+
+A `c5.large` instance supports up to 29 pods. For an 8 GB `c5.large` instance with a
+`HardEvictionLimit` value of 100 MiB, the allocatable memory is 7074 MiB. This is
+calculated in the following way: _(7748 - (11 \* 29) -255 -100) = 7074 MiB_. In this
+example, an 8,192 MiB job doesn't fit on this instance even though it's an 8 gibibyte
+(GiB) instance.
+
+## DaemonSets
+
+When you use DaemonSets, consider the following:
+
+- If no AWS Batch on Amazon EKS instances are running, DaemonSets can initially affect AWS Batch scaling
+  logic and decision making. AWS Batch initially allocates 0.5 vCPU units and 500 MiB for expected
+  DaemonSets. After the instances are running, AWS Batch adjusts the initial allocations.
+- If a DaemonSet defines vCPU or memory limits, AWS Batch on Amazon EKS jobs have fewer resources. We
+  recommend that you keep the number of DaemonSets that are assigned to AWS Batch jobs as low as
+  possible.

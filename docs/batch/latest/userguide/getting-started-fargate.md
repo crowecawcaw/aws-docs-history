@@ -37,6 +37,168 @@ There are no country or regional restrictions associated with using this solutio
 There's no charge for creating an AWS account. However, by implementing this solution,
 you might incur some or all of the costs that are listed in the following table.
 
-| Description                                                                                                                 | Cost (US dollars)                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pricing is based on requested vCPU, memory, Operating Systems, CPU Architecture, and storage resources for the Task or Pod. | For more information about pricing, see [Fargate Pricing](https://aws.amazon.com/fargate/pricing/ "https://aws.amazon.com/fargate/pricing/"). | ## Prerequisites Before you begin: <br>• Create an AWS account if you don't have one. <br>• Create the task execution role. If you haven't already created the [Task Execution Role](create-execution-role.md#create-execution-role.title "create-execution-role.md#create-execution-role.title") then you can create it as part of this tutorial. ## Step 1: Create a compute environment ###### Important To get started as simply and quickly as possible, this tutorial includes steps with default settings. Before creating for production use, we recommend that you familiarize yourself with all settings and deploy with the settings that meet your requirements. To create a compute environment for a Fargate orchestration, do the following: 1. Open the [AWS Batch console first-run wizard](https://console.aws.amazon.com/batch/home#wizard "https://console.aws.amazon.com/batch/home#wizard"). 2. For **Configure job and orchestration type**, choose **Fargate**. 3. Choose **Next**. 4. In the **Compute environment configuration** section for **Name**, specify a unique name for your compute environment. The name can be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (\_). 5. For all other configuration options you can leave the default value. 6. Choose **Next**. ## Step 2: Create a job queue A job queue stores your submitted jobs until the AWS Batch Scheduler runs the job on a resource in your compute environment. To create a job queue: To create a job queue for a Fargate orchestration, do the following: 1. In the **Job queue configuration** section for **Name**, specify a unique name for your compute environment. The name can be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (\_). 2. For **Priority**, enter 900 for the job queue. 3. For all other configuration options you can leave the default value. 4. Choose **Next**. ## Step 3: Create a job definition To create the job definition: 1. In the **General configuration** section: 1. In the **General configuration** section for **Name**, specify a unique name for your compute environment. The name can be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (\_). 2. In the **Fargate platform configuration** section: 1. Turn on **Assign public IP** to assign a public IP address. You need a public IP to download the container image unless you've setup a private image repository. 2. For **Execution role**, choose a task execution role that lets Amazon Elastic Container Service (Amazon ECS) agents make AWS calls on your behalf. Choose either **ecsTaskExecutionRole** or **BatchEcsTaskExecutionRole**. To create the **Execution role** choose **Create an execution role**. In the **Create IAM role** modal choose **Create IAM role**. 1. The IAM console has the permission setting already configured for creating the execution role. 2. For **Trusted entity type** verify that **AWS service** is selected. 3. For **Service or user case** verify that **Elastic Container Service** is selected. 4. Choose **Next**. 5. For **Permissions policies** verify that **AmazonECSTaskExecutionRolePolicy** is selected. 6. Choose **Next**. 7. For **Name, review, and create** verify that the role name is **BatchEcsTaskExecutionRole**. 8. Choose **Create role**. 9. In the AWS Batch console choose the refresh button next to **Execution role**. Choose the **BatchEcsTaskExecutionRole** execution role. 3. In the **Container configuration** section: 1. For **Command**, you can change `hello world` to a custom message or leave it as is. 4. For all other configuration options you can leave the default value. 5. Choose **Next**. ## Step 4: Create a job To create a Fargate job, do the following: 1. In the **Job configuration** section for **Name**, specify a unique name for the job. The name can be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (\_). 2. For all other configuration options you can leave the default value. 3. Choose **Next**. ## Step 5: Review and create On the **Review and create** page, review the configuration steps. If you need to make changes, choose **Edit**. When you're finished, choose **Create resources**. ## Step 6: View the Job's output To view the Job's output, do the following: 1. In the navigation pane choose **Jobs**. 2. In the **Job queue** drop down choose the Job queue you created for the tutorial. 3. The **Jobs** table lists all of your Jobs and what their current status is. Once the Job's **Status** is **Succeeded** choose the **Name** of the Job to view the Job's details. 4. In the **Details** pane choose **Log stream name**. The CloudWatch console for the Job will open and there should be one event with the **Message** of `hello world` or your custom message. ## Step 7: Clean up your tutorial resources You are charged for the Amazon EC2 instance while it is enabled. You can delete the instance to stop incurring charges. To delete the resources you created, do the following: 1. In the navigation pane choose **Job queue**. 2. In the **Job queue** table choose the Job queue you created for the tutorial. 3. Choose **Disable**. Once the Job queue **State** is Disabled you can choose **Delete**. 4. Once the Job queue is deleted, in the navigation pane choose **Compute environments**. 5. Choose the compute environment you created for this tutorial and then choose **Disable**. It may take 1–2 minuets for the compute environment to complete being disabled. 6. Once the compute environment’s **State** is Disabled, choose **Delete**. It may take 1–2 minuets for the compute environment to be deleted. ## Additional resources After you complete the tutorial, you might want to explore the following topics:: <br>• Learn more about the [Best practices](best-practices.md#best-practices.title "best-practices.md#best-practices.title"). <br>• Explore the AWS Batch core components. For more information, see [Components of AWS Batch](batch_components.md "batch_components.md"). <br>• Learn more about the different [Compute Environments](compute_environments.md#compute_environments.title "compute_environments.md#compute_environments.title") available in AWS Batch. <br>• Learn more about [Job queues](job_queues.md#job_queues.title "job_queues.md#job_queues.title") and their different scheduling options. <br>• Learn more about [Job definitions](job_definitions.md#job_definitions.title "job_definitions.md#job_definitions.title") and the different configuration options. <br>• Learn more about the different types of [Jobs](jobs.md#jobs.title "jobs.md#jobs.title"). |
+| Description                                                                                                                       | Cost (US dollars)                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Pricing is based on requested vCPU, memory, Operating<br>Systems, CPU Architecture, and storage resources for the<br>Task or Pod. | For more information about pricing, see [Fargate<br>Pricing](https://aws.amazon.com/fargate/pricing/ "https://aws.amazon.com/fargate/pricing/"). |
+
+## Prerequisites
+
+Before you begin:
+
+- Create an AWS account if you don't have one.
+- Create the task execution role. If you haven't already created the [Task Execution Role](create-execution-role.md#create-execution-role.title "create-execution-role.md#create-execution-role.title") then you
+  can create it as part of this tutorial.
+
+## Step 1: Create a compute environment
+
+###### Important
+
+To get started as simply and quickly as possible, this tutorial includes steps with default
+settings. Before creating for production use, we recommend that you familiarize
+yourself with all settings and deploy with the settings that meet your
+requirements.
+
+To create a compute environment for a Fargate orchestration, do the
+following:
+
+1. Open the [AWS Batch console
+   first-run wizard](https://console.aws.amazon.com/batch/home#wizard "https://console.aws.amazon.com/batch/home#wizard").
+2. For **Configure job and orchestration type**, choose
+   **Fargate**.
+3. Choose **Next**.
+4. In the **Compute environment configuration** section for
+   **Name**, specify a unique name for your compute
+   environment. The name can be up to 128 characters in length. It can contain
+   uppercase and lowercase letters, numbers, hyphens (-), and underscores
+   (\_).
+5. For all other configuration options you can leave the default value.
+6. Choose **Next**.
+
+## Step 2: Create a job queue
+
+A job queue stores your submitted jobs until the AWS Batch Scheduler runs the job on
+a resource in your compute environment. To create a job queue:
+
+To create a job queue for a Fargate orchestration, do the following:
+
+1. In the **Job queue configuration** section for
+   **Name**, specify a unique name for your compute
+   environment. The name can be up to 128 characters in length. It can contain
+   uppercase and lowercase letters, numbers, hyphens (-), and underscores
+   (\_).
+2. For **Priority**, enter 900 for the job queue.
+3. For all other configuration options you can leave the default
+   value.
+4. Choose **Next**.
+
+## Step 3: Create a job definition
+
+To create the job definition:
+
+1.  In the **General configuration** section:
+    1. In the **General configuration** section for
+       **Name**, specify a unique name for your compute
+       environment. The name can be up to 128 characters in length. It can
+       contain uppercase and lowercase letters, numbers, hyphens (-), and
+       underscores (\_).
+
+2.  In the **Fargate platform configuration** section:
+    1. Turn on **Assign public IP** to assign a public IP
+       address. You need a public IP to download the container image unless
+       you've setup a private image repository.
+    2. For **Execution role**, choose a task execution role
+       that lets Amazon Elastic Container Service (Amazon ECS) agents make AWS calls on your behalf. Choose
+       either **ecsTaskExecutionRole** or
+       **BatchEcsTaskExecutionRole**.
+
+    To create the **Execution role** choose
+    **Create an execution role**. In the
+    **Create IAM role** modal choose **Create
+    IAM role**.
+
+        1. The IAM console has the permission setting already
+         configured for creating the execution role.
+        2. For **Trusted entity type** verify that
+         **AWS service** is selected.
+        3. For **Service or user case** verify that
+         **Elastic Container Service** is
+         selected.
+        4. Choose **Next**.
+        5. For **Permissions policies** verify that
+         **AmazonECSTaskExecutionRolePolicy** is
+         selected.
+        6. Choose **Next**.
+        7. For **Name, review, and create** verify that
+         the role name is **BatchEcsTaskExecutionRole**.
+        8. Choose **Create role**.
+        9. In the AWS Batch console choose the refresh button next to
+         **Execution role**. Choose the
+         **BatchEcsTaskExecutionRole** execution
+         role.
+
+3.  In the **Container configuration** section:
+    1. For **Command**, you can change `hello
+world` to a custom message or leave it as is.
+
+4.  For all other configuration options you can leave the default
+    value.
+5.  Choose **Next**.
+
+## Step 4: Create a job
+
+To create a Fargate job, do the following:
+
+1. In the **Job configuration** section for
+   **Name**, specify a unique name for the job. The name
+   can be up to 128 characters in length. It can contain uppercase and
+   lowercase letters, numbers, hyphens (-), and underscores (\_).
+2. For all other configuration options you can leave the default
+   value.
+3. Choose **Next**.
+
+## Step 5: Review and create
+
+On the **Review and create** page, review the
+configuration steps. If you need to make changes, choose **Edit**. When you're finished, choose **Create
+resources**.
+
+## Step 6: View the Job's output
+
+To view the Job's output, do the following:
+
+1. In the navigation pane choose **Jobs**.
+2. In the **Job queue** drop down choose the Job queue you created for the tutorial.
+3. The **Jobs** table lists all of your Jobs and what their
+   current status is. Once the Job's **Status** is
+   **Succeeded** choose the **Name** of the
+   Job to view the Job's details.
+4. In the **Details** pane choose
+   **Log stream name**. The CloudWatch console for the Job will open
+   and there should be one event with the **Message** of
+   `hello world` or your custom message.
+
+## Step 7: Clean up your tutorial resources
+
+You are charged for the Amazon EC2 instance while it is enabled. You can delete the instance to stop incurring charges.
+
+To delete the resources you created, do the following:
+
+1. In the navigation pane choose **Job queue**.
+2. In the **Job queue** table choose the Job queue you created for the tutorial.
+3. Choose **Disable**. Once the Job queue **State** is Disabled you can choose **Delete**.
+4. Once the Job queue is deleted, in the navigation pane choose **Compute environments**.
+5. Choose the compute environment you created for this tutorial and then choose **Disable**. It may take 1–2 minuets for the compute environment to complete being disabled.
+6. Once the compute environment’s **State** is Disabled, choose
+   **Delete**. It may take 1–2 minuets for the compute
+   environment to be deleted.
+
+## Additional resources
+
+After you complete the tutorial, you might want to explore the following topics::
+
+- Learn more about the [Best practices](best-practices.md#best-practices.title "best-practices.md#best-practices.title").
+- Explore the AWS Batch core components. For more information, see [Components of AWS Batch](batch_components.md "batch_components.md").
+- Learn more about the different [Compute Environments](compute_environments.md#compute_environments.title "compute_environments.md#compute_environments.title") available in AWS Batch.
+- Learn more about [Job queues](job_queues.md#job_queues.title "job_queues.md#job_queues.title") and their different scheduling options.
+- Learn more about [Job definitions](job_definitions.md#job_definitions.title "job_definitions.md#job_definitions.title") and the different configuration options.
+- Learn more about the different types of [Jobs](jobs.md#jobs.title "jobs.md#jobs.title").
