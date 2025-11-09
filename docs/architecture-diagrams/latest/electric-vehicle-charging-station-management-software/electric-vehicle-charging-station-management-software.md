@@ -113,6 +113,10 @@ For additional information, refer to
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description             | Date            |
-| ------------------- | ----------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------- | --------------- |
 | Diagram updated     | AWS IoT option added.   | June 4, 2024    |
-| Initial publication | Diagram first published | January 3, 2022 | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| Initial publication | Diagram first published | January 3, 2022 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
