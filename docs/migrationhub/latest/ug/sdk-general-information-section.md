@@ -1,4 +1,4 @@
-AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
 # Using Migration Hub with an AWS SDK
 
@@ -6,7 +6,7 @@ AWS software development kits (SDKs) are available for many popular programming 
 make it easier for developers to build applications in their preferred language.
 
 | SDK documentation                                                                         | Code examples                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [AWS SDK for C++](../../../sdk-for-cpp.md "../../../sdk-for-cpp.md")                      | [AWS SDK for C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp")                          |
 | [AWS CLI](../../../cli.md "../../../cli.md")                                              | [AWS CLI code examples](../../../code-library/latest/ug/cli_2_code_examples.md "../../../code-library/latest/ug/cli_2_code_examples.md")                                                |
 | [AWS SDK for Go](../../../sdk-for-go.md "../../../sdk-for-go.md")                         | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2")                         |
@@ -20,4 +20,8 @@ make it easier for developers to build applications in their preferred language.
 | [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       |
 | [AWS SDK for Rust](../../../sdk-for-rust.md "../../../sdk-for-rust.md")                   | [AWS SDK for Rust code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1")                   |
 | [AWS SDK for SAP ABAP](../../../sdk-for-sapabap.md "../../../sdk-for-sapabap.md")         | [AWS SDK for SAP ABAP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap")           |
-| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    | ###### Example availability Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page. |
+| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    |
+
+###### Example availability
+
+Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page.

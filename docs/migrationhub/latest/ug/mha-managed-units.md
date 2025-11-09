@@ -1,4 +1,4 @@
-AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
 # Managed AWS Migration Hub automation units
 
@@ -94,36 +94,122 @@ performs the following actions:
 ### Inputs
 
 | Parameter name       | Description                                                                                      | Type   | Required? |
-| -------------------- | ------------------------------------------------------------------------------------------------ | ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ------------------------------------------------------------------------------------------------ | ------ | --------- |
 | WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
 | ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     |
 | ConnectorArn         | Application Migration Service connector ARN to use for the Application Migration Service rehost. | string | True      |
-| CredentialsSecretArn | Secret ARN containing the credentials for the source servers in scope.                           | string | True      | ## AWS-MGN-VerifyReplicationHealth Run this unit after you install the replication agent on the source servers. After you install the replication agent on the source machines, you monitor the status of data replication and resolve issues like permissions or network performance. This managed unit retries every 10 minutes until the status of every server in the wave changes to Continuous Data Replication. Depending on the amount of data to replicate on the provided source servers, replication can take several days. ### Inputs                                                                                                                             |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-LaunchTestInstances After you add all of your source servers and configure their launch settings, you are ready to launch one test instance per source server. To verify that your applications can function properly within the AWS environment, it is crucial that you test the migration of your source servers to AWS before you initiate a cutover. Before you run this automation unit, ensure that ReplicationStatus is healthy. ### Inputs                                                                                                                                                                                                                 |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-MarkReadyForCutover After you launch your test instances, go to the Amazon EC2 console and use SSH or RDP to connect to your test instances and ensure that the instances are functioning correctly. If you are done with your testing and are ready for cutover, you can finalize the test. This will change your migration lifecycle status of your source servers to Ready for cutover, indicating that all testing is complete and that these servers are now ready for cutover. Before you run this automation unit, make sure that you have finished your testing and that you are ready for cutover. ### Inputs                                             |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-TerminateTargetInstances This automation unit starts and verifies the completion of an Application Migration Service job that terminates launched Amazon EC2 test and cutover instances. This unit does not work for any source server whose lifecycle state is TESTING, CUTTING_OVER, or CUTOVER. ### Inputs                                                                                                                                                                                                                                                                                                                                                      |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-LaunchCutoverInstances After you finalize the testing of all of your source servers, you are ready for cutover. The cutover will migrate your source servers to the cutover instances on AWS. ### Inputs                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-FinalizeCutover After you perform a successful cutover and complete the migration, this automation unit changes the migration lifecycle status of your source servers to Cutover complete. This status indicates that the migration was successful. This unit also stops data replication and causes all replicated data to be discarded. All AWS resources used for data replication will be terminated. To ensure that your cutover instances are functioning correctly after you launch them, go to the Amazon EC2 console and use SSH or RDP to connect to the instances. Validate connectivity, and perform acceptance tests for your application. ### Inputs |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     | ## AWS-MGN-ArchiveSourceServers This automation unit archives source servers by removing them from the main AWS Application Migration Service (Application Migration Service) source servers page. Archiving allows you to focus on source servers that haven't yet been cut over. Ensure that the servers that you plan to archive have launched cutover instances. ### Inputs                                                                                                                                                                                                                                                                                               |
-| Parameter name       | Description                                                                                      | Type   | Required? |
-| ---                  | ---                                                                                              | ---    | ---       |
-| WaveARN              | Application Migration Service wave ARN                                                           | string | True      |
-| ApplicationARNs      | List of Application Migration Service application ARNs.                                          | array  | False     |
+| CredentialsSecretArn | Secret ARN containing the credentials for the source servers in scope.                           | string | True      |
+
+## AWS-MGN-VerifyReplicationHealth
+
+Run this unit after you install the replication agent on the source servers.
+
+After you install the replication agent on the source machines, you monitor the status of
+data replication and resolve issues like permissions or network performance. This managed unit
+retries every 10 minutes until the status of every server in the wave changes to Continuous Data
+Replication.
+
+Depending on the amount of data to replicate on the provided source servers, replication can
+take several days.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-LaunchTestInstances
+
+After you add all of your source servers and configure their launch settings, you are ready
+to launch one test instance per source server. To verify that your applications can function
+properly within the AWS environment, it is crucial that you test the migration of your source
+servers to AWS before you initiate a cutover.
+
+Before you run this automation unit, ensure that ReplicationStatus is healthy.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-MarkReadyForCutover
+
+After you launch your test instances, go to the Amazon EC2 console and use SSH or RDP to connect
+to your test instances and ensure that the instances are functioning correctly. If you are done
+with your testing and are ready for cutover, you can finalize the test. This will change your
+migration lifecycle status of your source servers to Ready for cutover, indicating that all
+testing is complete and that these servers are now ready for cutover.
+
+Before you run this automation unit, make sure that you have finished your testing and that
+you are ready for cutover.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-TerminateTargetInstances
+
+This automation unit starts and verifies the
+completion of an Application Migration Service job that terminates launched Amazon EC2 test and cutover instances.
+
+This unit does not work for any source
+server whose lifecycle state is TESTING, CUTTING_OVER, or CUTOVER.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-LaunchCutoverInstances
+
+After you finalize the testing of all of your source servers, you are ready for cutover. The
+cutover will migrate your source servers to the cutover instances on AWS.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-FinalizeCutover
+
+After you perform a successful cutover and complete the migration, this automation unit
+changes the migration lifecycle status of your source servers to Cutover complete. This status
+indicates that the migration was successful. This unit also stops data replication and causes
+all replicated data to be discarded. All AWS resources used for data replication will be
+terminated.
+
+To ensure that your cutover instances are functioning correctly after you launch them, go to
+the Amazon EC2 console and use SSH or RDP to connect to the instances. Validate connectivity, and
+perform acceptance tests for your application.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
+
+## AWS-MGN-ArchiveSourceServers
+
+This automation unit archives source servers by removing them from the main AWS Application Migration Service
+(Application Migration Service) source servers page. Archiving allows you to focus on source servers that haven't yet
+been cut over.
+
+Ensure that the servers that you plan to archive have launched cutover instances.
+
+### Inputs
+
+| Parameter name  | Description                                             | Type   | Required? |
+| --------------- | ------------------------------------------------------- | ------ | --------- |
+| WaveARN         | Application Migration Service wave ARN                  | string | True      |
+| ApplicationARNs | List of Application Migration Service application ARNs. | array  | False     |
