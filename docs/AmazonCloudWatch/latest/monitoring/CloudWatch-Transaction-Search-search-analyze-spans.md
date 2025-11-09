@@ -126,14 +126,25 @@ You can use [CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/Anal
 
 The following query shows the top five slowest database queries.
 
-````
+```
 
 STATS pct(durationNano, 99) as `p99` by attributes.db.statement
 | SORT p99 ASC
 | LIMIT 5
-| DISPLAY p99,attributes.db.statement ``` ###### Example query The following query shows which top five services are throwing errors. ``` FILTER `attributes.http.response.status_code` >= 500
+| DISPLAY p99,attributes.db.statement
+
+```
+
+###### Example query
+
+The following query shows which top five services are throwing errors.
+
+```
+
+FILTER `attributes.http.response.status_code` >= 500
 | STATS count(*) as `count` by attributes.aws.local.service as service
 | SORT count ASC
 | LIMIT 5
-| DISPLAY count,service ```
-````
+| DISPLAY count,service
+
+```

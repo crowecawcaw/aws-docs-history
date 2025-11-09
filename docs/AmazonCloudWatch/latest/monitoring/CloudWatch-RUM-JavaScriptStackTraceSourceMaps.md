@@ -95,21 +95,121 @@ JSON
 
 Configure your JavaScript bundle to generate source maps during minification. When you build your application, the bundle will create a directory (for example, dist) containing the minified JavaScript files and their corresponding source maps. See below for an example.
 
-````
+```
 ./dist
-|-index.d5a07c87.js
-|-index.d5a07c87.js.map ``` Upload the source map files to your Amazon S3 bucket. The files should be located in a folder with the `releaseId` as the name. For example, if my bucket name is `my-application-source-maps` and the `releaseId` is 2.0.0, then the source map file is located at the following location: ``` my-application-source-maps
-|-2.0.0
-|-index.d5a07c87.js.map ``` To automate uploading your source maps, you can create the following bash script and execute it as part of your build process. ``` #!/bin/bash # Ensure the script is called with required arguments if [ "$#" -ne 2 ]; then echo "Usage: $0 `S3_BUCKET_NAME` `RELEASE_ID`" exit 1 fi # Read arguments S3_BUCKET="$1" RELEASE_ID="$2" # Set the path to your build directory BUILD_DIR="./dist" # Upload all .map files recursively if aws s3 cp "$BUILD_DIR" "s3://$S3_BUCKET/$RELEASE_ID/" --recursive --exclude "*" --include "*.map"; then echo "Successfully uploaded all source map files" else echo "Failed to upload source map files" fi ``` ## Configure releaseId in your CloudWatch RUM web client CloudWatch RUM uses the configured `releaseId` to determine the folder to retrieve the source map files. Name the `releaseId` the same as your source map files folder. If you used the provided bash script above or a similar one, the `releaseId` configured in the script should be the same as the one configured in your CloudWatch RUM web client. You must use version 1.21.0 or later of the CloudWatch RUM web client. ``` import { AwsRum, AwsRumConfig } from "`aws-rum-web`"; try { const config: AwsRumConfig = { sessionSampleRate: 1, endpoint: "https://dataplane.rum.us-west-2.amazonaws.com", telemetries: ["performance", "errors", "http"], allowCookies: true, releaseId: "`RELEASE_ID`", //Add this }; const APPLICATION_ID: string = "`APP_MONITOR_ID`"; const APPLICATION_VERSION: string = "1.0.0"; const APPLICATION_REGION: string = "us-west-2"; new AwsRum(APPLICATION_ID, APPLICATION_VERSION, APPLICATION_REGION, config); } catch (error: any) { // Ignore errors thrown during CloudWatch RUM web client initialization } ``` ## Enabling CloudWatch RUM app monitor to unminify JavaScript stack traces To unminify JavaScript stack traces, set the app monitor's SourceMap status to `ENABLED`. Provide the Amazon S3 URI to the bucket or folder containing all source maps for your app monitor. When storing source maps directly in the main bucket (not in a subfolder), then the Amazon S3 URI should be formatted as `Amazon S3://`BUCKET_NAME``. In this case, source map files should be located at the following location. ``` `BUCKET_NAME`
-|- `RELEASE_ID`
-|-index.d5a07c87.js.map ``` When a child directory is the root, then the Amazon S3 URI should be formatted as `Amazon S3://`BUCKET_NAME`/`DIRECTORY``. In this case, source map files should be located at the following location. ``` `BUCKET_NAME`
-|- `DIRECTORY`
-|-`RELEASE_ID`
-|-index.d5a07c87.js.map ``` ## Viewing unminified stack traces in the RUM console After uploading your source maps to Amazon S3, enabling source maps on your RUM app monitor, and deploying your web application with the `releaseId` configured in the CloudWatch RUM web client, select **Events** in the RUM console. This tab displays the raw RUM event data. Filter by the JS error event type and view the latest JS error event. You will see the unminified stack trace in the new `event_details.unminifiedStack` field for events ingested after the feature was enabled. ## Viewing unminified stack traces in CloudWatch Logs Enable RUM event storage in CloudWatch Logs by turning on **Data storage**. Once enabled, you can search the new **event\_details.unminifiedStack** field. This allows you to analyze trends and relate issues across multiple sessions using CloudWatch Logs queries. ## Troubleshooting source maps CloudWatch RUM provides out of the box metrics to troubleshoot your source map setup. These metrics are published in the metric namespace named `AWS/RUM`. The following metrics are published with an application\_name dimension. The value of this dimension is the name of the app monitor. The metrics are also published with an `aws:releaseId` dimension. The value of this dimension is the `releaseId` associated with the JavaScript error event.
-| MetricName | Unit | Description |
-| --- | --- | --- |
-| UnminifyLineFailureCount | Count | The count of stack trace lines in the JS error event that failed to be unminified. Additional details regarding the failure will be added to the specific line that failed in the event\_details.unminifiedStack field. |
-| UnminifyLineSuccessCount | Count | The count of stack trace lines in the JS error event that were successfully unminified. |
-| UnminifyEventFailureCount | Count | The count of JS error events that failed to have any lines unminified. Additional details regarding the failure will be added in the event\_details.unminifiedStack field. |
-| UnminifyEventSuccessCount | Count | The count of JS error events that succeeded to have at least one stack trace line unminified. | CloudWatch RUM may fail to unminify a line in the stack trace for various reasons, including but not limited to: <br>• Failure to retrieve corresponding source map file due to permission issues. Make sure the bucket resource policy is configured correctly. <br>• Corresponding source map file does not exist. Make sure the source map files have been uploaded to the correct bucket or folder that has the same name as the releaseId configured in your CloudWatch RUM web client. <br>• Corresponding source map file is too big. Split your source code into smaller chunks. <br>• 50 MB worth of source map files already retrieved for the stack trace. Reduce the stack trace length as 50 MB is service side limitation. <br>• Source map is invalid and could not be indexed. Make sure the source map is a plain JSON following the structure defined by the Source Map V3 specification and includes the following fields: version, file, sources, names, mappings. <br>• Source map could not map the minified source code back to the unminified stack trace. Make sure the source map is the correct source map for the given releaseId.
-````
+    |-index.d5a07c87.js
+    |-index.d5a07c87.js.map
+```
+
+Upload the source map files to your Amazon S3 bucket. The files should be located in a folder with the `releaseId` as the name. For example, if my bucket name is `my-application-source-maps` and the `releaseId` is 2.0.0, then the source map file is located at the following
+location:
+
+```
+my-application-source-maps
+    |-2.0.0
+        |-index.d5a07c87.js.map
+```
+
+To automate uploading your source maps, you can create the following bash script and execute it as part of your build process.
+
+```
+#!/bin/bash
+# Ensure the script is called with required arguments
+if [ "$#" -ne 2 ]; then
+ echo "Usage: $0 `S3_BUCKET_NAME` `RELEASE_ID`"
+ exit 1
+fi
+
+# Read arguments
+S3_BUCKET="$1"
+RELEASE_ID="$2"
+
+# Set the path to your build directory
+BUILD_DIR="./dist"
+
+
+# Upload all .map files recursively
+ if aws s3 cp "$BUILD_DIR" "s3://$S3_BUCKET/$RELEASE_ID/" --recursive --exclude "*" --include "*.map"; then
+    echo "Successfully uploaded all source map files"
+else
+    echo "Failed to upload source map files"
+fi
+```
+
+## Configure releaseId in your CloudWatch RUM web client
+
+CloudWatch RUM uses the configured `releaseId` to determine the folder to retrieve the source map files. Name the `releaseId` the same as your source map files folder.
+If you used the provided bash script above or a similar one, the `releaseId` configured in the script should be the same as the one configured in your CloudWatch RUM web client. You must use version 1.21.0 or later of the CloudWatch RUM web client.
+
+```
+import { AwsRum, AwsRumConfig } from "`aws-rum-web`";
+
+try {
+    const config: AwsRumConfig = {
+        sessionSampleRate: 1,
+        endpoint: "https://dataplane.rum.us-west-2.amazonaws.com",
+        telemetries: ["performance", "errors", "http"],
+        allowCookies: true,
+        releaseId: "`RELEASE_ID`", //Add this
+    };
+
+    const APPLICATION_ID: string = "`APP_MONITOR_ID`";
+    const APPLICATION_VERSION: string = "1.0.0";
+    const APPLICATION_REGION: string = "us-west-2";
+
+    new AwsRum(APPLICATION_ID, APPLICATION_VERSION, APPLICATION_REGION, config);
+} catch (error: any) {
+    // Ignore errors thrown during CloudWatch RUM web client initialization
+}
+```
+
+## Enabling CloudWatch RUM app monitor to unminify JavaScript stack traces
+
+To unminify JavaScript stack traces, set the app monitor's SourceMap status to `ENABLED`. Provide the Amazon S3 URI to the bucket or folder containing all source maps for your app monitor.
+
+When storing source maps directly in the main bucket (not in a subfolder), then the Amazon S3 URI should be formatted as `Amazon S3://`BUCKET_NAME``. In this case, source map files should be located at the following location.
+
+```
+`BUCKET_NAME`
+    |- `RELEASE_ID`
+        |-index.d5a07c87.js.map
+```
+
+When a child directory is the root, then the Amazon S3 URI should be formatted as `Amazon S3://`BUCKET_NAME`/`DIRECTORY``. In this case, source map files should be located at the following location.
+
+```
+`BUCKET_NAME`
+    |- `DIRECTORY`
+        |-`RELEASE_ID`
+            |-index.d5a07c87.js.map
+```
+
+## Viewing unminified stack traces in the RUM console
+
+After uploading your source maps to Amazon S3, enabling source maps on your RUM app monitor, and deploying your web application with the `releaseId` configured in the CloudWatch RUM web client, select **Events** in the RUM console. This tab displays the raw RUM event data.
+Filter by the JS error event type and view the latest JS error event. You will see the unminified stack trace in the new `event_details.unminifiedStack` field for events ingested after the feature was enabled.
+
+## Viewing unminified stack traces in CloudWatch Logs
+
+Enable RUM event storage in CloudWatch Logs by turning on **Data storage**. Once enabled, you can search the new **event_details.unminifiedStack** field. This allows you to analyze trends and relate issues across multiple sessions using CloudWatch Logs queries.
+
+## Troubleshooting source maps
+
+CloudWatch RUM provides out of the box metrics to troubleshoot your source map setup. These metrics are published in the metric namespace named `AWS/RUM`. The following metrics are published with an application_name dimension.
+The value of this dimension is the name of the app monitor. The metrics are also published with an `aws:releaseId` dimension. The value of this dimension is the `releaseId` associated with the JavaScript error event.
+
+| MetricName                | Unit  | Description                                                                                                                                                                                                            |
+| ------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UnminifyLineFailureCount  | Count | The count of stack trace lines in the JS error event that failed to be unminified. Additional details regarding the failure will be added to the specific line that failed in the event_details.unminifiedStack field. |
+| UnminifyLineSuccessCount  | Count | The count of stack trace lines in the JS error event that were successfully unminified.                                                                                                                                |
+| UnminifyEventFailureCount | Count | The count of JS error events that failed to have any lines unminified. Additional details regarding the failure will be added in the event_details.unminifiedStack field.                                              |
+| UnminifyEventSuccessCount | Count | The count of JS error events that succeeded to have at least one stack trace line unminified.                                                                                                                          |
+
+CloudWatch RUM may fail to unminify a line in the stack trace for various reasons, including but not limited to:
+
+- Failure to retrieve corresponding source map file due to permission issues. Make sure the bucket resource policy is configured correctly.
+- Corresponding source map file does not exist. Make sure the source map files have been uploaded to the correct bucket or folder that has the same name as the releaseId configured in your CloudWatch RUM web client.
+- Corresponding source map file is too big. Split your source code into smaller chunks.
+- 50 MB worth of source map files already retrieved for the stack trace. Reduce the stack trace length as 50 MB is service side limitation.
+- Source map is invalid and could not be indexed. Make sure the source map is a plain JSON following the structure defined by the Source Map V3 specification and includes the following fields: version, file, sources, names, mappings.
+- Source map could not map the minified source code back to the unminified stack trace. Make sure the source map is the correct source map for the given releaseId.

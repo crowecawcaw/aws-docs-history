@@ -20,33 +20,43 @@ customizations.
 Within a dynamic label, you can use the following values relating to properties of the
 metric:
 
-| Dynamic label live value        | Description                                                                                                                                                      |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ${AVG}                          | The average of the values in the time range currently shown in the graph.                                                                                        |
-| ${DATAPOINT_COUNT}              | The number of data points in the time range that is currently shown in the graph.                                                                                |
-| ${FIRST}                        | The oldest of the metric values in the time range that is currently shown in the graph.                                                                          |
-| ${FIRST_LAST_RANGE}             | The difference between the metric values of the oldest and newest data points that are currently shown in the graph.                                             |
-| ${FIRST_LAST_TIME_RANGE}        | The absolute time range between the oldest and newest data points that are currently shown in the graph.                                                         |
-| ${FIRST_TIME}                   | The timestamp of the oldest data point in the time range that is currently shown in the graph.                                                                   |
-| ${FIRST_TIME_RELATIVE}          | The absolute time difference between now and the timestamp of the oldest data point in the time range that is currently shown in the graph.                      |
-| ${LABEL}                        | The representation of the default label for a metric.                                                                                                            |
-| ${LAST}                         | The most recent of the metric values in the time range that is currently shown in the graph.                                                                     |
-| ${LAST_TIME}                    | The timestamp of the newest data point in the time range that is currently shown in the graph.                                                                   |
-| ${LAST_TIME_RELATIVE}           | The absolute time difference between now and the timestamp of the newest data point in the time range that is currently shown in the graph.                      |
-| ${MAX}                          | The maximum of the values in the time range currently shown in the graph.                                                                                        |
-| ${MAX_TIME}                     | The timestamp of the data point that has the highest metric value, of the data points that are currently shown in the graph.                                     |
-| ${MAX_TIME_RELATIVE}            | The absolute time difference between now and the timestamp of the data point with the highest value, of those data points that are currently shown in the graph. |
-| ${MIN}                          | The minimum of the values in the time range currently shown in the graph.                                                                                        |
-| ${MIN_MAX_RANGE}                | The difference in metric values between the data points with the highest and lowest metric values, of those data points that are currently shown in the graph.   |
-| ${MIN_MAX_TIME_RANGE}           | The absolute time range between the data points with the highest and lowest metric values, of those data points that are currently shown in the graph.           |
-| ${MIN_TIME}                     | The timestamp of the data point that has the lowest metric value, of the data points that are currently shown in the graph.                                      |
-| ${MIN_TIME_RELATIVE}            | The absolute time difference between now and the timestamp of the data point with the lowest value, of those data points that are currently shown in the graph.  |
-| ${PROP('AccountId')}            | The AWS account ID of the metric.                                                                                                                                |
-| ${PROP('AccountLabel')}         | The label specified for the source account that owns this metric, in CloudWatch cross-account observability.                                                     |
-| ${PROP('Dim.`dimension_name`')} | The value of the specified dimension. Replace `dimension_name` with the case-sensitive name of your dimension.                                                   |
-| ${PROP('MetricName')}           | The name of the metric.                                                                                                                                          |
-| ${PROP('Namespace')}            | The namespace of the metric.                                                                                                                                     |
-| ${PROP('Period')}               | The period of the metric, in seconds.                                                                                                                            |
-| ${PROP('Region')}               | The AWS Region where the metric is published.                                                                                                                    |
-| ${PROP('Stat')}                 | The metric statistic that is being graphed.                                                                                                                      |
-| ${SUM}                          | The sum of the values in the time range currently shown in the graph.                                                                                            | For example, suppose you have a search expression `SEARCH(' {AWS/Lambda, FunctionName} Errors ', 'Sum')`, which finds the `Errors` for each of your Lambda functions. If you set the label to be `[max: ${MAX} Errors for Function Name ${LABEL}]`, the label for each metric is **[max: `number` Errors for Function Name `Name`]**. You can add as many as six dynamic values to a label. You can use the `${LABEL}` placeholder only once within each label. |
+| Dynamic label live value        | Description                                                                                                                                                            |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ${AVG}                          | The average of the values in the time range currently shown in the<br>graph.                                                                                           |
+| ${DATAPOINT_COUNT}              | The number of data points in the time range that is currently shown in the<br>graph.                                                                                   |
+| ${FIRST}                        | The oldest of the metric values in the time range that is currently shown in<br>the graph.                                                                             |
+| ${FIRST_LAST_RANGE}             | The difference between the metric values of the oldest and newest data<br>points that are currently shown in the graph.                                                |
+| ${FIRST_LAST_TIME_RANGE}        | The absolute time range between the oldest and newest data points that are<br>currently shown in the graph.                                                            |
+| ${FIRST_TIME}                   | The timestamp of the oldest data point in the time range that is currently<br>shown in the graph.                                                                      |
+| ${FIRST_TIME_RELATIVE}          | The absolute time difference between now and the timestamp of the oldest<br>data point in the time range that is currently shown in the graph.                         |
+| ${LABEL}                        | The representation of the default label for a metric.                                                                                                                  |
+| ${LAST}                         | The most recent of the metric values in the time range that is currently<br>shown in the graph.                                                                        |
+| ${LAST_TIME}                    | The timestamp of the newest data point in the time range that is currently<br>shown in the graph.                                                                      |
+| ${LAST_TIME_RELATIVE}           | The absolute time difference between now and the timestamp of the newest<br>data point in the time range that is currently shown in the graph.                         |
+| ${MAX}                          | The maximum of the values in the time range currently shown in the<br>graph.                                                                                           |
+| ${MAX_TIME}                     | The timestamp of the data point that has the highest metric value, of the<br>data points that are currently shown in the graph.                                        |
+| ${MAX_TIME_RELATIVE}            | The absolute time difference between now and the timestamp of the data point<br>with the highest value, of those data points that are currently shown in the<br>graph. |
+| ${MIN}                          | The minimum of the values in the time range currently shown in the<br>graph.                                                                                           |
+| ${MIN_MAX_RANGE}                | The difference in metric values between the data points with the highest and<br>lowest metric values, of those data points that are currently shown in the<br>graph.   |
+| ${MIN_MAX_TIME_RANGE}           | The absolute time range between the data points with the highest and lowest<br>metric values, of those data points that are currently shown in the<br>graph.           |
+| ${MIN_TIME}                     | The timestamp of the data point that has the lowest metric value, of the<br>data points that are currently shown in the graph.                                         |
+| ${MIN_TIME_RELATIVE}            | The absolute time difference between now and the timestamp of the data point<br>with the lowest value, of those data points that are currently shown in the<br>graph.  |
+| ${PROP('AccountId')}            | The AWS account ID of the metric.                                                                                                                                      |
+| ${PROP('AccountLabel')}         | The label specified for the source account that owns this metric, in CloudWatch<br>cross-account observability.                                                        |
+| ${PROP('Dim.`dimension_name`')} | The value of the specified dimension. Replace<br>`dimension_name` with the case-sensitive name of your<br>dimension.                                                   |
+| ${PROP('MetricName')}           | The name of the metric.                                                                                                                                                |
+| ${PROP('Namespace')}            | The namespace of the metric.                                                                                                                                           |
+| ${PROP('Period')}               | The period of the metric, in seconds.                                                                                                                                  |
+| ${PROP('Region')}               | The AWS Region where the metric is published.                                                                                                                          |
+| ${PROP('Stat')}                 | The metric statistic that is being graphed.                                                                                                                            |
+| ${SUM}                          | The sum of the values in the time range currently shown in the graph.                                                                                                  |
+
+For example, suppose you have a search expression `SEARCH(' {AWS/Lambda,
+ FunctionName} Errors ', 'Sum')`, which finds the `Errors` for each
+of your Lambda functions. If you set the label to be `[max: ${MAX} Errors for Function
+ Name ${LABEL}]`, the label for each metric is **[max:
+`number` Errors for Function Name
+`Name`]**.
+
+You can add as many as six dynamic values to a label. You can use the
+`${LABEL}` placeholder only once within each label.

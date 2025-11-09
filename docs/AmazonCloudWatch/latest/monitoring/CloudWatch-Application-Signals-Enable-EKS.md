@@ -375,8 +375,37 @@ new CfnAddon(this, 'CloudWatchAddon', {
 4. Add one of the following into the `PodTemplate` section of your workload manifest file.
 
 | Language | File                                                   |
-| -------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | ------------------------------------------------------ |
 | Java     | instrumentation.opentelemetry.io/inject-java: "true"   |
 | Python   | instrumentation.opentelemetry.io/inject-python: "true" |
 | .Net     | instrumentation.opentelemetry.io/inject-dotnet: "true" |
-| Node.js  | instrumentation.opentelemetry.io/inject-nodejs: "true" | ``const deployment = { apiVersion: "apps/v1", kind: "Deployment", metadata: { name: "`sample-app`" }, spec: { replicas: 3, selector: { matchLabels: { "app": "`sample-app`" } }, template: { metadata: { labels: { "app": "`sample-app`" }, annotations: { "instrumentation.opentelemetry.io/inject-`$LANG`": "true" } }, spec: {...}, }, }, }; cluster.addManifest('`sample-app`', deployment)`` |
+| Node.js  | instrumentation.opentelemetry.io/inject-nodejs: "true" |
+
+```
+const deployment = {
+  apiVersion: "apps/v1",
+  kind: "Deployment",
+  metadata: { name: "`sample-app`" },
+  spec: {
+    replicas: 3,
+    selector: {
+      matchLabels: {
+        "app": "`sample-app`"
+      }
+    },
+    template: {
+      metadata: {
+        labels: {
+          "app": "`sample-app`"
+        },
+        annotations: {
+          "instrumentation.opentelemetry.io/inject-`$LANG`": "true"
+        }
+      },
+      spec: {...},
+    },
+  },
+};
+
+cluster.addManifest('`sample-app`', deployment)
+```

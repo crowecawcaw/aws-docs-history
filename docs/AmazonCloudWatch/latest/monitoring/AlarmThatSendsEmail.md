@@ -9,10 +9,13 @@ also use this data to stop under-used instances to save money.
 You can create both _metric_ and _composite_ alarms
 in Amazon CloudWatch.
 
-You can create alarms on Metrics Insights queries that use AWS resource tags to filter and group metrics. To use tags with alarms, on the [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/"), choose **Settings**. On the **CloudWatch Settings** page, under **Enable resource tags on telemetry**, choose
-**Enable**. For context-aware monitoring
-that automatically adapts to your tagging strategy, create alarms on Metrics Insights queries using AWS resource tags. This allows you to monitor all resources tagged with specific applications or
-environments.
+You can create alarms on Metrics Insights queries that use AWS resource tags to filter and
+group metrics. To use tags with alarms, on the [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/"), choose
+**Settings**. On the **CloudWatch Settings** page, under
+**Enable resource tags on telemetry**, choose **Enable**.
+For context-aware monitoring that automatically adapts to your tagging strategy, create alarms
+on Metrics Insights queries using AWS resource tags. This allows you to monitor all resources
+tagged with specific applications or environments.
 
 - A _metric alarm_ watches a single CloudWatch metric or the result of a math
   expression based on CloudWatch metrics. The alarm performs one or more actions based on the value
@@ -305,17 +308,254 @@ In columns 3-6, the column headers are the possible values for how to treat miss
 data. The rows in these columns show the alarm state that is set for each of these possible
 ways to treat missing data.
 
-| Data points | # of data points that must be filled | MISSING             | IGNORE               | BREACHING | NOT BREACHING |
-| ----------- | ------------------------------------ | ------------------- | -------------------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 - X - X   | 0                                    | `OK`                | `OK`                 | `OK`      | `OK`          |
-| 0 - - - -   | 2                                    | `OK`                | `OK`                 | `OK`      | `OK`          |
-| - - - - -   | 3                                    | `INSUFFICIENT_DATA` | Retain current state | `ALARM`   | `OK`          |
-| 0 X X - X   | 0                                    | `ALARM`             | `ALARM`              | `ALARM`   | `ALARM`       |
-| - - X - -   | 2                                    | `ALARM`             | Retain current state | `ALARM`   | `OK`          | In the second row of the preceding table, the alarm stays `OK` even if missing data is treated as breaching, because the one existing data point is not breaching, and this is evaluated along with two missing data points which are treated as breaching. The next time this alarm is evaluated, if the data is still missing it will go to `ALARM`, as that non-breaching data point will no longer be in the evaluation range. The third row, where all five of the most recent data points are missing, illustrates how the various settings for how to treat missing data affect the alarm state. If missing data points are considered breaching, the alarm goes into ALARM state, while if they are considered not breaching, then the alarm goes into OK state. If missing data points are ignored, the alarm retains the current state it had before the missing data points. And if missing data points are just considered as missing, then the alarm does not have enough recent real data to make an evaluation, and goes into INSUFFICIENT_DATA. In the fourth row, the alarm goes to `ALARM` state in all cases because the three most recent data points are breaching, and the alarm's **Evaluation Periods** and **Datapoints to Alarm** are both set to 3. In this case, the missing data point is ignored and the setting for how to evaluate missing data is not needed, because there are 3 real data points to evaluate. Row 5 represents a special case of alarm evaluation called _premature alarm state_. For more information, see [Avoiding premature transitions to alarm state](#CloudWatch-alarms-avoiding-premature-transition "#CloudWatch-alarms-avoiding-premature-transition"). In the next table, the **Period** is again set to 5 minutes, and **Datapoints to Alarm** is only 2 while **Evaluation Periods** is 3. This is a 2 out of 3, M out of N alarm. The evaluation range is 5. This is the maximum number of recent data points that are retrieved and can be used in case some data points are missing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Data points | # of missing data points             | MISSING             | IGNORE               | BREACHING | NOT BREACHING |
-| ---         | ---                                  | ---                 | ---                  | ---       | ---           |
-| 0 - X - X   | 0                                    | `ALARM`             | `ALARM`              | `ALARM`   | `ALARM`       |
-| 0 0 X 0 X   | 0                                    | `ALARM`             | `ALARM`              | `ALARM`   | `ALARM`       |
-| 0 - X - -   | 1                                    | `OK`                | `OK`                 | `ALARM`   | `OK`          |
-| - - - - 0   | 2                                    | `OK`                | `OK`                 | `ALARM`   | `OK`          |
-| - - - X -   | 2                                    | `ALARM`             | Retain current state | `ALARM`   | `OK`          | In rows 1 and 2, the alarm always goes to ALARM state because 2 of the 3 most recent data points are breaching. In row 2, the two oldest data points in the evaluation range are not needed because none of the 3 most recent data points are missing, so these two older data points are ignored. In rows 3 and 4, the alarm goes to ALARM state only if missing data is treated as breaching, in which case the two most recent missing data points are both treated as breaching. In row 4, these two missing data points that are treated as breaching provide the two necessary breaching data points to trigger the ALARM state. Row 5 represents a special case of alarm evaluation called _premature alarm state_. For more information, see the following section. #### Avoiding premature transitions to alarm state CloudWatch alarm evaluation includes logic to try to avoid false alarms, where the alarm goes into ALARM state prematurely when data is intermittent. The example shown in row 5 in the tables in the previous section illustrate this logic. In those rows, and in the following examples, the **Evaluation Periods** is 3 and the evaluation range is 5 data points. **Datapoints to Alarm** is 3, except for the M out of N example, where **Datapoints to Alarm** is 2. Suppose an alarm's most recent data is `- - - - X`, with four missing data points and then a breaching data point as the most recent data point. Because the next data point may be non-breaching, the alarm does not go immediately into ALARM state when the data is either `- - - - X` or `- - - X -` and **Datapoints to Alarm** is 3. This way, false positives are avoided when the next data point is non-breaching and causes the data to be `- - - X O` or `- - X - O`. However, if the last few data points are `- - X - -`, the alarm goes into ALARM state even if missing data points are treated as missing. This is because alarms are designed to always go into ALARM state when the oldest available breaching datapoint during the **Evaluation Periods** number of data points is at least as old as the value of **Datapoints to Alarm**, and all other more recent data points are breaching or missing. In this case, the alarm goes into ALARM state even if the total number of datapoints available is lower than M (**Datapoints to Alarm**). This alarm logic applies to M out of N alarms as well. If the oldest breaching data point during the evaluation range is at least as old as the value of **Datapoints to Alarm**, and all of the more recent data points are either breaching or missing, the alarm goes into ALARM state no matter the value of M (**Datapoints to Alarm**). ### How partial data from a Metrics Insights query is evaluated If the Metrics Insights query used for the alarm matches more than 10,000 metrics, the alarm is evaluated based on the first 10,000 metrics that the query finds. This means that the alarm is being evaluated on partial data. You can use the following methods to find whether a Metrics Insights alarm is currently evaluating its alarm state based on partial data: <br>• In the console, if you choose an alarm to see the **Details** page, the message **Evaluation warning: Not evaluating all data** appears on that page. <br>• You see the value `PARTIAL_DATA` in the `EvaluationState` field when you use the [describe-alarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms") AWS CLI command or the [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md") API. Alarms also publish events to Amazon EventBridge when it goes into the partial data state, so you can create an EventBridge rule to watch for these events. In these events, the `evaluationState` field has the value `PARTIAL_DATA`. The following is an example. ``{ "version": "0", "id": "12345678-3bf9-6a09-dc46-12345EXAMPLE", "detail-type": "CloudWatch Alarm State Change", "source": "aws.cloudwatch", "account": "123456789012", "time": "2022-11-08T11:26:05Z", "region": "us-east-1", "resources": [ "arn:aws:cloudwatch:us-east-1:`123456789012`:alarm:`my-alarm-name`" ], "detail": { "alarmName": "`my-alarm-name`", "state": { "value": "ALARM", "reason": "Threshold Crossed: 3 out of the last 3 datapoints [20000.0 (08/11/22 11:25:00), 20000.0 (08/11/22 11:24:00), 20000.0 (08/11/22 11:23:00)] were greater than the threshold (0.0) (minimum 1 datapoint for OK -> ALARM transition).", "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2022-11-08T11:26:05.399+0000\",\"startDate\":\"2022-11-08T11:23:00.000+0000\",\"period\":60,\"recentDatapoints\":[20000.0,20000.0,20000.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2022-11-08T11:25:00.000+0000\",\"value\":20000.0}]}", "timestamp": "2022-11-08T11:26:05.401+0000", "evaluationState": "PARTIAL_DATA" }, "previousState": { "value": "INSUFFICIENT_DATA", "reason": "Unchecked: Initial alarm creation", "timestamp": "2022-11-08T11:25:51.227+0000" }, "configuration": { "metrics": [ { "id": "m2", "expression": "SELECT SUM(PartialDataTestMetric) FROM partial_data_test", "returnData": true, "period": 60 } ] } } }`` If the query for the alarm includes a GROUP BY statement that initially returns more than 500 time series, the alarm is evaluated based on the first 500 time series that the query finds. However, if you use an ORDER BY clause, then all the time series that the query finds are sorted, and the 500 that have the highest or lowest values according to your ORDER BY clause are used to evaluate the alarm. ## High-resolution alarms If you set an alarm on a high-resolution metric, you can specify a high-resolution alarm with a period of 10 seconds, 20 seconds, or 30 seconds, or you can set a regular alarm with a period of any multiple of 60 seconds. There is a higher charge for high-resolution alarms. For more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md"). ## Alarms on math expressions You can set an alarm on the result of a math expression that is based on one or more CloudWatch metrics. A math expression used for an alarm can include as many as 10 metrics. Each metric must be using the same period. For an alarm based on a math expression, you can specify how you want CloudWatch to treat missing data points. In this case, the data point is considered missing if the math expression doesn't return a value for that data point. Alarms based on math expressions can't perform Amazon EC2 actions. For more information about metric math expressions and syntax, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md"). ## Percentile-based CloudWatch alarms and low data samples When you set a percentile as the statistic for an alarm, you can specify what to do when there is not enough data for a good statistical assessment. You can choose to have the alarm evaluate the statistic anyway and possibly change the alarm state. Or, you can have the alarm ignore the metric while the sample size is low, and wait to evaluate it until there is enough data to be statistically significant. For percentiles between 0.5 (inclusive) and 1.00 (exclusive), this setting is used when there are fewer than 10/(1-percentile) data points during the evaluation period. For example, this setting would be used if there were fewer than 1000 samples for an alarm on a p99 percentile. For percentiles between 0 and 0.5 (exclusive), the setting is used when there are fewer than 10/percentile data points. ## Common features of CloudWatch alarms The following features apply to all CloudWatch alarms: <br>• There is no limit to the number of alarms that you can create. To create or update an alarm, you use the CloudWatch console, the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") API action, or the [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") command in the AWS CLI. <br>• Alarm names must contain only UTF-8 characters, and can't contain ASCII control characters <br>• You can list any or all of the currently configured alarms, and list any alarms in a particular state by using the CloudWatch console, the [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md") API action, or the [describe-alarms](../../../cli/latest/reference/cloudwatch/describe-alarms.md "../../../cli/latest/reference/cloudwatch/describe-alarms.md") command in the AWS CLI. <br>• You can disable and enable alarm actions by using the [DisableAlarmActions](../APIReference/API_DisableAlarmActions.md "../APIReference/API_DisableAlarmActions.md") and [EnableAlarmActions](../APIReference/API_EnableAlarmActions.md "../APIReference/API_EnableAlarmActions.md") API actions, or the [disable-alarm-actions](../../../cli/latest/reference/cloudwatch/disable-alarm-actions.md "../../../cli/latest/reference/cloudwatch/disable-alarm-actions.md") and [enable-alarm-actions](../../../cli/latest/reference/cloudwatch/enable-alarm-actions.md "../../../cli/latest/reference/cloudwatch/enable-alarm-actions.md") commands in the AWS CLI. <br>• You can test an alarm by setting it to any state using the [SetAlarmState](../APIReference/API_SetAlarmState.md "../APIReference/API_SetAlarmState.md") API action or the [set-alarm-state](../../../cli/latest/reference/cloudwatch/set-alarm-state.md "../../../cli/latest/reference/cloudwatch/set-alarm-state.md") command in the AWS CLI. This temporary state change lasts only until the next alarm comparison occurs. <br>• You can create an alarm for a custom metric before you've created that custom metric. For the alarm to be valid, you must include all of the dimensions for the custom metric in addition to the metric namespace and metric name in the alarm definition. To do this, you can use the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") API action, or the [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") command in the AWS CLI. <br>• You can view an alarm's history using the CloudWatch console, the [DescribeAlarmHistory](../APIReference/API_DescribeAlarmHistory.md "../APIReference/API_DescribeAlarmHistory.md") API action, or the [describe-alarm-history](../../../cli/latest/reference/cloudwatch/describe-alarm-history.md "../../../cli/latest/reference/cloudwatch/describe-alarm-history.md") command in the AWS CLI. CloudWatch preserves alarm history for 30 days. Each state transition is marked with a unique timestamp. In rare cases, your history might show more than one notification for a state change. The timestamp enables you to confirm unique state changes. <br>• You can favorite alarms from the _Favorites and recents_ option in the CloudWatch console navigation pane by hovering over the alarm that you want to favorite and choosing the star symbol next to it. <br>• Alarms have an evaluation period quota. The evaluation period is calculated by multiplying the alarm period by the number of evaluation periods used. + The maximum evaluation period is seven days for alarms with a period of at least one hour (3600 seconds). + The maximum evaluation period is one day for alarms with a shorter period. + The maximum evaluation period is one day for alarms that use the custom Lambda data source. ###### Note Some AWS resources don't send metric data to CloudWatch under certain conditions. For example, Amazon EBS might not send metric data for an available volume that is not attached to an Amazon EC2 instance, because there is no metric activity to be monitored for that volume. If you have an alarm set for such a metric, you might notice its state change to `INSUFFICIENT_DATA`. This might indicate that your resource is inactive, and might not necessarily mean that there is a problem. You can specify how each alarm treats missing data. For more information, see [Configuring how CloudWatch alarms treat missing data](#alarms-and-missing-data "#alarms-and-missing-data"). |
+| Data points     | # of data points that must be filled | MISSING             | IGNORE               | BREACHING | NOT BREACHING |
+| --------------- | ------------------------------------ | ------------------- | -------------------- | --------- | ------------- |
+| 0<br>• X<br>• X | 0                                    | `OK`                | `OK`                 | `OK`      | `OK`          |
+| 0<br>• -        | 2                                    | `OK`                | `OK`                 | `OK`      | `OK`          |
+| • - - - -       | 3                                    | `INSUFFICIENT_DATA` | Retain current state | `ALARM`   | `OK`          |
+| 0 X X<br>• X    | 0                                    | `ALARM`             | `ALARM`              | `ALARM`   | `ALARM`       |
+| • - X - -       | 2                                    | `ALARM`             | Retain current state | `ALARM`   | `OK`          |
+
+In the second row of the preceding table, the alarm stays `OK` even if
+missing data is treated as breaching, because the one existing data point is not breaching,
+and this is evaluated along with two missing data points which are treated as breaching. The
+next time this alarm is evaluated, if the data is still missing it will go to
+`ALARM`, as that non-breaching data point will no longer be in the evaluation
+range.
+
+The third row, where all five of the most recent data points are missing, illustrates
+how the various settings for how to treat missing data affect the alarm state. If missing
+data points are considered breaching, the alarm goes into ALARM state, while if they are
+considered not breaching, then the alarm goes into OK state. If missing data points are
+ignored, the alarm retains the current state it had before the missing data points. And if
+missing data points are just considered as missing, then the alarm does not have enough
+recent real data to make an evaluation, and goes into INSUFFICIENT_DATA.
+
+In the fourth row, the alarm goes to `ALARM` state in all cases because the
+three most recent data points are breaching, and the alarm's **Evaluation
+Periods** and **Datapoints to Alarm** are both set to 3. In this
+case, the missing data point is ignored and the setting for how to evaluate missing data is
+not needed, because there are 3 real data points to evaluate.
+
+Row 5 represents a special case of alarm evaluation called _premature alarm
+state_. For more information, see [Avoiding premature
+transitions to alarm state](#CloudWatch-alarms-avoiding-premature-transition "#CloudWatch-alarms-avoiding-premature-transition").
+
+In the next table, the **Period** is again set to 5 minutes, and
+**Datapoints to Alarm** is only 2 while **Evaluation
+Periods** is 3. This is a 2 out of 3, M out of N alarm.
+
+The evaluation range is 5. This is the maximum number of recent data points that are
+retrieved and can be used in case some data points are missing.
+
+| Data points     | # of missing data points | MISSING | IGNORE               | BREACHING | NOT BREACHING |
+| --------------- | ------------------------ | ------- | -------------------- | --------- | ------------- |
+| 0<br>• X<br>• X | 0                        | `ALARM` | `ALARM`              | `ALARM`   | `ALARM`       |
+| 0 0 X 0 X       | 0                        | `ALARM` | `ALARM`              | `ALARM`   | `ALARM`       |
+| 0<br>• X<br>• - | 1                        | `OK`    | `OK`                 | `ALARM`   | `OK`          |
+| • - - - 0       | 2                        | `OK`    | `OK`                 | `ALARM`   | `OK`          |
+| • - - X -       | 2                        | `ALARM` | Retain current state | `ALARM`   | `OK`          |
+
+In rows 1 and 2, the alarm always goes to ALARM state because 2 of the 3 most recent
+data points are breaching. In row 2, the two oldest data points in the evaluation range are
+not needed because none of the 3 most recent data points are missing, so these two older
+data points are ignored.
+
+In rows 3 and 4, the alarm goes to ALARM state only if missing data is treated as
+breaching, in which case the two most recent missing data points are both treated as
+breaching. In row 4, these two missing data points that are treated as breaching provide the
+two necessary breaching data points to trigger the ALARM state.
+
+Row 5 represents a special case of alarm evaluation called _premature alarm
+state_. For more information, see the following section.
+
+#### Avoiding premature
+
+transitions to alarm state
+
+CloudWatch alarm evaluation includes logic to try to avoid false alarms, where the alarm
+goes into ALARM state prematurely when data is intermittent. The example shown in row 5 in
+the tables in the previous section illustrate this logic. In those rows, and in the
+following examples, the **Evaluation Periods** is 3 and the evaluation
+range is 5 data points. **Datapoints to Alarm** is 3, except for the M
+out of N example, where **Datapoints to Alarm** is 2.
+
+Suppose an alarm's most recent data is `- - - - X`, with four missing data
+points and then a breaching data point as the most recent data point. Because the next
+data point may be non-breaching, the alarm does not go immediately into ALARM state when
+the data is either `- - - - X` or `- - - X -` and
+**Datapoints to Alarm** is 3. This way, false positives are avoided
+when the next data point is non-breaching and causes the data to be `- - - X O`
+or `- - X - O`.
+
+However, if the last few data points are `- - X - -`, the alarm goes into
+ALARM state even if missing data points are treated as missing. This is because alarms are
+designed to always go into ALARM state when the oldest available breaching datapoint
+during the **Evaluation Periods** number of data points is at least as
+old as the value of **Datapoints to Alarm**, and all other more recent
+data points are breaching or missing. In this case, the alarm goes into ALARM state even
+if the total number of datapoints available is lower than M (**Datapoints to
+Alarm**).
+
+This alarm logic applies to M out of N alarms as well. If the oldest breaching data
+point during the evaluation range is at least as old as the value of **Datapoints
+to Alarm**, and all of the more recent data points are either breaching or
+missing, the alarm goes into ALARM state no matter the value of M (**Datapoints to
+Alarm**).
+
+### How partial data from a
+
+Metrics Insights query is evaluated
+
+If the Metrics Insights query used for the alarm matches more than 10,000 metrics, the
+alarm is evaluated based on the first 10,000 metrics that the query finds. This means that
+the alarm is being evaluated on partial data.
+
+You can use the following methods to find whether a Metrics Insights alarm is currently
+evaluating its alarm state based on partial data:
+
+- In the console, if you choose an alarm to see the **Details** page,
+  the message **Evaluation warning: Not evaluating all data** appears on
+  that page.
+- You see the value `PARTIAL_DATA` in the `EvaluationState`
+  field when you use the [describe-alarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html?highlight=describe%20alarms") AWS CLI command or the [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md") API.
+
+Alarms also publish events to Amazon EventBridge when it goes into the partial data state, so you
+can create an EventBridge rule to watch for these events. In these events, the
+`evaluationState` field has the value `PARTIAL_DATA`. The following
+is an example.
+
+```
+{
+    "version": "0",
+    "id": "12345678-3bf9-6a09-dc46-12345EXAMPLE",
+    "detail-type": "CloudWatch Alarm State Change",
+    "source": "aws.cloudwatch",
+    "account": "123456789012",
+    "time": "2022-11-08T11:26:05Z",
+    "region": "us-east-1",
+    "resources": [
+        "arn:aws:cloudwatch:us-east-1:`123456789012`:alarm:`my-alarm-name`"
+    ],
+    "detail": {
+        "alarmName": "`my-alarm-name`",
+        "state": {
+            "value": "ALARM",
+            "reason": "Threshold Crossed: 3 out of the last 3 datapoints [20000.0 (08/11/22 11:25:00), 20000.0 (08/11/22 11:24:00), 20000.0 (08/11/22 11:23:00)] were greater than the threshold (0.0) (minimum 1 datapoint for OK -> ALARM transition).",
+            "reasonData": "{\"version\":\"1.0\",\"queryDate\":\"2022-11-08T11:26:05.399+0000\",\"startDate\":\"2022-11-08T11:23:00.000+0000\",\"period\":60,\"recentDatapoints\":[20000.0,20000.0,20000.0],\"threshold\":0.0,\"evaluatedDatapoints\":[{\"timestamp\":\"2022-11-08T11:25:00.000+0000\",\"value\":20000.0}]}",
+            "timestamp": "2022-11-08T11:26:05.401+0000",
+            "evaluationState": "PARTIAL_DATA"
+        },
+        "previousState": {
+            "value": "INSUFFICIENT_DATA",
+            "reason": "Unchecked: Initial alarm creation",
+            "timestamp": "2022-11-08T11:25:51.227+0000"
+        },
+        "configuration": {
+            "metrics": [
+                {
+                    "id": "m2",
+                    "expression": "SELECT SUM(PartialDataTestMetric) FROM partial_data_test",
+                    "returnData": true,
+                    "period": 60
+                }
+            ]
+        }
+    }
+}
+```
+
+If the query for the alarm includes a GROUP BY statement that initially returns more
+than 500 time series, the alarm is evaluated based on the first 500 time series that the
+query finds. However, if you use an ORDER BY clause, then all the time series that the query
+finds are sorted, and the 500 that have the highest or lowest values according to your ORDER
+BY clause are used to evaluate the alarm.
+
+## High-resolution alarms
+
+If you set an alarm on a high-resolution metric, you can specify a high-resolution alarm
+with a period of 10 seconds, 20 seconds, or 30 seconds, or you can set a regular alarm with a
+period of any multiple of 60 seconds. There is a higher charge for high-resolution alarms. For
+more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
+
+## Alarms on math expressions
+
+You can set an alarm on the result of a math expression that is based on one or more CloudWatch
+metrics. A math expression used for an alarm can include as many as 10 metrics. Each metric
+must be using the same period.
+
+For an alarm based on a math expression, you can specify how you want CloudWatch to treat
+missing data points. In this case, the data point is considered missing if the math expression
+doesn't return a value for that data point.
+
+Alarms based on math expressions can't perform Amazon EC2 actions.
+
+For more information about metric math expressions and syntax, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+
+## Percentile-based CloudWatch alarms and low data
+
+samples
+
+When you set a percentile as the statistic for an alarm, you can specify what to do when
+there is not enough data for a good statistical assessment. You can choose to have the alarm
+evaluate the statistic anyway and possibly change the alarm state. Or, you can have the alarm
+ignore the metric while the sample size is low, and wait to evaluate it until there is enough
+data to be statistically significant.
+
+For percentiles between 0.5 (inclusive) and 1.00 (exclusive), this setting is used when
+there are fewer than 10/(1-percentile) data points during the evaluation period. For example,
+this setting would be used if there were fewer than 1000 samples for an alarm on a p99
+percentile. For percentiles between 0 and 0.5 (exclusive), the setting is used when there are
+fewer than 10/percentile data points.
+
+## Common features of CloudWatch alarms
+
+The following features apply to all CloudWatch alarms:
+
+- There is no limit to the number of alarms that you can create. To create or update an
+  alarm, you use the CloudWatch console, the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") API action, or the [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") command in
+  the AWS CLI.
+- Alarm names must contain only UTF-8 characters, and can't contain ASCII control
+  characters
+- You can list any or all of the currently configured alarms, and list any alarms in a
+  particular state by using the CloudWatch console, the [DescribeAlarms](../APIReference/API_DescribeAlarms.md "../APIReference/API_DescribeAlarms.md") API action, or the
+  [describe-alarms](../../../cli/latest/reference/cloudwatch/describe-alarms.md "../../../cli/latest/reference/cloudwatch/describe-alarms.md")
+  command in the AWS CLI.
+- You can disable and enable alarm actions by using the [DisableAlarmActions](../APIReference/API_DisableAlarmActions.md "../APIReference/API_DisableAlarmActions.md") and [EnableAlarmActions](../APIReference/API_EnableAlarmActions.md "../APIReference/API_EnableAlarmActions.md") API actions, or
+  the [disable-alarm-actions](../../../cli/latest/reference/cloudwatch/disable-alarm-actions.md "../../../cli/latest/reference/cloudwatch/disable-alarm-actions.md") and [enable-alarm-actions](../../../cli/latest/reference/cloudwatch/enable-alarm-actions.md "../../../cli/latest/reference/cloudwatch/enable-alarm-actions.md")
+  commands in the AWS CLI.
+- You can test an alarm by setting it to any state using the [SetAlarmState](../APIReference/API_SetAlarmState.md "../APIReference/API_SetAlarmState.md") API action or the [set-alarm-state](../../../cli/latest/reference/cloudwatch/set-alarm-state.md "../../../cli/latest/reference/cloudwatch/set-alarm-state.md") command in
+  the AWS CLI. This temporary state change lasts only until the next alarm comparison
+  occurs.
+- You can create an alarm for a custom metric before you've created that custom metric.
+  For the alarm to be valid, you must include all of the dimensions for the custom metric in
+  addition to the metric namespace and metric name in the alarm definition. To do this, you
+  can use the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") API
+  action, or the [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") command in the AWS CLI.
+- You can view an alarm's history using the CloudWatch console, the [DescribeAlarmHistory](../APIReference/API_DescribeAlarmHistory.md "../APIReference/API_DescribeAlarmHistory.md") API action,
+  or the [describe-alarm-history](../../../cli/latest/reference/cloudwatch/describe-alarm-history.md "../../../cli/latest/reference/cloudwatch/describe-alarm-history.md") command in the AWS CLI. CloudWatch preserves alarm history for
+  30 days. Each state transition is marked with a unique timestamp. In rare cases, your
+  history might show more than one notification for a state change. The timestamp enables
+  you to confirm unique state changes.
+- You can favorite alarms from the _Favorites and recents_ option in
+  the CloudWatch console navigation pane by hovering over the alarm that you want to favorite and
+  choosing the star symbol next to it.
+- Alarms have an evaluation period quota. The evaluation period is calculated by
+  multiplying the alarm period by the number of evaluation periods used.
+  - The maximum evaluation period is seven days for alarms with a period of at least
+    one hour (3600 seconds).
+  - The maximum evaluation period is one day for alarms with a shorter period.
+  - The maximum evaluation period is one day for alarms that use the custom Lambda data
+    source.
+
+###### Note
+
+Some AWS resources don't send metric data to CloudWatch under certain conditions.
+
+For example, Amazon EBS might not send metric data for an available volume that is not
+attached to an Amazon EC2 instance, because there is no metric activity to be monitored for that
+volume. If you have an alarm set for such a metric, you might notice its state change to
+`INSUFFICIENT_DATA`. This might indicate that your resource is inactive, and
+might not necessarily mean that there is a problem. You can specify how each alarm treats
+missing data. For more information, see [Configuring how CloudWatch alarms treat missing
+data](#alarms-and-missing-data "#alarms-and-missing-data").

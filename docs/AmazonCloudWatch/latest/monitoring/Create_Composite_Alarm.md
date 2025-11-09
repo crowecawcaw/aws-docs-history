@@ -71,10 +71,35 @@ INSUFFICIENT_DATA state.
 
 TRUE always evaluates to TRUE, and FALSE always evaluates to FALSE.
 
+**Alarm references**
+
+When referencing an alarm, using either the alarm name or ARN, the rule syntax can support
+referencing the alarm with or without quotation marks (") around the alarm name or ARN.
+
+- If specified without quotes, alarm names or ARNs must not contain spaces, round
+  brackets, or commas.
+- If specified within quotes, alarm names or ARNs that _include_ double quotes (") must enclose the " using backslash escape (\)
+  characters for correct interpretation of the reference.
+  **Syntax**
+
+The syntax of the expression you use to combine several alarms into one composite alarm
+uses boolean logic and functions. The following table describes the operators and functions
+available in rule expressions:
+
+| Operator/Function | Description                                                                                                                                                                                                                                                                                                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AND`             | Logical AND operator. Returns TRUE when all specified conditions are<br>TRUE.                                                                                                                                                                                                                                                                                           |
+| `OR`              | Logical OR operator. Returns TRUE when at least one of the specified conditions<br>is TRUE.                                                                                                                                                                                                                                                                             |
+| `NOT`             | Logical NOT operator. Returns TRUE when the specified condition is FALSE.                                                                                                                                                                                                                                                                                               |
+| `AT_LEAST`        | Function that returns TRUE when a minimum number or percentage of specified<br>alarms are in the required state. Format: `AT_LEAST(M, STATE_CONDITION, (alarm1,<br>alarm2, ...alarmN))` where M can be an absolute number or percentage (for example,<br>50%), and STATE_CONDITION can be ALARM, OK, INSUFFICIENT_DATA, NOT ALARM, NOT OK, or<br>NOT INSUFFICIENT_DATA. |
+
+You can use parentheses to group conditions and control the order of evaluation in complex
+expressions.
+
 **Example expressions**
 
 The request parameter `AlarmRule` supports the use of the logical operators
-`AND`, `OR`, and `NOT`, so you can combine multiple
+`AND`, `OR`, and `NOT`, as well as the `AT_LEAST` function, so you can combine multiple
 functions into a single expressions. The following example expressions show how you can
 configure the underlying alarms in your composite alarm:
 
@@ -84,6 +109,16 @@ The expression specifies that the composite alarm goes into `ALARM` only if
 `CPUUtilizationTooHigh` and `DiskReadOpsTooHigh` are in
 `ALARM`.
 
+- `AT_LEAST(2, ALARM, (WebServer1CPU, WebServer2CPU, WebServer3CPU, WebServer4CPU))`
+
+The expression specifies that the composite alarm goes into `ALARM` when
+at least 2 out of the 4 web server CPU alarms are in `ALARM` state. This allows you to trigger alerts based on a threshold of affected resources rather than requiring all or just one to be in alarm state.
+
+- `AT_LEAST(50%, OK, (DatabaseConnection1, DatabaseConnection2, DatabaseConnection3, DatabaseConnection4))`
+
+The expression specifies that the composite alarm goes into `ALARM` when
+at least 50% of the database connection alarms are in `OK` state. Using percentages allows the rule to adapt dynamically as you add or remove monitored alarms.
+
 - `ALARM(CPUUtilizationTooHigh) AND NOT ALARM(DeploymentInProgress)`
 
 The expression specifies that the composite alarm goes into `ALARM` if
@@ -91,15 +126,10 @@ The expression specifies that the composite alarm goes into `ALARM` if
 `DeploymentInProgress` is not in `ALARM`. This is an example of a
 composite alarm that reduces alarm noise during a deployment window.
 
-- `(ALARM(CPUUtilizationTooHigh) OR ALARM(DiskReadOpsTooHigh)) AND
-OK(NetworkOutTooHigh)`
+- `AT_LEAST(2, ALARM, (AZ1Health, AZ2Health, AZ3Health)) AND NOT ALARM(MaintenanceWindow)`
 
-The expression specifies that the composite alarm goes into `ALARM` if
-`(ALARM(CPUUtilizationTooHigh)` or `(DiskReadOpsTooHigh)` is in
-`ALARM` and `(NetworkOutTooHigh)` is in `OK`. This is
-an example of a composite alarm that reduces alarm noise by not sending you notifications
-when either of the underlying alarms aren’t in `ALARM` while a network issue is
-occurring.
+The expression specifies that the composite alarm goes into `ALARM` when
+at least 2 out of 3 availability zone health alarms are in `ALARM` state and the maintenance window alarm is not in `ALARM`. This combines the AT_LEAST function with other logical operators for more complex monitoring scenarios.
 
 ###### Topics
 

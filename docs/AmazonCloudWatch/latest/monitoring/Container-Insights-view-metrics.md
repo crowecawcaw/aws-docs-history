@@ -85,18 +85,92 @@ shows the distribution of events in the log group that matches your query and ti
 range, not only the events displayed in the table. 4. In the query editor, replace the default query with the following query and choose
 **Run query**.
 
-````
+```
 STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
-| SORT avg_node_cpu_utilization DESC ``` This query shows a list of nodes, sorted by average node CPU utilization. 5. To try another example, replace that query with another query and choose **Run query**. More sample queries are listed later on this page. ``` STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
-| SORT avg_number_of_container_restarts DESC ``` This query displays a list of your pods, sorted by average number of container restarts. 6. If you want to try another query, you can use include fields in the list at the right of the screen. For more information about query syntax, see [CloudWatch Logs Insights Query Syntax](../logs/CWL_QuerySyntax.md "../logs/CWL_QuerySyntax.md"). ###### To see lists of your resources 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Resources**. 3. The default view is a list of your resources being monitored by Container Insights, and alarms that you have set on these resources. To see a visual map of the resources, choose **Map view**. 4. From the map view, you can pause your pointer over any resource in the map to see basic metrics about that resource. You can choose any resource to see more detailed graphs about the resource. ## Use case: Seeing task-level metrics in Amazon ECS containers The following example illustrates how to use CloudWatch Logs Insights to dive deeper into your Container Insights logs. For more examples, see the blog  [Introducing Amazon CloudWatch Container Insights for Amazon ECS](https://aws.amazon.com/blogs/mt/introducing-container-insights-for-amazon-ecs/ "https://aws.amazon.com/blogs/mt/introducing-container-insights-for-amazon-ecs/"). Container Insights does not automatically generate metrics at the Task level of granularity. The following query displays task-level metrics for CPU and memory usage. ``` stats avg(CpuUtilized) as CPU, avg(MemoryUtilized) as Mem by TaskId, ContainerName
-| sort Mem, CPU desc ``` ## Other sample queries for Container Insights **List of your pods, sorted by average number of container restarts** ``` STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
-| SORT avg_number_of_container_restarts DESC ``` **Pods requested vs. pods running** ``` fields @timestamp, @message
+| SORT avg_node_cpu_utilization DESC
+
+```
+
+This query shows a list of nodes, sorted by average node CPU utilization. 5. To try another example, replace that query with another query and choose
+**Run query**. More sample queries are listed later on this
+page.
+
+```
+STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
+| SORT avg_number_of_container_restarts DESC
+
+```
+
+This query displays a list of your pods, sorted by average number of container
+restarts. 6. If you want to try another query, you can use include fields in the list at the
+right of the screen. For more information about query syntax, see [CloudWatch Logs Insights Query Syntax](../logs/CWL_QuerySyntax.md "../logs/CWL_QuerySyntax.md").
+
+###### To see lists of your resources
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Resources**.
+3. The default view is a list of your resources being monitored by Container Insights,
+   and alarms that you have set on these resources. To see a visual map of the resources,
+   choose **Map view**.
+4. From the map view, you can pause your pointer over any resource in the map to see
+   basic metrics about that resource. You can choose any resource to see more detailed
+   graphs about the resource.
+
+## Use case: Seeing
+
+task-level metrics in Amazon ECS containers
+
+The following example illustrates how to use CloudWatch Logs Insights to dive deeper into your
+Container Insights logs. For more examples, see the blog [Introducing Amazon CloudWatch
+Container Insights for Amazon ECS](https://aws.amazon.com/blogs/mt/introducing-container-insights-for-amazon-ecs/ "https://aws.amazon.com/blogs/mt/introducing-container-insights-for-amazon-ecs/").
+
+Container Insights does not automatically generate metrics at the Task level of
+granularity. The following query displays task-level metrics for CPU and memory
+usage.
+
+```
+stats avg(CpuUtilized) as CPU, avg(MemoryUtilized) as Mem by TaskId, ContainerName
+| sort Mem, CPU desc
+
+```
+
+## Other sample queries for Container
+
+Insights
+
+**List of your pods, sorted by average number of container
+restarts**
+
+```
+STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName
+| SORT avg_number_of_container_restarts DESC
+
+```
+
+**Pods requested vs. pods running**
+
+```
+fields @timestamp, @message
 | sort @timestamp desc
 | filter Type="Pod"
 | stats min(pod_number_of_containers) as requested, min(pod_number_of_running_containers) as running, ceil(avg(pod_number_of_containers-pod_number_of_running_containers)) as pods_missing by kubernetes.pod_name
-| sort pods_missing desc ``` **Count of cluster node failures** ``` stats avg(cluster_failed_node_count) as CountOfNodeFailures
+| sort pods_missing desc
+```
+
+**Count of cluster node failures**
+
+```
+stats avg(cluster_failed_node_count) as CountOfNodeFailures
 | filter Type="Cluster"
-| sort @timestamp desc ``` **Application log errors by container name** ``` stats count() as countoferrors by kubernetes.container_name
+| sort @timestamp desc
+```
+
+**Application log errors by container name**
+
+```
+stats count() as countoferrors by kubernetes.container_name
 | filter stream="stderr"
-| sort countoferrors desc ```
-````
+| sort countoferrors desc
+
+```

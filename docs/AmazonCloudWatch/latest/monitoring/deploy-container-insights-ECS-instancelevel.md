@@ -209,14 +209,198 @@ located. `task-role-arn` is the Arn of the ECS task role that
 you are using, and `execution-role-arn` is the Arn of the ECS
 task execution role.
 
-````
+```
 TaskRoleArn=`task-role-arn`
 ExecutionRoleArn=`execution-role-arn`
 AWSLogsRegion=`logs-region`
 Region=`cluster-region`
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cwagent-ecs-instance-metric.json \
-| sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
-| xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json ``` Then run the following command to launch the daemon service. Replace `cluster-name` and `cluster-region` with the name and Region of your Amazon ECS cluster. ###### Important Remove all capacity provider strategies before you run this command. Otherwise, the command won't work. ``` ClusterName=`cluster-name` Region=`cluster-region` aws ecs create-service \ --cluster ${ClusterName} \ --service-name cwagent-daemon-service \ --task-definition ecs-cwagent-daemon-service \ --scheduling-strategy DAEMON \ --region ${Region} ``` If you see this error message, `An error occurred (InvalidParameterException) when calling the CreateService operation: Creation of service was not idempotent`, you have already created a daemon service named `cwagent-daemon-service`. You must delete that service first, using the following command as an example. ``` ClusterName=`cluster-name` Region=`cluster-region` aws ecs delete-service \ --cluster ${ClusterName} \ --service cwagent-daemon-service \ --region ${Region} \ --force ``` ### (Optional) Advanced configuration Optionally, you can use SSM to specify other configuration options for the CloudWatch agent in your Amazon ECS clusters that are hosted on EC2 instances. These options are as follows: <br>• `metrics_collection_interval` – How often in seconds that the CloudWatch agent collects metrics. The default is 60. The range is 1–172,000. <br>• `endpoint_override` – (Optional) Specifies a different endpoint to send logs to. You might want to do this if you're publishing from a cluster in a VPC and you want the logs data to go to a VPC endpoint. The value of `endpoint_override` must be a string that is a URL. <br>• `force_flush_interval` – Specifies in seconds the maximum amount of time that logs remain in the memory buffer before being sent to the server. No matter the setting for this field, if the size of the logs in the buffer reaches 1 MB, the logs are immediately sent to the server. The default value is 5 seconds. <br>• `region` – By default, the agent publishes metrics to the same Region where the Amazon ECS container instance is located. To override this, you can specify a different Region here. For example, `"region" : "us-east-1"` The following is an example of a customized configuration: ``` { "agent": { "region": "us-east-1" }, "logs": { "metrics_collected": { "ecs": { "metrics_collection_interval": 30 } }, "force_flush_interval": 5 } } ``` ###### To customize your CloudWatch agent configuration in your Amazon ECS containers 1. Make sure that the **AmazonSSMReadOnlyAccess** policy is attached to your Amazon ECS Task Execution role. You can enter the following command to do so. This example assumes that your Amazon ECS Task Execution role is CWAgentECSExecutionRole. If you are using a different role, substitute that role name in the following command. ``` aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess \ --role-name CWAgentECSExecutionRole ``` 2. Create the customized configuration file similar to the preceding example. Name this file `/tmp/ecs-cwagent-daemon-config.json`. 3. Run the following command to put this configuration into the Parameter Store. Replace `cluster-region` with the Region of your Amazon ECS cluster. To run this command, you must be logged on to a user or role that has the **AmazonSSMFullAccess** policy. ``` Region=`cluster-region` aws ssm put-parameter \ --name "ecs-cwagent-daemon-service" \ --type "String" \ --value "`cat /tmp/ecs-cwagent-daemon-config.json`" \ --region $Region ``` 4. Download the task definition file to a local file, such as `/tmp/cwagent-ecs-instance-metric.json` ``` curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cwagent-ecs-instance-metric.json -o /tmp/cwagent-ecs-instance-metric.json ``` 5. Modify the task definition file. Remove the following section: ``` "environment": [ { "name": "USE_DEFAULT_CONFIG", "value": "True" } ], ``` Replace that section with the following: ``` "secrets": [ { "name": "CW_CONFIG_CONTENT", "valueFrom": "ecs-cwagent-daemon-service" } ], ``` 6. Restart the agent as a daemon service by following these steps: 1. Run the following command. ``` TaskRoleArn=`task-role-arn` ExecutionRoleArn=`execution-role-arn` AWSLogsRegion=`logs-region` Region=`cluster-region` cat /tmp/cwagent-ecs-instance-metric.json \
-| sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
-| xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json ``` 2. Run the following command to launch the daemon service. Replace `cluster-name` and `cluster-region` with the name and Region of your Amazon ECS cluster. ``` ClusterName=`cluster-name` Region=`cluster-region` aws ecs create-service \ --cluster ${ClusterName} \ --service-name cwagent-daemon-service \ --task-definition ecs-cwagent-daemon-service \ --scheduling-strategy DAEMON \ --region ${Region} ``` If you see this error message, `An error occurred (InvalidParameterException) when calling the CreateService operation: Creation of service was not idempotent`, you have already created a daemon service named `cwagent-daemon-service`. You must delete that service first, using the following command as an example. ``` ClusterName=`cluster-name` Region=`Region` aws ecs delete-service \ --cluster ${ClusterName} \ --service cwagent-daemon-service \ --region ${Region} \ --force ```
-````
+    | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
+    | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
+```
+
+Then run the following command to launch the daemon service. Replace
+`cluster-name` and
+`cluster-region` with the name and Region of your Amazon ECS
+cluster.
+
+###### Important
+
+Remove all capacity provider strategies before you run this command. Otherwise,
+the command won't work.
+
+```
+ClusterName=`cluster-name`
+Region=`cluster-region`
+aws ecs create-service \
+    --cluster ${ClusterName} \
+    --service-name cwagent-daemon-service \
+    --task-definition ecs-cwagent-daemon-service \
+    --scheduling-strategy DAEMON \
+    --region ${Region}
+```
+
+If you see this error message, `An error occurred
+ (InvalidParameterException) when calling the CreateService operation: Creation of
+ service was not idempotent`, you have already created a daemon
+service named `cwagent-daemon-service`. You must delete that service first,
+using the following command as an example.
+
+```
+ClusterName=`cluster-name`
+Region=`cluster-region`
+aws ecs delete-service \
+    --cluster ${ClusterName} \
+    --service cwagent-daemon-service \
+    --region ${Region} \
+    --force
+```
+
+### (Optional)
+
+Advanced configuration
+
+Optionally, you can use SSM to specify other configuration options for the CloudWatch
+agent in your Amazon ECS clusters that are hosted on EC2 instances. These options are as
+follows:
+
+- `metrics_collection_interval` – How often in seconds that
+  the CloudWatch agent collects metrics. The default is 60. The range is
+  1–172,000.
+- `endpoint_override` – (Optional) Specifies a different
+  endpoint to send logs to. You might want to do this if you're publishing from a
+  cluster in a VPC and you want the logs data to go to a VPC endpoint.
+
+The value of `endpoint_override` must be a string that is a
+URL.
+
+- `force_flush_interval` – Specifies in seconds the maximum
+  amount of time that logs remain in the memory buffer before being sent to the
+  server. No matter the setting for this field, if the size of the logs in the
+  buffer reaches 1 MB, the logs are immediately sent to the server. The default
+  value is 5 seconds.
+- `region` – By default, the agent publishes metrics to the
+  same Region where the Amazon ECS container instance is located. To override this, you
+  can specify a different Region here. For example, `"region" :
+"us-east-1"`
+
+The following is an example of a customized configuration:
+
+```
+{
+    "agent": {
+        "region": "us-east-1"
+    },
+    "logs": {
+        "metrics_collected": {
+            "ecs": {
+                "metrics_collection_interval": 30
+            }
+        },
+        "force_flush_interval": 5
+    }
+}
+```
+
+###### To customize your CloudWatch agent configuration in your Amazon ECS containers
+
+1. Make sure that the **AmazonSSMReadOnlyAccess** policy is
+   attached to your Amazon ECS Task Execution role. You can enter the following command to
+   do so. This example assumes that your Amazon ECS Task Execution role is
+   CWAgentECSExecutionRole. If you are using a different role, substitute that role
+   name in the following command.
+
+```
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess \
+        --role-name CWAgentECSExecutionRole
+```
+
+2. Create the customized configuration file similar to the preceding example.
+   Name this file `/tmp/ecs-cwagent-daemon-config.json`.
+3. Run the following command to put this configuration into the Parameter Store. Replace
+   `cluster-region` with the Region of your Amazon ECS cluster.
+   To run this command, you must be logged on to a user or role that has the
+   **AmazonSSMFullAccess** policy.
+
+```
+Region=`cluster-region`
+aws ssm put-parameter \
+    --name "ecs-cwagent-daemon-service" \
+    --type "String" \
+    --value "`cat /tmp/ecs-cwagent-daemon-config.json`" \
+    --region $Region
+```
+
+4. Download the task definition file to a local file, such as
+   `/tmp/cwagent-ecs-instance-metric.json`
+
+```
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cwagent-ecs-instance-metric.json -o /tmp/cwagent-ecs-instance-metric.json
+```
+
+5. Modify the task definition file. Remove the following section:
+
+```
+"environment": [
+                {
+                    "name": "USE_DEFAULT_CONFIG",
+                    "value": "True"
+                }
+            ],
+```
+
+Replace that section with the following:
+
+```
+"secrets": [
+                {
+                    "name": "CW_CONFIG_CONTENT",
+                    "valueFrom": "ecs-cwagent-daemon-service"
+                }
+            ],
+```
+
+6. Restart the agent as a daemon service by following these steps:
+   1. Run the following command.
+
+   ```
+   TaskRoleArn=`task-role-arn`
+   ExecutionRoleArn=`execution-role-arn`
+   AWSLogsRegion=`logs-region`
+   Region=`cluster-region`
+   cat /tmp/cwagent-ecs-instance-metric.json \
+       | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
+       | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
+   ```
+
+   2. Run the following command to launch the daemon service. Replace
+      `cluster-name` and
+      `cluster-region` with the name and Region of your
+      Amazon ECS cluster.
+
+   ```
+   ClusterName=`cluster-name`
+   Region=`cluster-region`
+   aws ecs create-service \
+       --cluster ${ClusterName} \
+       --service-name cwagent-daemon-service \
+       --task-definition ecs-cwagent-daemon-service \
+       --scheduling-strategy DAEMON \
+       --region ${Region}
+   ```
+
+   If you see this error message, `An error occurred
+ (InvalidParameterException) when calling the CreateService operation:
+ Creation of service was not idempotent`, you have already
+   created a daemon service named `cwagent-daemon-service`. You must
+   delete that service first, using the following command as an example.
+
+   ```
+   ClusterName=`cluster-name`
+   Region=`Region`
+   aws ecs delete-service \
+       --cluster ${ClusterName} \
+       --service cwagent-daemon-service \
+       --region ${Region} \
+       --force
+   ```

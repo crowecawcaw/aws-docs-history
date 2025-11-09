@@ -22,12 +22,15 @@ period.
 
 **Metrics**
 
-| Metric      | Description                                                                                                                                                                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `CallCount` | The number of specified operations performed in your account.                                                                                                                                                                                               | **Dimensions** |
-| Dimension   | Description                                                                                                                                                                                                                                                 |
-| ---         | ---                                                                                                                                                                                                                                                         |
-| `Service`   | The name of the AWS service containing the resource. For CloudWatch usage metrics, the value for this dimension is `CloudWatch`.                                                                                                                            |
-| `Class`     | The class of resource being tracked. CloudWatch API usage metrics use this dimension with a value of `None`.                                                                                                                                                |
-| `Type`      | The type of resource being tracked. When the `Service` dimension is `CloudWatch`, the only valid value for `Type` is `API`.                                                                                                                                 |
-| `Resource`  | The name of the API operation. Valid values include the following: `DeleteAlarms`, `DeleteDashboards`, `DescribeAlarmHistory`, `DescribeAlarms`, `GetDashboard`, `GetMetricData`, `GetMetricStatistics`, `ListMetrics`, `PutDashboard`, and `PutMetricData` |
+| Metric      | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
+| `CallCount` | The number of specified operations performed in your account. |
+
+**Dimensions**
+
+| Dimension  | Description                                                                                                                                                                                                                                                                |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Service`  | The name of the AWS service containing the resource. For CloudWatch usage metrics, the value for this dimension is `CloudWatch`.                                                                                                                                           |
+| `Class`    | The class of resource being tracked. CloudWatch API usage metrics use this dimension with a value of `None`.                                                                                                                                                               |
+| `Type`     | The type of resource being tracked. When the `Service` dimension is `CloudWatch`,<br>the only valid value for `Type` is `API`.                                                                                                                                             |
+| `Resource` | The name of the API operation. Valid values include the following:<br>`DeleteAlarms`, `DeleteDashboards`,<br>`DescribeAlarmHistory`, `DescribeAlarms`,<br>`GetDashboard`, `GetMetricData`,<br>`GetMetricStatistics`, `ListMetrics`, `PutDashboard`,<br>and `PutMetricData` |

@@ -483,8 +483,7 @@ group**
 
 When you use the CloudWatch console to create an investigation group, you can choose to
 associate the AWS KMS key with the investigation group. For more information, see
-[Set up an investigation
-group](Investigations-GetStarted-Group.md "Investigations-GetStarted-Group.md").
+[Set up an investigation group](Investigations-GetStarted-Group.md "Investigations-GetStarted-Group.md").
 
 You can also associate a customer managed key with an existing investigation
 group.
@@ -516,19 +515,19 @@ primary Region. All data will be transmitted encrypted across Amazon’s secure 
 For details about where cross-Region inference distribution occurs for each Region,
 see the following table.
 
-| Supported CloudWatch investigations geography | Investigation Region     | Possible inference Regions                                               |
-| --------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
-| **United States (US)**                        | US East (N. Virginia)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | US East (Ohio)           | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | US West (Oregon)         | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-| **Europe (EU)**                               | Europe (Frankfurt)       | Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm) |
-|                                               | Europe (Ireland)         | Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm) |
-|                                               | Europe (Spain)           | Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm) |
-|                                               | Europe (Stockholm)       | Europe (Frankfurt), Europe (Ireland), Europe (Paris), Europe (Stockholm) |
-| **Asia-Pacific (AP)**                         | Asia Pacific (Hong Kong) | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Mumbai)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Singapore) | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Sydney)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Tokyo)     | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Malaysia)  | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
-|                                               | Asia Pacific (Thailand)  | US East (N. Virginia), US East (Ohio), US West (Oregon)                  |
+| Supported CloudWatch investigations geography | Investigation Region     | Possible inference Regions                                                  |
+| --------------------------------------------- | ------------------------ | --------------------------------------------------------------------------- |
+| **United States (US)**                        | US East (N. Virginia)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | US East (Ohio)           | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | US West (Oregon)         | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+| **Europe (EU)**                               | Europe (Frankfurt)       | Europe (Frankfurt), Europe (Ireland), Europe (Paris),<br>Europe (Stockholm) |
+|                                               | Europe (Ireland)         | Europe (Frankfurt), Europe (Ireland), Europe (Paris),<br>Europe (Stockholm) |
+|                                               | Europe (Spain)           | Europe (Frankfurt), Europe (Ireland), Europe (Paris),<br>Europe (Stockholm) |
+|                                               | Europe (Stockholm)       | Europe (Frankfurt), Europe (Ireland), Europe (Paris),<br>Europe (Stockholm) |
+| **Asia-Pacific (AP)**                         | Asia Pacific (Hong Kong) | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Mumbai)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Singapore) | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Sydney)    | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Tokyo)     | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Malaysia)  | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |
+|                                               | Asia Pacific (Thailand)  | US East (N. Virginia), US East (Ohio), US West (Oregon)                     |

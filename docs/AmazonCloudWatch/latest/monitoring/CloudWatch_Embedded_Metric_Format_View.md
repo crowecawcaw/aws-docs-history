@@ -40,8 +40,20 @@ For example, to
 get an impacted request id or x-ray trace id, you could run the following query
 in CloudWatch Logs Insights.
 
-````
+```
 filter Latency > 1000 and Operation = "Aggregator"
-| fields RequestId, TraceId ``` You can also perform query-time aggregation on high-cardinality keys, such as finding the customers impacted by an event. The following example illustrates this. ``` filter Latency > 1000 and Operation = "Aggregator"
-| stats count() by CustomerId ``` For more information, see [Analyzing Log Data with CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md")
-````
+| fields RequestId, TraceId
+
+```
+
+You can also perform query-time aggregation on high-cardinality keys, such as finding the customers impacted by an event. The
+following example illustrates this.
+
+```
+filter Latency > 1000 and Operation = "Aggregator"
+| stats count() by CustomerId
+
+```
+
+For more information, see
+[Analyzing Log Data with CloudWatch Logs Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md")

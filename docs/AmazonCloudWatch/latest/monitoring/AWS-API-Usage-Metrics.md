@@ -10,7 +10,7 @@ The table lists the values to use for the `Service` dimension, so you can see th
 You can use the procedure in this section to view the list of a service's APIs that report usage metrics to CloudWatch.
 
 | Service                                            | Value for the `Service` dimension   |
-| -------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------- | ----------------------------------- |
 | AWS Identity and Access Management Access Analyzer | `Access Analyzer`                   |
 | AWS Account Management                             | `Account Management`                |
 | Alexa for Business                                 | `A4B`                               |
@@ -21,7 +21,7 @@ You can use the procedure in this section to view the list of a service's APIs t
 | Application Auto Scaling                           | `Application Auto Scaling`          |
 | Application Discovery Service                      | `Application Discovery Service`     |
 | Amazon AppStream                                   | `AppStream`                         |
-| AppStream 2.0 Image Builder                        | `Image Builder`                     |
+| WorkSpaces Applications Image Builder              | `Image Builder`                     |
 | Amazon Athena                                      | `Athena`                            |
 | AWS Audit Manager                                  | `Audit Manager`                     |
 | AWS Backup                                         | `Backup`                            |
@@ -162,4 +162,18 @@ You can use the procedure in this section to view the list of a service's APIs t
 | Amazon WorkLink                                    | `WorkLink`                          |
 | Amazon WorkMail                                    | `Amazon WorkMail`                   |
 | Amazon WorkSpaces                                  | `Workspaces`                        |
-| AWS X-Ray                                          | `X-Ray`                             | Some services report usage metrics for additional APIs as well. To see whether an API reports usage metrics to CloudWatch, use the CloudWatch console to see the metrics reported by that service in the `AWS/Usage` namespace. ###### To see the list of a service's APIs that report usage metrics to CloudWatch 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. On the **All metrics** tab, choose **Usage**, and then choose **By AWS Resource**. 4. In the search box near the list of metrics, enter the name of the service. The metrics are filtered by the service you entered. |
+| AWS X-Ray                                          | `X-Ray`                             |
+
+Some services report usage metrics for additional APIs as well. To see whether an API
+reports usage metrics to CloudWatch, use the CloudWatch console to see the metrics reported by that
+service in the `AWS/Usage` namespace.
+
+###### To see the list of a service's APIs that report usage metrics to CloudWatch
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. On the **All metrics** tab, choose **Usage**, and
+   then choose **By AWS Resource**.
+4. In the search box near the list of metrics, enter the name of the service. The metrics are
+   filtered by the service you entered.

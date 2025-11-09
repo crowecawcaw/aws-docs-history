@@ -1,10 +1,5 @@
 # Troubleshooting
 
-## My query references a tag, but returns no results or the tag values don't appear
-
-CloudWatch Metrics Insights currently supports only ASCII characters in resource tags. When your query references tags containing Unicode characters (international characters, emojis, or special symbols), the tags are excluded from enrichment and queries return empty results
-with no error message. To resolve this, use only ASCII characters in your resource tags when working with Metrics Insights.
-
 ## CloudWatch cannot enable or disable resource tags for telemetry
 
 If you receive an error when trying to enable or disable resource tags for telemetry, verify that the required roles and permissions are correctly configured.

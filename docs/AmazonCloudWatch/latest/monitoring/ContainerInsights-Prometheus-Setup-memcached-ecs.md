@@ -265,17 +265,47 @@ This tutorial sends the following metrics to the
 **ECS/ContainerInsights/Prometheus** namespace in CloudWatch. You can
 use the CloudWatch console to see the metrics in that namespace.
 
-| Metric name                                  | Dimensions                                                                                                                              |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `memcached_current_items`                    | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_current_connections`              | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_limit_bytes`                      | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_current_bytes`                    | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_written_bytes_total`              | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_read_bytes_total`                 | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_items_evicted_total`              | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_items_reclaimed_total`            | `ClusterName`, `TaskDefinitionFamily`                                                                                                   |
-| `memcached_commands_total`                   | `ClusterName`, `TaskDefinitionFamily` `ClusterName`, TaskDefinitionFamily, command `ClusterName`, TaskDefinitionFamily, status, command | ###### Note The value of the **command** dimension can be: `delete`, `get`, `cas`, `set`, `decr`, `touch`, `incr`, or `flush`. The value of the **status** dimension can be `hit`, `miss`, or `badval`. You can also create a CloudWatch dashboard for your Memcached Prometheus metrics. ###### To create a dashboard for Memcached Prometheus metrics 1. Create environment variables, replacing the values below to match your deployment. ``DASHBOARD_NAME=`your_memcached_cw_dashboard_name` ECS_TASK_DEF_FAMILY=memcached-prometheus-demo-$ECS_CLUSTER_NAME-EC2-$MEMCACHED_ECS_NETWORK_MOD`` 2. Enter the following command to create the dashboard. ``` curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/replica-service/cwagent-prometheus/sample_cloudwatch_dashboards/memcached/cw_dashboard_memcached.json \ |
-| sed "s/{{YOUR_AWS_REGION}}/$AWS_REGION/g" \  | sed "s/{{YOUR_CLUSTER_NAME}}/$ECS_CLUSTER_NAME/g" \                                                                                     | sed "s/{{YOUR_TASK_DEF_FAMILY}}/$ECS_TASK_DEF_FAMILY/g" \                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Metric name                       | Dimensions                                                                                                                                    |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `memcached_current_items`         | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_current_connections`   | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_limit_bytes`           | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_current_bytes`         | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_written_bytes_total`   | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_read_bytes_total`      | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_items_evicted_total`   | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_items_reclaimed_total` | `ClusterName`, `TaskDefinitionFamily`                                                                                                         |
+| `memcached_commands_total`        | `ClusterName`, `TaskDefinitionFamily`<br>`ClusterName`, TaskDefinitionFamily, command<br>`ClusterName`, TaskDefinitionFamily, status, command |
 
-| xargs -0 aws cloudwatch put-dashboard --dashboard-name ${DASHBOARD_NAME} --region $AWS_REGION --dashboard-body ```
+###### Note
+
+The value of the **command** dimension can be:
+`delete`, `get`, `cas`, `set`,
+`decr`, `touch`, `incr`, or
+`flush`.
+
+The value of the **status** dimension can be
+`hit`, `miss`, or `badval`.
+
+You can also create a CloudWatch dashboard for your Memcached Prometheus
+metrics.
+
+###### To create a dashboard for Memcached Prometheus metrics
+
+1. Create environment variables, replacing the values below to match your
+   deployment.
+
+```
+DASHBOARD_NAME=`your_memcached_cw_dashboard_name`
+ECS_TASK_DEF_FAMILY=memcached-prometheus-demo-$ECS_CLUSTER_NAME-EC2-$MEMCACHED_ECS_NETWORK_MOD
+```
+
+2. Enter the following command to create the dashboard.
+
+```
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/replica-service/cwagent-prometheus/sample_cloudwatch_dashboards/memcached/cw_dashboard_memcached.json \
+| sed "s/{{YOUR_AWS_REGION}}/$AWS_REGION/g" \
+| sed "s/{{YOUR_CLUSTER_NAME}}/$ECS_CLUSTER_NAME/g" \
+| sed "s/{{YOUR_TASK_DEF_FAMILY}}/$ECS_TASK_DEF_FAMILY/g" \
+| xargs -0 aws cloudwatch put-dashboard --dashboard-name ${DASHBOARD_NAME} --region $AWS_REGION --dashboard-body
+```

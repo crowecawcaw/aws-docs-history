@@ -179,8 +179,99 @@ Timestamp, Metric-1, Metric-2, ...
 The following is an example:
 
 | timestamp                 | CPU (%) | Memory (%) | Storage (%) |
-| ------------------------- | ------- | ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ------- | ---------- | ----------- |
 | 2023-11-23T17:09:41+00:00 | 1       | `2`        | `3`         |
 | 2023-11-23T17:04:41+00:00 | 4       | `5`        | `6`         |
 | 2023-11-23T16:59:41+00:00 | 7       | `8`        | `9`         |
-| 2023-11-23T16:54:41+00:00 | 10      | `11`       | `12`        | ###### Note If no timestamp is provided, the values for each metric are summed to single values and plotted across the provided time range. If the timestamps don't align with the selected period in CloudWatch, the data is automatically aggregated using `SUM` and aligned with the period in CloudWatch. ## Microsoft Azure Monitor **Creating the data source** <br>• You must provide your tenant ID, client ID, and client secret to connect to Microsoft Azure Monitor. The credentials will be stored in AWS Secrets Manager. For more information, see [Create a Microsoft Entra application and service principal that can access resources](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal "https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal") in the Microsoft documentation. **Updating the data source** <br>• You can update your data source manually by doing the following: + To update the tenant ID, client ID, and client secret used to connect to Azure Monitor, you can find the ARN of the secret used for the data source as the `AZURE_CLIENT_SECRET` environment variable on the data source Lambda function. For more information about updating the secret in AWS Secrets Manager, see [Modify an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md"). **Querying the data source** <br>• When querying Azure Monitor, after you select the data source in the **Multi source query** tab and select an Azure Monitor connector, you specify the Azure subscription, and the resource group and resource. You can then select the metric namespace, metric, and aggregation, and filter by dimensions. ## Prometheus **Creating the data source** <br>• You must provide the Prometheus endpoint and the user and password required to query Prometheus. The credentials will be stored in AWS Secrets Manager. <br>• If your data source is only accessible in a VPC, you must include the VPC configuration for the connector, as described in [Connect to a prebuilt data source with a wizard](CloudWatch_MultiDataSources-Connect.md "CloudWatch_MultiDataSources-Connect.md"). If the data source is to connect to for credentials, the endpoint must be configured in the VPC. For more information, see [Using an AWS Secrets Manager VPC endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md"). **Updating data source configuration** <br>• You can update your data source manually by doing the following: + To update the Prometheus endpoint, specify the new endpoint as the `PROMETHEUS_API_ENDPOINT` environment variable on the data source Lambda function. + To update the username and password used to connect to Prometheus, you can find the ARN of the secret used for the data source as the `PROMETHEUS_API_SECRET` environment variable on the data source Lambda function. For more information about updating the secret in AWS Secrets Manager, see [Modify an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md"). + To update the VPC configuration, see [Configuring VPC access (console)](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") for more information. **Querying the data source** ###### Important Prometheus metric types are different than CloudWatch metrics and many metrics available through Prometheus are cumulative by design. When you query Prometheus metrics, CloudWatch doesn't apply any additional transformation to the data: if you specify only the metric name or label, the displayed value will be cumulative. For more information, see [Metric types](https://prometheus.io/docs/concepts/metric_types/ "https://prometheus.io/docs/concepts/metric_types/") in the Prometheus documentation. To see Prometheus metrics data as discrete values, like CloudWatch metrics, you need to edit the query before you run it. For example, you might need to add a call to the rate function over your Prometheus metric name. For documentation about the rate function and other Prometheus functions, see [rate()](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate "https://prometheus.io/docs/prometheus/latest/querying/functions/#rate") in the Prometheus documentation. Multi-line queries are not supported by the CloudWatch data source connectors. Every line feed is replaced with a space when the query is executed, or when you create an alarm or a dashboard widget with the query. In some cases, this might make your query not valid. For example, if your query contains a single line comment it will not be valid. If you try to create a dashboard or alarm with a multi-line query from the command line or Infrastructure as Code, the API will reject the action with a parse error. ## Notification of Available Updates From time to time, Amazon might notify you that we recommend that you update your connectors with a newer available version and will provide instructions for how to do so. |
+| 2023-11-23T16:54:41+00:00 | 10      | `11`       | `12`        |
+
+###### Note
+
+If no timestamp is provided, the values for each metric are summed to single values and
+plotted across the provided time range. If the timestamps don't align with the selected
+period in CloudWatch, the data is automatically aggregated using `SUM` and aligned
+with the period in CloudWatch.
+
+##
+
+Microsoft Azure Monitor
+
+**Creating the data source**
+
+- You must provide your tenant ID, client ID, and client secret to connect to Microsoft Azure
+  Monitor. The credentials will be stored in AWS Secrets Manager. For more
+  information, see [Create a Microsoft Entra application and service principal that can access
+  resources](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal "https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal") in the Microsoft documentation.
+
+**Updating the data source**
+
+- You can update your data source
+  manually by doing the following:
+  - To update the tenant ID, client ID, and client secret used to connect to Azure Monitor, you can find the ARN of
+    the secret used for the data source as the `AZURE_CLIENT_SECRET` environment
+    variable on the data source Lambda function. For more information about updating the
+    secret in AWS Secrets Manager, see [Modify an
+    AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md").
+
+**Querying the data source**
+
+- When querying Azure Monitor, after you select the data source in the **Multi source query** tab
+  and select an Azure Monitor connector,
+  you specify the Azure subscription, and the resource group and resource. You can then select the metric namespace, metric,
+  and aggregation, and filter by dimensions.
+
+##
+
+Prometheus
+
+**Creating the data source**
+
+- You must provide the Prometheus endpoint and the user and password required to query
+  Prometheus. The credentials will be stored in AWS Secrets Manager.
+- If your data source is only accessible in a VPC, you must include the VPC configuration
+  for the connector, as described in [Connect to a prebuilt data source with a wizard](CloudWatch_MultiDataSources-Connect.md "CloudWatch_MultiDataSources-Connect.md"). If the data source is to connect to
+  for credentials, the endpoint must be configured in the VPC. For more
+  information, see [Using an AWS Secrets Manager VPC endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md").
+
+**Updating data source configuration**
+
+- You can update your data source
+  manually by doing the following:
+  - To update the Prometheus endpoint, specify the new endpoint as
+    the `PROMETHEUS_API_ENDPOINT` environment variable on
+    the data source Lambda function.
+  - To update the username and password used to connect to Prometheus, you can find the ARN of the
+    secret used for the data source as the `PROMETHEUS_API_SECRET`
+    environment variable on the data source Lambda function. For more information about
+    updating the secret in AWS Secrets Manager, see [Modify an
+    AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md").
+  - To update the VPC configuration, see [Configuring VPC access (console)](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") for more information.
+
+**Querying the data source**
+
+###### Important
+
+Prometheus metric types are different than CloudWatch metrics and many metrics available through
+Prometheus are cumulative by design. When you query Prometheus metrics, CloudWatch doesn't apply any additional
+transformation to the data: if you specify only the metric name or label, the displayed value
+will be cumulative.
+For more information, see [Metric types](https://prometheus.io/docs/concepts/metric_types/ "https://prometheus.io/docs/concepts/metric_types/") in the Prometheus documentation.
+
+To see Prometheus metrics data as discrete values, like CloudWatch metrics, you need to edit
+the query before you run it. For example, you might need to add a call to the rate
+function over your Prometheus metric name. For documentation about the rate function and
+other Prometheus functions, see [rate()](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate "https://prometheus.io/docs/prometheus/latest/querying/functions/#rate") in the Prometheus documentation.
+
+Multi-line queries are not supported by the CloudWatch data source connectors. Every line feed
+is replaced with a space when the query is executed, or when you create an alarm or a
+dashboard widget with the query. In some cases, this might make your query not valid. For
+example, if your query contains a single line comment it will not be valid. If you try to
+create a dashboard or alarm with a multi-line query from the command line or Infrastructure
+as Code, the API will reject the action with a parse error.
+
+##
+
+Notification of Available Updates
+
+From time to time, Amazon might notify you that we recommend that you update your connectors
+with a newer available version and will provide instructions for how to do so.

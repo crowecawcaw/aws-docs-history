@@ -144,6 +144,9 @@ for it to take effect.
 - `deployment.environment` – Optional. Specifies the environment
   name to be used to populate the entity for [finding
   related telemetry](ExploreRelated.md "ExploreRelated.md").
+- `use_dualstack_endpoint` – Optional. If this is `true`,
+  the CloudWatch agent will use [dual stack endpoints](../../../general/latest/gr/rande.md#dual-stack-endpoints "../../../general/latest/gr/rande.md#dual-stack-endpoints")
+  for all API calls.
   The following is an example of an `agent` section.
 
 ```
@@ -568,7 +571,7 @@ collected.
   - `measurement` – Specifies the array of memory metrics to
     be collected. Possible values are `active`, `available`,
     `available_percent`, `buffered`, `cached`,
-    `free`, `inactive`, `total`,
+    `free`, `inactive`, `shared`, `total`,
     `used`, and `used_percent`. This field is required if
     you include `mem`.
 
@@ -1063,6 +1066,34 @@ The `logs` section includes the following fields:
 - `deployment.environment` – Optional. Specifies the environment
   name to be used to populate the entity for [finding
   related telemetry](ExploreRelated.md "ExploreRelated.md").
+- `backpressure_mode` – Optional. Specifies the behavior when
+  the CloudWatch agent is ingesting logs faster than it can send to CloudWatch Logs, resulting in backpressure.
+  Backpressure can happen from network issues, API throttling, or high log volume.
+
+The agent supports the following values:
+
+    + `fd_release` – Releases file descriptors for deleted files during
+     backpressure conditions. This option can help prevent disk space exhaustion when external
+     log rotation or cleanup processes remove files while the agent maintains open file descriptors.
+     The `auto_removal` option takes precedence over the
+     `backpressure_mode` option being set to `fd_release`. When `auto_removal` is enabled,
+     the CloudWatch agent processes the file to completion without releasing the file
+     descriptor.
+
+
+    ###### Important
+
+    Using `fd_release` can result in the CloudWatch agent being unable
+     to read log files to completion, causing log loss.
+
+- `concurrency` – Optional. Specifies the number of shared log publishers
+  used to concurrently publish log files to CloudWatch Logs.
+
+If you omit this field, each log file destination (log group, stream combination)
+has a single shared log publisher, which can lead to bottlenecks for large files
+or when writing multiple files to the same destination. Enabling
+concurrency can help with throughput.
+
 - `logs_collected` – Required if the `logs` section
   is included. Specifies which log files and Windows event logs are to be collected
   from the server. It can include two fields, `files` and
@@ -1423,6 +1454,11 @@ The `logs` section includes the following fields:
         name to be used to populate the entity for [finding related telemetry](ExploreRelated.md "ExploreRelated.md").
       - `deployment.environment` – Optional. Specifies the
         environment name to be used to populate the entity for [finding related telemetry](ExploreRelated.md "ExploreRelated.md").
+      - `trim_timestamp` – Optional. If this is true, the CloudWatch agent
+        will remove the timestamp matched by `timestamp_format` from the line
+        before sending it to CloudWatch Logs. The LogEvent will still contain the `timestamp` field.
+
+      If you omit this field, the default value of `false` is used.
 
   - The `windows_events` section specifies the type of Windows events
     to collect from servers running Windows Server. It includes the following

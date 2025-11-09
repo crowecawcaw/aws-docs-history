@@ -50,23 +50,23 @@ This alarm differs from single-instance alarms in several ways:
   The metrics query is refreshed every time the alarm evaluates, thus your alarm
   automatically adapts as resources are created, paused, or deleted.
 - For each contributor that breaches the threshold, the alarm sends a contributor
-  state change event, which has a different event type in EventBridge than an alarm state
-  change event. The alarm itself also changes state: as soon as at least one contributor
-  is in alarm, the alarm also enters the alarm state.
+  state change event, which has a different event type in EventBridge than an alarm state change
+  event. The alarm itself also changes state: as soon as at least one contributor is in
+  alarm, the alarm also enters the alarm state.
 - Some actions however, such as SSM Incident, are triggered at the alarm level. Such
   actions are not repeated when the list of contributors in alarm changes.
   This alarm differs from aggregated metric-query alarms in several ways:
 
-- It monitors time series individually instead of an aggregate, using the `GROUP BY`
-  clause.
+- It monitors time series individually instead of an aggregate, using the `GROUP
+BY` clause.
 - It follows the level of granularity that you set according to your needs: for
-  example, it can alarm on every Amazon EC2 instance (most granular level of Amazon EC2 metrics) or per
-  Amazon RDS table (aggregated across various operations on a table), depending on which fields
-  you set in the `GROUP BY` clause
+  example, it can alarm on every Amazon EC2 instance (most granular level of Amazon EC2 metrics) or
+  per Amazon RDS table (aggregated across various operations on a table), depending on which
+  fields you set in the `GROUP BY` clause
 - It prioritizes evaluation using the `ORDER BY` clause.
 - For each contributor that breaches the threshold, the alarm sends a contributor
-  state change event, which has a different event type in EventBridge than an alarm state
-  change event. The alarm itself also changes state: as soon as at least one contributor
-  is in alarm, the alarm also enters the alarm state.
+  state change event, which has a different event type in EventBridge than an alarm state change
+  event. The alarm itself also changes state: as soon as at least one contributor is in
+  alarm, the alarm also enters the alarm state.
 - Some actions however, such as SSM Incident, are triggered at the alarm level. Such
   actions are not repeated when the list of contributors in alarm changes.

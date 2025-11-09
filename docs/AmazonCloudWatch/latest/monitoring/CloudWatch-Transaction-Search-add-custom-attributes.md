@@ -82,13 +82,20 @@ After you add these events, they become available in the [Transaction Search vis
 You can query span events in CloudWatch Logs to view advanced insights.
 The following example query commands show how to analyze exceptions thrown by your application:
 
-````
+```
 
 fields jsonparse(@message) as js
 | unnest js.events into event
 | filter event.name = "exception"
-| display event.attributes.`exception.stacktrace` ``` ``` fields jsonparse(@message) as js
+| display event.attributes.`exception.stacktrace`
+
+```
+
+```
+
+fields jsonparse(@message) as js
 | unnest js.events into event
 | filter event.name = "exception"
-| stats count() by event.attributes.`exception.type` ```
-````
+| stats count() by event.attributes.`exception.type`
+
+```

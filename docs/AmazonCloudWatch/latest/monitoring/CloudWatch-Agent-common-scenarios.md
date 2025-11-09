@@ -389,5 +389,61 @@ The CloudWatch agent supports a different set of symbols for timestamp formats, 
 the earlier CloudWatch Logs agent. These differences are shown in the following table.
 
 | Symbols supported by both agents                               | Symbols supported only by CloudWatch agent | Symbols supported only by earlier CloudWatch Logs agent |
-| -------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| %A, %a, %b, %B, %d, %f, %H, %l, %m, %M, %p, %S, %y, %Y, %Z, %z | %-d, %-l, %-m, %-M, %-S                    | %c,%j, %U, %W, %w                                       | For more information about the meanings of the symbols supported by the new CloudWatch agent, see [CloudWatch Agent Configuration File: Logs Section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-Logssection "CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-Logssection") in the _Amazon CloudWatch User Guide_. For information about symbols supported by the CloudWatch Logs agent, see [Agent Configuration File](../logs/AgentReference.md#agent-configuration-file "../logs/AgentReference.md#agent-configuration-file") in the _Amazon CloudWatch Logs User Guide_. ## Appending OpenTelemetry collector configuration files The CloudWatch agent supports supplemental OpenTelemetry collector configuration files alongside its own configuration files. This feature allows you to use CloudWatch agent features such as CloudWatch Application Signals or Container Insights through the CloudWatch agent configuration and bring in your existing OpenTelemetry collector configuration with a single agent. To prevent merge conflicts with pipelines automatically created by CloudWatch agent, we recommend that you add a custom suffix to each of the components and pipelines in your OpenTelemetry collector configuration. `receivers: otlp/custom-suffix: protocols: http: exporters: awscloudwatchlogs/custom-suffix: log_group_name: "test-group" log_stream_name: "test-stream" service: pipelines: logs/custom-suffix: receivers: [otlp/custom-suffix] exporters: [awscloudwatchlogs/custom-suffix]` To configure the CloudWatch agent, start the CloudWatch agent using the `fetch-config` option and specify the CloudWatch agent’s configuration file. CloudWatch agent requires at least one CloudWatch agent configuration file. `/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -c file:/tmp/agent.json -s` Next, use the `append-config` option while specifying the OpenTelemetry collector configuration file. `/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a append-config -c file:/tmp/otel.yaml -s` The agent merges the two configuration files on start up and logs the resolved configuration. |
+| -------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------- |
+| %A, %a, %b, %B, %d, %f, %H, %l, %m, %M, %p, %S, %y, %Y, %Z, %z | %-d, %-l, %-m, %-M, %-S                    | %c,%j, %U, %W, %w                                       |
+
+For more information about the meanings of the symbols supported by the new CloudWatch agent,
+see [CloudWatch Agent Configuration File: Logs Section](CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-Logssection "CloudWatch-Agent-Configuration-File-Details.md#CloudWatch-Agent-Configuration-File-Logssection") in the
+_Amazon CloudWatch User Guide_. For information about symbols supported by the CloudWatch Logs
+agent, see [Agent
+Configuration File](../logs/AgentReference.md#agent-configuration-file "../logs/AgentReference.md#agent-configuration-file") in the _Amazon CloudWatch Logs User Guide_.
+
+## Appending
+
+OpenTelemetry collector configuration files
+
+The CloudWatch agent supports supplemental OpenTelemetry collector configuration files
+alongside its own configuration files. This feature allows you to use CloudWatch agent features
+such as CloudWatch Application Signals or Container Insights through the CloudWatch agent configuration and bring
+in your existing OpenTelemetry collector configuration with a single agent.
+
+To prevent merge conflicts with pipelines automatically created by CloudWatch agent, we
+recommend that you add a custom suffix to each of the components and pipelines in your
+OpenTelemetry collector configuration.
+
+```
+receivers:
+  otlp/custom-suffix:
+    protocols:
+      http:
+
+exporters:
+  awscloudwatchlogs/custom-suffix:
+    log_group_name: "test-group"
+    log_stream_name: "test-stream"
+
+service:
+  pipelines:
+    logs/custom-suffix:
+      receivers: [otlp/custom-suffix]
+      exporters: [awscloudwatchlogs/custom-suffix]
+
+```
+
+To configure the CloudWatch agent, start the CloudWatch agent using the `fetch-config`
+option and specify the CloudWatch agent’s configuration file. CloudWatch agent requires at least one
+CloudWatch agent configuration file.
+
+```
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -c file:/tmp/agent.json -s
+```
+
+Next, use the `append-config` option while specifying the OpenTelemetry
+collector configuration file.
+
+```
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a append-config -c file:/tmp/otel.yaml -s
+```
+
+The agent merges the two configuration files on start up and logs the resolved
+configuration.

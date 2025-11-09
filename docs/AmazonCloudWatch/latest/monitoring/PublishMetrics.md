@@ -38,10 +38,84 @@ two and three, you aggregate the data points and publish a statistic set for eac
 hour. The key values are shown in the following table.
 
 | Hour | Raw data                     | Sum   | Minimum | Maximum | SampleCount |
-| ---- | ---------------------------- | ----- | ------- | ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---- | ---------------------------- | ----- | ------- | ------- | ----------- |
 | `1`  | `87`                         |       |         |         |             |
 | `1`  | `51`                         |       |         |         |             |
 | `1`  | `125`                        |       |         |         |             |
 | `1`  | `235`                        |       |         |         |             |
 | `2`  | `121, 113, 189, 65, 89`      | `577` | `65`    | `189`   | `5`         |
-| `3`  | `100, 47, 133, 98, 100, 328` | `806` | `47`    | `328`   | `6`         | ## Step 2: Add metrics to CloudWatch After you have defined your data configuration, you are ready to add data. ###### To publish data points to CloudWatch 1. At a command prompt, run the following [put-metric-data](../../../cli/latest/reference/cloudwatch/put-metric-data.md "../../../cli/latest/reference/cloudwatch/put-metric-data.md") commands to add data for the first hour. Replace the example timestamp with a timestamp that is two hours in the past, in Universal Coordinated Time (UTC). ``aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --timestamp `2016-10-14T20:30:00Z` --value 87 --unit Milliseconds aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --timestamp `2016-10-14T20:30:00Z` --value 51 --unit Milliseconds aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --timestamp `2016-10-14T20:30:00Z` --value 125 --unit Milliseconds aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --timestamp `2016-10-14T20:30:00Z` --value 235 --unit Milliseconds`` 2. Add data for the second hour, using a timestamp that is one hour later than the first hour. ``aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --timestamp `2016-10-14T21:30:00Z` --statistic-values Sum=577,Minimum=65,Maximum=189,SampleCount=5 --unit Milliseconds`` 3. Add data for the third hour, omitting the timestamp to default to the current time. `aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \ --statistic-values Sum=806,Minimum=47,Maximum=328,SampleCount=6 --unit Milliseconds` ## Step 3: Get statistics from CloudWatch Now that you have published metrics to CloudWatch, you can retrieve statistics based on those metrics using the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command as follows. Be sure to specify `--start-time` and `--end-time` far enough in the past to cover the earliest timestamp that you published. ``aws cloudwatch get-metric-statistics --namespace GetStarted --metric-name RequestLatency --statistics Average \ --start-time `2016-10-14T00:00:00Z` --end-time `2016-10-15T00:00:00Z` --period 60`` The following is example output: `{ "Datapoints": [], "Label": "Request:Latency" }` ## Step 4: View graphs with the console After you have published metrics to CloudWatch, you can use the CloudWatch console to view statistical graphs. ###### To view graphs of your statistics on the console 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the **Navigation** pane, choose **Metrics**. 3. On the **All metrics** tab, in the search box, type **RequestLatency** and press Enter. 4. Select the check box for the **RequestLatency** metric. A graph of the metric data is displayed in the upper pane. For more information, see [Graphing metrics](graph_metrics.md "graph_metrics.md"). |
+| `3`  | `100, 47, 133, 98, 100, 328` | `806` | `47`    | `328`   | `6`         |
+
+## Step 2: Add metrics to CloudWatch
+
+After you have defined your data configuration, you are ready to add data.
+
+###### To publish data points to CloudWatch
+
+1. At a command prompt, run the following [put-metric-data](../../../cli/latest/reference/cloudwatch/put-metric-data.md "../../../cli/latest/reference/cloudwatch/put-metric-data.md") commands to add data for the first hour.
+   Replace the example timestamp with a timestamp that is two hours in the
+   past, in Universal Coordinated Time (UTC).
+
+```
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--timestamp `2016-10-14T20:30:00Z` --value 87 --unit Milliseconds
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--timestamp `2016-10-14T20:30:00Z` --value 51 --unit Milliseconds
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--timestamp `2016-10-14T20:30:00Z` --value 125 --unit Milliseconds
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--timestamp `2016-10-14T20:30:00Z` --value 235 --unit Milliseconds
+```
+
+2. Add data for the second hour, using a timestamp that is one hour later than the first
+   hour.
+
+```
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--timestamp `2016-10-14T21:30:00Z` --statistic-values Sum=577,Minimum=65,Maximum=189,SampleCount=5 --unit Milliseconds
+```
+
+3. Add data for the third hour, omitting the timestamp to default to the current time.
+
+```
+aws cloudwatch put-metric-data --metric-name RequestLatency --namespace GetStarted \
+--statistic-values Sum=806,Minimum=47,Maximum=328,SampleCount=6 --unit Milliseconds
+```
+
+## Step 3: Get statistics from CloudWatch
+
+Now that you have published metrics to CloudWatch, you can retrieve statistics based on those
+metrics using the [get-metric-statistics](../../../cli/latest/reference/cloudwatch/get-metric-statistics.md "../../../cli/latest/reference/cloudwatch/get-metric-statistics.md") command as follows. Be sure to specify
+`--start-time` and `--end-time` far enough in the past to
+cover the earliest timestamp that you published.
+
+```
+aws cloudwatch get-metric-statistics --namespace GetStarted --metric-name RequestLatency --statistics Average \
+--start-time `2016-10-14T00:00:00Z` --end-time `2016-10-15T00:00:00Z` --period 60
+```
+
+The following is example output:
+
+```
+{
+	"Datapoints": [],
+	"Label": "Request:Latency"
+}
+```
+
+## Step 4: View graphs with the console
+
+After you have published metrics to CloudWatch, you can use the CloudWatch console to view
+statistical graphs.
+
+###### To view graphs of your statistics on the console
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the **Navigation** pane, choose **Metrics**.
+3. On the **All metrics** tab, in the search box, type
+   **RequestLatency** and press Enter.
+4. Select the check box for the **RequestLatency** metric.
+   A graph of the metric data is displayed in the upper pane.
+
+For more information, see [Graphing metrics](graph_metrics.md "graph_metrics.md").

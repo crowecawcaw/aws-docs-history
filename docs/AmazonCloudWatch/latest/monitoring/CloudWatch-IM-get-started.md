@@ -1,22 +1,20 @@
-# Publish internet measurements to Amazon S3 in Internet Monitor
+# Advanced configuration options for a monitor
 
-You can choose to have Internet Monitor publish internet measurements to Amazon S3 for your internet-facing traffic to the monitored city-networks (client locations
-and ASNs, typically internet service providers) in your monitor, up to the 500,000 city-networks service limit. Internet Monitor automatically publishes internet
-measurements to CloudWatch Logs every five minutes for the top 500 (by traffic volume) city-networks for each monitor. Measurements that it publishes to S3
-include the top 500 that are published to CloudWatch Logs.
+This section provides the steps for configuring advanced options for a monitor in Internet Monitor. These configuration
+options are optional but can be useful in some scenarios.
 
-You can choose the option to publish to S3, and specify the bucket to publish the measurements, to when you create or update your monitor.
-The bucket must already be created in S3 before you can specify it in Internet Monitor. There's a service limit of 500,000 city-networks for internet
-measurements published to S3. Internet Monitor publishes internet measurements to S3 as events, a series of compressed log file objects that are
-stored in the bucket.
+For example, you might choose to set a city-network maximum limit if traffic for the application that you
+monitor with Internet Monitor occasionally spikes, and you want to help make sure that your bill for Internet Monitor is predictable.
 
-When you create the S3 bucket for Internet Monitor to publish measurements to, make sure that you follow the permissions guidance provided by CloudWatch Logs. Doing so
-ensures that Internet Monitor can publish logs directly to S3, and that AWS can, if needed, create and change the resource policies associated with the log group
-receiving the logs. For more information, see [Logs sent to CloudWatch Logs](../logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") in the Amazon CloudWatch Logs User
-Guide.
+Or, you might want to set custom or local thresholds for health events, because you want to pay close attention
+to issues in specific geographies where you have a concentration of clients.
 
-The published log files are compressed. If you open the log files using the Amazon S3 console, they are decompressed and the internet measurement events
-are displayed. If you download the files, you must decompress them to view the events.
+The topics in this section provide detailed descriptions of each feature, and list the steps to configure
+options for your needs.
 
-You can also query the internet measurements in the log files using Amazon Athena. Amazon Athena is an interactive query service that
-makes it easier to analyze data in Amazon S3, by using standard SQL. For more information, see [Use Amazon Athena to query internet measurements in Amazon S3 log files](CloudWatch-IM-view-cw-tools.md "CloudWatch-IM-view-cw-tools.md").
+###### Contents
+
+- [Choose a city-networks limit](IMCityNetworksMaximum.md "IMCityNetworksMaximum.md")
+- [Change health event thresholds](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md")
+- [Publish internet
+  measurements to S3](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md")

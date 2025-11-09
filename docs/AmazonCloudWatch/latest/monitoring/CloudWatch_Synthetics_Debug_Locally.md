@@ -207,263 +207,300 @@ The following table lists the ARNs to use for version `syn-nodejs-puppeteer-10.0
 CloudWatch Synthetics runtime
 in each AWS Region where it is available.
 
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:58`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:61`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:59`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:61`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:59`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:59`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:34`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:41`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:15`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:32`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:59`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:45`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:62`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:63`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:58`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:6`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:59`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:59`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:90`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:58`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:59`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:59`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:60`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:58`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:60`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:59`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:34`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:59`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:33`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:31`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:7`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:58`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:34`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:60`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:54` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:55` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-9.1` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:53`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:56`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:54`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:56`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:54`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:54`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:29`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:36`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:10`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:27`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:54`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:40`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:57`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:58`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:53`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:1`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:54`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:54`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:85`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:54`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:55`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:54`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:55`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:53`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:55`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:54`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:29`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:54`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:28`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:26`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:3`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:53`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:29`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:55`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:50` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:51` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-9.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:51`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:54`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:52`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:54`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:52`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:52`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:27`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:34`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:8`        |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:25`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:52`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:38`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:55`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:56`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:51`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:52`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:52`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:83`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:52`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:53`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:52`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:53`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:51`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:53`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:52`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:27`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:52`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:26`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:24`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:51`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:27`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:53`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:48` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:49` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-8.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:48`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:50`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:48`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:51`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:48`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:49`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:24`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:30`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:22`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:48`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:34`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:51`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:53`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:48`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:48`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:48`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:80`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:49`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:50`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:48`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:50`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:48`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:49`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:48`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:24`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:48`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:23`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:21`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:48`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:23`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:49`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:45` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:46` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-7.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:44`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:46`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:44`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:47`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:44`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:45`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:20`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:26`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:7`        |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:18`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:44`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:30`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:46`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:49`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:44`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:3`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:44`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:44`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:76`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:45`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:46`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:44`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:46`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:44`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:45`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:44`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:20`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:44`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:19`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:17`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:4`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:44`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:19`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:45`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:41` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:42` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-6.2` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:41`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:43`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:41`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:44`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:41`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:42`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:17`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:23`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:15`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:41`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:27`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:42`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:46`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:41`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:41`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:41`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:73`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:42`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:43`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:41`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:43`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:41`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:42`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:41`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:17`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:41`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:16`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:14`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:41`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:16`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:42`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:39` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:39` |
+
+The following table lists the ARNs to use for version `syn-nodejs-puppeteer-5.2` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:42`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:44`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:42`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:45`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:42`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:43`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:18`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:24`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:16`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:42`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:28`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:44`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:47`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:42`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:42`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:42`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:74`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:43`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:44`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:42`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:44`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:42`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:43`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:42`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:18`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:42`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:17`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:15`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:42`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:17`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:43`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:40` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:40` |
+
+### Node.js and Playwright runtimes
+
+The following table lists the ARNs to use for version `syn-nodejs-playwright-2.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
 | Region                    | ARN                                                                                          |
-| ------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:58`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:61`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:59`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:61`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:59`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:59`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:34`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:41`                             |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:15`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:32`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:59`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:45`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:62`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:63`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:58`                             |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:6`                              |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:59`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:59`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:90`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:58`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:59`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:59`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:60`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:58`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:60`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:59`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:34`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:59`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:33`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:31`                               |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:7`                                |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:58`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:34`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:60`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:54`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:55`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-9.1` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:53`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:56`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:54`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:56`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:54`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:54`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:29`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:36`                             |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:10`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:27`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:54`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:40`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:57`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:58`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:53`                             |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:1`                              |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:54`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:54`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:85`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:54`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:55`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:54`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:55`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:53`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:55`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:54`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:29`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:54`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:28`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:26`                               |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:3`                                |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:53`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:29`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:55`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:50`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:51`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-9.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:51`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:54`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:52`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:54`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:52`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:52`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:27`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:34`                             |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:8`                              |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:25`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:52`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:38`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:55`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:56`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:51`                             |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:52`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:52`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:83`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:52`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:53`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:52`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:53`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:51`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:53`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:52`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:27`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:52`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:26`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:24`                               |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:51`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:27`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:53`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:48`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:49`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-8.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:48`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:50`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:48`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:51`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:48`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:49`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:24`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:30`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:22`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:48`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:34`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:51`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:53`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:48`                             |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:48`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:48`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:80`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:49`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:50`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:48`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:50`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:48`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:49`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:48`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:24`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:48`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:23`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:21`                               |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:48`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:23`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:49`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:45`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:46`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-7.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:44`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:46`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:44`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:47`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:44`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:45`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:20`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:26`                             |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics:7`                              |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:18`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:44`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:30`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:46`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:49`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:44`                             |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics:3`                              |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:44`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:44`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:76`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:45`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:46`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:44`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:46`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:44`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:45`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:44`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:20`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:44`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:19`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:17`                               |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics:4`                                |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:44`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:19`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:45`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:41`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:42`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-6.2` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:41`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:43`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:41`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:44`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:41`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:42`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:17`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:23`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:15`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:41`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:27`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:42`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:46`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:41`                             |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:41`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:41`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:73`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:42`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:43`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:41`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:43`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:41`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:42`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:41`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:17`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:41`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:16`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:14`                               |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:41`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:16`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:42`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:39`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:39`                       | The following table lists the ARNs to use for version `syn-nodejs-puppeteer-5.2` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:42`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:44`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:42`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:45`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:42`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:43`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:18`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:24`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:16`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:42`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:28`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:44`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:47`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:42`                             |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:42`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:42`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:74`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:43`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:44`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:42`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:44`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:42`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:43`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:42`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:18`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:42`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:17`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:15`                               |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:42`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:17`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:43`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:40`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:40`                       | ### Node.js and Playwright runtimes The following table lists the ARNs to use for version `syn-nodejs-playwright-2.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
 | US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJsPlaywright:4`            |
 | US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJsPlaywright:4`            |
 | US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJsPlaywright:4`            |
@@ -499,9 +536,14 @@ in each AWS Region where it is available.
 | Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJsPlaywright:4`         |
 | South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJsPlaywright:4`            |
 | AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPlaywright:3` |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:3` | The following table lists the ARNs to use for version `syn-nodejs-playwright-1.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:3` |
+
+The following table lists the ARNs to use for version `syn-nodejs-playwright-1.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
 | Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
 | US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:AWS-CW-SyntheticsNodeJsPlaywright:1`            |
 | US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:AWS-CW-SyntheticsNodeJsPlaywright:1`            |
 | US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:AWS-CW-SyntheticsNodeJsPlaywright:1`            |
@@ -537,227 +579,274 @@ in each AWS Region where it is available.
 | Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:AWS-CW-SyntheticsNodeJsPlaywright:1`         |
 | South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:AWS-CW-SyntheticsNodeJsPlaywright:1`            |
 | AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:AWS-CW-SyntheticsNodeJsPlaywright:1` |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:1` | ### Python and Selenium runtimes The following table lists the ARNs to use for version `syn-python-selenium-5.1` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:45`                         |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:48`                         |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:46`                         |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:47`                         |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:46`                        |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:45`                         |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:33`                        |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:40`                    |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:15`                    |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:31`                    |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:46`                        |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:44`                    |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:49`                    |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:50`                    |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:45`                    |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:6`                     |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:46`                    |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:44`                      |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:89`                         |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:44`                     |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:44`                 |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:46`                      |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:47`                         |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:45`                         |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:47`                        |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:46`                         |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:33`                        |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:46`                        |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:32`                      |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:30`                      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:7`                       |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:45`                        |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:33`                      |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:47`                         |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:42`              |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:43`              | The following table lists the ARNs to use for version `syn-python-selenium-5.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:43`                         |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:46`                         |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:44`                         |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:45`                         |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:44`                        |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:43`                         |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:31`                        |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:38`                    |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:13`                    |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:29`                    |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:44`                        |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:42`                    |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:47`                    |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:48`                    |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:43`                    |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:4`                     |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:44`                    |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:44`                      |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:87`                         |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:43`                     |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:43`                 |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:44`                      |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:45`                         |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:43`                         |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:45`                        |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:44`                         |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:31`                        |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:44`                        |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:30`                      |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:28`                      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:5`                       |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:43`                        |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:31`                      |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:45`                         |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:41`              |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:42`              | The following table lists the ARNs to use for version `syn-python-selenium-4.1` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:40`                         |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:43`                         |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:41`                         |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:42`                         |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:41`                        |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:40`                         |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:28`                        |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:35`                    |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:10`                    |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:26`                    |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:41`                        |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:39`                    |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:44`                    |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:45`                    |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:40`                    |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:1`                     |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:41`                    |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:41`                      |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:84`                         |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:40`                     |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:40`                 |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:41`                      |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:42`                         |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:40`                         |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:42`                        |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:41`                         |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:28`                        |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:41`                        |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:27`                      |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:25`                      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:3`                       |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:40`                        |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:28`                      |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:42`                         |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:38`              |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:39`              | The following table lists the ARNs to use for version `syn-python-selenium-4.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:38`                         |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:41`                         |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:39`                         |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:40`                         |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:39`                        |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:38`                         |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:26`                        |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:33`                    |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:8`                     |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:24`                    |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:39`                        |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:37`                    |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:42`                    |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:43`                    |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:38`                    |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:39`                    |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:39`                      |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:82`                         |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:38`                     |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:38`                 |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:39`                      |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:40`                         |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:38`                         |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:40`                        |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:39`                         |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:26`                        |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:39`                        |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:25`                      |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:23`                      |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:38`                        |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:26`                      |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:40`                         |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:36`              |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:37`              | The following table lists the ARNs to use for version `syn-python-selenium-3.0` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:32`                         |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:34`                         |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:32`                         |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:34`                         |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:32`                        |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:32`                         |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:20`                        |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:26`                    |
-| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:7`                     |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:18`                    |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:32`                        |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:30`                    |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:34`                    |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:37`                    |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:32`                    |
-| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:3`                     |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:32`                    |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:32`                      |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:76`                         |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:32`                     |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:32`                 |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:32`                      |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:34`                         |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:32`                         |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:33`                        |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:32`                         |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:20`                        |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:32`                        |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:19`                      |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:17`                      |
-| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:4`                       |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:32`                        |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:19`                      |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:33`                         |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:30`              |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:31`              | The following table lists the ARNs to use for version `syn-python-selenium-2.1` of the CloudWatch Synthetics runtime in each AWS Region where it is available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Region                    | ARN                                                                                          |
-| ---                       | ---                                                                                          |
-| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:29`                                  |
-| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:31`                                  |
-| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:29`                                  |
-| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:31`                                  |
-| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:29`                                 |
-| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:29`                                  |
-| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:17`                                 |
-| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:23`                             |
-| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:15`                             |
-| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:29`                                 |
-| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:27`                             |
-| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:30`                             |
-| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:34`                             |
-| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:29`                             |
-| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:29`                             |
-| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:29`                               |
-| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:73`                                  |
-| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:29`                              |
-| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:29`                          |
-| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:29`                               |
-| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:31`                                  |
-| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:29`                                  |
-| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:30`                                 |
-| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:29`                                  |
-| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:17`                                 |
-| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:29`                                 |
-| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:16`                               |
-| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:14`                               |
-| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:29`                                 |
-| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:16`                               |
-| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:30`                                  |
-| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:29`                       |
-| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:29`                       | ## Common errors **Error: Running AWS SAM projects locally requires Docker. Have you got it installed and running?** Make sure to start Docker on your computer. **SAM local invoke failed: An error occurred (ExpiredTokenException) when calling the GetLayerVersion operation: The security token included in the request is expired** Make sure that the AWS default profile is set up. **More common errors** For more information about common errors with the SAM, see [AWS SAM CLI troubleshooting](../../../serverless-application-model/latest/developerguide/sam-cli-troubleshooting.md "../../../serverless-application-model/latest/developerguide/sam-cli-troubleshooting.md") . |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:AWS-CW-SyntheticsNodeJsPlaywright:1` |
+
+### Python and Selenium runtimes
+
+The following table lists the ARNs to use for version `syn-python-selenium-5.1` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:45`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:48`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:46`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:47`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:46`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:45`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:33`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:40`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:15`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:31`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:46`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:44`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:49`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:50`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:45`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:6`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:46`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:44`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:89`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:44`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:44`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:46`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:47`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:45`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:47`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:46`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:33`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:46`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:32`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:30`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:7`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:45`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:33`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:47`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:42` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:43` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-5.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:43`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:46`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:44`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:45`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:44`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:43`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:31`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:38`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:13`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:29`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:44`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:42`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:47`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:48`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:43`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:4`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:44`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:44`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:87`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:43`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:43`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:44`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:45`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:43`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:45`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:44`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:31`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:44`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:30`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:28`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:5`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:43`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:31`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:45`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:41` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:42` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-4.1` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:40`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:43`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:41`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:42`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:41`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:40`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:28`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:35`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:10`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:26`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:41`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:39`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:44`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:45`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:40`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:1`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:41`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:41`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:84`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:40`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:40`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:41`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:42`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:40`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:42`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:41`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:28`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:41`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:27`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:25`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:3`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:40`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:28`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:42`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:38` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:39` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-4.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:38`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:41`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:39`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:40`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:39`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:38`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:26`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:33`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:8`        |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:24`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:39`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:37`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:42`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:43`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:38`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:39`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:39`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:82`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:38`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:38`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:39`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:40`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:38`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:40`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:39`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:26`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:39`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:25`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:23`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:38`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:26`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:40`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:36` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:37` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-3.0` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics_Selenium:32`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics_Selenium:34`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics_Selenium:32`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics_Selenium:34`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics_Selenium:32`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics_Selenium:32`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics_Selenium:20`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics_Selenium:26`       |
+| Asia Pacific (Malaysia)   | `arn:aws:lambda:ap-southeast-5:035872523913:layer:Synthetics_Selenium:7`        |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics_Selenium:18`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics_Selenium:32`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics_Selenium:30`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics_Selenium:34`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics_Selenium:37`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics_Selenium:32`       |
+| Asia Pacific (Thailand)   | `arn:aws:lambda:ap-southeast-7:851725245975:layer:Synthetics_Selenium:3`        |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics_Selenium:32`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics_Selenium:32`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics_Selenium:76`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics_Selenium:32`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics_Selenium:32`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics_Selenium:32`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics_Selenium:34`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics_Selenium:32`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics_Selenium:33`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics_Selenium:32`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics_Selenium:20`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics_Selenium:32`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics_Selenium:19`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics_Selenium:17`         |
+| Mexico (Central)          | `arn:aws:lambda:mx-central-1:654654265476:layer:Synthetics_Selenium:4`          |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics_Selenium:32`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics_Selenium:19`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics_Selenium:33`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics_Selenium:30` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics_Selenium:31` |
+
+The following table lists the ARNs to use for version `syn-python-selenium-2.1` of the
+CloudWatch Synthetics runtime
+in each AWS Region where it is available.
+
+| Region                    | ARN                                                                    |
+| ------------------------- | ---------------------------------------------------------------------- |
+| US East (N. Virginia)     | `arn:aws:lambda:us-east-1:378653112637:layer:Synthetics:29`            |
+| US East (Ohio)            | `arn:aws:lambda:us-east-2:772927465453:layer:Synthetics:31`            |
+| US West (N. California)   | `arn:aws:lambda:us-west-1:332033056316:layer:Synthetics:29`            |
+| US West (Oregon)          | `arn:aws:lambda:us-west-2:760325925879:layer:Synthetics:31`            |
+| Africa (Cape Town)        | `arn:aws:lambda:af-south-1:461844272066:layer:Synthetics:29`           |
+| Asia Pacific (Hong Kong)  | `arn:aws:lambda:ap-east-1:129828061636:layer:Synthetics:29`            |
+| Asia Pacific (Hyderabad)  | `arn:aws:lambda:ap-south-2:280298676434:layer:Synthetics:17`           |
+| Asia Pacific (Jakarta)    | `arn:aws:lambda:ap-southeast-3:246953257743:layer:Synthetics:23`       |
+| Asia Pacific (Melbourne)  | `arn:aws:lambda:ap-southeast-4:200724813040:layer:Synthetics:15`       |
+| Asia Pacific (Mumbai)     | `arn:aws:lambda:ap-south-1:724929286329:layer:Synthetics:29`           |
+| Asia Pacific (Osaka)      | `arn:aws:lambda:ap-northeast-3:608016332111:layer:Synthetics:27`       |
+| Asia Pacific (Seoul)      | `arn:aws:lambda:ap-northeast-2:989515803484:layer:Synthetics:30`       |
+| Asia Pacific (Singapore)  | `arn:aws:lambda:ap-southeast-1:068035103298:layer:Synthetics:34`       |
+| Asia Pacific (Sydney)     | `arn:aws:lambda:ap-southeast-2:584677157514:layer:Synthetics:29`       |
+| Asia Pacific (Tokyo)      | `arn:aws:lambda:ap-northeast-1:172291836251:layer:Synthetics:29`       |
+| Canada (Central)          | `arn:aws:lambda:ca-central-1:236629016841:layer:Synthetics:29`         |
+| Canada West (Calgary)     | `arn:aws:lambda:ca-west-1:944448206667:layer:Synthetics:73`            |
+| China (Beijing)           | `arn:aws-cn:lambda:cn-north-1:422629156088:layer:Synthetics:29`        |
+| China (Ningxia);          | `arn:aws-cn:lambda:cn-northwest-1:474974519687:layer:Synthetics:29`    |
+| Europe (Frankfurt)        | `arn:aws:lambda:eu-central-1:122305336817:layer:Synthetics:29`         |
+| Europe (Ireland)          | `arn:aws:lambda:eu-west-1:563204233543:layer:Synthetics:31`            |
+| Europe (London)           | `arn:aws:lambda:eu-west-2:565831452869:layer:Synthetics:29`            |
+| Europe (Milan)            | `arn:aws:lambda:eu-south-1:525618516618:layer:Synthetics:30`           |
+| Europe (Paris)            | `arn:aws:lambda:eu-west-3:469466506258:layer:Synthetics:29`            |
+| Europe (Spain)            | `arn:aws:lambda:eu-south-2:029793053121:layer:Synthetics:17`           |
+| Europe (Stockholm)        | `arn:aws:lambda:eu-north-1:162938142733:layer:Synthetics:29`           |
+| Europe (Zurich)           | `arn:aws:lambda:eu-central-2:224218992030:layer:Synthetics:16`         |
+| Israel (Tel Aviv)         | `arn:aws:lambda:il-central-1:313249807427:layer:Synthetics:14`         |
+| Middle East (Bahrain)     | `arn:aws:lambda:me-south-1:823195537320:layer:Synthetics:29`           |
+| Middle East (UAE)         | `arn:aws:lambda:me-central-1:239544149032:layer:Synthetics:16`         |
+| South America (São Paulo) | `arn:aws:lambda:sa-east-1:783765544751:layer:Synthetics:30`            |
+| AWS GovCloud (US-East)    | `arn:aws-us-gov:lambda:us-gov-east-1:946759330430:layer:Synthetics:29` |
+| AWS GovCloud (US-West)    | `arn:aws-us-gov:lambda:us-gov-west-1:946807836238:layer:Synthetics:29` |
+
+## Common errors
+
+**Error: Running AWS SAM projects locally requires Docker. Have you got it installed and running?**
+
+Make sure to start Docker on your computer.
+
+**SAM local invoke failed: An error occurred (ExpiredTokenException) when calling the GetLayerVersion operation: The security token included in the request is expired**
+
+Make sure that the AWS default profile is set up.
+
+**More common errors**
+
+For more information about common errors with the SAM, see
+[AWS SAM CLI troubleshooting](../../../serverless-application-model/latest/developerguide/sam-cli-troubleshooting.md "../../../serverless-application-model/latest/developerguide/sam-cli-troubleshooting.md") .

@@ -1,9 +1,9 @@
 # See a sample investigation
 
-If you'd like to see an investigation in action before you configure an
-investigation group for your account, you can walk through a sample investigation.
-The sample investigation doesn't use your data and doesn't make data calls or start
-API operations in your account.
+If you'd like to see an investigation in action before you configure an investigation
+group for your account, you can walk through a sample investigation. The sample
+investigation doesn't use your data and doesn't make data calls or start API operations
+in your account.
 
 ###### To view the sample investigation
 
@@ -13,6 +13,6 @@ API operations in your account.
    **Overview**.
 3. Choose **Try a sample investigation**.
 
-The console displays the sample investigation, with suggestions and
-findings in the right pane. In each popup, choose **Next**
-to advance to the next part of the sample walkthrough.
+The console displays the sample investigation, with suggestions and findings
+in the right pane. In each popup, choose **Next** to advance to
+the next part of the sample walkthrough.

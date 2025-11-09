@@ -51,7 +51,7 @@ OpenTelemetry 0.7.0 messages in your preferred language.
 
 **Java**
 
-````
+```
 package com.example;
 
 import io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceRequest;
@@ -71,6 +71,108 @@ public class MyOpenTelemetryParser {
            records, each of them starting with a header with an
            UnsignedVarInt32 indicating the record length in bytes:
             ------ --------------------------- ------ -----------------------
-|UINT32|ExportMetricsServiceRequest|UINT32|pExportMetricsService... ------ --------------------------- ------ ----------------------- */ while ((request = ExportMetricsServiceRequest.parseDelimitedFrom(inputStream)) != null) { // Do whatever we want with the parsed message result.add(request); } return result; } } ``` **Javascript** This example assumes that the root folder with the bindings generated is `./` The data argument of the function `parseRecord` can be one of the following types: <br>• `Uint8Array` this is optimal <br>• `Buffer` optimal under node <br>• `Array.`number`` 8-bit integers ``` const pb = require('google-protobuf') const pbMetrics = require('./opentelemetry/proto/collector/metrics/v1/metrics_service_pb') function parseRecord(data) { const result = [] // Loop until we've read all the data from the buffer while (data.length) { /* A Kinesis record can contain multiple `ExportMetricsServiceRequest` records, each of them starting with a header with an UnsignedVarInt32 indicating the record length in bytes: ------ --------------------------- ------ -----------------------
-|UINT32|ExportMetricsServiceRequest|UINT32|ExportMetricsService... ------ --------------------------- ------ ----------------------- */ const reader = new pb.BinaryReader(data) const messageLength = reader.decoder_.readUnsignedVarint32() const messageFrom = reader.decoder_.cursor_ const messageTo = messageFrom + messageLength // Extract the current `ExportMetricsServiceRequest` message to parse const message = data.subarray(messageFrom, messageTo) // Parse the current message using the ProtoBuf library const parsed = pbMetrics.ExportMetricsServiceRequest.deserializeBinary(message) // Do whatever we want with the parsed message result.push(parsed.toObject()) // Shrink the remaining buffer, removing the already parsed data data = data.subarray(messageTo) } return result } ``` **Python** You must read the `var-int` delimiters yourself or use the internal methods `_VarintBytes(size)` and `_DecodeVarint32(buffer, position)`. These return the position in the buffer just after the size bytes. The read-side constructs a new buffer that is limited to reading only the bytes of the message. ``` size = my_metric.ByteSize() f.write(_VarintBytes(size)) f.write(my_metric.SerializeToString()) msg_len, new_pos = _DecodeVarint32(buf, 0) msg_buf = buf[new_pos:new_pos+msg_len] request = metrics_service_pb.ExportMetricsServiceRequest() request.ParseFromString(msg_buf) ``` **Go** Use `Buffer.DecodeMessage()`. **C#** Use `CodedInputStream`. This class can read size-delimited messages. **C++** The functions described in `google/protobuf/util/delimited_message_util.h` can read size-delimited messages. **Other languages** For other languages, see [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads"). When implementing the parser, consider that a Kinesis record can contain multiple `ExportMetricsServiceRequest` Protocol Buffers messages, each of them starting with a header with an `UnsignedVarInt32` that indicates the record length in bytes.
-````
+           |UINT32|ExportMetricsServiceRequest|UINT32|pExportMetricsService...
+            ------ --------------------------- ------ -----------------------
+         */
+        while ((request = ExportMetricsServiceRequest.parseDelimitedFrom(inputStream)) != null) {
+            // Do whatever we want with the parsed message
+            result.add(request);
+        }
+
+        return result;
+    }
+}
+```
+
+**Javascript**
+
+This example assumes that the root folder with the bindings
+generated is `./`
+
+The data argument of the function `parseRecord` can be one of the
+following types:
+
+- `Uint8Array` this is optimal
+- `Buffer` optimal under node
+- `Array.`number`` 8-bit integers
+
+```
+const pb = require('google-protobuf')
+const pbMetrics =
+    require('./opentelemetry/proto/collector/metrics/v1/metrics_service_pb')
+
+function parseRecord(data) {
+    const result = []
+
+    // Loop until we've read all the data from the buffer
+    while (data.length) {
+        /* A Kinesis record can contain multiple `ExportMetricsServiceRequest`
+           records, each of them starting with a header with an
+           UnsignedVarInt32 indicating the record length in bytes:
+            ------ --------------------------- ------ -----------------------
+           |UINT32|ExportMetricsServiceRequest|UINT32|ExportMetricsService...
+            ------ --------------------------- ------ -----------------------
+         */
+        const reader = new pb.BinaryReader(data)
+        const messageLength = reader.decoder_.readUnsignedVarint32()
+        const messageFrom = reader.decoder_.cursor_
+        const messageTo = messageFrom + messageLength
+
+        // Extract the current `ExportMetricsServiceRequest` message to parse
+        const message = data.subarray(messageFrom, messageTo)
+
+        // Parse the current message using the ProtoBuf library
+        const parsed =
+            pbMetrics.ExportMetricsServiceRequest.deserializeBinary(message)
+
+        // Do whatever we want with the parsed message
+        result.push(parsed.toObject())
+
+        // Shrink the remaining buffer, removing the already parsed data
+        data = data.subarray(messageTo)
+    }
+
+    return result
+}
+```
+
+**Python**
+
+You must read the `var-int` delimiters yourself or use the
+internal methods `_VarintBytes(size)` and
+`_DecodeVarint32(buffer, position)`. These return the position
+in the buffer just after the size bytes. The read-side constructs a
+new buffer that is limited to reading only the bytes of the message.
+
+```
+size = my_metric.ByteSize()
+f.write(_VarintBytes(size))
+f.write(my_metric.SerializeToString())
+msg_len, new_pos = _DecodeVarint32(buf, 0)
+msg_buf = buf[new_pos:new_pos+msg_len]
+request = metrics_service_pb.ExportMetricsServiceRequest()
+request.ParseFromString(msg_buf)
+```
+
+**Go**
+
+Use `Buffer.DecodeMessage()`.
+
+**C#**
+
+Use `CodedInputStream`. This class can read
+size-delimited messages.
+
+**C++**
+
+The functions described in `google/protobuf/util/delimited_message_util.h`
+can read size-delimited messages.
+
+**Other languages**
+
+For other languages, see [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads").
+
+When implementing the parser, consider that a Kinesis record can contain
+multiple `ExportMetricsServiceRequest` Protocol Buffers messages,
+each of them starting with a header with an `UnsignedVarInt32` that
+indicates the record length in bytes.

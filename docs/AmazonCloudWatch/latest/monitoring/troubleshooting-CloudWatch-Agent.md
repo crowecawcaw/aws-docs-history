@@ -231,13 +231,118 @@ locations
 The following table lists the files installed by and used with the CloudWatch agent, along
 with their locations on servers running Linux or Windows Server.
 
-| File                                                                                                                                                                                                                                                                               | Linux location                                                                                                                                 | Windows Server location                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The control script that controls starting, stopping, and restarting the agent.                                                                                                                                                                                                     | `/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl` or `/usr/bin/amazon-cloudwatch-agent-ctl`                                   | `$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1`  |
-| The log file the agent writes to. You might need to attach this when contacting AWS Support.                                                                                                                                                                                       | `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log` or `/var/log/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.log`   | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\amazon-cloudwatch-agent.log`  |
-| Agent configuration validation file.                                                                                                                                                                                                                                               | `/opt/aws/amazon-cloudwatch-agent/logs/configuration-validation.log` or `/var/log/amazon/amazon-cloudwatch-agent/configuration-validation.log` | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\configuration-validation.log` |
-| The JSON file used to configure the agent immediately after the wizard creates it. For more information, see [Create the CloudWatch agent configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").                      | `/opt/aws/amazon-cloudwatch-agent/bin/config.json`                                                                                             | `$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\config.json`                      |
-| The JSON file used to configure the agent if this configuration file has been downloaded from Parameter Store.                                                                                                                                                                     | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json` or `/etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.json`      | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json`      |
-| The TOML file used to specify Region and credential information to be used by the agent, overriding system defaults.                                                                                                                                                               | `/opt/aws/amazon-cloudwatch-agent/etc/common-config.toml` or `/etc/amazon/amazon-cloudwatch-agent/common-config.toml`                          | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\common-config.toml`                |
-| The TOML file that contains the converted contents of the JSON configuration file. The `amazon-cloudwatch-agent-ctl` script generates this file. Users should not directly modify this file. It can be useful for verifying that JSON to TOML translation was successful.          | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml` or `/etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.toml`      | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.toml`      |
-| The YAML file that contains the converted contents of the JSON configuration file. The `amazon-cloudwatch-agent-ctl` script generates this file. You should not directly modify this file. This file can be useful for verifying that the JSON to YAML translation was successful. | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.yaml or /etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.yaml`        | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.yaml`      | ## Finding information about CloudWatch agent versions To find the version number of the CloudWatch agent on a Linux server, enter the following command: `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status` To find the version number of the CloudWatch agent on Windows Server, enter the following command: `& $Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1 -m ec2 -a status` ###### Note Using this command is the correct way to find the version of the CloudWatch agent. If you use **Programs and Features** in the Control Panel, you will see an incorrect version number. You can also download a README file about the latest changes to the agent, and a file that indicates the version number that is currently available for download. These files are in the following locations: <br>• `https://amazoncloudwatch-agent.s3.amazonaws.com/info/latest/RELEASE_NOTES` or `https://amazoncloudwatch-agent-`us-east-1`.s3.`us-east-1`.amazonaws.com/info/latest/RELEASE_NOTES` <br>• `https://amazoncloudwatch-agent.s3.amazonaws.com/info/latest/CWAGENT_VERSION` or `https://amazoncloudwatch-agent-`us-east-1`.s3.`us-east-1`.amazonaws.com/info/latest/CWAGENT_VERSION` ## Logs generated by the CloudWatch agent The agent generates a log while it runs. This log includes troubleshooting information. This log is the `amazon-cloudwatch-agent.log` file. This file is located in `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log` on Linux servers and in `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\amazon-cloudwatch-agent.log` on servers running Windows Server. You can configure the agent to log additional details in the `amazon-cloudwatch-agent.log` file. In the agent configuration file, in the `agent` section, set the `debug` field to `true`, then reconfigure and restart the CloudWatch agent. To disable the logging of this extra information, set the `debug` field to `false`. Then, reconfigure and restart the agent. For more information, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md"). In versions 1.247350.0 and later of the CloudWatch agent, you can optionally set the `aws_sdk_log_level` field in the `agent` section of the agent configuration file to one or more of the following options. Separate multiple options with the ` | `character. <br>•`LogDebug`<br>•`LogDebugWithSigning`<br>•`LogDebugWithHTTPBody`<br>•`LogDebugRequestRetries`<br>•`LogDebugWithEventStreamBody` For more information about these options, see [LogLevelType](../../../sdk-for-go/api/aws.md#LogLevelType "../../../sdk-for-go/api/aws.md#LogLevelType"). ## Stopping and restarting the CloudWatch agent You can manually stop the CloudWatch agent using either AWS Systems Manager or the command line. ###### To stop the CloudWatch agent using Run Command 1. Open the Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/"). 2. In the navigation pane, choose **Run Command**. -or- If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**. 3. Choose **Run command**. 4. In the **Command document** list, choose **AmazonCloudWatch-ManageAgent**. 5. In the **Targets** area, choose the instance where you installed the CloudWatch agent. 6. In the **Action** list, choose **stop**. 7. Keep **Optional Configuration Source** and **Optional Configuration Location** blank. 8. Choose **Run**. ###### To stop the CloudWatch agent locally using the command line <br>• On a Linux server, enter the following: `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a stop` On a server running Windows Server, enter the following in PowerShell as an administrator: `& $Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1 -m ec2 -a stop` To restart the agent, follow the instructions in [(Optional) Modify the common configuration and named profile for CloudWatch agent](installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet "installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet"). |
+| File                                                                                                                                                                                                                                                                                        | Linux location                                                                                                                                       | Windows Server location                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| The control script that controls starting, stopping, and restarting the<br>agent.                                                                                                                                                                                                           | `/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl`<br>or `/usr/bin/amazon-cloudwatch-agent-ctl`                                      | `$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1`  |
+| The log file the agent writes to. You might need to attach this when<br>contacting AWS Support.                                                                                                                                                                                             | `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log`<br>or<br>`/var/log/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.log`   | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\amazon-cloudwatch-agent.log`  |
+| Agent configuration validation file.                                                                                                                                                                                                                                                        | `/opt/aws/amazon-cloudwatch-agent/logs/configuration-validation.log`<br>or<br>`/var/log/amazon/amazon-cloudwatch-agent/configuration-validation.log` | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\configuration-validation.log` |
+| The JSON file used to configure the agent immediately after the wizard creates<br>it. For more information, see [Create the CloudWatch agent<br>configuration file](create-cloudwatch-agent-configuration-file.md "create-cloudwatch-agent-configuration-file.md").                         | `/opt/aws/amazon-cloudwatch-agent/bin/config.json`                                                                                                   | `$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\config.json`                      |
+| The JSON file used to configure the agent if this configuration file has been<br>downloaded from Parameter Store.                                                                                                                                                                           | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json`<br>or<br>`/etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.json`      | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json`      |
+| The TOML file used to specify Region and credential information to be used by<br>the agent, overriding system defaults.                                                                                                                                                                     | `/opt/aws/amazon-cloudwatch-agent/etc/common-config.toml`<br>or<br>`/etc/amazon/amazon-cloudwatch-agent/common-config.toml`                          | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\common-config.toml`                |
+| The TOML file that contains the converted contents of the JSON configuration<br>file. The `amazon-cloudwatch-agent-ctl` script generates this file.<br>Users should not directly modify this file. It can be useful for verifying that<br>JSON to TOML translation was successful.          | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml`<br>or<br>`/etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.toml`      | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.toml`      |
+| The YAML file that contains the converted contents of the JSON configuration<br>file. The `amazon-cloudwatch-agent-ctl` script generates this file. You<br>should not directly modify this file. This file can be useful for verifying that<br>the JSON to YAML translation was successful. | `/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.yaml or<br>/etc/amazon/amazon-cloudwatch-agent/amazon-cloudwatch-agent.yaml`           | `$Env:ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.yaml`      |
+
+## Finding information about
+
+CloudWatch agent versions
+
+To find the version number of the CloudWatch agent on a Linux server, enter the following
+command:
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
+```
+
+To find the version number of the CloudWatch agent on Windows Server, enter the following
+command:
+
+```
+& $Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1 -m ec2 -a status
+```
+
+###### Note
+
+Using this command is the correct way to find the version of the CloudWatch agent. If you
+use **Programs and Features** in the Control Panel, you will see an
+incorrect version number.
+
+You can also download a README file about the latest changes to the agent, and a file
+that indicates the version number that is currently available for download. These files are
+in the following locations:
+
+- `https://amazoncloudwatch-agent.s3.amazonaws.com/info/latest/RELEASE_NOTES`
+  or
+  `https://amazoncloudwatch-agent-`us-east-1`.s3.`us-east-1`.amazonaws.com/info/latest/RELEASE_NOTES`
+- `https://amazoncloudwatch-agent.s3.amazonaws.com/info/latest/CWAGENT_VERSION`
+  or
+  `https://amazoncloudwatch-agent-`us-east-1`.s3.`us-east-1`.amazonaws.com/info/latest/CWAGENT_VERSION`
+
+## Logs generated by the CloudWatch
+
+agent
+
+The agent generates a log while it runs. This log includes troubleshooting information.
+This log is the `amazon-cloudwatch-agent.log` file. This file is located
+in `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log` on Linux
+servers and in
+`$Env:ProgramData\Amazon\AmazonCloudWatchAgent\Logs\amazon-cloudwatch-agent.log`
+on servers running Windows Server.
+
+You can configure the agent to log additional details in the
+`amazon-cloudwatch-agent.log` file. In the agent configuration file, in
+the `agent` section, set the `debug` field to `true`, then
+reconfigure and restart the CloudWatch agent. To disable the logging of this extra information,
+set the `debug` field to `false`. Then, reconfigure and restart the
+agent. For more information, see [Manually create or edit the
+CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
+
+In versions 1.247350.0 and later of the CloudWatch agent, you can optionally set the
+`aws_sdk_log_level` field in the `agent` section of the agent
+configuration file to one or more of the following options. Separate multiple options with
+the `|` character.
+
+- `LogDebug`
+- `LogDebugWithSigning`
+- `LogDebugWithHTTPBody`
+- `LogDebugRequestRetries`
+- `LogDebugWithEventStreamBody`
+
+For more information about these options, see [LogLevelType](../../../sdk-for-go/api/aws.md#LogLevelType "../../../sdk-for-go/api/aws.md#LogLevelType").
+
+## Stopping and
+
+restarting the CloudWatch agent
+
+You can manually stop the CloudWatch agent using either AWS Systems Manager or the command line.
+
+###### To stop the CloudWatch agent using Run Command
+
+1. Open the Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+2. In the navigation pane, choose
+   **Run Command**.
+
+-or-
+
+If the AWS Systems Manager home page opens, scroll down and
+choose **Explore Run Command**. 3. Choose **Run command**. 4. In the **Command document** list, choose
+**AmazonCloudWatch-ManageAgent**. 5. In the **Targets** area, choose the instance where you installed
+the CloudWatch agent. 6. In the **Action** list, choose **stop**. 7. Keep **Optional Configuration Source** and **Optional
+Configuration Location** blank. 8. Choose **Run**.
+
+###### To stop the CloudWatch agent locally using the command line
+
+- On a Linux server, enter the following:
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a stop
+```
+
+On a server running Windows Server, enter the following in PowerShell as an
+administrator:
+
+```
+& $Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1 -m ec2 -a stop
+```
+
+To restart the agent, follow the instructions in [(Optional) Modify the common
+configuration and named profile for CloudWatch agent](installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet "installing-cloudwatch-agent-ssm.md#CloudWatch-Agent-profile-instance-fleet").

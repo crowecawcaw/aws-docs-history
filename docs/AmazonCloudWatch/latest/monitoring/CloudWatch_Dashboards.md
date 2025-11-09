@@ -95,6 +95,164 @@ and examples. For more information about overall dashboard body structure, see
 [Dashboard Body Structure and Syntax](../APIReference/CloudWatch-Dashboard-Body-Structure.md "../APIReference/CloudWatch-Dashboard-Body-Structure.md").
 
 | Parameter   | Use                                                                        | Scope            | Default                                |
-| ----------- | -------------------------------------------------------------------------- | ---------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | -------------------------------------------------------------------------- | ---------------- | -------------------------------------- |
 | `accountId` | Specifies the ID of the account where the widget or the metric is located. | Widget or metric | Account that is currently logged in    |
-| `region`    | Specifies the Region of the metric.                                        | Widget or metric | Current Region selected in the console | The following examples illustrate the JSON source for widgets in a cross-account cross-Region dashboard. This example sets the `accountId` field to the ID of the sharing account at the widget level. This specifies that all metrics in this widget will come from that sharing account and Region. `{ "widgets": [ { ... "properties": { "metrics": [ … ], "accountId": "111122223333", "region": "us-east-1" } } ] }` This example sets the `accountId` field differently at the level of each metric. In this example, the different metrics in this metric math expression come from different sharing accounts and different Regions. `{ "widgets": [ { ... "properties": { "metrics": [ [ { "expression": "SUM(METRICS())", "label": "[avg: ${AVG}] Expression1", "id": "e1", "stat": "Sum" } ], [ "AWS/EC2", "CPUUtilization", { "id": "m2", "accountId": "5555666677778888", "region": "us-east-1", "label": "[avg: ${AVG}] ApplicationALabel " } ], [ ".", ".", { "id": "m1", "accountId": "9999000011112222", "region": "eu-west-1", "label": "[avg: ${AVG}] ApplicationBLabel" } ] ], "view": "timeSeries", "region": "us-east-1", ---> home region of the metric. Not present in above example "stacked": false, "stat": "Sum", "period": 300, "title": "Cross account example" } } ] }` This example shows an alarm widget. `{ "type": "metric", "x": 6, "y": 0, "width": 6, "height": 6, "properties": { "accountID": "111122223333", "title": "over50", "annotations": { "alarms": [ "arn:aws:cloudwatch:us-east-1:379642911888:alarm:over50" ] }, "view": "timeSeries", "stacked": false } }` This example is for a CloudWatch Logs Insights widget. ``` { "type": "log", "x": 0, "y": 6, "width": 24, "height": 6, "properties": { "query": "SOURCE 'route53test' | fields @timestamp, @message\n | sort @timestamp desc\n | limit 20", "accountId": "111122223333", "region": "us-east-1", "stacked": false, "view": "table" } } ```Another way to create dashboards programmatically is to first create one in the AWS Management Console, and then copy the JSON source of this dashboard. To do so, load the dashboard and choose **Actions**, **View/edit source**. You can then copy this dashboard JSON to use as a template to create similar dashboards. ## Creating a graph with metrics from different accounts and Regions in a CloudWatch dashboard 1. Sign in to the monitoring account. 2. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 3. In the navigation pane, choose **Metrics**, and then choose **All metrics**. 4. Select the account and Region that you want to add metrics from. You can select your account and Region from the account and Region dropdown menus near the top-right of the screen. 5. Add the metrics you want to the graph. For more information, see [Graphing metrics](graph_metrics.md "graph_metrics.md"). 6. Repeat steps 4-5 to add metrics from other accounts and Regions. 7. (Optional) Choose the **Graphed metrics** tab and add a metric math function that uses the metrics that you have chosen. For more information, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md"). You can also set up a single graph to include multiple`SEARCH` functions. Each search can refer to a different account or Region. 8. When you are finished with the graph, choose **Actions**, **Add to dashboard**. Select your cross-account dashboard, and choose **Add to dashboard**. |
+| `region`    | Specifies the Region of the metric.                                        | Widget or metric | Current Region selected in the console |
+
+The following examples illustrate the JSON source for widgets in a cross-account cross-Region dashboard.
+
+This example sets the `accountId` field to the ID of the sharing account at the widget
+level. This specifies that all metrics in this widget will come from that sharing account and Region.
+
+```
+
+{
+  "widgets": [
+    {
+          ...
+          "properties": {
+        "metrics": [
+                   …
+        ],
+        "accountId": "111122223333",
+        "region": "us-east-1"
+      }
+    }
+  ]
+}
+
+
+```
+
+This example sets the `accountId` field differently at the level of each metric. In this example,
+the
+different metrics in this metric math expression come from different sharing accounts and different Regions.
+
+```
+
+{
+  "widgets": [
+    {
+          ...
+          "properties": {
+        "metrics": [
+          [
+            {
+              "expression": "SUM(METRICS())",
+              "label": "[avg: ${AVG}] Expression1",
+              "id": "e1",
+              "stat": "Sum"
+            }
+          ],
+          [
+            "AWS/EC2",
+            "CPUUtilization",
+            {
+              "id": "m2",
+              "accountId": "5555666677778888",
+              "region": "us-east-1",
+              "label": "[avg: ${AVG}] ApplicationALabel "
+            }
+          ],
+          [
+            ".",
+            ".",
+            {
+              "id": "m1",
+              "accountId": "9999000011112222",
+              "region": "eu-west-1",
+              "label": "[avg: ${AVG}] ApplicationBLabel"
+            }
+          ]
+        ],
+        "view": "timeSeries",
+        "region": "us-east-1", ---> home region of the metric. Not present in above example
+              "stacked": false,
+        "stat": "Sum",
+        "period": 300,
+        "title": "Cross account example"
+      }
+    }
+  ]
+}
+
+
+```
+
+This example shows an alarm widget.
+
+```
+
+{
+  "type": "metric",
+  "x": 6,
+  "y": 0,
+  "width": 6,
+  "height": 6,
+  "properties": {
+    "accountID": "111122223333",
+    "title": "over50",
+    "annotations": {
+      "alarms": [
+        "arn:aws:cloudwatch:us-east-1:379642911888:alarm:over50"
+      ]
+    },
+    "view": "timeSeries",
+    "stacked": false
+  }
+}
+
+
+```
+
+This example is for a CloudWatch Logs Insights widget.
+
+```
+
+{
+  "type": "log",
+  "x": 0,
+  "y": 6,
+  "width": 24,
+  "height": 6,
+  "properties": {
+    "query": "SOURCE 'route53test' | fields @timestamp, @message\n| sort @timestamp desc\n| limit 20",
+    "accountId": "111122223333",
+    "region": "us-east-1",
+    "stacked": false,
+    "view": "table"
+  }
+}
+
+
+```
+
+Another way to create dashboards programmatically is to first create one in the AWS Management Console, and then copy the JSON source of this
+dashboard. To do so, load the dashboard and choose **Actions**, **View/edit source**. You can then
+copy this dashboard JSON to use as a template to create similar dashboards.
+
+## Creating a graph with metrics from different accounts and Regions in a CloudWatch dashboard
+
+1. Sign in to the monitoring account.
+2. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+3. In the navigation pane, choose **Metrics**, and then choose **All metrics**.
+4. Select the account and Region
+   that you want
+   to add metrics
+   from.
+   You can select your account and Region
+   from the account and Region dropdown menus
+   near the top-right
+   of the screen.
+5. Add the metrics you want to the graph. For more information, see [Graphing metrics](graph_metrics.md "graph_metrics.md").
+6. Repeat steps 4-5 to add metrics from other accounts and Regions.
+7. (Optional) Choose the **Graphed metrics** tab and add
+   a metric math function that uses the metrics that you have chosen. For more
+   information, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+
+You can also set up a single graph to include multiple
+`SEARCH` functions. Each search can refer to a different
+account or Region. 8. When you are finished with the graph, choose **Actions**, **Add to dashboard**.
+
+Select your cross-account dashboard, and choose **Add to dashboard**.

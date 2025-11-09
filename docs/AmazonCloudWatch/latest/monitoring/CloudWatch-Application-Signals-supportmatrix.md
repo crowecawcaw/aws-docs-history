@@ -214,12 +214,20 @@ In the meantime, you can use the CloudWatch Agent with auto-instrumentation to a
 
 ## Runtime version support matrix
 
-| Language | Runtime version                                                                                                                                                  |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Java     | JVM versions 8, 11, 17, 21, and 23                                                                                                                               |
-| Python   | Python versions 3.9 and higher are supported                                                                                                                     |
-| .NET     | Release 1.6.0 and below supports .NET 6, 8, and .NET Framework 4.6.2 and higher Release 1.7.0 and higher supports .NET 8, 9, and .NET Framework 4.6.2 and higher |
-| Node.js  | Node.js versions 14, 16, 18, 20, and 22                                                                                                                          |
-| PHP      | PHP versions 8.0 and higher                                                                                                                                      |
-| Ruby     | CRuby >= 3.1, JRuby >= 9.3.2.0, or TruffleRuby >= 22.1                                                                                                           |
-| GoLang   | Golang versions 1.18 and higher                                                                                                                                  | ## Known issues The runtime metrics collection in the Java SDK release v1.32.5 is known to not work with applications using JBoss Wildfly. This issue extends to the Amazon CloudWatch Observability EKS add-on, affecting versions `2.3.0-eksbuild.1` through `2.6.0-eksbuild.1`. The issue is fixed in Java SDK release `v1.32.6` and the Amazon CloudWatch Observability EKS add-on version `v3.0.0-eksbuild.1`. If you are impacted, either upgrade the Java SDK version or disable your runtime metrics collection by adding the environment variable `OTEL_AWS_APPLICATION_SIGNALS_RUNTIME_ENABLED=false` to your application. |
+| Language | Runtime version                                                                                                                                                     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Java     | JVM versions 8, 11, 17, 21, and 23                                                                                                                                  |
+| Python   | Python versions 3.9 and higher are supported                                                                                                                        |
+| .NET     | Release 1.6.0 and below supports .NET 6, 8, and .NET Framework 4.6.2 and higher<br>Release 1.7.0 and higher supports .NET 8, 9, and .NET Framework 4.6.2 and higher |
+| Node.js  | Node.js versions 14, 16, 18, 20, and 22                                                                                                                             |
+| PHP      | PHP versions 8.0 and higher                                                                                                                                         |
+| Ruby     | CRuby >= 3.1, JRuby >= 9.3.2.0, or TruffleRuby >= 22.1                                                                                                              |
+| GoLang   | Golang versions 1.18 and higher                                                                                                                                     |
+
+## Known issues
+
+The runtime metrics collection in the Java SDK release v1.32.5 is known to not work with applications using JBoss Wildfly. This issue extends to the
+Amazon CloudWatch Observability EKS add-on, affecting versions `2.3.0-eksbuild.1` through `2.6.0-eksbuild.1`. The issue is fixed in Java SDK release `v1.32.6` and the Amazon CloudWatch Observability EKS add-on version `v3.0.0-eksbuild.1`.
+
+If you are impacted, either upgrade the Java SDK version or disable your runtime metrics collection by adding the
+environment variable `OTEL_AWS_APPLICATION_SIGNALS_RUNTIME_ENABLED=false` to your application.

@@ -442,10 +442,102 @@ For an Amazon EKS cluster with the Fargate launch type, enter the following
 command. Replace `MyCluster` and
 `region` with values to match your deployment.
 
-````
+```
 cat prometheus-eks-fargate.yaml \
 | sed "s/{{cluster_name}}/`MyCluster`/;s/{{region_name}}/`region`/" \
-| kubectl apply -f - ``` For a Kubernetes cluster, enter the following command. Replace `MyCluster` and `region` with values to match your deployment. ``` cat prometheus-k8s.yaml \
+| kubectl apply -f -
+```
+
+For a Kubernetes cluster, enter the following command. Replace
+`MyCluster` and `region`
+with values to match your deployment.
+
+```
+cat prometheus-k8s.yaml \
 | sed "s/{{cluster_name}}/`MyCluster`/;s/{{region_name}}/`region`/" \
-| kubectl apply -f - ``` Once you have done this, you should see a new log stream named **kubernetes-apiservers**  in the **/aws/containerinsights/`cluster_name`/prometheus** log group. This log stream should include log events with an embedded metric format definition like the following: ``` { "CloudWatchMetrics":[ { "Metrics":[ { "Name":"apiserver_request_total" } ], "Dimensions":[ [ "ClusterName", "Service" ] ], "Namespace":"ContainerInsights/Prometheus" } ], "ClusterName":"my-cluster-name", "Namespace":"default", "Service":"kubernetes", "Timestamp":"1592267020339", "Version":"0", "apiserver_request_count":0, "apiserver_request_total":0, "code":"0", "component":"apiserver", "contentType":"application/json", "instance":"192.0.2.0:443", "job":"kubernetes-apiservers", "prom_metric_type":"counter", "resource":"pods", "scope":"namespace", "verb":"WATCH", "version":"v1" } ``` You can view your metrics in the CloudWatch console in the **ContainerInsights/Prometheus** namespace. You can also optionally create a CloudWatch dashboard for your Prometheus Kubernetes API Server metrics. ### (Optional) Creating a dashboard for Kubernetes API Server metrics To see Kubernetes API Server metrics in your dashboard, you must have first completed the steps in the previous sections to start collecting these metrics in CloudWatch. ###### To create a dashboard for Kubernetes API Server metrics 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Make sure you have the correct AWS Region selected. 3. In the navigation pane, choose **Dashboards**. 4. Choose **Create Dashboard**. Enter a name for the new dashboard, and choose **Create dashboard**. 5. In **Add to this dashboard**, choose **Cancel**. 6. Choose **Actions**, **View/edit source**. 7. Download the following JSON file: [Kubernetes API Dashboard source](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json"). 8. Open the JSON file that you downloaded with a text editor, and make the following changes: <br>• Replace all the `{{YOUR_CLUSTER_NAME}}` strings with the exact name of your cluster. Make sure not to add whitespaces before or after the text. <br>• Replace all the `{{YOUR_AWS_REGION}}` strings with the name of the Region where the metrics are collected. For example `us-west-2`. Be sure not to add whitespaces before or after the text. 9. Copy the entire JSON blob and paste it into the text box in the CloudWatch console, replacing what is already in the box. 10. Choose **Update**, **Save dashboard**.
-````
+| kubectl apply -f -
+```
+
+Once you have done this, you should see a new log stream named **kubernetes-apiservers** in the
+**/aws/containerinsights/`cluster_name`/prometheus**
+log group. This log stream should include log events with an embedded metric format
+definition like the following:
+
+```
+{
+   "CloudWatchMetrics":[
+      {
+         "Metrics":[
+            {
+               "Name":"apiserver_request_total"
+            }
+         ],
+         "Dimensions":[
+            [
+               "ClusterName",
+               "Service"
+            ]
+         ],
+         "Namespace":"ContainerInsights/Prometheus"
+      }
+   ],
+   "ClusterName":"my-cluster-name",
+   "Namespace":"default",
+   "Service":"kubernetes",
+   "Timestamp":"1592267020339",
+   "Version":"0",
+   "apiserver_request_count":0,
+   "apiserver_request_total":0,
+   "code":"0",
+   "component":"apiserver",
+   "contentType":"application/json",
+   "instance":"192.0.2.0:443",
+   "job":"kubernetes-apiservers",
+   "prom_metric_type":"counter",
+   "resource":"pods",
+   "scope":"namespace",
+   "verb":"WATCH",
+   "version":"v1"
+}
+```
+
+You can view your metrics in the CloudWatch console in the
+**ContainerInsights/Prometheus** namespace. You can also
+optionally create a CloudWatch dashboard for your Prometheus Kubernetes API Server
+metrics.
+
+### (Optional)
+
+Creating a dashboard for Kubernetes API Server metrics
+
+To see Kubernetes API Server metrics in your dashboard, you must have first
+completed the steps in the previous sections to start collecting these metrics in
+CloudWatch.
+
+###### To create a dashboard for Kubernetes API Server metrics
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Make sure you have the correct AWS Region selected.
+3. In the navigation pane, choose **Dashboards**.
+4. Choose **Create Dashboard**. Enter a name for the new
+   dashboard, and choose **Create dashboard**.
+5. In **Add to this dashboard**, choose
+   **Cancel**.
+6. Choose **Actions**, **View/edit
+   source**.
+7. Download the following JSON file: [Kubernetes API Dashboard source](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json").
+8. Open the JSON file that you downloaded with a text editor, and make the
+   following changes:
+   - Replace all the `{{YOUR_CLUSTER_NAME}}` strings with the
+     exact name of your cluster. Make sure not to add whitespaces before or
+     after the text.
+   - Replace all the `{{YOUR_AWS_REGION}}` strings with the name
+     of the Region where the metrics are collected. For example
+     `us-west-2`. Be sure not to add whitespaces before or after
+     the text.
+
+9. Copy the entire JSON blob and paste it into the text box in the CloudWatch
+   console, replacing what is already in the box.
+10. Choose **Update**, **Save
+    dashboard**.

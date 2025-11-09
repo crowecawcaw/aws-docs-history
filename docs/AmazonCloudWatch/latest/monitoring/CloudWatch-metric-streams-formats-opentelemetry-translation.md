@@ -46,7 +46,7 @@ For more information,
 see [The Unified Code For Units of Measure](https://ucum.org/ucum.html "https://ucum.org/ucum.html").
 
 | CloudWatch        | OpenTelemetry |
-| ----------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ------------- |
 | Second            | s             |
 | Second or Seconds | s             |
 | Microsecond       | us            |
@@ -63,4 +63,8 @@ see [The Unified Code For Units of Measure](https://ucum.org/ucum.html "https://
 | Terabits          | Tbit          |
 | Percent           | %             |
 | Count             | {Count}       |
-| None              | 1             | Units that are combined with a slash are mapped by applying the OpenTelemetry conversion of both the units. For example, Bytes/Second is mapped to By/s. |
+| None              | 1             |
+
+Units that are combined with a slash are mapped by applying the
+OpenTelemetry conversion of both the units. For example,
+Bytes/Second is mapped to By/s.

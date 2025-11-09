@@ -20,9 +20,230 @@ configured with IPv4 format addresses to include IPv6 format addresses.
 The following summarizes recommended actions, depending on your scenario. To confirm the endpoint
 that your SDK uses, see [Identify the Internet Monitor endpoint used by your code](#IMConfirmSDKEndpoint "#IMConfirmSDKEndpoint").
 
-| Endpoint                                                | Using IAM policy with `aws:sourceIp` condition? | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `internetmonitor.region.amazonaws.com` (not dual-stack) | Yes                                             | To restrict access to IPv4 only, take no further action. Or, if you anticipate that you will need IPv6 support in the future, you can take action to ensure compatibility with both IPv4 and IPv6. To ensure future compatibility, on or after November 1, 2024, update your SDK, and then update your application to use the dual-stack endpoint by setting `useDualstackEndpoint=true`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). If you choose to use both IPv4 and IPv6, you must also update the IP address filtering condition (`aws:sourceIp`) in your IAM policies to include IPv6 addresses.                                                            |
-| `internetmonitor.region.amazonaws.com` (not dual-stack) | No                                              | To restrict access to IPv4 only, take no further action. Or, if you anticipate that you will need IPv6 support in the future, you can take action to ensure compatibility with both IPv4 and IPv6. To ensure future compatibility, on or after November 1, 2024, update your SDK, and then update your application to use the dual-stack endpoint by setting `useDualstackEndpoint=true`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").                                                                                                                                                                                                                              |
-| `internetmonitor.region.api.aws`                        | Yes                                             | To ensure future compatibility with both IPv4 and IPv6, update your SDK, and then update your application to use the dual-stack endpoint by setting `useDualstackEndpoint=true`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). When you make the change to use both IPv4 and IPv6, you must also update the IP address filtering condition (`aws:sourceIp`) in your IAM policies to include IPv6 addresses. If you instead want to restrict access to IPv4 only, set `useDualstackEndpoint=false`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). |
-| `internetmonitor.region.api.aws`                        | No                                              | To ensure future compatibility with both IPv4 and IPv6, update your SDK, and then update your application to use the dual-stack endpoint by setting `useDualstackEndpoint=true`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). If you instead want to restrict access to IPv4 only, set `useDualstackEndpoint=false`. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").                                                                                                                                                                              | For help with access issues, contact [Support](https://support.console.aws.amazon.com/support/home/?nc1=f_dr#/case/create "https://support.console.aws.amazon.com/support/home/?nc1=f_dr#/case/create"). ## What is IPv6? IPv6 is the next generation IP standard intended to eventually replace IPv4. IPv4 uses a 32-bit addressing scheme, to support 4.3 billion devices. IPv6 instead uses 128-bit addressing, to support approximately 340 trillion trillion trillion (or 2 to the 128th power) devices. The following are examples of IPv6 addresses: `2001:cdba:0000:0000:0000:0000:3257:9652 2001:cdba:0:0:0:0:3257:9652 2001:cdba::3257:965` IPv6 offers a larger address space, improved routing efficiency, and better support for new internet services. By updating to dual-stack and supporting IPv6, Internet Monitor enables improved performance and scalability. Follow the steps in this section to update your configurations and take advantage of dual-stack support. ## Identify the Internet Monitor endpoint used by your code If you use an Internet Monitor SDK, start by verifying which endpoint your code is using: the IPv4 endpoint or the dual-stack (IPv4 and IPv6) endpoint. If you don’t use an SDK with Internet Monitor, you can skip this section. You can run the following code example to determine the Internet Monitor endpoint that you're using. For this example, we’re using the Internet Monitor SDK for Go in the US East (N. Virginia) Region. `package main import ( "fmt" "log" "github.com/aws/aws-sdk-go/aws" "github.com/aws/aws-sdk-go/aws/session" "github.com/aws/aws-sdk-go/service/internetmonitor" ) func main() { // Create a new session with the default configuration sess := session.Must(session.NewSession(&aws.Config{ Region: aws.String("us-east-1"), })) // Create a new Internet Monitor client internetMonitorClient := internetmonitor.New(sess) // Get the endpoint URL endpoint := internetMonitorClient.Endpoint fmt.Printf("Internet Monitor endpoint URL: %s\n", endpoint) }` When you run this code, it returns the Internet Monitor endpoint. If you see the following response, you’re using the Internet Monitor domain that supports only IPv4. You can tell because the format of the endpoint URL includes `amazonaws.com`. `Internet Monitor endpoint URL: https://internetmonitor.us-east-1.amazonaws.com` If you see the following response instead, then you’re using the domain which is being upgraded to support dual-stack (IPv4 and IPv6). Here, you can tell because the endpoint URL includes `api.aws`. However, note that until the upgrade is complete, this endpoint supports only IPv4. `Internet Monitor endpoint URL: https://internetmonitor.us-east-1.api.aws` ## Update an IAM policy for IPv6 IAM policies use the `aws:SourceIp` filter to set an allowed range of IP addresses. Dual-stack supports both IPv4 and IPV6 traffic. If your network uses dual-stack, you must ensure that any IAM polices that are used for IP address filtering are updated to include IPv6 address ranges. For example, this policy allows IPv4 address ranges `192.0.2.0.*` and `203.0.113.0.*`, identified in the `Condition` element. `# https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.html { "Version": "2012-10-17", "Statement": { "Effect": "Deny", "Action": "*", "Resource": "*", "Condition": { "NotIpAddress": { "*aws:SourceIp*": [ "*192.0.2.0/24*", "*203.0.113.0/24*" ] }, "Bool": { "aws:ViaAWSService": "false" } } } }` To update this policy, we'll change the policy's `Condition` element to add IPv6 address ranges, as shown in the following example: ``"Condition": { "NotIpAddress": { "*aws:SourceIp*": [ "*192.0.2.0/24*", <<Existing IPv4 address - DO NOT REMOVE>> "*203.0.113.0/24*", <<Existing IPv4 address  - DO NOT REMOVE>> "`*2001:DB8:1234:5678::/64*`", <<New IPv6 IP address>> "`*2001:cdba:3257:8593::/64*`" <<New IPv6 IP address>> ] }, "Bool": { "aws:ViaAWSService": "false" } }`` ###### Important Do not remove the existing IPv4 addresses in the policy. They are required for backward compatibility. For more information about managing access permissions with IAM, see [Managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _AWS Identity and Access Management User Guide_. ## Test the network after updating policies After you update your IAM policies to include support for IPv6 addresses, we recommend that you test that your network can access an IPv6 endpoint. This section provides several examples, depending on the operating system that you use. ### Test network with Linux/Unix or Mac OS X If you use Linux/Unix or Mac OS X, you can test that your network can access the IPv6 endpoint by using the following curl command. `curl -v -s -o /dev/null http://ipv6.ec2-reachability.amazonaws.com/` If you are connected over IPv6, the connected IP address displays information similar to the following: `<br>• About to connect() to aws.amazon.com port 443 (#0) <br>• Trying IPv6 address... connected <br>• Connected to aws.amazon.com (IPv6 address) port 443 (#0) > GET / HTTP/1.1 > User-Agent: curl/7.18.1 (x86_64-unknown-linux-gnu) libcurl/7.18.1 OpenSSL/1.0.1t zlib/1.2.3 > Host: aws.amazon.com` ### Test network with Windows If you use Windows, you can test that your network can access a dual-stack endpoint over IPv6 or IPv4 by using a `ping` command, such as the following: `ping aws.amazon.com` If `ping` accesses the endpoint over IPv6, the command returns IPv6 addresses. ## Verify that clients can support IPv6 We recommend that before you switch to using the _internetmonitor.{region}.api.aws_ endpoint, that you first verify that your clients can access other AWS service endpoints that are already IPv6-enabled. The following steps describe how to verify this by using an existing IPv6 endpoint. This example uses Linux and curl version 8.6.0, and uses the [Amazon Athena service](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md"), which has IPv6-enabled endpoints located at the _api.aws_ domain. ###### Note Switch your AWS Region to the same Region where the client is located. In this example, we use the US East (N. Virginia) – `us-east-1` endpoint. Use the following example to verify that your clients can access an IPv6-enabled AWS endpoint. 1. Verify that the Athena endpoint resolves with an IPv6 address by using the following command. `dig +short AAAA athena.us-east-1.api.aws 2600:1f18:e2f:4e05:1a8a:948e:7c08:d2d6 2600:1f18:e2f:4e03:4a1e:83b0:8823:4ce5 2600:1f18:e2f:4e04:34c3:6e9a:2b0d:dc79` 2. Now, determine if your client network can make a connection using IPv6 by using the following command: `curl --ipv6 -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://athena.us-east-1.api.aws remote ip: 2600:1f18:e2f:4e05:1a8a:948e:7c08:d2d6 response code: 404` If the remote IP address was identified **and** the response code is not `0`, a network connection was successfully made to the endpoint using IPv6. If the remote IP address is blank or the response code is `0`, the client network or the network path to the endpoint is IPv4-only. You can verify this with the following curl command: `curl -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://athena.us-east-1.api.aws remote ip: 3.210.103.49 response code: 404` If you run this command, and a remote IP address was identified **and** the response code is not `0`, a network connection was successfully made to the endpoint using IPv4. |
+| Endpoint                                                | Using IAM policy with `aws:sourceIp` condition? | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `internetmonitor.region.amazonaws.com` (not dual-stack) | Yes                                             | To restrict access to IPv4 only, take no further action. Or, if you anticipate<br>that you will need IPv6 support in the future, you can take action to<br>ensure compatibility with both IPv4 and IPv6.<br>To ensure future compatibility, on or after November 1,<br>2024, update your SDK, and then update your application to use the dual-stack endpoint by setting<br>`useDualstackEndpoint=true`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").<br>If you choose to use both IPv4 and IPv6, you must also update the IP address filtering condition (`aws:sourceIp`)<br>in your IAM policies to include IPv6 addresses.                                                         |
+| `internetmonitor.region.amazonaws.com` (not dual-stack) | No                                              | To restrict access to IPv4 only, take no further action. Or, if you anticipate that<br>you will need IPv6 support in the future, you can take action to<br>ensure compatibility with both IPv4 and IPv6.<br>To ensure future compatibility, on or after November 1,<br>2024, update your SDK, and then update your application to use the dual-stack endpoint by setting<br>`useDualstackEndpoint=true`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").                                                                                                                                                                                                                                 |
+| `internetmonitor.region.api.aws`                        | Yes                                             | To ensure future compatibility with both IPv4 and IPv6, update your SDK, and then update your application to use the dual-stack endpoint by setting<br>`useDualstackEndpoint=true`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").<br>When you make the change to use both IPv4 and IPv6, you must also update the IP address filtering condition<br>(`aws:sourceIp`) in your IAM policies to include IPv6 addresses.<br>If you instead want to restrict access to IPv4 only, set<br>`useDualstackEndpoint=false`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). |
+| `internetmonitor.region.api.aws`                        | No                                              | To ensure future compatibility with both IPv4 and IPv6, update your SDK, and then update your application to use the dual-stack endpoint by setting<br>`useDualstackEndpoint=true`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").<br>If you instead want to restrict access to IPv4 only, set<br>`useDualstackEndpoint=false`. For more information, see<br>[Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").                                                                                                                                                                                    |
+
+For help with access issues, contact [Support](https://support.console.aws.amazon.com/support/home/?nc1=f_dr#/case/create "https://support.console.aws.amazon.com/support/home/?nc1=f_dr#/case/create").
+
+## What is IPv6?
+
+IPv6 is the next generation IP standard intended to eventually replace IPv4.
+IPv4 uses a 32-bit addressing scheme, to support 4.3 billion devices. IPv6 instead
+uses 128-bit addressing, to support approximately 340 trillion trillion trillion (or 2 to the
+128th power) devices.
+
+The following are examples of IPv6 addresses:
+
+```
+2001:cdba:0000:0000:0000:0000:3257:9652
+2001:cdba:0:0:0:0:3257:9652
+2001:cdba::3257:965
+```
+
+IPv6 offers a larger address space, improved routing efficiency, and better support for new
+internet services. By updating to dual-stack and supporting IPv6, Internet Monitor enables improved
+performance and scalability. Follow the steps in this section to update your configurations
+and take advantage of dual-stack support.
+
+## Identify the Internet Monitor
+
+endpoint used by your code
+
+If you use an Internet Monitor SDK, start by verifying which endpoint your code is using: the
+IPv4 endpoint or the dual-stack (IPv4 and IPv6) endpoint. If you don’t use an SDK with Internet Monitor,
+you can skip this section.
+
+You can run the following code example to determine the Internet Monitor endpoint that you're using. For this example,
+we’re using the Internet Monitor SDK for Go in the US East (N. Virginia) Region.
+
+```
+package main
+
+import (
+    "fmt"
+    "log"
+
+    "github.com/aws/aws-sdk-go/aws"
+    "github.com/aws/aws-sdk-go/aws/session"
+    "github.com/aws/aws-sdk-go/service/internetmonitor"
+)
+
+func main() {
+    // Create a new session with the default configuration
+    sess := session.Must(session.NewSession(&aws.Config{
+        Region: aws.String("us-east-1"),
+    }))
+
+    // Create a new Internet Monitor client
+    internetMonitorClient := internetmonitor.New(sess)
+
+    // Get the endpoint URL
+    endpoint := internetMonitorClient.Endpoint
+
+    fmt.Printf("Internet Monitor endpoint URL: %s\n", endpoint)
+}
+```
+
+When you run this code, it returns the Internet Monitor endpoint. If you see the following response,
+you’re using the Internet Monitor domain that supports only IPv4.
+You can tell because the format of the endpoint URL includes `amazonaws.com`.
+
+```
+Internet Monitor endpoint URL: https://internetmonitor.us-east-1.amazonaws.com
+```
+
+If you see the following response instead, then you’re using the domain which is being upgraded
+to support dual-stack (IPv4 and IPv6). Here, you can tell because the endpoint URL includes
+`api.aws`. However, note that until the upgrade is complete, this endpoint supports only IPv4.
+
+```
+Internet Monitor endpoint URL: https://internetmonitor.us-east-1.api.aws
+```
+
+## Update an IAM policy for IPv6
+
+IAM policies use the `aws:SourceIp` filter to set an allowed range of IP addresses.
+
+Dual-stack supports both IPv4 and IPV6 traffic. If your network uses dual-stack,
+you must ensure that any IAM polices that are used for IP address filtering are updated to
+include IPv6 address ranges.
+
+For example, this policy allows IPv4 address ranges `192.0.2.0.*` and `203.0.113.0.*`,
+identified in the `Condition` element.
+
+```
+# https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_deny-ip.html
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Deny",
+        "Action": "*",
+        "Resource": "*",
+        "Condition": {
+            "NotIpAddress": {
+                "*aws:SourceIp*": [
+                    "*192.0.2.0/24*",
+                    "*203.0.113.0/24*"
+                ]
+            },
+            "Bool": {
+                "aws:ViaAWSService": "false"
+            }
+        }
+    }
+}
+```
+
+To update this policy, we'll change the policy's `Condition` element to add
+IPv6 address ranges, as shown in the following example:
+
+```
+"Condition": {
+            "NotIpAddress": {
+                "*aws:SourceIp*": [
+                    "*192.0.2.0/24*", <<Existing IPv4 address - DO NOT REMOVE>>
+                    "*203.0.113.0/24*", <<Existing IPv4 address  - DO NOT REMOVE>>
+                    "`*2001:DB8:1234:5678::/64*`", <<New IPv6 IP address>>
+                    "`*2001:cdba:3257:8593::/64*`" <<New IPv6 IP address>>
+                ]
+            },
+            "Bool": {
+                "aws:ViaAWSService": "false"
+            }
+        }
+```
+
+###### Important
+
+Do not remove the existing IPv4 addresses in the policy. They are required for backward compatibility.
+
+For more information about managing access permissions with IAM, see [Managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _AWS Identity and Access Management User
+Guide_.
+
+## Test the network after updating policies
+
+After you update your IAM policies to include support for IPv6 addresses, we recommend that you test
+that your network can access an IPv6 endpoint. This section provides several examples, depending
+on the operating system that you use.
+
+### Test network with Linux/Unix or Mac OS X
+
+If you use Linux/Unix or Mac OS X, you can test that your network can access the IPv6 endpoint by using the following curl command.
+
+`curl -v -s -o /dev/null http://ipv6.ec2-reachability.amazonaws.com/`
+
+If you are connected over IPv6, the connected IP address displays information similar to the following:
+
+```
+* About to connect() to aws.amazon.com port 443 (#0)
+*   Trying IPv6 address... connected
+* Connected to aws.amazon.com (IPv6 address) port 443 (#0)
+> GET / HTTP/1.1
+> User-Agent: curl/7.18.1 (x86_64-unknown-linux-gnu) libcurl/7.18.1 OpenSSL/1.0.1t zlib/1.2.3
+> Host: aws.amazon.com
+```
+
+### Test network with Windows
+
+If you use Windows, you can test that your network can access a dual-stack endpoint over IPv6 or IPv4 by using
+a `ping` command, such as the following:
+
+`ping aws.amazon.com`
+
+If `ping` accesses the endpoint over IPv6, the command returns IPv6 addresses.
+
+## Verify that clients can support IPv6
+
+We recommend that before you switch to using the _internetmonitor.{region}.api.aws_ endpoint,
+that you first verify that your clients can access other AWS service endpoints that are
+already IPv6-enabled. The following steps describe how to verify this by using an existing IPv6 endpoint.
+
+This example uses Linux and curl version 8.6.0, and uses the
+[Amazon Athena service](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md"),
+which has IPv6-enabled endpoints located at the _api.aws_ domain.
+
+###### Note
+
+Switch your AWS Region to the same Region where the client is located.
+In this example, we use the US East (N. Virginia) – `us-east-1` endpoint.
+
+Use the following example to verify that your clients can access an IPv6-enabled AWS endpoint.
+
+1. Verify that the Athena endpoint resolves with an IPv6 address by using the following command.
+
+```
+dig +short AAAA athena.us-east-1.api.aws
+2600:1f18:e2f:4e05:1a8a:948e:7c08:d2d6
+2600:1f18:e2f:4e03:4a1e:83b0:8823:4ce5
+2600:1f18:e2f:4e04:34c3:6e9a:2b0d:dc79
+```
+
+2. Now, determine if your client network can make a connection using IPv6 by using the following command:
+
+```
+curl --ipv6 -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://athena.us-east-1.api.aws
+
+remote ip: 2600:1f18:e2f:4e05:1a8a:948e:7c08:d2d6
+response code: 404
+```
+
+If the remote IP address was identified **and** the response code
+is not `0`, a network connection was successfully made to the endpoint using IPv6.
+
+If the remote IP address is blank or the response code is `0`, the client network or
+the network path to the endpoint is IPv4-only. You can verify this with
+the following curl command:
+
+```
+curl -o /dev/null --silent -w "\nremote ip: %{remote_ip}\nresponse code: %{response_code}\n" https://athena.us-east-1.api.aws
+
+remote ip: 3.210.103.49
+response code: 404
+```
+
+If you run this command, and a remote IP address was identified **and** the response
+code is not `0`, a network connection was successfully made to the endpoint using IPv4.

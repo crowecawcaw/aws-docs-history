@@ -327,16 +327,48 @@ This tutorial sends the following metrics to the
 **ECS/ContainerInsights/Prometheus** namespace in CloudWatch. You can
 use the CloudWatch console to see the metrics in that namespace.
 
-| Metric Name                                     | Dimensions                                         |
-| ----------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `redis_net_input_bytes_total`                   | ClusterName, `TaskDefinitionFamily`                |
-| `redis_net_output_bytes_total`                  | ClusterName, `TaskDefinitionFamily`                |
-| `redis_expired_keys_total`                      | ClusterName, `TaskDefinitionFamily`                |
-| `redis_evicted_keys_total`                      | ClusterName, `TaskDefinitionFamily`                |
-| `redis_keyspace_hits_total`                     | ClusterName, `TaskDefinitionFamily`                |
-| `redis_keyspace_misses_total`                   | ClusterName, `TaskDefinitionFamily`                |
-| `redis_memory_used_bytes`                       | ClusterName, `TaskDefinitionFamily`                |
-| `redis_connected_clients`                       | ClusterName, `TaskDefinitionFamily`                |
-| `redis_commands_total`                          | `ClusterName`, `TaskDefinitionFamily`, `cmd`       |
-| `redis_db_keys`                                 | `ClusterName`, `TaskDefinitionFamily`, `db`        | ###### Note The value of the **cmd** dimension can be: `append`, `client`, `command`, `config`, `dbsize`, `flushall`, `get`, `incr`, `info`, `latency`, or `slowlog`. The value of the **db** dimension can be `db0` to `db15`. You can also create a CloudWatch dashboard for your Redis OSS Prometheus metrics. ###### To create a dashboard for Redis OSS Prometheus metrics 1. Create environment variables, replacing the values below to match your deployment. ``DASHBOARD_NAME=`your_cw_dashboard_name` ECS_TASK_DEF_FAMILY=redis-prometheus-demo-$ECS_CLUSTER_NAME-fargate-awsvpc`` 2. Enter the following command to create the dashboard. ``` curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/redis/cw_dashboard_redis.json \ |
-| sed "s/{{YOUR_AWS_REGION}}/${REGION_NAME}/g" \  | sed "s/{{YOUR_CLUSTER_NAME}}/${CLUSTER_NAME}/g" \  | sed "s/{{YOUR_NAMESPACE}}/${NAMESPACE}/g" \ ```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Metric Name                    | Dimensions                                      |
+| ------------------------------ | ----------------------------------------------- |
+| `redis_net_input_bytes_total`  | ClusterName, `TaskDefinitionFamily`             |
+| `redis_net_output_bytes_total` | ClusterName, `TaskDefinitionFamily`             |
+| `redis_expired_keys_total`     | ClusterName, `TaskDefinitionFamily`             |
+| `redis_evicted_keys_total`     | ClusterName, `TaskDefinitionFamily`             |
+| `redis_keyspace_hits_total`    | ClusterName, `TaskDefinitionFamily`             |
+| `redis_keyspace_misses_total`  | ClusterName, `TaskDefinitionFamily`             |
+| `redis_memory_used_bytes`      | ClusterName, `TaskDefinitionFamily`             |
+| `redis_connected_clients`      | ClusterName, `TaskDefinitionFamily`             |
+| `redis_commands_total`         | `ClusterName`, `TaskDefinitionFamily`,<br>`cmd` |
+| `redis_db_keys`                | `ClusterName`, `TaskDefinitionFamily`,<br>`db`  |
+
+###### Note
+
+The value of the **cmd** dimension can be:
+`append`, `client`, `command`,
+`config`, `dbsize`, `flushall`,
+`get`, `incr`, `info`, `latency`, or
+`slowlog`.
+
+The value of the **db** dimension can be `db0` to
+`db15`.
+
+You can also create a CloudWatch dashboard for your Redis OSS Prometheus
+metrics.
+
+###### To create a dashboard for Redis OSS Prometheus metrics
+
+1. Create environment variables, replacing the values below to match your
+   deployment.
+
+```
+DASHBOARD_NAME=`your_cw_dashboard_name`
+ECS_TASK_DEF_FAMILY=redis-prometheus-demo-$ECS_CLUSTER_NAME-fargate-awsvpc
+```
+
+2. Enter the following command to create the dashboard.
+
+```
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/redis/cw_dashboard_redis.json \
+| sed "s/{{YOUR_AWS_REGION}}/${REGION_NAME}/g" \
+| sed "s/{{YOUR_CLUSTER_NAME}}/${CLUSTER_NAME}/g" \
+| sed "s/{{YOUR_NAMESPACE}}/${NAMESPACE}/g" \
+```

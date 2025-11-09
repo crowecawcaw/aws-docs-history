@@ -27,7 +27,7 @@ custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "addin
 | Amazon API Gateway V2                            | `AWS::ApiGatewayV2::Api`                     | Yes     | No   |
 | AWS App Runner                                   | `AWS::AppRunner::Service`                    | No      | Yes  |
 | AWS Application Migration Service                | `AWS::MGN::SourceServer`                     | Yes     | No   |
-| Amazon AppStream 2.0                             | `AWS::AppStream::Fleet`                      | Yes     | Yes  |
+| Amazon WorkSpaces Applications                   | `AWS::AppStream::Fleet`                      | Yes     | Yes  |
 | AWS AppSync                                      | `AWS::AppSync::GraphQLApi`                   | Yes     | Yes  |
 | AWS B2B Data Interchange                         | `AWS::B2BI::Transformer`                     | No      | Yes  |
 | AWS Backup gateway                               | `AWS::BackupGateway::Hypervisor`             | No      | Yes  |
