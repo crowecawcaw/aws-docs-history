@@ -43,44 +43,50 @@ translations.
 
 Amazon Translate has the following service guidelines and quotas.
 
-| Synchronous real-time translation quotas                                                      | Description   | Limit                                 |
-| --------------------------------------------------------------------------------------------- | ------------- | ------------------------------------- | ----------- | ----- |
-| Character encoding                                                                            | UTF-8         |
-| Maximum input text                                                                            | 10,000 bytes  |
-| Maximum number of characters per document                                                     | 100,000       |
-| Maximum document size                                                                         | 100,000 bytes | Asynchronous batch translation quotas | Description | Limit |
-| ---                                                                                           | ---           |
-| Character encoding                                                                            | UTF-8         |
-| Maximum number of characters per document                                                     | 1,000,000     |
-| Maximum size per document                                                                     | 20 MB         |
-| Maximum size of translatable text in a single document                                        | 1 MB          |
-| Maximum number of target languages in a batch job request                                     | 10            |
-| Maximum number of documents in batch                                                          | 1,000,000     |
-| Maximum size of total documents in batch                                                      | 5 GB          |
-| Maximum number of concurrent batch translation jobs                                           | 10            |
-| Maximum number of queued batch translation jobs                                               | 1000          |
-| Transactions per second for the StartTextTranslationJob API action                            | 5             |
-| Transactions per second for the DescribeTextTranslationJob API action                         | 10            |
-| Transactions per second for the ListTextTranslationJobs API action                            | 10            |
-| Transactions per second for the StopTextTranslationJob API action                             | 5             | Custom terminology quotas             | Description | Limit |
-| ---                                                                                           | ---           |
-| Maximum custom terminology file size                                                          | 10 MB         |
-| Maximum number of custom terminology files per AWS account per AWS Region                     | 100           |
-| Maximum number of target languages per custom terminology file                                | 10            |
-| Maximum source and target text length per custom terminology term                             | 200 bytes     |
-| Maximum number of terminology files per `TranslateText` or `StartTextTranslationJob` request. | 1             |
-| Transactions per second for the ImportTerminology API action                                  | 5             |
-| Transactions per second for the GetTerminology API action                                     | 10            |
-| Transactions per second for the ListTerminologies API action                                  | 10            |
-| Transactions per second for the DeleteTerminology API action                                  | 5             | Parallel data quotas                  | Description | Limit |
-| ---                                                                                           | ---           |
-| Maximum number of parallel data resources per AWS account per AWS Region                      | 1000          |
-| Maximum parallel data input file size                                                         | 5 GB          |
-| Maximum number of source languages in a parallel data resource                                | 1             |
-| Maximum size of a single segment or record in a parallel data input file                      | 1000 bytes    |
-| Maximum number of concurrent create or update operations for parallel data resources          | 1             |
-| Transactions per second for the CreateParallelData API action                                 | 5             |
-| Transactions per second for the GetParallelData API action                                    | 10            |
-| Transactions per second for the ListParallelData API action                                   | 10            |
-| Transactions per second for the UpdateParallelData API action                                 | 5             |
-| Transactions per second for the DeleteParallelData API action                                 | 5             |
+| Synchronous real-time translation quotas  | Description   | Limit |
+| ----------------------------------------- | ------------- | ----- |
+| Character encoding                        | UTF-8         |
+| Maximum input text                        | 10,000 bytes  |
+| Maximum number of characters per document | 100,000       |
+| Maximum document size                     | 100,000 bytes |
+
+| Asynchronous batch translation quotas                                    | Description | Limit |
+| ------------------------------------------------------------------------ | ----------- | ----- |
+| Character encoding                                                       | UTF-8       |
+| Maximum number of characters per document                                | 1,000,000   |
+| Maximum size per document                                                | 20 MB       |
+| Maximum size of translatable text in a single document                   | 1 MB        |
+| Maximum number of target languages in a batch job request                | 10          |
+| Maximum number of documents in batch                                     | 1,000,000   |
+| Maximum size of total documents in batch                                 | 5 GB        |
+| Maximum number of concurrent batch translation jobs                      | 10          |
+| Maximum number of queued batch translation jobs                          | 1000        |
+| Transactions per second for the StartTextTranslationJob API<br>action    | 5           |
+| Transactions per second for the DescribeTextTranslationJob API<br>action | 10          |
+| Transactions per second for the ListTextTranslationJobs API<br>action    | 10          |
+| Transactions per second for the StopTextTranslationJob API<br>action     | 5           |
+
+| Custom terminology quotas                                                                        | Description | Limit |
+| ------------------------------------------------------------------------------------------------ | ----------- | ----- |
+| Maximum custom terminology file size                                                             | 10 MB       |
+| Maximum number of custom terminology files per AWS account per AWS<br>Region                     | 100         |
+| Maximum number of target languages per custom terminology<br>file                                | 10          |
+| Maximum source and target text length per custom terminology<br>term                             | 200 bytes   |
+| Maximum number of terminology files per `TranslateText` or<br>`StartTextTranslationJob` request. | 1           |
+| Transactions per second for the ImportTerminology API action                                     | 5           |
+| Transactions per second for the GetTerminology API action                                        | 10          |
+| Transactions per second for the ListTerminologies API action                                     | 10          |
+| Transactions per second for the DeleteTerminology API action                                     | 5           |
+
+| Parallel data quotas                                                                    | Description | Limit |
+| --------------------------------------------------------------------------------------- | ----------- | ----- |
+| Maximum number of parallel data resources per AWS account per AWS<br>Region             | 1000        |
+| Maximum parallel data input file size                                                   | 5 GB        |
+| Maximum number of source languages in a parallel data<br>resource                       | 1           |
+| Maximum size of a single segment or record in a parallel data input<br>file             | 1000 bytes  |
+| Maximum number of concurrent create or update operations for parallel<br>data resources | 1           |
+| Transactions per second for the CreateParallelData API action                           | 5           |
+| Transactions per second for the GetParallelData API action                              | 10          |
+| Transactions per second for the ListParallelData API action                             | 10          |
+| Transactions per second for the UpdateParallelData API action                           | 5           |
+| Transactions per second for the DeleteParallelData API action                           | 5           |

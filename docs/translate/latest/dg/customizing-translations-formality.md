@@ -60,7 +60,7 @@ Amazon Translate supports the formality setting for translation from any source 
 following target languages.
 
 | Language              | Language code |
-| --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------------- | ------------- |
 | Dutch                 | nl            |
 | French                | fr            |
 | French (Canada)       | fr-CA         |
@@ -71,4 +71,6 @@ following target languages.
 | Korean                | ko            |
 | Portuguese (Portugal) | pt-PT         |
 | Spanish               | es            |
-| Spanish (Mexico)      | es-MX         | For all the languages that Amazon Translate supports, see [Supported languages and language codes](what-is-languages.md "what-is-languages.md"). |
+| Spanish (Mexico)      | es-MX         |
+
+For all the languages that Amazon Translate supports, see [Supported languages and language codes](what-is-languages.md "what-is-languages.md").

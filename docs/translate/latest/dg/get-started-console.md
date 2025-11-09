@@ -19,4 +19,4 @@ The translated text appears in the right-hand text box.
 In the **Application integration** section you can see the JSON input and
 output for the [TranslateText](../APIReference/API_TranslateText.md "../APIReference/API_TranslateText.md") operation.
 
-![JSON code samples for translating text.](images/gs-20.png)
+![JSON code samples for translating text.](/images/translate/latest/dg/images/gs-20.png)

@@ -39,9 +39,13 @@ Amazon Translate supports brevity for the following language pairs:
 - From any of the languages in the following table to English.
 
 | Language            | Language code |
-| ------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------------- |
 | French              | fr            |
 | German              | de            |
 | Italian             | it            |
 | Portuguese (Brazil) | pt            |
-| Spanish             | es            | If you request brevity for translation with an unsupported language pair, **the translation proceeds** with the brevity setting turned off. |
+| Spanish             | es            |
+
+If you request brevity for translation with an
+unsupported language pair, **the translation proceeds** with the
+brevity setting turned off.

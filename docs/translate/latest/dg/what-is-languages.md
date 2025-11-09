@@ -26,7 +26,7 @@ dash followed by an [ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_co
 `es-MX`.
 
 | Language              | Language code |
-| --------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ------------- |
 | Afrikaans             | af            |
 | Albanian              | sq            |
 | Amharic               | am            |
@@ -101,4 +101,19 @@ dash followed by an [ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_co
 | Urdu                  | ur            |
 | Uzbek                 | uz            |
 | Vietnamese            | vi            |
-| Welsh                 | cy            | ## Languages supported by Amazon Translate features The following sections describe the languages supported by Amazon Translate features. <br>• Real-time document translation – Supports translations from English to any supported language, and from any supported language to English. For details about real-time translation, see [Real-time translation](sync.md "sync.md"). <br>• Brevity – For the languages supported by this feature, see [Using brevity in Amazon Translate](customizing-translations-brevity.md "customizing-translations-brevity.md"). <br>• Profanity masking – For the languages supported by this feature, see [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md"). <br>• Formality – For the languages supported by this feature, see [Setting formality in Amazon Translate](customizing-translations-formality.md "customizing-translations-formality.md"). |
+| Welsh                 | cy            |
+
+## Languages supported by Amazon Translate features
+
+The following sections describe the languages supported by Amazon Translate features.
+
+- Real-time document translation – Supports translations from English to any supported language,
+  and from any supported language to English. For details about real-time translation,
+  see [Real-time translation](sync.md "sync.md").
+- Brevity – For the languages supported by this feature,
+  see [Using brevity in Amazon Translate](customizing-translations-brevity.md "customizing-translations-brevity.md").
+- Profanity masking – For the languages supported by this feature,
+  see [Masking profane words and phrases in
+  Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
+- Formality – For the languages supported by this feature,
+  see [Setting formality in Amazon Translate](customizing-translations-formality.md "customizing-translations-formality.md").

@@ -48,10 +48,12 @@ You can mask profanity when you translate to any of the target languages that Am
 following exceptions:
 
 | Language   | Language code |
-| ---------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ------------- |
 | Bengali    | bn            |
 | Hindi      | hi            |
 | Malayalam  | ml            |
 | Punjabi    | pa            |
 | Sinhala    | si            |
-| Vietnamese | vi            | For all of the languages that Amazon Translate supports, see [Supported languages and language codes](what-is-languages.md "what-is-languages.md"). |
+| Vietnamese | vi            |
+
+For all of the languages that Amazon Translate supports, see [Supported languages and language codes](what-is-languages.md "what-is-languages.md").

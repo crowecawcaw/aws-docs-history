@@ -103,7 +103,7 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the Amazon Translate [Document history](doc-history.md "doc-history.md")
 page.
 
-| Change                                                                                                                                    | Description                                                                                | Date         |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------ |
-| [TranslateReadOnly](#security-iam-awsmanpol-TranslateReadOnly "#security-iam-awsmanpol-TranslateReadOnly") – Update to an existing policy | Amazon Translate now allows the `TranslateDocument` action in the TranslateReadOnly policy | May 23, 2023 |
-| Amazon Translate started tracking changes                                                                                                 | Amazon Translate started tracking changes for its AWS managed policies.                    | May 23, 2023 |
+| Change                                                                                                                                       | Description                                                                                   | Date         |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------ |
+| [TranslateReadOnly](#security-iam-awsmanpol-TranslateReadOnly "#security-iam-awsmanpol-TranslateReadOnly") – Update to an existing<br>policy | Amazon Translate now allows the `TranslateDocument` action in the<br>TranslateReadOnly policy | May 23, 2023 |
+| Amazon Translate started tracking<br>changes                                                                                                 | Amazon Translate started tracking changes for its AWS managed<br>policies.                    | May 23, 2023 |
