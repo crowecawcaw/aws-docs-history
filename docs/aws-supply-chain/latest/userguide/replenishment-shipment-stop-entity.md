@@ -4,30 +4,40 @@
 
 The table below lists the colum names that are uniquely identified in the data entity.
 
-| Name                                                                                                      | Column                        |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| shipment_stop                                                                                             | shipment_stop_id, shipment_id | The table below lists the column names supported by the data entity: |
-| Column                                                                                                    | Data type                     | Required                                                             | Description                                              |
-| ---                                                                                                       | ---                           | ---                                                                  | ---                                                      |
-| shipment_stop_id                                                                                          | string                        | Yes                                                                  | Shipment stop ID.                                        |
-| shipment_id1                                                                                              | string                        | Yes                                                                  | Shipment ID.                                             |
-| sequence                                                                                                  | int                           | No                                                                   | Sequence of the shipment.                                |
-| company_id1                                                                                               | string                        | No                                                                   | Company ID.                                              |
-| site_id1                                                                                                  | string                        | No                                                                   | Site ID.                                                 |
-| planned_arrival_start_dttm                                                                                | timestamp                     | No                                                                   | Planned start date and time for the shipment arrival.    |
-| planned_arrival_end_dttm                                                                                  | timestamp                     | No                                                                   | Planned end date and time for the shipments arrival.     |
-| planned_departure_start_dttm                                                                              | timestamp                     | No                                                                   | Planned start date and time for the shipment departure.  |
-| planned_departure_end_dttm                                                                                | timestamp                     | No                                                                   | Planned end date and time for the shipment departure.    |
-| actual_arrival_start_dttm                                                                                 | timestamp                     | No                                                                   | Actual start date and time for the shipment arrival.     |
-| actual_arrival_end_dttm                                                                                   | timestamp                     | No                                                                   | Actual end date and time for the shipments arrival.      |
-| actual_departure_start_dttm                                                                               | timestamp                     | No                                                                   | Actual start date and time for the shipment departure.   |
-| actual_departure_end_dttm                                                                                 | timestamp                     | No                                                                   | Actual end date and time for the shipment departure.     |
-| appointment_number NoteAWS Supply Chain web application will display this column as _appointment_number_. | string                        | No                                                                   | Appointment number.                                      |
-| delivery_number                                                                                           | string                        | No                                                                   | Delivery number of the shipment.                         |
-| source_event_id                                                                                           | string                        | No                                                                   | ID of the event created in the source system.            |
-| source_update_dttm                                                                                        | timestamp                     | No                                                                   | Date time stamp of the update made in the source system. | 1Foreign key **Foreign key (FK)** The table below lists the columns with the associated foreign key. |
-| Column                                                                                                    | Category                      | FK/Data entity                                                       | FK/Column                                                |
-| ---                                                                                                       | ---                           | ---                                                                  | ---                                                      |
-| company_id                                                                                                | Organization                  | company                                                              | id                                                       |
-| site_id                                                                                                   | Network                       | site                                                                 | id                                                       |
-| shipment_id                                                                                               | Inbound                       | shipment                                                             | id                                                       |
+| Name          | Column                        |
+| ------------- | ----------------------------- |
+| shipment_stop | shipment_stop_id, shipment_id |
+
+The table below lists the column names supported by the data entity:
+
+| Column                                                                                                       | Data type | Required | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------ | --------- | -------- | ----------------------------------------------------------- |
+| shipment_stop_id                                                                                             | string    | Yes      | Shipment stop ID.                                           |
+| shipment_id1                                                                                                 | string    | Yes      | Shipment ID.                                                |
+| sequence                                                                                                     | int       | No       | Sequence of the shipment.                                   |
+| company_id1                                                                                                  | string    | No       | Company ID.                                                 |
+| site_id1                                                                                                     | string    | No       | Site ID.                                                    |
+| planned_arrival_start_dttm                                                                                   | timestamp | No       | Planned start date and time for the shipment arrival.       |
+| planned_arrival_end_dttm                                                                                     | timestamp | No       | Planned end date and time for the shipments arrival.        |
+| planned_departure_start_dttm                                                                                 | timestamp | No       | Planned start date and time for the shipment departure.     |
+| planned_departure_end_dttm                                                                                   | timestamp | No       | Planned end date and time for the shipment departure.       |
+| actual_arrival_start_dttm                                                                                    | timestamp | No       | Actual start date and time for the shipment arrival.        |
+| actual_arrival_end_dttm                                                                                      | timestamp | No       | Actual end date and time for the shipments arrival.         |
+| actual_departure_start_dttm                                                                                  | timestamp | No       | Actual start date and time for the shipment departure.      |
+| actual_departure_end_dttm                                                                                    | timestamp | No       | Actual end date and time for the shipment departure.        |
+| appointment_number<br>NoteAWS Supply Chain web application will display this column as _appointment_number_. | string    | No       | Appointment number.                                         |
+| delivery_number                                                                                              | string    | No       | Delivery number of the shipment.                            |
+| source_event_id                                                                                              | string    | No       | ID of the event created in the source system.               |
+| source_update_dttm                                                                                           | timestamp | No       | Date time stamp of the update made in the source<br>system. |
+
+1Foreign key
+
+**Foreign key (FK)**
+
+The table below lists the columns with the associated foreign key.
+
+| Column      | Category     | FK/Data entity | FK/Column |
+| ----------- | ------------ | -------------- | --------- |
+| company_id  | Organization | company        | id        |
+| site_id     | Network      | site           | id        |
+| shipment_id | Inbound      | shipment       | id        |

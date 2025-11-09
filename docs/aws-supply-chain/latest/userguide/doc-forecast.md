@@ -30,10 +30,45 @@ forecast, lead time, and configuration for inventory policy.
 For _doc_fcst_ policy, you must provide the following
 information:
 
-| Data required 1  | Entity              | Field            | Value          | Notes                                              |
-| ---------------- | ------------------- | ---------------- | -------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Inventory policy | inventory_policy    | ss_policy        | doc_fcst       | NA>                                                |
-| Inventory policy | inventory_policy    | target_doc_limit | Number of days | NA>                                                |
-| Forecast         | forecast            | NA               | NA             | Mean or forecast quantities.>                      |
-| Lead time        | transportation_lane | NA               | NA             | Lead time from a source location to a destination. |
-| Lead time        | vendor_lead_time    | NA               | NA             | Lead time from a vendor to a destination location. | For inventory policy based on days of coverage, the days to cover is the _target_doc_limit_ value. ## Calculation logic for DOC_fcst policy ![Calculation logic for DOC_fcst policy](images/doc_fcst.png) ## Calculation Logic for doc_dem policy ![Calculation logic for doc_dem policy](images/doc_dem.png) The goal of days of coverage policy is to make sure on each review date that there is enough on-hand inventory to cover the configured days of coverage. The first part of the formula computes the days of coverage from the next review date until the end of days of coverage configured. The total covering period is *DOCP,S*​ for product _P_ and site _S_. The second part of the formula computes the extra demand before the target review date (the first review date after delivery). The covering period starts from the expected deliver date and ends with the target review date. If the current on-hand inventory on the delivery date is able to cover demand of this period, the system reorders 0. The max function determines whether we must order extra. ## Calculating reorder quantity The input for the reorder quantity calculation is the target inventory level and the current inventory level. If the inventory level record is missing, the system generates plan exceptions for you to review. ![Calculation of reorder quantity](images/roq_calculation.png) The reorder quantity of product _P_, site _S_, and date _D_ is the difference between the target inventory level and the current inventory level. If the current inventory level is higher than the target inventory level, the reorder quantity is 0. |
+| Data required 1  | Entity              | Field            | Value          | Notes                                                 |
+| ---------------- | ------------------- | ---------------- | -------------- | ----------------------------------------------------- |
+| Inventory policy | inventory_policy    | ss_policy        | doc_fcst       | NA>                                                   |
+| Inventory policy | inventory_policy    | target_doc_limit | Number of days | NA>                                                   |
+| Forecast         | forecast            | NA               | NA             | Mean or forecast quantities.>                         |
+| Lead time        | transportation_lane | NA               | NA             | Lead time from a source location to a destination.    |
+| Lead time        | vendor_lead_time    | NA               | NA             | Lead time from a vendor to a destination<br>location. |
+
+For inventory policy based on days of coverage, the days to cover is the _target_doc_limit_ value.
+
+## Calculation logic for DOC_fcst policy
+
+![Calculation logic for DOC_fcst policy](images/doc_fcst.png)
+
+## Calculation Logic for doc_dem policy
+
+![Calculation logic for doc_dem policy](images/doc_dem.png)
+
+The goal of days of coverage policy is to make sure on each review date
+that there is enough on-hand inventory to cover the configured days of
+coverage. The first part of the formula computes the days of coverage from
+the next review date until the end of days of coverage configured. The total
+covering period is *DOCP,S*​ for product
+_P_ and site _S_. The second part of the formula computes the extra demand
+before the target review date (the first review date after delivery). The
+covering period starts from the expected deliver date and ends with the
+target review date. If the current on-hand inventory on the delivery date is
+able to cover demand of this period, the system reorders 0. The max function
+determines whether we must order extra.
+
+## Calculating reorder quantity
+
+The input for the reorder quantity calculation is the target inventory
+level and the current inventory level. If the inventory level record is
+missing, the system generates plan exceptions for you to review.
+
+![Calculation of reorder quantity](images/roq_calculation.png)
+
+The reorder quantity of product _P_, site
+_S_, and date _D_ is the difference between the target inventory level and
+the current inventory level. If the current inventory level is higher than
+the target inventory level, the reorder quantity is 0.
