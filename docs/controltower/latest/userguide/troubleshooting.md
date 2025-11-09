@@ -294,13 +294,11 @@ problem adequately, due to some underlying behavior of AWS Config.
 ###### You may receive an error message, similar to one of these:
 
 - `AWS Control Tower cannot create an AWS Config delivery channel because
- one already exists. To continue, delete the existing delivery channel and
- try again
-.`
+one already exists. To continue, delete the existing delivery channel and
+try again .`
 - `AWS Control Tower cannot create an AWS Config configuration recorder
- because one already exists. To continue, delete the existing delivery
- channel and try again
-.`
+because one already exists. To continue, delete the existing delivery
+channel and try again .`
 
 **Common cause:** When the AWS Config service is enabled
 on an AWS account, it creates a configuration recorder and delivery channel with a

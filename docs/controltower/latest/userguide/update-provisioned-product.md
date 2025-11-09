@@ -4,6 +4,10 @@ The following procedure guides you through how to update your account in
 Account Factory or move it to a new OU, by updating the account's provisioned product in
 Service Catalog.
 
+###### Note
+
+If you have opted out of IAM Identity Center in your landing zone settings, values you provide during account provisioning with the AWS Service Catalog APIs or console are not used.
+
 ###### To update an Account Factory account or change its OU through Service Catalog
 
 1. Sign in to the AWS Management Console, and open the AWS Service Catalog console at

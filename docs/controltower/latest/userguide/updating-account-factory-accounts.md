@@ -29,8 +29,7 @@ auto-enrollment of accounts, or not. For more information about auto-enrollment,
 [Optionally configure auto-enrollment for
 accounts](configure-auto-enroll.md "configure-auto-enroll.md").
 
-**Control behavior when accounts are moved between
-OUs, with
+**Control behavior when accounts are moved between  OUs, with
 auto-enroll enabled**
 
 When you move an account into a new OU, AWS Control Tower applies the OU's enabled
@@ -38,38 +37,27 @@ baselines and controls to the account. Controls and baselines from the previous 
 are removed. If you move an account outside an OU that's registered, AWS Control Tower
 removes all deployed baselines and controls.
 
-**Control behavior when accounts are moved between
-OUs,
+**Control behavior when accounts are moved between  OUs,
 without auto-enroll**
 
 When you move an account between OUs, the controls for the destination OU are
-applied to the
-account. However, the controls that applied to the account from the
-former OU are not
-removed. The exact behavior of the controls is specific to the
-implementation of the
-controls that are active on the former OU and the destination
+applied to the  account. However, the controls that applied to the account from the
+former OU are not  removed. The exact behavior of the controls is specific to the
+implementation of the  controls that are active on the former OU and the destination
 OU.
 
 - _For controls implemented with AWS Config rules:_
-  The controls from the previous OU
-  are not removed. These controls must be
+  The controls from the previous OU  are not removed. These controls must be
   removed manually.
 - _For controls implemented with SCPs:_ The
-  SCP-based controls from the previous OU are
-  removed. The SCP-based controls
+  SCP-based controls from the previous OU are  removed. The SCP-based controls
   for the destination OU go into effect on this account.
 - _For controls implemented with AWS CloudFormation
-  hooks:_ This behavior
-  depends on the status of controls in
+  hooks:_ This behavior  depends on the status of controls in
   the new OU.
   - _If the destination OU has no hook-based
-    controls active:_ The old
-    controls remain active for
-    the moved account, unless you remove them
-    manually.
+    controls active:_ The old  controls remain active for
+    the moved account, unless you remove them  manually.
   - _If the destination OU has hook controls
-    active:_ The old controls are
-    removed and the
-    controls in the destination OU are applied to the
-    account.
+    active:_ The old controls are  removed and the
+    controls in the destination OU are applied to the  account.

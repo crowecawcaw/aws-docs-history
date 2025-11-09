@@ -76,8 +76,6 @@ parameters:
       - parameter_key: SubnetId # Type: String
         parameter_value: $[ alfred_ssm_/stack_1/subnet/id']
       - parameter_key: AvailablityZones # Type: CommaDelimitedList
-        parameter_value:
-  - "$[alfred_ssm_/availability_zone_1]"
- - "$[alfred_ssm_/availability_zone_2]"
+        parameter_value:   - "$[alfred_ssm_/availability_zone_1]"  - "$[alfred_ssm_/availability_zone_2]"
 
 ```

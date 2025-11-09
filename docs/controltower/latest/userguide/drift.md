@@ -64,8 +64,7 @@ drift re-occurs for those identical resources.
 
 When you move an account from one OU to another, the controls from the previous OU
 are not removed. If you enable any new hook-based control on the destination OU, the
-old
-hook-based control is removed from the account, and the new control replaces
+old  hook-based control is removed from the account, and the new control replaces
 it. Controls implemented with SCPs and AWS Config rules always must be removed manually
 when an account changes OUs.
 

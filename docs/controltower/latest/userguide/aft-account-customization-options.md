@@ -276,35 +276,51 @@ in the _Amazon CloudWatch Logs User Guide_.
 
 ###### To use CloudWatch Logs Insights for AFT
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  From the navigation pane,
-    choose **Logs**,
-    and then choose **Logs insights**.
-3.  Choose **Queries**.
-4.  Under **Sample queries**,
-    choose **Account Factory for Terraform**,
-    and then select
-    one of the following queries:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. From the navigation pane,
+   choose **Logs**,
+   and then choose **Logs insights**.
+3. Choose **Queries**.
+4. Under **Sample queries**,
+   choose **Account Factory for Terraform**,
+   and then select
+   one of the following queries:
+   - **Customization Logs by Account ID**
 
-        * **Customization Logs by Account ID**
+   ###### Note
 
+   Make sure
+   to replace `"YOUR-ACCOUNT-ID"`
+   with your target account ID.
 
+   ```
+   fields @timestamp, log_message.account_id as target_account_id, log_message.customization_request_id as customization_request_id, log_message.detail as detail, @logStream
+   | sort @timestamp desc
+   | filter log_message.account_id == `"YOUR-ACCOUNT-ID"` and @message like /customization_request_id/
+   ```
 
-        ###### Note
+   - **Customization Logs by Customization Request ID**
 
+   ###### Note
 
-         Make sure
-         to replace `"YOUR-ACCOUNT-ID"`
-         with your target account ID.
+   Make sure
+   to replace `"YOUR-CUSTOMIZATION-REQUEST-ID"`
+   with your customization request ID.
+   You can find your customization request ID
+   in the output
+   of the AFT account provisioning framework AWS Step Functions state machine.
+   For more information
+   about the AFT account provisioning framework,
+   see [AFT account provisioning pipeline](aft-provisioning-framework.md "aft-provisioning-framework.md")
 
+   ```
+   fields @timestamp, log_message.account_id as target_account_id, log_message.customization_request_id as customization_request_id, log_message.detail as detail, @logStream
+   | sort @timestamp desc
+   | filter log_message.customization_request_id == `"YOUR-CUSTOMIZATION-REQUEST-ID"`
+   ```
 
-
-
-        ```
-        fields @timestamp, log_message.account_id as target_account_id, log_message.customization_request_id as customization_request_id, log_message.detail as detail, @logStream
-
-    | sort @timestamp desc
-    | filter log_message.account_id == `"YOUR-ACCOUNT-ID"` and @message like /customization_request_id/ ``<br>• **Customization Logs by Customization Request ID** ###### Note Make sure to replace `"YOUR-CUSTOMIZATION-REQUEST-ID"` with your customization request ID. You can find your customization request ID in the output of the AFT account provisioning framework AWS Step Functions state machine. For more information about the AFT account provisioning framework, see [AFT account provisioning pipeline](aft-provisioning-framework.md "aft-provisioning-framework.md")`` fields @timestamp, log_message.account_id as target_account_id, log_message.customization_request_id as customization_request_id, log_message.detail as detail, @logStream
-    | sort @timestamp desc
-    | filter log_message.customization_request_id == `"YOUR-CUSTOMIZATION-REQUEST-ID"` ``` 5. After you select a query, make sure to select a time interval, and then choose **Run query**.
+5. After you select a query,
+   make sure
+   to select a time interval,
+   and then choose **Run query**.

@@ -44,6 +44,7 @@ available:
 - Asia Pacific (Thailand), ap-southeast-7
 - Mexico (Central), mx-central-1
 - Asia Pacific (Taipei), ap-east-2
+- Asia Pacific (New Zealand) , ap-southeast-6
   AWS Control Tower has some controls that work differently in the opt-in Regions than in the
   default Regions (other commercial Regions). For more information, see [Control limitations](control-limitations.md "control-limitations.md"). Here are some considerations to keep in mind
   as you deploy workloads into opt-in Regions.

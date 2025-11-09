@@ -44,8 +44,7 @@ resources: # List of resources
 keywords shown in the previous code example.**
 
 **name** – The name that is associated with the
-AWS CloudFormation StackSets.
-The string you provide assigns a more user-friendly name for a stack
+AWS CloudFormation StackSets. The string you provide assigns a more user-friendly name for a stack
 set.
 
 - **Type:** String
@@ -110,9 +109,7 @@ stored.
         "Resource": "arn:aws:s3:::`my-bucket`/*”
        }
    ]
-}
-
-
+}  
 ```
 
 You'll replace the `AccountId` variable shown in the

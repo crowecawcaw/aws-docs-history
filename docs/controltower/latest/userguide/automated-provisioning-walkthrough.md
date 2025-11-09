@@ -5,6 +5,10 @@ in AWS Control Tower by Service Catalog APIs
 AWS Control Tower is integrated with several other AWS services, such as AWS Service Catalog. You can use the
 APIs to create and provision your member accounts in AWS Control Tower.
 
+###### Note
+
+If you have opted out of IAM Identity Center in your landing zone settings, values you provide during account provisioning with the AWS Service Catalog APIs or console are not used.
+
 The video shows you how to provision accounts in an automated, batch fashion, by calling the
 AWS Service Catalog APIs. For provisioning, you'll call the [`ProvisionProduct`](../../../servicecatalog/latest/dg/API_ProvisionProduct.md "../../../servicecatalog/latest/dg/API_ProvisionProduct.md") API from the AWS command line interface (CLI), and
 you'll specify a JSON file that contains the parameters for each account you'd like to set up.
