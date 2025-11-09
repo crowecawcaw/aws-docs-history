@@ -12,14 +12,22 @@ For Transformation tasks, the extraction type can be defined as Explicit or Infe
 to be normalized.
 
 | Field       | Instruction                       | Extraction Type | Type   |
-| ----------- | --------------------------------- | --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | --------------------------------- | --------------- | ------ |
 | FIRST_NAME  | The first name                    | Explicit        | String |
 | MIDDLE_NAME | The middle name or initial        | Explicit        | String |
 | LAST_NAME   | The last name of the driver       | Explicit        | String |
-| SUFFIX      | The suffix, such as PhD, MSc. etc | Explicit        | String | Another example is with address blocks that could appear as a single field                                                                                                                                                                                                                                                                                                                                |
-| Field       | Instruction                       | Extraction Type | Type   |
-| ---         | ---                               | ---             | ---    |
-| Street      | What is the street address        | Explicit        | String |
-| City        | What is the city                  | Explicit        | String |
-| State       | What is the state?                | Explicit        | String |
-| ZipCode     | What is the address zip code?     | Explicit        | String | You can define these fields as completely individual fields, or create a Custom Type. Custom Types are re that you can reuse for different fields. In the example below, we create a custom type “NameInfo” that we use for “EmployeeName” and “ManagerName”. ![Console showing how to add custom type details. It also shows the sub-properties added to the custom type.](images/bda/bdacustomtype.png) |
+| SUFFIX      | The suffix, such as PhD, MSc. etc | Explicit        | String |
+
+Another example is with address blocks that could appear as a single field
+
+| Field   | Instruction                   | Extraction Type | Type   |
+| ------- | ----------------------------- | --------------- | ------ |
+| Street  | What is the street address    | Explicit        | String |
+| City    | What is the city              | Explicit        | String |
+| State   | What is the state?            | Explicit        | String |
+| ZipCode | What is the address zip code? | Explicit        | String |
+
+You can define these fields as completely individual fields, or create a Custom Type. Custom Types are re that you can reuse
+for different fields. In the example below, we create a custom type “NameInfo” that we use for “EmployeeName” and “ManagerName”.
+
+![Console showing how to add custom type details. It also shows the sub-properties added to the custom type.](images/bda/bdacustomtype.png)

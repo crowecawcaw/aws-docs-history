@@ -44,8 +44,29 @@ text.
 
 The following example shows a piece of text in three representations:
 
-| Representation        | Value                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text                  | "Amazon Bedrock uses high-performing foundation models from leading AI companies and Amazon." |
-| Floating-point vector | `[0.041..., 0.056..., -0.018..., -0.012..., -0.020..., ...]`                                  |
-| Binary vector         | `[1,1,0,0,0, ...]`                                                                            | **Runtime execution** At runtime, an embedding model is used to convert the user's query to a vector. The vector index is then queried to find chunks that are semantically similar to the user's query by comparing document vectors to the user query vector. In the final step, the user prompt is augmented with the additional context from the chunks that are retrieved from the vector index. The prompt alongside the additional context is then sent to the model to generate a response for the user. The following image illustrates how RAG operates at runtime to augment responses to user queries. ![Retrieval-augmented generation at runtime](images/kb/rag-runtime.png) To learn more about how to turn your data into a knowledge base, how to query your knowledge base after you've set it up, and customizations that you can apply to the data source during ingestion, see the following topics: ###### Topics <br>• [Turning data into a knowledge base](kb-how-data.md "kb-how-data.md") <br>• [Retrieving information from data sources using Amazon Bedrock Knowledge Bases](kb-how-retrieval.md "kb-how-retrieval.md") <br>• [Customizing your knowledge base](kb-how-customization.md "kb-how-customization.md") |
+| Representation        | Value                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| Text                  | "Amazon Bedrock uses high-performing foundation models from leading AI<br>companies and Amazon." |
+| Floating-point vector | `[0.041..., 0.056..., -0.018..., -0.012..., -0.020...,<br>...]`                                  |
+| Binary vector         | `[1,1,0,0,0, ...]`                                                                               |
+
+**Runtime execution**
+
+At runtime, an embedding model is used to convert the user's query to a vector. The
+vector index is then queried to find chunks that are semantically similar to the user's
+query by comparing document vectors to the user query vector. In the final step, the
+user prompt is augmented with the additional context from the chunks that are retrieved
+from the vector index. The prompt alongside the additional context is then sent to the
+model to generate a response for the user. The following image illustrates how RAG
+operates at runtime to augment responses to user queries.
+
+![Retrieval-augmented generation at runtime](images/kb/rag-runtime.png)
+To learn more about how to turn your data into a knowledge base, how to query your
+knowledge base after you've set it up, and customizations that you can apply to the data
+source during ingestion, see the following topics:
+
+###### Topics
+
+- [Turning data into a knowledge base](kb-how-data.md "kb-how-data.md")
+- [Retrieving information from data sources using Amazon Bedrock Knowledge Bases](kb-how-retrieval.md "kb-how-retrieval.md")
+- [Customizing your knowledge base](kb-how-customization.md "kb-how-customization.md")

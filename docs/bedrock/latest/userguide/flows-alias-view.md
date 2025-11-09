@@ -19,7 +19,7 @@ To get information about an alias of your flow, send a [GetFlowAlias](../APIRefe
 
 To list information for all aliases of a flow, send a [ListFlowAliass](../APIReference/API_agent_ListFlowAliass.md "../APIReference/API_agent_ListFlowAliass.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and specify the ARN or ID of the flow as the `flowIdentifier`. You can specify the following optional parameters:
 
-| Field      | Short description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a response.                                                                                                                                                        |
-| nextToken  | If there are more results than the number you specified in the `maxResults` field, the response returns a `nextToken` value. To see the next batch of results, send the `nextToken` value in another request. |
+| Field      | Short description                                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
+| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |

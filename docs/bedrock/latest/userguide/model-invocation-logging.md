@@ -174,23 +174,28 @@ see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](../..
 
 ## Model invocation logging using the console
 
-To enable model invocation logging, drag the slider button next to the **Logging**
-toggle switch in the **Settings** page.
-Additional configuration settings for logging will appear on the panel.
+###### To enable model invocation logging
 
-Choose which data requests and responses you want to publish to the logs. You can choose any
-combination of the following output options:
+Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
+[https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 
-- Text
-- Image
-- Embedding
+1. From the left navigation pane, select **Settings**.
+2. In the **Model invocation logging** page, select **Model invocation logging**. Additional configuration settings for logging will appear.
+3. Select the modalities of the data requests and responses that you want to publish to the logs. You can select any combination of the following output options:
+   - Text
+   - Image
+   - Embedding
+   - Video
 
-Choose where to
-publish the logs:
+###### Note
 
-- Amazon S3 only
-- CloudWatch Logs only
-- Both Amazon S3 and CloudWatch Logs
+Data will be logged for _all_ models that support the modalities (whether as input or output) that you choose. For example, if you select **Image**, model invocation will be logged for all models that support image input, image output, or both. 4. Select where to publish the logs:
+
+    * Amazon S3 only
+    * CloudWatch Logs only
+    * Both Amazon S3 and CloudWatch Logs
+
+###### Logging destinations
 
 Amazon S3 and CloudWatch Logs destinations are supported for invocation logs, and small
 input and output data. For large input and output data or binary image outputs, only

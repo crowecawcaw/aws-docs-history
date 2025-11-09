@@ -44,8 +44,45 @@ For example, if you choose a value of 0.8 for Top P, the model selects from the 
 
 The following table summarizes the effects of these parameters.
 
-| Parameter   | Effect of lower value                                                                            | Effect of higher value                                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Temperature | Increase likelihood of higher-probability tokens Decrease likelihood of lower-probability tokens | Increase likelihood of lower-probability tokensDecrease likelihood of higher-probability tokens |
-| Top K       | Remove lower-probability tokens                                                                  | Allow lower-probability tokens                                                                  |
-| Top P       | Remove lower-probability tokens                                                                  | Allow lower-probability tokens                                                                  | As an example to understand these parameters, consider the example prompt `I hear the hoof beats of "`. Let's say that the model determines the following three words to be candidates for the next token. The model also assigns a probability for each word. `{ "horses": 0.7, "zebras": 0.2, "unicorns": 0.1 }` <br>• If you set a high **temperature**, the probability distribution is flattened and the probabilities become less different, which would increase the probability of choosing "unicorns" and decrease the probability of choosing "horses". <br>• If you set **Top K** as 2, the model only considers the top 2 most likely candidates: "horses" and "zebras." <br>• If you set **Top P** as 0.7, the model only considers "horses" because it is the only candidate that lies in the top 70% of the probability distribution. If you set **Top P** as 0.9, the model considers "horses" and "zebras" as they are in the top 90% of probability distribution. ## Length Foundation models typically support parameters that limit the length of the response. Examples of these parameters are provided below. <br>• **Response length** – An exact value to specify the minimum or maximum number of tokens to return in the generated response. <br>• **Penalties** – Specify the degree to which to penalize outputs in a response. Examples include the following. + The length of the response. + Repeated tokens in a response. + Frequency of tokens in a response. + Types of tokens in a response. <br>• **Stop sequences** – Specify sequences of characters that stop the model from generating further tokens. If the model generates a stop sequence that you specify, it will stop generating after that sequence. |
+| Parameter   | Effect of lower value                                                                                  | Effect of higher value                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| Temperature | Increase likelihood of higher-probability tokens<br>Decrease<br>likelihood of lower-probability tokens | Increase likelihood of lower-probability tokensDecrease<br>likelihood of higher-probability tokens |
+| Top K       | Remove lower-probability tokens                                                                        | Allow lower-probability tokens                                                                     |
+| Top P       | Remove lower-probability tokens                                                                        | Allow lower-probability tokens                                                                     |
+
+As an example to understand these parameters, consider the example prompt `I hear the hoof beats of "`. Let's say that the model determines the following three words to be candidates for the next token. The model also assigns a probability for each word.
+
+```
+{
+    "horses": 0.7,
+    "zebras": 0.2,
+    "unicorns": 0.1
+}
+```
+
+- If you set a high **temperature**, the
+  probability distribution is flattened and the probabilities become less
+  different, which would increase the probability of choosing "unicorns" and
+  decrease the probability of choosing "horses".
+- If you set **Top K** as 2, the model only
+  considers the top 2 most likely candidates: "horses" and "zebras."
+- If you set **Top P** as 0.7, the model only
+  considers "horses" because it is the only candidate that lies in the top 70% of
+  the probability distribution. If you set **Top P**
+  as 0.9, the model considers "horses" and "zebras" as they are in the top 90% of
+  probability distribution.
+
+## Length
+
+Foundation models typically support parameters that limit the length of the response. Examples of these parameters are provided below.
+
+- **Response length** – An exact value to specify the minimum or maximum number of tokens to return in the generated
+  response.
+- **Penalties** – Specify the degree to which to penalize outputs in a response. Examples include the following.
+  - The length of the response.
+  - Repeated tokens in a response.
+  - Frequency of tokens in a response.
+  - Types of tokens in a response.
+
+- **Stop sequences** – Specify sequences of characters that stop the model from
+  generating further tokens. If the model generates a stop sequence that you specify, it will stop generating after that sequence.

@@ -58,7 +58,7 @@ As an example, a database repository contains the following table with informati
 customers and their purchases:
 
 | Customer ID | Amount purchased in 2020 | Amount purchased in 2021 | Amount purchased in 2022 | Total purchased amount to date |
-| ----------- | ------------------------ | ------------------------ | ------------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ------------------------ | ------------------------ | ------------------------ | ------------------------------ |
 | 1           | 200                      | 300                      | 500                      | 1000                           |
 | 2           | 150                      | 100                      | 120                      | 370                            |
 | 3           | 300                      | 300                      | 300                      | 900                            |
@@ -68,4 +68,25 @@ customers and their purchases:
 | 7           | 470                      | 420                      | 400                      | 1290                           |
 | 8           | 250                      | 280                      | 250                      | 780                            |
 | 9           | 620                      | 830                      | 740                      | 2190                           |
-| 10          | 300                      | 200                      | 300                      | 800                            | If a user query says "give me a summary of the top 5 spending customers," the knowledge base can do the following: <br>• Convert the query into an SQL query. <br>• Return an excerpt from the table that contains the following: + Relevant table columns "Customer ID" and "Total Purchased Amount To Date" + Table rows containing the total purchase amount for the 10 highest spending customers <br>• Generate a response that states which customers were the top 5 spending customers and how much they purchased. Other examples of queries that a knowledge base can generate a table excerpt for include: <br>• "top 5 customers by spending in 2020" <br>• "top customer by purchase amount in 2020" <br>• "top 5 customers by purchase amount from 2020-2022" <br>• "top 5 highest spending customers in 2020-2022" <br>• "customers with total purchase amount less than $10" <br>• "top 5 lowest spending customers" The more specific or detailed a query is, the more the knowledge base can narrow down the exact information to return. For example, instead of the query "top 10 customers by spending in 2020", a more specific query is “find the 10 highest total purchased amount to date for customers in 2020". The specific query refers to the column name "Total Purchased Amount To Date" in the customers spending database table, and also indicates that the data should be sorted by "highest". |
+| 10          | 300                      | 200                      | 300                      | 800                            |
+
+If a user query says "give me a summary of the top 5
+spending customers," the knowledge base can do the following:
+
+- Convert the query into an SQL query.
+- Return an excerpt from the table that contains the following:
+  - Relevant table columns "Customer ID" and "Total Purchased Amount To Date"
+  - Table rows containing the total purchase amount for the 10 highest spending customers
+
+- Generate a response that states which customers were the top 5 spending customers and how much they purchased.
+
+Other examples of queries that a knowledge base can generate a table excerpt for include:
+
+- "top 5 customers by spending in 2020"
+- "top customer by purchase amount in 2020"
+- "top 5 customers by purchase amount from 2020-2022"
+- "top 5 highest spending customers in 2020-2022"
+- "customers with total purchase amount less than $10"
+- "top 5 lowest spending customers"
+
+The more specific or detailed a query is, the more the knowledge base can narrow down the exact information to return. For example, instead of the query "top 10 customers by spending in 2020", a more specific query is “find the 10 highest total purchased amount to date for customers in 2020". The specific query refers to the column name "Total Purchased Amount To Date" in the customers spending database table, and also indicates that the data should be sorted by "highest".

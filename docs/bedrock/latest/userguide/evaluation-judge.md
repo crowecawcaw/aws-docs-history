@@ -63,4 +63,4 @@ You can use the following model types in Amazon Bedrock as the generator model i
 - Imported foundation models – [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md")
 - Prompt routers – [Understanding intelligent prompt routing in
   Amazon Bedrock](prompt-routing.md "prompt-routing.md")
-- Models for which you have purchased Provisioned Throughput – [Provisioned Throughput](prov-throughput.md "prov-throughput.md")
+- Models for which you have purchased Provisioned Throughput – [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md")

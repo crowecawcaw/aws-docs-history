@@ -35,8 +35,76 @@ To carry out tagging operations, you need the Amazon Resource Name (ARN) of the 
 
 The following table summarizes the different use cases and the tagging operations to use for them:
 
-| Use case                 | Resource created with [Amazon Bedrock](../APIReference/API_Operations_Amazon_Bedrock.md "../APIReference/API_Operations_Amazon_Bedrock.md") API operation                                                                                                                                                                                                                               | Resource created with [Amazon Bedrock Agents](../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md") API operation                                                                                                                                                                                                                        | Resource created with Amazon Bedrock Data Automation API                                                                                                                                                                     |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tag a resource           | <br>• If the resource wasn't created yet, use the `tags` field when creating the resource. <br>• If the resource was already created, make a [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). | <br>• If the resource wasn't created yet, use the `tags` field when creating the resource. <br>• If the resource was already created, make a [TagResource](../APIReference/API_agent_TagResource.md "../APIReference/API_agent_TagResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). | <br>• If the resource wasn't created yet, use the `tags` field when creating the resource. <br>• If the resource was already created, make a TagResource request with an Amazon Bedrock Data Automation Build time Endpoint. |
-| Untag a resource         | Make an [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").                                                                                                                                | Make an [UntagResource](../APIReference/API_agent_UntagResource.md "../APIReference/API_agent_UntagResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").                                                                                                                                | Make an UntagResource request with an Amazon Bedrock Data Automation Build time Endpoint.                                                                                                                                    |
-| List tags for a resource | Make a [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").                                                                                                               | Make a [ListTagsForResource](../APIReference/API_agent_ListTagsForResource.md "../APIReference/API_agent_ListTagsForResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").                                                                                                               | Make a ListTagsForResource request with an Amazon Bedrock Data Automation Build time Endpoint.                                                                                                                               | ###### Note When viewing these operations in CloudTrail, you can identify the specific resource being tagged by checking the request parameters in the event details. Choose a tab to see code examples in an interface or language. AWS CLI Add two tags to an agent. Separate key/value pairs with a space. `aws bedrock-agent tag-resource \ --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345" \ --tags key=department,value=billing key=facing,value=internal` Remove the tags from the agent. Separate keys with a space. `aws bedrock-agent untag-resource \ --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345" \ --tag-keys key=department facing` List the tags for the agent. `aws bedrock-agent list-tags-for-resource \ --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345"` Python (Boto) Add two tags to an agent. `import boto3 bedrock = boto3.client(service_name='bedrock-agent') tags = [ { 'key': 'department', 'value': 'billing' }, { 'key': 'facing', 'value': 'internal' } ] bedrock.tag_resource(resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345', tags=tags)` Remove the tags from the agent. `bedrock.untag_resource( resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345', tagKeys=['department', 'facing'] )` List the tags for the agent. `bedrock.list_tags_for_resource(resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345')` |
+| Use case                 | Resource created with [Amazon Bedrock](../APIReference/API_Operations_Amazon_Bedrock.md "../APIReference/API_Operations_Amazon_Bedrock.md") API operation                                                                                                                                                                                                                          | Resource created with [Amazon Bedrock Agents](../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md") API operation                                                                                                                                                                                                                   | Resource created with Amazon Bedrock Data Automation API                                                                                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tag a resource           | • If the resource wasn't created yet, use the `tags` field when creating the resource.<br>• If the resource was already created, make a [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). | • If the resource wasn't created yet, use the `tags` field when creating the resource.<br>• If the resource was already created, make a [TagResource](../APIReference/API_agent_TagResource.md "../APIReference/API_agent_TagResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). | • If the resource wasn't created yet, use the `tags` field when creating the resource.<br>• If the resource was already created, make a TagResource request with an Amazon Bedrock Data Automation Build time Endpoint. |
+| Untag a resource         | Make an [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").                                                                                                                           | Make an [UntagResource](../APIReference/API_agent_UntagResource.md "../APIReference/API_agent_UntagResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").                                                                                                                           | Make an UntagResource request with an Amazon Bedrock Data Automation Build time Endpoint.                                                                                                                               |
+| List tags for a resource | Make a [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp").                                                                                                          | Make a [ListTagsForResource](../APIReference/API_agent_ListTagsForResource.md "../APIReference/API_agent_ListTagsForResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").                                                                                                          | Make a ListTagsForResource request with an Amazon Bedrock Data Automation Build time Endpoint.                                                                                                                          |
+
+###### Note
+
+When viewing these operations in CloudTrail, you can identify the specific resource being
+tagged by checking the request parameters in the event details.
+
+Choose a tab to see code examples in an interface or language.
+
+AWS CLI
+Add two tags to an agent. Separate key/value pairs with a space.
+
+```
+aws bedrock-agent tag-resource \
+    --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345" \
+    --tags key=department,value=billing key=facing,value=internal
+```
+
+Remove the tags from the agent. Separate keys with a space.
+
+```
+aws bedrock-agent untag-resource \
+    --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345" \
+    --tag-keys key=department facing
+```
+
+List the tags for the agent.
+
+```
+aws bedrock-agent list-tags-for-resource \
+    --resource-arn "arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345"
+```
+
+Python (Boto)
+Add two tags to an agent.
+
+```
+import boto3
+
+bedrock = boto3.client(service_name='bedrock-agent')
+
+tags = [
+    {
+        'key': 'department',
+        'value': 'billing'
+    },
+    {
+        'key': 'facing',
+        'value': 'internal'
+    }
+]
+
+bedrock.tag_resource(resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345', tags=tags)
+```
+
+Remove the tags from the agent.
+
+```
+bedrock.untag_resource(
+    resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345',
+    tagKeys=['department', 'facing']
+)
+```
+
+List the tags for the agent.
+
+```
+bedrock.list_tags_for_resource(resourceArn='arn:aws:bedrock:us-east-1:123456789012:agent/AGENT12345')
+```

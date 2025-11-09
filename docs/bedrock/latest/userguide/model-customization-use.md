@@ -6,7 +6,7 @@ After you create a custom model, you can set up inference using one of the follo
   Provisioned Throughput for your model to set up dedicated compute capacity with guaranteed throughput
   for consistent performance and lower latency.
 
-For more information about Provisioned Throughput, see [Provisioned Throughput](prov-throughput.md "prov-throughput.md"). For more information
+For more information about Provisioned Throughput, see [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md"). For more information
 about using custom models with Provisioned Throughput, see [Purchase Provisioned Throughput for a custom model](custom-model-use-pt.md "custom-model-use-pt.md").
 
 - **Deploy custom model for on-demand inference**

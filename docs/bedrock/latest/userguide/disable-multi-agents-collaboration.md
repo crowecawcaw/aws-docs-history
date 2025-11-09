@@ -32,9 +32,9 @@ To apply the changes to the working draft, send a [PrepareAgent](../APIReference
 
 You must minimally include the following fields:
 
-| Field                | Use case                                                                                                                           |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| agentResourceRoleArn | To specify an ARN of the service role with permissions to call API operations on the agent                                         |
-| foundationModel      | To specify a foundation model (FM) for the agent to orchestrate with                                                               |
-| instruction          | To provide instructions to tell the agent what to do. Used in the $instructions$ placeholder of the orchestration prompt template. |
-| agentCollaboration   | To disable multi-agent collaboration, set this field to `DISABLED`                                                                 |
+| Field                | Use case                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| agentResourceRoleArn | To specify an ARN of the service role with permissions to call API operations on the agent                                            |
+| foundationModel      | To specify a foundation model (FM) for the agent to orchestrate<br>with                                                               |
+| instruction          | To provide instructions to tell the agent what to do. Used<br>in the $instructions$ placeholder of the orchestration prompt template. |
+| agentCollaboration   | To disable multi-agent collaboration, set this field to `DISABLED`                                                                    |

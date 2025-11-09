@@ -49,11 +49,166 @@ If a project is created with no parameters, the default settings will apply. For
 
 The following table shows all available parameters for the `create-data-automation-project` command:
 
-| Parameters for create-data-automation-project | Parameter | Required       | Default                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------------------- | --------- | -------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Parameters for create-data-automation-project | Parameter | Required       | Default                                           | Description |
+| --------------------------------------------- | --------- | -------------- | ------------------------------------------------- | ----------- |
 | `--project-name`                              | Yes       | N/A            | Name for the Data Automation project              |
 | `--project-stage`                             | No        | LIVE           | Stage for the project (DEVELOPMENT or LIVE)       |
 | `--standard-output-configuration`             | Yes       | N/A            | JSON configuration for standard output processing |
 | `--custom-output-configuration`               | No        | N/A            | JSON configuration for custom output processing   |
 | `--encryption-configuration`                  | No        | N/A            | Encryption settings for the project               |
-| `--client-token`                              | No        | Auto-generated | Unique identifier for request idempotency         | ## Creating a Blueprint After creating a project, you can create a Blueprint to define the structure of your data processing using the `create-blueprint` command. Here's a minimal working example for creating a Blueprint tailored to passport processing: `aws bedrock-data-automation create-blueprint \ --blueprint-name "passport-blueprint" \ --type "IMAGE" \ --blueprint-stage "DEVELOPMENT" \ --schema '{ "class": "Passport", "description": "Blueprint for processing passport images", "properties": { "passport_number": { "type": "string", "inferenceType": "explicit", "instruction": "The passport identification number" }, "full_name": { "type": "string", "inferenceType": "explicit", "instruction": "The full name of the passport holder" } } }'` The command creates a new Blueprint with the specified schema. You can then use this Blueprint when processing documents to extract structured data according to your defined schema. ## Using your Blueprint ### Adding a Blueprint to a project To add a Blueprint to your project, use the `update-data-automation-project` command: `aws bedrock-data-automation update-data-automation-project \ --project-arn "Amazon Resource Name (ARN)" \ --standard-output-configuration '{ "image": { "extraction": { "category": { "state": "ENABLED", "types": ["TEXT_DETECTION"] }, "boundingBox": { "state": "ENABLED" } }, "generativeField": { "state": "ENABLED", "types": ["IMAGE_SUMMARY"] } } }' \ --custom-output-configuration '{ "blueprints": [ { "blueprintArn": "Amazon Resource Name (ARN)", "blueprintVersion": "1", "blueprintStage": "LIVE" } ] }'` ### Verifying Blueprint integration You can verify the Blueprint integration using the `get-data-automation-project` command: `aws bedrock-data-automation get-data-automation-project \ --project-arn "Amazon Resource Name (ARN)"` ### Managing multiple Blueprints Use the `list-blueprints` command to view all of your Blueprints: `aws bedrock-data-automation list-blueprints` ## Process Documents Once you have a project set up, you can process documents using the `invoke-data-automation-async` command: `aws bedrock-data-automation-runtime invoke-data-automation-async \ --input-configuration '{ "s3Uri": "s3://my-bda-documents/invoices/invoice-123.pdf" }' \ --output-configuration '{ "s3Uri": "s3://my-bda-documents/output/" }' \ --data-automation-configuration '{ "dataAutomationProjectArn": "Amazon Resource Name (ARN)", "stage": "LIVE" }' \ --data-automation-profile-arn "Amazon Resource Name (ARN)"` The command returns an invocation ARN that you can use to check the processing status: `{ "invocationArn": "Amazon Resource Name (ARN)" }` ## Check Processing Status To check the status of your processing job, use the `get-data-automation-status` command: `aws bedrock-data-automation-runtime get-data-automation-status \ --invocation-arn "Amazon Resource Name (ARN)"` The command returns the current status of the processing job: `{ "status": "COMPLETED", "creationTime": "2025-07-09T12:34:56.789Z", "lastModifiedTime": "2025-07-09T12:45:12.345Z", "outputLocation": "s3://my-bda-documents/output/efgh5678/" }` Possible status values include: <br>• `IN_PROGRESS`: The processing job is currently running. <br>• `COMPLETED`: The processing job has successfully completed. <br>• `FAILED`: The processing job has failed. Check the response for error details. <br>• `STOPPED`: The processing job was manually stopped. ## Retrieve Results Once processing is complete, you can list the output files in your S3 bucket: `aws s3 ls s3://my-bda-documents/output/efgh5678/` To download the results to your local machine: `aws s3 cp s3://my-bda-documents/output/efgh5678/ ~/Downloads/bda-results/ --recursive` The output includes structured data based on your project configuration and any Blueprints you've applied. |
+| `--client-token`                              | No        | Auto-generated | Unique identifier for request idempotency         |
+
+## Creating a Blueprint
+
+After creating a project, you can create a Blueprint to define the structure of your data processing using the `create-blueprint` command.
+
+Here's a minimal working example for creating a Blueprint tailored to passport processing:
+
+```
+aws bedrock-data-automation create-blueprint \
+    --blueprint-name "passport-blueprint" \
+    --type "IMAGE" \
+    --blueprint-stage "DEVELOPMENT" \
+    --schema '{
+        "class": "Passport",
+        "description": "Blueprint for processing passport images",
+        "properties": {
+            "passport_number": {
+                "type": "string",
+                "inferenceType": "explicit",
+                "instruction": "The passport identification number"
+            },
+            "full_name": {
+                "type": "string",
+                "inferenceType": "explicit",
+                "instruction": "The full name of the passport holder"
+            }
+        }
+    }'
+```
+
+The command creates a new Blueprint with the specified schema. You can then use this Blueprint when processing documents to extract structured data according to your defined schema.
+
+## Using your Blueprint
+
+### Adding a Blueprint to a project
+
+To add a Blueprint to your project, use the `update-data-automation-project` command:
+
+```
+aws bedrock-data-automation update-data-automation-project \
+    --project-arn "Amazon Resource Name (ARN)" \
+    --standard-output-configuration '{
+        "image": {
+            "extraction": {
+                "category": {
+                    "state": "ENABLED",
+                    "types": ["TEXT_DETECTION"]
+                },
+                "boundingBox": {
+                    "state": "ENABLED"
+                }
+            },
+            "generativeField": {
+                "state": "ENABLED",
+                "types": ["IMAGE_SUMMARY"]
+            }
+        }
+    }' \
+    --custom-output-configuration '{
+        "blueprints": [
+            {
+                "blueprintArn": "Amazon Resource Name (ARN)",
+                "blueprintVersion": "1",
+                "blueprintStage": "LIVE"
+            }
+        ]
+    }'
+```
+
+### Verifying Blueprint integration
+
+You can verify the Blueprint integration using the `get-data-automation-project` command:
+
+```
+aws bedrock-data-automation get-data-automation-project \
+    --project-arn "Amazon Resource Name (ARN)"
+```
+
+### Managing multiple Blueprints
+
+Use the `list-blueprints` command to view all of your Blueprints:
+
+```
+aws bedrock-data-automation list-blueprints
+```
+
+## Process Documents
+
+Once you have a project set up, you can process documents using the `invoke-data-automation-async` command:
+
+```
+aws bedrock-data-automation-runtime invoke-data-automation-async \
+    --input-configuration '{
+        "s3Uri": "s3://my-bda-documents/invoices/invoice-123.pdf"
+    }' \
+    --output-configuration '{
+        "s3Uri": "s3://my-bda-documents/output/"
+    }' \
+    --data-automation-configuration '{
+        "dataAutomationProjectArn": "Amazon Resource Name (ARN)",
+        "stage": "LIVE"
+    }' \
+    --data-automation-profile-arn "Amazon Resource Name (ARN)"
+```
+
+The command returns an invocation ARN that you can use to check the processing status:
+
+```
+{
+    "invocationArn": "Amazon Resource Name (ARN)"
+}
+```
+
+## Check Processing Status
+
+To check the status of your processing job, use the `get-data-automation-status` command:
+
+```
+aws bedrock-data-automation-runtime get-data-automation-status \
+    --invocation-arn "Amazon Resource Name (ARN)"
+```
+
+The command returns the current status of the processing job:
+
+```
+{
+    "status": "COMPLETED",
+    "creationTime": "2025-07-09T12:34:56.789Z",
+    "lastModifiedTime": "2025-07-09T12:45:12.345Z",
+    "outputLocation": "s3://my-bda-documents/output/efgh5678/"
+}
+```
+
+Possible status values include:
+
+- `IN_PROGRESS`: The processing job is currently running.
+- `COMPLETED`: The processing job has successfully completed.
+- `FAILED`: The processing job has failed. Check the response for error details.
+- `STOPPED`: The processing job was manually stopped.
+
+## Retrieve Results
+
+Once processing is complete, you can list the output files in your S3 bucket:
+
+```
+aws s3 ls s3://my-bda-documents/output/efgh5678/
+```
+
+To download the results to your local machine:
+
+```
+aws s3 cp s3://my-bda-documents/output/efgh5678/ ~/Downloads/bda-results/ --recursive
+```
+
+The output includes structured data based on your project configuration and any Blueprints you've applied.

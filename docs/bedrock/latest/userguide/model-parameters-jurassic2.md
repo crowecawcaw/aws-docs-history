@@ -104,10 +104,53 @@ To penalize special tokens, add those fields to any of the penalty objects. For 
 The following table shows the minimum, maximum, and default values for the numerical parameters.
 
 | Category                  | Parameter                                 | JSON object format | Minimum | Maximum | Default |
-| ------------------------- | ----------------------------------------- | ------------------ | ------- | ------- | ------- | ----------------- | ---------------- | --- | --- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ----------------------------------------- | ------------------ | ------- | ------- | ------- |
 | Randomness and diversity  | Temperature                               | temperature        | 0       | 1       | 0.5     |
 | Top P                     | topP                                      | 0                  | 1       | 0.5     |
 | Length                    | Max tokens (mid, ultra, and large models) | maxTokens          | 0       | 8,191   | 200     |
 | Max tokens (other models) | 0                                         | 2,048              | 200     |
 | Repetitions               | Presence penalty                          | presencePenalty    | 0       | 5       | 0       |
-| Count penalty             | countPenalty                              | 0                  | 1       | 0       |         | Frequency penalty | frequencyPenalty | 0   | 500 | 0   | ### Model invocation response body field For information about the format of the `body` field in the response, see [https://docs.ai21.com/reference/j2-complete-api-ref](https://docs.ai21.com/reference/j2-complete-api-ref "https://docs.ai21.com/reference/j2-complete-api-ref"). ###### Note Amazon Bedrock returns the response identifier (`id`) as an integer value. ## Code example This examples shows how to call the _A2I AI21 Labs Jurassic-2 Mid_ model. `import boto3 import json brt = boto3.client(service_name='bedrock-runtime') body = json.dumps({ "prompt": "Translate to spanish: 'Amazon Bedrock is the easiest way to build and scale generative AI applications with base models (FMs)'.", "maxTokens": 200, "temperature": 0.5, "topP": 0.5 }) modelId = 'ai21.j2-mid-v1' accept = 'application/json' contentType = 'application/json' response = brt.invoke_model( body=body, modelId=modelId, accept=accept, contentType=contentType ) response_body = json.loads(response.get('body').read()) # text print(response_body.get('completions')[0].get('data').get('text'))` |
+| Count penalty             | countPenalty                              | 0                  | 1       | 0       |
+| Frequency penalty         | frequencyPenalty                          | 0                  | 500     | 0       |
+
+### Model invocation response body field
+
+For information about the format of the `body` field in the response, see [https://docs.ai21.com/reference/j2-complete-api-ref](https://docs.ai21.com/reference/j2-complete-api-ref "https://docs.ai21.com/reference/j2-complete-api-ref").
+
+###### Note
+
+Amazon Bedrock returns the response identifier (`id`) as an integer value.
+
+## Code example
+
+This examples shows how to call the _A2I AI21 Labs Jurassic-2 Mid_ model.
+
+```
+import boto3
+import json
+
+brt = boto3.client(service_name='bedrock-runtime')
+
+body = json.dumps({
+    "prompt": "Translate to spanish: 'Amazon Bedrock is the easiest way to build and scale generative AI applications with base models (FMs)'.",
+    "maxTokens": 200,
+    "temperature": 0.5,
+    "topP": 0.5
+})
+
+modelId = 'ai21.j2-mid-v1'
+accept = 'application/json'
+contentType = 'application/json'
+
+response = brt.invoke_model(
+    body=body,
+    modelId=modelId,
+    accept=accept,
+    contentType=contentType
+)
+
+response_body = json.loads(response.get('body').read())
+
+# text
+print(response_body.get('completions')[0].get('data').get('text'))
+```

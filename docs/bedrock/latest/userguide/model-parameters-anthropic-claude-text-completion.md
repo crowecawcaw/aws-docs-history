@@ -78,14 +78,145 @@ for this parameter. For more information, see
 the Anthropic Claude documentation.
 
 | Default | Minimum | Maximum |
-| ------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 200     | 0       | 4096    | The following are optional parameters. <br>• **stop_sequences** – (Optional) Sequences that will cause the model to stop generating. Anthropic Claude models stop on `"\n\nHuman:"`, and may include additional built-in stop sequences in the future. Use the `stop_sequences` inference parameter to include additional strings that will signal the model to stop generating text. <br>• **temperature** – (Optional) The amount of randomness injected into the response. Use a value closer to 0 for analytical / multiple choice, and a value closer to 1 for creative and generative tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------- | ------- | ------- |
+| 200     | 0       | 4096    |
+
+The following are optional parameters.
+
+- **stop_sequences**
+  – (Optional) Sequences that will cause the model to stop generating.
+
+Anthropic Claude models stop on `"\n\nHuman:"`, and may
+include additional built-in stop sequences in the future. Use the
+`stop_sequences` inference parameter to include
+additional strings that will signal the model to stop generating
+text.
+
+- **temperature**
+  – (Optional) The amount of randomness injected into the response. Use a value closer to 0 for
+  analytical / multiple choice, and a value closer to 1 for creative and
+  generative tasks.
+
 | Default | Minimum | Maximum |
-| ---     | ---     | ---     |
-| 1       | 0       | 1       | <br>• **top_p** – (Optional) Use nucleus sampling. In nucleus sampling, Anthropic Claude computes the cumulative distribution over all the options for each subsequent token in decreasing probability order and cuts it off once it reaches a particular probability specified by `top_p`. You should alter either `temperature` or `top_p`, but not both.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------- | ------- | ------- |
+| 1       | 0       | 1       |
+
+- **top_p**
+  – (Optional) Use nucleus sampling.
+
+In nucleus sampling, Anthropic Claude computes the cumulative
+distribution over all the options for each subsequent token in
+decreasing probability order and cuts it off once it reaches a
+particular probability specified by `top_p`. You should alter either
+`temperature` or `top_p`, but not both.
+
 | Default | Minimum | Maximum |
-| ---     | ---     | ---     |
-| 1       | 0       | 1       | <br>• **top_k** – (Optional) Only sample from the top K options for each subsequent token. Use `top_k` to remove long tail low probability responses.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------- | ------- | ------- |
+| 1       | 0       | 1       |
+
+- **top_k**
+  – (Optional) Only sample from the top K options for each subsequent token.
+
+Use `top_k` to remove long tail low probability responses.
+
 | Default | Minimum | Maximum |
-| ---     | ---     | ---     |
-| 250     | 0       | 500     | Response The Anthropic Claude model returns the following fields for a Text Completion inference call. `{ "completion": string, "stop_reason": string, "stop": string }` <br>• **completion** – The resulting completion up to and excluding the stop sequences. <br>• **stop_reason** – The reason why the model stopped generating the response. + **"stop_sequence"** – The model reached a stop sequence — either provided by you with the `stop_sequences` inference parameter, or a stop sequence built into the model. + **"max_tokens"** – The model exceeded `max_tokens_to_sample` or the model's maximum number of tokens. <br>• **stop** – If you specify the `stop_sequences` inference parameter, `stop` contains the stop sequence that signalled the model to stop generating text. For example, `holes` in the following response. `{ "completion": " Here is a simple explanation of black ", "stop_reason": "stop_sequence", "stop": "holes" }` If you don't specify `stop_sequences`, the value for `stop` is empty. ## Code example These examples shows how to call the _Anthropic Claude V2_ model with on demand throughput. To use Anthropic Claude version 2.1, change the value of `modelId` to `anthropic.claude-v2:1`. `import boto3 import json brt = boto3.client(service_name='bedrock-runtime') body = json.dumps({ "prompt": "\n\nHuman: explain black holes to 8th graders\n\nAssistant:", "max_tokens_to_sample": 300, "temperature": 0.1, "top_p": 0.9, }) modelId = 'anthropic.claude-v2' accept = 'application/json' contentType = 'application/json' response = brt.invoke_model(body=body, modelId=modelId, accept=accept, contentType=contentType) response_body = json.loads(response.get('body').read()) # text print(response_body.get('completion'))` The following example shows how to generate streaming text with Python using the prompt `write an essay for living on mars in 1000 words` and the Anthropic Claude V2 model: `import boto3 import json brt = boto3.client(service_name='bedrock-runtime') body = json.dumps({ 'prompt': '\n\nHuman: write an essay for living on mars in 1000 words\n\nAssistant:', 'max_tokens_to_sample': 4000 }) response = brt.invoke_model_with_response_stream( modelId='anthropic.claude-v2', body=body ) stream = response.get('body') if stream: for event in stream: chunk = event.get('chunk') if chunk: print(json.loads(chunk.get('bytes').decode()))` |
+| ------- | ------- | ------- |
+| 250     | 0       | 500     |
+
+Response
+The Anthropic Claude model returns the following fields
+for a Text Completion inference call.
+
+```
+{
+    "completion": string,
+    "stop_reason": string,
+    "stop": string
+}
+```
+
+- **completion** – The resulting
+  completion up to and excluding the stop sequences.
+- **stop_reason** – The reason why the model stopped generating
+  the response.
+  - **"stop_sequence"** –
+    The model reached a stop sequence — either provided by you
+    with the `stop_sequences` inference parameter, or a stop sequence built
+    into the model.
+  - **"max_tokens"** – The
+    model exceeded `max_tokens_to_sample` or the
+    model's maximum number of tokens.
+
+- **stop** – If you specify the
+  `stop_sequences` inference parameter, `stop`
+  contains the stop sequence that signalled the model to stop generating
+  text. For example, `holes` in the following response.
+
+```
+{
+    "completion": " Here is a simple explanation of black ",
+    "stop_reason": "stop_sequence",
+    "stop": "holes"
+}
+```
+
+If you don't specify `stop_sequences`, the value for `stop` is empty.
+
+## Code example
+
+These examples shows how to call the _Anthropic Claude V2_ model with on demand
+throughput. To use Anthropic Claude version 2.1, change the value of `modelId` to `anthropic.claude-v2:1`.
+
+```
+import boto3
+import json
+brt = boto3.client(service_name='bedrock-runtime')
+
+body = json.dumps({
+    "prompt": "\n\nHuman: explain black holes to 8th graders\n\nAssistant:",
+    "max_tokens_to_sample": 300,
+    "temperature": 0.1,
+    "top_p": 0.9,
+})
+
+modelId = 'anthropic.claude-v2'
+accept = 'application/json'
+contentType = 'application/json'
+
+response = brt.invoke_model(body=body, modelId=modelId, accept=accept, contentType=contentType)
+
+response_body = json.loads(response.get('body').read())
+
+# text
+print(response_body.get('completion'))
+```
+
+The following example shows how to generate streaming text with Python
+using the prompt
+`write an essay for living on mars in 1000
+ words` and the
+Anthropic Claude V2 model:
+
+```
+import boto3
+import json
+
+brt = boto3.client(service_name='bedrock-runtime')
+
+body = json.dumps({
+    'prompt': '\n\nHuman: write an essay for living on mars in 1000 words\n\nAssistant:',
+    'max_tokens_to_sample': 4000
+})
+
+response = brt.invoke_model_with_response_stream(
+    modelId='anthropic.claude-v2',
+    body=body
+)
+
+stream = response.get('body')
+if stream:
+    for event in stream:
+        chunk = event.get('chunk')
+        if chunk:
+            print(json.loads(chunk.get('bytes').decode()))
+```

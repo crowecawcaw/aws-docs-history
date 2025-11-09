@@ -1,5 +1,9 @@
 # How Amazon Bedrock Agents works
 
+|                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _Accelerate agents to production with Amazon Bedrock AgentCore. AgentCore is an agentic platform to build, deploy, and operate highly capable agents securely at scale. For more information, see the [AgentCore developer guide](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")._ |
+
 Amazon Bedrock Agents consists of the following two main sets of API operations to help you set up
 and run an agent:
 

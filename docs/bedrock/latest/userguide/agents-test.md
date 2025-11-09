@@ -62,7 +62,7 @@ combination is selected. 7. (Optional) To select Provisioned Throughput for your
 alias you selected will indicate **Using ODT** or
 **Using PT**. To create a Provisioned
 Throughput model, select **Change**. For more
-information, see [Provisioned Throughput](prov-throughput.md "prov-throughput.md"). 8. (Optional) To use a prompt from Prompt management, select the options icon
+information, see [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md"). 8. (Optional) To use a prompt from Prompt management, select the options icon
 (
 
 ![Vertical ellipsis icon representing a menu or more options.](images/icons/vertical-ellipsis.png)
@@ -200,15 +200,106 @@ The following fields exist in the request:
 
 - Minimally, provide the following required fields:
 
-| Field                   | Short description                                                                                                                                                                                                             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| agentId                 | ID of the agent                                                                                                                                                                                                               |
-| agentAliasId            | ID of the alias. Use `TSTALIASID` to invoke the `DRAFT` version                                                                                                                                                               |
-| sessionId               | Alphanumeric ID for the session (2–100 characters)                                                                                                                                                                            |
-| inputText               | The user prompt to send to the agent                                                                                                                                                                                          | <br>• The following fields are optional:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Field                   | Short description                                                                                                                                                                                                             |
-| ---                     | ---                                                                                                                                                                                                                           |
-| enableTrace             | Specify `TRUE` to view the [trace](trace-events.md "trace-events.md").                                                                                                                                                        |
-| endSession              | Specify `TRUE` to end the session with the agent after this request.                                                                                                                                                          |
-| sessionState            | Includes context that influences the agent's behavior or the behavior of knowledge bases attached to the agent. For more information, see [Control agent session context](agents-session-state.md "agents-session-state.md"). |
-| streamingConfigurations | Includes configurations for streaming response. To enable streaming, set `streamFinalResponse` to `TRUE`.                                                                                                                     | The response is returned in an event stream. Each event contains a `chunk`, which contains part of the response in the `bytes` field, which must be decoded. The following objects may also be returned: <br>• If the agent queried a knowledge base, the `chunk` also includes `citations`. <br>• If streaming is enabled and guardrail is configured for the agent, the response is generated in the character intervals specified for the guardrail interval. By default, the interval is set to 50 characters. <br>• If you enabled a trace, a `trace` object is also returned. If an error occurs, a field is returned with the error message. For more information about how to read the trace, see [Track agent's step-by-step reasoning process using trace](trace-events.md "trace-events.md"). <br>• If you set up your action group to skip using a Lambda function, a [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object is returned in the `returnControl` field. The general structure of the [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object is as follows: `{ "invocationId": "string", "invocationInputs": [ ApiInvocationInput or FunctionInvocationInput, ... ] }` Each member of the `invocationInputs` list is one of the following: + An [ApiInvocationInput](../APIReference/API_agent-runtime_ApiInvocationInput.md "../APIReference/API_agent-runtime_ApiInvocationInput.md") object containing the API operation that the agent predicts should be called based on the user input, in addition to the parameters and other information that it gets from the user to fulfill the API. The structure of the [ApiInvocationInput](../APIReference/API_agent-runtime_ApiInvocationInput.md "../APIReference/API_agent-runtime_ApiInvocationInput.md") object is as follows: ``{ "actionGroup": "string", "apiPath": "string", "httpMethod": "string", "parameters": [ { "name": "string", "type": "string", "value": "string" }, ... ], "requestBody": { `<content-type>`: { "properties": [ { "name": "string", "type": "string", "value": "string" } ] } } }`` + A [FunctionInvocationInput](../APIReference/API_agent-runtime_FunctionInvocationInput.md "../APIReference/API_agent-runtime_FunctionInvocationInput.md") object containing the function that the agent predicts should be called based on the user input, in addition to the parameters for that function that it gets from the user. The structure of the [FunctionInvocationInput](../APIReference/API_agent-runtime_FunctionInvocationInput.md "../APIReference/API_agent-runtime_FunctionInvocationInput.md") is as follows: `{ "actionGroup": "string", "function": "string", "parameters": [ { "name": "string", "type": "string", "value": "string" } ] }` |
+| Field        | Short description                                                  |
+| ------------ | ------------------------------------------------------------------ |
+| agentId      | ID of the agent                                                    |
+| agentAliasId | ID of the alias. Use `TSTALIASID` to<br>invoke the `DRAFT` version |
+| sessionId    | Alphanumeric ID for the session (2–100<br>characters)              |
+| inputText    | The user prompt to send to the agent                               |
+
+- The following fields are optional:
+
+| Field                   | Short description                                                                                                                                                                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enableTrace             | Specify `TRUE` to view the [trace](trace-events.md "trace-events.md").                                                                                                                                                              |
+| endSession              | Specify `TRUE` to end the session with<br>the agent after this request.                                                                                                                                                             |
+| sessionState            | Includes context that influences the agent's<br>behavior or the behavior of knowledge bases attached<br>to the agent. For more information, see [Control agent session context](agents-session-state.md "agents-session-state.md"). |
+| streamingConfigurations | Includes configurations for streaming response.<br>To enable streaming, set<br>`streamFinalResponse` to<br>`TRUE`.                                                                                                                  |
+
+The response is returned in an event stream. Each event contains a
+`chunk`, which contains part of the response in the
+`bytes` field, which must be decoded. The following objects
+may also be returned:
+
+- If the agent queried a knowledge base, the `chunk` also
+  includes `citations`.
+- If streaming is enabled and guardrail is configured for the agent,
+  the response is generated in the character intervals specified for
+  the guardrail interval. By default, the interval is set to 50
+  characters.
+- If you enabled a trace, a `trace` object is also
+  returned. If an error occurs, a field is returned with the error
+  message. For more information about how to read the trace, see [Track agent's step-by-step reasoning process using trace](trace-events.md "trace-events.md").
+- If you set up your action group to skip using a Lambda function, a
+  [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object is returned in the `returnControl`
+  field. The general structure of the [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object is as
+  follows:
+
+```
+{
+    "invocationId": "string",
+    "invocationInputs": [
+        ApiInvocationInput or FunctionInvocationInput,
+        ...
+    ]
+}
+```
+
+Each member of the `invocationInputs` list is one of
+the following:
+
+    + An [ApiInvocationInput](../APIReference/API_agent-runtime_ApiInvocationInput.md "../APIReference/API_agent-runtime_ApiInvocationInput.md") object containing the API operation that the
+     agent predicts should be called based on the user input, in
+     addition to the parameters and other information that it
+     gets from the user to fulfill the API. The structure of the
+     [ApiInvocationInput](../APIReference/API_agent-runtime_ApiInvocationInput.md "../APIReference/API_agent-runtime_ApiInvocationInput.md") object is as follows:
+
+
+
+    ```
+    {
+        "actionGroup": "string",
+        "apiPath": "string",
+        "httpMethod": "string",
+        "parameters": [
+            {
+                "name": "string",
+                "type": "string",
+                "value": "string"
+            },
+            ...
+        ],
+        "requestBody": {
+            `<content-type>`: {
+                "properties": [
+                    {
+                        "name": "string",
+                        "type": "string",
+                        "value": "string"
+                    }
+                ]
+            }
+        }
+    }
+    ```
+    + A [FunctionInvocationInput](../APIReference/API_agent-runtime_FunctionInvocationInput.md "../APIReference/API_agent-runtime_FunctionInvocationInput.md") object containing the function that the
+     agent predicts should be called based on the user input, in
+     addition to the parameters for that function that it gets
+     from the user. The structure of the [FunctionInvocationInput](../APIReference/API_agent-runtime_FunctionInvocationInput.md "../APIReference/API_agent-runtime_FunctionInvocationInput.md") is as
+     follows:
+
+
+
+    ```
+    {
+        "actionGroup": "string",
+        "function": "string",
+        "parameters": [
+            {
+                "name": "string",
+                "type": "string",
+                "value": "string"
+            }
+        ]
+    }
+    ```

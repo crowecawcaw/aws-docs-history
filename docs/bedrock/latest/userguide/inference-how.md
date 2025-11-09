@@ -13,7 +13,7 @@ When you submit an input to a model, the model predicts a probable sequence of t
   ###### Note
 
   Models differ in their base model and inference profile availability by Region and by API method. For more information, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md") and individual model pages in the [Foundation model reference](foundation-models-reference.md "foundation-models-reference.md").
-  - **Provisioned Throughput** – A foundation model for which you've purchased dedicated throughput. For more information, see [Provisioned Throughput](prov-throughput.md "prov-throughput.md")
+  - **Provisioned Throughput** – A foundation model for which you've purchased dedicated throughput. For more information, see [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md")
   - **Custom model** – A foundation model whose weights have been modified through model customization. For more information, see [Customize your model to improve its performance for your use case](custom-models.md "custom-models.md").
 
 - **Inference parameters** – A set of values that can be adjusted to limit or influence the model response. For information about inference parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md") and [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").

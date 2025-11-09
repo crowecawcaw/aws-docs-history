@@ -21,8 +21,146 @@ When you use reranking in a `Retrieve` workflow with an Amazon Bedrock Knowledge
 
 For a summary of use cases and the permissions needed for them, refer to the following table:
 
-| Use case                                            | User permissions needed                                                                                                                                            | Amazon Bedrock Knowledge Bases service role permissions needed                    |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Use reranking independently                         | + bedrock:Rerank + bedrock:InvokeModel, optionally scoped to the reranking models                                                                                  | N/A                                                                               |
-| Use reranking in a **Retrieve** workflow            | + bedrock:Retrieve                                                                                                                                                 | + bedrock:Rerank + bedrock:InvokeModel, optionally scoped to the reranking models |
-| Use reranking in a **RetrieveAndGenerate** workflow | + bedrock:RetrieveAndGenerate + bedrock:Rerank + bedrock:InvokeModel, optionally scoped to the reranking models and to the models to use for generating responses. | N/A                                                                               | For example permissions policies that you can attach to an IAM role, expand the section that corresponds to your use case: To use [Rerank](../APIReference/API_agent-runtime_Rerank.md "../APIReference/API_agent-runtime_Rerank.md") directly with a list of sources, the user role needs permissions to use both the `bedrock:Rerank` and `bedrock:InvokeModel` actions. Similarly, to prevent usage of a reranking model, you must deny permissions for both actions. To allow the user role to use a reranking model independently, you can attach the following policy to the role: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RerankSid", "Effect": "Allow", "Action": [ "bedrock:Rerank" ], "Resource": "*" }, { "Sid": "InvokeModelSid", "Effect": "Allow", "Action": [ "bedrock:InvokeModel" ], "Resource": [ "arn:aws:`bedrock:us-east-1`::foundation-model/`model-id`" ] } ] }` `` In the preceding policy, for the `bedrock:InvokeModel` action, you scope the permissions to the models that you want to allow the role to use for reranking. To allow access to all models, use a wildcard (`*`) in the `Resource` field. To use reranking while retrieving data from a knowledge base, you must set up the following permissions: **For the user role** The user role needs permissions to use the `bedrock:Retrieve` action. To allow the user role to retrieve data from a knowledge base, you can attach the following policy to the role: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RetrieveSid", "Effect": "Allow", "Action": [ "bedrock:Retrieve" ], "Resource": [ "arn:aws:bedrock:`us-east-1`:`123456789012`:knowledge-base/`KnowledgeBaseId`" ] } ] }` `` In the preceding policy, for the `bedrock:Retrieve` action, you scope the permissions to the knowledge bases from which you want to allow the role to retrieve information. To allow access to all knowledge bases, you can use a wildcard (`*`) in the `Resource` field. **For the service role** The [Amazon Bedrock Knowledge Bases service role](kb-permissions.md "kb-permissions.md") that the user uses needs permissions to use the `bedrock:Rerank` and `bedrock:InvokeModel` actions. You can use the Amazon Bedrock console to configure permissions for your service role automatically when you choose a reranking model when you [configure knowledge base retrieval](kb-test-retrieve.md "kb-test-retrieve.md"). Otherwise, to allow the service role to rerank sources during retrieval, you can attach the following policy: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RerankSid", "Effect": "Allow", "Action": [ "bedrock:Rerank" ], "Resource": "*" }, { "Sid": "InvokeModelSid", "Effect": "Allow", "Action": [ "bedrock:InvokeModel" ], "Resource": "arn:aws:bedrock:`us-east-1`::foundation-model/`RerankModelId`" } ] }` `` In the preceding policy, for the `bedrock:InvokeModel` action, you scope the permissions to the models that you want to allow the role to use for reranking. To allow access to all models, you can use a wildcard (\*) in the `Resource` field. To use a reranker model when retrieving data from a knowledge base and subsequently generating responses based on the retrieved results, the user role needs permissions to use the `bedrock:RetrieveAndGenerate`, `bedrock:Rerank`, and `bedrock:InvokeModel` actions. To allow reranking of sources during retrieval, and to allow generation of responses based on the results, you can attach the following policy to the user role: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RerankRetrieveAndGenerateSid", "Effect": "Allow", "Action": [ "bedrock:Rerank", "bedrock:RetrieveAndGenerate" ], "Resource": "*" }, { "Sid": "InvokeModelSid", "Effect": "Allow", "Action": [ "bedrock:InvokeModel" ], "Resource": [ "arn:aws:bedrock:`us-east-1`::foundation-model/`RerankModelId}`", "arn:aws:bedrock:`us-east-1`::foundation-model/`GenerationModelId}`" ] } ] }` `` In the preceding policy, for the `bedrock:InvokeModel` operation, you scope the permissions to the models that you want to allow the role to use for reranking, and to the models that you want to allow the role to use for generating responses. To allow access to all models, you can use a wildcard (`*`) in the `Resource` field. To further restrict permissions, you can omit actions, or you can specify resources and condition keys by which to filter permissions. For more information about actions, resources, and condition keys, see the following topics in the _Service Authorization Reference_: <br>• [Actions defined by Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") – Learn about actions, the resource types that you can scope them to in the `Resource` field, and the condition keys that you can filter permissions on in the `Condition` field. <br>• [Resource types defined by Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies") – Learn about the resource types in Amazon Bedrock. <br>• [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") – Learn about the condition keys in Amazon Bedrock. |
+| Use case                                                 | User permissions needed                                                                                                                                                  | Amazon Bedrock Knowledge Bases service role permissions needed                       |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Use reranking independently                              | + bedrock:Rerank<br>+ bedrock:InvokeModel, optionally scoped to the reranking models                                                                                     | N/A                                                                                  |
+| Use reranking in a \*_Retrieve_<br>• workflow            | + bedrock:Retrieve                                                                                                                                                       | + bedrock:Rerank<br>+ bedrock:InvokeModel, optionally scoped to the reranking models |
+| Use reranking in a \*_RetrieveAndGenerate_<br>• workflow | + bedrock:RetrieveAndGenerate<br>+ bedrock:Rerank<br>+ bedrock:InvokeModel, optionally scoped to the reranking models and to the models to use for generating responses. | N/A                                                                                  |
+
+For example permissions policies that you can attach to an IAM role, expand the section that corresponds to your use case:
+
+To use [Rerank](../APIReference/API_agent-runtime_Rerank.md "../APIReference/API_agent-runtime_Rerank.md") directly with a list of sources, the user role needs permissions to use both the `bedrock:Rerank` and `bedrock:InvokeModel` actions. Similarly, to prevent usage of a reranking model, you must deny permissions for both actions. To allow the user role to use a reranking model independently, you can attach the following policy to the role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RerankSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:Rerank"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "InvokeModelSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:InvokeModel"
+ ],
+ "Resource": [
+ "arn:aws:`bedrock:us-east-1`::foundation-model/`model-id`"
+ ]
+ }
+ ]
+}`
+
+```
+
+In the preceding policy, for the `bedrock:InvokeModel` action, you scope the permissions to the models that you want to allow the role to use for reranking. To allow access to all models, use a wildcard (`*`) in the `Resource` field.
+
+To use reranking while retrieving data from a knowledge base, you must set up the following permissions:
+
+**For the user role**
+
+The user role needs permissions to use the `bedrock:Retrieve` action. To allow the user role to retrieve data from a knowledge base, you can attach the following policy to the role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RetrieveSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:Retrieve"
+ ],
+ "Resource": [
+ "arn:aws:bedrock:`us-east-1`:`123456789012`:knowledge-base/`KnowledgeBaseId`"
+ ]
+ }
+ ]
+}`
+
+```
+
+In the preceding policy, for the `bedrock:Retrieve` action, you scope the permissions to the knowledge bases from which you want to allow the role to retrieve information. To allow access to all knowledge bases, you can use a wildcard (`*`) in the `Resource` field.
+
+**For the service role**
+
+The [Amazon Bedrock Knowledge Bases service role](kb-permissions.md "kb-permissions.md") that the user uses needs permissions to use the `bedrock:Rerank` and `bedrock:InvokeModel` actions. You can use the Amazon Bedrock console to configure permissions for your service role automatically when you choose a reranking model when you [configure knowledge base retrieval](kb-test-retrieve.md "kb-test-retrieve.md"). Otherwise, to allow the service role to rerank sources during retrieval, you can attach the following policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RerankSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:Rerank"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "InvokeModelSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:InvokeModel"
+ ],
+ "Resource": "arn:aws:bedrock:`us-east-1`::foundation-model/`RerankModelId`"
+ }
+ ]
+}`
+
+```
+
+In the preceding policy, for the `bedrock:InvokeModel` action, you scope the permissions to the models that you want to allow the role to use for reranking. To allow access to all models, you can use a wildcard (\*) in the `Resource` field.
+
+To use a reranker model when retrieving data from a knowledge base and subsequently generating responses based on the retrieved results, the user role needs permissions to use the `bedrock:RetrieveAndGenerate`, `bedrock:Rerank`, and `bedrock:InvokeModel` actions. To allow reranking of sources during retrieval, and to allow generation of responses based on the results, you can attach the following policy to the user role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RerankRetrieveAndGenerateSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:Rerank",
+ "bedrock:RetrieveAndGenerate"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "InvokeModelSid",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:InvokeModel"
+ ],
+ "Resource": [
+ "arn:aws:bedrock:`us-east-1`::foundation-model/`RerankModelId}`",
+ "arn:aws:bedrock:`us-east-1`::foundation-model/`GenerationModelId}`"
+ ]
+ }
+ ]
+}`
+
+```
+
+In the preceding policy, for the `bedrock:InvokeModel` operation, you scope the permissions to the models that you want to allow the role to use for reranking, and to the models that you want to allow the role to use for generating responses. To allow access to all models, you can use a wildcard (`*`) in the `Resource` field.
+
+To further restrict permissions, you can omit actions, or you can specify resources and condition keys by which to filter permissions. For more information about actions, resources, and condition keys, see the following topics in the _Service Authorization Reference_:
+
+- [Actions defined by Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") – Learn about actions, the resource types that you can scope them to in the `Resource` field, and the condition keys that you can filter permissions on in the `Condition` field.
+- [Resource types defined by Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies") – Learn about the resource types in Amazon Bedrock.
+- [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") – Learn about the condition keys in Amazon Bedrock.

@@ -40,7 +40,14 @@ Available built-in datasets for the question and answer task type in
 Amazon Bedrock| Task type | Metric | Built-in datasets (console) | Built-in datasets (API) | Computed metric |
 | --- | --- | --- | --- | --- |
 | Question and answer | Accuracy | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | `Builtin.BoolQ` | NLP-F1 |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` |
-| Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | `Builtin.BoolQ` | F1 and deltaF1 | | [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` |
-| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` | | Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | `Builtin.BoolQ` | Toxicity |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` | To learn more about how the computed metric for each built-in dataset is calculated, see [Review model evaluation job reports and metrics in Amazon Bedrock](model-evaluation-report.md "model-evaluation-report.md")
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` |
+| Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | `Builtin.BoolQ` | F1 and deltaF1 |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` |
+| Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | `Builtin.BoolQ` | Toxicity |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | `Builtin.NaturalQuestions` |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | `Builtin.TriviaQa` |
+
+To learn more about how the computed metric for each built-in dataset is
+calculated, see [Review model evaluation job reports and metrics in Amazon Bedrock](model-evaluation-report.md "model-evaluation-report.md")

@@ -1,24 +1,51 @@
-# Provisioned Throughput
+# Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock
 
-When you configure Provisioned Throughput for a model, you receive a level of
-throughput at a fixed cost.
+**Throughput** refers to the number and rate of inputs and
+outputs that a model processes and returns. You can purchase **Provisioned Throughput** to provision a higher level of throughput for a model at a fixed cost.
+If you customized a model, you must purchase Provisioned Throughput to be able to use it.
 
-You can use Provisioned Throughput with Amazon and third-party base models, and with
-customized models.
+You're billed hourly for a Provisioned Throughput that you purchase. For detailed information about pricing,
+see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing "https://aws.amazon.com/bedrock/pricing"). The price per hour
+depends on the following factors:
 
-Provisioned Throughput pricing varies depending on the model that you use and the level of commitment you choose. You receive a discounted rate when you commit to a longer period of time. For details about pricing for each model, see
-the [Model providers](https://console.aws.amazon.com/bedrock/home#/providers "https://console.aws.amazon.com/bedrock/home#/providers")
-page in the Amazon Bedrock console.
-
-Your options for throughput for a model differ depending on whether you run inference on a base
-model or a custom model.
+1. The model that you choose (for custom models, pricing is the same as the base
+   model that it was customized from).
+2. The number of Model Units (MUs) that you specify for the Provisioned Throughput. An MU delivers a
+   specific throughput level for the specified model. The throughput level of an MU
+   specifies the following:
+   - The number of input tokens that an MU can process across all requests
+     within a span of one minute.
+   - The number of output tokens that an MU can generate across all requests
+     within a span of one minute.
 
 ###### Note
 
-In the AWS GovCloud (US) region, you can only purchase Provisioned Throughput for custom models with no commitment.
+For more information about what an MU specifies, contact your AWS account
+manager. 3. The duration of time you commit to keeping the Provisioned Throughput. The longer the commitment
+duration, the more discounted the hourly price becomes. You can choose between the
+following levels of commitment:
 
-| Pricing option                                         | Base model    | Custom model                                              |
-| ------------------------------------------------------ | ------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Provisioned Throughput, no commitment (hourly pricing) | Not available | Available (maximum 2 Provisioned Throughputs per account) |
-| Provisioned Throughput, 1 month commitment             | Available     | Available                                                 |
-| Provisioned Throughput, 6 month commitment             | Available     | Available                                                 | You specify Provisioned Throughput in Model Units (MU). A model unit delivers a specific throughput level for the specified model. The throughput level of a MU for a given Text model specifies the following: <br>• **The total number of input tokens per minute** – The number of input tokens that an MU can process across all requests within a span of one minute. <br>• **The total number of output tokens per minute** – The number of output tokens that an MU can generate across all requests within a span of one minute. Model unit quotas depend on the level of commitment you specify for the Provisioned Throughput. <br>• For custom models with no commitment, a quota of one model unit is available for each Provisioned Throughput. You can create up to two Provisioned Throughputs per account. <br>• For base or custom models with commitment, there is a default quota of 0 model units. To request an increase, use the [limit increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase"). ###### Topics <br>• [Supported Region and models for Provisioned Throughput](pt-supported.md "pt-supported.md") <br>• [Procedures](prov-thru-workflow.md "prov-thru-workflow.md") <br>• [Permissions](prov-thru-permissions.md "prov-thru-permissions.md") <br>• [Provisioned Throughput console procedures](prov-cap-console.md "prov-cap-console.md") <br>• [Using the Provisioned Throughput API](prov-thru-api.md "prov-thru-api.md") |
+    * No commitment – You can delete the Provisioned Throughput at any time.
+    * 1 month – You can't delete the Provisioned Throughput until the one month commitment term is over.
+    * 6 months – You can't delete the Provisioned Throughput until the six month commitment term is over.
+
+###### Note
+
+Billing continues until you delete the Provisioned Throughput.
+The following steps outline the process of setting up and using Provisioned Throughput.
+
+1. Determine the number of MUs you wish to purchase for a Provisioned Throughput and the amount of time
+   for which you want to commit to using the Provisioned Throughput.
+2. Purchase Provisioned Throughput for a base or custom model.
+3. After the provisioned model is created, you can use it to [run model inference](inference.md "inference.md").
+
+###### Topics
+
+- [Supported Region and models for Provisioned Throughput](prov-thru-supported.md "prov-thru-supported.md")
+- [Prerequisites for Provisioned Throughput](prov-thru-prereq.md "prov-thru-prereq.md")
+- [Purchase a Provisioned Throughput for an Amazon Bedrock model](prov-thru-purchase.md "prov-thru-purchase.md")
+- [View information about a Provisioned Throughput](prov-thru-info.md "prov-thru-info.md")
+- [Modify a Provisioned Throughput](prov-thru-edit.md "prov-thru-edit.md")
+- [Use a Provisioned Throughput with an Amazon Bedrock resource](prov-thru-use.md "prov-thru-use.md")
+- [Delete a Provisioned Throughput or cancel auto renew](prov-thru-delete.md "prov-thru-delete.md")
+- [Code examples for Provisioned Throughput](prov-thru-code-examples.md "prov-thru-code-examples.md")

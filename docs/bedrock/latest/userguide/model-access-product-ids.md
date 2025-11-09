@@ -24,7 +24,7 @@ The following table lists product IDs for Amazon Bedrock serverless foundation m
 a product ID:
 
 | Model                          | Product ID                           |
-| ------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ------------------------------------ |
 | AI21 Labs Jurassic-2 Mid       | 1d288c71-65f9-489a-a3e2-9c7f4f6e6a85 |
 | AI21 Labs Jurassic-2 Ultra     | cc0bdd50-279a-40d8-829c-4009b77a1fcc |
 | AI21 Jamba-Instruct            | prod-dr2vpvd4k73aq                   |
@@ -59,4 +59,10 @@ a product ID:
 | TwelveLabs Marengo Embed 2.7   | prod-o6xchhpirymvs                   |
 | TwelveLabs Pegasus 1.2         | prod-635pcy5x5pc2a                   |
 | Writer Palmyra X4              | prod-azehe4da4pzsy                   |
-| Writer Palmyra X5              | prod-23enyy63orhuk                   | You can use the following template to attach an IAM policy that controls model access permissions to a role: For more examples of how to manage model access with IAM policies, see [Identity-based policy examples for Amazon Bedrock](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). |
+| Writer Palmyra X5              | prod-23enyy63orhuk                   |
+
+You can use the following template to attach an IAM policy that controls model
+access permissions to a role:
+
+For more examples of how to manage model access with IAM policies, see [Identity-based policy
+examples for Amazon Bedrock](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

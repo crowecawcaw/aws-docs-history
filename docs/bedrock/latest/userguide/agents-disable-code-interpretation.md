@@ -20,7 +20,22 @@ To disable code interpretation, send an [UpdateAgentActionGroup](../APIReference
 request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and specify the following fields:
 
 | Field                      | Short description                                                |
-| -------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------------------------------------------- |
 | actionGroupName            | Name of the action group                                         |
 | parentActionGroupSignature | Specify `AMAZON.CodeInterpreter` to disable the code interpreter |
-| actionGroupState           | Specify `DISABLED` to disable the code interpreter               | The following example shows the general format for specifying the required fields to disable code interpretation. `UpdateAgentActionGroup: { "actionGroupName": "CodeInterpreterAction", "parentActionGroupSignature": "AMAZON.CodeInterpreter", "actionGroupState": "DISABLED" }` After you've disabled code interpretation for your agent, make sure to send a [PrepareAgent](../APIReference/API_agent_PrepareAgent.md "../APIReference/API_agent_PrepareAgent.md") request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). |
+| actionGroupState           | Specify `DISABLED` to disable the code interpreter               |
+
+The following example shows the general format for specifying the required fields to disable code interpretation.
+
+```
+UpdateAgentActionGroup:
+{
+  "actionGroupName": "CodeInterpreterAction",
+  "parentActionGroupSignature": "AMAZON.CodeInterpreter",
+  "actionGroupState": "DISABLED"
+}
+
+```
+
+After you've disabled code interpretation for your agent, make sure to send a [PrepareAgent](../APIReference/API_agent_PrepareAgent.md "../APIReference/API_agent_PrepareAgent.md")
+request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").

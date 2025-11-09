@@ -106,21 +106,65 @@ API
 At minimum, you must provide the following fields to submit your model distillation job
 when using the Amazon Bedrock API.
 
-| Field                | Description                                                                                                   |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| baseModelIdentifier  | The model identifier of the student model                                                                     |
-| customModelName      | The name of the new distilled model                                                                           |
-| jobName              | The name of the model distillation job                                                                        |
-| roleArn              | Role that gives Amazon Bedrock permissions to read training and validation files and write to the output path |
-| trainingDataConfig   | The Amazon S3 path that has your training data                                                                |
-| outputDataConfig     | The Amazon S3 path that contains your training and validation metrics                                         |
-| distillationConfig   | Inputs required for distillation job                                                                          |
-| customModelKmsKeyId  | To encrypt the custom model                                                                                   |
-| clientRequestToken   | Token to prevent the request from completing more than once                                                   | The following fields are optional:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Field                | Description                                                                                                   |
-| ---                  | ---                                                                                                           |
-| customizationType    | Set to `DISTILLATION` by default for distillation jobs                                                        |
-| validationDataConfig | List of validation data Amazon S3 paths                                                                       |
-| jobTags              | To associate tags with the job                                                                                |
-| customModelTags      | To associate tags with the resulting custom model                                                             |
-| vpcConfig            | VPC to protect your training data and distillation job                                                        | To prevent the request from completing more than once, include a `clientRequestToken`. You can include the following optional fields for extra configurations. <br>• `jobTags` and/or `customModelTags` – Associate [tags](tagging.md "tagging.md") with the customization job or resulting custom model. <br>• `vpcConfig` – Include the configuration for a [virtual private cloud (VPC) to protect your training data and customization job](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization"). The following is an example snippet from [CreateModelCustomizationJob](../APIReference/API_CreateModelCustomizationJob.md "../APIReference/API_CreateModelCustomizationJob.md") API. This example uses the prompt-response pairs in the invocation log as the input data source and specifies the filter for selecting prompt-response pairs. `"trainingDataConfig": { "invocationLogsConfig": { "usePromptResponse": true, "invocationLogSource": { "s3Uri": "string" }, "requestMetadataFilters": { "equals": { "priority": "High" } } } }` **Response** The response returns a `jobArn` of the model distillation job. ## Next steps <br>• [Monitor your distillation job](model-customization-monitor.md "model-customization-monitor.md"). When your Distillation job completes, you can analyze the results of the customization process. For more information see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md"). For information about setting up inference for your model, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md"). |
+| Field               | Description                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| baseModelIdentifier | The model identifier of the student model                                                                        |
+| customModelName     | The name of the new distilled model                                                                              |
+| jobName             | The name of the model distillation job                                                                           |
+| roleArn             | Role that gives Amazon Bedrock permissions to read training and validation<br>files and write to the output path |
+| trainingDataConfig  | The Amazon S3 path that has your training data                                                                   |
+| outputDataConfig    | The Amazon S3 path that contains your training and validation metrics                                            |
+| distillationConfig  | Inputs required for distillation job                                                                             |
+| customModelKmsKeyId | To encrypt the custom model                                                                                      |
+| clientRequestToken  | Token to prevent the request from completing more than once                                                      |
+
+The following fields are optional:
+
+| Field                | Description                                               |
+| -------------------- | --------------------------------------------------------- |
+| customizationType    | Set to `DISTILLATION` by default for distillation<br>jobs |
+| validationDataConfig | List of validation data Amazon S3 paths                   |
+| jobTags              | To associate tags with the job                            |
+| customModelTags      | To associate tags with the resulting custom model         |
+| vpcConfig            | VPC to protect your training data and distillation job    |
+
+To prevent the request from completing more than once, include a
+`clientRequestToken`.
+
+You can include the following optional fields for extra configurations.
+
+- `jobTags` and/or `customModelTags` – Associate
+  [tags](tagging.md "tagging.md") with the customization job or resulting
+  custom model.
+- `vpcConfig` – Include the configuration for a [virtual private cloud (VPC) to protect
+  your training data and customization job](custom-model-job-access-security.md#vpc-model-customization "custom-model-job-access-security.md#vpc-model-customization").
+
+The following is an example snippet from [CreateModelCustomizationJob](../APIReference/API_CreateModelCustomizationJob.md "../APIReference/API_CreateModelCustomizationJob.md") API. This example uses the
+prompt-response pairs in the invocation log as the input data source and specifies the
+filter for selecting prompt-response pairs.
+
+```
+"trainingDataConfig": {
+    "invocationLogsConfig": {
+        "usePromptResponse": true,
+        "invocationLogSource": {
+            "s3Uri": "string"
+        },
+        "requestMetadataFilters": {
+            "equals": {
+                "priority": "High"
+            }
+        }
+    }
+}
+```
+
+**Response**
+
+The response returns a `jobArn` of the model distillation job.
+
+## Next steps
+
+- [Monitor your distillation
+  job](model-customization-monitor.md "model-customization-monitor.md"). When your Distillation job completes, you can analyze the results of the customization process. For more information see [Analyze the results of a model customization job](model-customization-analyze.md "model-customization-analyze.md").
+  For information about setting up inference for your model, see [Set up inference for a custom model](model-customization-use.md "model-customization-use.md").

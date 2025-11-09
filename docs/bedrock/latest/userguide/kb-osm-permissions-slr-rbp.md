@@ -44,10 +44,112 @@ that you can configure for your OpenSearch domain when integrating with Amazon B
 You must grant Amazon Bedrock permissions to perform these actions on the index that you
 provide your Knowledge Base.
 
-| Action              | Resource                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `es:ESHttpPost`     | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>``                                                                                                   | For inserting information to the index                                                                                                                                                                                                                                                                                                                     |
-| `es:ESHttpGet`      | <br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`/*` <br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`` | For searching information from the index. This action is configured at both the at both the `domain/index` level and the `domain/index/*` level. At the `domain/index` level, it can get high level details about the index, such as the engine type. To retrieve details stored within the index, permissions are required at the `domain/index/*` level. |
-| `es:ESHttpHead`     | <br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`/*` <br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`` | For getting information from the index. This action is configured at both the at both the `domain/index` level and the `domain/index/*` level, in case information needs to be obtained at a higher level, such as whether a particular index exists.                                                                                                      |
-| `es:ESHttpDelete`   | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>``                                                                                                   | For deleting information to the index                                                                                                                                                                                                                                                                                                                      |
-| `es:DescribeDomain` | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>``                                                                                                                 | For performing validations on the domain, such as the engine version used.                                                                                                                                                                                                                                                                                 | JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "OpenSearchIndexAccess", "Effect": "Allow", "Action": [ "es:ESHttpGet", "es:ESHttpPost", "es:ESHttpPut", "es:ESHttpDelete" ], "Resource": [ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`/`indexName`/*" ] }, { "Sid": "OpenSearchIndexGetAccess", "Effect": "Allow", "Action": [ "es:ESHttpGet", "es:ESHttpHead" ], "Resource": [ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`/`indexName`" ] }, { "Sid": "OpenSearchDomainValidation", "Effect": "Allow", "Action": [ "es:DescribeDomain" ], "Resource": [ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`" ] } ] }` `` ###### Note Make sure that the service role has been created for it to be used in the resource-based policy. ## Creating the Amazon Bedrock Knowledge Bases service role When you create the knowledge base, you can choose the option to create and use a new service role. This section walks you through creating the Amazon Bedrock Knowledge Bases service role. By mapping the resource-based policies and the fine-grained access policies to this role, it will grant Amazon Bedrock the permissions to make requests to the OpenSearch domain. ###### To specify the Amazon Bedrock Knowledge Bases service role: 1. In the Amazon Bedrock console, go to [Knowledge Bases](https://console.aws.amazon.com/bedrock/home#/knowledge-bases "https://console.aws.amazon.com/bedrock/home#/knowledge-bases"). 2. Choose **Create** and then choose **Knowledge base with vector store**. 3. Choose **Create and use a new service role**. You can either use the default, or provide a custom role name, and Amazon Bedrock will automatically create the Knowledge Base service role for you. 4. Continue going through the console to configure your data source and parsing and chunking strategies. 5. Choose an Embeddings model and then, under **Choose an existing vector store**, choose **Amazon OpenSearch Managed Cluster**. ###### Important Before you proceed to create the knowledge base, complete the following steps to configure the resource-based policies and fine-grained access policies. For detailed steps on creating the knowledge base, see [Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases](knowledge-base-create.md "knowledge-base-create.md"). ## Updating the resource-based policies If your OpenSearch domain has a restrictive access policy, you can follow the instructions on this page to update the resource-based policy. These permissions allow Knowledge Bases to make use of the index that you provide, and to retrieve the OpenSearch domain definition to perform the required validation on the domain. ###### To configure the resource-based policies from the AWS Management Console 1. Go to the [Amazon OpenSearch Service console](https://console.aws.amazon.com/aos/home?region=us-east-1#opensearch/dashboard "https://console.aws.amazon.com/aos/home?region=us-east-1#opensearch/dashboard"). 2. Go to the domain that you had created, and then go to **Security Configurations** where the resource-based policy is configured. 3. Edit the policy in the **JSON** tab and then update the policy similar to the [Sample resource-based policy](#kb-osm-permissions-rbp "#kb-osm-permissions-rbp"). 4. You can now go back to the Amazon Bedrock console and provide the details for your OpenSearch domain and index as described in [Knowledge base setup for Managed Clusters](knowledge-base-setup.md#knowledge-base-setup-osm "knowledge-base-setup.md#knowledge-base-setup-osm"). |
+| Action              | Resource                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `es:ESHttpPost`     | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>``                                                                                              | For inserting information to the index                                                                                                                                                                                                                                                                                                                                       |
+| `es:ESHttpGet`      | • `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`/*`<br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`` | For searching information from the index. This action is<br>configured at both the at both the `domain/index`<br>level and the `domain/index/*` level. At the<br>`domain/index` level, it can get high level<br>details about the index, such as the engine type. To retrieve<br>details stored within the index, permissions are required at the<br>`domain/index/*` level. |
+| `es:ESHttpHead`     | • `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`/*`<br>• `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>`` | For getting information from the index. This action is<br>configured at both the at both the `domain/index`<br>level and the `domain/index/*` level, in case<br>information needs to be obtained at a higher level, such as<br>whether a particular index exists.                                                                                                            |
+| `es:ESHttpDelete`   | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>`/`<indexName>``                                                                                              | For deleting information to the index                                                                                                                                                                                                                                                                                                                                        |
+| `es:DescribeDomain` | `arn:`<partition>`:es:`<region>`:`<accountId>`:domain/`<domainName>``                                                                                                            | For performing validations on the domain, such as the engine<br>version used.                                                                                                                                                                                                                                                                                                |
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "OpenSearchIndexAccess",
+ "Effect": "Allow",
+ "Action": [
+ "es:ESHttpGet",
+ "es:ESHttpPost",
+ "es:ESHttpPut",
+ "es:ESHttpDelete"
+ ],
+ "Resource": [
+ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`/`indexName`/*"
+ ]
+ },
+ {
+ "Sid": "OpenSearchIndexGetAccess",
+ "Effect": "Allow",
+ "Action": [
+ "es:ESHttpGet",
+ "es:ESHttpHead"
+ ],
+ "Resource": [
+ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`/`indexName`"
+ ]
+ },
+ {
+ "Sid": "OpenSearchDomainValidation",
+ "Effect": "Allow",
+ "Action": [
+ "es:DescribeDomain"
+ ],
+ "Resource": [
+ "arn:aws:`es:us-east-1`:`123456789012`:domain/`domainName`"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Note
+
+Make sure that the service role has been created for it to be used in the
+resource-based policy.
+
+## Creating the Amazon Bedrock Knowledge Bases service role
+
+When you create the knowledge base, you can choose the option to create and
+use a new service role. This section walks you through creating the Amazon Bedrock Knowledge Bases service
+role. By mapping the resource-based policies and the fine-grained access
+policies to this role, it will grant Amazon Bedrock the permissions to make requests to
+the OpenSearch domain.
+
+###### To specify the Amazon Bedrock Knowledge Bases service role:
+
+1. In the Amazon Bedrock console, go to [Knowledge Bases](https://console.aws.amazon.com/bedrock/home#/knowledge-bases "https://console.aws.amazon.com/bedrock/home#/knowledge-bases").
+2. Choose **Create** and then choose
+   **Knowledge base with vector store**.
+3. Choose **Create and use a new service role**. You
+   can either use the default, or provide a custom role name, and Amazon Bedrock will
+   automatically create the Knowledge Base service role for you.
+4. Continue going through the console to configure your data source and
+   parsing and chunking strategies.
+5. Choose an Embeddings model and then, under **Choose an
+   existing vector store**, choose **Amazon OpenSearch
+   Managed Cluster**.
+
+###### Important
+
+Before you proceed to create the knowledge base, complete the following
+steps to configure the resource-based policies and fine-grained access
+policies. For detailed steps on creating the knowledge base, see [Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases](knowledge-base-create.md "knowledge-base-create.md").
+
+## Updating the resource-based
+
+policies
+
+If your OpenSearch domain has a restrictive access policy, you can follow the
+instructions on this page to update the resource-based policy. These permissions
+allow Knowledge Bases to make use of the index that you provide, and to retrieve
+the OpenSearch domain definition to perform the required validation on the
+domain.
+
+###### To configure the resource-based policies from the AWS Management Console
+
+1. Go to the [Amazon OpenSearch Service
+   console](https://console.aws.amazon.com/aos/home?region=us-east-1#opensearch/dashboard "https://console.aws.amazon.com/aos/home?region=us-east-1#opensearch/dashboard").
+2. Go to the domain that you had created, and then go to
+   **Security Configurations** where the
+   resource-based policy is configured.
+3. Edit the policy in the **JSON** tab and then update
+   the policy similar to the [Sample resource-based
+   policy](#kb-osm-permissions-rbp "#kb-osm-permissions-rbp").
+4. You can now go back to the Amazon Bedrock console and provide the details for
+   your OpenSearch domain and index as described in [Knowledge base setup for Managed
+   Clusters](knowledge-base-setup.md#knowledge-base-setup-osm "knowledge-base-setup.md#knowledge-base-setup-osm").

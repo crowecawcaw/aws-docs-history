@@ -7,11 +7,11 @@ When you make inference calls with DeepSeek’s models, you must include a promp
 
 ###### Note
 
-You can't remove request access from the Amazon Titan, Amazon Nova, DeepSeek-R1, Mistral AI, Meta Llama 3 Instruct, and Meta Llama 4 models. You can prevent users
-from making inference calls to these models by using an IAM policy and specifying the model ID. For more information, see [Deny access for inference of foundation models](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html").
-
-This section describes the request parameters and response fields for DeepSeek models. Use this information to make inference calls to DeepSeek models
-with the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") operation. This section also includes Python code examples that shows how to call DeepSeek models.
+- You can't remove request access from the Amazon Titan, Amazon Nova, DeepSeek-R1, Mistral AI, Meta Llama 3 Instruct, and Meta Llama 4 models. You can prevent users
+  from making inference calls to these models by using an IAM policy and specifying the model ID. For more information, see [Deny access for inference of foundation models](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html").
+- For optimal response quality with DeepSeek-R1, limit the `max_tokens` parameter to 8,192 tokens or fewer. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens. This aligns with the model's reasoning capabilities as described in the [inference reasoning guide](inference-reasoning.md "inference-reasoning.md").
+  This section describes the request parameters and response fields for DeepSeek models. Use this information to make inference calls to DeepSeek models
+  with the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") operation. This section also includes Python code examples that shows how to call DeepSeek models.
 
 To use a model in an inference operation, you need the model ID for the model. Since this model is invoked through cross-Region inference, you will need to use the
 [Inference profile ID](inference-profiles-support.md "inference-profiles-support.md") as the model ID. For example, for the US, you will use `us.deepseek.r1-v1:0`.
@@ -42,7 +42,7 @@ DeepSeek has the following inference parameters for a Text Completion inference 
 - **prompt** – (string) Required text input of prompt.
 - **temperature** – (float) Numerical value less than or equal to 1.
 - **top_p** – (float) Numerical value less than or equal to 1.
-- **max_tokens** – (int) Tokens used, minimum of 1 to a max of 32,768 tokens.
+- **max_tokens** – (int) Tokens used, minimum of 1 to a max of 8,192 tokens for optimal quality. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens.
 - **stop** – (string array) Maximum of 10 items.
   **Response body**
 

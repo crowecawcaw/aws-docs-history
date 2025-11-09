@@ -33,7 +33,7 @@ object.
 The following table shows the minimum, maximum, and default values for the numerical parameters.
 
 | Parameter         | Type  | Default  | Range/Validation   | Description                    |
-| ----------------- | ----- | -------- | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ----- | -------- | ------------------ | ------------------------------ |
 | messages          | array | Required | 1-∞ items          | Chat history messages          |
 | temperature       | float | 1.0      | 0.0 ≤ x ≤ 2.0      | Sampling temperature           |
 | top_p             | float | 1.0      | 0.0 < value ≤ 1.0  | Nucleus sampling threshold     |
@@ -42,4 +42,79 @@ The following table shows the minimum, maximum, and default values for the numer
 | stop              | array | []       | ≤4 entries         | Stop sequences                 |
 | seed              | int   | null     | Any integer        | Random seed                    |
 | presence_penalty  | float | 0.0      | -2.0 ≤ x ≤ 2.0     | New token presence penalty     |
-| frequency_penalty | float | 0.0      | -2.0 ≤ x ≤ 2.0     | Token frequency penalty        | ## Palmyra X4 invocation response body field The response JSON for Writer Palmyra X4 uses the following format: `{ "id": "chatcmpl-a689a6e150b048ca8814890d3d904d41", "object": "chat.completion", "created": 1745854231, "model": "writer.palmyra-x4-v1:0", "choices": [ { "index": 0, "message": { "role": "assistant", "reasoning_content": null, "content": "Quantum computing harnesses quantum mechanics to process information in extraordinarily powerful ways. Unlike classical bits, which are 0 or 1, quantum bits (qubits) can exist in multiple states simultaneously through superposition. Qubits also entangle, allowing them to be interconnected in such a way that the state of one (whether it's 0 or 1) can depend on the state of another, no matter the distance between them. This combination of superposition and entanglement enables quantum computers to solve complex problems much faster than classical computers, particularly in areas like cryptography, optimization, and simulations of molecular structures. However, quantum computing is still in its early stages, facing challenges in stability and scalability.", "tool_calls": [] }, "logprobs": null, "finish_reason": "stop", "stop_reason": null } ], "usage": { "prompt_tokens": 43, "total_tokens": 186, "completion_tokens": 143, "prompt_tokens_details": null }, "prompt_logprobs": null }` ## Writer Palmyra X4 example code Example code for Writer Palmyra X4: `import boto3 import json from botocore.exceptions import ClientError client = boto3.client("bedrock-runtime", region_name="us-west-2") model_id = "writer.palmyra-x4-v1:0" # Format the request payload using the model's native structure. native_request = { "temperature": 1, "messages": [ { "role": "user", "content": "Explain quantum computing in simple terms.", } ], } # Convert the native request to JSON. request = json.dumps(native_request) try: # Invoke the model with the request. response = client.invoke_model(modelId=model_id, body=request) except (ClientError, Exception) as e: print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}") exit(1) # Decode the response body. model_response = json.loads(response["body"].read()) # Extract and print the response text. response_text = model_response["content"][0]["text"] print(response_text)` |
+| frequency_penalty | float | 0.0      | -2.0 ≤ x ≤ 2.0     | Token frequency penalty        |
+
+## Palmyra X4 invocation response body field
+
+The response JSON for Writer Palmyra X4 uses the following format:
+
+```
+{
+  "id": "chatcmpl-a689a6e150b048ca8814890d3d904d41",
+  "object": "chat.completion",
+  "created": 1745854231,
+  "model": "writer.palmyra-x4-v1:0",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "reasoning_content": null,
+        "content": "Quantum computing harnesses quantum mechanics to process information in extraordinarily powerful ways. Unlike classical bits, which are 0 or 1, quantum bits (qubits) can exist in multiple states simultaneously through superposition. Qubits also entangle, allowing them to be interconnected in such a way that the state of one (whether it's 0 or 1) can depend on the state of another, no matter the distance between them. This combination of superposition and entanglement enables quantum computers to solve complex problems much faster than classical computers, particularly in areas like cryptography, optimization, and simulations of molecular structures. However, quantum computing is still in its early stages, facing challenges in stability and scalability.",
+        "tool_calls": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 43,
+    "total_tokens": 186,
+    "completion_tokens": 143,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null
+}
+```
+
+## Writer Palmyra X4 example code
+
+Example code for Writer Palmyra X4:
+
+```
+import boto3
+import json
+from botocore.exceptions import ClientError
+
+client = boto3.client("bedrock-runtime", region_name="us-west-2")
+model_id = "writer.palmyra-x4-v1:0"
+
+# Format the request payload using the model's native structure.
+native_request = {
+    "temperature": 1,
+    "messages": [
+        {
+            "role": "user",
+            "content": "Explain quantum computing in simple terms.",
+        }
+    ],
+}
+
+# Convert the native request to JSON.
+request = json.dumps(native_request)
+
+try:
+    # Invoke the model with the request.
+    response = client.invoke_model(modelId=model_id, body=request)
+except (ClientError, Exception) as e:
+    print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+    exit(1)
+
+# Decode the response body.
+model_response = json.loads(response["body"].read())
+
+# Extract and print the response text.
+response_text = model_response["content"][0]["text"]
+print(response_text)
+```

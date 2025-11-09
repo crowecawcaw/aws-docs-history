@@ -23,11 +23,16 @@ To create an alias to point to a version of your flow, send a [CreateFlowAlias](
 The following fields are required:
 
 | Field                | Basic description                                                   |
-| -------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| flowIdentifier       | The ARN or ID of the flow for which to create an alias.             |
+| -------------------- | ------------------------------------------------------------------- |
+| flowIdentifier       | The ARN or ID of the flow for which to create an<br>alias.          |
 | name                 | A name for the alias.                                               |
-| routingConfiguration | Specify the version to map the alias to in the `flowVersion` field. | The following fields are optional:                                                                                                                                                                                                                                  |
-| Field                | Use-case                                                            |
-| ---                  | ---                                                                 |
-| description          | To provide a description for the alias.                             |
-| clientToken          | To prevent reduplication of the request.                            | Creation of an alias produces a resource with an identifier and an Amazon Resource Name (ARN) that you can specify when you invoke a flow from your application. To learn how to invoke a flow, see [Test a flow in Amazon Bedrock](flows-test.md "flows-test.md"). |
+| routingConfiguration | Specify the version to map the alias to in the `flowVersion` field. |
+
+The following fields are optional:
+
+| Field       | Use-case                                 |
+| ----------- | ---------------------------------------- |
+| description | To provide a description for the alias.  |
+| clientToken | To prevent reduplication of the request. |
+
+Creation of an alias produces a resource with an identifier and an Amazon Resource Name (ARN) that you can specify when you invoke a flow from your application. To learn how to invoke a flow, see [Test a flow in Amazon Bedrock](flows-test.md "flows-test.md").

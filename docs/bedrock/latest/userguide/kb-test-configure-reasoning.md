@@ -26,8 +26,79 @@ reasoning models with Amazon Bedrock Knowledge Bases.
 Model reasoning is available for the following models.
 
 | Foundation Model            | Model ID                                  | Number of tokens                                                                                                                                                                                             | Reasoning configuration                                                                                                   |
-| --------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
 | Anthropic Claude Opus 4     | anthropic.claude-opus-4-20250514-v1:0     | This model will have 32,768 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
 | Anthropic Claude Sonnet 4   | anthropic.claude-sonnet-4-20250514-v1:0   | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
 | Anthropic Claude 3.7 Sonnet | anthropic.claude-3-7-sonnet-20250219-v1:0 | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
-| DeepSeek DeepSeek-R1        | deepseek.r1-v1:0                          | This model will have 8192 tokens, which includes both output and reasoning tokens. The number of thinking tokens cannot be configured and the maximum number of output tokens must not be greater than 8192. | Reasoning is always enabled for this model. The model does not support toggling the reasoning capability on and off.      | ## Using model reasoning for Claude 3.7 Sonnet ###### Note Model reasoning is always enabled for the DeepSeek-R1 model. The model does not support toggling the reasoning capability on and off. When using the Claude 3.7 Sonnet model, model reasoning can be enabled or disabled using the `additionalModelRequestFields` parameter of the [`RetrieveAndGenerate`](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") API. This parameter accepts any key-value pairs. For example, you can add a `reasoningConfig` field and use a `type` key to enable or disable reasoning, as shown below. `{ "input": { "text": "string", "retrieveAndGenerateConfiguration": { "knowledgeBaseConfiguration": { "generationConfiguration": { "additionalModelRequestFields": { "reasoningConfig" : { "type": "enabled", "budget_tokens": INT_VAL, #required when enabled } } }, "knowledgeBaseId": "string", }, "type": "string" }, "sessionId": "string" }` ## General considerations The following are some general considerations for using the reasoning models for Knowledge Bases. <br>• The reasoning models will have up to five minutes to respond to a query. If the model takes more than five minutes to respond to the query, it results in a time out. <br>• To avoid exceeding the five-minute timeout, model reasoning is enabled only at the generation step when you configure your queries and response generation. The orchestration step cannot have model reasoning. <br>• The reasoning models can use up to 8192 tokens to respond to queries, which will include both the output and thinking tokens. Any request that has a request for maximum number of output tokens greater than this limit will result in an error. ## Retrieve and generate API considerations The following are some considerations when using the [`RetrieveAndGenerate`](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") API for the reasoning models. <br>• By default, when reasoning is disabled for all models including the Claude 3.7 Sonnet, the temperature is set to zero. When reasoning is enabled, the temperature must be set to one. `"inferenceConfig": { "textInferenceConfig": { "maxTokens": 8192, "temperature": 1 } }` <br>• The parameter, Top P, must be disabled when reasoning is enabled for the Claude 3.7 Sonnet model. Top P is an additional model request field that determines the percentile of possible tokens to select from during generation. By default, the Top P value for other Anthropic Claude models is one. For the Claude 3.7 Sonnet model, this value will be disabled by default. <br>• When model reasoning is in use, it can result in an increase in latency. When using this API operation and the [`RetrieveAndGenerateStream`](../APIReference/API_agent-runtime_RetrieveAndGenerateStream.md "../APIReference/API_agent-runtime_RetrieveAndGenerateStream.md") API operation, you might notice a delay in receiving the response from the API. |
+| DeepSeek DeepSeek-R1        | deepseek.r1-v1:0                          | This model will have 8192 tokens, which includes both output and reasoning tokens. The number of thinking tokens cannot be configured and the maximum number of output tokens must not be greater than 8192. | Reasoning is always enabled for this model. The model does not support toggling the reasoning capability on and off.      |
+
+## Using model reasoning for Claude 3.7 Sonnet
+
+###### Note
+
+Model reasoning is always enabled for the DeepSeek-R1 model. The model does not support toggling the reasoning
+capability on and off.
+
+When using the Claude 3.7 Sonnet model, model reasoning can be enabled or disabled using the `additionalModelRequestFields`
+parameter of the [`RetrieveAndGenerate`](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md")
+API. This parameter accepts any key-value pairs. For example, you can add a `reasoningConfig`
+field and use a `type` key to enable or disable reasoning, as shown below.
+
+```
+{
+   "input": {
+      "text": "string",
+      "retrieveAndGenerateConfiguration": {
+      "knowledgeBaseConfiguration": {
+         "generationConfiguration": {
+            "additionalModelRequestFields": {
+                "reasoningConfig" : {
+                    "type": "enabled",
+                    "budget_tokens": INT_VAL, #required when enabled
+                }
+            }
+         },
+         "knowledgeBaseId": "string",
+      },
+      "type": "string"
+   },
+   "sessionId": "string"
+}
+```
+
+## General considerations
+
+The following are some general considerations for using the reasoning models for Knowledge Bases.
+
+- The reasoning models will have up to five minutes to respond to a query. If the model takes more than five
+  minutes to respond to the query, it results in a time out.
+- To avoid exceeding the five-minute timeout, model reasoning is enabled only at the generation step when
+  you configure your queries and response generation. The orchestration step cannot have model reasoning.
+- The reasoning models can use up to 8192 tokens to respond to queries, which will include both the output and
+  thinking tokens. Any request that has a request for maximum number of output tokens greater than this limit will
+  result in an error.
+
+## Retrieve and generate API considerations
+
+The following are some considerations when using the [`RetrieveAndGenerate`](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md")
+API for the reasoning models.
+
+- By default, when reasoning is disabled for all models including the Claude 3.7 Sonnet, the temperature
+  is set to zero. When reasoning is enabled, the temperature must be set to one.
+
+```
+"inferenceConfig": {
+    "textInferenceConfig": {
+        "maxTokens": 8192,
+        "temperature": 1
+    }
+}
+```
+
+- The parameter, Top P, must be disabled when reasoning is enabled for
+  the Claude 3.7 Sonnet model. Top P is an additional model request field that determines the percentile of possible tokens to select from
+  during generation. By default, the Top P value for other Anthropic Claude models is one. For the Claude 3.7
+  Sonnet model, this value will be disabled by default.
+- When model reasoning is in use, it can result in an increase in latency. When using
+  this API operation and the [`RetrieveAndGenerateStream`](../APIReference/API_agent-runtime_RetrieveAndGenerateStream.md "../APIReference/API_agent-runtime_RetrieveAndGenerateStream.md")
+  API operation, you might notice a delay in receiving the response from the API.

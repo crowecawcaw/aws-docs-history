@@ -134,13 +134,79 @@ To create a prompt, send a [CreatePrompt](../APIReference/API_agent_CreatePrompt
 
 The following fields are required:
 
-| Field          | Brief description                                                                                                                                                                                           |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name           | A name for the prompt.                                                                                                                                                                                      |
-| variants       | A list of different configurations for the prompt (see below).                                                                                                                                              |
-| defaultVariant | The name of the default variant.                                                                                                                                                                            | Each variant in the `variants` list is a [PromptVariant](../APIReference/API_agent_PromptVariant.md "../APIReference/API_agent_PromptVariant.md") object of the following general structure: `{ "name": "string", # modelId or genAiResource (see below) "templateType": "TEXT", "templateConfiguration": # see below, "inferenceConfiguration": { "text": { "maxTokens": int, "stopSequences": ["string", ...], "temperature": float, "topP": float } }, "additionalModelRequestFields": { "key": "value", ... }, "metadata": [ { "key": "string", "value": "string" }, ... ] }` Fill in the fields as follows: <br>• name – Enter a name for the variant. <br>• Include one of these fields, depending on the model invocation resource to use: + modelId – To specify a [foundation model](models-supported.md "models-supported.md") or [inference profile](cross-region-inference.md "cross-region-inference.md") to use with the prompt, enter its ARN or ID. + genAiResource – To specify an [agent](agents.md "agents.md"), enter its ID or ARN. The value of the `genAiResource` is a JSON object of the following format: `{ "genAiResource": { "agent": { "agentIdentifier": "string" } }` ###### Note If you include the `genAiResource` field, you can only test the prompt in the console. To test a prompt with an agent in the API, you must enter the text of the prompt directly into the `inputText` field of the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") request. <br>• templateType – Enter `TEXT` or `CHAT`. `CHAT` is only compatible with models that support the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. If you want to use prompt caching, you must use the `CHAT` template type. <br>• templateConfiguration – The value depends on the template type that you specified: + If you specified `TEXT` as the template type, the value should be a [TextPromptTemplateConfiguration](../APIReference/API_agent_TextPromptTemplateConfiguration.md "../APIReference/API_agent_TextPromptTemplateConfiguration.md") JSON object. + If you specified `CHAT` as the template type, the value should be a [ChatPromptTemplateConfiguration](../APIReference/API_agent_ChatPromptTemplateConfiguration.md "../APIReference/API_agent_ChatPromptTemplateConfiguration.md") JSON object. <br>• inferenceConfiguration – The `text` field maps to a [PromptModelInferenceConfiguration](../APIReference/API_agent_PromptModelInferenceConfiguration.md "../APIReference/API_agent_PromptModelInferenceConfiguration.md"). This field contains inference parameters that are common to all models. To learn more about inference parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md"). <br>• additionalModelRequestFields – Use this field to specify inference parameters that are specific to the model that you're running inference with. To learn more about model-specific inference parameters, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md"). <br>• metadata – Metadata to associate with the prompt variant. You can append key-value pairs to the array to tag the prompt variant with metadata. The following fields are optional: |
-| Field          | Use case                                                                                                                                                                                                    |
-| ---            | ---                                                                                                                                                                                                         |
-| description    | To provide a description for the prompt.                                                                                                                                                                    |
-| clientToken    | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md"). |
-| tags           | To associate tags with the flow. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                     | The response creates a `DRAFT` version and returns an ID and ARN that you can use as a prompt identifier for other prompt-related API requests.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Field          | Brief description                                              |
+| -------------- | -------------------------------------------------------------- |
+| name           | A name for the prompt.                                         |
+| variants       | A list of different configurations for the prompt (see below). |
+| defaultVariant | The name of the default variant.                               |
+
+Each variant in the `variants` list is a [PromptVariant](../APIReference/API_agent_PromptVariant.md "../APIReference/API_agent_PromptVariant.md") object of the following general structure:
+
+```
+{
+        "name": "string",
+        # modelId or genAiResource (see below)
+        "templateType": "TEXT",
+        "templateConfiguration": # see below,
+        "inferenceConfiguration": {
+            "text": {
+                "maxTokens": int,
+                "stopSequences": ["string", ...],
+                "temperature": float,
+                "topP": float
+            }
+        },
+        "additionalModelRequestFields": {
+            "key": "value",
+            ...
+        },
+        "metadata": [
+            {
+                "key": "string",
+                "value": "string"
+            },
+            ...
+        ]
+}
+```
+
+Fill in the fields as follows:
+
+- name – Enter a name for the variant.
+- Include one of these fields, depending on the model invocation resource to use:
+  - modelId – To specify a [foundation model](models-supported.md "models-supported.md") or [inference profile](cross-region-inference.md "cross-region-inference.md") to use with the prompt, enter its ARN or ID.
+  - genAiResource – To specify an [agent](agents.md "agents.md"), enter its ID or ARN. The value of the `genAiResource` is a JSON object of the following format:
+
+  ```
+  {
+      "genAiResource": {
+      "agent": {
+          "agentIdentifier": "string"
+      }
+  }
+  ```
+
+  ###### Note
+
+  If you include the `genAiResource` field, you can only test the prompt in the console. To test a prompt with an agent in the API, you must enter the text of the prompt directly into the `inputText` field of the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") request.
+
+- templateType – Enter `TEXT` or `CHAT`.
+  `CHAT` is only compatible with models that support the
+  [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. If you want to use prompt caching, you must use the `CHAT` template type.
+- templateConfiguration – The value depends on the template type that you specified:
+  - If you specified `TEXT` as the template type, the value should be a [TextPromptTemplateConfiguration](../APIReference/API_agent_TextPromptTemplateConfiguration.md "../APIReference/API_agent_TextPromptTemplateConfiguration.md") JSON object.
+  - If you specified `CHAT` as the template type, the value should be a [ChatPromptTemplateConfiguration](../APIReference/API_agent_ChatPromptTemplateConfiguration.md "../APIReference/API_agent_ChatPromptTemplateConfiguration.md") JSON object.
+
+- inferenceConfiguration – The `text` field maps to a [PromptModelInferenceConfiguration](../APIReference/API_agent_PromptModelInferenceConfiguration.md "../APIReference/API_agent_PromptModelInferenceConfiguration.md"). This field contains inference parameters that are common to all models. To learn more about inference parameters, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
+- additionalModelRequestFields – Use this field to specify inference parameters that are specific to the model that you're running inference with. To learn more about model-specific inference parameters, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
+- metadata – Metadata to associate with the prompt variant. You can append key-value pairs to the array to tag the prompt variant with metadata.
+
+The following fields are optional:
+
+| Field       | Use case                                                                                                                                                                                                    |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| description | To provide a description for the prompt.                                                                                                                                                                    |
+| clientToken | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md"). |
+| tags        | To associate tags with the flow. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                     |
+
+The response creates a `DRAFT` version and returns an ID and ARN that you can use as a prompt identifier for other prompt-related API requests.

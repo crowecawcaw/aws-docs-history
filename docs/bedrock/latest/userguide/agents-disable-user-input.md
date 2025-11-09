@@ -25,7 +25,22 @@ To disable user input, send an [UpdateAgentActionGroup](../APIReference/API_agen
 request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and specify the following fields:
 
 | Field                      | Short description                                              |
-| -------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------- | -------------------------------------------------------------- |
 | actionGroupName            | Name of the action group                                       |
 | parentActionGroupSignature | Specify `AMAZON.UserInput` to disable the user input for agent |
-| actionGroupState           | Specify `DISABLED` to disable user input for the agent         | The following example shows the general format for specifying the required fields to disable user input. `CreateAgentActionGroup: { "actionGroupName": "AskUserAction", "parentActionGroupSignature": "AMAZON.UserInput", "actionGroupState": "DISABLED" }` After you've disabled user input for your agent, make sure to send a [PrepareAgent](../APIReference/API_agent_PrepareAgent.md "../APIReference/API_agent_PrepareAgent.md") request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). |
+| actionGroupState           | Specify `DISABLED` to disable user input for the agent         |
+
+The following example shows the general format for specifying the required fields to disable user input.
+
+```
+CreateAgentActionGroup:
+{
+  "actionGroupName": "AskUserAction",
+  "parentActionGroupSignature": "AMAZON.UserInput",
+  "actionGroupState": "DISABLED"
+}
+
+```
+
+After you've disabled user input for your agent, make sure to send a [PrepareAgent](../APIReference/API_agent_PrepareAgent.md "../APIReference/API_agent_PrepareAgent.md")
+request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt").

@@ -109,11 +109,117 @@ The following are optional parameters:
   – Use a lower value to decrease randomness in the response.
 
 | Default | Minimum | Maximum |
-| ------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --- | --------------- | ------ | ------------- | ------------ | ------ | --- | --------------- | ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0.5     | 0       | 1       | <br>• **top_p** – Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------- | ------- | ------- |
+| 0.5     | 0       | 1       |
+
+- **top_p** – Use a
+  lower value to ignore less probable options. Set to 0 or 1.0 to
+  disable.
+
 | Default | Minimum | Maximum |
-| ---     | ---     | ---     |
-| 0.9     | 0       | 1       | <br>• **max_gen_len** – Specify the maximum number of tokens to use in the generated response. The model truncates the response once the generated text exceeds `max_gen_len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------- | ------- | ------- |
+| 0.9     | 0       | 1       |
+
+- **max_gen_len**
+  – Specify the maximum number of tokens to use in the generated
+  response. The model truncates the response once the generated text exceeds
+  `max_gen_len`.
+
 | Default | Minimum | Maximum |
-| ---     | ---     | ---     |
-| 512     | 1       | 2048    | Response The Llama 3 Instruct models return the following fields for a text completion inference call. ``{ "generation": "\n\n`<response>`", "prompt_token_count": int, "generation_token_count": int, "stop_reason" : string }`` More information about each field is provided below. <br>• **generation** – The generated text. <br>• **prompt_token_count** – The number of tokens in the prompt. <br>• **generation_token_count** – The number of tokens in the generated text. <br>• **stop_reason** – The reason why the response stopped generating text. Possible values are: + **stop** – The model has finished generating text for the input prompt. + **length** – The length of the tokens for the generated text exceeds the value of `max_gen_len` in the call to `InvokeModel` (`InvokeModelWithResponseStream`, if you are streaming output). The response is truncated to `max_gen_len` tokens. Consider increasing the value of `max_gen_len` and trying again. ## Example code This example shows how to call the _Llama 3 Instruct_ model. ``` # Use the native inference API to send a text message to Meta Llama 3. import boto3 import json from botocore.exceptions import ClientError # Create a Bedrock Runtime client in the AWS Region of your choice. client = boto3.client("bedrock-runtime", region_name="us-west-2") # Set the model ID, e.g., Llama 3 70b Instruct. model_id = "meta.llama3-70b-instruct-v1:0" # Define the prompt for the model. prompt = "Describe the purpose of a 'hello world' program in one line." # Embed the prompt in Llama 3's instruction format. formatted_prompt = f""" < | begin_of_text | ><  | start_header_id | >user< | end_header_id | > {prompt} < | eot_id | > < | start_header_id | >assistant< | end_header_id | > """ # Format the request payload using the model's native structure. native_request = { "prompt": formatted_prompt, "max_gen_len": 512, "temperature": 0.5, } # Convert the native request to JSON. request = json.dumps(native_request) try: # Invoke the model with the request. response = client.invoke_model(modelId=model_id, body=request) except (ClientError, Exception) as e: print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}") exit(1) # Decode the response body. model_response = json.loads(response["body"].read()) # Extract and print the response text. response_text = model_response["generation"] print(response_text) ```This example shows how to control the generation length using Llama 3 Instruct models. For detailed responses or summaries, adjust`max_gen_len` and include specific instructions in your prompt. |
+| ------- | ------- | ------- |
+| 512     | 1       | 2048    |
+
+Response
+The Llama 3 Instruct models return the following fields for a text completion
+inference call.
+
+```
+{
+    "generation": "\n\n`<response>`",
+    "prompt_token_count": int,
+    "generation_token_count": int,
+    "stop_reason" : string
+}
+```
+
+More information about each field is provided below.
+
+- **generation** – The generated text.
+- **prompt_token_count** – The number of tokens in the
+  prompt.
+- **generation_token_count** – The number of tokens in the
+  generated text.
+- **stop_reason** – The reason why the response stopped
+  generating text. Possible values are:
+  - **stop** – The model has
+    finished generating text for the input prompt.
+  - **length** – The length of the
+    tokens for the generated text exceeds the value of
+    `max_gen_len` in the call to `InvokeModel`
+    (`InvokeModelWithResponseStream`, if you are
+    streaming output). The response is truncated to
+    `max_gen_len` tokens. Consider increasing the value
+    of `max_gen_len` and trying again.
+
+## Example code
+
+This example shows how to call the _Llama 3 Instruct_
+model.
+
+```
+# Use the native inference API to send a text message to Meta Llama 3.
+
+import boto3
+import json
+
+from botocore.exceptions import ClientError
+
+# Create a Bedrock Runtime client in the AWS Region of your choice.
+client = boto3.client("bedrock-runtime", region_name="us-west-2")
+
+# Set the model ID, e.g., Llama 3 70b Instruct.
+model_id = "meta.llama3-70b-instruct-v1:0"
+
+# Define the prompt for the model.
+prompt = "Describe the purpose of a 'hello world' program in one line."
+
+# Embed the prompt in Llama 3's instruction format.
+formatted_prompt = f"""
+<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+{prompt}
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+"""
+
+# Format the request payload using the model's native structure.
+native_request = {
+    "prompt": formatted_prompt,
+    "max_gen_len": 512,
+    "temperature": 0.5,
+}
+
+# Convert the native request to JSON.
+request = json.dumps(native_request)
+
+try:
+    # Invoke the model with the request.
+    response = client.invoke_model(modelId=model_id, body=request)
+
+except (ClientError, Exception) as e:
+    print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+    exit(1)
+
+# Decode the response body.
+model_response = json.loads(response["body"].read())
+
+# Extract and print the response text.
+response_text = model_response["generation"]
+print(response_text)
+
+
+
+```
+
+This example shows how to control the generation length using Llama 3 Instruct
+models. For detailed responses or summaries, adjust `max\_gen\_len` and include specific
+instructions in your prompt.

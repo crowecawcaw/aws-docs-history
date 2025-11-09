@@ -48,7 +48,9 @@ Amazon Bedrock Guardrails is supported in the following Regions (for more inform
 - Anthropic Claude 3.5 Sonnet v2
 - Anthropic Claude 3.5 Sonnet
 - Anthropic Claude 3.7 Sonnet
+- Anthropic Claude Haiku 4.5
 - Anthropic Claude Opus 4
+- Anthropic Claude Sonnet 4.5
 - Anthropic Claude Sonnet 4
 - Cohere Command R+
 - Cohere Command R
@@ -63,6 +65,8 @@ Amazon Bedrock Guardrails is supported in the following Regions (for more inform
 - Meta Llama 3.2 3B Instruct
 - Meta Llama 3.2 90B Instruct
 - Meta Llama 3.3 70B Instruct
+- Meta Llama 4 Maverick 17B Instruct
+- Meta Llama 4 Scout 17B Instruct
 - Mistral AI Mistral 7B Instruct
 - Mistral AI Mistral Large (24.02)
 - Mistral AI Mistral Large (24.07)
@@ -70,6 +74,10 @@ Amazon Bedrock Guardrails is supported in the following Regions (for more inform
 - Mistral AI Mixtral 8x7B Instruct
 - OpenAI gpt-oss-120b
 - OpenAI gpt-oss-20b
+- Qwen Qwen3 235B A22B 2507
+- Qwen Qwen3 32B (dense)
+- Qwen Qwen3 Coder 480B A35B Instruct
+- Qwen Qwen3-Coder-30B-A3B-Instruct
 - TwelveLabs Pegasus v1.2
 - Writer Palmyra X4
 - Writer Palmyra X5

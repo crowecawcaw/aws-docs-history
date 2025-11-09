@@ -83,6 +83,7 @@ The model you import must be in one of the following architectures.
 - The size of the imported model weights must be less than 100GB for multimodal models and 200GB for text models.
 - The maximum positional embeddings or the maximum context length supported by the model should be less than 128K.
 - Amazon Bedrock supports transformer version 4.51.3. Ensure that you are using transformer version 4.51.3 when you fine tune your model.
+- Custom Model Import does not support embedding models.
 
 ## Import a model source from Amazon S3
 

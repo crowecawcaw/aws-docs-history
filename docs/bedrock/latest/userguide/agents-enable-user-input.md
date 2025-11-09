@@ -29,7 +29,19 @@ To enable user input for your agent, send an [CreateActionGroup](../APIReference
 request (see link for request and response formats and field details) with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and specify the following fields:
 
 | Field                      | Short description                                                                  |
-| -------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------------------------------------------------------------- |
 | actionGroupName            | Name of the action group                                                           |
 | parentActionGroupSignature | Specify `AMAZON.UserInput` to allow the agent to request information from the user |
-| actionGroupState           | Specify `ENABLED` to allow the agent to request information from user              | The following shows the general format of the required fields for enabling user input with an [CreateActionGroup](../APIReference/API_agent_CreateAgentActionGroup.md "../APIReference/API_agent_CreateAgentActionGroup.md") request. `CreateAgentActionGroup: { "actionGroupName": "AskUserAction", "parentActionGroupSignature": "AMAZON.UserInput", "actionGroupState": "ENABLED" }` |
+| actionGroupState           | Specify `ENABLED` to allow the agent to request information from user              |
+
+The following shows the general format of the required fields for enabling user input with an [CreateActionGroup](../APIReference/API_agent_CreateAgentActionGroup.md "../APIReference/API_agent_CreateAgentActionGroup.md") request.
+
+```
+CreateAgentActionGroup:
+{
+  "actionGroupName": "AskUserAction",
+  "parentActionGroupSignature": "AMAZON.UserInput",
+  "actionGroupState": "ENABLED"
+}
+
+```

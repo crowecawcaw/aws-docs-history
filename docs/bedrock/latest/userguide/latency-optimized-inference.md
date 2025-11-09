@@ -45,7 +45,7 @@ output token count up to 11K. For larger token count requests, we will fall back
 
 | Provider  | Model                   | Regions supporting inference profile |
 | --------- | ----------------------- | ------------------------------------ |
-| Amazon    | Nova Pro                | us-east-1 us-east-2                  |
-| Anthropic | Claude 3.5 Haiku        | us-east-2 us-west-2                  |
+| Amazon    | Nova Pro                | us-east-1<br>us-east-2               |
+| Anthropic | Claude 3.5 Haiku        | us-east-2<br>us-west-2               |
 | Meta      | Llama 3.1 405B Instruct | us-east-2                            |
-| Meta      | Llama 3.1 70B Instruct  | us-east-2 us-west-2                  |
+| Meta      | Llama 3.1 70B Instruct  | us-east-2<br>us-west-2               |

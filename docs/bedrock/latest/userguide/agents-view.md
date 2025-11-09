@@ -49,7 +49,37 @@ To list information about your agents, send a [ListAgents](../APIReference/API_a
 request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). [See code examples](bedrock-agent_example_bedrock-agent_ListAgents_section.md "bedrock-agent_example_bedrock-agent_ListAgents_section.md"). You can specify the following optional
 parameters:
 
-| Field      | Short description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a response.                                                                                                                                                        |
-| nextToken  | If there are more results than the number you specified in the `maxResults` field, the response returns a `nextToken` value. To see the next batch of results, send the `nextToken` value in another request. | To list all the tags for an agent, send a [ListTagsForResource](../APIReference/API_agent_ListTagsForResource.md "../APIReference/API_agent_ListTagsForResource.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and include the Amazon Resource Name (ARN) of the agent. `def list_agents(self): """ List the available Amazon Bedrock Agents. :return: The list of available bedrock agents. """ try: all_agents = [] paginator = self.client.get_paginator("list_agents") for page in paginator.paginate(PaginationConfig={"PageSize": 10}): all_agents.extend(page["agentSummaries"]) except ClientError as e: logger.error(f"Couldn't list agents. {e}") raise else: return all_agents` For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md"). |
+| Field      | Short description                                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
+| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |
+
+To list all the tags for an agent, send a [ListTagsForResource](../APIReference/API_agent_ListTagsForResource.md "../APIReference/API_agent_ListTagsForResource.md")
+request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and include the Amazon Resource Name (ARN) of the
+agent.
+
+```
+    def list_agents(self):
+        """
+        List the available Amazon Bedrock Agents.
+
+        :return: The list of available bedrock agents.
+        """
+
+        try:
+            all_agents = []
+
+            paginator = self.client.get_paginator("list_agents")
+            for page in paginator.paginate(PaginationConfig={"PageSize": 10}):
+                all_agents.extend(page["agentSummaries"])
+
+        except ClientError as e:
+            logger.error(f"Couldn't list agents. {e}")
+            raise
+        else:
+            return all_agents
+
+
+```
+
+For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md").

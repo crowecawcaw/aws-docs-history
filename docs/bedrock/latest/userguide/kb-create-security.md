@@ -124,9 +124,33 @@ To edit the network access policy for your Amazon OpenSearch Serverless collecti
 1. Send a [GetSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.md") request with an [OpenSearch Serverless endpoint](../../../general/latest/gr/opensearch-service.md#opensearch-service-regions "../../../general/latest/gr/opensearch-service.md#opensearch-service-regions"). Specify the `name` of the policy and specify the `type` as `network`. Note the `policyVersion` in the response.
 2. Send a [UpdateSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityPolicy.md") request with an [OpenSearch Serverless endpoint](../../../general/latest/gr/opensearch-service.md#opensearch-service-regions "../../../general/latest/gr/opensearch-service.md#opensearch-service-regions"). Minimally, specify the following fields:
 
-| Field         | Description                                                                |
-| ------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name          | The name of the policy                                                     |
-| policyVersion | The `policyVersion` returned to you from the `GetSecurityPolicy` response. |
-| type          | The type of security policy. Specify `network`.                            |
-| policy        | The policy to use. Specify the following JSON object                       | ``[ { "AllowFromPublic": false, "Description":"`${network access policy description}`", "Rules":[ { "ResourceType": "collection", "Resource":[ "collection/`${collection-id}`" ] } ], "SourceServices":[ "bedrock.amazonaws.com" ] } ]`` For an AWS CLI example, see [Creating data access policies (AWS CLI)](../../../opensearch-service/latest/developerguide/serverless-data-access.md#serverless-data-access-cli "../../../opensearch-service/latest/developerguide/serverless-data-access.md#serverless-data-access-cli"). <br>• Use the Amazon OpenSearch Service console by following the steps at [Creating network policies (console)](../../../opensearch-service/latest/developerguide/serverless-network.md#serverless-network-console "../../../opensearch-service/latest/developerguide/serverless-network.md#serverless-network-console"). Instead of creating a network policy, note the **Associated policy** in the **Network** subsection of the collection details. |
+| Field         | Description                                                                      |
+| ------------- | -------------------------------------------------------------------------------- |
+| name          | The name of the policy                                                           |
+| policyVersion | The `policyVersion`<br>returned to you from the<br>`GetSecurityPolicy` response. |
+| type          | The type of security policy. Specify `network`.                                  |
+| policy        | The policy to use. Specify the following JSON object                             |
+
+```
+[
+    {
+        "AllowFromPublic": false,
+        "Description":"`${network access policy description}`",
+        "Rules":[
+            {
+                "ResourceType": "collection",
+                "Resource":[
+                    "collection/`${collection-id}`"
+                ]
+            }
+        ],
+        "SourceServices":[
+            "bedrock.amazonaws.com"
+        ]
+    }
+]
+```
+
+For an AWS CLI example, see [Creating data access policies (AWS CLI)](../../../opensearch-service/latest/developerguide/serverless-data-access.md#serverless-data-access-cli "../../../opensearch-service/latest/developerguide/serverless-data-access.md#serverless-data-access-cli").
+
+- Use the Amazon OpenSearch Service console by following the steps at [Creating network policies (console)](../../../opensearch-service/latest/developerguide/serverless-network.md#serverless-network-console "../../../opensearch-service/latest/developerguide/serverless-network.md#serverless-network-console"). Instead of creating a network policy, note the **Associated policy** in the **Network** subsection of the collection details.

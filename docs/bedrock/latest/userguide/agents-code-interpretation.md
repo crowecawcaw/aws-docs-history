@@ -31,7 +31,17 @@ The following are some of the use cases where code interpretation can help by ge
 Code Interpretation for Amazon Bedrock Agents is supported in the following Regions:
 
 | Region               |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- |
 | US East (N.Virginia) |
 | US West (Oregon)     |
-| Europe (Frankfurt)   | **File support** With code interpretation, you can attach files and then use the attached files to ask questions and summarize or analyze data that’s based on the content of the attached files. You can attach a maximum of 5 files. The total size of all the files can be up to 10 MB. <br>• **Supported input file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, and PDF <br>• **Supported output file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, PDF, and PNG |
+| Europe (Frankfurt)   |
+
+**File support**
+
+With code interpretation, you can attach files and then use the attached files to ask questions and summarize or analyze data
+that’s based on the content of the attached files.
+
+You can attach a maximum of 5 files. The total size of all the files can be up to 10 MB.
+
+- **Supported input file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, and PDF
+- **Supported output file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, PDF, and PNG

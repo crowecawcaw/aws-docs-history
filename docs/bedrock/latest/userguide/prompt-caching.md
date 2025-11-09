@@ -81,7 +81,7 @@ The following table lists the supported models along with their token minimums, 
 number of cache checkpoints, and fields that allow cache checkpoints.
 
 | Model name           | Model ID                                  | Release Type        | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Fields that accept prompt cache checkpoints |
-| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------------------------------- | ------------------- | --------------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
 | Claude 3 Opus 4.1    | anthropic.claude-opus-4-1-20250805-v1:0   | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
 | Claude Opus 4        | anthropic.claude-opus-4-20250514-v1:0     | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
 | Claude Sonnet 4.5    | anthropic.claude-sonnet-4-5-20250929-v1:0 | Generally Available | 1,024                                         | 4                                               | `system`, `messages`, and `tools`           |
@@ -93,4 +93,259 @@ number of cache checkpoints, and fields that allow cache checkpoints.
 | Amazon Nova Micro    | amazon.nova-micro-v1:0                    | Generally available | 1K1                                           | 4                                               | `system` and `messages`                     |
 | Amazon Nova Lite     | amazon.nova-lite-v1:0                     | Generally available | 1K1                                           | 4                                               | `system` and `messages`2                    |
 | Amazon Nova Pro      | amazon.nova-pro-v1:0                      | Generally available | 1K1                                           | 4                                               | `system` and `messages`2                    |
-| Amazon Nova Premier  | amazon.nova-premier-v1:0                  | Generally available | 1K1                                           | 4                                               | `system` and `messages`2                    | 1: The Amazon Nova models support a maximum number of 20K tokens for prompt caching. 2: Prompt caching is primarily for text prompts. Amazon Nova offers automatic prompt caching for all text prompts, including `User` and `System` messages. This mechanism can provide latency benefits when prompts begin with repetitive parts, even without explicit configuration. However, to unlock cost savings and ensure more consistent performance benefits, we recommend opting in to **Explicit Prompt Caching**. ## Simplified Cache Management for Claude Models For Claude models, Amazon Bedrock offers a simplified approach to cache management that reduces the complexity of manually placing cache checkpoints. Instead of requiring you to specify exact cache checkpoint locations, you can use automatic cache management with a single breakpoint at the end of your static content. When you enable simplified cache management, the system automatically checks for cache hits at previous content block boundaries, looking back up to approximately 20 content blocks from your specified breakpoint. This allows the model to find the longest matching prefix from your cache without requiring you to predict the optimal checkpoint locations. To use this, place a single cache checkpoint at the end of your static content, before any dynamic or variable content. The system will automatically find the best cache match. For more granular control, you can still use multiple cache checkpoints (up to 4 for Claude models) to specify exact cache boundaries. You should use multipled cache checkpoints if you are caching sections that change at different frequencies or want more control over exactly what gets cached. ###### Important The automatic prefix checking only looks back approximately 20 content blocks from your cache checkpoint. If your static content extends beyond this range, consider using multiple cache checkpoints or restructuring your prompt to place the most frequently reused content within this range. ## Getting started The following sections show you a brief overview of how to use the prompt caching feature for each method of interacting with models through Amazon Bedrock. The [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API provides advanced and flexible options for implementing prompt caching in multi-turn conversations. For more information about the prompt requirements for each model, see the preceding section [Supported models, Regions, and limits](#prompt-caching-models "#prompt-caching-models"). **Example request** The following examples show a cache checkpoint set in the `messages`, `system`, or `tools` fields of a request to the Converse API. You can place checkpoints in any of these locations for a given request. For example, if sending a request to the Claude 3.5 Sonnet v2 model, you could place two cache checkpoints in `messages`, one cache checkpoint in `system`, and one in `tools`. For more detailed information and examples of structuring and sending Converse API requests, see [Carry out a conversation with the Converse API operations](conversation-inference.md "conversation-inference.md"). messages checkpoints In this example, the first `image` field provides an image to the model, and the second `text` field asks the model to analyze the image. As long as the number of tokens preceding the `cachePoint` in the `content` object meets the minimum token count for the model, a cache checkpoint is created. `... "messages": [ { "role": "user", "content": [ { "image": { "bytes": "asfb14tscve..." } }, { "text": "What's in this image?" }, { "cachePoint": { "type": "default" } } ] } ] ...` system checkpoints In this example, you provide your system prompt in the `text` field. Additionally, you can add a `cachePoint` field to cache the system prompt. `... "system": [ { "text": "You are an app that creates play lists for a radio station that plays rock and pop music. Only return song names and the artist. " }, { "cachePoint": { "type": "default" } } ], ...` tools checkpoints In this example, you provide your tool definition in the `toolSpec` field. (Alternatively, you can call a tool that you’ve previously defined. For more information, see [Call a tool with the Converse API](tool-use-inference-call.md "tool-use-inference-call.md").) Afterward, you can add a `cachePoint` field to cache the tool. `... toolConfig={ "tools": [ { "toolSpec": { "name": "top_song", "description": "Get the most popular song played on a radio station.", "inputSchema": { "json": { "type": "object", "properties": { "sign": { "type": "string", "description": "The call sign for the radio station for which you want the most popular song. Example calls signs are WZPZ and WKRP." } }, "required": [ "sign" ] } } } }, { "cachePoint": { "type": "default" } } ] } ...` The model response from the Converse API includes two new fields that are specific to prompt caching. The `CacheReadInputTokens` and `CacheWriteInputTokens` values tell you how many tokens were read from the cache and how many tokens were written to the cache because of your previous request. These are values that you're charged for by Amazon Bedrock, at a rate that's lower than the cost of full model inference. Prompt caching is enabled by default when you call the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API. You can set cache checkpoints at any point in your request body, similar to the previous example for the Converse API. Anthropic Claude The following example shows how to structure the body of your InvokeModel request for the Anthropic Claude 3.5 Sonnet v2 model. Note that the exact format and fields of the body for InvokeModel requests may vary depending on the model you choose. To see the format and content of the request and response bodies for different models, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md"). `body={ "anthropic_version": "bedrock-2023-05-31", "system":"Reply concisely", "messages": [ { "role": "user", "content": [ { "type": "text", "text": "Describe the best way to learn programming." }, { "type": "text", "text": "Add additional context here for the prompt that meets the minimum token requirement for your chosen model.", "cache_control": { "type": "ephemeral" } } ] } ], "max_tokens": 2048, "temperature": 0.5, "top_p": 0.8, "stop_sequences": [ "stop" ], "top_k": 250 }` Amazon Nova The following example shows how to structure the body of your InvokeModel request for the Amazon Nova model. Note that the exact format and fields of the body for InvokeModel requests may vary depending on the model you choose. To see the format and content of the request and response bodies for different models, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md"). `{ "system": [{ "text": "Reply Concisely" }], "messages": [{ "role": "user", "content": [{ "text": "Describe the best way to learn programming" }, { "text": "Add additional context here for the prompt that meets the minimum token requirement for your chosen model.", "cachePoint": { "type": "default" } }] }], "inferenceConfig": { "maxTokens": 300, "topP": 0.1, "topK": 20, "temperature": 0.3 } }` For more information about sending an InvokeModel request, see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md"). In a chat playground in the Amazon Bedrock console, you can turn on the prompt caching option, and Amazon Bedrock automatically creates cache checkpoints for you. Follow the instructions in [Generate responses in the console using playgrounds](playgrounds.md "playgrounds.md") to get started with prompting in an Amazon Bedrock playground. For supported models, prompt caching is automatically turned on in the playground. However, if it’s not, then do the following to turn on prompt caching: 1. In the left side panel, open the **Configurations** menu. 2. Turn on the **Prompt caching** toggle. 3. Run your prompts. After your combined input and model responses reach the minimum required number of tokens for a checkpoint (which varies by model), Amazon Bedrock automatically creates the first cache checkpoint for you. As you continue chatting, each subsequent reach of the minimum number of tokens creates a new checkpoint, up to the maximum number of checkpoints allowed for the model. You can view your cache checkpoints at any time by choosing **View cache checkpoints** next to the **Prompt caching** toggle, as shown in the following screenshot. ![UI toggle for prompt caching in an Amazon Bedrock text playground.](images/prompt-caching/bedrock-prompt-caching-ui-toggle.png) You can view how many tokens are being read from and written to the cache due to each interaction with the model by viewing the **Caching metrics** pop-up ( ![The metrics icon shown in model responses when prompt caching is enabled.](images/prompt-caching/bedrock-prompt-caching-metrics-icon.png) ) in the playground responses. ![Caching metrics box that shows the number of tokens read from and written to the cache.](images/prompt-caching/bedrock-prompt-caching-metrics.png) If you turn off the prompt caching toggle while in the middle of a conversation, you can continue chatting with the model. |
+| Amazon Nova Premier  | amazon.nova-premier-v1:0                  | Generally available | 1K1                                           | 4                                               | `system` and `messages`2                    |
+
+1: The Amazon Nova models support a maximum number of 20K tokens for prompt caching.
+
+2: Prompt caching is primarily for text prompts.
+
+Amazon Nova offers automatic prompt caching for all text prompts, including `User` and `System` messages. This mechanism can provide latency benefits when prompts begin with repetitive parts, even without explicit configuration. However, to unlock cost savings and ensure more consistent performance benefits, we recommend opting in to **Explicit Prompt Caching**.
+
+## Simplified Cache Management for Claude Models
+
+For Claude models, Amazon Bedrock offers a simplified approach to cache management that reduces the complexity of manually placing cache checkpoints. Instead of requiring you to
+specify exact cache checkpoint locations, you can use automatic cache management with a single breakpoint at the end of your static content.
+
+When you enable simplified cache management, the system automatically checks for cache hits at previous content block boundaries, looking back up to approximately 20
+content blocks from your specified breakpoint. This allows the model to find the longest matching prefix from your cache without requiring you to predict the optimal
+checkpoint locations. To use this, place a single cache checkpoint at the end of your static content, before any dynamic or variable content. The system will
+automatically find the best cache match.
+
+For more granular control, you can still use multiple cache checkpoints (up to 4 for Claude models) to specify exact cache boundaries. You should use multipled
+cache checkpoints if you are caching sections that change at different frequencies or want more control over exactly what gets cached.
+
+###### Important
+
+The automatic prefix checking only looks back approximately 20 content blocks from your cache checkpoint. If your static content extends beyond this range, consider
+using multiple cache checkpoints or restructuring your prompt to place the most frequently reused content within this range.
+
+## Getting started
+
+The following sections show you a brief overview of how to use the prompt caching
+feature for each method of interacting with models through Amazon Bedrock.
+
+The [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md")
+API provides advanced and flexible options for implementing prompt caching
+in multi-turn conversations. For more information about the prompt requirements for each model, see
+the preceding section [Supported models, Regions, and limits](#prompt-caching-models "#prompt-caching-models").
+
+**Example request**
+
+The following examples show a cache checkpoint set in the
+`messages`, `system`, or `tools`
+fields of a request to the Converse API. You can place checkpoints in any of these
+locations for a given request. For example, if sending a request to the
+Claude 3.5 Sonnet v2 model, you could place two cache checkpoints in
+`messages`, one cache checkpoint in `system`,
+and one in `tools`. For more detailed information and examples of
+structuring and sending Converse API requests, see
+[Carry out a conversation with the
+Converse API operations](conversation-inference.md "conversation-inference.md").
+
+messages checkpoints
+In this example, the first `image` field provides an image to the model,
+and the second `text` field asks the model to analyze the image.
+As long as the number of tokens preceding the `cachePoint`
+in the `content` object meets the minimum token count for the model,
+a cache checkpoint is created.
+
+```
+...
+"messages": [
+   {
+        "role": "user",
+        "content": [
+            {
+                "image": {
+                    "bytes": "asfb14tscve..."
+                }
+            },
+            {
+                "text": "What's in this image?"
+            },
+            {
+                "cachePoint": {
+                    "type": "default"
+                }
+            }
+      ]
+  }
+]
+...
+```
+
+system checkpoints
+In this example, you provide your system prompt in the
+`text` field. Additionally, you can add a
+`cachePoint` field to cache the system prompt.
+
+```
+...
+  "system": [
+    {
+        "text": "You are an app that creates play lists for a radio station that plays rock and pop music. Only return song names and the artist. "
+    },
+    {
+        "cachePoint": {
+            "type": "default"
+        }
+    }
+  ],
+...
+```
+
+tools checkpoints
+In this example, you provide your tool definition in the
+`toolSpec` field. (Alternatively, you can call a tool that
+you’ve previously defined. For more information, see [Call a tool with the Converse API](tool-use-inference-call.md "tool-use-inference-call.md").) Afterward, you can add
+a `cachePoint` field to cache the tool.
+
+```
+...
+toolConfig={
+    "tools": [
+        {
+            "toolSpec": {
+                "name": "top_song",
+                "description": "Get the most popular song played on a radio station.",
+                "inputSchema": {
+                    "json": {
+                        "type": "object",
+                        "properties": {
+                            "sign": {
+                                "type": "string",
+                                "description": "The call sign for the radio station for which you want the most popular song. Example calls signs are WZPZ and WKRP."
+                            }
+                        },
+                        "required": [
+                            "sign"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+                "cachePoint": {
+                    "type": "default"
+                }
+        }
+    ]
+}
+...
+```
+
+The model response from the Converse API includes two new fields that are specific to prompt
+caching. The `CacheReadInputTokens` and
+`CacheWriteInputTokens` values tell you how many tokens were
+read from the cache and how many tokens were written to the cache because of
+your previous request. These are values that you're charged for by Amazon Bedrock, at a
+rate that's lower than the cost of full model inference.
+
+Prompt caching is enabled by default when you call the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API.
+
+You can set cache checkpoints at any point in
+your request body, similar to the previous example for the Converse API.
+
+Anthropic Claude
+The following example shows how to structure the body of your InvokeModel
+request for the Anthropic Claude 3.5 Sonnet v2 model. Note that the exact format and fields of the
+body for InvokeModel requests may vary depending on the model you choose. To see the
+format and content of the request and response bodies for different models, see
+[Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
+
+```
+body={
+        "anthropic_version": "bedrock-2023-05-31",
+        "system":"Reply concisely",
+        "messages": [
+            {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Describe the best way to learn programming."
+                },
+                {
+                    "type": "text",
+                    "text": "Add additional context here for the prompt that meets the minimum token requirement for your chosen model.",
+                    "cache_control": {
+                        "type": "ephemeral"
+                    }
+                }
+            ]
+            }
+        ],
+        "max_tokens": 2048,
+        "temperature": 0.5,
+        "top_p": 0.8,
+        "stop_sequences": [
+            "stop"
+        ],
+        "top_k": 250
+}
+```
+
+Amazon Nova
+The following example shows how to structure the body of your InvokeModel
+request for the Amazon Nova model. Note that the exact format and fields of the
+body for InvokeModel requests may vary depending on the model you choose. To see the
+format and content of the request and response bodies for different models, see
+[Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
+
+```
+{
+    "system": [{
+        "text": "Reply Concisely"
+    }],
+    "messages": [{
+        "role": "user",
+        "content": [{
+            "text": "Describe the best way to learn programming"
+        },
+        {
+            "text": "Add additional context here for the prompt that meets the minimum token requirement for your chosen model.",
+            "cachePoint": {
+                "type": "default"
+            }
+        }]
+    }],
+    "inferenceConfig": {
+        "maxTokens": 300,
+        "topP": 0.1,
+        "topK": 20,
+        "temperature": 0.3
+    }
+}
+```
+
+For more information about sending an InvokeModel request, see
+[Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
+
+In a chat playground in the Amazon Bedrock console, you can turn on the prompt caching
+option, and Amazon Bedrock automatically creates cache checkpoints for you.
+
+Follow the instructions in [Generate responses in the console using playgrounds](playgrounds.md "playgrounds.md") to get started with prompting in an Amazon Bedrock
+playground. For supported models, prompt caching is automatically turned on
+in the playground. However, if it’s not, then do the following to turn on prompt caching:
+
+1. In the left side panel, open the **Configurations** menu.
+2. Turn on the **Prompt caching** toggle.
+3. Run your prompts.
+   After your combined input and model responses reach the minimum required
+   number of tokens for a checkpoint (which varies by model), Amazon Bedrock automatically
+   creates the first cache checkpoint for you. As you continue chatting, each
+   subsequent reach of the minimum number of tokens creates a new checkpoint, up to
+   the maximum number of checkpoints allowed for the model. You can view your cache
+   checkpoints at any time by choosing **View cache checkpoints**
+   next to the **Prompt caching** toggle, as shown in the following screenshot.
+
+![UI toggle for prompt caching in an Amazon Bedrock text playground.](images/prompt-caching/bedrock-prompt-caching-ui-toggle.png)
+You can view how many tokens are being read from and written to the cache due
+to each interaction with the model by viewing the **Caching metrics**
+pop-up (
+![The metrics icon shown in model responses when prompt caching is enabled.](images/prompt-caching/bedrock-prompt-caching-metrics-icon.png)
+) in the playground responses.
+
+![Caching metrics box that shows the number of tokens read from and written to the cache.](images/prompt-caching/bedrock-prompt-caching-metrics.png)
+If you turn off the prompt caching toggle while in the middle of a
+conversation, you can continue chatting with the model.

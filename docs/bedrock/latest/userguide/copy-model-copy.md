@@ -30,12 +30,17 @@ To copy a model to another Region, send a [CreateModelCopyJob](../APIReference/A
 
 The following fields are required:
 
-| Field           | Brief description                                                                                                                                                                                                                            |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| sourceModelArn  | The Amazon Resource Name (ARN) of the model to copy.                                                                                                                                                                                         |
-| targetModelName | A name for the model copy.                                                                                                                                                                                                                   | The following fields are optional:                                              |
+| Field           | Brief description                                    |
+| --------------- | ---------------------------------------------------- |
+| sourceModelArn  | The Amazon Resource Name (ARN) of the model to copy. |
+| targetModelName | A name for the model copy.                           |
+
+The following fields are optional:
+
 | Field           | Use-case                                                                                                                                                                                                                                     |
-| ---             | ---                                                                                                                                                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | clientToken     | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md").                                  |
 | modelKmsKeyId   | To provide a KMS key to encrypt the model copy. For more information, see [Permissions and key policies for custom and copied models](encryption-custom-job.md#encryption-cm-statements "encryption-custom-job.md#encryption-cm-statements") |
-| targetModelTags | To provide tags for the model copy. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                                                   | The response includes a `jobArn` field, which is the ARN of the model copy job. |
+| targetModelTags | To provide tags for the model copy. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").                                                                                                                   |
+
+The response includes a `jobArn` field, which is the ARN of the model copy job.

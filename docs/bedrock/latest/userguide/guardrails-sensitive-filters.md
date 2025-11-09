@@ -302,10 +302,121 @@ Console
         pattern**. Configure the following
         fields:
 
-| Field           | Description                                                                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ----- | ---- | --- | ---------------------- | --------- | ---------------------------- | --------- | --------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------- | --------- | --------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name            | A name for the pattern                                                                                                                          |
-| Regex pattern   | A regular expression that defines the pattern                                                                                                   |
-| Input           | Choose whether to **Block** content containing the pattern or **Mask** it with an identifier. To take no action, select **Detect (no action)**. |
-| Output          |                                                                                                                                                 |
-| Add description | (Optional) Write a description for the pattern                                                                                                  | <br>• To edit a pattern, select the three dots icon in the same row as the topic in the **Actions** column. Then select **Edit**. After you are finished editing, select **Confirm**. <br>• To delete a pattern or patterns, select the checkboxes for the patterns to delete. Select **Delete** and then select **Delete selected**. <br>• To delete all the patterns, select **Delete** and then select **Delete all**. <br>• To search for a pattern, enter an expression in the search bar. <br>• To configure the size of each page in the table or the column display in the table, select the settings icon ( ![Gear icon representing settings or configuration options.](images/icons/settings.png) ). Set your preferences and then select **Confirm**. 3. When you finish configuring sensitive information filters, select **Next** or **Skip to review and create**. API To create a guardrail with sensitive information policies, send a [CreateGuardrail](../APIReference/API_CreateGuardrail.md "../APIReference/API_CreateGuardrail.md") request. The request format is as follows: ``` POST /guardrails HTTP/1.1 Content-type: application/json { "blockedInputMessaging": "string", "blockedOutputsMessaging": "string", "sensitiveInformationPolicyConfig": { "piiEntitiesConfig": [{ "type": "ADDRESS | EMAIL | PHONE | NAME | SSN | ...", "action": "BLOCK | ANONYMIZE | NONE", "inputAction": "BLOCK | ANONYMIZE | NONE", "inputEnabled": true, "outputAction": "BLOCK | ANONYMIZE | NONE", "outputEnabled": true }], "regexesConfig": [{ "name": "string", "pattern": "string", "action": "BLOCK | ANONYMIZE | NONE", "description": "string", "inputAction": "BLOCK | ANONYMIZE | NONE", "inputEnabled": true, "outputAction": "BLOCK | ANONYMIZE | NONE", "outputEnabled": true }] }, "description": "string", "kmsKeyId": "string", "name": "string", "tags": [{ "key": "string", "value": "string" }], "crossRegionConfig": { "guardrailProfileIdentifier": "string" } } ``<br>• Specify a `name` and `description` for the guardrail. <br>• Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields. <br>• Configure sensitive information policies in the `sensitiveInformationPolicyConfig` object: + Use `piiEntitiesConfig` array to configure predefined PII entity types: <br>• Specify the PII entity type in the `type` field. Valid values include `ADDRESS`, `EMAIL`, `PHONE`, `NAME`, `US_SOCIAL_SECURITY_NUMBER`, among others. <br>• Specify the action to take when the PII entity is detected in the `action` field. Choose `BLOCK` to block content, `ANONYMIZE` to mask the content, or `NONE` to take no action but return detection information. <br>• (Optional) Use `inputAction`, `inputEnabled`, `outputAction`, and `outputEnabled` to configure different behaviors for prompts and responses. + Use `regexesConfig` array to define custom patterns to detect: <br>• Specify a `name` for the regex pattern (1-100 characters). <br>• Define the regular expression `pattern` to detect (1-500 characters). <br>• Specify the `action` to take when the pattern is detected. Choose `BLOCK` to block content, `ANONYMIZE` to mask the content, or `NONE` to take no action but return detection information. <br>• (Optional) Provide a `description` for the regex pattern (1-1000 characters). <br>• (Optional) Use `inputAction`, `inputEnabled`, `outputAction`, and `outputEnabled` to configure different behaviors for prompts and responses. <br>• (Optional) Attach any tags to the guardrail. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md"). <br>• (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field. <br>• (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile in the `crossRegionConfig` object. The response format is as follows:`` HTTP/1.1 202 Content-type: application/json { "createdAt": "string", "guardrailArn": "string", "guardrailId": "string", "version": "string" } ``` |
+      | Field           | Description                                                                                                                                                           |
+      | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+      | Name            | A name for the pattern                                                                                                                                                |
+      | Regex pattern   | A regular expression that defines the<br>pattern                                                                                                                      |
+      | Input           | Choose whether to<br>**Block\*<br>• content containing the<br>pattern or **Mask\*<br>• it with an<br>identifier. To take no action, select<br>**Detect (no action)**. |
+      | Output          |                                                                                                                                                                       |
+      | Add description | (Optional) Write a description for the<br>pattern                                                                                                                     |
+      - To edit a pattern, select the three dots icon
+        in the same row as the topic in the
+        **Actions** column. Then select
+        **Edit**. After you are finished
+        editing, select
+        **Confirm**.
+      - To delete a pattern or patterns, select the
+        checkboxes for the patterns to delete. Select
+        **Delete** and then select
+        **Delete selected**.
+      - To delete all the patterns, select
+        **Delete** and then select
+        **Delete all**.
+      - To search for a pattern, enter an expression
+        in the search bar.
+      - To configure the size of each page in the
+        table or the column display in the table, select
+        the settings icon (
+
+      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
+
+      ). Set your
+      preferences and then select
+      **Confirm**.
+
+   3. When you finish configuring sensitive information
+      filters, select **Next** or
+      **Skip to review and
+      create**.
+
+API
+To create a guardrail with sensitive information policies, send a [CreateGuardrail](../APIReference/API_CreateGuardrail.md "../APIReference/API_CreateGuardrail.md") request. The request format is as
+follows:
+
+```
+POST /guardrails HTTP/1.1
+Content-type: application/json
+
+{
+    "blockedInputMessaging": "string",
+    "blockedOutputsMessaging": "string",
+    "sensitiveInformationPolicyConfig": {
+        "piiEntitiesConfig": [{
+            "type": "ADDRESS | EMAIL | PHONE | NAME | SSN | ...",
+            "action": "BLOCK | ANONYMIZE | NONE",
+            "inputAction": "BLOCK | ANONYMIZE | NONE",
+            "inputEnabled": true,
+            "outputAction": "BLOCK | ANONYMIZE | NONE",
+            "outputEnabled": true
+        }],
+        "regexesConfig": [{
+            "name": "string",
+            "pattern": "string",
+            "action": "BLOCK | ANONYMIZE | NONE",
+            "description": "string",
+            "inputAction": "BLOCK | ANONYMIZE | NONE",
+            "inputEnabled": true,
+            "outputAction": "BLOCK | ANONYMIZE | NONE",
+            "outputEnabled": true
+        }]
+    },
+    "description": "string",
+    "kmsKeyId": "string",
+    "name": "string",
+    "tags": [{
+        "key": "string",
+        "value": "string"
+    }],
+    "crossRegionConfig": {
+        "guardrailProfileIdentifier": "string"
+    }
+}
+```
+
+- Specify a `name` and `description` for the guardrail.
+- Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+- Configure sensitive information policies in the `sensitiveInformationPolicyConfig` object:
+  - Use `piiEntitiesConfig` array to configure predefined PII entity types:
+    - Specify the PII entity type in the
+      `type` field. Valid values include
+      `ADDRESS`, `EMAIL`,
+      `PHONE`, `NAME`,
+      `US_SOCIAL_SECURITY_NUMBER`, among
+      others.
+    - Specify the action to take when the PII entity is detected in the `action` field. Choose `BLOCK` to block content, `ANONYMIZE` to mask the content, or `NONE` to take no action but return detection information.
+    - (Optional) Use `inputAction`, `inputEnabled`, `outputAction`, and `outputEnabled` to configure different behaviors for prompts and responses.
+
+  - Use `regexesConfig` array to define custom patterns to detect:
+    - Specify a `name` for the regex pattern (1-100 characters).
+    - Define the regular expression `pattern` to detect (1-500 characters).
+    - Specify the `action` to take when the pattern is detected. Choose `BLOCK` to block content, `ANONYMIZE` to mask the content, or `NONE` to take no action but return detection information.
+    - (Optional) Provide a `description` for the regex pattern (1-1000 characters).
+    - (Optional) Use `inputAction`, `inputEnabled`, `outputAction`, and `outputEnabled` to configure different behaviors for prompts and responses.
+
+- (Optional) Attach any tags to the guardrail. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+- (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+- (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile in the `crossRegionConfig` object.
+
+The response format is as follows:
+
+```
+HTTP/1.1 202
+Content-type: application/json
+
+{
+    "createdAt": "string",
+    "guardrailArn": "string",
+    "guardrailId": "string",
+    "version": "string"
+}
+```

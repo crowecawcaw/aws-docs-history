@@ -42,7 +42,7 @@ Console
     	 increased rate using a Provisioned Throughput that you previously
     	 purchased for the model, select **Provisioned Throughput
     	 (PT)** and then select a provisioned
-    	 model. For more information, see [Provisioned Throughput](prov-throughput.md "prov-throughput.md").
+    	 model. For more information, see [Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").
     7. Select **Create alias**.
 
 API
@@ -51,13 +51,41 @@ request with an [Agents for Amazon Bedrock build-time endpoint](../../../general
 
 The following fields are required:
 
+| Field     | Use case                                                        |
+| --------- | --------------------------------------------------------------- |
+| agentId   | To specify the ID of the agent for which to<br>create an alias. |
+| agentName | To specify a name for the alias.                                |
+
+The following fields are optional:
+
 | Field                | Use case                                                                                                                                                                                                    |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| agentId              | To specify the ID of the agent for which to create an alias.                                                                                                                                                |
-| agentName            | To specify a name for the alias.                                                                                                                                                                            | The following fields are optional:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Field                | Use case                                                                                                                                                                                                    |
-| ---                  | ---                                                                                                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | description          | To provide a description of the alias.                                                                                                                                                                      |
-| routingConfiguration | To specify a version to associate the alias with (leave blank to create a new version) and a [Provisioned Throughput](prov-throughput.md "prov-throughput.md") to associate with the alias.                 |
+| routingConfiguration | To specify a version to associate the alias with<br>(leave blank to create a new version) and a [Provisioned Throughput](prov-throughput.md "prov-throughput.md") to associate<br>with the alias.           |
 | clientToken          | To ensure the API request completes only once. For more information, see [Ensuring idempotency](../../../ec2/latest/devguide/ec2-api-idempotency.md "../../../ec2/latest/devguide/ec2-api-idempotency.md"). |
-| tags                 | To associate [tags](tagging.md "tagging.md") with the alias.                                                                                                                                                | `def create_agent_alias(self, name, agent_id): """ Creates an alias of an agent that can be used to deploy the agent. :param name: The name of the alias. :param agent_id: The unique identifier of the agent. :return: Details about the alias that was created. """ try: response = self.client.create_agent_alias( agentAliasName=name, agentId=agent_id ) agent_alias = response["agentAlias"] except ClientError as e: logger.error(f"Couldn't create agent alias. {e}") raise else: return agent_alias` For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md"). |
+| tags                 | To associate [tags](tagging.md "tagging.md")<br>with the alias.                                                                                                                                             |
+
+```
+    def create_agent_alias(self, name, agent_id):
+        """
+        Creates an alias of an agent that can be used to deploy the agent.
+
+        :param name: The name of the alias.
+        :param agent_id: The unique identifier of the agent.
+        :return: Details about the alias that was created.
+        """
+        try:
+            response = self.client.create_agent_alias(
+                agentAliasName=name, agentId=agent_id
+            )
+            agent_alias = response["agentAlias"]
+        except ClientError as e:
+            logger.error(f"Couldn't create agent alias. {e}")
+            raise
+        else:
+            return agent_alias
+
+
+```
+
+For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md").

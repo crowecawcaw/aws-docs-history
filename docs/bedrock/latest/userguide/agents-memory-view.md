@@ -38,8 +38,16 @@ formats and field details) with an [Agents for Amazon Bedrock build-time endpoin
 The following fields are required:
 
 | Field        | Short description                                           |
-| ------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------ | ----------------------------------------------------------- |
 | agentId      | The identifier of the agent                                 |
 | agentAliasId | The identifier of the agent alias                           |
 | memoryId     | The identifier of the memory that has the session summaries |
-| memoryType   | The type of memory. Valid value: `SESSION_SUMMARY`          | ###### Note If you are viewing memory sessions when you are testing your agent, you can view the session summary only after the latest session has ended. If you try to view memory sessions when the current session is in progress you will be informed that session summary is being generated and it will take time to generate the sessions. You can force end the current session by sending an [InvokeAgent](../APIReference/API_agent_InvokeAgent.md "../APIReference/API_agent_InvokeAgent.md") request and specifying `Y` for the `endSession` field. |
+| memoryType   | The type of memory. Valid value:<br>`SESSION_SUMMARY`       |
+
+###### Note
+
+If you are viewing memory sessions when you are testing your agent, you can view the session summary only after the
+latest session has ended. If you try to view memory sessions when the current session is in progress you will be informed
+that session summary is being generated and it will take time to generate the sessions. You can force end the current session
+by sending an [InvokeAgent](../APIReference/API_agent_InvokeAgent.md "../APIReference/API_agent_InvokeAgent.md") request
+and specifying `Y` for the `endSession` field.

@@ -53,13 +53,438 @@ permissions. The permissions that you configure depend on the authentication met
 following table shows the authentication methods that can be used for different query
 engines:
 
-| Authentication method | Amazon Redshift Provisioned                                   | Amazon Redshift Serverless                                                |
-| --------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAM                   | Green circular icon with a white checkmark symbol inside. Yes | Green circular icon with a white checkmark symbol inside. Yes             |
-| Database username     | Green circular icon with a white checkmark symbol inside. Yes | Red circular icon with an X symbol, indicating cancellation or denial. No |
-| AWS Secrets Manager   | Green circular icon with a white checkmark symbol inside. Yes | Green circular icon with a white checkmark symbol inside. Yes             | Amazon Bedrock Knowledge Bases uses a [service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") to connect knowledge bases to structured data stores, retrieve data from these data stores, and generate SQL queries based on user queries and the structure of the data stores. ###### Note If you plan to use the AWS Management Console to create a knowledge base, you can skip this prerequisite. The console will create an Amazon Bedrock Knowledge Bases service role with the proper permissions. To create a custom IAM service role with the proper permissions, follow the steps at [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") and attach the trust relationship defined in [Trust relationship](kb-permissions.md#kb-permissions-trust "kb-permissions.md#kb-permissions-trust"). Then, add permissions for your knowledge base to access your Amazon Redshift query engine and databases. Expand the section that applies to your use case: Attach the following policy to your custom service role to allow it to access your data and generate queries using it: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RedshiftDataAPIStatementPermissions", "Effect": "Allow", "Action": [ "redshift-data:GetStatementResult", "redshift-data:DescribeStatement", "redshift-data:CancelStatement" ], "Resource": [ "*" ], "Condition": { "StringEquals": { "redshift-data:statement-owner-iam-userid": "`${aws:userid}`" } } }, { "Sid": "RedshiftDataAPIExecutePermissions", "Effect": "Allow", "Action": [ "redshift-data:ExecuteStatement" ], "Resource": [ "arn:aws:redshift:`us-east-1`:`123456789012`:cluster:`${Cluster}`" ] }, { "Sid": "SqlWorkbenchAccess", "Effect": "Allow", "Action": [ "sqlworkbench:GetSqlRecommendations", "sqlworkbench:PutSqlGenerationContext", "sqlworkbench:GetSqlGenerationContext", "sqlworkbench:DeleteSqlGenerationContext" ], "Resource": "*" }, { "Sid": "GenerateQueryAccess", "Effect": "Allow", "Action": [ "bedrock:GenerateQuery" ], "Resource": "*" } ] }` `` You also need to add permissions to allow your service role to authenticate to the query engine. Expand a section to see the permissions for that method. IAM To allow your service role to authenticate to your Amazon Redshift provisioned query engine with IAM, attach the following policy to your custom service role: JSONJSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "GetCredentialsWithFederatedIAMCredentials", "Effect": "Allow", "Action": "redshift:GetClusterCredentialsWithIAM", "Resource": [ "arn:aws:redshift:`us-east-1`:`123456789012`:dbname:`Cluster`/`database`" ] } ] }` `` Database user To authenticate as an Amazon Redshift database user, attach the following policy to the service role: JSONJSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "GetCredentialsWithClusterCredentials", "Effect": "Allow", "Action": [ "redshift:GetClusterCredentials" ], "Resource": [ "arn:aws:redshift:`us-east-1`:`123456789012`:dbuser:`${cluster}`/`${dbuser}`", "arn:aws:redshift:`us-east-1`:`123456789012`:dbname:`${cluster}`/`${database}`" ] } ] }` `` AWS Secrets Manager To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following: <br>• Attach the following policy to the role: ``{ "Version": "2012-10-17", "Statement": [ { "Sid": "GetSecretPermissions", "Effect": "Allow", "Action": [ "secretsmanager:GetSecretValue" ], "Resource": [ "arn:aws:secretsmanager:`${region}`:`${account}`:secret:`${secretName}`" ] } ] }`` The permissions to attach depend on your authentication method. Expand a section to see the permissions for a method. IAM To allow your service role to authenticate to your Amazon Redshift serverless query engine with IAM, attach the following policy to your custom service role: JSONJSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "RedshiftServerlessGetCredentials", "Effect": "Allow", "Action": "redshift-serverless:GetCredentials", "Resource": [ "arn:aws:redshift-serverless:`us-east-1`:`123456789012`:workgroup/`WorkgroupId`" ] } ] }` `` AWS Secrets Manager To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following: <br>• Attach the following policy to the role: ``{ "Version": "2012-10-17", "Statement": [ { "Sid": "GetSecretPermissions", "Effect": "Allow", "Action": [ "secretsmanager:GetSecretValue" ], "Resource": [ "arn:aws:secretsmanager:`${region}`:`${account}`:secret:`${secretName}`" ] } ] }`` ## Allow knowledge base service role to access your data store Make sure your data is stored in one of the following [supported structured data stores](knowledge-base-structured-create.md "knowledge-base-structured-create.md"): <br>• Amazon Redshift <br>• AWS Glue Data Catalog (AWS Lake Formation) The following table summarizes the authentication methods available for the query engine, depending on your data store:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Authentication method | Amazon Redshift                                               | AWS Glue Data Catalog (AWS Lake Formation)                                |
-| ---                   | ---                                                           | ---                                                                       |
-| IAM                   | Green circular icon with a white checkmark symbol inside. Yes | Green circular icon with a white checkmark symbol inside. Yes             |
-| Database username     | Green circular icon with a white checkmark symbol inside. Yes | Red circular icon with an X symbol, indicating cancellation or denial. No |
-| AWS Secrets Manager   | Green circular icon with a white checkmark symbol inside. Yes | Red circular icon with an X symbol, indicating cancellation or denial. No | To learn how to set up permissions for your Amazon Bedrock Knowledge Bases service role to access your data store and generate queries based on it, expand the section that corresponds to the service that your data store is in: To grant your Amazon Bedrock Knowledge Bases service role access to your Amazon Redshift database, use the [Amazon Redshift query editor v2](../../../redshift/latest/mgmt/query-editor-v2.md "../../../redshift/latest/mgmt/query-editor-v2.md") and run the following SQL commands: 1. (If you authenticate with IAM and a user wasn't already created for your database) Run the following command, which uses [CREATE USER](../../../redshift/latest/dg/r_CREATE_USER.md "../../../redshift/latest/dg/r_CREATE_USER.md") to create a database user and allow it to authenticate through IAM, replacing `${service-role}` with the name of the custom Amazon Bedrock Knowledge Bases service role you created: ``CREATE USER "IAMR:`${service-role}`" WITH PASSWORD DISABLE;`` ###### Important If you use the Amazon Bedrock Knowledge Bases service role created for you in the console and then [sync your data store](kb-data-source-structured-sync-ingest.md "kb-data-source-structured-sync-ingest.md") before you do this step, the user will be created for you, but the sync will fail because the user hasn't been granted permissions to access your data store. You must carry out the following step before syncing. 2. Grant an identity permissions to retrieve information from your database by running the [GRANT](../../../redshift/latest/dg/r_GRANT.md "../../../redshift/latest/dg/r_GRANT.md") command. IAM ``GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "IAMR:`${serviceRole}`";`` Database user ``GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "`${dbUser}`";`` AWS Secrets Manager username ``GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "`${secretsUsername}`";`` ###### Important Don't grant `CREATE`, `UPDATE`, or `DELETE` access. Granting these actions can lead to unintended modification of your data. For finer-grained control on the tables that can be accessed, you can replace `ALL TABLES` specific table names with the following notation: `${schemaName}``${tableName}`. For more information about this notation, see the **Query objects** section at [Cross-database queries](../../../redshift/latest/dg/cross-database-overview.md "../../../redshift/latest/dg/cross-database-overview.md"). IAM ``GRANT SELECT ON `${schemaName}`.`${tableName}` TO "IAMR:`${serviceRole}`";`` Database user ``GRANT SELECT ON `${schemaName}`.`${tableName}` TO "`${dbUser}`";`` AWS Secrets Manager username ``GRANT SELECT ON `${schemaName}`.`${tableName}` TO "`${secretsUsername}`";`` 3. If you created a new schema in the Redshift database, run the following command to grant an identity permissions against the new schema. `GRANT USAGE ON SCHEMA ${schemaName} TO "IAMR:${serviceRole}";` To grant your Amazon Bedrock Knowledge Bases service role access to your AWS Glue Data Catalog data store, use the [Amazon Redshift query editor v2](../../../redshift/latest/mgmt/query-editor-v2.md "../../../redshift/latest/mgmt/query-editor-v2.md") and run the following SQL commands: 1. Run the following command, which uses [CREATE USER](../../../redshift/latest/dg/r_CREATE_USER.md "../../../redshift/latest/dg/r_CREATE_USER.md") to create a database user and allow it to authenticate through IAM, replacing `${service-role}` with the name of the custom Amazon Bedrock Knowledge Bases service role you created: ``CREATE USER "IAMR:`${service-role}`" WITH PASSWORD DISABLE;`` ###### Important If you use the Amazon Bedrock Knowledge Bases service role created for you in the console and then [sync your data store](kb-data-source-structured-sync-ingest.md "kb-data-source-structured-sync-ingest.md") before you do this step, the user will be created for you, but the sync will fail because the user hasn't been granted permissions to access your data store. You must carry out the following step before syncing. 2. Grant the service role permissions to retrieve information from your database by running the following [GRANT](../../../redshift/latest/dg/r_GRANT.md "../../../redshift/latest/dg/r_GRANT.md") command: ``GRANT USAGE ON DATABASE awsdatacatalog TO "IAMR:`${serviceRole}`";`` ###### Important Don't grant `CREATE`, `UPDATE`, or `DELETE` access. Granting these actions can lead to unintended modification of your data. 3. To allow access to your AWS Glue Data Catalog databases, attach the following permissions to the service role: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "glue:GetDatabases", "glue:GetDatabase", "glue:GetTables", "glue:GetTable", "glue:GetPartitions", "glue:GetPartition", "glue:SearchTables" ], "Resource": [ "arn:aws:glue:`us-east-1`:`123456789012`:table/`${DatabaseName}`/`${TableName}`", "arn:aws:glue:`us-east-1`:`123456789012`:database/`${DatabaseName}`", "arn:aws:glue:`us-east-1`:`123456789012`:catalog" ] } ] }` `` 4. Grant permissions to your service role through AWS Lake Formation (to learn more about Lake Formation and its relationship with Amazon Redshift, see [Data sources for Redshift](../../../redshift/latest/dg/copy-parameters-data-source.md "../../../redshift/latest/dg/copy-parameters-data-source.md")) by doing the following: 1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). 2. Select **Data permissions** from the left navigation pane. 3. Grant permissions to the service role you're using for Amazon Bedrock Knowledge Bases. 4. Grant **Describe** and **Select** permissions for your databases and tables. 5. Depending on the data source you use in AWS Glue Data Catalog, you might need to add permissions to access that data source (for more information, see [AWS Glue dependency on other AWS services](../../../glue/latest/dg/dependency-on-other-services.md "../../../glue/latest/dg/dependency-on-other-services.md")). For example, if your data source is in an Amazon S3 location, you'll need to add the following statement to the policy above. ``{ "Sid": "Statement1", "Effect": "Allow", "Action": [ "s3:ListBucket", "s3:GetObject" ], "Resource": [ "arn:aws:s3:::`${BucketName}`", "arn:aws:s3:::`${BucketName}`/*" ] }`` 6. (Optional) If you use AWS KMS to encrypt the data in Amazon S3 or AWS Glue Data Catalog, then you need to add permissions to the role to decrypt the data on the KMS key. `{ "Action": [ "kms:Decrypt" ], "Resource": [ "arn:aws:kms:${Region}:${Account}:key/{KmsId}", "arn:aws:kms:${Region}:${Account}:key/{KmsId}" ], "Effect": "Allow" }` |
+| Authentication method | Amazon Redshift Provisioned                                      | Amazon Redshift Serverless                                                   |
+| --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| IAM                   | Green circular icon with a white checkmark symbol inside.<br>Yes | Green circular icon with a white checkmark symbol inside.<br>Yes             |
+| Database username     | Green circular icon with a white checkmark symbol inside.<br>Yes | Red circular icon with an X symbol, indicating cancellation or denial.<br>No |
+| AWS Secrets Manager   | Green circular icon with a white checkmark symbol inside.<br>Yes | Green circular icon with a white checkmark symbol inside.<br>Yes             |
+
+Amazon Bedrock Knowledge Bases uses a [service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") to
+connect knowledge bases to structured data stores, retrieve data from these data stores,
+and generate SQL queries based on user queries and the structure of the data
+stores.
+
+###### Note
+
+If you plan to use the AWS Management Console to create a knowledge base, you can skip this
+prerequisite. The console will create an Amazon Bedrock Knowledge Bases service role with the proper
+permissions.
+
+To create a custom IAM service role with the proper permissions, follow the steps at
+[Create a role to
+delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") and attach the trust relationship
+defined in [Trust relationship](kb-permissions.md#kb-permissions-trust "kb-permissions.md#kb-permissions-trust").
+
+Then, add permissions for your knowledge base to access your Amazon Redshift query engine and
+databases. Expand the section that applies to your use case:
+
+Attach the following policy to your custom service role to allow it to access
+your data and generate queries using it:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RedshiftDataAPIStatementPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "redshift-data:GetStatementResult",
+ "redshift-data:DescribeStatement",
+ "redshift-data:CancelStatement"
+ ],
+ "Resource": [
+ "*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "redshift-data:statement-owner-iam-userid": "`${aws:userid}`"
+ }
+ }
+ },
+ {
+ "Sid": "RedshiftDataAPIExecutePermissions",
+ "Effect": "Allow",
+ "Action": [
+ "redshift-data:ExecuteStatement"
+ ],
+ "Resource": [
+ "arn:aws:redshift:`us-east-1`:`123456789012`:cluster:`${Cluster}`"
+ ]
+ },
+ {
+ "Sid": "SqlWorkbenchAccess",
+ "Effect": "Allow",
+ "Action": [
+ "sqlworkbench:GetSqlRecommendations",
+ "sqlworkbench:PutSqlGenerationContext",
+ "sqlworkbench:GetSqlGenerationContext",
+ "sqlworkbench:DeleteSqlGenerationContext"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "GenerateQueryAccess",
+ "Effect": "Allow",
+ "Action": [
+ "bedrock:GenerateQuery"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+You also need to add permissions to allow your service role to authenticate to
+the query engine. Expand a section to see the permissions for that
+method.
+
+IAM
+To allow your service role to authenticate to your Amazon Redshift
+provisioned query engine with IAM, attach the following policy to
+your custom service role:
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GetCredentialsWithFederatedIAMCredentials",
+ "Effect": "Allow",
+ "Action": "redshift:GetClusterCredentialsWithIAM",
+ "Resource": [
+ "arn:aws:redshift:`us-east-1`:`123456789012`:dbname:`Cluster`/`database`"
+ ]
+ }
+ ]
+}`
+
+```
+
+Database user
+To authenticate as an Amazon Redshift database user, attach the following
+policy to the service role:
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "GetCredentialsWithClusterCredentials",
+ "Effect": "Allow",
+ "Action": [
+ "redshift:GetClusterCredentials"
+ ],
+ "Resource": [
+ "arn:aws:redshift:`us-east-1`:`123456789012`:dbuser:`${cluster}`/`${dbuser}`",
+ "arn:aws:redshift:`us-east-1`:`123456789012`:dbname:`${cluster}`/`${database}`"
+ ]
+ }
+ ]
+}`
+
+```
+
+AWS Secrets Manager
+To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following:
+
+- Attach the following policy to the role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "GetSecretPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:`${region}`:`${account}`:secret:`${secretName}`"
+            ]
+        }
+    ]
+}
+```
+
+The permissions to attach depend on your authentication method. Expand a
+section to see the permissions for a method.
+
+IAM
+To allow your service role to authenticate to your Amazon Redshift
+serverless query engine with IAM, attach the following policy to
+your custom service role:
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "RedshiftServerlessGetCredentials",
+ "Effect": "Allow",
+ "Action": "redshift-serverless:GetCredentials",
+ "Resource": [
+ "arn:aws:redshift-serverless:`us-east-1`:`123456789012`:workgroup/`WorkgroupId`"
+ ]
+ }
+ ]
+}`
+
+```
+
+AWS Secrets Manager
+To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following:
+
+- Attach the following policy to the role:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "GetSecretPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:`${region}`:`${account}`:secret:`${secretName}`"
+            ]
+        }
+    ]
+}
+```
+
+## Allow knowledge base
+
+service role to access your data store
+
+Make sure your data is stored in one of the following [supported structured data
+stores](knowledge-base-structured-create.md "knowledge-base-structured-create.md"):
+
+- Amazon Redshift
+- AWS Glue Data Catalog (AWS Lake Formation)
+
+The following table summarizes the authentication methods available for the query
+engine, depending on your data store:
+
+| Authentication method | Amazon Redshift                                                  | AWS Glue Data Catalog (AWS Lake Formation)                                   |
+| --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| IAM                   | Green circular icon with a white checkmark symbol inside.<br>Yes | Green circular icon with a white checkmark symbol inside.<br>Yes             |
+| Database username     | Green circular icon with a white checkmark symbol inside.<br>Yes | Red circular icon with an X symbol, indicating cancellation or denial.<br>No |
+| AWS Secrets Manager   | Green circular icon with a white checkmark symbol inside.<br>Yes | Red circular icon with an X symbol, indicating cancellation or denial.<br>No |
+
+To learn how to set up permissions for your Amazon Bedrock Knowledge Bases service role to access your data
+store and generate queries based on it, expand the section that corresponds to the
+service that your data store is in:
+
+To grant your Amazon Bedrock Knowledge Bases service role access to your Amazon Redshift database, use the [Amazon Redshift
+query editor v2](../../../redshift/latest/mgmt/query-editor-v2.md "../../../redshift/latest/mgmt/query-editor-v2.md") and run the following SQL commands:
+
+1. (If you authenticate with IAM and a user wasn't already created
+   for your database) Run the following command, which uses [CREATE USER](../../../redshift/latest/dg/r_CREATE_USER.md "../../../redshift/latest/dg/r_CREATE_USER.md") to create a database user and allow it to
+   authenticate through IAM, replacing
+   `${service-role}` with the name of the
+   custom Amazon Bedrock Knowledge Bases service role you created:
+
+```
+CREATE USER "IAMR:`${service-role}`" WITH PASSWORD DISABLE;
+```
+
+###### Important
+
+If you use the Amazon Bedrock Knowledge Bases service role created for you in the console
+and then [sync
+your data store](kb-data-source-structured-sync-ingest.md "kb-data-source-structured-sync-ingest.md") before you do this step, the user will be
+created for you, but the sync will fail because the user hasn't
+been granted permissions to access your data store. You must carry
+out the following step before syncing. 2. Grant an identity permissions to retrieve information from your
+database by running the [GRANT](../../../redshift/latest/dg/r_GRANT.md "../../../redshift/latest/dg/r_GRANT.md") command.
+
+IAM
+
+```
+GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "IAMR:`${serviceRole}`";
+
+```
+
+Database user
+
+```
+GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "`${dbUser}`";
+
+```
+
+AWS Secrets Manager username
+
+```
+GRANT SELECT ON ALL TABLES IN SCHEMA `${schemaName}` TO "`${secretsUsername}`";
+
+```
+
+###### Important
+
+Don't grant `CREATE`, `UPDATE`, or
+`DELETE` access. Granting these actions can lead to
+unintended modification of your data.
+
+For finer-grained control on the tables that can be accessed, you can
+replace `ALL TABLES` specific table names with the following
+notation:
+`${schemaName}``${tableName}`.
+For more information about this notation, see the **Query
+objects** section at [Cross-database
+queries](../../../redshift/latest/dg/cross-database-overview.md "../../../redshift/latest/dg/cross-database-overview.md").
+
+IAM
+
+```
+GRANT SELECT ON `${schemaName}`.`${tableName}` TO "IAMR:`${serviceRole}`";
+
+```
+
+Database user
+
+```
+GRANT SELECT ON `${schemaName}`.`${tableName}` TO "`${dbUser}`";
+
+```
+
+AWS Secrets Manager username
+
+```
+GRANT SELECT ON `${schemaName}`.`${tableName}` TO "`${secretsUsername}`";
+
+```
+
+3. If you created a new schema in the Redshift database, run the
+   following command to grant an identity permissions against the new
+   schema.
+
+```
+GRANT USAGE ON SCHEMA ${schemaName} TO "IAMR:${serviceRole}";
+```
+
+To grant your Amazon Bedrock Knowledge Bases service role access to your AWS Glue Data Catalog data store, use the
+[Amazon Redshift query editor v2](../../../redshift/latest/mgmt/query-editor-v2.md "../../../redshift/latest/mgmt/query-editor-v2.md") and run the following SQL commands:
+
+1. Run the following command, which uses [CREATE USER](../../../redshift/latest/dg/r_CREATE_USER.md "../../../redshift/latest/dg/r_CREATE_USER.md") to
+   create a database user and allow it to authenticate through IAM,
+   replacing `${service-role}` with the name of
+   the custom Amazon Bedrock Knowledge Bases service role you created:
+
+```
+CREATE USER "IAMR:`${service-role}`" WITH PASSWORD DISABLE;
+```
+
+###### Important
+
+If you use the Amazon Bedrock Knowledge Bases service role created for you in the console
+and then [sync
+your data store](kb-data-source-structured-sync-ingest.md "kb-data-source-structured-sync-ingest.md") before you do this step, the user will be
+created for you, but the sync will fail because the user hasn't
+been granted permissions to access your data store. You must carry
+out the following step before syncing. 2. Grant the service role permissions to retrieve information from your
+database by running the following [GRANT](../../../redshift/latest/dg/r_GRANT.md "../../../redshift/latest/dg/r_GRANT.md") command:
+
+```
+GRANT USAGE ON DATABASE awsdatacatalog TO "IAMR:`${serviceRole}`";
+
+```
+
+###### Important
+
+Don't grant `CREATE`, `UPDATE`, or
+`DELETE` access. Granting these actions can lead to
+unintended modification of your data. 3. To allow access to your AWS Glue Data Catalog databases, attach the following
+permissions to the service role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDatabases",
+ "glue:GetDatabase",
+ "glue:GetTables",
+ "glue:GetTable",
+ "glue:GetPartitions",
+ "glue:GetPartition",
+ "glue:SearchTables"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-1`:`123456789012`:table/`${DatabaseName}`/`${TableName}`",
+ "arn:aws:glue:`us-east-1`:`123456789012`:database/`${DatabaseName}`",
+ "arn:aws:glue:`us-east-1`:`123456789012`:catalog"
+ ]
+ }
+ ]
+}`
+
+```
+
+4. Grant permissions to your service role through AWS Lake Formation (to learn more
+   about Lake Formation and its relationship with Amazon Redshift, see [Data
+   sources for Redshift](../../../redshift/latest/dg/copy-parameters-data-source.md "../../../redshift/latest/dg/copy-parameters-data-source.md")) by doing the following:
+   1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
+   2. Select **Data permissions** from the left
+      navigation pane.
+   3. Grant permissions to the service role you're using for
+      Amazon Bedrock Knowledge Bases.
+   4. Grant **Describe** and
+      **Select** permissions for your databases
+      and tables.
+
+5. Depending on the data source you use in AWS Glue Data Catalog, you might need to
+   add permissions to access that data source (for more information,
+   see [AWS Glue
+   dependency on other AWS services](../../../glue/latest/dg/dependency-on-other-services.md "../../../glue/latest/dg/dependency-on-other-services.md")). For example, if your
+   data source is in an Amazon S3 location, you'll need to add the following
+   statement to the policy above.
+
+```
+{
+    "Sid": "Statement1",
+    "Effect": "Allow",
+    "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+    ],
+    "Resource": [
+        "arn:aws:s3:::`${BucketName}`",
+        "arn:aws:s3:::`${BucketName}`/*"
+    ]
+}
+```
+
+6. (Optional) If you use AWS KMS to encrypt the data in Amazon S3 or AWS Glue Data Catalog,
+   then you need to add permissions to the role to decrypt the data on the KMS
+   key.
+
+```
+{
+    "Action": [
+        "kms:Decrypt"
+    ],
+    "Resource": [
+        "arn:aws:kms:${Region}:${Account}:key/{KmsId}",
+        "arn:aws:kms:${Region}:${Account}:key/{KmsId}"
+    ],
+    "Effect": "Allow"
+}
+```

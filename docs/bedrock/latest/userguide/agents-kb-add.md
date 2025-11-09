@@ -27,12 +27,17 @@ The following list describes the fields in the request:
 
 - The following fields are required:
 
+| Field           | Short description        |
+| --------------- | ------------------------ |
+| agentId         | ID of the agent          |
+| agentVersion    | Version of the agent     |
+| knowledgeBaseId | ID of the knowledge base |
+
+- The following fields are optional:
+
 | Field              | Short description                                                         |
-| ------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| agentId            | ID of the agent                                                           |
-| agentVersion       | Version of the agent                                                      |
-| knowledgeBaseId    | ID of the knowledge base                                                  | <br>• The following fields are optional:                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Field              | Short description                                                         |
-| ---                | ---                                                                       |
-| description        | Description of how the agent can use the knowledge base                   |
-| knowledgeBaseState | To prevent the agent from querying the knowledge base, specify `DISABLED` | You can modify the [query configurations](kb-test-config.md "kb-test-config.md") of a knowledge base attached to your agent by using the `sessionState` field in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") request when you invoke your agent. For more information, see [Control agent session context](agents-session-state.md "agents-session-state.md"). |
+| ------------------ | ------------------------------------------------------------------------- |
+| description        | Description of how the agent can use the knowledge<br>base                |
+| knowledgeBaseState | To prevent the agent from querying the knowledge base, specify `DISABLED` |
+
+You can modify the [query configurations](kb-test-config.md "kb-test-config.md") of a knowledge base attached to your agent by using the `sessionState` field in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") request when you invoke your agent. For more information, see [Control agent session context](agents-session-state.md "agents-session-state.md").

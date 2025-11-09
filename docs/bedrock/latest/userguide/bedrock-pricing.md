@@ -10,4 +10,4 @@ questions concerning AWS billing and AWS accounts, contact [AWS Support](https:/
 With Amazon Bedrock, you pay to run inference on foundation models. Pricing
 is based on the volume of input tokens and output tokens, and on whether you have purchased Provisioned Throughput for the model. For more information, see the [Model providers](https://console.aws.amazon.com/bedrock/home#/providers "https://console.aws.amazon.com/bedrock/home#/providers") page in the Amazon Bedrock console. For each model, pricing is listed
 following the model version. For more information about purchasing Provisioned Throughput, see
-[Provisioned Throughput](prov-throughput.md "prov-throughput.md").
+[Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock](prov-throughput.md "prov-throughput.md").

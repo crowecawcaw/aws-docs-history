@@ -22,6 +22,171 @@ You can use the `bedrock:bearerTokenType` condition key with [string condition o
   The following table summarizes how to prevent an identity from generating or using Amazon Bedrock API keys:
 
 | Purpose                    | Long-term key                                                                                                 | Short-term key                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | Prevent generation of keys | Attach a policy that denies the `iam:CreateServiceSpecificCredential` action to an IAM identity.              | N/A                                                                                                                                   |
-| Prevent usage of a key     | Attach a policy that denies the `bedrock:CallWithBearerToken` action to the IAM user associated with the key. | Attach a policy that denies the `bedrock:CallWithBearerToken` action to IAM identities that you don't want to be able to use the key. | ###### Warning Because a short-term Amazon Bedrock API key uses existing credentials from a session, you can prevent its usage by denying the `bedrock:CallWithBearerToken` action on the identity that generated the key. However, you can't prevent generation of a short-term key. ## Example policies to control generation and usage of API keys For example IAM policies to control the generation and usage of API keys, select from the following topics: ###### Topics <br>• [Prevent an identity from generating long-term keys and from using Amazon Bedrock API keys](#api-keys-permissions-examples-prevent-generation-and-use "#api-keys-permissions-examples-prevent-generation-and-use") <br>• [Prevent an identity from using short-term API keys](#api-keys-permissions-examples-prevent-use-short-term "#api-keys-permissions-examples-prevent-use-short-term") <br>• [Prevent an identity from using long-term API keys](#api-keys-permissions-examples-prevent-use-long-term "#api-keys-permissions-examples-prevent-use-long-term") <br>• [Explicitly prevent an identity from using short-term API keys](#api-keys-permissions-examples-deny-use-short-term-explicitly "#api-keys-permissions-examples-deny-use-short-term-explicitly") <br>• [Explicitly prevent an identity from using long-term API keys](#api-keys-permissions-examples-deny-use-long-term-explicitly "#api-keys-permissions-examples-deny-use-long-term-explicitly") <br>• [Allow the creation of Amazon Bedrock keys only if they expire within 90 days](#api-keys-permissions-examples-allow-bedrock-keys-expire-within-90-days "#api-keys-permissions-examples-allow-bedrock-keys-expire-within-90-days") ### Prevent an identity from generating long-term keys and from using Amazon Bedrock API keys To prevent an IAM identity from generating long-term Amazon Bedrock API keys and using any Amazon Bedrock API keys, attach the following policy to the identity: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid":"DenyBedrockShortAndLongTermAPIKeys", "Effect": "Deny", "Action": [ "iam:CreateServiceSpecificCredential", "bedrock:CallWithBearerToken" ], "Resource": [ "*" ] } ] }` `` ###### Warning <br>• You can't prevent the generation of short-term keys. <br>• This policy will prevent the creation of credentials for all AWS services that support creating service-specific credentials. For more information, see [Service-specific credentials for IAM users](../../../IAM/latest/UserGuide/id_credentials_service-specific-creds.md "../../../IAM/latest/UserGuide/id_credentials_service-specific-creds.md"). ### Prevent an identity from using short-term API keys To prevent an IAM identity from using short-term Amazon Bedrock API keys, attach the following policy to the identity: ### Prevent an identity from using long-term API keys To prevent an IAM identity from using long-term Amazon Bedrock API keys, attach the following policy to the identity: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": "bedrock:CallWithBearerToken", "Resource": "*", "Condition": { "StringEquals": { "bedrock:bearerTokenType": "LONG_TERM" } } } ] }` `` ### Explicitly prevent an identity from using short-term API keys To explicitly prevent an IAM identity from using short-term Amazon Bedrock API keys, but allow other API key usage, attach the following policy to the identity: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": "bedrock:CallWithBearerToken", "Resource": "*", "Condition": { "StringEquals": { "bedrock:bearerTokenType": "SHORT_TERM" } } }, { "Effect": "Allow", "Action": "bedrock:CallWithBearerToken", "Resource": "*" } ] }` `` ### Explicitly prevent an identity from using long-term API keys To explicitly prevent an IAM identity from using long-term Amazon Bedrock API keys, but allow other API key usage, attach the following policy to the identity: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Deny", "Action": "bedrock:CallWithBearerToken", "Resource": "*", "Condition": { "StringEquals": { "bedrock:bearerTokenType": "LONG_TERM" } } }, { "Effect": "Allow", "Action": "bedrock:CallWithBearerToken", "Resource": "*" } ] }` `` ### Allow the creation of Amazon Bedrock keys only if they expire within 90 days To allow an IAM identity to create a long-term API key only if it is for Amazon Bedrock and if the expiration time is 90 days or less, attach the following policy to the identity: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "iam:CreateServiceSpecificCredential", "Resource": "arn:aws:iam::123456789012:user/`username`", "Condition": { "StringEquals": { "iam:ServiceSpecificCredentialServiceName": "bedrock.amazonaws.com" }, "NumericLessThanEquals": { "iam:ServiceSpecificCredentialAgeDays": "90" } } } ] }` `` |
+| Prevent usage of a key     | Attach a policy that denies the `bedrock:CallWithBearerToken` action to the IAM user associated with the key. | Attach a policy that denies the `bedrock:CallWithBearerToken` action to IAM identities that you don't want to be able to use the key. |
+
+###### Warning
+
+Because a short-term Amazon Bedrock API key uses existing credentials from a session, you can prevent its usage by denying the `bedrock:CallWithBearerToken` action on the identity that generated the key. However, you can't prevent generation of a short-term key.
+
+## Example policies to control generation and usage of API keys
+
+For example IAM policies to control the generation and usage of API keys, select from the following topics:
+
+###### Topics
+
+- [Prevent an identity from generating long-term keys and from using Amazon Bedrock API keys](#api-keys-permissions-examples-prevent-generation-and-use "#api-keys-permissions-examples-prevent-generation-and-use")
+- [Prevent an identity from using short-term API keys](#api-keys-permissions-examples-prevent-use-short-term "#api-keys-permissions-examples-prevent-use-short-term")
+- [Prevent an identity from using long-term API keys](#api-keys-permissions-examples-prevent-use-long-term "#api-keys-permissions-examples-prevent-use-long-term")
+- [Explicitly prevent an identity from using short-term API keys](#api-keys-permissions-examples-deny-use-short-term-explicitly "#api-keys-permissions-examples-deny-use-short-term-explicitly")
+- [Explicitly prevent an identity from using long-term API keys](#api-keys-permissions-examples-deny-use-long-term-explicitly "#api-keys-permissions-examples-deny-use-long-term-explicitly")
+- [Allow the creation of Amazon Bedrock keys only if they expire within 90 days](#api-keys-permissions-examples-allow-bedrock-keys-expire-within-90-days "#api-keys-permissions-examples-allow-bedrock-keys-expire-within-90-days")
+
+### Prevent an identity from generating long-term keys and from using Amazon Bedrock API keys
+
+To prevent an IAM identity from generating long-term Amazon Bedrock API keys and using any Amazon Bedrock API keys, attach the following policy to the identity:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid":"DenyBedrockShortAndLongTermAPIKeys",
+ "Effect": "Deny",
+ "Action": [
+ "iam:CreateServiceSpecificCredential",
+ "bedrock:CallWithBearerToken"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Warning
+
+- You can't prevent the generation of short-term keys.
+- This policy will prevent the creation of credentials for all AWS services that support creating service-specific credentials. For more information, see [Service-specific credentials for IAM users](../../../IAM/latest/UserGuide/id_credentials_service-specific-creds.md "../../../IAM/latest/UserGuide/id_credentials_service-specific-creds.md").
+
+### Prevent an identity from using short-term API keys
+
+To prevent an IAM identity from using short-term Amazon Bedrock API keys, attach the following policy to the identity:
+
+### Prevent an identity from using long-term API keys
+
+To prevent an IAM identity from using long-term Amazon Bedrock API keys, attach the following policy to the identity:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock:bearerTokenType": "LONG_TERM"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Explicitly prevent an identity from using short-term API keys
+
+To explicitly prevent an IAM identity from using short-term Amazon Bedrock API keys, but allow other API key usage, attach the following policy to the identity:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock:bearerTokenType": "SHORT_TERM"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Explicitly prevent an identity from using long-term API keys
+
+To explicitly prevent an IAM identity from using long-term Amazon Bedrock API keys, but allow other API key usage, attach the following policy to the identity:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock:bearerTokenType": "LONG_TERM"
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Allow the creation of Amazon Bedrock keys only if they expire within 90 days
+
+To allow an IAM identity to create a long-term API key only if it is for Amazon Bedrock and if the expiration time is 90 days or less, attach the following policy to the identity:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iam:CreateServiceSpecificCredential",
+ "Resource": "arn:aws:iam::123456789012:user/`username`",
+ "Condition": {
+ "StringEquals": {
+ "iam:ServiceSpecificCredentialServiceName": "bedrock.amazonaws.com"
+ },
+ "NumericLessThanEquals": {
+ "iam:ServiceSpecificCredentialAgeDays": "90"
+ }
+ }
+ }
+ ]
+}`
+
+```

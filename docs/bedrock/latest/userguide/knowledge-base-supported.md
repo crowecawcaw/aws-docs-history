@@ -38,6 +38,7 @@ Amazon Bedrock Knowledge Bases is supported in the following Regions (for more i
 - Anthropic Claude 3.5 Sonnet
 - Anthropic Claude 3.7 Sonnet
 - Anthropic Claude Opus 4
+- Anthropic Claude Sonnet 4.5
 - Anthropic Claude Sonnet 4
 - Cohere Command R+
 - Cohere Command R
@@ -82,9 +83,53 @@ embeddings in a vector database. For more information, see [Turning data into a 
 
 Embedding models support the following vector types.
 
-| Model name                        | Supported vector type  | Supported number of dimensions |
-| --------------------------------- | ---------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Titan Embeddings G1 - Text | Floating-point         | 1536                           |
-| Amazon Titan Text Embeddings V2   | Floating-point, binary | 256, 512, 1024                 |
-| Cohere Embed (English)            | Floating-point, binary | 1024                           |
-| Cohere Embed (Multilingual)       | Floating-point, binary | 1024                           | ## Supported models and Regions for parsing When converting data into vector embeddings, you have different options for parsing your data in Amazon Bedrock Knowledge Bases. For more information, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md"). The following lists support for parsing options: <br>• The Amazon Bedrock Data Automation parser is supported in US West (Oregon) and is in preview and subject to change. <br>• The following foundation model families can be used as a parser: + Claude vision models + Nova vision models + LLama 4 vision models Foundation model parsing is available in AWS Regions where these models are directly available (not through cross-region inference). For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). ## Supported models and Regions for reranking results during query When retrieving knowledge base query results, you can use a reranking model to rerank results from knowledge base query. For more information, see [Query a knowledge base and retrieve data](kb-test-retrieve.md "kb-test-retrieve.md") and [Query a knowledge base and generate responses based off the retrieved data](kb-test-retrieve-generate.md "kb-test-retrieve-generate.md"). For a list of models and Regions that support reranking, see [Supported Regions and models for reranking in Amazon Bedrock](rerank-supported.md "rerank-supported.md"). ## Supported Regions for Knowledge Bases with structured data stores Knowledge Bases with structured data stores allow you to connect knowledge bases to structured data stores and convert natural language queries into SQL queries. For more information, see [Build a knowledge base by connecting to a structured data store](knowledge-base-build-structured.md "knowledge-base-build-structured.md"). Knowledge Bases with structured data stores are available in the following AWS Regions: <br>• Europe (Frankfurt) <br>• Europe (Zurich) <br>• Europe (Ireland) <br>• Europe (London) <br>• Europe (Paris) <br>• Asia Pacific (Tokyo) <br>• Asia Pacific (Seoul) <br>• Asia Pacific (Mumbai) <br>• Asia Pacific (Singapore) <br>• Asia Pacific (Sydney) <br>• Canada (Central) <br>• South America (São Paulo) <br>• US East (N. Virginia) <br>• US East (Ohio) <br>• US West (Oregon) <br>• AWS GovCloud (US-West) |
+| Model name                           | Supported vector type  | Supported number of dimensions |
+| ------------------------------------ | ---------------------- | ------------------------------ |
+| Amazon Titan Embeddings G1<br>• Text | Floating-point         | 1536                           |
+| Amazon Titan Text Embeddings V2      | Floating-point, binary | 256, 512, 1024                 |
+| Cohere Embed (English)               | Floating-point, binary | 1024                           |
+| Cohere Embed (Multilingual)          | Floating-point, binary | 1024                           |
+
+## Supported models and Regions for parsing
+
+When converting data into vector embeddings, you have different options for parsing your data in Amazon Bedrock Knowledge Bases. For more information, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
+
+The following lists support for parsing options:
+
+- The Amazon Bedrock Data Automation parser is supported in US West (Oregon) and is in preview and subject to change.
+- The following foundation model families can be used as a parser:
+
+      + Claude vision models
+      + Nova vision models
+      + LLama 4 vision models
+
+  Foundation model parsing is available in AWS Regions where these models are directly available (not through cross-region inference). For current model availability by Region, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+
+## Supported models and Regions for reranking results during query
+
+When retrieving knowledge base query results, you can use a reranking model to rerank results from knowledge base query. For more information, see [Query a knowledge base and retrieve data](kb-test-retrieve.md "kb-test-retrieve.md") and [Query a knowledge base and generate responses based off the retrieved data](kb-test-retrieve-generate.md "kb-test-retrieve-generate.md").
+
+For a list of models and Regions that support reranking, see [Supported Regions and models for reranking in Amazon Bedrock](rerank-supported.md "rerank-supported.md").
+
+## Supported Regions for Knowledge Bases with structured data stores
+
+Knowledge Bases with structured data stores allow you to connect knowledge bases to structured data stores and convert natural language queries into SQL queries. For more information, see [Build a knowledge base by connecting to a structured data store](knowledge-base-build-structured.md "knowledge-base-build-structured.md").
+
+Knowledge Bases with structured data stores are available in the following AWS Regions:
+
+- Europe (Frankfurt)
+- Europe (Zurich)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Canada (Central)
+- South America (São Paulo)
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- AWS GovCloud (US-West)

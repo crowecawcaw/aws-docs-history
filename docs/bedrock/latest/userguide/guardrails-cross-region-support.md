@@ -34,33 +34,84 @@ arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/us.guardrail.v1:0
 
 The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
 
-| Source Region  | Destination Regions                                                                                                                           |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| us-east-1      | us-east-1 us-east-2 us-west-2                                                                                                                 |
-| us-east-2      | us-east-1 us-east-2 us-west-2                                                                                                                 |
-| us-west-1      | us-east-1 us-east-2 us-west-1 us-west-2                                                                                                       |
-| us-west-2      | us-east-1 us-east-2 us-west-2                                                                                                                 | To use a guardrail profile in the AWS GovCloud (US) geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions: **Guardrail profile ID** `us-gov.guardrail.v1:0` **Guardrail profile ARN** ``arn:aws-us-gov:bedrock:`source-region`:`account-id`:guardrail-profile/us-gov.guardrail.v1:0`` The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed: |
-| Source Region  | Destination Regions                                                                                                                           |
-| ---            | ---                                                                                                                                           |
-| us-gov-east-1  | us-gov-east-1 us-gov-west-1                                                                                                                   |
-| us-gov-west-1  | us-gov-east-1 us-gov-west-1                                                                                                                   | To use a guardrail profile in the EU geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions: **Guardrail profile ID** `eu.guardrail.v1:0` **Guardrail profile ARN** ``arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/eu.guardrail.v1:0`` The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:                               |
-| Source Region  | Destination Regions                                                                                                                           |
-| ---            | ---                                                                                                                                           |
-| eu-central-1   | eu-central-1 eu-west-1 eu-west-3 eu-north-1                                                                                                   |
-| eu-west-1      | eu-central-1 eu-west-1 eu-west-3 eu-north-1                                                                                                   |
-| eu-west-3      | eu-central-1 eu-west-1 eu-west-3 eu-north-1                                                                                                   |
-| eu-north-1     | eu-central-1 eu-west-1 eu-west-3 eu-north-1                                                                                                   |
-| il-central-1   | eu-north-1 eu-south-1 eu-west-1 eu-west-3 eu-central-1 il-central-1                                                                           | To apply a guardrail cross-region in the APAC geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions: **Guardrail profile ID** `apac.guardrail.v1:0` **Guardrail profile ARN** ``arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/apac.guardrail.v1:0`` The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:                  |
-| Source Region  | Destination Regions                                                                                                                           |
-| ---            | ---                                                                                                                                           |
-| ap-south-1     | ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ap-northeast-1                                                         |
-| ap-northeast-2 | ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ap-northeast-1                                                         |
-| ap-southeast-1 | ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ap-northeast-1                                                         |
-| ap-southeast-2 | ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ap-northeast-1                                                         |
-| ap-southeast-3 | ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 ap-northeast-1 ap-northeast-2 ap-northeast-3                |
-| ap-southeast-4 | ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-4 ap-northeast-1 ap-northeast-2 ap-northeast-3                               |
-| ap-northeast-1 | ap-south-1 ap-northeast-3 ap-northeast-2 ap-southeast-1 ap-southeast-2 ap-northeast-1                                                         |
-| ap-east-2      | ap-east-2 ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 ap-northeast-1 ap-northeast-2 ap-northeast-3      |
-| ap-southeast-5 | ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 ap-southeast-5 ap-northeast-1 ap-northeast-2 ap-northeast-3 |
-| ap-southeast-7 | ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 ap-southeast-7 ap-northeast-1 ap-northeast-2 ap-northeast-3 |
-| me-central-1   | ap-south-1 ap-south-2 ap-southeast-1 ap-southeast-2 ap-southeast-3 ap-southeast-4 ap-northeast-1 ap-northeast-2 ap-northeast-3 me-central-1   |
+| Source Region | Destination Regions                              |
+| ------------- | ------------------------------------------------ |
+| us-east-1     | us-east-1<br>us-east-2<br>us-west-2              |
+| us-east-2     | us-east-1<br>us-east-2<br>us-west-2              |
+| us-west-1     | us-east-1<br>us-east-2<br>us-west-1<br>us-west-2 |
+| us-west-2     | us-east-1<br>us-east-2<br>us-west-2              |
+
+To use a guardrail profile in the AWS GovCloud (US) geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+us-gov.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws-us-gov:bedrock:`source-region`:`account-id`:guardrail-profile/us-gov.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region | Destination Regions            |
+| ------------- | ------------------------------ |
+| us-gov-east-1 | us-gov-east-1<br>us-gov-west-1 |
+| us-gov-west-1 | us-gov-east-1<br>us-gov-west-1 |
+
+To use a guardrail profile in the EU geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+eu.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/eu.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region | Destination Regions                                                                |
+| ------------- | ---------------------------------------------------------------------------------- |
+| eu-central-1  | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
+| eu-west-1     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
+| eu-west-3     | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
+| eu-north-1    | eu-central-1<br>eu-west-1<br>eu-west-3<br>eu-north-1                               |
+| il-central-1  | eu-north-1<br>eu-south-1<br>eu-west-1<br>eu-west-3<br>eu-central-1<br>il-central-1 |
+
+To apply a guardrail cross-region in the APAC geographic boundary, specify the following guardrail profile ID or ARN in one of the source Regions:
+
+**Guardrail profile ID**
+
+```
+apac.guardrail.v1:0
+```
+
+**Guardrail profile ARN**
+
+```
+arn:aws:bedrock:`source-region`:`account-id`:guardrail-profile/apac.guardrail.v1:0
+```
+
+The following table shows the source Regions from which you can call the guardrail profile and the destination Regions to which the requests can be routed:
+
+| Source Region  | Destination Regions                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ap-south-1     | ap-south-1<br>ap-northeast-3<br>ap-northeast-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-northeast-1                                                                     |
+| ap-northeast-2 | ap-south-1<br>ap-northeast-3<br>ap-northeast-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-northeast-1                                                                     |
+| ap-southeast-1 | ap-south-1<br>ap-northeast-3<br>ap-northeast-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-northeast-1                                                                     |
+| ap-southeast-2 | ap-south-1<br>ap-northeast-3<br>ap-northeast-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-northeast-1                                                                     |
+| ap-southeast-3 | ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3                   |
+| ap-southeast-4 | ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-4<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3                                     |
+| ap-northeast-1 | ap-south-1<br>ap-northeast-3<br>ap-northeast-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-northeast-1                                                                     |
+| ap-east-2      | ap-east-2<br>ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3      |
+| ap-southeast-5 | ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-5<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3 |
+| ap-southeast-7 | ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-southeast-7<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3 |
+| me-central-1   | ap-south-1<br>ap-south-2<br>ap-southeast-1<br>ap-southeast-2<br>ap-southeast-3<br>ap-southeast-4<br>ap-northeast-1<br>ap-northeast-2<br>ap-northeast-3<br>me-central-1   |

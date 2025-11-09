@@ -23,10 +23,13 @@ response formats and field details) with an [Agents for Amazon Bedrock build-tim
 
 The following fields are required:
 
-| Field        | Short description                                           |
-| ------------ | ----------------------------------------------------------- | -------------------------------- |
-| agentId      | The identifier of the agent.                                |
-| agentAliasId | The identifier of the agent alias.                          | The following field is optional. |
-| Field        | Short description                                           |
-| ---          | ---                                                         |
-| memoryId     | The identifier of the memory that has the session summaries |
+| Field        | Short description                  |
+| ------------ | ---------------------------------- |
+| agentId      | The identifier of the agent.       |
+| agentAliasId | The identifier of the agent alias. |
+
+The following field is optional.
+
+| Field    | Short description                                           |
+| -------- | ----------------------------------------------------------- |
+| memoryId | The identifier of the memory that has the session summaries |

@@ -55,8 +55,97 @@ In this example:
   extract and interpret the desired data from your documents.
 
 | Field                      | Instruction                    | Extraction Type | Type   |
-| -------------------------- | ------------------------------ | --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ------------------------------ | --------------- | ------ |
 | ApplicantsName             | Full Name of the Applicant     | Explicit        | string |
 | DateOfBirth                | Date of birth of employee      | Explicit        | string |
 | Sales                      | Gross receipts or sales        | Explicit        | number |
-| Statement_starting_balance | Balance at beginning of period | Explicit        | number | ###### Multi-Valued Fields In cases where a field may contain multiple values, you can define arrays or tables. ###### List of Fields For fields that contain a list of values, you can define an array data type. In this example, "OtherExpenses" is defined as an array of strings, allowing BDA to extract multiple expense items for that field. Console ![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Array of String' and 'Extraction type' is set to 'Explicit'.](images/bda/bdaarray.png) API `"OtherExpenses":{ "type":"array", "inferenceType":"Explicit", "description":"Other business expenses not included in fields 8-26 or field 30", "items":{ "type":"string" } }` ###### Tables If your document contains tabular data, you can define a table structure within the schema. In this example, "SERVICES_TABLE" is defined as a Table type, with column fields such as product name, description, quantity, unit price and amount. Console ![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Table' and 'Extraction type' is set to 'Explicit' and shows column-specific fields that are added.](images/bda/bdatable.png) API `"definitions":{ "LINEITEM":{ "properties":{ "quantity":{ "type":"number", "inferenceType":"Explicit" }, "unit price":{ "type":"number", "inferenceType":"Explicit" }, "amount":{ "type":"number", "inferenceType":"Explicit", "description":"Unit Price * Quantity" }, "product name":{ "type":"string", "inferenceType":"Explicit", "description":"The short name of the product without any extra details" }, "product description":{ "type":"string", "inferenceType":"Explicit", "description":"The full item list description text" } } } }, "properties":{ "SERVICES_TABLE":{ "type":"array", "description":"Line items table listing all the items / services charged in the invoice including quantity, price, amount, product / service name and description.", "items":{ "$ref":"#/definitions/LINEITEM" } }, "... ..." ]` By defining comprehensive schemas with appropriate field descriptions, data types, and inference types, you can ensure that BDA accurately extracts the desired information from your documents, regardless of variations in formatting or representation. |
+| Statement_starting_balance | Balance at beginning of period | Explicit        | number |
+
+###### Multi-Valued Fields
+
+In cases where a field may contain multiple values, you can define arrays or tables.
+
+###### List of Fields
+
+For fields that contain a list of values, you can define an array data type.
+
+In this example, "OtherExpenses" is defined as an array of strings, allowing BDA to extract
+multiple expense items for that field.
+
+Console
+
+![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Array of String' and 'Extraction type' is set to 'Explicit'.](images/bda/bdaarray.png)
+
+API
+
+```
+"OtherExpenses":{
+   "type":"array",
+   "inferenceType":"Explicit",
+   "description":"Other business expenses not included in fields 8-26 or field 30",
+   "items":{
+      "type":"string"
+   }
+}
+
+```
+
+###### Tables
+
+If your document contains tabular data, you can define a table structure within the schema.
+
+In this example, "SERVICES_TABLE" is defined as a Table type, with column fields such as product name,
+description, quantity, unit price and amount.
+
+Console
+
+![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Table' and 'Extraction type' is set to 'Explicit' and shows column-specific fields that are added.](images/bda/bdatable.png)
+
+API
+
+```
+"definitions":{
+   "LINEITEM":{
+      "properties":{
+         "quantity":{
+            "type":"number",
+            "inferenceType":"Explicit"
+         },
+         "unit price":{
+            "type":"number",
+            "inferenceType":"Explicit"
+         },
+         "amount":{
+            "type":"number",
+            "inferenceType":"Explicit",
+            "description":"Unit Price * Quantity"
+         },
+         "product name":{
+            "type":"string",
+            "inferenceType":"Explicit",
+            "description":"The short name of the product without any extra details"
+         },
+         "product description":{
+            "type":"string",
+            "inferenceType":"Explicit",
+            "description":"The full item list description text"
+         }
+      }
+   }
+},
+"properties":{
+   "SERVICES_TABLE":{
+      "type":"array",
+      "description":"Line items table listing all the items / services charged in the invoice including quantity, price, amount, product / service name and description.",
+      "items":{
+         "$ref":"#/definitions/LINEITEM"
+      }
+   },
+   "...
+        ..."
+]
+```
+
+By defining comprehensive schemas with appropriate field descriptions, data types, and inference types,
+you can ensure that BDA accurately extracts the desired information from your documents, regardless of
+variations in formatting or representation.

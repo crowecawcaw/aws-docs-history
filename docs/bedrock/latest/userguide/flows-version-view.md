@@ -20,7 +20,7 @@ To get information about a version of your flow, send a [GetFlowVersion](../APIR
 
 To list information for all versions of a flow, send a [ListFlowVersions](../APIReference/API_agent_ListFlowVersions.md "../APIReference/API_agent_ListFlowVersions.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and specify the ARN or ID of the flow as the `flowIdentifier`. You can specify the following optional parameters:
 
-| Field      | Short description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a response.                                                                                                                                                        |
-| nextToken  | If there are more results than the number you specified in the `maxResults` field, the response returns a `nextToken` value. To see the next batch of results, send the `nextToken` value in another request. |
+| Field      | Short description                                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
+| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |

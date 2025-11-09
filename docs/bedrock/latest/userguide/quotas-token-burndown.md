@@ -2,14 +2,116 @@
 
 When you run model inference, there are quotas on the number of tokens that can be processed depending on which Amazon Bedrock model you use. Review the following terminology related to token quotas:
 
-| Term                      | Definition                                                                                                                                                                                                                                                                 |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `InputTokenCount`         | The CloudWatch Amazon Bedrock runtime metric that represents the number of tokens in a request provided as input to the model.                                                                                                                                             |
-| `OutputTokenCount`        | The CloudWatch Amazon Bedrock runtime metric that represents the number of tokens generated by the model in response to a request.                                                                                                                                         |
-| `CacheReadInputTokens`    | The CloudWatch Amazon Bedrock runtime metric that represents the number of input tokens that were successfully retrieved from a cache instead of being reprocessed by the model. This value is 0 if you don't use [prompt caching](prompt-caching.md "prompt-caching.md"). |
-| `CacheWriteInputTokens`   | The CloudWatch Amazon Bedrock runtime metric that represents the number of input tokens that were successfully written into the cache. This value is 0 if you don't use [prompt caching](prompt-caching.md "prompt-caching.md").                                           |
-| Tokens per minute (TPM)   | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one minute.                                                                                                                                            |
-| Tokens per day (TPD)      | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one day. By default, this value is TPM x 24 x 60. However, new AWS accounts have reduced quotas.                                                       |
-| Requests per minute (RPM) | A quota set by AWS at the model level on the number of requests that you can send in one minute.                                                                                                                                                                           |
-| `max_tokens`              | A parameter you provide in your request to set a maximum amount of output tokens the model can generate.                                                                                                                                                                   |
-| Burndown rate             | The rate at which input and output tokens are converted into token quota usage for the throttling system.                                                                                                                                                                  | The burndown rate for the following models is **5x for output tokens** (1 output token consumes 5 tokens from your quotas): <br>• Anthropic Claude Opus 4 <br>• Anthropic Claude Sonnet 4.5 <br>• Anthropic Claude Sonnet 4 <br>• Anthropic Claude 3.7 Sonnet For all other models, the burndown rate is **1:1** (1 output token consumes 1 token from your quota). ###### Topics <br>• [Understanding token quota management](#quotas-token-burndown-management "#quotas-token-burndown-management") <br>• [Understanding the impact of the max_tokens parameter](#quotas-token-burndown-max-tokens "#quotas-token-burndown-max-tokens") <br>• [Optimizing the max_tokens parameter](#quotas-token-burndown-max-tokens-optimize "#quotas-token-burndown-max-tokens-optimize") ## Understanding token quota management When you make a request, tokens are deducted from your TPM and TPD quotas. Calculations occur at the following stages: <br>• **At the start of the request** – Assuming that you haven't exceeded your RPM quota, the following sum is deducted from your quotas. The request is throttled if you exceed a quota. `Total input tokens + max_tokens` <br>• **During processing** – The quota consumed by the request is periodically adjusted to account for the actual number of output tokens generated. <br>• **At the end of the request** – The total number of tokens consumed by the request will be calculated as follows and any unused tokens are replenished to your quota: `InputTokenCount + CacheWriteInputTokens + (OutputTokenCount x burndown rate)` If you don't use [prompt caching](prompt-caching.md "prompt-caching.md"), `CacheWriteInputTokens` will be 0. `CacheReadInputTokens` don't contribute to this calculation. ###### Note You're only billed for your actual token usage. For example, if you use Anthropic Claude Sonnet 4 and send a request containing 1,000 input tokens and it generates a response equivalent to 100 tokens: <br>• **1,500 tokens** (1,000 + 100 x 5) will be depleted from your TPM and TPD quotas. <br>• You'll only be billed for **1,100 tokens**. ## Understanding the impact of the max_tokens parameter The `max_tokens` value is deducted from your quota at the beginning of each request. If you’re hitting TPM quotas earlier than expected, try reducing `max_tokens` to better approximate the size of your completions. The following scenarios provide examples of how quota deductions would have worked on completed requests using a model that has a 5x burndown rate for output tokens:: Assume the following parameters: <br>• **InputTokenCount:** 3,000 <br>• **CacheReadInputTokens:** 4,000 <br>• **CacheWriteInputTokens:** 1,000 <br>• **OutputTokenCount:** 1,000 <br>• **max_tokens:** 32,000 The following quota deductions take place: <br>• **Initial deduction when request is made:** 40,000 (= 3,000 + 4,000 + 1,000 + 32,000) <br>• **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5) In this scenario, fewer concurrent requests could be made because the `max_tokens` parameter was set too high. This reduces the request concurrency, throughput, and quota utilization, because the TPM quota capacity would be reached quickly. Assume the following parameters: <br>• **InputTokenCount:** 3,000 <br>• **CacheReadInputTokens:** 4,000 <br>• **CacheWriteInputTokens:** 1,000 <br>• **OutputTokenCount:** 1,000 <br>• **max_tokens:** 1,250 The following quota deductions take place: <br>• **Initial deduction when request is made:** 9,250 (= 3,000 + 4,000 + 1,000 + 1,250) <br>• **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5) In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota utilization. ## Optimizing the max_tokens parameter By optimizing the `max_tokens` parameter, you can efficiently utilize your allocated quota capacity. To help inform your decision about this parameter, you can use Amazon CloudWatch, which automatically collects metrics from AWS services, including token usage data in Amazon Bedrock. Tokens are recorded in the `InputTokenCount` and `OutputTokenCount` runtime metrics (for more metrics, see [Amazon Bedrock runtime metrics](monitoring.md#runtime-cloudwatch-metrics "monitoring.md#runtime-cloudwatch-metrics"). To use CloudWatch monitoring to inform your decision of the `max_tokens` parameter, do the following in the AWS Management Console: 1. Sign in to the Amazon CloudWatch console at [https://console.aws.amazon.com/cloudwatch](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"). 2. From the left navigation pane, select **Dashboards**. 3. Select the **Automatic dashboards** tab. 4. Select **Bedrock**. 5. In the **Token Counts by Model** dashboard, select the expand icon. 6. Select a time duration and range parameters for the metrics to account for peak usage. 7. From the dropdown menu labeled **Sum**, you can choose different metrics to observe your token usage. Examine these metrics to guide your decision on setting your `max_tokens` value. |
+| Term                      | Definition                                                                                                                                                                                                                                                                       |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `InputTokenCount`         | The CloudWatch Amazon Bedrock runtime metric that represents the number of tokens in a request provided as input to the model.                                                                                                                                                   |
+| `OutputTokenCount`        | The CloudWatch Amazon Bedrock runtime metric that represents the number of tokens generated by the model in response to a request.                                                                                                                                               |
+| `CacheReadInputTokens`    | The CloudWatch Amazon Bedrock runtime metric that represents the number of input<br>tokens that were successfully retrieved from a cache instead of being<br>reprocessed by the model. This value is 0 if you don't use [prompt caching](prompt-caching.md "prompt-caching.md"). |
+| `CacheWriteInputTokens`   | The CloudWatch Amazon Bedrock runtime metric that represents the number of input<br>tokens that were successfully written into the cache. This value is 0 if<br>you don't use [prompt caching](prompt-caching.md "prompt-caching.md").                                           |
+| Tokens per minute (TPM)   | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one minute.                                                                                                                                                  |
+| Tokens per day (TPD)      | A quota set by AWS at the model level on the number of tokens (including both input and output) that you can use in one day. By default, this value is TPM x 24 x 60. However, new AWS accounts have reduced quotas.                                                             |
+| Requests per minute (RPM) | A quota set by AWS at the model level on the number of requests that you can send in one minute.                                                                                                                                                                                 |
+| `max_tokens`              | A parameter you provide in your request to set a maximum amount of output tokens the model can generate.                                                                                                                                                                         |
+| Burndown rate             | The rate at which input and output tokens are converted into token quota usage for the throttling system.                                                                                                                                                                        |
+
+The burndown rate for the following models is **5x for output tokens** (1 output token consumes 5 tokens from your quotas):
+
+- Anthropic Claude Opus 4
+- Anthropic Claude Opus 4.1
+- Anthropic Claude Sonnet 4.5
+- Anthropic Claude Sonnet 4
+- Anthropic Claude 3.7 Sonnet
+- Anthropic Claude 3 Haiku 4.5
+  For all other models, the burndown rate is **1:1** (1 output token consumes 1 token from your quota).
+
+###### Topics
+
+- [Understanding token quota management](#quotas-token-burndown-management "#quotas-token-burndown-management")
+- [Understanding the impact of the max_tokens parameter](#quotas-token-burndown-max-tokens "#quotas-token-burndown-max-tokens")
+- [Optimizing the max_tokens parameter](#quotas-token-burndown-max-tokens-optimize "#quotas-token-burndown-max-tokens-optimize")
+
+## Understanding token quota management
+
+When you make a request, tokens are deducted from your TPM and TPD quotas.
+Calculations occur at the following stages:
+
+- **At the start of the request** –
+  Assuming that you haven't exceeded your RPM quota, the following sum is
+  deducted from your quotas. The request is throttled if you exceed a
+  quota.
+
+```
+Total input tokens + max_tokens
+```
+
+- **During processing** – The quota
+  consumed by the request is periodically adjusted to account for the actual
+  number of output tokens generated.
+- **At the end of the request** – The
+  total number of tokens consumed by the request will be calculated as follows and any unused tokens are replenished to your quota:
+
+```
+InputTokenCount + CacheWriteInputTokens + (OutputTokenCount x burndown rate)
+```
+
+If you don't use [prompt caching](prompt-caching.md "prompt-caching.md"), `CacheWriteInputTokens` will be 0. `CacheReadInputTokens` don't contribute to this calculation.
+
+###### Note
+
+You're only billed for your actual token usage.
+
+For example, if you use Anthropic Claude Sonnet 4 and send a request containing 1,000 input tokens and it generates a response equivalent to 100 tokens:
+
+- **1,500 tokens** (1,000 + 100 x 5) will be depleted from your TPM and TPD quotas.
+- You'll only be billed for **1,100 tokens**.
+
+## Understanding the impact of the max_tokens parameter
+
+The `max_tokens` value is deducted from your quota at the beginning of each request. If you’re hitting TPM quotas earlier than expected, try reducing `max_tokens` to better approximate the size of your completions.
+
+The following scenarios provide examples of how quota deductions would have worked on completed requests using a model that has a 5x burndown rate for output tokens::
+
+Assume the following parameters:
+
+- **InputTokenCount:** 3,000
+- **CacheReadInputTokens:** 4,000
+- **CacheWriteInputTokens:** 1,000
+- **OutputTokenCount:** 1,000
+- **max_tokens:** 32,000
+  The following quota deductions take place:
+
+- **Initial deduction when request is made:** 40,000 (= 3,000 + 4,000 + 1,000 + 32,000)
+- **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
+  In this scenario, fewer concurrent requests could be made because the `max_tokens` parameter was set too high. This reduces the request concurrency, throughput, and quota utilization, because the TPM quota capacity would be reached quickly.
+
+Assume the following parameters:
+
+- **InputTokenCount:** 3,000
+- **CacheReadInputTokens:** 4,000
+- **CacheWriteInputTokens:** 1,000
+- **OutputTokenCount:** 1,000
+- **max_tokens:** 1,250
+  The following quota deductions take place:
+
+- **Initial deduction when request is made:** 9,250 (= 3,000 + 4,000 + 1,000 + 1,250)
+- **Final adjusted deduction after response is generated:** 9,000 (= 3,000 + 1,000 + 1,000 x 5)
+  In this scenario, the `max_tokens` parameter was optimized, because the initial deduction is only slightly higher than the final adjusted deduction. This helped increase the request concurrency, throughput, and quota utilization.
+
+## Optimizing the max_tokens parameter
+
+By optimizing the `max_tokens` parameter, you can efficiently utilize your allocated quota capacity. To help inform your decision about this parameter, you can use Amazon CloudWatch, which automatically collects metrics from AWS services, including token usage data in Amazon Bedrock.
+
+Tokens are recorded in the `InputTokenCount` and `OutputTokenCount` runtime metrics (for more metrics, see [Amazon Bedrock runtime metrics](monitoring.md#runtime-cloudwatch-metrics "monitoring.md#runtime-cloudwatch-metrics").
+
+To use CloudWatch monitoring to inform your decision of the `max_tokens` parameter, do the following in the AWS Management Console:
+
+1. Sign in to the Amazon CloudWatch console at [https://console.aws.amazon.com/cloudwatch](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
+2. From the left navigation pane, select **Dashboards**.
+3. Select the **Automatic dashboards** tab.
+4. Select **Bedrock**.
+5. In the **Token Counts by Model** dashboard, select the expand icon.
+6. Select a time duration and range parameters for the metrics to account for
+   peak usage.
+7. From the dropdown menu labeled **Sum**, you can choose
+   different metrics to observe your token usage. Examine these metrics to
+   guide your decision on setting your `max_tokens` value.

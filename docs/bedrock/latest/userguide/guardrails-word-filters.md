@@ -83,8 +83,153 @@ Console
       three words. Don't include a header. You have the
       following options:
 
-| Option                             | Instructions                                                                                                          |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Add words and phrases manually** | Directly add words and phrases in the **View and edit words and phrases** section.                                    |
-| **Upload from a local file**       | Upload a .txt or .csv file containing the words and phrases by selecting **Choose file** after selecting this option. |
-| **Upload from Amazon S3 object**   | Upload an object from an S3 bucket.                                                                                   | 3. Edit the words and phrases for the guardrail to block in the **View and edit words and phrases** section. You have the following options: <br>• If you uploaded a word list from a local file or Amazon S3 object, this section will populate with your word list. To filter for items with errors, select **Show errors**. <br>• To add an item to the word list, select **Add word or phrase**. Enter a word or a phrase of up to three words in the box and press **Enter** or select the checkmark icon to confirm the item. <br>• To edit an item, select the edit icon ( ![Edit icon represented by a pencil symbol.](images/icons/edit.png) ) next to the item. <br>• To delete an item from the word list, select the trash can icon ( ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png) ) or, if you're editing an item, select the delete icon ( ![Close or cancel icon represented by an "X" symbol.](images/icons/close.png) ) next to the item. <br>• To delete items that contain errors, select **Delete all** and then select **Delete all rows with error**. <br>• To delete all items, select **Delete all** and then select **Delete all rows**. <br>• To search for an item, enter an expression in the search bar. <br>• To show only items with errors, select the dropdown menu labeled **Show all** and select **Show errors only**. <br>• To configure the size of each page in the table or the column display in the table, select the settings icon ( ![Gear icon representing settings or configuration options.](images/icons/settings.png) ). Set your preferences and then select **Confirm**. <br>• By default, this section displays the **Table** editor. To switch to a text editor in which you can enter a word or phrase in each line, select **Text editor**. The **Text editor** provides the following features: + You can copy a word list from another text editor and paste it into this editor. + A red X icon appears next to items containing errors and a list of errors appears at the below the editor. 4. Choose **Next** to configure other policies as needed or **Skip to Review and create** to finish creating your guardrail. 5. Review the settings for your guardrail. 1. Select **Edit** in any section you want to make changes to. 2. When you're done configuring policies, select **Create** to create the guardrail. API To create a guardrail with word policies, send a [CreateGuardrail](../APIReference/API_CreateGuardrail.md "../APIReference/API_CreateGuardrail.md") request. The request format is as follows: ``` POST /guardrails HTTP/1.1 Content-type: application/json { "blockedInputMessaging": "string", "blockedOutputsMessaging": "string", "wordPolicyConfig": { "managedWordListsConfig": [ { "inputAction": "BLOCK | NONE", "inputEnabled": true, "outputAction": "BLOCK | NONE", "outputEnabled": true, "type": "PROFANITY" }, ], "wordsConfig": [{ "text": "string", "inputAction": "BLOCK | NONE", "inputEnabled": true, "outputAction": "BLOCK | NONE", "outputEnabled": true }] }, "description": "string", "kmsKeyId": "string", "name": "string", "tags": [{ "key": "string", "value": "string" }], "crossRegionConfig": { "guardrailProfileIdentifier": "string" } } ``<br>• Specify a `name` and `description` for the guardrail. <br>• Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields. <br>• Configure word policies in the `wordPolicyConfig` object: + Use `managedWordListsConfig` to configure a predefined list of profane words. + Use `wordsConfig` array to specify custom words and phrases to filter: <br>• Specify the words and phrases to filter in the `text` field. <br>• (Optional) Specify the action to take when the word is detected in prompts using `inputAction` or responses using `outputAction`. Choose `BLOCK` to block content and replace with blocked messaging, or `NONE` to take no action but return detection information. <br>• (Optional) Use `inputEnabled` and `outputEnabled` to control whether guardrail evaluation is enabled for inputs and outputs. <br>• (Optional) Attach any tags to the guardrail. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md"). <br>• (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field. <br>• (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile in the `crossRegionConfig` object. The response format is as follows:`` HTTP/1.1 202 Content-type: application/json { "createdAt": "string", "guardrailArn": "string", "guardrailId": "string", "version": "string" } ``` |
+   | Option                                | Instructions                                                                                                                        |
+   | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+   | **Add words and phrases<br>manually** | Directly add words and phrases in the<br>\*_View and edit words and<br>phrases_<br>• section.                                       |
+   | **Upload from a local<br>file**       | Upload a .txt or .csv file containing<br>the words and phrases by selecting<br>\*_Choose file_<br>• after selecting<br>this option. |
+   | **Upload from Amazon S3<br>object**   | Upload an object from an S3<br>bucket.                                                                                              |
+   3. Edit the words and phrases for the guardrail to block
+      in the **View and edit words and
+      phrases** section. You have the following
+      options:
+      - If you uploaded a word list from a local file or Amazon S3
+        object, this section will populate with your word list.
+        To filter for items with errors, select **Show
+        errors**.
+      - To add an item to the word list, select **Add
+        word or phrase**. Enter a word or a phrase
+        of up to three words in the box and press
+        **Enter** or select the checkmark
+        icon to confirm the item.
+      - To edit an item, select the edit icon (
+
+      ![Edit icon represented by a pencil symbol.](images/icons/edit.png)
+
+      )
+      next to the item.
+      - To delete an item from the word list, select the trash
+        can icon (
+
+      ![Trapezoid-shaped diagram showing data flow from source to destination through AWS Transfer Family.](images/icons/trash.png)
+
+      ) or, if you're editing an item,
+      select the delete icon (
+
+      ![Close or cancel icon represented by an "X" symbol.](images/icons/close.png)
+
+      ) next to the
+      item.
+      - To delete items that contain errors, select
+        **Delete all** and then select
+        **Delete all rows with
+        error**.
+      - To delete all items, select **Delete
+        all** and then select **Delete
+        all rows**.
+      - To search for an item, enter an expression in the
+        search bar.
+      - To show only items with errors, select the dropdown
+        menu labeled **Show all** and select
+        **Show errors only**.
+      - To configure the size of each page in the table or the
+        column display in the table, select the settings icon
+        (
+
+      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
+
+      ). Set your preferences and then select
+      **Confirm**.
+      - By default, this section displays the
+        **Table** editor. To switch to a
+        text editor in which you can enter a word or phrase in
+        each line, select **Text editor**. The
+        **Text editor** provides the
+        following features:
+        - You can copy a word list from another text
+          editor and paste it into this editor.
+        - A red X icon appears next to items containing
+          errors and a list of errors appears at the below
+          the editor.
+
+   4. Choose **Next** to configure other
+      policies as needed or **Skip to Review and
+      create** to finish creating your
+      guardrail.
+   5. Review the settings for your guardrail.
+      1. Select **Edit** in any
+         section you want to make changes to.
+      2. When you're done configuring policies, select
+         **Create** to create the
+         guardrail.
+
+API
+To create a guardrail with word policies, send a [CreateGuardrail](../APIReference/API_CreateGuardrail.md "../APIReference/API_CreateGuardrail.md") request. The request format is as
+follows:
+
+```
+POST /guardrails HTTP/1.1
+Content-type: application/json
+
+{
+    "blockedInputMessaging": "string",
+    "blockedOutputsMessaging": "string",
+    "wordPolicyConfig": {
+        "managedWordListsConfig": [
+            {
+                "inputAction": "BLOCK | NONE",
+                "inputEnabled": true,
+                "outputAction": "BLOCK | NONE",
+                "outputEnabled": true,
+                "type": "PROFANITY"
+            },
+        ],
+        "wordsConfig": [{
+            "text": "string",
+            "inputAction": "BLOCK | NONE",
+            "inputEnabled": true,
+            "outputAction": "BLOCK | NONE",
+            "outputEnabled": true
+        }]
+    },
+    "description": "string",
+    "kmsKeyId": "string",
+    "name": "string",
+    "tags": [{
+        "key": "string",
+        "value": "string"
+    }],
+    "crossRegionConfig": {
+        "guardrailProfileIdentifier": "string"
+    }
+}
+```
+
+- Specify a `name` and `description` for the guardrail.
+- Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+- Configure word policies in the `wordPolicyConfig` object:
+  - Use `managedWordListsConfig` to configure a
+    predefined list of profane words.
+  - Use `wordsConfig` array to specify custom
+    words and phrases to filter:
+    - Specify the words and phrases to filter in the
+      `text` field.
+    - (Optional) Specify the action to take when the word is detected in prompts using `inputAction` or responses using `outputAction`. Choose `BLOCK` to block content and replace with blocked messaging, or `NONE` to take no action but return detection information.
+    - (Optional) Use `inputEnabled` and `outputEnabled` to control whether guardrail evaluation is enabled for inputs and outputs.
+
+- (Optional) Attach any tags to the guardrail. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+- (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+- (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md"), specify a guardrail profile in the `crossRegionConfig` object.
+
+The response format is as follows:
+
+```
+HTTP/1.1 202
+Content-type: application/json
+
+{
+    "createdAt": "string",
+    "guardrailArn": "string",
+    "guardrailId": "string",
+    "version": "string"
+}
+```

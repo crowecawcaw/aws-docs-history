@@ -28,7 +28,7 @@ The following table shows which languages are supported for text-based content
 filtering and prompt attacks in the Standard tier.
 
 | Language                  | Support level           |
-| ------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ----------------------- |
 | Afrikaans                 | Supported               |
 | Albanian                  | Supported               |
 | Arabic                    | Optimized and supported |
@@ -87,14 +87,28 @@ filtering and prompt attacks in the Standard tier.
 | Turkish                   | Supported               |
 | Ukrainian                 | Supported               |
 | Uzbek (Latin script)      | Supported               |
-| Vietnamese                | Optimized and supported | Classic tier supports the following languages for text-based content filters and prompt attacks:                                                                                                                                                                                                                                              |
+| Vietnamese                | Optimized and supported |
+
+Classic tier supports the following languages for text-based content filters and
+prompt attacks:
+
+| Language | Support level           |
+| -------- | ----------------------- |
+| English  | Optimized and supported |
+| French   | Optimized and supported |
+| Spanish  | Optimized and supported |
+
+## Denied topics language support
+
+Language support for [denied topics](guardrails-denied-topics.md "guardrails-denied-topics.md")
+varies depending on the [safeguard tier](guardrails-tiers.md "guardrails-tiers.md") you
+use.
+
+The following table shows which languages are supported for text-based content
+filtering in the Standard tier.
+
 | Language                  | Support level           |
-| ---                       | ---                     |
-| English                   | Optimized and supported |
-| French                    | Optimized and supported |
-| Spanish                   | Optimized and supported | ## Denied topics language support Language support for [denied topics](guardrails-denied-topics.md "guardrails-denied-topics.md") varies depending on the [safeguard tier](guardrails-tiers.md "guardrails-tiers.md") you use. The following table shows which languages are supported for text-based content filtering in the Standard tier. |
-| Language                  | Support level           |
-| ---                       | ---                     |
+| ------------------------- | ----------------------- |
 | Afrikaans                 | Supported               |
 | Amharic                   | Supported               |
 | Albanian                  | Supported               |
@@ -161,34 +175,59 @@ filtering and prompt attacks in the Standard tier.
 | Ukrainian                 | Supported               |
 | Uzbek (Latin script)      | Supported               |
 | Vietnamese                | Optimized and supported |
-| Zulu                      | Supported               | Classic tier supports the following languages for denied topics:                                                                                                                                                                                                                                                                              |
-| Language                  | Support level           |
-| ---                       | ---                     |
-| English                   | Optimized and supported |
-| French                    | Optimized and supported |
-| Spanish                   | Optimized and supported | ## Word filters language support [Word filters](guardrails-word-filters.md "guardrails-word-filters.md") support the following languages.                                                                                                                                                                                                     |
-| Language                  | Support level           |
-| ---                       | ---                     |
-| English                   | Supported               |
-| French                    | Supported               |
-| Spanish                   | Supported               | ## Sensitive information filters language support [Sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md") support the following languages.                                                                                                                                                         |
-| Language                  | Support level           |
-| ---                       | ---                     |
-| Dutch                     | Supported               |
-| English                   | Optimized and supported |
-| French                    | Optimized and supported |
-| German                    | Optimized and supported |
-| Hindi                     | Supported               |
-| Italian                   | Optimized and supported |
-| Japanese                  | Optimized and supported |
-| Korean                    | Optimized and supported |
-| Norwegian                 | Supported               |
-| Polish                    | Supported               |
-| Portuguese                | Supported               |
-| Spanish                   | Optimized and supported |
-| Swedish                   | Supported               | ## Contextual grounding checks language support [Contextual grounding checks](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md") support the following languages.                                                                                                                                           |
-| Language                  | Support level           |
-| ---                       | ---                     |
-| English                   | Optimized and supported |
-| French                    | Optimized and supported |
-| Spanish                   | Optimized and supported |
+| Zulu                      | Supported               |
+
+Classic tier supports the following languages for denied topics:
+
+| Language | Support level           |
+| -------- | ----------------------- |
+| English  | Optimized and supported |
+| French   | Optimized and supported |
+| Spanish  | Optimized and supported |
+
+## Word filters language
+
+support
+
+[Word filters](guardrails-word-filters.md "guardrails-word-filters.md") support the following
+languages.
+
+| Language | Support level |
+| -------- | ------------- |
+| English  | Supported     |
+| French   | Supported     |
+| Spanish  | Supported     |
+
+## Sensitive information
+
+filters language support
+
+[Sensitive information filters](guardrails-sensitive-filters.md "guardrails-sensitive-filters.md")
+support the following languages.
+
+| Language   | Support level           |
+| ---------- | ----------------------- |
+| Dutch      | Supported               |
+| English    | Optimized and supported |
+| French     | Optimized and supported |
+| German     | Optimized and supported |
+| Hindi      | Supported               |
+| Italian    | Optimized and supported |
+| Japanese   | Optimized and supported |
+| Korean     | Optimized and supported |
+| Norwegian  | Supported               |
+| Polish     | Supported               |
+| Portuguese | Supported               |
+| Spanish    | Optimized and supported |
+| Swedish    | Supported               |
+
+## Contextual grounding checks language support
+
+[Contextual grounding
+checks](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md") support the following languages.
+
+| Language | Support level           |
+| -------- | ----------------------- |
+| English  | Optimized and supported |
+| French   | Optimized and supported |
+| Spanish  | Optimized and supported |

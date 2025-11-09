@@ -31,7 +31,25 @@ the following number of songs: {{number}}.`.
 
    6. Expand the **Inputs** section. The names for the inputs are prefilled by the variables in the prompt message. Configure the inputs as follows:
 
-| Name   | Type   | Expression    |
-| ------ | ------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| genre  | String | $.data.genre  |
-| number | Number | $.data.number | This configuration means that the prompt node expects a JSON object containing a field called `genre` that will be mapped to the `genre` input and a field called `number` that will be mapped to the `number` input. 7. You can't modify the **Output**. It will be the response from the model, returned as a string. 3. Choose the **Flow input** node and select the **Configure** tab. Select **Object** as the **Type**. This means that flow invocation will expect to receive a JSON object. 4. Connect your nodes to complete the flow by doing the following: 1. Drag a connection from the output node of the **Flow input** node to the **genre** input in the **MakePlaylist** prompt node. 2. Drag a connection from the output node of the **Flow input** node to the **number** input in the **MakePlaylist** prompt node. 3. Drag a connection from the output node of the **modelCompletion** output in the **MakePlaylist** prompt node to the **document** input in the **Flow output** node. 5. Choose **Save** to save your flow. Your flow should now be prepared for testing. 6. Test your flow by entering the following JSON object is the **Test flow** pane on the right. Choose **Run** and the flow should return a model response. `{ "genre": "pop", "number": 3 }` |
+   | Name   | Type   | Expression    |
+   | ------ | ------ | ------------- |
+   | genre  | String | $.data.genre  |
+   | number | Number | $.data.number |
+
+   This configuration means that the prompt node expects a JSON object containing a field called `genre` that will be mapped to the `genre` input and a field called `number` that will be mapped to the `number` input. 7. You can't modify the **Output**. It will be the response from the model, returned as a string.
+
+3. Choose the **Flow input** node and select the **Configure** tab. Select **Object** as the **Type**. This means that flow invocation will expect to receive a JSON object.
+4. Connect your nodes to complete the flow by doing the following:
+   1. Drag a connection from the output node of the **Flow input** node to the **genre** input in the **MakePlaylist** prompt node.
+   2. Drag a connection from the output node of the **Flow input** node to the **number** input in the **MakePlaylist** prompt node.
+   3. Drag a connection from the output node of the **modelCompletion** output in the **MakePlaylist** prompt node to the **document** input in the **Flow output** node.
+
+5. Choose **Save** to save your flow. Your flow should now be prepared for testing.
+6. Test your flow by entering the following JSON object is the **Test flow** pane on the right. Choose **Run** and the flow should return a model response.
+
+```
+{
+    "genre": "pop",
+    "number": 3
+}
+```

@@ -42,11 +42,87 @@ request (see link for request and response formats and field details) with an [A
 
 **To attach files for agent to use for answering your queries and summarizing the content, specify the following fields:**
 
-| Field      | Short description                                                                                                                                                 |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name       | Name of the attached file.                                                                                                                                        |
-| sourceType | Location of the file to be attached. Specify `s3` if your file is located in Amazon S3 bucket. Specify `byte_content` if your file is located on your computer.   |
-| S3Location | The S3 path where your file is located. Required if the `sourceType` is S3.                                                                                       |
-| mediaType  | File type of the attached file. **Supported input file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, and PDF                                     |
-| data       | Base64 encoded string. Max file size 10MB. NoteIf you are using SDK, you just need to provide file byte content. AWS SDK automatically encodes strings to base64. |
-| useCase    | How you want the attached files to be used. Valid values: `CHAT`                                                                                                  | `CODE_INTERPRETER` | The following example shows the general format for specifying the required fields to attach files to chat. ``"sessionState": { "promptSessionAttributes": { "string": "string" }, "sessionAttributes": { "string": "string" }, "files": [ { "name": "banking_data", "source": { "sourceType": "S3", "s3Location": "uri": "s3Uri" } }, "useCase": "CHAT" }, { "name": "housing_stats.csv", "source": { "sourceType": "BYTE_CONTENT", "byteContent": { "mediaType": "text/csv", "data": "`file byte content`" } }, "useCase": "CHAT" } ] }`` The following example shows the general format for specifying the required fields to attach files for code interpretation. ``"sessionState": { "promptSessionAttributes": { "string": "string" }, "sessionAttributes": { "string": "string" }, "files": [ { "name": "banking_data", "source": { "sourceType": "S3", "s3Location": { "uri": "s3Uri" } }, "useCase": "CODE_INTERPRETER" }, { "name": "housing_stats.csv", "source": { "sourceType": "BYTE_CONTENT", "byteContent": { "mediaType": "text/csv", "data": "`file byte content`" } }, "useCase": "CODE_INTERPRETER" } ] }`` |
+| Field      | Short description                                                                                                                                                    |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| name       | Name of the attached file.                                                                                                                                           |
+| sourceType | Location of the file to be attached. Specify `s3` if your file is located in Amazon S3 bucket. Specify `byte_content` if your file is located on your computer.      |
+| S3Location | The S3 path where your file is located. Required if the `sourceType` is S3.                                                                                          |
+| mediaType  | File type of the attached file.<br>**Supported input file types**: CSV, XLS, XLSX, YAML, JSON, DOC, DOCX, HTML, MD, TXT, and PDF                                     |
+| data       | Base64 encoded string. Max file size 10MB.<br>NoteIf you are using SDK, you just need to provide file byte content. AWS SDK automatically encodes strings to base64. |
+| useCase    | How you want the attached files to be used. Valid values: `CHAT`                                                                                                     | `CODE_INTERPRETER` |
+
+The following example shows the general format for specifying the required fields to attach files to chat.
+
+```
+
+"sessionState": {
+        "promptSessionAttributes": {
+            "string": "string"
+        },
+        "sessionAttributes": {
+            "string": "string"
+        },
+        "files": [
+            {
+                "name": "banking_data",
+                "source": {
+                    "sourceType": "S3",
+                    "s3Location":
+                        "uri": "s3Uri"
+                    }
+                },
+                "useCase": "CHAT"
+            },
+            {
+                "name": "housing_stats.csv",
+                "source": {
+                    "sourceType": "BYTE_CONTENT",
+                    "byteContent": {
+                        "mediaType": "text/csv",
+                        "data": "`file byte content`"
+                    }
+                },
+                "useCase": "CHAT"
+            }
+        ]
+    }
+
+```
+
+The following example shows the general format for specifying the required fields to attach files for code interpretation.
+
+```
+
+"sessionState": {
+        "promptSessionAttributes": {
+            "string": "string"
+        },
+        "sessionAttributes": {
+            "string": "string"
+        },
+        "files": [
+            {
+                "name": "banking_data",
+                "source": {
+                    "sourceType": "S3",
+                    "s3Location": {
+                        "uri": "s3Uri"
+                    }
+                },
+                "useCase": "CODE_INTERPRETER"
+            },
+            {
+                "name": "housing_stats.csv",
+                "source": {
+                    "sourceType": "BYTE_CONTENT",
+                    "byteContent": {
+             "mediaType": "text/csv",
+             "data": "`file byte content`"
+                    }
+                },
+                "useCase": "CODE_INTERPRETER"
+            }
+        ]
+    }
+
+```

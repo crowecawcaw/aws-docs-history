@@ -201,7 +201,388 @@ If you don't provide the `guardContent` field, the guardrail doesn't assess the 
 
 How the guardrail assesses `guardContent` field behaves differently between system prompts and messages that you pass in the message.
 
-|                                         | System prompt has guardrail block                                                                                     | System prompt doesn't have guardrail block                                                         |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Messages have guardrail block**       | System: Guardrail investigates content in guardrail block Messages: Guardrail investigates content in guardrail block | System: Guardrail investigates nothing Messages: Guardrail investigates content in guardrail block |
-| **Messages don't have guardrail block** | System: Guardrail investigates content in guardrail block Messages: Guardrail investigates everything                 | System: Guardrail investigates nothing Messages: Guardrail investigates everything                 | ## Processing the response when using the Converse API When you call the Converse operation, the guardrail assesses the message that you send. If the guardrail detects blocked content, the following happens. <br>• The `stopReason` field in the response is set to `guardrail_intervened`. <br>• If you enabled tracing, the trace is available in the `trace` ([ConverseTrace](../APIReference/API_runtime_ConverseTrace.md "../APIReference/API_runtime_ConverseTrace.md")) Field. With `ConverseStream`, the trace is in the metadata ([ConverseStreamMetadataEvent](../APIReference/API_runtime_ConverseStreamMetadataEvent.md "../APIReference/API_runtime_ConverseStreamMetadataEvent.md")) that operation returns. <br>• The blocked content text that you have configured in the guardrail is returned in the `output` ([ConverseOutput](../APIReference/API_runtime_ConverseOutput.md "../APIReference/API_runtime_ConverseOutput.md")) field. With `ConverseStream` the blocked content text is in the streamed message. The following partial response shows the blocked content text and the trace from the guardrail assessment. The guardrail has blocked the term _Heavy metal_ in the message. `{ "output": { "message": { "role": "assistant", "content": [ { "text": "Sorry, I can't answer questions about heavy metal music." } ] } }, "stopReason": "guardrail_intervened", "usage": { "inputTokens": 0, "outputTokens": 0, "totalTokens": 0 }, "metrics": { "latencyMs": 721 }, "trace": { "guardrail": { "inputAssessment": { "3o06191495ze": { "topicPolicy": { "topics": [ { "name": "Heavy metal", "type": "DENY", "action": "BLOCKED" } ] }, "invocationMetrics": { "guardrailProcessingLatency": 240, "usage": { "topicPolicyUnits": 1, "contentPolicyUnits": 0, "wordPolicyUnits": 0, "sensitiveInformationPolicyUnits": 0, "sensitiveInformationPolicyFreeUnits": 0, "contextualGroundingPolicyUnits": 0 }, "guardrailCoverage": { "textCharacters": { "guarded": 39, "total": 72 } } } } } } } }` ## Code example for using Converse API with guardrails This example shows how to guard a conversation with the `Converse` and `ConverseStream` operations. The example shows how to prevent a model from creating a playlist that includes songs from the heavy metal genre. ###### To guard a conversation 1. Create a guardrail by following the instructions at [Create your guardrail](guardrails-components.md "guardrails-components.md") . <br>• **Name** – Enter _Heavy metal_. <br>• **Definition for topic** – Enter _Avoid mentioning songs that are from the heavy metal genre of music._ <br>• **Add sample phrases** – Enter _Create a playlist of heavy metal songs._ In step 9, enter the following: <br>• **Messaging shown for blocked prompts** – Enter _Sorry, I can't answer questions about heavy metal music._ <br>• **Messaging for blocked responses** – Enter _Sorry, the model generated an answer that mentioned heavy metal music._ You can configure other guardrail options, but it is not required for this example. 2. Create a version of the guardrail by following the instructions at [Create a version of a guardrail](guardrails-versions-create.md "guardrails-versions-create.md"). 3. In the following code examples ([Converse](#converse-api-guardrail-example-converse "#converse-api-guardrail-example-converse") and [ConverseStream](#converse-api-guardrail-example-converse-stream "#converse-api-guardrail-example-converse-stream")), set the following variables: <br>• `guardrail_id` – The ID of the guardrail that you created in step 1. <br>• `guardrail_version` – The version of the guardrail that you created in step 2. <br>• `text` – Use `Create a playlist of heavy metal songs.` 4. Run the code examples. The output should should display the guardrail assessment and the output message `Text: Sorry, I can't answer questions about heavy metal music.`. The guardrail input assessment shows that the model detected the term _heavy metal_ in the input message. 5. (Optional) Test that the guardrail blocks inappropriate text that the model generates by changing the value of `text` to _List all genres of rock music._. Run the examples again. You should see an output assessment in the response. Converse The following code uses your guardrail with the `Converse` operation. `# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. # SPDX-License-Identifier: Apache-2.0 """ Shows how to use a guardrail with the <noloc>Converse</noloc> API. """ import logging import json import boto3 from botocore.exceptions import ClientError logger = logging.getLogger(__name__) logging.basicConfig(level=logging.INFO) def generate_conversation(bedrock_client, model_id, messages, guardrail_config): """ Sends a message to a model. Args: bedrock_client: The Boto3 Bedrock runtime client. model_id (str): The model ID to use. messages JSON): The message to send to the model. guardrail_config : Configuration for the guardrail. Returns: response (JSON): The conversation that the model generated. """ logger.info("Generating message with model %s", model_id) # Send the message. response = bedrock_client.converse( modelId=model_id, messages=messages, guardrailConfig=guardrail_config ) return response def main(): """ Entrypoint for example. """ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s") # The model to use. model_id="meta.llama3-8b-instruct-v1:0" # The ID and version of the guardrail. guardrail_id = "Your guardrail ID" guardrail_version = "DRAFT" # Configuration for the guardrail. guardrail_config = { "guardrailIdentifier": guardrail_id, "guardrailVersion": guardrail_version, "trace": "enabled" } text = "Create a playlist of 2 heavy metal songs." context_text = "Only answer with a list of songs." # The message for the model and the content that you want the guardrail to assess. messages = [ { "role": "user", "content": [ { "text": context_text, }, { "guardContent": { "text": { "text": text } } } ] } ] try: print(json.dumps(messages, indent=4)) bedrock_client = boto3.client(service_name='bedrock-runtime') response = generate_conversation( bedrock_client, model_id, messages, guardrail_config) output_message = response['output']['message'] if response['stopReason'] == "guardrail_intervened": trace = response['trace'] print("Guardrail trace:") print(json.dumps(trace['guardrail'], indent=4)) for content in output_message['content']: print(f"Text: {content['text']}") except ClientError as err: message = err.response['Error']['Message'] logger.error("A client error occurred: %s", message) print(f"A client error occured: {message}") else: print( f"Finished generating text with model {model_id}.") if __name__ == "__main__": main()` ConverseStream The following code uses your guardrail with the `ConverseStream` operation. `# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. # SPDX-License-Identifier: Apache-2.0 """ Shows how to use a guardrail with the ConverseStream operation. """ import logging import json import boto3 from botocore.exceptions import ClientError logger = logging.getLogger(__name__) logging.basicConfig(level=logging.INFO) def stream_conversation(bedrock_client, model_id, messages, guardrail_config): """ Sends messages to a model and streams the response. Args: bedrock_client: The Boto3 Bedrock runtime client. model_id (str): The model ID to use. messages (JSON) : The messages to send. guardrail_config : Configuration for the guardrail. Returns: Nothing. """ logger.info("Streaming messages with model %s", model_id) response = bedrock_client.converse_stream( modelId=model_id, messages=messages, guardrailConfig=guardrail_config ) stream = response.get('stream') if stream: for event in stream: if 'messageStart' in event: print(f"\nRole: {event['messageStart']['role']}") if 'contentBlockDelta' in event: print(event['contentBlockDelta']['delta']['text'], end="") if 'messageStop' in event: print(f"\nStop reason: {event['messageStop']['stopReason']}") if 'metadata' in event: metadata = event['metadata'] if 'trace' in metadata: print("\nAssessment") print(json.dumps(metadata['trace'], indent=4)) def main(): """ Entrypoint for streaming message API response example. """ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s") # The model to use. model_id = "amazon.titan-text-express-v1" # The ID and version of the guardrail. guardrail_id = "Change to your guardrail ID" guardrail_version = "DRAFT" # Configuration for the guardrail. guardrail_config = { "guardrailIdentifier": guardrail_id, "guardrailVersion": guardrail_version, "trace": "enabled", "streamProcessingMode" : "sync" } text = "Create a playlist of heavy metal songs." # The message for the model and the content that you want the guardrail to assess. messages = [ { "role": "user", "content": [ { "text": text, }, { "guardContent": { "text": { "text": text } } } ] } ] try: bedrock_client = boto3.client(service_name='bedrock-runtime') stream_conversation(bedrock_client, model_id, messages, guardrail_config) except ClientError as err: message = err.response['Error']['Message'] logger.error("A client error occurred: %s", message) print("A client error occured: " + format(message)) else: print( f"Finished streaming messages with model {model_id}.") if __name__ == "__main__": main()` |
+|                                            | System prompt has guardrail block                                                                                              | System prompt doesn't have guardrail block                                                               |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| **Messages have guardrail<br>block**       | System: Guardrail investigates content in guardrail<br>block<br>Messages: Guardrail investigates content in guardrail<br>block | System: Guardrail investigates nothing<br>Messages: Guardrail investigates content in guardrail<br>block |
+| **Messages don't have guardrail<br>block** | System: Guardrail investigates content in guardrail<br>block<br>Messages: Guardrail investigates everything                    | System: Guardrail investigates nothing<br>Messages: Guardrail investigates everything                    |
+
+## Processing the response when using the Converse API
+
+When you call the Converse operation, the guardrail assesses the message that you send. If
+the guardrail detects blocked content, the following happens.
+
+- The `stopReason` field in the response is set to `guardrail_intervened`.
+- If you enabled tracing, the trace is available in the `trace`
+  ([ConverseTrace](../APIReference/API_runtime_ConverseTrace.md "../APIReference/API_runtime_ConverseTrace.md")) Field. With `ConverseStream`, the trace
+  is in the metadata ([ConverseStreamMetadataEvent](../APIReference/API_runtime_ConverseStreamMetadataEvent.md "../APIReference/API_runtime_ConverseStreamMetadataEvent.md")) that operation returns.
+- The blocked content text that you have configured in the guardrail is returned
+  in the `output` ([ConverseOutput](../APIReference/API_runtime_ConverseOutput.md "../APIReference/API_runtime_ConverseOutput.md")) field. With `ConverseStream` the blocked
+  content text is in the streamed message.
+
+The following partial response shows the blocked content text and the trace from the guardrail assessment.
+The guardrail has blocked the term _Heavy metal_
+in the message.
+
+```
+{
+    "output": {
+        "message": {
+            "role": "assistant",
+            "content": [
+                {
+                    "text": "Sorry, I can't answer questions about heavy metal music."
+                }
+            ]
+        }
+    },
+    "stopReason": "guardrail_intervened",
+    "usage": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "totalTokens": 0
+    },
+    "metrics": {
+        "latencyMs": 721
+    },
+    "trace": {
+        "guardrail": {
+            "inputAssessment": {
+                "3o06191495ze": {
+                    "topicPolicy": {
+                        "topics": [
+                            {
+                                "name": "Heavy metal",
+                                "type": "DENY",
+                                "action": "BLOCKED"
+                            }
+                        ]
+                    },
+                    "invocationMetrics": {
+                        "guardrailProcessingLatency": 240,
+                        "usage": {
+                            "topicPolicyUnits": 1,
+                            "contentPolicyUnits": 0,
+                            "wordPolicyUnits": 0,
+                            "sensitiveInformationPolicyUnits": 0,
+                            "sensitiveInformationPolicyFreeUnits": 0,
+                            "contextualGroundingPolicyUnits": 0
+                        },
+                        "guardrailCoverage": {
+                            "textCharacters": {
+                                "guarded": 39,
+                                "total": 72
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+## Code example for using
+
+Converse API with guardrails
+
+This example shows how to guard a conversation with the `Converse` and
+`ConverseStream` operations. The example shows
+how to prevent a model from creating a playlist that includes songs from the heavy metal genre.
+
+###### To guard a conversation
+
+1.  Create a guardrail by following the instructions at [Create your guardrail](guardrails-components.md "guardrails-components.md") .
+
+        * **Name** – Enter *Heavy
+         metal*.
+        * **Definition for topic** – Enter
+         *Avoid mentioning songs that are from the heavy metal genre
+         of music.*
+        * **Add sample phrases** – Enter *Create
+         a playlist of heavy metal songs.*
+
+    In step 9, enter the following:
+
+        * **Messaging shown for blocked prompts** – Enter *Sorry, I can't answer questions about heavy metal music.*
+        * **Messaging for blocked responses** – Enter *Sorry, the model generated an answer that mentioned heavy metal music.*
+
+    You can configure other guardrail options, but it is not required for this example.
+
+2.  Create a version of the guardrail by following the instructions at [Create a version of a guardrail](guardrails-versions-create.md "guardrails-versions-create.md").
+3.  In the following code examples ([Converse](#converse-api-guardrail-example-converse "#converse-api-guardrail-example-converse")
+    and [ConverseStream](#converse-api-guardrail-example-converse-stream "#converse-api-guardrail-example-converse-stream")), set the
+    following variables:
+    - `guardrail_id` – The ID of the guardrail that you created in
+      step 1.
+    - `guardrail_version` – The version of the guardrail that you created in
+      step 2.
+    - `text` – Use `Create a playlist of heavy metal songs.`
+
+4.  Run the code examples. The output should should display the guardrail assessment and
+    the output message `Text: Sorry, I can't answer questions about heavy metal
+music.`. The guardrail input assessment shows that the model detected the term
+    _heavy metal_ in the input message.
+5.  (Optional) Test that the guardrail blocks inappropriate text that the model
+    generates by changing the value of `text` to _List all genres of
+    rock music._. Run the examples again. You should see an output assessment in the response.
+
+Converse The following code uses your guardrail with the `Converse` operation.
+
+```
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+"""
+Shows how to use a guardrail with the <noloc>Converse</noloc> API.
+"""
+
+import logging
+import json
+import boto3
+
+
+from botocore.exceptions import ClientError
+
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
+
+def generate_conversation(bedrock_client,
+                          model_id,
+                          messages,
+                          guardrail_config):
+    """
+    Sends a message to a model.
+    Args:
+        bedrock_client: The Boto3 Bedrock runtime client.
+        model_id (str): The model ID to use.
+        messages JSON): The message to send to the model.
+        guardrail_config : Configuration for the guardrail.
+
+    Returns:
+        response (JSON): The conversation that the model generated.
+
+    """
+
+    logger.info("Generating message with model %s", model_id)
+
+    # Send the message.
+    response = bedrock_client.converse(
+        modelId=model_id,
+        messages=messages,
+        guardrailConfig=guardrail_config
+    )
+
+    return response
+
+
+def main():
+    """
+    Entrypoint for example.
+    """
+
+    logging.basicConfig(level=logging.INFO,
+                        format="%(levelname)s: %(message)s")
+
+    # The model to use.
+    model_id="meta.llama3-8b-instruct-v1:0"
+
+    # The ID and version of the guardrail.
+    guardrail_id = "Your guardrail ID"
+    guardrail_version = "DRAFT"
+
+    # Configuration for the guardrail.
+    guardrail_config = {
+        "guardrailIdentifier": guardrail_id,
+        "guardrailVersion": guardrail_version,
+        "trace": "enabled"
+    }
+
+    text = "Create a playlist of 2 heavy metal songs."
+    context_text = "Only answer with a list of songs."
+
+    # The message for the model and the content that you want the guardrail to assess.
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "text": context_text,
+                },
+                {
+                    "guardContent": {
+                        "text": {
+                            "text": text
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+
+    try:
+
+        print(json.dumps(messages, indent=4))
+
+        bedrock_client = boto3.client(service_name='bedrock-runtime')
+
+        response = generate_conversation(
+            bedrock_client, model_id, messages, guardrail_config)
+
+        output_message = response['output']['message']
+
+        if response['stopReason'] == "guardrail_intervened":
+            trace = response['trace']
+            print("Guardrail trace:")
+            print(json.dumps(trace['guardrail'], indent=4))
+
+        for content in output_message['content']:
+            print(f"Text: {content['text']}")
+
+    except ClientError as err:
+        message = err.response['Error']['Message']
+        logger.error("A client error occurred: %s", message)
+        print(f"A client error occured: {message}")
+
+    else:
+        print(
+            f"Finished generating text with model {model_id}.")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+ConverseStream The following code uses your guardrail with the `ConverseStream` operation.
+
+```
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+"""
+Shows how to use a guardrail with the ConverseStream operation.
+"""
+
+import logging
+import json
+import boto3
+
+
+from botocore.exceptions import ClientError
+
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
+
+def stream_conversation(bedrock_client,
+                    model_id,
+                    messages,
+                    guardrail_config):
+    """
+    Sends messages to a model and streams the response.
+    Args:
+        bedrock_client: The Boto3 Bedrock runtime client.
+        model_id (str): The model ID to use.
+        messages (JSON) : The messages to send.
+        guardrail_config : Configuration for the guardrail.
+
+
+    Returns:
+        Nothing.
+
+    """
+
+    logger.info("Streaming messages with model %s", model_id)
+
+    response = bedrock_client.converse_stream(
+        modelId=model_id,
+        messages=messages,
+        guardrailConfig=guardrail_config
+    )
+
+    stream = response.get('stream')
+    if stream:
+        for event in stream:
+
+            if 'messageStart' in event:
+                print(f"\nRole: {event['messageStart']['role']}")
+
+            if 'contentBlockDelta' in event:
+                print(event['contentBlockDelta']['delta']['text'], end="")
+
+            if 'messageStop' in event:
+                print(f"\nStop reason: {event['messageStop']['stopReason']}")
+
+            if 'metadata' in event:
+                metadata = event['metadata']
+                if 'trace' in metadata:
+                    print("\nAssessment")
+                    print(json.dumps(metadata['trace'], indent=4))
+
+
+def main():
+    """
+    Entrypoint for streaming message API response example.
+    """
+
+    logging.basicConfig(level=logging.INFO,
+                        format="%(levelname)s: %(message)s")
+
+    # The model to use.
+    model_id = "amazon.titan-text-express-v1"
+
+    # The ID and version of the guardrail.
+    guardrail_id = "Change to your guardrail ID"
+    guardrail_version = "DRAFT"
+
+    # Configuration for the guardrail.
+    guardrail_config = {
+        "guardrailIdentifier": guardrail_id,
+        "guardrailVersion": guardrail_version,
+        "trace": "enabled",
+        "streamProcessingMode" : "sync"
+    }
+
+    text = "Create a playlist of heavy metal songs."
+
+    # The message for the model and the content that you want the guardrail to assess.
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "text": text,
+                },
+                {
+                    "guardContent": {
+                        "text": {
+                            "text": text
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+
+    try:
+        bedrock_client = boto3.client(service_name='bedrock-runtime')
+
+        stream_conversation(bedrock_client, model_id, messages,
+                        guardrail_config)
+
+    except ClientError as err:
+        message = err.response['Error']['Message']
+        logger.error("A client error occurred: %s", message)
+        print("A client error occured: " +
+              format(message))
+
+    else:
+        print(
+            f"Finished streaming messages with model {model_id}.")
+
+
+if __name__ == "__main__":
+    main()
+
+```

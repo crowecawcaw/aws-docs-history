@@ -86,13 +86,74 @@ Available built-in datasets for automatic model evaluation jobs in
 Amazon Bedrock| Task type | Metric | Built-in datasets | Computed metric |
 | --- | --- | --- | --- |
 | General text generation | Accuracy | [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") | Real world knowledge (RWK) score |
-| Robustness | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") | Word error rate | | [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") |
-| [WikiText2](https://huggingface.co/datasets/wikitext "https://huggingface.co/datasets/wikitext") | | Toxicity | [RealToxicityPrompts](https://github.com/allenai/real-toxicity-prompts "https://github.com/allenai/real-toxicity-prompts") | Toxicity |
+| Robustness | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") | Word error rate |
+| [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") |
+| [WikiText2](https://huggingface.co/datasets/wikitext "https://huggingface.co/datasets/wikitext") |
+| Toxicity | [RealToxicityPrompts](https://github.com/allenai/real-toxicity-prompts "https://github.com/allenai/real-toxicity-prompts") | Toxicity |
 | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") |
 | Text summarization | Accuracy | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore |
-| Toxicity | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | Toxicity | | Robustness | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore and deltaBERTScore |
+| Toxicity | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | Toxicity |
+| Robustness | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore and deltaBERTScore |
 | Question and answer | Accuracy | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | NLP-F1 |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | F1 and deltaF1 |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | Toxicity |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Text classification | Accuracy | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | Accuracy (Binary accuracy from classification_accuracy_score) |
-| Robustness | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | classification_accuracy_score and delta_classification_accuracy_score | To learn more about the requirements for creating and examples of custom prompt datasets, see [Use custom prompt dataset for model evaluation in Amazon Bedrock](#model-evaluation-prompt-datasets-custom "#model-evaluation-prompt-datasets-custom"). ## Use custom prompt dataset for model evaluation in Amazon Bedrock You can create a custom prompt dataset in an automatic model evaluation jobs. Custom prompt datasets must be stored in Amazon S3, and use the JSON line format and use the `.jsonl` file extension. Each line must be a valid JSON object. There can be up to 1000 prompts in your dataset per automatic evaluation job. For job created using the console you must update the Cross Origin Resource Sharing (CORS) configuration on the S3 bucket. To learn more about the required CORS permissions, see [Required Cross Origin Resource Sharing (CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md"). You must use the following keys value pairs in a custom dataset. <br>• `prompt` – required to indicate the input for the following tasks: + The prompt that your model should respond to, in general text generation. + The question that your model should answer in the question and answer task type. + The text that your model should summarize in text summarization task. + The text that your model should classify in classification tasks. <br>• `referenceResponse` – required to indicate the ground truth response against which your model is evaluated for the following tasks types: + The answer for all prompts in question and answer tasks. + The answer for all accuracy, and robustness evaluations. <br>• `category`– (optional) generates evaluation scores reported for each category. As an example, accuracy requires both the question asked, and a answer to check the model's response against. In this example, use the key `prompt` with the value contained in the question, and the key`referenceResponse` with the value contained in the answer as follows. `{ "prompt": "Bobigny is the capital of", "referenceResponse": "Seine-Saint-Denis", "category": "Capitals" }` The previous example is a single line of a JSON line input file that will be sent to your model as an inference request. Model will be invoked for every such record in your JSON line dataset. The following data input example is for a question answer task that uses an optional `category` key for evaluation. `{"prompt":"Aurillac is the capital of", "category":"Capitals", "referenceResponse":"Cantal"} {"prompt":"Bamiyan city is the capital of", "category":"Capitals", "referenceResponse":"Bamiyan Province"} {"prompt":"Sokhumi is the capital of", "category":"Capitals", "referenceResponse":"Abkhazia"}`
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | F1 and deltaF1 |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | Toxicity |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Text classification | Accuracy | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | Accuracy (Binary accuracy from<br>classification_accuracy_score) |
+| Robustness | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | classification_accuracy_score and<br>delta_classification_accuracy_score |
+
+To learn more about the requirements for creating and examples of custom prompt
+datasets, see [Use custom prompt dataset for model evaluation in Amazon Bedrock](#model-evaluation-prompt-datasets-custom "#model-evaluation-prompt-datasets-custom").
+
+## Use custom prompt dataset for model evaluation in Amazon Bedrock
+
+You can create a custom prompt dataset in an automatic model evaluation jobs. Custom prompt datasets must be stored in Amazon S3, and use the JSON line format and use the `.jsonl` file extension. Each line must be a valid JSON object. There can be up to 1000 prompts in your dataset per automatic evaluation job.
+
+For job created using the console you must update the Cross Origin Resource Sharing (CORS) configuration on the S3 bucket. To learn more about the required CORS permissions, see [Required Cross Origin Resource Sharing
+(CORS) permissions on S3 buckets](model-evaluation-security-cors.md "model-evaluation-security-cors.md").
+
+You must use the following keys value pairs in a custom dataset.
+
+- `prompt` – required to indicate the input for the
+  following tasks:
+  - The prompt that your model should respond to, in general text
+    generation.
+  - The question that your model should answer in the question and
+    answer task type.
+  - The text that your model should summarize in text
+    summarization task.
+  - The text that your model should classify in classification
+    tasks.
+
+- `referenceResponse` – required to indicate the
+  ground truth response against which your model is evaluated for the
+  following tasks types:
+  - The answer for all prompts in question and answer
+    tasks.
+  - The answer for all accuracy, and robustness
+    evaluations.
+
+- `category`– (optional) generates evaluation scores
+  reported for each category.
+
+As an example, accuracy requires both the question asked, and a answer to check the model's response against. In this example, use the key `prompt` with the value contained in the question, and the key`referenceResponse` with the value contained in the answer as follows.
+
+```
+{
+  "prompt": "Bobigny is the capital of",
+  "referenceResponse": "Seine-Saint-Denis",
+  "category": "Capitals"
+}
+```
+
+The previous example is a single line of a JSON line input file that will be sent to your model as an inference request. Model will be invoked for every such record in your JSON line dataset. The following data input example is for a question answer task that uses an optional `category` key for evaluation.
+
+```
+{"prompt":"Aurillac is the capital of", "category":"Capitals", "referenceResponse":"Cantal"}
+{"prompt":"Bamiyan city is the capital of", "category":"Capitals", "referenceResponse":"Bamiyan Province"}
+{"prompt":"Sokhumi is the capital of", "category":"Capitals", "referenceResponse":"Abkhazia"}
+```

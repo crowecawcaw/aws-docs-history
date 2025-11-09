@@ -86,10 +86,10 @@ whether they can use the `Converse` operation:
 | Granite 3.0 2B Instruct                             | Yes                    | Yes                 |
 | Granite 3.0 8B Instruct                             | Yes                    | Yes                 |
 | Gretel Navigator Tabular                            | Yes                    | Yes                 |
-| IBM Granite 20B Code Instruct - 8K                  | Yes                    | Yes                 |
-| IBM Granite 34B Code Instruct - 8K                  | Yes                    | Yes                 |
-| IBM Granite 3B Code Instruct - 128K                 | Yes                    | Yes                 |
-| IBM Granite 8B Code Instruct - 128K                 | Yes                    | Yes                 |
+| IBM Granite 20B Code Instruct<br>• 8K               | Yes                    | Yes                 |
+| IBM Granite 34B Code Instruct<br>• 8K               | Yes                    | Yes                 |
+| IBM Granite 3B Code Instruct<br>• 128K              | Yes                    | Yes                 |
+| IBM Granite 8B Code Instruct<br>• 128K              | Yes                    | Yes                 |
 | KARAKURI LM 8x7b instruct                           | No                     | Yes                 |
 | Liquid                                              | Yes                    | Yes                 |
 | Llama 3.1 SuperNova Lite                            | Yes                    | Yes                 |
@@ -97,8 +97,8 @@ whether they can use the `Converse` operation:
 | Llama-3-Varco-Offsetbias-8B                         | No                     | Yes                 |
 | Llama3 8B SEA-Lion v2.1 Instruct                    | Yes                    | Yes                 |
 | MARS6                                               | No                     | No                  |
-| Medical LLM - Medium                                | No                     | No                  |
-| Medical LLM - Small                                 | No                     | No                  |
+| Medical LLM<br>• Medium                             | No                     | No                  |
+| Medical LLM<br>• Small                              | No                     | No                  |
 | Medical Text Translation (EN-ES)                    | No                     | No                  |
 | Mistral 7B OpenOrca AWQ                             | Yes                    | Yes                 |
 | Mistral 7B OpenOrca GPTQ                            | Yes                    | Yes                 |
@@ -122,9 +122,9 @@ whether they can use the `Converse` operation:
 | PLaMo API                                           | No                     | Yes                 |
 | Snowflake Arctic Instruct Vllm                      | Yes                    | Yes                 |
 | Solar Mini Chat                                     | Yes                    | Yes                 |
-| Solar Mini Chat - Quant                             | Yes                    | Yes                 |
+| Solar Mini Chat<br>• Quant                          | Yes                    | Yes                 |
 | Solar Mini Chat ja                                  | Yes                    | Yes                 |
-| Solar Mini Chat ja - Quant                          | Yes                    | Yes                 |
+| Solar Mini Chat ja<br>• Quant                       | Yes                    | Yes                 |
 | Solar Pro                                           | Yes                    | Yes                 |
 | Solar Pro (Quantized)                               | Yes                    | Yes                 |
 | Stable Diffusion 3.5 Large                          | No                     | No                  |

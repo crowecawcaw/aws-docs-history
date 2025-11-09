@@ -10,17 +10,37 @@ the range of this capability.
 Numeric validations are used to check whether the extracted numeric data falls within a specified range of values or meets certain
 criteria. These validations can be applied to fields such as amounts, quantities, or any other numerical data.
 
-| Field                                                       | Instruction                                                                      | Extraction Type | Type    |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| BalanceGreaterCheck                                         | Is previous balance greater than $1000?                                          | Inferred        | Boolean |
-| Is Gross Profit equal to difference between Sales and COGS? | Validation question                                                              | Inferred        | Boolean |
-| is_gross_pay_valid                                          | Is the YTD gross pay the largest dollar amount value on the paystub?             | Inferred        | Boolean | ###### Date/Time validations Date/time validations are used to check whether the extracted date or time data falls within a specific range or meets certain criteria. These validations can be applied to fields such as due dates, expiration dates, or any other date/time-related data.                                                                                                                                                                                                                                                                                                                                                                   |
-| Field                                                       | Instruction                                                                      | Extraction Type | Type    |
-| ---                                                         | ---                                                                              | ---             | ---     |
-| was_injury_reported_after_1_month                           | Was the injury reported to the employer more than 1 month after the injury date? | Inferred        | Boolean |
-| is_overdue                                                  | Is the statement overdue? Has the balance due date expired?                      | Inferred        | Boolean |
-| is_delivery_date_valid                                      | Is the delivery date within the next 30 days?                                    | Inferred        | Boolean | ###### String/Format validations String/format validations are used to check whether the extracted data adheres to a specific format or matches predefined patterns. These validations can be applied to fields such as names, addresses, or any other textual data that requires format validation.                                                                                                                                                                                                                                                                                                                                                         |
-| Field                                                       | Instruction                                                                      | Extraction Type | Type    |
-| ---                                                         | ---                                                                              | ---             | ---     |
-| routing_number_valid                                        | True if the bank routing number has 9 digits                                     | Inferred        | Boolean |
-| Is_NumMeterIDsListed                                        | Are there more than 5 meter IDs listed on the bill?                              | Inferred        | Boolean | With BDA's custom validation capabilities, you can create complex validation rules that combine multiple conditions, calculations, or logical operations to ensure the extracted data meets your desired criteria. These validations can involve cross-field checks, calculations, or any other custom logic specific to your business processes or regulatory requirements. By incorporating these validation rules into your blueprints, BDA can automatically validate the extracted data, ensuring its accuracy and compliance with your specific requirements. This capability enables you to make trigger human reviews where validations have failed. |
+| Field                                                       | Instruction                                                          | Extraction Type | Type    |
+| ----------------------------------------------------------- | -------------------------------------------------------------------- | --------------- | ------- |
+| BalanceGreaterCheck                                         | Is previous balance greater than $1000?                              | Inferred        | Boolean |
+| Is Gross Profit equal to difference between Sales and COGS? | Validation question                                                  | Inferred        | Boolean |
+| is_gross_pay_valid                                          | Is the YTD gross pay the largest dollar amount value on the paystub? | Inferred        | Boolean |
+
+###### Date/Time validations
+
+Date/time validations are used to check whether the extracted date or time data falls within a specific range or meets certain criteria.
+These validations can be applied to fields such as due dates, expiration dates, or any other date/time-related data.
+
+| Field                             | Instruction                                                                      | Extraction Type | Type    |
+| --------------------------------- | -------------------------------------------------------------------------------- | --------------- | ------- |
+| was_injury_reported_after_1_month | Was the injury reported to the employer more than 1 month after the injury date? | Inferred        | Boolean |
+| is_overdue                        | Is the statement overdue? Has the balance due date expired?                      | Inferred        | Boolean |
+| is_delivery_date_valid            | Is the delivery date within the next 30 days?                                    | Inferred        | Boolean |
+
+###### String/Format validations
+
+String/format validations are used to check whether the extracted data adheres to a specific format or matches predefined patterns.
+These validations can be applied to fields such as names, addresses, or any other textual data that requires format validation.
+
+| Field                | Instruction                                         | Extraction Type | Type    |
+| -------------------- | --------------------------------------------------- | --------------- | ------- |
+| routing_number_valid | True if the bank routing number has 9 digits        | Inferred        | Boolean |
+| Is_NumMeterIDsListed | Are there more than 5 meter IDs listed on the bill? | Inferred        | Boolean |
+
+With BDA's custom validation capabilities, you can create complex validation rules that combine multiple conditions, calculations,
+or logical operations to ensure the extracted data meets your desired criteria. These validations can involve cross-field checks,
+calculations, or any other custom logic specific to your business processes or regulatory requirements.
+
+By incorporating these validation rules into your blueprints, BDA can automatically validate the extracted data, ensuring its
+accuracy and compliance with your specific requirements. This capability enables you to make trigger human reviews where validations
+have failed.

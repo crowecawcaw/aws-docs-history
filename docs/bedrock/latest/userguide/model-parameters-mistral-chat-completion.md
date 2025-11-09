@@ -167,11 +167,90 @@ popular songs on a radio station.
   `max_tokens`.
 
 | Default               | Minimum | Maximum               |
-| --------------------- | ------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mistral Large – 8,192 | 1       | Mistral Large – 8,192 | <br>• **temperature** – Controls the randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").                                                                                          |
-| Default               | Minimum | Maximum               |
-| ---                   | ---     | ---                   |
-| Mistral Large – 0.7   | 0       | 1                     | <br>• **top_p** – Controls the diversity of text that the model generates by setting the percentage of most-likely candidates that the model considers for the next token. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md"). |
-| Default               | Minimum | Maximum               |
-| ---                   | ---     | ---                   |
-| Mistral Large – 1     | 0       | 1                     | Response The `body` response from a call to `InvokeModel` is the following: ``` { "choices": [ { "index": 0, "message": { "role": "assistant", "content": str, "tool_calls": [...] }, "stop_reason": "stop"                                                                                                        | "length" | "tool_calls" } ] } ``The `body` response has the following fields: <br>• **choices** – The output from the model. fields. + **index** – The index for the message. + **message** – The message from the model. <br>• **role** – The role for the message. <br>• **content** – The content for the message. <br>• **tool\_calls** – If the value of `stop_reason` is `tool_calls`, this field contains a list of tool requests that the model wants you to run. <br>• **id** – The ID for the tool request. <br>• **function** – The function that the model is requesting. + **name** – The name of the function. + **arguments** – The arguments to pass to the tool The following is an example request for a tool that gets the top song on a radio station.`` [ { "id": "v6RMMiRlT7ygYkT4uULjtg", "function": { "name": "top_song", "arguments": "{\"sign\": \"WZPZ\"}" } } ] ```+ **stop\_reason** – The reason why the response stopped generating text. Possible values are: <br>• **stop** – The model has finished generating text for the input prompt. The model stops because it has no more content to generate or if the model generates one of the stop sequences that you define in the`stop`request parameter. <br>• **length** – The length of the tokens for the generated text exceeds the value of`max_tokens`. The response is truncated to `max_tokens` tokens. <br>• **tool_calls** – The model is requesting that you run a tool. |
+| --------------------- | ------- | --------------------- |
+| Mistral Large – 8,192 | 1       | Mistral Large – 8,192 |
+
+- **temperature** – Controls the
+  randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
+
+| Default             | Minimum | Maximum |
+| ------------------- | ------- | ------- |
+| Mistral Large – 0.7 | 0       | 1       |
+
+- **top_p** – Controls the diversity of text that the model
+  generates by setting the percentage of most-likely candidates that the model considers for the next token.
+  For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
+
+| Default           | Minimum | Maximum |
+| ----------------- | ------- | ------- |
+| Mistral Large – 1 | 0       | 1       |
+
+Response
+The `body` response from a call to `InvokeModel` is the following:
+
+```
+{
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": str,
+                "tool_calls": [...]
+            },
+            "stop_reason": "stop"|"length"|"tool_calls"
+        }
+    ]
+}
+
+
+```
+
+The `body` response has the following fields:
+
+- **choices** – The output from the model.
+  fields.
+  - **index** – The index for the message.
+  - **message** – The message from the model.
+    - **role** – The role for the message.
+    - **content** – The content for the message.
+    - **tool_calls** – If the value of `stop_reason`
+      is `tool_calls`, this field contains a list of tool requests
+      that the model wants you to run.
+
+          * **id** – The ID for the tool request.
+          * **function** – The function that the model is requesting.
+
+
+
+
+
+          	+ **name** – The name of the function.
+          	+ **arguments** – The arguments to pass to the tool
+
+      The following is an example request for a tool that gets the top song on a radio station.
+
+    ```
+    [
+                        {
+                            "id": "v6RMMiRlT7ygYkT4uULjtg",
+                            "function": {
+                                "name": "top_song",
+                                "arguments": "{\"sign\": \"WZPZ\"}"
+                            }
+                        }
+                    ]
+    ```
+
+  - **stop_reason** – The reason why the response stopped
+    generating text. Possible values are:
+    - **stop** – The model has
+      finished generating text for the input prompt. The model stops because it
+      has no more content to generate or if the model generates one of the stop sequences that you define in the `stop`
+      request parameter.
+    - **length** – The length of the
+      tokens for the generated text exceeds the value of
+      `max_tokens`. The response is truncated to
+      `max_tokens` tokens.
+    - **tool_calls** – The model is requesting that
+      you run a tool.

@@ -7,7 +7,7 @@ features. The Converse API doesn't support any embedding or image
 generation models.
 
 | Model                                             | Converse                  | ConverseStream            | System prompts | Document chat                   | Vision | Tool use | Streaming tool use | Guardrails | Amazon S3 links for multimedia |
-| ------------------------------------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------- | ------ | -------- | ------------------ | ---------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------- | ------------------------- | ------------------------- | -------------- | ------------------------------- | ------ | -------- | ------------------ | ---------- | ------------------------------ |
 | AI21 Jamba-Instruct                               | Yes                       | Yes                       | Yes            | No                              | No     | No       | No                 | No         | No                             |
 | AI21 Labs Jurassic-2 (Text)                       | Limited. No chat support. | No                        | No             | No                              | No     | No       | No                 | Yes        | No                             |
 | AI21 Labs Jamba 1.5 Large                         | Yes                       | Yes                       | Yes            | Yes                             | No     | Yes      | Yes                | Yes        | No                             |
@@ -43,4 +43,13 @@ generation models.
 | Mistral Small                                     | Yes                       | Yes                       | Yes            | No                              | No     | Yes      | No                 | Yes        | No                             |
 | Pixtral Large (25.02)                             | Yes                       | Yes                       | Yes            | Yes                             | No     | Yes      | No                 | Yes        | No                             |
 | Writer Palmyra X4                                 | Yes                       | Yes                       | Yes            | Yes                             | No     | Yes      | No                 | Yes        | No                             |
-| Writer Palmyra X5                                 | Yes                       | Yes                       | Yes            | Yes                             | No     | Yes      | No                 | Yes        | No                             | For a table of the Regions that support each model, see [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md"). ###### Note Cohere Command (Text) and AI21 Labs Jurassic-2 (Text) don't support chat with the Converse API. The models can only handle one user message at a time and can't maintain the history of a conversation. You get an error if you attempt to pass more than one message. |
+| Writer Palmyra X5                                 | Yes                       | Yes                       | Yes            | Yes                             | No     | Yes      | No                 | Yes        | No                             |
+
+For a table of the Regions that support each model, see [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md").
+
+###### Note
+
+Cohere Command (Text) and AI21 Labs Jurassic-2 (Text) don't support chat with the
+Converse API. The models can only handle one user message at a
+time and can't maintain the history of a conversation. You get an error if you
+attempt to pass more than one message.

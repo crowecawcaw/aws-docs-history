@@ -19,7 +19,7 @@ To get information about a prompt, send a [GetPrompt](../APIReference/API_agent_
 
 To list information about your agents, send a [ListPrompts](../APIReference/API_agent_ListPrompts.md "../APIReference/API_agent_ListPrompts.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). You can specify the following optional parameters:
 
-| Field      | Short description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a response.                                                                                                                                                        |
-| nextToken  | If there are more results than the number you specified in the `maxResults` field, the response returns a `nextToken` value. To see the next batch of results, send the `nextToken` value in another request. |
+| Field      | Short description                                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
+| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |

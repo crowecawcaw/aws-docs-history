@@ -21,11 +21,21 @@ following:
 - The source files are of the following supported formats:
 
 | Format                      | Extension  |
-| --------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------- |
 | Plain text (ASCII only)     | .txt       |
 | Markdown                    | .md        |
 | HyperText Markup Language   | .html      |
 | Microsoft Word document     | .doc/.docx |
 | Comma-separated values      | .csv       |
 | Microsoft Excel spreadsheet | .xls/.xlsx |
-| Portable Document Format    | .pdf       | <br>• Each file size doesn't exceed the quota of 50 MB. If you use an Amazon S3 or custom data source, you can use multimodal data, including JPEG (.jpeg) or PNG (.png) images or files that contain tables, charts, diagrams, or other images. ###### Note The maximum size of .JPEG and .PNG files is 3.75 MB. |
+| Portable Document Format    | .pdf       |
+
+- Each file size doesn't exceed the quota of 50 MB.
+
+If you use an Amazon S3 or custom data source, you can use multimodal data, including
+JPEG (.jpeg) or PNG (.png) images or files that contain tables, charts,
+diagrams, or other images.
+
+###### Note
+
+The maximum size of .JPEG and .PNG files is 3.75 MB.

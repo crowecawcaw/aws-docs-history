@@ -20,7 +20,7 @@ To get information about an inference profile, send a [GetInferenceProfile](../A
 
 To list information about the inference profiles that you can use, send a [ListInferenceProfiles](../APIReference/API_ListInferenceProfiles.md "../APIReference/API_ListInferenceProfiles.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). You can specify the following optional parameters:
 
-| Field      | Short description                                                                                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a response.                                                                                                                                                        |
-| nextToken  | If there are more results than the number you specified in the `maxResults` field, the response returns a `nextToken` value. To see the next batch of results, send the `nextToken` value in another request. |
+| Field      | Short description                                                                                                                                                                                                         |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
+| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |

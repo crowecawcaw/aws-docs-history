@@ -50,5 +50,36 @@ a prompt and a weight for the prompt.
   results.
 
 | Minimum | Maximum |
-| ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | 10,000  | **Optional fields** <br>• **aspect_ratio** – (string) Controls the aspect ratio of the generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. <br>• **style_preset** – (string) Guides the image model towards a particular style. Enum: 3d-model, analog-film, anime, cinematic, comic-book, digital-art, enhance, fantasy-art, isometric, line-art, low-poly, modeling-compound, neon-punk, origami, photographic, pixel-art, tile-texture. <br>• **output_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported dimensions: height 640 to 1,536 px, width 640 to 1,536 px. <br>• **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295. <br>• **negative_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters. `import boto3 import json import base64 import io from PIL import Image bedrock = boto3.client('bedrock-runtime', region_name='us-west-2') response = bedrock.invoke_model( modelId='us.stability.stable-image-core-v1:0', body=json.dumps({ 'prompt': 'A car made out of vegetables.' }) ) output_body = json.loads(response["body"].read().decode("utf-8")) base64_output_image = output_body["images"][0] image_data = base64.b64decode(base64_output_image) image = Image.open(io.BytesIO(image_data)) image.save("image.png")` |
+| ------- | ------- |
+| 0       | 10,000  |
+
+**Optional fields**
+
+- **aspect_ratio** – (string) Controls the aspect ratio of the
+  generated image. This parameter is only valid for text-to-image requests. Default 1:1. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21.
+- **output_format** – Specifies the format of the output image. Supported formats: JPEG, PNG. Supported
+  dimensions: height 640 to 1,536 px, width 640 to 1,536 px.
+- **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295.
+- **negative_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
+
+```
+
+     import boto3
+     import json
+     import base64
+     import io
+     from PIL import Image
+
+     bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
+     response = bedrock.invoke_model(
+         modelId='stability.stable-image-core-v1:0',
+         body=json.dumps({
+             'prompt': 'A car made out of vegetables.'
+         })
+     )
+     output_body = json.loads(response["body"].read().decode("utf-8"))
+     base64_output_image = output_body["images"][0]
+     image_data = base64.b64decode(base64_output_image)
+     image = Image.open(io.BytesIO(image_data))
+     image.save("image.png")
+```

@@ -16,10 +16,63 @@ response. Amazon Bedrock gets these fields from the Neptune Analytics response. 
 contain these fields, then the returned query result from Amazon Bedrock won't have these fields
 either.
 
-| Field                           | Description                                                                                                                                                                                                                    |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| x-amz-bedrock-kb-source-uri     | The Amazon S3 URL of the returned document.                                                                                                                                                                                    |
-| score                           | A distance measure that indicates how closely a response matches the provided query, where lower values indicate better matches.                                                                                               |
-| x-amz-bedrock-kb-data-source-id | The ID of the data source used for the knowledge base.                                                                                                                                                                         |
-| x-amz-bedrock-kb-chunk-id       | The ID of the chunk that was used to retrieve the information for the query and generate the response.                                                                                                                         |
-| DocumentAttributes              | Document attributes or metadata fields from Amazon Kendra. The returned query result from the knowledge base stores these as metadata key-value pairs. You can filter the results with metadata filtering from Amazon Bedrock. | ## Using metadata and filtering When you query the knowledge base and generate responses, you can filter on metadata for finding more relevant documents. For example, you can filter based on the publication date of the document. You can use the Amazon Bedrock console or the runtime API [`RetrievalFilter`](../APIReference/API_agent-runtime_RetrievalFilter.md "../APIReference/API_agent-runtime_RetrievalFilter.md") for this purpose, which can specify some general filter conditions. The following are some considerations for using the `RetrievalFilter` API for Neptune Analytics graphs. <br>• The `startsWith` and `listContains` filters are not supported. <br>• The list variant of the `stringContains` filter is not supported. The following shows an example: `"vectorSearchConfiguration": { "numberOfResults": 5, "filter": { "orAll": [ { "andAll": [ { "equals": { "key": "genre", "value": "entertainment" } }, { "greaterThan": { "key": "year", "value": 2018 } } ] }, { "andAll": [ { "startsWith": { "key": "author", "value": "C" } } ] } ] } } }` |
+| Field                           | Description                                                                                                                                                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| x-amz-bedrock-kb-source-uri     | The Amazon S3 URL of the returned document.                                                                                                                                                                                          |
+| score                           | A distance measure that indicates how closely a response matches the provided query, where<br>lower values indicate better matches.                                                                                                  |
+| x-amz-bedrock-kb-data-source-id | The ID of the data source used for the knowledge base.                                                                                                                                                                               |
+| x-amz-bedrock-kb-chunk-id       | The ID of the chunk that was used to retrieve the information for the query and<br>generate the response.                                                                                                                            |
+| DocumentAttributes              | Document attributes or metadata fields from Amazon Kendra.<br>The returned query result from the knowledge base stores these as metadata key-value pairs.<br>You can filter the results with metadata filtering from Amazon Bedrock. |
+
+## Using metadata and filtering
+
+When you query the knowledge base and generate responses, you can filter
+on metadata for finding more relevant documents. For example, you can filter based on the publication
+date of the document. You can use the Amazon Bedrock console or the runtime API [`RetrievalFilter`](../APIReference/API_agent-runtime_RetrievalFilter.md "../APIReference/API_agent-runtime_RetrievalFilter.md")
+for this purpose, which can specify some general filter conditions.
+
+The following are some considerations for using the `RetrievalFilter` API
+for Neptune Analytics graphs.
+
+- The `startsWith` and `listContains` filters are not
+  supported.
+- The list variant of the `stringContains` filter is not supported.
+
+The following shows an example:
+
+```
+"vectorSearchConfiguration": {
+        "numberOfResults": 5,
+        "filter": {
+            "orAll": [
+                {
+                    "andAll": [
+                        {
+                            "equals": {
+                                "key": "genre",
+                                "value": "entertainment"
+                            }
+                        },
+                        {
+                            "greaterThan": {
+                                "key": "year",
+                                "value": 2018
+                            }
+                        }
+                    ]
+                },
+                {
+                    "andAll": [
+                        {
+                            "startsWith": {
+                                "key": "author",
+                                "value": "C"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
