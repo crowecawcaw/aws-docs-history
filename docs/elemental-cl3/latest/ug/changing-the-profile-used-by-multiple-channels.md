@@ -27,9 +27,70 @@ ready, choose **Next**.
 
 **Examples of changes in channel parameters**
 
-| Original Profile for a Channel                                   | New Profile for a Channel                                                                                                                                         | Action                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Three channel parameters                                         | Two channel parameters, mapped to the same two fields as the original profile. A third parameter channel which does not exist in the new profile.                 | None. For the two parameter channels that still exist, the values already in the channel are preserved and used. For the channel parameter that has been dropped, a value is no longer required in the channel; the value that is “hard-coded” (or implied, that is, a system default) in the new profile is used. |
-| Three channel parameters                                         | Four total channel parameters: <br>• Three channel parameters, mapped to the same three fields as the original profile. <br>• One new channel parameter.          | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                 |
-| One channel parameter, for example, {{input\_network\_location}} | A channel parameter, mapped to the same field as the original profile. This channel parameter, however, has a different name. For example {{input\_nw\_location}} | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                 |
-| One channel parameter, for example, {{input\_network\_location}} | The same channel parameter, but mapped to a different field.                                                                                                      | Conductor Live treats the channel parameter as a new parameter. You are prompted to provide a value for the new channel parameter. You should try to avoid this problem by tying each channel parameter name to a specific field. Avoid generic names such as {{field 1}}                                          | You might get any combination of these types of discrepancies, and you are prompted to handle all of them. 6. On the final page, choose **Process Now** or **Save for Later**. **Process Now**: Conductor Live applies the change. The **Channels** page reappears, showing the change. **Save for Later**: This option lets you queue up several tasks and then perform them in one pass. ###### Warning **Save for Later** is intended to queue for a short time. Don't use **Save for Later** and then delay process the task in a few hours. Doing so might create undesired consequences. **Example of Save for Later** Assume that you want to move all existing channels from node A so that you can move another set of channels to node A. This is an opportunity to use bulk changes. Set up bulk changes as follows: do Bulk Change #1 to move the channels from node A to node B (change the associated node for the channels). Then do Bulk Change #2 to move the channels from node C to node A. In order to do this two-part move with the least downtime, you could do the following: <br>• Set up Bulk Change #1 and choose **Save for Later**. <br>• Set up Bulk Change #2 and choose **Save for Later**. Both bulk changes appear on the left side of the page, as shown below. <br>• Then choose **Run Pending Actions**. Bulk Change #1 runs. As soon as it has finished, Bulk Change #2 runs. ## Step B. Monitor the status of the task When you run **Process Now** to run the task, you can monitor the status of each modify action in the task. 1. On the Conductor Live main menu, choose **Status**, then choose **Task Reports**. The **Task Reports** page appears. 2. In the **Task Reports** panel on the left, choose the task to monitor (newer tasks appear first). (This list shows running and completed tasks; for pending tasks, go to the **Channels** page and choose the **Pending Tasks** icon). 3. Find the relevant task and review the information: <br>• The top line shows the count of total tasks, failed tasks, and successful tasks. <br>• Below that, a line appears for each individual action. Each line shows the current status of the action: **Pending**, **Success**, or an explanation of why the task failed. As the status of an action changes, the page automatically refreshes to display the latest information. |
+| Original Profile for a Channel                                   | New Profile for a Channel                                                                                                                                            | Action                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Three channel parameters                                         | Two channel parameters, mapped to the same two fields as the original profile.<br>A third parameter channel which does not exist in the new profile.                 | None. For the two parameter channels that still exist, the values already in the<br>channel are preserved and used.<br>For the channel parameter that has been dropped, a value is no longer required in<br>the channel; the value that is “hard-coded” (or implied, that is, a system default) in<br>the new profile is used. |
+| Three channel parameters                                         | Four total channel parameters:<br>• Three channel parameters, mapped to the same three fields as the original<br>profile.<br>• One new channel parameter.            | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                             |
+| One channel parameter, for example, {{input\_network\_location}} | A channel parameter, mapped to the same field as the original profile. This channel<br>parameter, however, has a different name. For example {{input\_nw\_location}} | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                             |
+| One channel parameter, for example, {{input\_network\_location}} | The same channel parameter, but mapped to a different field.                                                                                                         | Conductor Live treats the channel parameter as a new parameter. You are prompted to provide<br>a value for the new channel parameter.<br>You should try to avoid this problem by tying each channel parameter name to a<br>specific field. Avoid generic names such as {{field 1}}                                             |
+
+You might get any combination of these types of discrepancies, and you are prompted to
+handle all of them. 6. On the final page, choose **Process Now** or **Save for
+Later**.
+
+**Process Now**: Conductor Live applies the change. The
+**Channels** page reappears, showing the change.
+
+**Save for Later**: This option lets you queue up several tasks and then
+perform them in one pass.
+
+###### Warning
+
+**Save for Later** is intended to queue for a short time.
+
+Don't use **Save for Later** and then delay process the task in a few
+hours. Doing so might create undesired consequences.
+
+**Example of Save for Later**
+
+Assume that you want to move all existing channels from node A so that you can move
+another set of channels to node A. This is an opportunity to use bulk changes. Set up bulk
+changes as follows: do Bulk Change #1 to move the channels from node A to node B (change the
+associated node for the channels). Then do Bulk Change #2 to move the channels from node C to
+node A.
+
+In order to do this two-part move with the least downtime, you could do the
+following:
+
+    * Set up Bulk Change #1 and choose **Save for Later**.
+    * Set up Bulk Change #2 and choose **Save for Later**.
+
+
+    Both bulk changes appear on the left side of the page, as shown below.
+    * Then choose **Run Pending Actions**. Bulk Change #1 runs. As soon as
+     it has finished, Bulk Change #2 runs.
+
+## Step B. Monitor the status of the
+
+task
+
+When you run **Process Now** to run the task, you can monitor the status
+of each modify action in the task.
+
+1. On the Conductor Live main menu, choose **Status**, then choose **Task
+   Reports**. The **Task Reports** page appears.
+2. In the **Task Reports** panel on the left, choose the task to monitor
+   (newer tasks appear first).
+
+(This list shows running and completed tasks; for pending tasks, go to the
+**Channels** page and choose the **Pending Tasks**
+icon). 3. Find the relevant task and review the information:
+
+    * The top line shows the count of total tasks, failed tasks, and successful tasks.
+    * Below that, a line appears for each individual action. Each line shows the current
+     status of the action: **Pending**, **Success**, or an
+     explanation of why the task failed.
+
+
+    As the status of an action changes, the page automatically refreshes to display the
+     latest information.
