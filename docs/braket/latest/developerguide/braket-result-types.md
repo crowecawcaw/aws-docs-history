@@ -47,7 +47,7 @@ results.
 **The supported result types for different devices:**
 
 |                        |           |     |     |     |         |      |     |
-| ---------------------- | --------- | --- | --- | --- | ------- | ---- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | --------- | --- | --- | --- | ------- | ---- | --- |
 |                        | Local sim | SV1 | DM1 | TN1 | Rigetti | IonQ | IQM |
 | Adjoint Gradient       | N         | Y   | N   | N   | N       | N    | N   |
 | Amplitude              | Y         | Y   | N   | N   | N       | N    | N   |
@@ -56,4 +56,159 @@ results.
 | Reduced density matrix | Y         | N   | Y   | N   | N       | N    | N   |
 | State vector           | Y         | N   | N   | N   | N       | N    | N   |
 | Sample                 | Y         | Y   | Y   | Y   | Y       | Y    | Y   |
-| Variance               | Y         | Y   | Y   | Y   | Y       | Y    | Y   | You can check the supported result types by examining the device properties, as shown in the following example. `from braket.aws import AwsDevice device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3") # Print the result types supported by this device for iter in device.properties.action['braket.ir.openqasm.program'].supportedResultTypes: print(iter)` `name='Sample' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000 name='Expectation' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000 name='Variance' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000 name='Probability' observables=None minShots=10 maxShots=50000` To call a `ResultType`, append it to a circuit, as shown in the following example. `from braket.circuits import Circuit, Observable circ = Circuit().h(0).cnot(0, 1).amplitude(state=["01", "10"]) circ.probability(target=[0, 1]) circ.probability(target=0) circ.expectation(observable=Observable.Z(), target=0) circ.sample(observable=Observable.X(), target=0) circ.state_vector() circ.variance(observable=Observable.Z(), target=0) # Print one of the result types assigned to the circuit print(circ.result_types[0])` ###### Note Different quantum devices provide results in various formats. For example, Rigetti devices return measurements, while IonQ devices provide probabilities. The Amazon Braket SDK offers a measurements property for all results. However, for devices that return probabilities, these measurements are post-computed and based on the probabilities, as per-shot measurements are not available. To determine if a result has been post-computed, check the `measurements_copied_from_device` on the result object. This operation is detailed in the [gate_model_quantum_task_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72 "https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72") file in the Amazon Braket SDK GitHub repository. ## Observables Amazon Braket's `Observable` class allows you to measure a specific observable. You can apply only one unique non-identity observable to each qubit. An error occurs If you specify two or more different non-identity observables to the same qubit. For this purpose, each factor of a tensor product counts as an individual observable. This means you can have multiple tensor products on the same qubit, as long as the factors acting on that qubit remain the same. An observable can be scaled and add other observables (scaled or not). This creates a `Sum` which can be used in the `AdjointGradient` result type. The `Observable` class includes the following observables. `import numpy as np Observable.I() Observable.H() Observable.X() Observable.Y() Observable.Z() # Get the eigenvalues of the observable print("Eigenvalue:", Observable.H().eigenvalues) # Or rotate the basis to be computational basis print("Basis rotation gates:", Observable.H().basis_rotation_gates) # Get the tensor product of the observable for the multi-qubit case tensor_product = Observable.Y() @ Observable.Z() # View the matrix form of an observable by using print("The matrix form of the observable:\n", Observable.Z().to_matrix()) print("The matrix form of the tensor product:\n", tensor_product.to_matrix()) # Factorize an observable in the tensor form print("Factorize an observable:", tensor_product.factors) # Self-define observables, given it is a Hermitian print("Self-defined Hermitian:", Observable.Hermitian(matrix=np.array([[0, 1], [1, 0]]))) print("Sum of other (scaled) observables:", 2.0 * Observable.X() @ Observable.X() + 4.0 * Observable.Z() @ Observable.Z())` `Eigenvalue: [ 1. -1.] Basis rotation gates: (Ry('angle': -0.7853981633974483, 'qubit_count': 1),) The matrix form of the observable: [[ 1.+0.j  0.+0.j] [ 0.+0.j -1.+0.j]] The matrix form of the tensor product: [[ 0.+0.j  0.+0.j  0.-1.j  0.+0.j] [ 0.+0.j -0.+0.j  0.+0.j  0.+1.j] [ 0.+1.j  0.+0.j  0.+0.j  0.+0.j] [ 0.+0.j  0.-1.j  0.+0.j -0.+0.j]] Factorize an observable: (Y('qubit_count': 1), Z('qubit_count': 1)) Self-defined Hermitian: Hermitian('qubit_count': 1, 'matrix': [[0.+0.j 1.+0.j], [1.+0.j 0.+0.j]]) Sum of other (scaled) observables: Sum(TensorProduct(X('qubit_count': 1), X('qubit_count': 1)), TensorProduct(Z('qubit_count': 1), Z('qubit_count': 1)))` ## Parameters Circuits can incorporate free parameters. These free parameters only need to be constructed once to run multiple times, and can be used to compute gradients. Each free parameter uses a string-encoded name that is used to: <br>• Set parameter values <br>• Identify which parameters to use `from braket.circuits import Circuit, FreeParameter, observables from braket.parametric import FreeParameter theta = FreeParameter("theta") phi = FreeParameter("phi") circ = Circuit().h(0).rx(0, phi).ry(0, phi).cnot(0, 1).xx(0, 1, theta)` ## Adjoint gradient The SV1 device calculates the adjoint gradient of an observable expectation value, including multi-term Hamiltonian. To differentiate parameters, specify their name (in string format) or by direct reference. `from braket.aws import AwsDevice from braket.devices import Devices device = AwsDevice(Devices.Amazon.SV1) circ.adjoint_gradient(observable=3 * Observable.Z(0) @ Observable.Z(1) - 0.5 * observables.X(0), parameters = ["phi", theta])` Passing fixed parameter values as arguments to a parameterized circuit will remove the free parameters. Running this circuit with `AdjointGradient` produces an error, because the free parameters no longer exist. The follow code example demonstrates the correct and incorrect usage: `# Will error, as no free parameters will be present #device.run(circ(0.2), shots=0) # Will succeed device.run(circ, shots=0, inputs={'phi': 0.2, 'theta': 0.2})` |
+| Variance               | Y         | Y   | Y   | Y   | Y       | Y    | Y   |
+
+You can check the supported result types by examining the device properties, as shown
+in the following example.
+
+```
+from braket.aws import AwsDevice
+
+device = AwsDevice("arn:aws:braket:us-west-1::device/qpu/rigetti/Ankaa-3")
+
+# Print the result types supported by this device
+for iter in device.properties.action['braket.ir.openqasm.program'].supportedResultTypes:
+    print(iter)
+```
+
+```
+name='Sample' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
+name='Expectation' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
+name='Variance' observables=['x', 'y', 'z', 'h', 'i'] minShots=10 maxShots=50000
+name='Probability' observables=None minShots=10 maxShots=50000
+```
+
+To call a `ResultType`, append it to a circuit, as shown in the following
+example.
+
+```
+from braket.circuits import Circuit, Observable
+
+circ = Circuit().h(0).cnot(0, 1).amplitude(state=["01", "10"])
+circ.probability(target=[0, 1])
+circ.probability(target=0)
+circ.expectation(observable=Observable.Z(), target=0)
+circ.sample(observable=Observable.X(), target=0)
+circ.state_vector()
+circ.variance(observable=Observable.Z(), target=0)
+
+# Print one of the result types assigned to the circuit
+print(circ.result_types[0])
+```
+
+###### Note
+
+Different quantum devices provide results in various formats. For example, Rigetti
+devices return measurements, while IonQ devices provide probabilities. The Amazon Braket
+SDK offers a measurements property for all results. However, for devices that return probabilities,
+these measurements are post-computed and based on the probabilities, as per-shot measurements are not
+available. To determine if a result has been post-computed, check the
+`measurements_copied_from_device` on the result object. This operation is detailed in the
+[gate_model_quantum_task_result.py](https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72 "https://github.com/aws/amazon-braket-sdk-python/blob/ca5b08dada4839ca31c012ff50aa20b656fd1879/src/braket/tasks/gate_model_quantum_task_result.py#L70-L72")
+file in the Amazon Braket SDK GitHub repository.
+
+## Observables
+
+Amazon Braket's `Observable` class allows you to measure a specific observable.
+
+You can apply only one unique non-identity observable to each qubit. An error
+occurs If you specify two or more different non-identity observables to the same qubit.
+For this purpose, each factor of a tensor product counts as an individual observable. This means you
+can have multiple tensor products on the same qubit, as long as the factors acting on
+that qubit remain the same.
+
+An observable can be scaled and add other observables (scaled or not). This creates a
+`Sum` which can be used in the `AdjointGradient` result type.
+
+The `Observable` class includes the following observables.
+
+```
+import numpy as np
+
+Observable.I()
+Observable.H()
+Observable.X()
+Observable.Y()
+Observable.Z()
+
+# Get the eigenvalues of the observable
+print("Eigenvalue:", Observable.H().eigenvalues)
+# Or rotate the basis to be computational basis
+print("Basis rotation gates:", Observable.H().basis_rotation_gates)
+
+# Get the tensor product of the observable for the multi-qubit case
+tensor_product = Observable.Y() @ Observable.Z()
+# View the matrix form of an observable by using
+print("The matrix form of the observable:\n", Observable.Z().to_matrix())
+print("The matrix form of the tensor product:\n", tensor_product.to_matrix())
+
+# Factorize an observable in the tensor form
+print("Factorize an observable:", tensor_product.factors)
+
+# Self-define observables, given it is a Hermitian
+print("Self-defined Hermitian:", Observable.Hermitian(matrix=np.array([[0, 1], [1, 0]])))
+
+print("Sum of other (scaled) observables:", 2.0 * Observable.X() @ Observable.X() + 4.0 * Observable.Z() @ Observable.Z())
+```
+
+```
+Eigenvalue: [ 1. -1.]
+Basis rotation gates: (Ry('angle': -0.7853981633974483, 'qubit_count': 1),)
+The matrix form of the observable:
+ [[ 1.+0.j  0.+0.j]
+ [ 0.+0.j -1.+0.j]]
+The matrix form of the tensor product:
+ [[ 0.+0.j  0.+0.j  0.-1.j  0.+0.j]
+ [ 0.+0.j -0.+0.j  0.+0.j  0.+1.j]
+ [ 0.+1.j  0.+0.j  0.+0.j  0.+0.j]
+ [ 0.+0.j  0.-1.j  0.+0.j -0.+0.j]]
+Factorize an observable: (Y('qubit_count': 1), Z('qubit_count': 1))
+Self-defined Hermitian: Hermitian('qubit_count': 1, 'matrix': [[0.+0.j 1.+0.j], [1.+0.j 0.+0.j]])
+Sum of other (scaled) observables: Sum(TensorProduct(X('qubit_count': 1), X('qubit_count': 1)), TensorProduct(Z('qubit_count': 1), Z('qubit_count': 1)))
+```
+
+## Parameters
+
+Circuits can incorporate free parameters. These free parameters only need to
+be constructed once to run multiple times, and can be used to compute gradients.
+
+Each free parameter uses a string-encoded name that is used to:
+
+- Set parameter values
+- Identify which parameters to use
+
+```
+from braket.circuits import Circuit, FreeParameter, observables
+from braket.parametric import FreeParameter
+
+theta = FreeParameter("theta")
+phi = FreeParameter("phi")
+circ = Circuit().h(0).rx(0, phi).ry(0, phi).cnot(0, 1).xx(0, 1, theta)
+```
+
+## Adjoint gradient
+
+The SV1 device calculates the adjoint gradient of an observable expectation value,
+including multi-term Hamiltonian. To differentiate parameters, specify their name (in string format)
+or by direct reference.
+
+```
+from braket.aws import AwsDevice
+from braket.devices import Devices
+
+device = AwsDevice(Devices.Amazon.SV1)
+
+circ.adjoint_gradient(observable=3 * Observable.Z(0) @ Observable.Z(1) - 0.5 * observables.X(0), parameters = ["phi", theta])
+```
+
+Passing fixed parameter values as arguments to a parameterized circuit will remove the free parameters.
+Running this circuit with `AdjointGradient` produces an error, because the free parameters no
+longer exist. The follow code example demonstrates the correct and incorrect usage:
+
+```
+# Will error, as no free parameters will be present
+#device.run(circ(0.2), shots=0)
+
+# Will succeed
+device.run(circ, shots=0, inputs={'phi': 0.2, 'theta': 0.2})
+```

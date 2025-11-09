@@ -30,7 +30,13 @@ Amazon Braket sends the following metric data, specific to Amazon Braket, into t
 
 Metrics are available if quantum tasks exist. They are displayed under **AWS/Braket/By Device** in the CloudWatch console.
 
-| Metric  | Description                                                                                                                            |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Count   | Number of quantum tasks.                                                                                                               |
-| Latency | This metric is emitted when a quantum task has completed. It represents the total time from quantum task initialization to completion. | **Dimensions for Quantum Task Metrics** The quantum task metrics are published with a dimension based on the `deviceArn` parameter, which has the form **arn:aws:braket:::device/xxx**. |
+| Metric  | Description                                                                                                                               |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Count   | Number of quantum tasks.                                                                                                                  |
+| Latency | This metric is emitted when a quantum task has completed. It represents the<br>total time from quantum task initialization to completion. |
+
+**Dimensions for Quantum Task Metrics**
+
+The quantum task metrics are published with a dimension based on the
+`deviceArn` parameter, which has the form
+**arn:aws:braket:::device/xxx**.
