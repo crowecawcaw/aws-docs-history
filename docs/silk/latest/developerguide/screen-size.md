@@ -6,7 +6,7 @@ table shows screen size, product model, resolution, and scale factor for Fire ta
 For full device specs, see [Tablet Device Specifications](https://developer.amazon.com/docs/fire-tablets/ft-device-and-feature-specifications.html "https://developer.amazon.com/docs/fire-tablets/ft-device-and-feature-specifications.html").
 
 | **Device**                    | **Screen size**  | **Product model**                     | **Screen resolution (px)** | **Scale factor** |
-| ----------------------------- | ---------------- | ------------------------------------- | -------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | ---------------- | ------------------------------------- | -------------------------- | ---------------- |
 | Fire 7 (9th Gen)              | 7-inch screen    | KFMUWI — Wi-Fi                        | 1024 x 600                 | 1.0 (mdpi)       |
 | Fire HD 8 (8th Gen)           | 8-inch screen    | KFKAWI — Wi-Fi                        | 1280 x 800                 | (tdvpi)          |
 | Fire HD 10 (7th Gen)          | 10.1-inch screen | KFSUWI — Wi-Fi                        | 1920 x 1200                | (hdpi)           |
@@ -26,4 +26,23 @@ For full device specs, see [Tablet Device Specifications](https://developer.amaz
 | Kindle Fire HD 8.9 (2nd Gen)  | 8.9-inch screen  | KFJWI — Wi-FiKFJWA — Wi-Fi + 4G LTE   | 1920 x 1200                | 1.5 (hdpi)       |
 | Kindle Fire HD 7 (2nd Gen)    | 7-inch screen    | KFTT — Wi-Fi                          | 1280 x 800                 | 1.5 (hdpi)       |
 | Kindle Fire (2nd Gen)         | 7-inch screen    | KFOT — Wi-Fi                          | 1024 x 600                 | 1.0 (mdpi)       |
-| Kindle Fire (1st Gen)         | 7-inch screen    | KFOT — Wi-Fi                          | 1024 x 600                 | 1.0 (mdpi)       | You can use the Silk user agent strings to detect a particular Fire device and target the user experience accordingly. For more information about the Silk user agent string, see [Learn about user agent strings](user-agent.md "user-agent.md"). Keep in mind the following when developing web content for Silk and Fire devices: <br>• The viewport is the portion of the browser dedicated to displaying the webpage. Viewport size and screen size for mobile devices are not necessarily identical. They differ because the browser uses up some screen real estate to show its chrome. You can use the [viewport meta element](css3.md#viewport "css3.md#viewport") to specify attributes of the viewport, including width and height. <br>• With a mobile form factor, HTML forms can be challenging for users to complete. You can use HTML5 [input types](html5-elements.md#input-types "html5-elements.md#input-types") to make forms more responsive. <br>• You can use [media queries](css3.md#media-queries "css3.md#media-queries") to style your site for a specific screen resolution. For more information about Fire device specifications, see the [Device and Feature Specifications](https://developer.amazon.com/sdk/fire/specifications.html "https://developer.amazon.com/sdk/fire/specifications.html") (tablets) page on the Amazon Apps & Games Developer Portal. To learn more about scale factor, see [Screen Layout and Resolution](https://developer.amazon.com/docs/fire-tablets/ft-screen-layout-and-resolution.html "https://developer.amazon.com/docs/fire-tablets/ft-screen-layout-and-resolution.html"). |
+| Kindle Fire (1st Gen)         | 7-inch screen    | KFOT — Wi-Fi                          | 1024 x 600                 | 1.0 (mdpi)       |
+
+You can use the Silk user agent strings to detect a particular Fire device and target the
+user experience accordingly. For more information about the Silk user agent string, see [Learn about user agent strings](user-agent.md "user-agent.md").
+
+Keep in mind the following when developing web content for Silk and Fire devices:
+
+- The viewport is the portion of the browser dedicated to displaying the webpage.
+  Viewport size and screen size for mobile devices are not necessarily identical. They
+  differ because the browser uses up some screen real estate to show its chrome. You can use
+  the [viewport meta element](css3.md#viewport "css3.md#viewport") to specify attributes of the
+  viewport, including width and height.
+- With a mobile form factor, HTML forms can be challenging for users to complete. You
+  can use HTML5 [input types](html5-elements.md#input-types "html5-elements.md#input-types") to make forms more
+  responsive.
+- You can use [media queries](css3.md#media-queries "css3.md#media-queries") to style your site for
+  a specific screen resolution.
+  For more information about Fire device specifications, see the [Device and Feature
+  Specifications](https://developer.amazon.com/sdk/fire/specifications.html "https://developer.amazon.com/sdk/fire/specifications.html") (tablets) page on the Amazon Apps & Games Developer Portal. To
+  learn more about scale factor, see [Screen Layout and Resolution](https://developer.amazon.com/docs/fire-tablets/ft-screen-layout-and-resolution.html "https://developer.amazon.com/docs/fire-tablets/ft-screen-layout-and-resolution.html").
