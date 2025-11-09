@@ -47,7 +47,7 @@ Here are some best practices that can help you get the most benefit from Amazon 
   `UpdateGameServer()`. Maintaining accurate game server status helps
   Amazon GameLift Servers FleetIQ place gameplay more efficiently. It also helps avoid terminating instances
   with active gameplay during Spot balancing activity.
-- **Set up an autoscaling policy.** You can create a
+- **Set up an auto scaling policy.** You can create a
   target-tracking scaling policy that maintains your hosting capacity based on player
   utilization and anticipated demand. The Amazon GameLift Servers FleetIQ metric
   `PercentUtilizedGameServers` is a measure of how much of your hosting
