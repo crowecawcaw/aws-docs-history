@@ -18,6 +18,7 @@ Sample AMIs are for demonstration purposes and are not recommended for productio
 workloads. You should create and use a custom AMI for production workloads, even if
 you intend to use Amazon Linux 2.
 
+- **Amazon Linux 2023**
 - ###### RedHat Enterprise Linux 9 (RHEL 9)
 
 The on-demand cost for RHEL any instance type is higher than
@@ -26,6 +27,7 @@ for other supported operation systems. For more information about pricing, see
 [How is Red Hat Enterprise
 Linux on Amazon Elastic Compute Cloud offered and priced?](https://aws.amazon.com/partners/redhat/faqs/#Pricing_and_Billing "https://aws.amazon.com/partners/redhat/faqs/#Pricing_and_Billing").
 
+- **RedHat Enterprise Linux 8 (RHEL 8)**
 - ###### Rocky Linux 9
 
 You can use the [official Rocky Linux 9 AMIs](https://rockylinux.org/cloud-images/ "https://rockylinux.org/cloud-images/") as
@@ -45,7 +47,10 @@ kernel.
     3. Create an image from the instance. You specify this image as the `ParentImage`
      for your custom AMI.
 
+- **Rocky Linux 8**
 - ###### Ubuntu 22.04
 
 Ubuntu 22.04 requires more secure keys for SSH and doesn't support RSA keys by default.
 We recommend you generate and use an ED25519 key instead.
+
+- **Ubuntu 24.04**

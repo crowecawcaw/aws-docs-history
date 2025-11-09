@@ -11,13 +11,13 @@ Slurm. For more information about the AWS PCS agent, see [AWS PCS agent versions
    instance.
 2. (Optional) To ensure that all of your software packages are up to date, perform a quick
    software update on your instance. This process may take a few minutes.
-   - Amazon Linux 2, RHEL 9, Rocky Linux 9
+   - Amazon Linux 2, Amazon Linux 2023, RHEL 9, RHEL 8, Rocky Linux 9, and Rocky Linux 8
 
    ```
    sudo yum update -y
    ```
 
-   - Ubuntu 22.04
+   - Ubuntu 22.04 and Ubuntu 24.04
 
    ```
    sudo apt-get update && sudo apt-get upgrade -y
@@ -31,7 +31,7 @@ Slurm. For more information about the AWS PCS agent, see [AWS PCS agent versions
    instance, such as `us-east-1`.
 
 ```
-curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.2-1.tar.gz -o aws-pcs-agent-v1.2.2-1.tar.gz
+curl https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.1-1.tar.gz -o aws-pcs-agent-v1.3.1-1.tar.gz
 ```
 
 You can also get the latest version by replacing the version number with
@@ -81,8 +81,8 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.2.2-1.tar.gz.sig && \
-        gpg --verify ./aws-pcs-agent-v1.2.2-1.tar.gz.sig
+    wget https://aws-pcs-repo-`region`.s3.`region`.amazonaws.com/aws-pcs-agent/aws-pcs-agent-v1.3.1-1.tar.gz.sig && \
+        gpg --verify ./aws-pcs-agent-v1.3.1-1.tar.gz.sig
     ```
 
     The output should be similar to the following:
@@ -90,14 +90,13 @@ the file has not been altered or corrupted since it was published.
 
 
     ```
-    gpg: assuming signed data in './aws-pcs-agent-v1.2.2-1.tar.gz'
-    gpg: Signature made Wed Oct 16 18:50:19 2025 CEST
-    gpg:                using RSA key 4BAA531875430EB0739E6D961BA7F0AF6E34C496
-    gpg: Good signature from "AWS PCS Packages (AWS PCS Packages)" [unknown]
+    gpg: assuming signed data in './aws-pcs-agent-v1.3.1-1.tar.gz'
+    gpg: Signature made Thu 06 Nov 2025 11:10:36 AM CET using RSA key ID ECC0AE5C
+    gpg: Good signature from "AWS PCS Packages (AWS PCS Packages)"
     gpg: WARNING: This key is not certified with a trusted signature!
     gpg:          There is no indication that the signature belongs to the owner.
     Primary key fingerprint: 1C24 32C1 862F 64D1 F90A  239A 7EEF 030E DDF5 C21C
-       Subkey fingerprint: 4BAA 5318 7543 0EB0 739E  6D96 1BA7 F0AF 6E34 C496
+       Subkey fingerprint: B7E1 8788 3517 6A74 C3D5  EAF5 6088 136D ECC0 AE5C
     ```
 
     If the result includes `Good signature` and the fingerprint matches the
@@ -113,7 +112,7 @@ the file has not been altered or corrupted since it was published.
    extracted directory.
 
 ```
-tar -xf aws-pcs-agent-v1.2.2-1.tar.gz && \
+tar -xf aws-pcs-agent-v1.3.1-1.tar.gz && \
     cd aws-pcs-agent
 ```
 
@@ -133,6 +132,6 @@ The output should be similar to the following:
 
 ```
 AGENT_INSTALL_DATE='Fri Dec 13 12:28:43 UTC 2024'
-AGENT_VERSION='1.2.2'
+AGENT_VERSION='1.3.1'
 AGENT_RELEASE='1'
 ```

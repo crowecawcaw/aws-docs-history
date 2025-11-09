@@ -45,6 +45,8 @@ For more information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slu
 - [PropagatePrioProcess](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess")
 - [PropagateResourceLimits](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits")
 - [PropagateResourceLimitsExcept](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept")
+- [RequeueExit](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExit")
+- [RequeueExitHold](https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold "https://slurm.schedmd.com/slurm.conf.html#OPT_RequeueExitHold")
 - [SchedulerParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters")
 - [SelectTypeParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters")
 - [SrunPortRange](https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange "https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange")

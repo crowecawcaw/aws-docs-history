@@ -35,12 +35,41 @@ permissive security group configuration
 IPv4
 
 | Rule type | Protocols | Ports | Source | Destination |
-| --------- | --------- | ----- | ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------- | --------- | ----- | ------ | ----------- |
 | Inbound   | All       | All   | Self   |             |
 | Outbound  | All       | All   |        | 0.0.0.0/0   |
-| Outbound  | All       | All   |        | Self        | IPv6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Outbound  | All       | All   |        | Self        |
+
+IPv6
+
 | Rule type | Protocols | Ports | Source | Destination |
-| ---       | ---       | ---   | ---    | ---         |
+| --------- | --------- | ----- | ------ | ----------- |
 | Inbound   | All       | All   | Self   |             |
 | Outbound  | All       | All   |        | ::/0        |
-| Outbound  | All       | All   |        | Self        | These rules allow all traffic to flow freely between the Slurm controller and nodes, allows all outbound traffic to any destination, and enables [EFA traffic](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security"). ### Example restrictive security group configuration You can also limit the open ports between the cluster and its compute nodes. For the Slurm scheduler, the security group attached to your cluster must allow the following ports: <br>• 6817 – enable inbound connections to `slurmctld` from EC2 instances <br>• 6818 – enable outbound connections from `slurmctld` to `slurmd` running on EC2 instances The security group attached to your compute nodes must allow the following ports: <br>• 6817 – enable outbound connections to `slurmctld` from EC2 instances. <br>• 6818 – enable inbound and outbound connections to `slurmd` from `slurmctld` and from `slurmd` on node group instances <br>• 60001–63000 – inbound and outbound connections between node group instances to support `srun` <br>• EFA traffic between node group instances. For more information, see [Prepare an EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _User Guide for Linux Instances_ <br>• Any other inter-node traffic required by your workload |
+| Outbound  | All       | All   |        | Self        |
+
+These rules allow all traffic to flow freely between the Slurm controller and nodes, allows
+all outbound traffic to any destination, and enables [EFA traffic](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security").
+
+### Example restrictive security group configuration
+
+You can also limit the open ports between the cluster and its compute nodes. For the Slurm
+scheduler, the security group attached to your cluster must allow the following ports:
+
+- 6817 – enable inbound connections to `slurmctld` from EC2
+  instances
+- 6818 – enable outbound connections from `slurmctld` to
+  `slurmd` running on EC2 instances
+
+The security group attached to your compute nodes must allow the following ports:
+
+- 6817 – enable outbound connections to `slurmctld` from EC2
+  instances.
+- 6818 – enable inbound and outbound connections to `slurmd` from
+  `slurmctld` and from `slurmd` on node group instances
+- 60001–63000 – inbound and outbound connections between node group instances
+  to support `srun`
+- EFA traffic between node group instances. For more information, see [Prepare
+  an EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _User Guide for Linux
+  Instances_
+- Any other inter-node traffic required by your workload
