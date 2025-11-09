@@ -97,6 +97,9 @@ from other replica tables to the Region that is now back online.
 Amazon Keyspaces multi-Region replication is supported in the following AWS Regions that are disabled by default:
 
 - Africa (Cape Town) Region
+- Middle East (UAE) Region
+- Asia Pacific (Hong Kong) Region
+- Middle East (Bahrain) Region
 
 Before you can use a Region that's disabled by default with Amazon Keyspaces multi-Region replication,
 you first have to enable the Region.

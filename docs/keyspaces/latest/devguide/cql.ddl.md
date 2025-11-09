@@ -1,47 +1,176 @@
-# User-defined types (UDTs)
+# Keyspaces
 
-_UDT_ – A grouping of fields and data types that you can use to
-define a single column in Amazon Keyspaces. Valid data types for UDTs are all supported Cassandra
-data types, including collections and other UDTs that you've already created in the same
-keyspace. For more information about supported Cassandra data types, see [Cassandra data type support](cassandra-apis.md#cassandra-data-type "cassandra-apis.md#cassandra-data-type").
+A _keyspace_ groups related tables that are
+relevant for one or more applications. In terms of a relational database management
+system (RDBMS), keyspaces are roughly similar to databases, tablespaces, or similar
+constructs.
 
-```
-user_defined_type::= udt_name
-udt_name::= [ keyspace_name '.' ] identifier
-```
+###### Note
 
-###### Statements for types
+In Apache Cassandra, keyspaces determine how data is replicated among multiple
+storage nodes. However, Amazon Keyspaces is a fully managed service: The details of its
+storage layer are managed on your behalf. For this reason, keyspaces in Amazon Keyspaces
+are logical constructs only, and aren't related to the underlying physical
+storage.
 
-- [CREATE TYPE](#cql.ddl.type.create "#cql.ddl.type.create")
-- [DROP TYPE](#cql.ddl.type.drop "#cql.ddl.type.drop")
+For information about quota limits and constraints for Amazon Keyspaces keyspaces, see [Quotas for Amazon Keyspaces (for Apache Cassandra)](quotas.md "quotas.md").
 
-## CREATE TYPE
+###### Statements for keyspaces
 
-Use the `CREATE TYPE` statement to create a new type.
+- [CREATE KEYSPACE](#cql.ddl.keyspace.create "#cql.ddl.keyspace.create")
+- [ALTER KEYSPACE](#cql.ddl.keyspace.alter "#cql.ddl.keyspace.alter")
+- [DROP KEYSPACE](#cql.ddl.keyspace.drop "#cql.ddl.keyspace.drop")
+- [USE](#cql.ddl.keyspace.use "#cql.ddl.keyspace.use")
+
+## CREATE KEYSPACE
+
+Use the `CREATE KEYSPACE` statement to create a new
+keyspace.
 
 Syntax
 
 ```
-**create\_type\_statement** ::=  CREATE TYPE [ IF NOT EXISTS ] *udt\_name*    '('*field\_definition* ( ',' *field\_definition*)* ')'
-            field_definition::= identifier cql_type
+**create\_keyspace\_statement** ::=
+    CREATE KEYSPACE [ IF NOT EXISTS ] *keyspace\_name*
+    WITH *options*
+
 ```
 
 Where:
 
-- `IF NOT EXISTS` prevents `CREATE TYPE` from failing
-  if the type already exists. (Optional)
-- `*udt\_name*` is the fully-qualified name of the UDT in type
-  format, for example `my_keyspace.my_type`. If you define the current keyspace with the
-  `USE` statement, you don't need to specify the keyspace name.
-- `*field\_definition*` consists of a name and a type.
+- `*keyspace\_name*` is the
+  name of the keyspace to be created.
+- _options_ are one or more of the
+  following:
+  - `REPLICATION` – A map that indicates the
+    replication strategy for the keyspace:
+    - `SingleRegionStrategy` – For a
+      single-Region keyspace. (Required)
+    - `NetworkTopologyStrategy` – Specify
+      at least two AWS Regions. The
+      replication factor for each Region is three.
+      (Optional)
 
-The following table shows examples of allowed UDT names. The first columns shows how to enter the name when you create
-the type, the second column shows how Amazon Keyspaces formats the name internally. Amazon Keyspaces expects the formatted name for operations like `GetType`.
+  - `DURABLE_WRITES` – Writes to Amazon Keyspaces are always
+    durable, so this option isn't required. However, if specified,
+    the value must be `true`.
+  - `TAGS` – A list of key-value pair tags to be
+    attached to the resource when you create it. (Optional)
 
-| Entered name               | Formatted name           | Note                                                                                                                                 |
-| -------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MY_UDT`                   | `my_udt`                 | Without double-quotes, Amazon Keyspaces converts all upper-case characters to lower-case.                                            |
-| `"MY_UDT"`                 | `MY_UDT`                 | With double-quotes, Amazon Keyspaces respects the upper-case characters, and removes the double-quotes from the formatted name.      |
-| `"1234"`                   | `1234`                   | With double-quotes, the name can begin with a number, and Amazon Keyspaces removes the double-quotes from the formatted name.        |
-| `"Special_Ch@r@cters<>!!"` | `Special_Ch@r@cters<>!!` | With double-quotes, the name can contain special characters, and Amazon Keyspaces removes the double-quotes from the formatted name. |
-| `"nested""""""quotes"`     | `nested"""quotes`        | Amazon Keyspaces removes the outer double-quotes and the escape double-quotes from the formatted name.                               | Examples `CREATE TYPE my_keyspace.phone ( country_code int, number text );` You can nest UDTs if the nested UDT is frozen. For more information about default values and quotas for types, see [Amazon Keyspaces UDT quotas and default values](quotas.md#udt-table "quotas.md#udt-table"). `CREATE TYPE my_keyspace.user ( first_name text, last_name text, phones FROZEN<phone> );` For more code examples that show how to create UDTs, see [User-defined types (UDTs) in Amazon Keyspaces](udts.md "udts.md"). ## DROP TYPE Use the `DROP TYPE` statement to delete a UDT. You can only delete a type that's not in use by another type or table. Syntax `**drop\_type\_statement** ::=  DROP TYPE [ IF EXISTS ] *udt\_name*` Where: <br>• `IF EXISTS` prevents `DROP TYPE` from failing if the type doesn't exist. (Optional) <br>• `*udt\_name*` is the fully-qualified name of the UDT in type format, for example `my_keyspace.my_type`. If you define the current keyspace with the `USE` statement, you don't need to specify the keyspace name. Example `DROP TYPE udt_name;` |
+Example
+
+Create a keyspace as follows.
+
+```
+CREATE KEYSPACE `my_keyspace`
+    WITH REPLICATION = {'class': 'SingleRegionStrategy'} and TAGS ={'key1':'val1', 'key2':'val2'} ;
+
+```
+
+To create a multi-Region keyspace, specify
+`NetworkTopologyStrategy` and include at least two AWS Regions.
+The replication factor for each Region is three.
+
+```
+CREATE KEYSPACE `my_keyspace`
+    WITH REPLICATION = {'class':'NetworkTopologyStrategy', 'us-east-1':'3', 'ap-southeast-1':'3','eu-west-1':'3'};
+```
+
+## ALTER KEYSPACE
+
+You can use the `ALTER KEYSPACE WITH` statement for the following _options_
+
+- `REPLICATION` – Use this option to add a new AWS Region replica to a keyspace. You can add a new
+  Region to a single-Region or to a multi-Region keyspace.
+- `TAGS` – Use this option to add or remove tags from a keyspace.
+
+Syntax
+
+```
+**alter\_keyspace\_statement** ::=
+    ALTER KEYSPACE *keyspace\_name*
+    WITH *options*
+```
+
+Where:
+
+- `*keyspace\_name*` is the
+  name of the keyspace to be altered.
+- _options_ are one of the following:
+  - `ADD | DROP TAGS` – A list of key-value pair tags to be added or
+    removed from the keyspace.
+  - `REPLICATION` – A map that indicates the replication strategy for the keyspace;
+    - `class`– `NetworkTopologyStrategy` defines the keyspace
+      as a multi-Region keyspace.
+    - `region`– Specify one
+      additional AWS Region for this keyspace. The replication factor for each Region is three.
+    - `CLIENT_SIDE_TIMESTAMPS` – The default is `DISABLED`. You can only
+      change the status to `ENABLED`.
+
+Examples
+
+Alter a keyspace as shown in the following example to add tags.
+
+```
+ALTER KEYSPACE `my_keyspace` ADD TAGS {'key1':'val1', 'key2':'val2'};
+
+```
+
+To add a third Region to a multi-Region keyspace, you can use the following statement.
+
+```
+ALTER KEYSPACE `my_keyspace`
+WITH REPLICATION = {
+    'class': 'NetworkTopologyStrategy',
+    'us-east-1': '3',
+    'us-west-2': '3',
+    'us-west-1': '3'
+} AND CLIENT_SIDE_TIMESTAMPS = {'status': 'ENABLED'};
+```
+
+## DROP KEYSPACE
+
+Use the `DROP KEYSPACE` statement to remove a
+keyspace—including all of its contents, such as tables.
+
+Syntax
+
+```
+**drop\_keyspace\_statement** ::=
+    DROP KEYSPACE [ IF EXISTS ] *keyspace\_name*
+```
+
+Where:
+
+- _keyspace_name_ is the name of the
+  keyspace to be dropped.
+
+Example
+
+```
+DROP KEYSPACE my_keyspace;
+```
+
+## USE
+
+Use the `USE` statement to define the current keyspace. This allows you
+to refer to objects bound to a specific keyspace, for example tables and types,
+without using the fully qualified name that includes the keyspace prefix.
+
+Syntax
+
+```
+**use\_statement** ::=
+    USE *keyspace\_name*
+```
+
+Where:
+
+- _keyspace_name_ is the name of the
+  keyspace to be used.
+
+Example
+
+```
+USE my_keyspace;
+```
