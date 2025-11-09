@@ -142,10 +142,12 @@ There are many AWS-provided documents specific to Linux already available.
 
 The SAP BOBI Platform product can use multiple AWS Big Data services as data sources for reporting purposes. When using SAP BOBI version 4.2, you can connect to the following AWS data sources:
 
-| Table 2: AWS Big Data services support for SAP BusinessObjects Business Intelligence 4.2 | Use Case                    | Amazon Product | SAP BOBI 4.2 Supported                                                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------- | --------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Table 2: AWS Big Data services support for SAP BusinessObjects Business Intelligence 4.2 | Use Case                    | Amazon Product | SAP BOBI 4.2 Supported |
+| ---------------------------------------------------------------------------------------- | --------------------------- | -------------- | ---------------------- |
 | Data source                                                                              | Amazon RDS Oracle           | Yes            |
 | Data source                                                                              | Amazon Redshift             | Yes            |
 | Data source                                                                              | Amazon EMR Hive (Hive1)     | Yes            |
 | Data source                                                                              | Amazon EMR Hive (Hive2)     | Yes            |
-| Data source                                                                              | Amazon EMR Hive 5.6 (Hive2) | Yes            | See the [SAP Product Availability Matrix (PAM)](https://support.sap.com/pam "https://support.sap.com/pam") for the complete list of SAP BOBI Platform supported data sources specific to your version. |
+| Data source                                                                              | Amazon EMR Hive 5.6 (Hive2) | Yes            |
+
+See the [SAP Product Availability Matrix (PAM)](https://support.sap.com/pam "https://support.sap.com/pam") for the complete list of SAP BOBI Platform supported data sources specific to your version.
