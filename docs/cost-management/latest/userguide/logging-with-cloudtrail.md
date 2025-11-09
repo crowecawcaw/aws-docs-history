@@ -575,7 +575,7 @@ This section shows a full list of the CloudTrail events related to Pricing Calcu
 The event source for the following events is `bcm-pricing-calculator.amazonaws.com`.
 
 | Event name                                       | Definition                                                                                                                                            |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CreateWorkloadEstimate`                         | Mutating operation. Allows customers to create a Workload estimate.                                                                                   |
 | `UpdateWorkloadEstimate`                         | Mutating operation. Allows customers to update a Workload estimate metadata.                                                                          |
 | `DeleteWorkloadEstimate`                         | Mutating operation. Allows customers to delete a Workload estimate.                                                                                   |
@@ -610,4 +610,51 @@ The event source for the following events is `bcm-pricing-calculator.amazonaws.c
 | `UpdatePreferences`                              | Mutating operation. Allows customers to set rate preferences for use in Workload estimates. This is a payer or standalone account only API operation. |
 | `TagResource`                                    | Mutating operation. Allows customers to tag a Pricing Calculator resource.                                                                            |
 | `UntagResource`                                  | Mutating operation. Allows customers to un-tag a Pricing Calculator resource.                                                                         |
-| `ListTagsForResource`                            | Non-mutating operation. Allows customers to list all tags attached to a Pricing Calculator resource.                                                  | ### CreateWorkloadEstimate The following example shows a CloudTrail log entry that uses the `CreateWorkloadEstimate` API action. ``` { "eventVersion": "1.08", "userIdentity": { "accountId": "111122223333", "accessKeyId": "AKIAI44QH8DHBEXAMPLE" }, "eventTime": "2024-11-11T02:09:08Z", "eventSource": "bcm-pricing-calculator.amazonaws.com", "eventName": "CreateWorkloadEstimate", "awsRegion": "us-east-1", "sourceIPAddress": "100.100.10.10", "requestParameters": { "name": "example-estimate-name", "resourceTags": [], "rateType": "BEFORE_DISCOUNTS" }, "responseElements": { "costCurrency": "USD", "costSummary": { "cost": 0, "costStatus": "VALID", "currency": "USD" }, "createdAt": 1731290948.299, "expiresAt": 1765418948.299, "id": "15cf39cc-ce14-4943-9dcb-35ccec39ae21", "name": "example-estimate-name", "rateDescription": "BEFORE_DISCOUNTS | 2024-11-11T02:09:08.299974018Z", "rateTimestamp": 1731290948.299, "rateType": "BEFORE_DISCOUNTS", "status": "READY", "totalCost": 0 }, "eventID": "22bb9d97-6f0c-4482-830d-cde1c9ea00be", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" } ``` |
+| `ListTagsForResource`                            | Non-mutating operation. Allows customers to list all tags attached to a Pricing Calculator resource.                                                  |
+
+### CreateWorkloadEstimate
+
+The following example shows a CloudTrail log entry that uses the `CreateWorkloadEstimate` API action.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE"
+    },
+    "eventTime": "2024-11-11T02:09:08Z",
+    "eventSource": "bcm-pricing-calculator.amazonaws.com",
+    "eventName": "CreateWorkloadEstimate",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "100.100.10.10",
+    "requestParameters": {
+        "name": "example-estimate-name",
+        "resourceTags": [],
+        "rateType": "BEFORE_DISCOUNTS"
+    },
+    "responseElements": {
+        "costCurrency": "USD",
+        "costSummary": {
+            "cost": 0,
+            "costStatus": "VALID",
+            "currency": "USD"
+        },
+        "createdAt": 1731290948.299,
+        "expiresAt": 1765418948.299,
+        "id": "15cf39cc-ce14-4943-9dcb-35ccec39ae21",
+        "name": "example-estimate-name",
+        "rateDescription": "BEFORE_DISCOUNTS|2024-11-11T02:09:08.299974018Z",
+        "rateTimestamp": 1731290948.299,
+        "rateType": "BEFORE_DISCOUNTS",
+        "status": "READY",
+        "totalCost": 0
+    },
+    "eventID": "22bb9d97-6f0c-4482-830d-cde1c9ea00be",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
