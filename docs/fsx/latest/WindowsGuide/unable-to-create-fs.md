@@ -8,16 +8,17 @@ as described in the following section.
 ###### Topics
 
 - [Misconfigured VPC security group and network ACLs](#network-acls-sg-config "#network-acls-sg-config")
-- [Duplicate file system administrators group names](#w59aac37c11c15 "#w59aac37c11c15")
-- [DNS servers or domain controllers unreachable](#w59aac37c11c17 "#w59aac37c11c17")
-- [Invalid service account credentials](#w59aac37c11c19 "#w59aac37c11c19")
-- [Insufficient service account permissions](#w59aac37c11c21 "#w59aac37c11c21")
-- [Service account capacity exceeded](#w59aac37c11c23 "#w59aac37c11c23")
-- [Amazon FSx can't access the organizational unit (OU)](#w59aac37c11c25 "#w59aac37c11c25")
-- [Service account can't access the administrators group](#w59aac37c11c27 "#w59aac37c11c27")
-- [Amazon FSx lost connectivity in domain](#w59aac37c11c29 "#w59aac37c11c29")
-- [Service account does not have correct permissions](#w59aac37c11c31 "#w59aac37c11c31")
-- [Unicode characters used in creation parameters](#w59aac37c11c33 "#w59aac37c11c33")
+- [Duplicate file system administrators group names](#w62aac37c11c15 "#w62aac37c11c15")
+- [DNS servers or domain controllers unreachable](#w62aac37c11c17 "#w62aac37c11c17")
+- [Invalid service account credentials](#w62aac37c11c19 "#w62aac37c11c19")
+- [Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager](#fsx-cant-access-ad-account-creds "#fsx-cant-access-ad-account-creds")
+- [Insufficient service account permissions](#w62aac37c11c23 "#w62aac37c11c23")
+- [Service account capacity exceeded](#w62aac37c11c25 "#w62aac37c11c25")
+- [Amazon FSx can't access the organizational unit (OU)](#w62aac37c11c27 "#w62aac37c11c27")
+- [Service account can't access the administrators group](#w62aac37c11c29 "#w62aac37c11c29")
+- [Amazon FSx lost connectivity in domain](#w62aac37c11c31 "#w62aac37c11c31")
+- [Service account does not have correct permissions](#w62aac37c11c33 "#w62aac37c11c33")
+- [Unicode characters used in creation parameters](#w62aac37c11c35 "#w62aac37c11c35")
 - [Switching storage type to HDD while restoring a backup fails](#create-fs-from-backup-fails "#create-fs-from-backup-fails")
 
 ## Misconfigured VPC security group and network ACLs
@@ -112,6 +113,18 @@ system and create a new one using a valid service account.
 
 Use the following steps to troubleshoot and resolve the issue.
 
+**Case 1: If you are using an AWS Secrets Manager secret to store your Active Directory credentials**
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+2. at the secret ARN is correct and follows the proper format: `arn:aws:secretsmanager:region:account-id:secret:secret-name-6chars`.
+3. Verify that the secret contains both required fields with non-empty values:
+   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` – Your AD service account username.
+   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
+
+4. Verify that the secret and key have a resource-based policy that grants the Amazon FSx service principal `fsx.amazonaws.com` permission to retrieve the secret value.
+
+**Case 2: If you are using plaintext credentials to join your Active Directory**
+
 1. Verify that you're entering only the user name as input for the
    **Service account username**, such as
    `ServiceAcct`, in the self-managed Active Directory
@@ -138,6 +151,54 @@ permissions to do the following:
 
 For more information about creating a service account with correct
 permissions, see [Amazon FSx service account](self-managed-AD.md#self-managed-AD-service-account "self-managed-AD.md#self-managed-AD-service-account").
+
+## Amazon FSx can't access your Active Directory service account credentials in AWS Secrets Manager
+
+The following sections describe common issues and how to resolve them.
+
+**Joining a file system to your self-managed Active Directory fails with the following error message:**
+
+`You can't provide both username/password and a domain join service account secret to connect to your Active Directory. Provide only one set of credentials.`
+
+###### To resolve this issue
+
+1. Choose whether you want to provide credentials stored in a Secrets Manager secret, or in plaintext.
+2. When joining an Active Directory, only provide one of those parameters and not both.
+
+**Joining a file system to your self-managed Active Directory fails with the following error message:**
+
+`The domain join service account secret ARN format you entered isn't valid. Use the format: arn:partition:secretsmanager:region:account-id:secret:secret-name-6chars`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+2. Verify that the ARN format you are entering is correct. A correct format example is `arn:aws:secretsmanager:us-east-1:123456789012:secret:MyDatabaseSecret-Ab3d5f`.
+
+**Joining a file system to your self-managed Active Directory fails with the following error message:**
+
+`Amazon FSx can't access the domain join service account secret [ARN]. Add a resource permission to the secret that grants the FSx service principal (fsx.amazonaws.com) permission to access it.`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+2. Verify that the Secrets Manager secret you are providing has the correct policies that allow Amazon FSx to use the secret.
+
+**Joining a file system to your self-managed Active Directory fails with the following error message:**
+
+`You don't have permission to access the domain join service account secret [ARN]. A resource permission needs to be added to the secret to grant you access.`
+
+###### To resolve this issue
+
+- The Secrets Manager secret owner or administrator needs to give your account access to use this secret. For more information, see [Identity-based policies](../../../secretsmanager/latest/userguide/auth-and-access_iam-policies.md "../../../secretsmanager/latest/userguide/auth-and-access_iam-policies.md").
+
+**Joining a file system to your self-managed Active Directory fails with the following error message:**
+
+`The domain join service account secret format or content isn't valid. Make sure the secret includes both CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME and CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD fields with non-empty values.`
+
+###### To resolve this issue
+
+1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+2. Verify that the Secrets Manager secret you are providing has both of the required fields.
 
 ## Insufficient service account permissions
 

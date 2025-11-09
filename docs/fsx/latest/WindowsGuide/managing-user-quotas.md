@@ -30,10 +30,14 @@ remote management on PowerShell. To learn how to use this CLI, see [Using the Am
 
 Following are commands that you can use to manage user storage quotas.
 
-| User storage quotas command  | Description                                                                                          |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Enable-FSxUserQuotas**     | Starts tracking or enforcing user storage quotas, or both.                                           |
-| **Disable-FSxUserQuotas**    | Stops tracking and enforcement for user storage quotas.                                              |
-| **Get-FSxUserQuotaSettings** | Retrieves the current user-storage quota settings for the file system.                               |
-| **Get-FSxUserQuotaEntries**  | Retrieves the current user-storage quota entries for individual users and groups on the file system. |
-| **Set-FSxUserQuotas**        | Set the user storage quota for an individual user or group. Quota values are specified in bytes.     | The online help for each command provides a reference of all command options. To access this help, run the command with **-?**, for example **Enable-FSxUserQuotas -?**. |
+| User storage quotas command  | Description                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Enable-FSxUserQuotas**     | Starts tracking or enforcing user storage quotas, or<br>both.                                           |
+| **Disable-FSxUserQuotas**    | Stops tracking and enforcement for user storage quotas.                                                 |
+| **Get-FSxUserQuotaSettings** | Retrieves the current user-storage quota settings for the file system.                                  |
+| **Get-FSxUserQuotaEntries**  | Retrieves the current user-storage quota entries for individual users and groups on the file<br>system. |
+| **Set-FSxUserQuotas**        | Set the user storage quota for an individual user or group. Quota values are specified in bytes.        |
+
+The online help for each command provides a reference of all command options. To
+access this help, run the command with **-?**, for example
+**Enable-FSxUserQuotas -?**.

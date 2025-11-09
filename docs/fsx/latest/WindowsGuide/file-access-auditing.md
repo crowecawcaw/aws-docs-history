@@ -180,21 +180,209 @@ Following are descriptions of the salient fields in a Windows audit event.
   For details, see the table below and Microsoft documentation (such as in
   [Event 4556](https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656 "https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656")).
 
-| Access Type                                                                                              | Access Mask                                                                                                                                                                                                                                                                                                                          | Value  |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read Data or List Directory                                                                              | 0x1                                                                                                                                                                                                                                                                                                                                  | %%4416 |
-| Write Data or Add File                                                                                   | 0x2                                                                                                                                                                                                                                                                                                                                  | %%4417 |
-| Append Data or Add Subdirectory                                                                          | 0x4                                                                                                                                                                                                                                                                                                                                  | %%4418 |
-| Read Extended Attributes                                                                                 | 0x8                                                                                                                                                                                                                                                                                                                                  | %%4419 |
-| Write Extended Attributes                                                                                | 0x10                                                                                                                                                                                                                                                                                                                                 | %%4420 |
-| Execute/Traverse                                                                                         | 0x20                                                                                                                                                                                                                                                                                                                                 | %%4421 |
-| Delete Child                                                                                             | 0x40                                                                                                                                                                                                                                                                                                                                 | %%4422 |
-| Read Attributes                                                                                          | 0x80                                                                                                                                                                                                                                                                                                                                 | %%4423 |
-| Write Attributes                                                                                         | 0x100                                                                                                                                                                                                                                                                                                                                | %%4424 |
-| Delete                                                                                                   | 0x10000                                                                                                                                                                                                                                                                                                                              | %%1537 |
-| Read ACL                                                                                                 | 0x20000                                                                                                                                                                                                                                                                                                                              | %%1538 |
-| Write ACL                                                                                                | 0x40000                                                                                                                                                                                                                                                                                                                              | %%1539 |
-| Write Owner                                                                                              | 0x80000                                                                                                                                                                                                                                                                                                                              | %%1540 |
-| Synchronize                                                                                              | 0x100000                                                                                                                                                                                                                                                                                                                             | %%1541 |
-| Access Security ACL                                                                                      | 0x1000000                                                                                                                                                                                                                                                                                                                            | %%1542 | Following are some key events with examples. Note that the XML is formatted for readability. **Event ID 4660** is logged when an object is deleted. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4660</EventID><Version>0</Version><Level>0</Level> <Task>12800</Task><Opcode>0</Opcode> <Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-05-18T04:51:56.916563800Z'/> <EventRecordID>315452</EventRecordID><Correlation/> <Execution ProcessID='4' ThreadID='5636'/><Channel>Security</Channel> <Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System><EventData> <Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x50932f71</Data><Data Name='ObjectServer'>Security</Data> <Data Name='HandleId'>0x12e0</Data><Data Name='ProcessId'>0x4</Data><Data Name='ProcessName'></Data> <Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data></EventData></Event>` **Event ID 4659** is logged on a request to delete a file. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4659</EventID><Version>0</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode> <Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-0603T19:18:09.951551200Z'/> <EventRecordID>308888</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='5540'/> <Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System> <EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data> <Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\shar\event.txt</Data> <Data Name='HandleId'>0x0</Data><Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data> <Data Name='AccessList'>%%1537 %%4423 </Data><Data Name='AccessMask'>0x10080</Data><Data Name='PrivilegeList'>-</Data> <Data Name='ProcessId'>0x4</Data></EventData></Event>` **Event ID 4663** is logged when a specific operation was performed on the object. The following example shows reading data from a file, which can be interpreted from `AccessList %%4416`. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4663< /EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode> <Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:10:13.887145400Z'/> <EventRecordID>308831</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='6916'/> <Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System> <EventData>< Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113< /Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data> <Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\event.txt</Data> <Data Name='HandleId'>0x101c</Data><Data Name='AccessList'>%%4416 </Data> <Data Name='AccessMask'>0x1</Data><Data Name='ProcessId'>0x4</Data> <Data Name='ProcessName'></Data><Data Name='ResourceAttributes'>S:AI</Data> </EventData></Event>` The following example shows write/append data from a file, which can be interpreted from `AccessList %%4417`. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4663</EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode> <Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:12:16.813827100Z'/> <EventRecordID>308838</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='5828'/> <Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System> <EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data> <Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\event.txt</Data> <Data Name='HandleId'>0xa38</Data><Data Name='AccessList'>%%4417 </Data><Data Name='AccessMask'>0x2</Data><Data Name='ProcessId'>0x4</Data> <Data Name='ProcessName'></Data><Data Name='ResourceAttributes'>S:AI</Data></EventData></Event>` **Event ID 4656** indicates that a specific access was requested for an object. In the following example, the Read request was initiated to ObjectName "permtest" and was a failed attempt, as seen in the Keywords value of `0x8010000000000000`. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4656</EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode> <Keywords>0x8010000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:22:55.113783500Z'/> <EventRecordID>308919</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='4924'/> <Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System> <EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data> <Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\permtest</Data> <Data Name='HandleId'>0x0</Data><Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data> <Data Name='AccessList'>%%1541 %%4416 %%4423 </Data><Data Name='AccessReason'>%%1541:	%%1805 %%4416:	%%1805 %%4423:	%%1811	D:(A;OICI;0x1301bf;;;AU) </Data><Data Name='AccessMask'>0x100081</Data><Data Name='PrivilegeList'>-</Data> <Data Name='RestrictedSidCount'>0</Data><Data Name='ProcessId'>0x4</Data><Data Name='ProcessName'></Data> <Data Name='ResourceAttributes'>-</Data></EventData></Event>` **Event ID 4670** is logged when permissions for an object are changed. The following example shows that user "admin" modified the permission on ObjectName "permtest" to add permissions to SID "S-1-5-21-658495921-4185342820-3824891517-1113". Refer to Microsoft documentation for more information on how to interpret the permissions. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>4670</EventID><Version>0</Version><Level>0</Level> <Task>13570</Task><Opcode>0</Opcode><Keywords>0x8020000000000000</Keywords> <TimeCreated SystemTime='2021-06-03T19:39:47.537129500Z'/><EventRecordID>308992</EventRecordID> <Correlation/><Execution ProcessID='4' ThreadID='2776'/><Channel>Security</Channel> <Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System><EventData> <Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data> <Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data> <Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\permtest</Data> <Data Name='HandleId'>0xcc8</Data> <Data Name='OldSd'>D:PAI(A;OICI;FA;;;SY)(A;OICI;FA;;;S-1-5-21-658495921-4185342820-3824891517-2622)</Data> <Data Name='NewSd'>D:PARAI(A;OICI;FA;;;S-1-5-21-658495921-4185342820-3824891517-1113)(A;OICI;FA;;;SY)(A;OICI;FA;;; S-1-5-21-658495921-4185342820-3824891517-2622)</Data><Data Name='ProcessId'>0x4</Data> <Data Name='ProcessName'></Data></EventData></Event>` **Event ID 5140** is logged every time a file share is accessed. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>5140</EventID><Version>1</Version><Level>0</Level><Task>12808</Task><Opcode>0</Opcode> <Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:32:07.535208200Z'/> <EventRecordID>308947</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='3120'/> <Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System> <EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-2620</Data> <Data Name='SubjectUserName'>EC2AMAZ-1GP4HMN$</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x2d4ca529</Data><Data Name='ObjectType'>File</Data><Data Name='IpAddress'>172.45.6.789</Data> <Data Name='IpPort'>49730</Data><Data Name='ShareName'>\\AMZNFSXCYDKLDZZ\share</Data> <Data Name='ShareLocalPath'>\??\D:\share</Data><Data Name='AccessMask'>0x1</Data><Data Name='AccessList'>%%4416 </Data></EventData></Event>` **Event ID 5145** is logged when access is denied at the file share level. The following example shows access to ShareName "demoshare01" was denied. `<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System> <Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/> <EventID>5145</EventID><Version>0</Version><Level>0</Level> <Task>12811</Task><Opcode>0</Opcode><Keywords>0x8010000000000000</Keywords> <TimeCreated SystemTime='2021-05-19T22:30:40.485188700Z'/><EventRecordID>282939</EventRecordID> <Correlation/><Execution ProcessID='4' ThreadID='344'/><Channel>Security</Channel> <Computer>amznfsxtmn9autz.example.com</Computer><Security/></System><EventData> <Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517- 1113</Data><Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data> <Data Name='SubjectLogonId'>0x95b3fb7</Data><Data Name='ObjectType'>File</Data> <Data Name='IpAddress'>172.31.7.112</Data><Data Name='IpPort'>59979</Data> <Data Name='ShareName'>\\AMZNFSXDPNTE0DC\demoshare01</Data><Data Name='ShareLocalPath'>\??\D:\demoshare01</Data> <Data Name='RelativeTargetName'>Desktop.ini</Data><Data Name='AccessMask'>0x120089</Data> <Data Name='AccessList'>%%1538 %%1541 %%4416 %%4419 %%4423 </Data><Data Name='AccessReason'>%%1538: %%1804 %%1541: %%1805 %%4416: %%1805 %%4419: %%1805 %%4423: %%1805 </Data></EventData></Event>` If you use CloudWatch Logs Insights to search your log data, you can run queries on the event fields, as shown by the following examples: <br>• To query for a specific event ID: ``` fields @message |
-| filter @message like /4660/ `<br>• To query all events matching a particular file name:` fields @message | filter @message like /event.txt/ ``` For more information on the CloudWatch Logs Insights query language, see [Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md"), in the _Amazon CloudWatch Logs User Guide_. |
+| Access Type                     | Access Mask | Value  |
+| ------------------------------- | ----------- | ------ |
+| Read Data or List Directory     | 0x1         | %%4416 |
+| Write Data or Add File          | 0x2         | %%4417 |
+| Append Data or Add Subdirectory | 0x4         | %%4418 |
+| Read Extended Attributes        | 0x8         | %%4419 |
+| Write Extended Attributes       | 0x10        | %%4420 |
+| Execute/Traverse                | 0x20        | %%4421 |
+| Delete Child                    | 0x40        | %%4422 |
+| Read Attributes                 | 0x80        | %%4423 |
+| Write Attributes                | 0x100       | %%4424 |
+| Delete                          | 0x10000     | %%1537 |
+| Read ACL                        | 0x20000     | %%1538 |
+| Write ACL                       | 0x40000     | %%1539 |
+| Write Owner                     | 0x80000     | %%1540 |
+| Synchronize                     | 0x100000    | %%1541 |
+| Access Security ACL             | 0x1000000   | %%1542 |
+
+Following are some key events with examples. Note that the XML is formatted
+for readability.
+
+**Event ID 4660** is logged when an object is deleted.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4660</EventID><Version>0</Version><Level>0</Level>
+<Task>12800</Task><Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-05-18T04:51:56.916563800Z'/>
+<EventRecordID>315452</EventRecordID><Correlation/>
+<Execution ProcessID='4' ThreadID='5636'/><Channel>Security</Channel>
+<Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System><EventData>
+<Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x50932f71</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='HandleId'>0x12e0</Data><Data Name='ProcessId'>0x4</Data><Data Name='ProcessName'></Data>
+<Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data></EventData></Event>
+```
+
+**Event ID 4659** is logged on a request to delete a file.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4659</EventID><Version>0</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-0603T19:18:09.951551200Z'/>
+<EventRecordID>308888</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='5540'/>
+<Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System>
+<EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\shar\event.txt</Data>
+<Data Name='HandleId'>0x0</Data><Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data>
+<Data Name='AccessList'>%%1537
+				%%4423
+				</Data><Data Name='AccessMask'>0x10080</Data><Data Name='PrivilegeList'>-</Data>
+<Data Name='ProcessId'>0x4</Data></EventData></Event>
+```
+
+**Event ID 4663** is logged when a specific operation was performed on the object.
+The following example shows reading data from a file, which can be interpreted from `AccessList %%4416`.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4663< /EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:10:13.887145400Z'/>
+<EventRecordID>308831</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='6916'/>
+<Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System>
+<EventData>< Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113< /Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\event.txt</Data>
+<Data Name='HandleId'>0x101c</Data><Data Name='AccessList'>%%4416
+				</Data>
+<Data Name='AccessMask'>0x1</Data><Data Name='ProcessId'>0x4</Data>
+<Data Name='ProcessName'></Data><Data Name='ResourceAttributes'>S:AI</Data>
+</EventData></Event>
+```
+
+The following example shows write/append data from a file, which can be interpreted from `AccessList %%4417`.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4663</EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:12:16.813827100Z'/>
+<EventRecordID>308838</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='5828'/>
+<Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System>
+<EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\event.txt</Data>
+<Data Name='HandleId'>0xa38</Data><Data Name='AccessList'>%%4417
+				</Data><Data Name='AccessMask'>0x2</Data><Data Name='ProcessId'>0x4</Data>
+<Data Name='ProcessName'></Data><Data Name='ResourceAttributes'>S:AI</Data></EventData></Event>
+```
+
+**Event ID 4656** indicates that a specific access was requested for an object.
+In the following example, the Read request was initiated to ObjectName "permtest" and was a failed attempt, as seen
+in the Keywords value of `0x8010000000000000`.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4656</EventID><Version>1</Version><Level>0</Level><Task>12800</Task><Opcode>0</Opcode>
+<Keywords>0x8010000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:22:55.113783500Z'/>
+<EventRecordID>308919</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='4924'/>
+<Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System>
+<EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\permtest</Data>
+<Data Name='HandleId'>0x0</Data><Data Name='TransactionId'>{00000000-0000-0000-0000-000000000000}</Data>
+<Data Name='AccessList'>%%1541
+				%%4416
+				%%4423
+				</Data><Data Name='AccessReason'>%%1541:	%%1805
+				%%4416:	%%1805
+				%%4423:	%%1811	D:(A;OICI;0x1301bf;;;AU)
+				</Data><Data Name='AccessMask'>0x100081</Data><Data Name='PrivilegeList'>-</Data>
+<Data Name='RestrictedSidCount'>0</Data><Data Name='ProcessId'>0x4</Data><Data Name='ProcessName'></Data>
+<Data Name='ResourceAttributes'>-</Data></EventData></Event>
+```
+
+**Event ID 4670** is logged when permissions for an object are changed. The following example
+shows that user "admin" modified the permission on ObjectName "permtest" to add permissions to
+SID "S-1-5-21-658495921-4185342820-3824891517-1113". Refer to Microsoft documentation for more information
+on how to interpret the permissions.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>4670</EventID><Version>0</Version><Level>0</Level>
+<Task>13570</Task><Opcode>0</Opcode><Keywords>0x8020000000000000</Keywords>
+<TimeCreated SystemTime='2021-06-03T19:39:47.537129500Z'/><EventRecordID>308992</EventRecordID>
+<Correlation/><Execution ProcessID='4' ThreadID='2776'/><Channel>Security</Channel>
+<Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System><EventData>
+<Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-1113</Data>
+<Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2a9a603f</Data><Data Name='ObjectServer'>Security</Data>
+<Data Name='ObjectType'>File</Data><Data Name='ObjectName'>\Device\HarddiskVolume8\share\permtest</Data>
+<Data Name='HandleId'>0xcc8</Data>
+<Data Name='OldSd'>D:PAI(A;OICI;FA;;;SY)(A;OICI;FA;;;S-1-5-21-658495921-4185342820-3824891517-2622)</Data>
+<Data Name='NewSd'>D:PARAI(A;OICI;FA;;;S-1-5-21-658495921-4185342820-3824891517-1113)(A;OICI;FA;;;SY)(A;OICI;FA;;;
+S-1-5-21-658495921-4185342820-3824891517-2622)</Data><Data Name='ProcessId'>0x4</Data>
+<Data Name='ProcessName'></Data></EventData></Event>
+```
+
+**Event ID 5140** is logged every time a file share is accessed.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>5140</EventID><Version>1</Version><Level>0</Level><Task>12808</Task><Opcode>0</Opcode>
+<Keywords>0x8020000000000000</Keywords><TimeCreated SystemTime='2021-06-03T19:32:07.535208200Z'/>
+<EventRecordID>308947</EventRecordID><Correlation/><Execution ProcessID='4' ThreadID='3120'/>
+<Channel>Security</Channel><Computer>amznfsxgyzohmw8.example.com</Computer><Security/></System>
+<EventData><Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-2620</Data>
+<Data Name='SubjectUserName'>EC2AMAZ-1GP4HMN$</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x2d4ca529</Data><Data Name='ObjectType'>File</Data><Data Name='IpAddress'>172.45.6.789</Data>
+<Data Name='IpPort'>49730</Data><Data Name='ShareName'>\\AMZNFSXCYDKLDZZ\share</Data>
+<Data Name='ShareLocalPath'>\??\D:\share</Data><Data Name='AccessMask'>0x1</Data><Data Name='AccessList'>%%4416
+				</Data></EventData></Event>
+```
+
+**Event ID 5145** is logged when access is denied at the file share level.
+The following example shows access to ShareName "demoshare01" was denied.
+
+```
+<Event xmlns='http://schemas.microsoft.com/win/2004/08/events/event'><System>
+<Provider Name='Microsoft-Windows-Security-Auditing' Guid='{54849625-5478-4994-A5BA-3E3B0328C30D}'/>
+<EventID>5145</EventID><Version>0</Version><Level>0</Level>
+<Task>12811</Task><Opcode>0</Opcode><Keywords>0x8010000000000000</Keywords>
+<TimeCreated SystemTime='2021-05-19T22:30:40.485188700Z'/><EventRecordID>282939</EventRecordID>
+<Correlation/><Execution ProcessID='4' ThreadID='344'/><Channel>Security</Channel>
+<Computer>amznfsxtmn9autz.example.com</Computer><Security/></System><EventData>
+<Data Name='SubjectUserSid'>S-1-5-21-658495921-4185342820-3824891517-
+1113</Data><Data Name='SubjectUserName'>Admin</Data><Data Name='SubjectDomainName'>example</Data>
+<Data Name='SubjectLogonId'>0x95b3fb7</Data><Data Name='ObjectType'>File</Data>
+<Data Name='IpAddress'>172.31.7.112</Data><Data Name='IpPort'>59979</Data>
+<Data Name='ShareName'>\\AMZNFSXDPNTE0DC\demoshare01</Data><Data Name='ShareLocalPath'>\??\D:\demoshare01</Data>
+<Data Name='RelativeTargetName'>Desktop.ini</Data><Data Name='AccessMask'>0x120089</Data>
+<Data Name='AccessList'>%%1538 %%1541 %%4416 %%4419 %%4423 </Data><Data Name='AccessReason'>%%1538:
+%%1804 %%1541: %%1805 %%4416: %%1805 %%4419: %%1805 %%4423: %%1805 </Data></EventData></Event>
+```
+
+If you use CloudWatch Logs Insights to search your log data, you can run queries on the event fields,
+as shown by the following examples:
+
+- To query for a specific event ID:
+
+```
+fields @message
+   | filter @message like /4660/
+```
+
+- To query all events matching a particular file name:
+
+```
+fields @message
+   | filter @message like /event.txt/
+```
+
+For more information on the CloudWatch Logs Insights query language, see
+[Analyzing Log Data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md"), in the _Amazon CloudWatch Logs User Guide_.

@@ -92,6 +92,7 @@ Microsoft Active Directory:
   creating your Amazon FSx file system to verify that your configuration is valid
   for use with Amazon FSx, and to discover any warnings and errors that the tool might
   expose.
+- **Storing Active Directory credentials using AWS Secrets Manager**: You can use AWS Secrets Manager to securely store and manage your Microsoft Active Directory domain join service account credentials. This approach eliminates the need to store sensitive credentials in plaintext in application code or configuration files, strengthening your security posture. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
 
 ### Avoid losing availability due to Active Directory misconfiguration
 

@@ -408,18 +408,284 @@ system. For more information, see [Managing throughput capacity](managing-throug
 
 ###### Network & security
 
-1. In the **Network & security** section, choose the Amazon VPC that you
-   want to associate with your file system. For this getting started exercise, choose the
-   same Amazon VPC that you chose for your AWS Directory Service directory and your Amazon EC2 instance.
-2. For **VPC Security Groups**, the default security group for your
-   default Amazon VPC is already added to your file system in the console. If you're not
-   using the default security group, make sure that the security group you choose is in
-   the same AWS Region as your file system. To ensure that you can connect an EC2 instance
-   with your file system, you will need to add the following rules to your
-   chosen security group:
-   1. Add the following inbound and outbound rules to allow the following ports.
+1.  In the **Network & security** section, choose the Amazon VPC that you
+    want to associate with your file system. For this getting started exercise, choose the
+    same Amazon VPC that you chose for your AWS Directory Service directory and your Amazon EC2 instance.
+2.  For **VPC Security Groups**, the default security group for your
+    default Amazon VPC is already added to your file system in the console. If you're not
+    using the default security group, make sure that the security group you choose is in
+    the same AWS Region as your file system. To ensure that you can connect an EC2 instance
+    with your file system, you will need to add the following rules to your
+    chosen security group:
+    1. Add the following inbound and outbound rules to allow the following ports.
 
-| Rules | Ports                                                                |
-| ----- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| UDP   | 53, 88, 123, 389, 464                                                |
-| TCP   | 53, 88, 135, 389, 445, 464, 636, 3268, 3269, 5985, 9389, 49152-65535 | Add from and to IP addresses or security group IDs associated with the client compute instances that you want to access your file system from. 2. Add outbound rules to allow all traffic to the Active Directory that you're joining your file system to. To do this, do one of the following: <br>• Allow outbound traffic to the security group ID associated with your AWS Managed AD directory. <br>• Allow outbound traffic to the IP addresses associated with your self-managed Active Directory domain controllers.###### Note In some cases, you might have modified the rules of your AWS Managed Microsoft AD security group from the default settings. If so, make sure that this security group has the required inbound rules to allow traffic from your Amazon FSx file system. For more information about the required inbound rules, see [AWS Managed Microsoft AD Prerequisites](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_prereqs.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_prereqs.md") in the _AWS Directory Service Administration Guide_. For more information, see [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md"). 3. Multi-AZ file systems have a primary and a standby file server, each in its own Availability Zone and subnet. If you are creating a Multi-AZ file system (see step 5), choose a **Preferred subnet** value for the primary file server and a **Standby subnet** value for the standby file server. If you are creating a Single-AZ file system, choose the **Subnet** for your file system. 4. For **Network type**, select either **IPv4** (for only IPv4 support) or **Dual-stack** (for both IPv4 and IPv6 support). You can change the network type of an existing file system at any time. For more information, see [Changing network type](manage-network-type.md#change-network-type "manage-network-type.md#change-network-type"). ###### Note If you intend to create an FSx for Windows File Server file system that uses dual-stack mode, you must first assign an Amazon-provided IPv6 CIDR block to your VPC and subnets. For more information, see [Add IPv6 support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md") in the _Amazon Virtual Private Cloud User Guide_. ###### Windows authentication <br>• For **Windows authentication**, you have the following options: Choose **AWS Managed Microsoft Active Directory** if you want to join your file system to a Microsoft Active Directory domain that is managed by AWS, and then choose your AWS Directory Service directory from the list. For more information, see [Working with Microsoft Active Directory](aws-ad-integration-fsxW.md "aws-ad-integration-fsxW.md"). Choose **Self-managed Microsoft Active Directory** if you want to join your file system to a self-managed Microsoft Active Directory domain, and provide the following details for your Active Directory. For more information see [Using a self-managed Microsoft Active Directory](self-managed-AD.md "self-managed-AD.md"). + The fully qualified domain name of your Active Directory. ###### Important For Single-AZ 2 and all Multi-AZ file systems, the Active Directory domain name cannot exceed 47 characters. This limitation applies to both AWS Directory Service and self-managed Active Directory domain names. Amazon FSx requires a direct connection for internal traffic to your DNS IP address. Connection via an internet gateway is not supported. Instead, use AWS Virtual Private Network, VPC peering, AWS Direct Connect, or AWS Transit Gateway association. + **DNS server IP addresses**—the IPv4 or IPv6 addresses of the DNS servers for your domain. ###### Note Your DNS server must have EDNS (Extension Mechanisms for DNS) enabled. If EDNS is disabled, your file system might fail to create. + **Service account username**—the user name of the service account in your existing Active Directory. Do not include a domain prefix or suffix. + **Service account password**—the password for the service account. + (Optional) **Organizational Unit (OU)**—the distinguished path name of the organizational unit in which you want to join your file system. + (Optional) **Delegated file system administrators group**— the name of the group in your Active Directory that can administer your file system. The default group is 'Domain Admins'. For more information, see [Amazon FSx service account](self-managed-AD.md#self-managed-AD-service-account "self-managed-AD.md#self-managed-AD-service-account"). ###### Encryption, Auditing, and Access (DNS aliases) 1. For **Encryption**, choose the AWS KMS key **Encryption key** used to encrypt the data on your file system at rest. You can choose the default **aws/fsx (default)** that is managed by AWS KMS, an existing key, or a customer managed key by specifying the ARN for the key. For more information, see [Encryption of data at rest](encryption-at-rest.md "encryption-at-rest.md"). 2. For **Auditing - optional**, file access auditing is disabled by default. For information about enabling and configuring file access auditing, see [Logging end user access with file access auditing](file-access-auditing.md "file-access-auditing.md"). 3. For **Access - optional**, enter any DNS aliases that you want to associate with the file system. Each alias name must be formatted as a fully qualified domain name (FQDN). For more information, see [Managing DNS aliases](managing-dns-aliases.md "managing-dns-aliases.md"). ###### Backup and maintenance For more information about automatic daily backups and the settings in this section, see [Protecting your data with backups](using-backups.md "using-backups.md"). 1. **Daily automatic backup** is enabled by default. You can disable this setting if you do not want Amazon FSx to take backups of your file system automatically on a daily basis. 2. If automatic backups are enabled, they occur within a time period known as the backup window. You can use the default window, or choose an **Automatic backup window start time** that is best for your workflow. 3. For **Automatic backup retention period**, you can use the default setting of **30** days, or set a value between 1 and 90 days that Amazon FSx will retain automatic daily backups of your file system for. This setting does not apply to user initiated backups, or backups taken by AWS Backup. 4. For **Tags - optional**, enter a key and value to add tags to your file system. A tag is a case-sensitive key-value pair that helps you manage, filter, and search for your file system. For more information, see [Tagging your Amazon FSx resources](tag-resources.md "tag-resources.md"). Choose **Next**. ###### Review your configuration and create 1. Review the file system configuration shown on the **Create file system** page. For your reference, you can see which file system settings you can and can't modify after file system is created. Choose **Create file system**. 2. After Amazon FSx creates the file system, choose the file system ID from the list in the **File Systems** dashboard to view the details. Choose **Attach**, and note the **DNS name** for your file system the **Network & security** tab. You will need it in the following procedure to map a share to an EC2 instance. ## Step 6. Map your file share to an EC2 instance running Windows Server You can now mount your Amazon FSx file system to your Microsoft Windows–based Amazon EC2 instance joined to your AWS Directory Service directory. The name of your file share is not the same as the name of your file system. ###### To map a file share on an Amazon EC2 Windows instance using the GUI 1. Before you can mount a file share on a Windows instance, you must launch the EC2 instance and join it to the AWS Directory Service for Microsoft Active Directory that your file system has joined. To perform this action, choose one of the following procedures from the AWS Directory Service Administration Guide: <br>• [Seamlessly join a Windows EC2 instance](../../../directoryservice/latest/admin-guide/launching_instance.md "../../../directoryservice/latest/admin-guide/launching_instance.md") <br>• [Manually join a Windows instance](../../../directoryservice/latest/admin-guide/join_windows_instance.md "../../../directoryservice/latest/admin-guide/join_windows_instance.md") 2. Connect to your instance. For more information, see [Connecting to Your Windows Instance](../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md") in the _Amazon EC2 User Guide_. 3. When you're connected, open File Explorer. 4. From the navigation pane, open the context (right-click) menu for **Network** and choose **Map Network Drive**. 5. Choose a drive letter of your choice for **Drive**. 6. You can map your file system using either its default DNS name assigned by Amazon FSx, or using a DNS alias of your choosing. This procedure describes mapping a file share using the default DNS name. If you want to map a file share using a DNS alias, see [Accessing data using DNS aliases](dns-aliases.md "dns-aliases.md"). For **Folder**, enter the file system DNS name and the share name. The default Amazon FSx share is called `\share`. You can find the DNS name in the Amazon FSx console, [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"), **Windows File Server > Network & Security** section, or in the response of **CreateFileSystem** or **DescribeFileSystems** API command. <br>• For a Single-AZ file system joined to an AWS Managed Microsoft Active Directory, the DNS name looks like the following. ``fs-0123456789abcdef0.`ad-domain`.com`` <br>• For a Single-AZ file system joined to a self-managed Active Directory, and any Multi-AZ file system, the DNS name looks like the following. ``amznfsxaa11bb22.`ad-domain`.com`` For example, enter `\\fs-0123456789abcdef0.`ad-domain`.com\share`. 7. Choose whether the file share should **Reconnect at sign-in**, and then choose **Finish**. ## Step 7. Write data to your file share Now that you've mapped your file share to your instance, you can use your file share like any other directory in your Windows environment. ###### To write data to your file share 1. Open the Notepad text editor. 2. Write some content in the text editor. For example: `Hello, World!` 3. Save the file to your file share's drive letter. 4. Using File Explorer, navigate to your file share and find the text file that you just saved. ## Step 8. Back up your file system Now that you've had a chance to use your Amazon FSx file system and its file shares, you can back it up. By default, daily backups are created automatically during your file system's 30-minute backup window. However you can create a user-initiated backup at any time. Backups have additional costs associated with them. For more information on backup pricing, see [Pricing](https://aws.amazon.com/fsx/windows/pricing "https://aws.amazon.com/fsx/windows/pricing"). ###### To create a backup of your file system from the console 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). 2. From the console dashboard, choose the name of the file system you created for this exercise. 3. From the **Overview** tab for your file system, choose **Create backup**. 4. In the **Create backup** dialog box that opens, provide a name for your backup. This name can contain a maximum of 256 Unicode letters and include white space, numbers, and the following special characters: + - = . \_ : / 5. Choose **Create backup**. 6. To view all your backups in a list, so you can restore your file system or delete the backup, choose **Backups**. When you create a new backup, its status is set to **CREATING** while it is being created. This can take a few minutes. When the backup is available for use, its status changes to **AVAILABLE**. ## Step 9. Clean up resources After you have finished this exercise, you should follow these steps to clean up your resources and protect your AWS account. ###### To clean up resources 1. On the Amazon EC2 console, terminate your instance. For more information, see [Terminate Your Instance](../../../AWSEC2/latest/WindowsGuide/terminating-instances.md "../../../AWSEC2/latest/WindowsGuide/terminating-instances.md") in the _Amazon EC2 User Guide._ 2. On the Amazon FSx console, delete your file system. All automatic backups are deleted automatically. However, you still need to delete the manually created backups. The following steps outline this process: 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). 2. From the console dashboard, choose the name of the file system you created for this exercise. 3. For **Actions**, choose **Delete file system**. 4. In the **Delete file system** dialog box that opens, decide whether you want to create a final backup. If you do, provide a name for the final backup. Any automatically created backups are also deleted. ###### Important New file systems can be created from backups. We recommend that you create a final backup as a best practice. If you find you don't need it after a certain period of time, you can delete this and other manually created backups. 5. Enter the ID of the file system that you want to delete in the **File system ID** box. 6. Choose **Delete file system**. 7. The file system is now being deleted, and its status in the dashboard changes to **DELETING**. When the file system has been deleted, it no longer appears in the dashboard. 8. Now you can delete any manually created backups for your file system. From the left-side navigation, choose **Backups**. 9. From the dashboard, choose any backups that have the same **File system ID** as the file system that you deleted, and choose **Delete backup**. 10. The **Delete backups** dialog box opens. Leave the check box checked for the ID of the backup you selected, and choose **Delete backups**.Your Amazon FSx file system and related automatic backups are now deleted. 3. To delete the AWS Directory Service directory you created for this exercise, see [Delete your directory](../../../directoryservice/latest/admin-guide/simple_ad_delete.md "../../../directoryservice/latest/admin-guide/simple_ad_delete.md") in the AWS Directory Service Administration Guide. |
+    | Rules | Ports                                                                |
+    | ----- | -------------------------------------------------------------------- |
+    | UDP   | 53, 88, 123, 389, 464                                                |
+    | TCP   | 53, 88, 135, 389, 445, 464, 636, 3268, 3269, 5985, 9389, 49152-65535 |
+
+    Add from and to IP addresses or security group IDs associated with the client
+    compute instances that you want to access your file system from. 2. Add outbound rules to allow all traffic to the Active Directory that you're
+    joining your file system to. To do this, do one of the following:
+
+        * Allow outbound traffic to the security group ID associated with your AWS
+         Managed AD directory.
+        * Allow outbound traffic to the IP addresses associated with your self-managed
+         Active Directory domain controllers.###### Note
+
+In some cases, you might have modified the rules of your AWS Managed Microsoft AD security group
+from the default settings. If so, make sure that this security group has the required
+inbound rules to allow traffic from your Amazon FSx file system. For more information about
+the required inbound rules, see [AWS Managed Microsoft AD
+Prerequisites](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_prereqs.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_prereqs.md") in the _AWS Directory Service Administration Guide_.
+
+For more information, see [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md"). 3. Multi-AZ file systems have a primary and a standby file server, each in its own Availability
+Zone and subnet. If you are creating a Multi-AZ file system (see step 5), choose a **Preferred
+subnet** value for the primary file server and a **Standby
+subnet** value for the standby file server.
+
+If you are creating a Single-AZ file system, choose the **Subnet** for your file system. 4. For **Network type**, select either **IPv4**
+(for only IPv4 support) or **Dual-stack** (for both IPv4
+and IPv6 support). You can change the network type of an existing file system
+at any time. For more information,
+see [Changing network type](manage-network-type.md#change-network-type "manage-network-type.md#change-network-type").
+
+###### Note
+
+If you intend to create an FSx for Windows File Server file system that uses dual-stack mode, you must first assign an
+Amazon-provided IPv6 CIDR block to your VPC and subnets. For more information, see [Add IPv6 support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md") in the
+_Amazon Virtual Private Cloud User Guide_.
+
+###### Windows authentication
+
+- For **Windows authentication**, you have the following
+  options:
+
+Choose **AWS Managed Microsoft Active Directory** if you want
+to join your file system to a Microsoft Active Directory domain that is
+managed by AWS, and then choose your AWS Directory Service directory from the list. For more information, see [Working with Microsoft Active Directory](aws-ad-integration-fsxW.md "aws-ad-integration-fsxW.md").
+
+Choose **Self-managed Microsoft Active Directory** if you want
+to join your file system to a self-managed Microsoft Active Directory
+domain, and provide the following details for your Active Directory.
+For more information see
+[Using a self-managed Microsoft Active Directory](self-managed-AD.md "self-managed-AD.md").
+
+    + The fully qualified domain name of your Active Directory.
+
+
+    ###### Important
+
+    For Single-AZ 2 and all Multi-AZ file systems, the Active Directory domain name
+     cannot exceed 47 characters. This limitation applies to both AWS Directory Service and
+     self-managed Active Directory domain names.
+
+    Amazon FSx requires a direct connection for internal traffic to your DNS IP address.
+     Connection via an internet gateway is not supported. Instead, use AWS Virtual Private Network, VPC peering,
+     AWS Direct Connect, or AWS Transit Gateway association.
+    + **DNS server IP addresses**—the IPv4 or IPv6 addresses of the DNS
+     servers for your domain.
+
+
+    ###### Note
+
+    Your DNS server must have EDNS (Extension Mechanisms for DNS) enabled. If EDNS
+     is disabled, your file system might fail to create.
+    + Credentials for an Active Directory service account that Amazon FSx uses to join the file system to your domain. You can provide these as either:
+
+
+
+
+    	- **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+    	- **Option 2**: Plaintext credentials
+
+
+
+
+    		* **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+    		* **Service account password** – The password for the service account.
+    + (Optional) **Organizational Unit (OU)**—the distinguished
+     path name of the organizational unit in which you want to join your file
+     system.
+    + (Optional) **Delegated file system administrators group**—
+     the name of the group in your Active Directory that can administer your file system.
+     The default group is 'Domain Admins'. For more information, see
+     [Amazon FSx service account](self-managed-AD.md#self-managed-AD-service-account "self-managed-AD.md#self-managed-AD-service-account").
+
+###### Encryption, Auditing, and Access (DNS aliases)
+
+1. For **Encryption**, choose the AWS KMS key **Encryption
+   key** used to encrypt the data on your file system at rest. You can choose the default
+   **aws/fsx (default)** that is managed by AWS KMS, an existing key, or a customer managed key
+   by specifying the ARN for the key. For more information, see
+   [Encryption of data at rest](encryption-at-rest.md "encryption-at-rest.md").
+2. For **Auditing - optional**, file access auditing is disabled by
+   default. For information about enabling and configuring file access auditing, see [Logging end user access with file access auditing](file-access-auditing.md "file-access-auditing.md").
+3. For **Access - optional**, enter any DNS aliases that you want to
+   associate with the file system. Each alias name must be formatted as a fully qualified
+   domain name (FQDN). For more information, see [Managing DNS aliases](managing-dns-aliases.md "managing-dns-aliases.md").
+
+###### Backup and maintenance
+
+For more information about automatic daily backups and the settings in this
+section, see [Protecting your data with backups](using-backups.md "using-backups.md").
+
+1. **Daily automatic backup** is enabled by default. You can
+   disable this setting if you do not want Amazon FSx to take backups of your file system automatically
+   on a daily basis.
+2. If automatic backups are enabled, they occur within a time period known as the backup window. You can use the default
+   window, or choose an **Automatic backup window start time** that is best for your workflow.
+3. For **Automatic backup retention period**, you can use the default setting of
+   **30** days, or set a value between 1 and 90 days that Amazon FSx will retain
+   automatic daily backups of your file system for. This setting does not apply to user initiated backups,
+   or backups taken by AWS Backup.
+4. For **Tags - optional**, enter a key and value to add tags to your
+   file system. A tag is a case-sensitive key-value pair that helps you manage, filter, and
+   search for your file system. For more information, see
+   [Tagging your Amazon FSx resources](tag-resources.md "tag-resources.md").
+
+Choose **Next**.
+
+###### Review your configuration and create
+
+1. Review the file system configuration shown on the **Create file
+   system** page. For your reference, you can see which file system settings you can and
+   can't modify after file system is created. Choose **Create file system**.
+2. After Amazon FSx creates the file system, choose the file system ID from the list
+   in the **File Systems** dashboard to view the details. Choose **Attach**,
+   and note the **DNS name** for your file system the **Network & security** tab.
+   You will need it in the following procedure to map a share to an EC2 instance.
+
+## Step 6. Map your file share to an EC2 instance running
+
+Windows Server
+
+You can now mount your Amazon FSx file system to your Microsoft Windows–based Amazon EC2
+instance joined to your AWS Directory Service directory. The name of your file share is not the same as the
+name of your file system.
+
+###### To map a file share on an Amazon EC2 Windows instance using the GUI
+
+1. Before you can mount a file share on a Windows instance, you must launch the EC2
+   instance and join it to the AWS Directory Service for Microsoft Active Directory that your file system has joined.
+   To perform this action, choose one of the
+   following procedures from the AWS Directory Service Administration Guide:
+   - [Seamlessly join a Windows EC2
+     instance](../../../directoryservice/latest/admin-guide/launching_instance.md "../../../directoryservice/latest/admin-guide/launching_instance.md")
+   - [Manually join a Windows
+     instance](../../../directoryservice/latest/admin-guide/join_windows_instance.md "../../../directoryservice/latest/admin-guide/join_windows_instance.md")
+
+2. Connect to your instance. For more information, see [Connecting to Your Windows
+   Instance](../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md") in the _Amazon EC2 User Guide_.
+3. When you're connected, open File Explorer.
+4. From the navigation pane, open the context (right-click) menu for
+   **Network** and choose **Map Network Drive**.
+5. Choose a drive letter of your choice for **Drive**.
+6. You can map your file system using either its default DNS name assigned by Amazon FSx, or
+   using a DNS alias of your choosing. This procedure describes mapping a file share using
+   the default DNS name. If you want to map a file share using a DNS alias, see
+   [Accessing data using DNS aliases](dns-aliases.md "dns-aliases.md").
+
+For **Folder**, enter the file system DNS name and the share name.
+The default Amazon FSx share is called `\share`. You can find the DNS name in the
+Amazon FSx console, [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"), **Windows File Server > Network &
+Security** section, or in the response of **CreateFileSystem**
+or **DescribeFileSystems** API command.
+
+    * For a Single-AZ file system joined to an AWS Managed Microsoft Active Directory, the DNS name looks like the
+     following.
+
+
+
+    ```
+    fs-0123456789abcdef0.`ad-domain`.com
+    ```
+    * For a Single-AZ file system joined to a self-managed Active Directory, and any
+     Multi-AZ file system, the DNS name looks like the following.
+
+
+
+    ```
+    amznfsxaa11bb22.`ad-domain`.com
+    ```
+
+For example, enter
+`\\fs-0123456789abcdef0.`ad-domain`.com\share`. 7. Choose whether the file share should **Reconnect at sign-in**, and
+then choose **Finish**.
+
+## Step 7. Write data to your file share
+
+Now that you've mapped your file share to your instance, you can use your file share like
+any other directory in your Windows environment.
+
+###### To write data to your file share
+
+1. Open the Notepad text editor.
+2. Write some content in the text editor. For example: `Hello,
+World!`
+3. Save the file to your file share's drive letter.
+4. Using File Explorer, navigate to your file share and find the text file that you just
+   saved.
+
+## Step 8. Back up your file system
+
+Now that you've had a chance to use your Amazon FSx file system and its file shares, you can
+back it up. By default, daily backups are created automatically during your file system's
+30-minute backup window. However you can create a user-initiated backup at any time. Backups
+have additional costs associated with them. For more information on backup pricing, see [Pricing](https://aws.amazon.com/fsx/windows/pricing "https://aws.amazon.com/fsx/windows/pricing").
+
+###### To create a backup of your file system from the console
+
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. From the console dashboard, choose the name of the file system you created for this
+   exercise.
+3. From the **Overview** tab for your file system, choose
+   **Create backup**.
+4. In the **Create backup** dialog box that opens, provide a name for
+   your backup. This name can contain a maximum of 256 Unicode letters and include white
+   space, numbers, and the following special characters: + - = . \_ : /
+5. Choose **Create backup**.
+6. To view all your backups in a list, so you can restore your file system or delete the
+   backup, choose **Backups**.
+
+When you create a new backup, its status is set to **CREATING** while it
+is being created. This can take a few minutes. When the backup is available for use, its
+status changes to **AVAILABLE**.
+
+## Step 9. Clean up resources
+
+After you have finished this exercise, you should follow these steps to clean up your
+resources and protect your AWS account.
+
+###### To clean up resources
+
+1. On the Amazon EC2 console, terminate your instance. For more information, see [Terminate Your Instance](../../../AWSEC2/latest/WindowsGuide/terminating-instances.md "../../../AWSEC2/latest/WindowsGuide/terminating-instances.md") in the
+   _Amazon EC2 User Guide._
+2. On the Amazon FSx console, delete your file system. All automatic backups are deleted
+   automatically. However, you still need to delete the manually created backups. The
+   following steps outline this process:
+   1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+   2. From the console dashboard, choose the name of the file system you created for
+      this exercise.
+   3. For **Actions**, choose **Delete file
+      system**.
+   4. In the **Delete file system** dialog box that opens, decide
+      whether you want to create a final backup. If you do, provide a name for the final
+      backup. Any automatically created backups are also deleted.
+
+   ###### Important
+
+   New file systems can be created from backups. We recommend that you create a
+   final backup as a best practice. If you find you don't need it after a certain
+   period of time, you can delete this and other manually created backups. 5. Enter the ID of the file system that you want to delete in the **File
+   system ID** box. 6. Choose **Delete file system**. 7. The file system is now being deleted, and its status in the dashboard changes to
+   **DELETING**. When the file system has been deleted, it no longer
+   appears in the dashboard. 8. Now you can delete any manually created backups for your file system. From the
+   left-side navigation, choose **Backups**. 9. From the dashboard, choose any backups that have the same **File system
+   ID** as the file system that you deleted, and choose **Delete
+   backup**. 10. The **Delete backups** dialog box opens. Leave the check box
+   checked for the ID of the backup you selected, and choose **Delete
+   backups**.Your Amazon FSx file system and related automatic backups are now deleted.
+
+3. To delete the AWS Directory Service directory you created for this exercise, see
+   [Delete your directory](../../../directoryservice/latest/admin-guide/simple_ad_delete.md "../../../directoryservice/latest/admin-guide/simple_ad_delete.md") in the AWS Directory Service Administration Guide.

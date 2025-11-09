@@ -1,12 +1,12 @@
-# Using Amazon FSx with Amazon AppStream 2.0
+# Using Amazon FSx with Amazon WorkSpaces Applications
 
 By supporting the Server Message Block (SMB) protocol, Amazon FSx for Windows File Server supports accessing your file system from Amazon EC2,
-VMware Cloud on AWS, Amazon WorkSpaces, and Amazon AppStream 2.0 instances. AppStream 2.0 is a fully managed application
-streaming service. You centrally manage your desktop applications on AppStream 2.0 and securely deliver
-them to a browser on any computer. For more information on AppStream 2.0, see the [_Amazon AppStream 2.0 Administration Guide_](../../../appstream2/latest/developerguide.md "../../../appstream2/latest/developerguide.md"). For instructions on how you can
-streamline the management of your Amazon AppStream 2.0 images and fleets, see the AWS blog post [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/").
+VMware Cloud on AWS, Amazon WorkSpaces, and Amazon WorkSpaces Applications instances. WorkSpaces Applications is a fully managed application
+streaming service. You centrally manage your desktop applications on WorkSpaces Applications and securely deliver
+them to a browser on any computer. For more information on WorkSpaces Applications, see the [_Amazon WorkSpaces Applications Administration Guide_](../../../appstream2/latest/developerguide.md "../../../appstream2/latest/developerguide.md"). For instructions on how you can
+streamline the management of your Amazon WorkSpaces Applications images and fleets, see the AWS blog post [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/").
 
-The following procedures show you how to use Amazon FSx with AppStream 2.0 to provide
+The following procedures show you how to use Amazon FSx with WorkSpaces Applications to provide
 personal persistent storage to each user, and to provide a shared folder so that multiple users
 can access common files.
 
@@ -15,7 +15,7 @@ can access common files.
 user
 
 You can use Amazon FSx to provide every user in your organization a unique storage drive within
-AppStream 2.0 streaming sessions. A user will have permissions to access only their folder. The drive is
+WorkSpaces Applications streaming sessions. A user will have permissions to access only their folder. The drive is
 automatically mounted at the start of a streaming session and files added or updated to the drive
 are automatically persisted between streaming sessions.
 
@@ -24,18 +24,18 @@ There are three procedures you'll need to perform to complete this task.
 ###### To create home folders for domain users using Amazon FSx
 
 1. Create an Amazon FSx file system. For more information, see [Getting started with Amazon FSx for Windows File Server](getting-started.md "getting-started.md").
-2. After the file system is available, create a folder for every domain AppStream 2.0 user within
+2. After the file system is available, create a folder for every domain WorkSpaces Applications user within
    your Amazon FSx file system. The example following uses the domain user name of the user as the name
    of the corresponding folder. Doing this means that you can build the UNC name of the file share
    to map easily using the Windows environment variable `%username%`.
 3. Share each of these folders out as a shared folder. For more information, see [Creating, updating, removing file shares](managing-file-shares.md "managing-file-shares.md").
 
-###### To launch a domain-joined AppStream 2.0 image builder
+###### To launch a domain-joined WorkSpaces Applications image builder
 
-1. Sign into the AppStream 2.0 console: [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2")
+1. Sign into the WorkSpaces Applications console: [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2")
 2. Choose **Directory Configs** from the navigation menu, and create a
-   Directory Config object. For more information, see [Using Active Directory with AppStream 2.0](../../../appstream2/latest/developerguide/active-directory.md "../../../appstream2/latest/developerguide/active-directory.md") in the
-   _Amazon AppStream 2.0 Administration Guide_.
+   Directory Config object. For more information, see [Using Active Directory with WorkSpaces Applications](../../../appstream2/latest/developerguide/active-directory.md "../../../appstream2/latest/developerguide/active-directory.md") in the
+   _Amazon WorkSpaces Applications Administration Guide_.
 3. Choose **Images**, **Image Builder**, and launch a new
    image builder.
 4. Choose the directory config object created earlier in the image builder launch wizard to
@@ -48,7 +48,7 @@ There are three procedures you'll need to perform to complete this task.
    domain administrator account.
 7. Install your applications.
 
-###### To link Amazon FSx file shares with AppStream 2.0
+###### To link Amazon FSx file shares with WorkSpaces Applications
 
 1. In the image builder, create a batch script with the following command and store it in a
    known file location (for example: C:\Scripts\map-fs.bat). The following example uses S: as the
@@ -85,14 +85,14 @@ net use S: \\`fqdn-DNS-alias`\users\%username%
 6. Choose the policy **Configure Logon Script delay**. Enable the policy and
    reduce the time delay to `0`. This setting helps to ensure that the user logon
    script is executed immediately when the user starts a streaming session.
-7. Create your image and assign it to an AppStream 2.0 fleet. Ensure that you also join the AppStream 2.0
+7. Create your image and assign it to an WorkSpaces Applications fleet. Ensure that you also join the WorkSpaces Applications
    fleet to the same Active Directory domain that you used for image builder. Launch the fleet in
    the same VPC that is used by your Amazon FSx file system. The VPC security groups that you associate
    with the fleet must provide access to your Amazon FSx file system.
 8. Launch a streaming session using SAML SSO. To connect to an fleet that is joined to Active Directory,
    configure single sign-on federation using a SAML provider. For more information,
    see [Single Sign-on Access to
-   AppStream 2.0 Using SAML 2.0](../../../appstream2/latest/developerguide/external-identity-providers.md "../../../appstream2/latest/developerguide/external-identity-providers.md") in the _Amazon AppStream 2.0 Administration Guide_.
+   AppStream 2.0 Using SAML 2.0](../../../appstream2/latest/developerguide/external-identity-providers.md "../../../appstream2/latest/developerguide/external-identity-providers.md") in the _Amazon WorkSpaces Applications Administration Guide_.
 9. Your Amazon FSx file share is mapped to the S: drive letter within the streaming
    session.
 
@@ -112,9 +112,9 @@ There are three procedures you'll need to perform to complete this task.
    if you are using DNS aliases. You can use the default share
    or create a different shared folder. For more information, see [Creating, updating, removing file shares](managing-file-shares.md "managing-file-shares.md").
 
-###### To launch an AppStream 2.0 image builder
+###### To launch an WorkSpaces Applications image builder
 
-1. From the AppStream 2.0 console, launch a new image builder or connect to an existing image
+1. From the WorkSpaces Applications console, launch a new image builder or connect to an existing image
    builder. Launch the image builder in the same VPC that is used by your Amazon FSx file system. The
    VPC security groups that you associate with the image builder must allow access to your Amazon FSx
    file system.
@@ -122,7 +122,7 @@ There are three procedures you'll need to perform to complete this task.
    user.
 3. Install or update your applications as Administrator.
 
-###### To link the shared folder with AppStream 2.0
+###### To link the shared folder with WorkSpaces Applications
 
 1. Create a batch script, as described in the previous procedure, to automatically mount the
    shared folder whenever a user launches a streaming session. To complete the script, you need

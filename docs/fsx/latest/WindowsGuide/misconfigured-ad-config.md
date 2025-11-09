@@ -49,12 +49,13 @@ is configured properly, select the **Attempt Recovery** button next to the
 ###### Topics
 
 - [Misconfigured file system: Amazon FSx can't reach either the DNS
-  servers or domain controllers for your domain.](#w59aac37c13c21 "#w59aac37c13c21")
-- [Misconfigured file system: The service account credentials are invalid](#w59aac37c13c23 "#w59aac37c13c23")
+  servers or domain controllers for your domain.](#w62aac37c13c21 "#w62aac37c13c21")
+- [Misconfigured file system: The service account credentials are invalid](#w62aac37c13c23 "#w62aac37c13c23")
+- [Misconfigured file system: The AWS Secrets Manager secret or KMS key is not configured correctly](#w62aac37c13c25 "#w62aac37c13c25")
 - [Misconfigured file system: The service account provided doesn't have
-  permission to join the file system to the domain](#w59aac37c13c25 "#w59aac37c13c25")
-- [Misconfigured file system: The service account can't join any more computers to domain](#w59aac37c13c27 "#w59aac37c13c27")
-- [Misconfigured file system: The service account doesn't have access to the OU](#w59aac37c13c29 "#w59aac37c13c29")
+  permission to join the file system to the domain](#w62aac37c13c27 "#w62aac37c13c27")
+- [Misconfigured file system: The service account can't join any more computers to domain](#w62aac37c13c29 "#w62aac37c13c29")
+- [Misconfigured file system: The service account doesn't have access to the OU](#w62aac37c13c31 "#w62aac37c13c31")
 
 ## Misconfigured file system: Amazon FSx can't reach either the DNS
 
@@ -100,6 +101,18 @@ To resolve the misconfiguration, do the following:
       **Update** in the **Networking and security**
       tab.You can also use the Amazon FSx API operation `update-file-system`. To
       learn more, see the [UpdateFileSystem](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md") in the Amazon FSx API Reference.
+
+## Misconfigured file system: The AWS Secrets Manager secret or KMS key is not configured correctly
+
+Amazon FSx can't establish a connection with your Microsoft Active Directory domain controller or controllers. This is because your AWS Secrets Manager secret or AWS KMS key is not configured correctly. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+
+To resolve the misconfiguration, do the following:
+
+1. Verify that the secret ARN is correct and follows the proper format: `arn:aws:secretsmanager:region:account-id:secret:secret-name-6chars`.
+2. Verify that the secret contains both required fields with non-empty values:
+   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` – Your AD service account username.
+   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
+   - Verify that the secret and key have a resource-based policy that grants the Amazon FSx service principal `fsx.amazonaws.com` permission to retrieve the secret value.
 
 ## Misconfigured file system: The service account provided doesn't have
 

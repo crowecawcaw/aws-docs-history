@@ -121,7 +121,7 @@ Pricing](https://aws.amazon.com/fsx/windows/pricing "https://aws.amazon.com/fsx/
 
 ## Assumptions
 
-To use Amazon FSx, you need an AWS account with an Amazon EC2 instance, WorkSpaces instance, AppStream 2.0
+To use Amazon FSx, you need an AWS account with an Amazon EC2 instance, WorkSpaces instance, WorkSpaces Applications
 instance, or VM running in VMware Cloud on AWS environments of the supported
 type.
 

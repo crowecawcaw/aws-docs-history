@@ -26,11 +26,7 @@ objects associated with the file system.
 For information about troubleshooting possible issues related to self-managed Active Directory
 configurations, see [File system is in a misconfigured state](misconfigured-ad-config.md "misconfigured-ad-config.md").
 
-You can use the AWS Management Console, Amazon FSx API, or AWS CLI to update the service account username and password
-and the DNS server IP addresses of a file system's self-managed Active Directory configuration.
-You can track the progress of a self-managed Active Directory configuration
-update at any time using the AWS Management Console, CLI, and API. For more information, see
-[Monitoring self-managed Active Directory updates](monitor-self-ad-update.md "monitor-self-ad-update.md").
+You can use the AWS Management Console, Amazon FSx API, or AWS CLI to update the service account credentials and the DNS server IP addresses of a file system's self-managed Active Directory configuration. You can track the progress of a self-managed Active Directory configuration update at any time using the AWS Management Console, CLI, and API. For more information, see [Monitoring self-managed Active Directory updates](monitor-self-ad-update.md "monitor-self-ad-update.md").
 
 ###### To update the self-managed Active Directory configuration (Console)
 
@@ -40,7 +36,7 @@ update at any time using the AWS Management Console, CLI, and API. For more info
 3. In the **Network & security** tab, then choose **Update**
    for the **DNS server IP addresses**, or for the service account username, depending on
    which Active Directory properties you are updating.
-4. Enter the new DNS server IP addresses, or the new service account credentials in the dialog that appears.
+4. Enter the new DNS server IP addresses, or the new service account credentials (username and password) or secret ARN in the dialog that appears. You can use AWS Secrets Manager to store your credentials. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
 5. Choose **Update** to initiate the Active Directory configuration update.
 
 You can [monitor the update progress](monitor-self-ad-update.md "monitor-self-ad-update.md") using the AWS Management Console or the AWS CLI.
@@ -54,6 +50,11 @@ You can [monitor the update progress](monitor-self-ad-update.md "monitor-self-ad
     account.
   - `Password` the new password for the self-managed Active Directory service
     account.
+  - `DomainJoinServiceAccountSecret` the AWS Secrets Manager secret containing the username and password for a service account on your Active Directory domain
+
+  ###### Note
+
+  You can't provide both username/password and a domain join service account secret to connect to your Active Directory. Provide only one set of credentials.
   - `DnsIps` the IP addresses for the self-managed Active Directory DNS servers.
 
 ```

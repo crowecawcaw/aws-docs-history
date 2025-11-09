@@ -112,14 +112,83 @@ These commands can help you to automate managing file share tasks such as:
 The following table lists the Amazon FSx CLI remote management PowerShell commands that you can
 use to manage file shares on FSx for Windows File Server file systems.
 
-| Share Management Command      | Description                                                                                   |
-| ----------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **New-FSxSmbShare**           | Creates a new file share.                                                                     |
-| **Remove-FSxSmbShare**        | Removes a file share.                                                                         |
-| **Get-FSxSmbShare**           | Retrieves existing file shares.                                                               |
-| **Set-FSxSmbShare**           | Sets properties for a share.                                                                  |
-| **Get-FSxSmbShareAccess**     | Retrieves the access control list (ACL) of a share.                                           |
-| **Grant-FSxSmbShareAccess**   | Adds an allow access control entry (ACE) for a trustee to the security descriptor of a share. |
-| **Revoke-FSxSmbShareAccess**  | Removes all of the allow ACEs for a trustee from the security descriptor of a share.          |
-| **Block-FSxSmbShareAccess**   | Adds a deny ACE for a trustee to the security descriptor of a share.                          |
-| **Unblock-FSxSmbShareAccess** | Removes all of the deny ACEs for a trustee from the security descriptor of a share.           | The online help for each command provides a reference of all command options. To access this help, run the command with a `-?`, for example `New-FSxSmbShare -?`. ### Passing credentials to New-FSxSmbShare You can pass credentials to New-FSxSmbShare so that you can run it in a loop to create hundreds or thousands of shares without having to re-enter credentials each time. Prepare the credential object required to create the file shares on your FSx for Windows File Server file server using one of the following options. <br>• To generate the credential object interactively, use the following command. `$credential = Get-Credential` <br>• To generate the credential object using an AWS Secrets Manager resource, use the following command. `$credential = ConvertFrom-Json -InputObject (Get-SECSecretValue -SecretId $AdminSecret).SecretString $FSxAdminUserCredential = (New-Object PSCredential($credential.UserName,(ConvertTo-SecureString $credential.Password -AsPlainText -Force)))` You can create continuously available (CA) shares using the Amazon FSx CLI for Remote Management on PowerShell. CA shares created on an FSx for Windows File Server Multi-AZ file system are highly durable and highly available. An Amazon FSx Single-AZ file system is built on a single node cluster. As a result, CA shares created on a Single-AZ file system are highly durable, but are not highly available. Use the `New-FSxSmbShare` command with the `-ContinuouslyAvailable` option set to `$True` to specify that the share is a continuously available share. The following is an example command to create a CA share. `New-FSxSmbShare -Name "New CA Share" -Path "D:\share\new-share" -Description "CA share" -ContinuouslyAvailable $True` You can modify the `-ContinuouslyAvailable` option on an existing file share using the `Set-FSxSmbShare` command. ### Determine if an existing file share is continuously available Use the following command to view the value of the Continuously Available property for an existing file share. ``Invoke-Command -ComputerName `powershell_endpoint` -ConfigurationName FSxRemoteAdmin -scriptblock { get-fsxsmbshare -name `share_name` }`` If CA is enabled, the output will include the following line: `` `[...] ContinuouslyAvailable : True [...]` `` If CA is not enabled, the output will include the following line: `` `[...] ContinuouslyAvailable : False [...]` `` To enable Continuously Available on an existing file share, use the following command: ``Invoke-Command -ComputerName `powershell_endpoint` -ConfigurationName FSxRemoteAdmin -scriptblock { set-fsxsmbshare -name `share_name` -ContinuouslyAvailable $True}`` |
+| Share Management Command      | Description                                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| **New-FSxSmbShare**           | Creates a new file share.                                                                        |
+| **Remove-FSxSmbShare**        | Removes a file share.                                                                            |
+| **Get-FSxSmbShare**           | Retrieves existing file shares.                                                                  |
+| **Set-FSxSmbShare**           | Sets properties for a share.                                                                     |
+| **Get-FSxSmbShareAccess**     | Retrieves the access control list (ACL) of a share.                                              |
+| **Grant-FSxSmbShareAccess**   | Adds an allow access control entry (ACE) for a trustee to the<br>security descriptor of a share. |
+| **Revoke-FSxSmbShareAccess**  | Removes all of the allow ACEs for a trustee from the security<br>descriptor of a share.          |
+| **Block-FSxSmbShareAccess**   | Adds a deny ACE for a trustee to the security descriptor of a<br>share.                          |
+| **Unblock-FSxSmbShareAccess** | Removes all of the deny ACEs for a trustee from the security<br>descriptor of a share.           |
+
+The online help for each command provides a reference of all command options. To
+access this help, run the command with a `-?`, for example
+`New-FSxSmbShare -?`.
+
+### Passing credentials to New-FSxSmbShare
+
+You can pass credentials to New-FSxSmbShare so that you can run it in a loop to create hundreds or thousands of shares without having to re-enter credentials each time.
+
+Prepare the credential object required to create the file shares on your FSx for Windows File Server file server using one of the following options.
+
+- To generate the credential object interactively, use the following command.
+
+```
+$credential = Get-Credential
+```
+
+- To generate the credential object using an AWS Secrets Manager resource, use the following
+  command.
+
+```
+$credential = ConvertFrom-Json -InputObject (Get-SECSecretValue -SecretId $AdminSecret).SecretString
+$FSxAdminUserCredential = (New-Object PSCredential($credential.UserName,(ConvertTo-SecureString $credential.Password -AsPlainText -Force)))
+
+```
+
+You can create continuously available (CA) shares
+using the Amazon FSx CLI for Remote Management on PowerShell.
+CA shares created on an FSx for Windows File Server Multi-AZ file system are highly durable and highly available.
+An Amazon FSx Single-AZ file system is built on a single node cluster. As a result, CA shares created on a
+Single-AZ file system are highly durable, but are not highly available.
+Use the `New-FSxSmbShare` command with the `-ContinuouslyAvailable` option set to `$True` to specify
+that the share is a continuously available share. The following is an example command to create a CA share.
+
+```
+New-FSxSmbShare -Name "New CA Share" -Path "D:\share\new-share" -Description "CA share" -ContinuouslyAvailable $True
+```
+
+You can modify the `-ContinuouslyAvailable` option on an existing file share using the `Set-FSxSmbShare` command.
+
+### Determine if an existing file share is continuously available
+
+Use the following command to view the value of the Continuously Available property for an existing file share.
+
+```
+Invoke-Command -ComputerName `powershell_endpoint` -ConfigurationName FSxRemoteAdmin -scriptblock { get-fsxsmbshare -name `share_name` }
+```
+
+If CA is enabled, the output will include the following line:
+
+```
+`[...]
+ContinuouslyAvailable : True
+[...]`
+```
+
+If CA is not enabled, the output will include the following line:
+
+```
+`[...]
+ContinuouslyAvailable : False
+[...]`
+```
+
+To enable Continuously Available on an existing file share, use the following command:
+
+```
+Invoke-Command -ComputerName `powershell_endpoint` -ConfigurationName FSxRemoteAdmin -scriptblock { set-fsxsmbshare -name `share_name` -ContinuouslyAvailable $True}
+```

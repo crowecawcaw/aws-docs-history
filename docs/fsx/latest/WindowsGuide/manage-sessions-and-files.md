@@ -73,9 +73,13 @@ CLI for remote management on PowerShell. To learn how to use this CLI, see [Usin
 Following are commands that you can use for user session and open file
 management.
 
-| Command                  | Description                                                                                                                                            |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Get-FSxSmbSession**    | Retrieves information about the Server Message Block (SMB) sessions that are currently established between the file system and the associated clients. |
-| **Close-FSxSmbSession**  | Ends an SMB session.                                                                                                                                   |
-| **Get-FSxSmbOpenFile**   | Retrieves information about files that are open for the clients connected to the file system.                                                          |
-| **Close-FSxSmbOpenFile** | Closes a file that is open for one of the clients of the SMB server.                                                                                   | The online help for each command provides a reference of all command options. To access this help, run the command with a **-?**, for example **Get-FSxSmbSession -?**. |
+| Command                  | Description                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Get-FSxSmbSession**    | Retrieves information about the Server Message Block (SMB)<br>sessions that are currently established between the file system<br>and the associated clients. |
+| **Close-FSxSmbSession**  | Ends an SMB session.                                                                                                                                         |
+| **Get-FSxSmbOpenFile**   | Retrieves information about files that are open for the clients connected to the file<br>system.                                                             |
+| **Close-FSxSmbOpenFile** | Closes a file that is open for one of the clients of the SMB server.                                                                                         |
+
+The online help for each command provides a reference of all command options. To
+access this help, run the command with a **-?**, for example
+**Get-FSxSmbSession -?**.
