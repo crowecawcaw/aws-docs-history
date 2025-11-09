@@ -139,40 +139,123 @@ follows:
 Model**
 
 | Field            | Description                                                   |
-| ---------------- | ------------------------------------------------------------- |
+| ---------------- | ------------------------------------------------------------- | ----------- | ---- | ------- | ------- | ---- | ---------- | ----------------------- | ---- | ------------------------------- | --- | ----- | ----------- | ---- | ------- | ------- | ---- | ----------------------------- | -------------------------------------------------- | --- | ---- | ------ | --------------------------------------- | --- |
 | `invocationId`   | The Lambda invocation Id (random GUID).                       |
 | `applicationArn` | Kinesis Data Analytics application Amazon Resource Name (ARN) |
 | `streamArn`      | Delivery stream ARN                                           |
+| records<br>      | Field                                                         | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | record ID (random GUID) | <br> | `kinesisFirehoseRecordMetadata` |     | Field | Description | <br> | --<br>• | --<br>• | <br> | `approximateArrivalTimestamp` | Delivery stream record approximate arrival<br>time |     | <br> | `data` | Base64-encoded source record<br>payload |     |
 
-| records
-| Field | Description |
-| --- | --- |
-| `recordId` | record ID (random GUID) |
-| `kinesisFirehoseRecordMetadata` |
-| Field | Description |
-| --- | --- |
-| `approximateArrivalTimestamp` | Delivery stream record approximate arrival time |
-| | `data` | Base64-encoded source record payload |
-| The following example shows input from a Firehose delivery stream: `{ "invocationId":"00540a87-5050-496a-84e4-e7d92bbaf5e2", "applicationArn":"arn:aws:kinesisanalytics:us-east-1:12345678911:application/lambda-test", "streamArn":"arn:aws:firehose:us-east-1:AAAAAAAAAAAA:deliverystream/lambda-test", "records":[ { "recordId":"49572672223665514422805246926656954630972486059535892482", "data":"aGVsbG8gd29ybGQ=", "kinesisFirehoseRecordMetadata":{ "approximateArrivalTimestamp":1520280173 } } ] }` If the source is a Kinesis data stream, the event input data model is as follows: **Kinesis Streams Request Data Model**
-| Field | Description |
-| --- | --- |
-| `invocationId` | The Lambda invocation Id (random GUID). |
-| `applicationArn` | Kinesis Data Analytics application ARN |
-| `streamArn` | Delivery stream ARN |
-| records
-| Field | Description |
-| --- | --- |
-| `recordId` | record ID based off of Kinesis record sequence number |
-| `kinesisStreamRecordMetadata` |
-| Field | Description |
-| --- | --- |
-| `sequenceNumber` | Sequence number from the Kinesis stream record |
-| `partitionKey` | Partition key from the Kinesis stream record |
-| `shardId` | `ShardId` from the Kinesis stream record |
-| `approximateArrivalTimestamp` | Delivery stream record approximate arrival time |
-| | data | Base64-encoded source record payload |
-| The following example shows input from a Kinesis data stream: `{ "invocationId": "00540a87-5050-496a-84e4-e7d92bbaf5e2", "applicationArn": "arn:aws:kinesisanalytics:us-east-1:12345678911:application/lambda-test", "streamArn": "arn:aws:kinesis:us-east-1:AAAAAAAAAAAA:stream/lambda-test", "records": [ { "recordId": "49572672223665514422805246926656954630972486059535892482", "data": "aGVsbG8gd29ybGQ=", "kinesisStreamRecordMetadata":{ "shardId" :"shardId-000000000003", "partitionKey":"7400791606", "sequenceNumber":"49572672223665514422805246926656954630972486059535892482", "approximateArrivalTimestamp":1520280173 } } ] }` ### Record Response Model All records returned from your Lambda preprocessing function (with record IDs) that are sent to the Lambda function must be returned. They must contain the following parameters, or Kinesis Data Analytics rejects them and treats it as a data preprocessing failure. The data payload part of the record can be transformed to accomplish preprocessing requirements. **Response Data Model**
-| | | | | | | | | |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| records | Field | Description | | --- | --- | | `recordId` | The record ID is passed from Kinesis Data Analytics to Lambda during the invocation. The transformed record must contain the same record ID. Any mismatch between the ID of the original record and the ID of the transformed record is treated as a data preprocessing failure. |
-| `result` | The status of the data transformation of the record. The possible values are: <br>• `Ok`: The record was transformed successfully. Kinesis Data Analytics ingests the record for SQL processing. <br>• `Dropped`: The record was dropped intentionally by your processing logic. Kinesis Data Analytics drops the record from SQL processing. The data payload field is optional for a `Dropped` record. <br>• `ProcessingFailed`: The record could not be transformed. Kinesis Data Analytics considers it unsuccessfully processed by your Lambda function and writes an error to the error stream. For more information about the error stream, see [Error Handling](error-handling.md "error-handling.md"). The data payload field is optional for a `ProcessingFailed` record. | | `data` | The transformed data payload, after base64-encoding. Each data payload can contain multiple JSON documents if the application ingestion data format is JSON. Or each can contain multiple CSV rows (with a row delimiter specified in each row) if the application ingestion data format is CSV. The Kinesis Data Analytics service successfully parses and processes data with either multiple JSON documents or CSV rows within the same data payload. | | The following example shows output from a Lambda function: `{ "records": [ { "recordId": "49572672223665514422805246926656954630972486059535892482", "result": "Ok", "data": "SEVMTE8gV09STEQ=" } ] }` ## Common Data Preprocessing Failures The following are common reasons why preprocessing can fail. <br>• Not all records (with record IDs) in a batch that are sent to the Lambda function are returned back to the Kinesis Data Analytics service. <br>• The response is missing either the record ID, status, or data payload field. The data payload field is optional for a `Dropped` or `ProcessingFailed` record. <br>• The Lambda function timeouts are not sufficient to preprocess the data. <br>• The Lambda function response exceeds the response limits imposed by the AWS Lambda service. For data preprocessing failures, Kinesis Data Analytics continues to retry Lambda invocations on the same set of records until successful. You can monitor the following CloudWatch metrics to gain insight into failures. <br>• Kinesis Data Analytics application `MillisBehindLatest`: Indicates how far behind an application is reading from the streaming source. <br>• Kinesis Data Analytics application `InputPreprocessing` CloudWatch metrics: Indicates the number of successes and failures, among other statistics. For more information, see [Amazon Kinesis Analytics Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md"). <br>• AWS Lambda function CloudWatch metrics and logs.
+The following example shows input from a Firehose delivery stream:
+
+```
+{
+   "invocationId":"00540a87-5050-496a-84e4-e7d92bbaf5e2",
+   "applicationArn":"arn:aws:kinesisanalytics:us-east-1:12345678911:application/lambda-test",
+   "streamArn":"arn:aws:firehose:us-east-1:AAAAAAAAAAAA:deliverystream/lambda-test",
+   "records":[
+      {
+         "recordId":"49572672223665514422805246926656954630972486059535892482",
+         "data":"aGVsbG8gd29ybGQ=",
+         "kinesisFirehoseRecordMetadata":{
+            "approximateArrivalTimestamp":1520280173
+         }
+      }
+   ]
+}
+
+```
+
+If the source is a Kinesis data stream, the event input data model is as
+follows:
+
+**Kinesis Streams Request Data Model**
+
+| Field            | Description                             |
+| ---------------- | --------------------------------------- | ----------- | ---- | ------- | ------- | ---- | ---------- | -------------------------------------------------------- | ---- | ----------------------------- | --- | ----- | ----------- | ---- | ------- | ------- | ---- | ---------------- | ------------------------------------------------- | ---- | -------------- | ----------------------------------------------- | ---- | --------- | ------------------------------------------- | ---- | ----------------------------- | -------------------------------------------------- | --- | ---- | ---- | --------------------------------------- | --- |
+| `invocationId`   | The Lambda invocation Id (random GUID). |
+| `applicationArn` | Kinesis Data Analytics application ARN  |
+| `streamArn`      | Delivery stream ARN                     |
+| records<br>      | Field                                   | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | record ID based off of Kinesis record<br>sequence number | <br> | `kinesisStreamRecordMetadata` |     | Field | Description | <br> | --<br>• | --<br>• | <br> | `sequenceNumber` | Sequence number from the Kinesis stream<br>record | <br> | `partitionKey` | Partition key from the Kinesis stream<br>record | <br> | `shardId` | `ShardId` from the Kinesis<br>stream record | <br> | `approximateArrivalTimestamp` | Delivery stream record approximate arrival<br>time |     | <br> | data | Base64-encoded source record<br>payload |     |
+
+The following example shows input from a Kinesis data stream:
+
+```
+
+{
+  "invocationId": "00540a87-5050-496a-84e4-e7d92bbaf5e2",
+  "applicationArn": "arn:aws:kinesisanalytics:us-east-1:12345678911:application/lambda-test",
+  "streamArn": "arn:aws:kinesis:us-east-1:AAAAAAAAAAAA:stream/lambda-test",
+  "records": [
+    {
+      "recordId": "49572672223665514422805246926656954630972486059535892482",
+      "data": "aGVsbG8gd29ybGQ=",
+      "kinesisStreamRecordMetadata":{
+            "shardId" :"shardId-000000000003",
+            "partitionKey":"7400791606",
+            "sequenceNumber":"49572672223665514422805246926656954630972486059535892482",
+            "approximateArrivalTimestamp":1520280173
+         }
+    }
+  ]
+}
+
+```
+
+### Record Response
+
+Model
+
+All records returned from your Lambda preprocessing function (with record IDs)
+that are sent to the Lambda function must be returned. They must contain the
+following parameters, or Kinesis Data Analytics rejects them and treats it as a data
+preprocessing failure. The data payload part of the record can be transformed to
+accomplish preprocessing requirements.
+
+**Response Data Model**
+
+|             |       |             |      |         |         |      |            |                                                                                                                                                                                                                                                                                                 |
+| ----------- | ----- | ----------- | ---- | ------- | ------- | ---- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| records<br> | Field | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | The record ID is passed from Kinesis Data Analytics to<br>Lambda during the invocation. The transformed<br>record must contain the same record ID. Any<br>mismatch between the ID of the original record and<br>the ID of the transformed record is treated as a<br>data preprocessing failure. | <br> | `result` | The status of the data transformation of<br>the record. The possible values are:<br>• `Ok`: The record was transformed<br>successfully. Kinesis Data Analytics ingests the record for SQL<br>processing.<br>• `Dropped`: The record was dropped<br>intentionally by your processing logic. Kinesis Data Analytics<br>drops the record from SQL processing. The data<br>payload field is optional for a<br>`Dropped` record.<br>• `ProcessingFailed`: The record<br>could not be transformed. Kinesis Data Analytics considers it<br>unsuccessfully processed by your Lambda function<br>and writes an error to the error stream. For more<br>information about the error stream, see [Error Handling](error-handling.md "error-handling.md"). The data payload field<br>is optional for a `ProcessingFailed`<br>record. | <br> | `data` | The transformed data payload, after<br>base64-encoding. Each data payload can contain<br>multiple JSON documents if the application<br>ingestion data format is JSON. Or each can contain<br>multiple CSV rows (with a row delimiter specified<br>in each row) if the application ingestion data<br>format is CSV. The Kinesis Data Analytics service successfully<br>parses and processes data with either multiple<br>JSON documents or CSV rows within the same data<br>payload. |     |
+
+The following example shows output from a Lambda function:
+
+```
+{
+  "records": [
+    {
+      "recordId": "49572672223665514422805246926656954630972486059535892482",
+      "result": "Ok",
+      "data": "SEVMTE8gV09STEQ="
+    }
+  ]
+}
+
+```
+
+## Common Data Preprocessing
+
+Failures
+
+The following are common reasons why preprocessing can fail.
+
+- Not all records (with record IDs) in a batch that are sent to the Lambda
+  function are returned back to the Kinesis Data Analytics service.
+- The response is missing either the record ID, status, or data payload
+  field. The data payload field is optional for a `Dropped` or
+  `ProcessingFailed` record.
+- The Lambda function timeouts are not sufficient to preprocess the
+  data.
+- The Lambda function response exceeds the response limits imposed by the
+  AWS Lambda service.
+
+For data preprocessing failures, Kinesis Data Analytics continues to retry Lambda invocations on the
+same set of records until successful. You can monitor the following CloudWatch metrics to
+gain insight into failures.
+
+- Kinesis Data Analytics application `MillisBehindLatest`: Indicates how far
+  behind an application is reading from the streaming source.
+- Kinesis Data Analytics application `InputPreprocessing` CloudWatch metrics: Indicates
+  the number of successes and failures, among other statistics. For more
+  information, see [Amazon
+  Kinesis Analytics Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md").
+- AWS Lambda function CloudWatch metrics and logs.

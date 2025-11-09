@@ -67,7 +67,24 @@ remove columns, or change column names, data types, or data size.
 Column Names
 
 | Source Stream Column Name | Discovery-Suggested Column Name |
-| ------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ------------------------------- |
 | USER                      | COL_USER                        |
 | USER@DOMAIN               | COL_USERDOMAIN                  |
-| @@                        | COL_0                           | ## Schema Discovery Issues What happens if Kinesis Data Analytics does not infer a schema for a given streaming source? Kinesis Data Analytics infers your schema for common formats, such as CSV and JSON, which are UTF-8 encoded. Kinesis Data Analytics supports any UTF-8 encoded records (including raw text like application logs and records) with a custom column and row delimiter. If Kinesis Data Analytics doesn't infer a schema, you can define a schema manually using the schema editor on the console (or using the API). If your data does not follow a pattern (which you can specify using the schema editor), you can define a schema as a single column of type VARCHAR(N), where N is the largest number of characters you expect your record to include. From there, you can use string and date-time manipulation to structure your data after it is in an in-application stream. For examples, see [Example: Transforming DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md"). |
+| @@                        | COL_0                           |
+
+## Schema Discovery Issues
+
+What happens if Kinesis Data Analytics does not infer a schema for a given streaming source?
+
+Kinesis Data Analytics infers your schema for common formats, such as CSV and JSON, which are UTF-8
+encoded. Kinesis Data Analytics supports any UTF-8 encoded records (including raw text like
+application logs and records) with a custom column and row delimiter. If Kinesis Data Analytics
+doesn't infer a schema, you can define a schema manually using the schema editor on
+the console (or using the API).
+
+If your data does not follow a pattern (which you can specify using the schema
+editor), you can define a schema as a single column of type VARCHAR(N), where N is
+the largest number of characters you expect your record to include. From there, you
+can use string and date-time manipulation to structure your data after it is in an
+in-application stream. For examples, see [Example: Transforming
+DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md").

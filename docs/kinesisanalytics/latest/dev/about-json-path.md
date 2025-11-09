@@ -190,16 +190,93 @@ $.orders[0:].orderId
 The preceding expression returns the following from the preceding JSON record,
 with each data item returned as a separate row.
 
-|          |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 23284    |
-| 63122    |
-| 77284    | ###### Note If expressions that query nonarray elements are included in a schema that queries individual array elements, the nonarray elements are repeated for each element in the array. For example, suppose that a schema for the preceding JSON example includes the following expressions: <br>• $.customerName <br>• $.orders[0:].orderId In this case, the returned data rows from the sample input stream element resemble the following, with the `name` element repeated for every `orderId` element. |
-|          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---      | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| John Doe | 23284                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| John Doe | 63122                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| John Doe | 77284                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | ###### Note The following limitations apply to array expressions in Amazon Kinesis Data Analytics: <br>• Only one level of dereferencing is supported in an array expression. The following expression format is not supported. `` $.`arrayObject`[0:].`element`[0:].`subElement` `` <br>• Only one array can be flattened in a schema. Multiple arrays can be referenced—returned as one row containing all of the elements in the array. However, only one array can have each of its elements returned as individual rows. A schema containing elements in the following format is valid. This format returns the contents of the second array as a single column, repeated for every element in the first array. `` `$.arrayObjectOne`[0:].`element` `$.arrayObjectTwo`[0:] `` A schema containing elements in the following format is not valid. `` `$.arrayObjectOne`[0:].`element` `$.arrayObjectTwo`[0:].`element` `` ## Other Considerations Additional considerations for working with JSONPath are as follows: <br>• If no arrays are accessed by an individual element in the JSONPath expressions in the application schema, then a single row is created in the application's input stream for each JSON record processed. <br>• When an array is flattened (that is, its elements are returned as individual rows), any missing elements result in a null value being created in the in-application stream. <br>• An array is always flattened to at least one row. If no values would be returned (that is, the array is empty or none of its elements are queried), a single row with all null values is returned. The following expression returns records with null values from the preceding JSON example, because there is no matching element at the specified path. `$.orders[0:].itemId` The preceding expression returns the following from the preceding JSON example record. |
-|          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| null     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | null                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| null     | ## Related Topics <br>• [Introducing JSON](http://www.json.org/ "http://www.json.org/")                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|       |
+| ----- |
+| 23284 |
+| 63122 |
+| 77284 |
+
+###### Note
+
+If expressions that query nonarray elements are included in a schema that
+queries individual array elements, the nonarray elements are repeated for
+each element in the array. For example, suppose that a schema for the
+preceding JSON example includes the following expressions:
+
+- $.customerName
+- $.orders[0:].orderId
+  In this case, the returned data rows from the sample input stream element
+  resemble the following, with the `name` element repeated for
+  every `orderId` element.
+
+|          |       |
+| -------- | ----- |
+| John Doe | 23284 |
+| John Doe | 63122 |
+| John Doe | 77284 |
+
+###### Note
+
+The following limitations apply to array expressions in Amazon Kinesis Data Analytics:
+
+- Only one level of dereferencing is supported in an array
+  expression. The following expression format is not supported.
+
+```
+$.`arrayObject`[0:].`element`[0:].`subElement`
+```
+
+- Only one array can be flattened in a schema. Multiple arrays can
+  be referenced—returned as one row containing all of the
+  elements in the array. However, only one array can have each of its
+  elements returned as individual rows.
+
+A schema containing elements in the following format is valid.
+This format returns the contents of the second array as a single
+column, repeated for every element in the first array.
+
+```
+`$.arrayObjectOne`[0:].`element`
+`$.arrayObjectTwo`[0:]
+```
+
+A schema containing elements in the following format is not
+valid.
+
+```
+`$.arrayObjectOne`[0:].`element`
+`$.arrayObjectTwo`[0:].`element`
+```
+
+## Other Considerations
+
+Additional considerations for working with JSONPath are as follows:
+
+- If no arrays are accessed by an individual element in the JSONPath
+  expressions in the application schema, then a single row is created in the application's input stream for each JSON record processed.
+- When an array is flattened (that is, its elements are returned as individual rows), any missing elements result in a null value
+  being created in the in-application stream.
+- An array is always flattened to at least one row. If no values would be
+  returned (that is, the array is empty or none of its elements are queried),
+  a single row with all null values is returned.
+
+The following expression returns records with null values from the
+preceding JSON example, because there is no matching element at the
+specified path.
+
+```
+$.orders[0:].itemId
+```
+
+The preceding expression returns the following from the preceding JSON
+example record.
+
+|      |
+| ---- |
+| null |
+| null |
+| null |
+
+## Related Topics
+
+- [Introducing JSON](http://www.json.org/ "http://www.json.org/")

@@ -101,21 +101,120 @@ output requirements (such as data transformation before sending to a final
 destination).
 
 | Field            | Description                                                        |
-| ---------------- | ------------------------------------------------------------------ |
+| ---------------- | ------------------------------------------------------------------ | ----------- | ---- | ------- | ------- | ---- | ---------- | ----------------------- | ---- | ------------------------------ | --- | ----- | ----------- | ---- | ------- | ------- | ---- | ----------- | -------------------------- | --- | ---- | ---- | --------------------------------------- | --- |
 | `invocationId`   | The Lambda invocation ID (random GUID).                            |
 | `applicationArn` | The Kinesis Data Analytics application Amazon Resource Name (ARN). |
+| records<br>      | Field                                                              | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | record ID (random GUID) | <br> | `lambdaDeliveryRecordMetadata` |     | Field | Description | <br> | --<br>• | --<br>• | <br> | `retryHint` | Number of delivery retries |     | <br> | data | Base64-encoded output record<br>payload |     |
 
-| records
-| Field | Description |
-| --- | --- |
-| `recordId` | record ID (random GUID) |
-| `lambdaDeliveryRecordMetadata` |
-| Field | Description |
-| --- | --- |
-| `retryHint` | Number of delivery retries |
-| | data | Base64-encoded output record payload |
-| ###### Note The `retryHint` is a value that increases for every delivery failure. This value is not durably persisted, and resets if the application is disrupted. ### Record Response Model Each record sent to your Lambda as an output function (with record IDs) must be acknowledged with either `Ok` or `DeliveryFailed`, and it must contain the following parameters. Otherwise, Kinesis Data Analytics treats them as a delivery failure.
-| | | | | | | |
-| --- | --- | --- | --- | --- | --- | --- |
-| records | Field | Description | | --- | --- | | `recordId` | The record ID is passed from Kinesis Data Analytics to Lambda during the invocation. Any mismatch between the ID of the original record and the ID of the acknowledged record is treated as a delivery failure. |
-| `result` | The status of the delivery of the record. The following are possible values: <br>• `Ok`: The record was transformed successfully and sent to the final destination. Kinesis Data Analytics ingests the record for SQL processing. <br>• `DeliveryFailed`: The record was not delivered successfully to the final destination by the Lambda as output function. Kinesis Data Analytics continuously retries sending the delivery failed records to the Lambda as output function. | | ## Lambda Output Invocation Frequency A Kinesis Data Analytics application buffers the output records and invokes the AWS Lambda destination function frequently. <br>• If records are emitted to the destination in-application stream within the data analytics application as a tumbling window, the AWS Lambda destination function is invoked per tumbling window trigger. For example, if a tumbling window of 60 seconds is used to emit the records to the destination in-application stream, the Lambda function is invoked once every 60 seconds. <br>• If records are emitted to the destination in-application stream within the application as a continuous query or a sliding window, the Lambda destination function is invoked about once per second. ###### Note [Per-Lambda function invoke request payload size limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") apply. Exceeding those limits results in output records being split and sent across multiple Lambda function calls. ## Adding a Lambda Function for Use as an Output The following procedure demonstrates how to add a Lambda function as an output for a Kinesis Data Analytics application. 1. Sign in to the AWS Management Console and open the Managed Service for Apache Flink console at [https://console.aws.amazon.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics "https://console.aws.amazon.com/kinesisanalytics"). 2. Choose the application in the list, and then choose **Application details**. 3. In the **Destination** section, choose **Connect new destination**. 4. For the **Destination** item, choose **AWS Lambda function**. 5. In the **Deliver records to AWS Lambda** section, either choose an existing Lambda function and version, or choose **Create new**. 6. If you are creating a new Lambda function, do the following: 1. Choose one of the templates provided. For more information, [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md"). 2. The **Create Function** page opens in a new browser tab. In the **Name** box, give the function a meaningful name (for example, `myLambdaFunction`). 3. Update the template with post-processing functionality for your application. For information about creating a Lambda function, see [Getting Started](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") in the _AWS Lambda Developer Guide_. 4. On the Kinesis Data Analytics console, in the **Lambda function** list, choose the Lambda function that you just created. Choose **$LATEST** for the Lambda function version. 7. In the **In-application stream** section, choose **Choose an existing in-application stream**. For **In-application stream name**, choose your application's output stream. The results from the selected output stream are sent to the Lambda output function. 8. Leave the rest of the form with the default values, and choose **Save and continue**. Your application now sends records from the in-application stream to your Lambda function. You can see the results of the default template in the Amazon CloudWatch console. Monitor the `AWS/KinesisAnalytics/LambdaDelivery.OkRecords` metric to see the number of records being delivered to the Lambda function. ## Common Lambda as Output Failures The following are common reasons why delivery to a Lambda function can fail. <br>• Not all records (with record IDs) in a batch that are sent to the Lambda function are returned to the Kinesis Data Analytics service. <br>• The response is missing either the record ID or the status field. <br>• The Lambda function timeouts are not sufficient to accomplish the business logic within the Lambda function. <br>• The business logic within the Lambda function does not catch all the errors, resulting in a timeout and backpressure due to unhandled exceptions. These are often referred as “poison pill” messages. For data delivery failures, Kinesis Data Analytics continues to retry Lambda invocations on the same set of records until successful. To gain insight into failures, you can monitor the following CloudWatch metrics: <br>• Kinesis Data Analytics application Lambda as Output CloudWatch metrics: Indicates the number of successes and failures, among other statistics. For more information, see [Amazon Kinesis Analytics Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md"). <br>• AWS Lambda function CloudWatch metrics and logs.
+###### Note
+
+The `retryHint` is a value that increases for every delivery
+failure. This value is not durably persisted, and resets if the application
+is disrupted.
+
+### Record Response
+
+Model
+
+Each record sent to your Lambda as an output function (with record IDs) must be
+acknowledged with either `Ok` or `DeliveryFailed`, and it
+must contain the following parameters. Otherwise, Kinesis Data Analytics treats them as a
+delivery failure.
+
+|             |       |             |      |         |         |      |
+| ----------- | ----- | ----------- | ---- | ------- | ------- | ---- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| records<br> | Field | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | The record ID is passed from Kinesis Data Analytics to Lambda<br>during the invocation. Any mismatch between the ID<br>of the original record and the ID of the<br>acknowledged record is treated as a delivery<br>failure. | <br> | `result` | The status of the delivery of the record.<br>The following are possible values:<br>• `Ok`: The record was transformed<br>successfully and sent to the final destination.<br>Kinesis Data Analytics ingests the record for SQL processing.<br>• `DeliveryFailed`: The record was<br>not delivered successfully to the final<br>destination by the Lambda as output function. Kinesis Data Analytics<br>continuously retries sending the delivery failed<br>records to the Lambda as output function. |     |
+
+## Lambda Output Invocation
+
+Frequency
+
+A Kinesis Data Analytics application buffers the output records and invokes the AWS Lambda
+destination function frequently.
+
+- If records are emitted to the destination in-application stream within the
+  data analytics application as a tumbling window, the AWS Lambda destination
+  function is invoked per tumbling window trigger. For example, if a tumbling
+  window of 60 seconds is used to emit the records to the destination
+  in-application stream, the Lambda function is invoked once every 60
+  seconds.
+- If records are emitted to the destination in-application stream within the
+  application as a continuous query or a sliding window, the Lambda destination
+  function is invoked about once per second.
+
+###### Note
+
+[Per-Lambda function invoke request
+payload size limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") apply. Exceeding those limits results in output
+records being split and sent across multiple Lambda function calls.
+
+## Adding a Lambda Function for
+
+Use as an Output
+
+The following procedure demonstrates how to add a Lambda function as an output for
+a Kinesis Data Analytics application.
+
+1. Sign in to the AWS Management Console and open the Managed Service for Apache Flink console at
+   [https://console.aws.amazon.com/kinesisanalytics](https://console.aws.amazon.com/kinesisanalytics "https://console.aws.amazon.com/kinesisanalytics").
+2. Choose the application in the list, and then choose **Application
+   details**.
+3. In the **Destination** section, choose **Connect
+   new destination**.
+4. For the **Destination** item, choose **AWS Lambda
+   function**.
+5. In the **Deliver records to AWS Lambda** section, either
+   choose an existing Lambda function and version, or choose **Create
+   new**.
+6. If you are creating a new Lambda function, do the following:
+   1. Choose one of the templates provided. For more information, [Creating Lambda Functions for
+      Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md").
+   2. The **Create Function** page opens in a new
+      browser tab. In the **Name** box, give the function
+      a meaningful name (for example,
+      `myLambdaFunction`).
+   3. Update the template with post-processing functionality for your
+      application. For information about creating a Lambda function, see
+      [Getting
+      Started](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") in the _AWS Lambda Developer
+      Guide_.
+   4. On the Kinesis Data Analytics console, in the **Lambda function**
+      list, choose the Lambda function that you just created. Choose **$LATEST** for the Lambda function version.
+
+7. In the **In-application stream** section, choose
+   **Choose an existing in-application stream**. For
+   **In-application stream name**, choose your
+   application's output stream. The results from the selected output stream are
+   sent to the Lambda output function.
+8. Leave the rest of the form with the default values, and choose
+   **Save and continue**.
+
+Your application now sends records from the in-application stream to your Lambda
+function. You can see the results of the default template in the Amazon CloudWatch console.
+Monitor the `AWS/KinesisAnalytics/LambdaDelivery.OkRecords` metric to see
+the number of records being delivered to the Lambda function.
+
+## Common Lambda as Output
+
+Failures
+
+The following are common reasons why delivery to a Lambda function can fail.
+
+- Not all records (with record IDs) in a batch that are sent to the Lambda
+  function are returned to the Kinesis Data Analytics service.
+- The response is missing either the record ID or the status field.
+- The Lambda function timeouts are not sufficient to accomplish the business
+  logic within the Lambda function.
+- The business logic within the Lambda function does not catch all the
+  errors, resulting in a timeout and backpressure due to unhandled exceptions.
+  These are often referred as “poison pill” messages.
+
+For data delivery failures, Kinesis Data Analytics continues to retry Lambda invocations on the same
+set of records until successful. To gain insight into failures, you can monitor the
+following CloudWatch metrics:
+
+- Kinesis Data Analytics application Lambda as Output CloudWatch metrics: Indicates the number of
+  successes and failures, among other statistics. For more information, see
+  [Amazon Kinesis
+  Analytics Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md").
+- AWS Lambda function CloudWatch metrics and logs.

@@ -64,5 +64,192 @@ These resources have unique Amazon Resource Names (ARNs)
 associated with them, as shown in the following table.
 
 | Resource Type | ARN Format                                                                      |
-| ------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Application   | `arn:aws:kinesisanalytics:`region`:`account-id`:application/`application-name`` | provides a set of operations to work with resources. For a list of available operations, see [Actions](API_Operations.md "API_Operations.md"). ## Understanding Resource Ownership The AWS account owns the resources that are created in the account, regardless of who created the resources. Specifically, the resource owner is the AWS account of the [principal entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") (that is, the root account, a user, or an IAM role) that authenticates the resource creation request. The following examples illustrate how this works: <br>• If you use the root account credentials of your AWS account to create an application, your AWS account is the owner of the resource. (In , the resource is an application.) <br>• If you create a user in your AWS account and grant permissions to create an application to that user, the user can create an application. However, your AWS account, to which the user belongs, owns the application resource. We strongly recommend you grant permissions to roles and not users. <br>• If you create an IAM role in your AWS account with permissions to create an application, anyone who can assume the role can create an application. Your AWS account, to which the user belongs, owns the application resource. ## Managing Access to Resources A _permissions policy_ describes who has access to what. The following section explains the available options for creating permissions policies. ###### Note This section discusses using IAM in the context of . It doesn't provide detailed information about the IAM service. For complete IAM documentation, see [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_. For information about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_. Policies that are attached to an IAM identity are referred to as _identity-based_ policies (IAM policies). Policies that are attached to a resource are referred to as _resource-based_ policies. supports only identity-based policies (IAM policies). ###### Topics <br>• [Identity-Based Policies (IAM Policies)](#manage-access-iam-policies "#manage-access-iam-policies") <br>• [Resource-Based Policies](#manage-access-resource-policies "#manage-access-resource-policies") ### Identity-Based Policies (IAM Policies) You can attach policies to IAM identities. For example, you can do the following: <br>• **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an resource, such as an application, you can attach a permissions policy to a user or group that the user belongs to. <br>• **Attach a permissions policy to a role (grant cross-account permissions)** – You can attach an identity-based permissions policy to an IAM role to grant cross-account permissions. For example, the administrator in account A can create a role to grant cross-account permissions to another AWS account (for example, account B) or an Amazon service as follows: 1. Account A administrator creates an IAM role and attaches a permissions policy to the role that grants permissions on resources in account A. 2. Account A administrator attaches a trust policy to the role identifying account B as the principal who can assume the role. 3. Account B administrator can then delegate permissions to assume the role to any users in account B. Doing this allows users in account B to create or access resources in account A. The principal in the trust policy can also be an Amazon service principal if you want to grant an Amazon service permissions to assume the role. For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_. The following is an example policy that grants permission for the `kinesisanalytics:CreateApplication` action, which is required to create an application. ###### Note This is an introductory example policy. When you attach the policy to the user, the user will be able to create an application using the AWS CLI or AWS SDK. But the user will need more permissions to configure input and output. In addition, the user will need more permissions when using the console. The later sections provide more information. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "Stmt1473028104000", "Effect": "Allow", "Action": [ "kinesisanalytics:CreateApplication" ], "Resource": [ "*" ] } ] }` `` For more information about using identity-based policies with , see [Using Identity-Based Policies (IAM Policies) for](using-identity-based-policies.md "using-identity-based-policies.md") . For more information about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_. ### Resource-Based Policies Other services, such as Amazon S3, also support resource-based permissions policies. For example, you can attach a policy to an S3 bucket to manage access permissions to that bucket. doesn't support resource-based policies. ## Specifying Policy Elements: Actions, Effects, and Principals For each resource, the service defines a set of API operations. To grant permissions for these API operations, defines a set of actions that you can specify in a policy. Some API operations can require permissions for more than one action in order to perform the API operation. For more information about resources and API operations, see [Resources and Operations](#access-control-resources "#access-control-resources") and [Actions](API_Operations.md "API_Operations.md"). The following are the most basic policy elements: <br>• **Resource** – You use an Amazon Resource Name (ARN) to identify the resource that the policy applies to. For more information, see [Resources and Operations](#access-control-resources "#access-control-resources"). <br>• **Action** – You use action keywords to identify resource operations that you want to allow or deny. For example, you can use `create` to allow users to create an application. <br>• **Effect** – You specify the effect, either allow or deny, when the user requests the specific action. If you don't explicitly grant access to (allow) a resource, access is implicitly denied. You can also explicitly deny access to a resource, which you might do to make sure that a user cannot access it, even if a different policy grants access. <br>• **Principal** – In identity-based policies (IAM policies), the user that the policy is attached to is the implicit principal. For resource-based policies, you specify the user, account, service, or other entity that you want to receive permissions (applies to resource-based policies only). doesn't support resource-based policies. To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_. For a table showing all of the API operations and the resources that they apply to, see [API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md"). ## Specifying Conditions in a Policy When you grant permissions, you can use the access policy language to specify the conditions when a policy should take effect. For example, you might want a policy to be applied only after a specific date. For more information about specifying conditions in a policy language, see [Condition](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition") in the _IAM User Guide_. To express conditions, you use predefined condition keys. There are no condition keys specific to . However, there are AWS-wide condition keys that you can use as appropriate. For a complete list of AWS-wide keys, see [Available Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_. |
+| ------------- | ------------------------------------------------------------------------------- |
+| Application   | `arn:aws:kinesisanalytics:`region`:`account-id`:application/`application-name`` |
+
+provides a set of operations to work with resources. For a
+list of available operations, see [Actions](API_Operations.md "API_Operations.md").
+
+## Understanding Resource Ownership
+
+The AWS account owns the resources that are created in the account, regardless
+of who created the resources. Specifically, the resource owner is the AWS account of the
+[principal entity](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md")
+(that is, the root account, a user, or an IAM role) that authenticates
+the resource creation request. The following examples illustrate how this works:
+
+- If you use the root account credentials of your AWS account to create an
+  application, your AWS account is the owner of the resource. (In ,
+  the resource is an application.)
+- If you create a user in your AWS account and grant permissions to
+  create an application to that user, the user can create
+  an application. However, your AWS account, to which the
+  user belongs, owns the application resource. We strongly recommend you grant permissions to roles and not users.
+- If you create an IAM role in your AWS account with permissions to
+  create an application, anyone who can assume the role can create
+  an application. Your AWS account, to which the user belongs,
+  owns the application resource.
+
+## Managing Access to Resources
+
+A _permissions policy_ describes who has access to what. The
+following section explains the available options for creating permissions
+policies.
+
+###### Note
+
+This section discusses using IAM in the context of . It doesn't
+provide detailed information about the IAM service. For complete IAM
+documentation, see [What Is
+IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_. For information
+about IAM policy syntax and descriptions, see [IAM JSON Policy
+Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
+
+Policies that are attached to an IAM identity are referred to as
+_identity-based_ policies (IAM policies). Policies that are
+attached to a resource are referred to as _resource-based_
+policies. supports only identity-based policies (IAM policies).
+
+###### Topics
+
+- [Identity-Based Policies (IAM
+  Policies)](#manage-access-iam-policies "#manage-access-iam-policies")
+- [Resource-Based Policies](#manage-access-resource-policies "#manage-access-resource-policies")
+
+### Identity-Based Policies (IAM
+
+Policies)
+
+You can attach policies to IAM identities. For example, you can do the following:
+
+- **Attach a permissions policy to a user or a group
+  in your account** – To grant a user permissions to create an
+  resource, such as an application, you
+  can attach a permissions policy to a user or group that the user belongs to.
+- **Attach a permissions policy to a role
+  (grant cross-account permissions)** – You can attach an
+  identity-based permissions policy to an IAM role to grant cross-account
+  permissions. For example, the administrator in account A can create a
+  role to grant cross-account permissions to another AWS account (for
+  example, account B) or an Amazon service as follows:
+
+      1. Account A administrator creates an IAM role and attaches a
+       permissions policy to the role that grants permissions on
+       resources in account A.
+      2. Account A administrator attaches a trust policy to the role
+       identifying account B as the principal who can assume the role.
+      3. Account B administrator can then delegate permissions to
+       assume the role to any users in account B. Doing this allows
+       users in account B to create or access resources in account A.
+       The principal in the trust policy can also be an Amazon service
+       principal if you want to grant an Amazon service permissions to
+       assume the role.
+
+  For more information about using IAM to delegate permissions, see
+  [Access
+  Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_.
+
+The following is an example policy that grants permission for the
+`kinesisanalytics:CreateApplication` action, which is required to
+create an application.
+
+###### Note
+
+This is an introductory example policy. When you attach the policy to the
+user, the user will be able to create an application using the AWS CLI or
+AWS SDK. But the user will need more permissions to configure input and
+output. In addition, the user will need more permissions when using the
+console. The later sections provide more information.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Stmt1473028104000",
+ "Effect": "Allow",
+ "Action": [
+ "kinesisanalytics:CreateApplication"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```
+
+For more information about using identity-based policies with ,
+see [Using Identity-Based Policies (IAM
+Policies) for](using-identity-based-policies.md "using-identity-based-policies.md") . For more
+information about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
+the _IAM User Guide_.
+
+### Resource-Based Policies
+
+Other services, such as Amazon S3, also support resource-based permissions
+policies. For example, you can attach a policy to an S3 bucket to manage access
+permissions to that bucket. doesn't support resource-based
+policies.
+
+## Specifying Policy Elements:
+
+Actions, Effects, and Principals
+
+For each resource, the service defines a set of API operations. To grant
+permissions for these API operations, defines a set of actions that you
+can specify in a policy. Some API operations can require permissions for more than
+one action in order to perform the API operation. For more information about
+resources and API operations, see [Resources and
+Operations](#access-control-resources "#access-control-resources") and [Actions](API_Operations.md "API_Operations.md").
+
+The following are the most basic policy elements:
+
+- **Resource** –
+  You use an Amazon Resource Name (ARN) to identify the resource
+  that the policy applies to. For more information, see
+  [Resources and
+  Operations](#access-control-resources "#access-control-resources").
+- **Action** – You use action
+  keywords to identify resource operations that you want to allow or deny.
+  For example, you can use `create` to
+  allow users to create an application.
+- **Effect** – You
+  specify the effect, either allow or deny, when the user requests the specific action.
+  If you don't explicitly grant access to (allow) a
+  resource, access is implicitly denied. You can also explicitly deny access to a resource,
+  which you might do to make sure that a user cannot access it, even if a
+  different policy grants access.
+- **Principal** – In identity-based
+  policies (IAM policies), the user that the policy is attached to is the
+  implicit principal. For resource-based policies, you specify the user,
+  account, service, or other entity that you want to receive permissions
+  (applies to resource-based policies only). doesn't support
+  resource-based policies.
+
+To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in
+the _IAM User Guide_.
+
+For a table
+
+showing all of the API operations and the resources that they apply to,
+see [API Permissions: Actions,
+Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+
+## Specifying Conditions in a
+
+Policy
+
+When you grant permissions, you can use the access policy language to specify the
+conditions when a policy should take effect. For example, you might want a policy to
+be applied only after a specific date. For more information about specifying
+conditions in a policy language, see [Condition](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition")
+in the _IAM User Guide_.
+
+To express conditions, you use predefined condition keys. There are no condition
+keys specific to . However, there are AWS-wide condition keys that you
+can use as appropriate. For a complete list of AWS-wide keys, see [Available
+Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.
