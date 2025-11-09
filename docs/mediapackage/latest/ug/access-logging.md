@@ -229,14 +229,32 @@ debug log data.
 
 Use this query to view the responses by HTTP status code for a channel. You can use this to view HTTP error code responses to help you to troubleshoot issues.
 
-````
+```
 fields @timestamp, @message
 | filter `channelId` like `'my-channel'`
-| stats count() by statusCode ``` ###### Example Get the number of requests per endpoint on a channel. ``` fields @timestamp, @message
+| stats count() by statusCode
+```
+
+###### Example Get the number of requests per endpoint on a channel.
+
+```
+fields @timestamp, @message
 | filter `channelId` like `'my-channel'`
-| stats count() by `endpointId` ``` ###### Example View status codes per asset. ``` fields @timestamp, @message
+| stats count() by `endpointId`
+```
+
+###### Example View status codes per asset.
+
+```
+fields @timestamp, @message
 | filter assetArnlike `'my-asset-id'`
-| stats count() by statusCode ``` ###### Example Get the P99 response times for a packaging configuration over time ``` fields @timestamp, @message
+| stats count() by statusCode
+```
+
+###### Example Get the P99 response times for a packaging configuration over time
+
+```
+fields @timestamp, @message
 | filter packagingConfigArn like `'my-dash-config'`
-| stats pct(processingTime, 99) by bin(5m) ```
-````
+| stats pct(processingTime, 99) by bin(5m)
+```
