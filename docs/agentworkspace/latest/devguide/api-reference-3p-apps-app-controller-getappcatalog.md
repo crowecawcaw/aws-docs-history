@@ -21,13 +21,20 @@ const applications: AppConfig[] = await appControllerClient.getAppCatalog();
 
 **Output - AppConfig**
 
-| **Parameter**         | **Type**    | **Description**                                                                       |
-| --------------------- | ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------- |
-| arn                   | string      | The AmazonResourceName(ARN) of the application                                        |
-| namespace             | string      | The immutable application namespace used at the time of registration                  |
-| id                    | string      | The unique identifier of the application                                              |
-| name                  | string      | Name of the application                                                               |
-| description           | string      | Description of the application                                                        |
-| accessUrl             | string      | URL to access the application                                                         |
-| initializationTimeout | number      | The maximum time allowed in milliseconds to establish a connection with the workspace |
-| contactHandling.scope | PER_CONTACT | CROSS_CONTACTS                                                                        | Indicates whether the application refreshes for each contact | **Permissions required:** `*` |
+| **Parameter**         | **Type**    | **Description**                                                                          |
+| --------------------- | ----------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| arn                   | string      | The AmazonResourceName(ARN) of the application                                           |
+| namespace             | string      | The immutable application namespace used at the time of<br>registration                  |
+| id                    | string      | The unique identifier of the application                                                 |
+| name                  | string      | Name of the application                                                                  |
+| description           | string      | Description of the application                                                           |
+| accessUrl             | string      | URL to access the application                                                            |
+| initializationTimeout | number      | The maximum time allowed in milliseconds to establish a<br>connection with the workspace |
+| contactHandling.scope | PER_CONTACT | CROSS_CONTACTS                                                                           | Indicates whether the application refreshes for each<br>contact |
+
+**Permissions required:**
+
+```
+
+*
+```

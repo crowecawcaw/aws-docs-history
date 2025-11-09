@@ -28,7 +28,14 @@ await contactClient.transfer(AppContactScope.CurrentContactId, quickConnect);
 
 **Input**
 
-| **Parameter**           | **Type**     | **Description**                                                                                                                          |
-| ----------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| contactId _Required_    | string       | The id of the contact to which a participant needs to be added. Use `AppContactScope.CurrentContactId` to represent the current contact. |
-| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect                                                                                        | **Permissions required:** `Contact.Details.Edit` |
+| **Parameter**           | **Type**     | **Description**                                                                                                                                |
+| ----------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| contactId _Required_    | string       | The id of the contact to which a participant needs to be added.<br>Use `AppContactScope.CurrentContactId` to represent<br>the current contact. |
+| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect                                                                                              |
+
+**Permissions required:**
+
+```
+Contact.Details.Edit
+
+```

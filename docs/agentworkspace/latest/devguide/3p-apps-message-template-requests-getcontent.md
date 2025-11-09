@@ -40,18 +40,24 @@ attributes in the message template
 
 **MessageTemplateContent Properties**
 
-| **Parameter**             | **Type**                    | **Description**                                                                                                                                                                     |
-| ------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| subject                   | string                      | Message subject populated in the template                                                                                                                                           |
-| body                      | MessageTemplateBody         | Message body content populated in the template. This can include plainText or html or both                                                                                          |
-| attachments               | MessageTemplateAttachment[] | Attachments populated in the template                                                                                                                                               |
-| attributesNotInterpolated | string[]                    | List of attributes that were not automatically populated in the message template. If all attributes were automatically populated, this list will be empty                           | **MessageTemplateBody Properties**       |
-| **Parameter**             | **Type**                    | **Description**                                                                                                                                                                     |
-| ---                       | ---                         | ---                                                                                                                                                                                 |
-| plainText                 | string                      | Plain text content of the message template as a string. It is possible for both the plain text and html to be populated, or for only the plain text or html content to be populated |
-| html                      | string                      | HTML content of the message template as a string                                                                                                                                    | **MessageTemplateAttachment Properties** |
-| **Parameter**             | **Type**                    | **Description**                                                                                                                                                                     |
-| ---                       | ---                         | ---                                                                                                                                                                                 |
-| fileName                  | string                      | Name of the attachment                                                                                                                                                              |
-| fileId                    | string                      | ID of the attachment                                                                                                                                                                |
-| downloadUrl               | string                      | URL to download the attachment from                                                                                                                                                 |
+| **Parameter**             | **Type**                    | **Description**                                                                                                                                                 |
+| ------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| subject                   | string                      | Message subject populated in the template                                                                                                                       |
+| body                      | MessageTemplateBody         | Message body content populated in the template. This can include<br>plainText or html or both                                                                   |
+| attachments               | MessageTemplateAttachment[] | Attachments populated in the template                                                                                                                           |
+| attributesNotInterpolated | string[]                    | List of attributes that were not automatically populated in the<br>message template. If all attributes were automatically populated,<br>this list will be empty |
+
+**MessageTemplateBody Properties**
+
+| **Parameter** | **Type** | **Description**                                                                                                                                                                           |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| plainText     | string   | Plain text content of the message template as a string. It is<br>possible for both the plain text and html to be populated, or for<br>only the plain text or html content to be populated |
+| html          | string   | HTML content of the message template as a string                                                                                                                                          |
+
+**MessageTemplateAttachment Properties**
+
+| **Parameter** | **Type** | **Description**                     |
+| ------------- | -------- | ----------------------------------- |
+| fileName      | string   | Name of the attachment              |
+| fileId        | string   | ID of the attachment                |
+| downloadUrl   | string   | URL to download the attachment from |

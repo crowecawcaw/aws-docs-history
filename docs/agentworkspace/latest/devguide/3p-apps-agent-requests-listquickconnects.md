@@ -25,12 +25,22 @@ const quickConnects: ListQuickConnectsResult = await agentClient.listQuickConnec
 
 **Input**
 
-| **Parameter**        | **Type**       | **Description**                                                                                                                                                             |
-| -------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| queueARNs _Required_ | string         | string[]                                                                                                                                                                    | One or more Queue ARNs for which the Queue Connects need to be retrieved |
-| options.maxResults   | number         | The maximum number of results to return per page. The default value is 500                                                                                                  |
-| options.nextToken    | string         | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.                             | **Output - ListQuickConnectsResult**                                     |
-| **Parameter**        | **Type**       | **Description**                                                                                                                                                             |
-| ---                  | ---            | ---                                                                                                                                                                         |
-| quickConnects        | QuickConnect[] | Its either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber |
-| nextToken            | string         | If there are additional results, this is the token for the next set of results.                                                                                             | **Permissions required:** `User.Configuration.View`                      |
+| **Parameter**        | **Type** | **Description**                                                                                                                                       |
+| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| queueARNs _Required_ | string   | string[]                                                                                                                                              | One or more Queue ARNs for which the Queue Connects need to be<br>retrieved |
+| options.maxResults   | number   | The maximum number of results to return per page. The default<br>value is 500                                                                         |
+| options.nextToken    | string   | The token for the next set of results. Use the value returned in<br>the previous response in the next request to retrieve the next set<br>of results. |
+
+**Output - ListQuickConnectsResult**
+
+| **Parameter** | **Type**       | **Description**                                                                                                                                                                   |
+| ------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| quickConnects | QuickConnect[] | Its either AgentQuickConnect or QueueQuickConnect or<br>PhoneNumberQuickConnect which contains endpointARN and name.<br>Additionally PhoneNumberQuickConnect contains phoneNumber |
+| nextToken     | string         | If there are additional results, this is the token for the next<br>set of results.                                                                                                |
+
+**Permissions required:**
+
+```
+User.Configuration.View
+
+```

@@ -15,17 +15,36 @@ getAttachedFileUrl({ attachment, activeContactId }: { attachment: Attachment; ac
 
 **DownloadableAttachment Properties**
 
-| **Parameter**         | **Type**   | **Description**                                                                                                                                                    |
-| --------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| associatedResourceArn | string     | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN                                        |
-| fileId                | string     | The unique identifier of the attached file resource.                                                                                                               |
-| downloadUrl           | string     | A pre-signed URL that should be used to download the attached file.                                                                                                |
-| fileArn               | string     | The unique identifier of the attached file resource (ARN).                                                                                                         |
-| fileName              | string     | A case-sensitive name of the attached file being uploaded.                                                                                                         |
-| fileStatus            | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "FAILED"                                                          |
-| fileSizeInBytes       | number     | The size of the attached file in bytes.                                                                                                                            |
-| creationTime          | string     | The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2024-05-03T02:41:28.172Z. | **Attachment Properties**                                                                                                                                                                                                                                                                                                                                                                     |
-| **Parameter**         | **Type**   | **Description**                                                                                                                                                    |
-| ---                   | ---        | ---                                                                                                                                                                |
-| associatedResourceArn | string     | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN                                        |
-| fileId                | string     | The unique identifier of the attached file resource.                                                                                                               | **Usage** `const downloadableAttachment = await fileClient.getAttachedFileUrl({ attachment: { associatedResourceArn: sampleAssociatedResourceArn, fileId: sampleFileId, }, activeContactId: sampleActiveContactId, // The contact the agent is actively handling }); const { downloadUrl } = downloadableAttachment; const response: Response = await fetch(downloadUrl, { method: "GET" });` |
+| **Parameter**         | **Type**   | **Description**                                                                                                                                                          |
+| --------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| associatedResourceArn | string     | Amazon Connect ARN of the resource that the file is attached to.<br>Could be a Connect Email Contact ARN or a Connect Case ARN                                           |
+| fileId                | string     | The unique identifier of the attached file resource.                                                                                                                     |
+| downloadUrl           | string     | A pre-signed URL that should be used to download the attached<br>file.                                                                                                   |
+| fileArn               | string     | The unique identifier of the attached file resource<br>(ARN).                                                                                                            |
+| fileName              | string     | A case-sensitive name of the attached file being<br>uploaded.                                                                                                            |
+| fileStatus            | FileStatus | The current status of the attached file. Supported values:<br>"APPROVED", "REJECTED", "PROCESSING", "FAILED"                                                             |
+| fileSizeInBytes       | number     | The size of the attached file in bytes.                                                                                                                                  |
+| creationTime          | string     | The time of Creation of the file resource as an ISO timestamp.<br>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For<br>example, 2024-05-03T02:41:28.172Z. |
+
+**Attachment Properties**
+
+| **Parameter**         | **Type** | **Description**                                                                                                                |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| associatedResourceArn | string   | Amazon Connect ARN of the resource that the file is attached to.<br>Could be a Connect Email Contact ARN or a Connect Case ARN |
+| fileId                | string   | The unique identifier of the attached file resource.                                                                           |
+
+**Usage**
+
+```
+
+const downloadableAttachment = await fileClient.getAttachedFileUrl({
+  attachment: {
+    associatedResourceArn: sampleAssociatedResourceArn,
+    fileId: sampleFileId,
+  },
+  activeContactId: sampleActiveContactId, // The contact the agent is actively handling
+});
+
+const { downloadUrl } = downloadableAttachment;
+const response: Response = await fetch(downloadUrl, { method: "GET" });
+```

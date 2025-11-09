@@ -28,10 +28,20 @@ const addParticipantResult: AddParticipantResult = await contactClient.addPartic
 
 **Input**
 
-| **Parameter**           | **Type**     | **Description**                                                                                                                                                             |
-| ----------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| contactId _Required_    | string       | The id of the contact to which a participant needs to be added. Use AppContactScope.CurrentContactId to reperesent current contact.                                         |
-| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber | **Output - AddParticipantResult**                |
-| **Parameter**           | **Type**     | **Description**                                                                                                                                                             |
-| ---                     | ---          | ---                                                                                                                                                                         |
-| participantId           | string       | The id of the newly added participant                                                                                                                                       | **Permissions required:** `Contact.Details.Edit` |
+| **Parameter**           | **Type**     | **Description**                                                                                                                                                                   |
+| ----------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contactId _Required_    | string       | The id of the contact to which a participant needs to be added.<br>Use AppContactScope.CurrentContactId to reperesent current<br>contact.                                         |
+| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect or<br>PhoneNumberQuickConnect which contains endpointARN and name.<br>Additionally PhoneNumberQuickConnect contains phoneNumber |
+
+**Output - AddParticipantResult**
+
+| **Parameter** | **Type** | **Description**                       |
+| ------------- | -------- | ------------------------------------- |
+| participantId | string   | The id of the newly added participant |
+
+**Permissions required:**
+
+```
+Contact.Details.Edit
+
+```

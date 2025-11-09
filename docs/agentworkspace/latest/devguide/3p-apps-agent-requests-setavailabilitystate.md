@@ -25,11 +25,21 @@ const availabilityStateResult:SetAvailabilityStateResult **=** await agentClient
 
 **Input**
 
-| **Parameter**            | **Type**   | **Description**                                                                                             |
-| ------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| agentStateARN _Required_ | string     | The ARN of the agent state                                                                                  | **Output - SetAvailabilityStateResult**             |
-| **Parameter**            | **Type**   | **Description**                                                                                             |
-| ---                      | ---        | ---                                                                                                         |
-| status                   | string     | The status will be `updated` or `queued` depending on if the agent is currently handling an active contact. |
-| current                  | AgentState | Reperesents the current state of the agent.                                                                 |
-| next                     | AgentState | It'll be the target state if the agent is handling active contact. Applicable when the status is `queued`.  | **Permissions required:** `User.Configuration.Edit` |
+| **Parameter**            | **Type** | **Description**            |
+| ------------------------ | -------- | -------------------------- |
+| agentStateARN _Required_ | string   | The ARN of the agent state |
+
+**Output - SetAvailabilityStateResult**
+
+| **Parameter** | **Type**   | **Description**                                                                                                |
+| ------------- | ---------- | -------------------------------------------------------------------------------------------------------------- |
+| status        | string     | The status will be `updated` or `queued`<br>depending on if the agent is currently handling an active contact. |
+| current       | AgentState | Reperesents the current state of the agent.                                                                    |
+| next          | AgentState | It'll be the target state if the agent is handling active<br>contact. Applicable when the status is `queued`.  |
+
+**Permissions required:**
+
+```
+User.Configuration.Edit
+
+```

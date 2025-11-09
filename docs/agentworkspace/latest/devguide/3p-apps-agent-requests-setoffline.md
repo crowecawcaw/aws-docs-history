@@ -21,8 +21,15 @@ const availabilityStateResult: SetAvailabilityStateResult = await agentClient.se
 
 **Output - SetAvailabilityStateResult**
 
-| **Parameter** | **Type**   | **Description**                                                                                             |
-| ------------- | ---------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| status        | string     | The status will be `updated` or `queued` depending on if the agent is currently handling an active contact. |
-| current       | AgentState | Represents the current state of the agent.                                                                  |
-| next          | AgentState | It'll be the target state if the agent is handling active contact. Applicable when the status is `queued`.  | **Permissions required:** `User.Configuration.Edit` |
+| **Parameter** | **Type**   | **Description**                                                                                                   |
+| ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| status        | string     | The status will be `updated` or `queued`<br>depending on if the agent is currently handling an active<br>contact. |
+| current       | AgentState | Represents the current state of the agent.                                                                        |
+| next          | AgentState | It'll be the target state if the agent is handling active<br>contact. Applicable when the status is `queued`.     |
+
+**Permissions required:**
+
+```
+User.Configuration.Edit
+
+```

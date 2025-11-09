@@ -22,7 +22,14 @@ const dialableCountries:DialableCountry[] = await voiceClient.listDialableCountr
 **Output - _DialableCountry_**
 
 | **Parameter** | **Type** | **Description**                  |
-| ------------- | -------- | -------------------------------- | --------------------------------------------------- |
+| ------------- | -------- | -------------------------------- |
 | countryCode   | string   | The ISO country code             |
 | callingCode   | string   | The calling code for the country |
-| label         | string   | The name of the country          | **Permissions required:** `User.Configuration.View` |
+| label         | string   | The name of the country          |
+
+**Permissions required:**
+
+```
+User.Configuration.View
+
+```

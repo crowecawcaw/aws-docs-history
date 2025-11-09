@@ -22,5 +22,12 @@ await appControllerClient.closeApp(appInstanceId);
 **Input**
 
 | **Parameter**            | **Type** | **Description**                    |
-| ------------------------ | -------- | ---------------------------------- | ----------------------------- |
-| appInstanceId _Required_ | string   | The instance ID of the application | **Permissions required:** `*` |
+| ------------------------ | -------- | ---------------------------------- |
+| appInstanceId _Required_ | string   | The instance ID of the application |
+
+**Permissions required:**
+
+```
+
+*
+```

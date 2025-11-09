@@ -21,6 +21,13 @@ const initialCustomerPhoneNumber: string = await voiceClient.getInitialCustomerP
 
 **Input**
 
-| **Parameter**        | **Type** | **Description**                                                                                                                 |
-| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| contactId _Required_ | string   | The id of the contact for which the data is requested. Use `AppContactScope.CurrentContactId` to represent the current contact. | **Permissions required:** `Contact.CustomerDetails.View` |
+| **Parameter**        | **Type** | **Description**                                                                                                                       |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| contactId _Required_ | string   | The id of the contact for which the data is requested. Use<br>`AppContactScope.CurrentContactId` to represent<br>the current contact. |
+
+**Permissions required:**
+
+```
+Contact.CustomerDetails.View
+
+```
