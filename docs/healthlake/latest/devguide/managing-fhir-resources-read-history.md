@@ -36,6 +36,134 @@ GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resour
 HealthLake supported search parameters for FHIR `history`
 interaction| Parameter | Description |
 | --- | --- |
-| `_count : integer` | The maximum number of search results on a page. The server will return the number requested or the maximum number of search results allowed by default for the data store, whichever is lower. |
-| `_since : instant` | Only include resource versions that were created at or after the given instant in time. |
-| `_at : date(Time)` | Only include resource versions that were current at some point during the time period specified in the date time value. For more information, see [`date`](https://www.hl7.org/fhir/R4/search.html#date "https://www.hl7.org/fhir/R4/search.html#date") in the _HL7 FHIR RESTful API documentation_. | 4. Send the request. The FHIR `history` interaction uses a `GET` request with either [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") or SMART on FHIR authorization. The following `curl` example uses the `_count` search parameter to return 100 historical search results per page for a FHIR `Patient` resource in HealthLake. To view the entire example, scroll over the **Copy** button. SigV4 SigV4 authorization ``curl --request GET \ 'https://healthlake.`region`.amazonaws.com/datastore/`datastore-id`/r4/Patient/`id`/_history?_count=100' \ --aws-sigv4 'aws:amz:`region`:healthlake' \ --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \ --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \ --header 'Accept: application/json'`` SMART on FHIR SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") data type. `{ "AuthorizationStrategy": "SMART_ON_FHIR", "FineGrainedAuthorizationEnabled": true, "IdpLambdaArn": "arn:aws:lambda:your-region:your-account-id:function:your-lambda-name", "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\",\"permission-v2\"]}" }` The caller can assign permissions in the authorization lambda. For more information, see [OAuth 2.0 scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md"). The return content of a `history` interaction is contained in a FHIR resource `Bundle`, with type set to `history`. It contains the specified version history, sorted with oldest versions last, and includes deleted resources. For more information, see [`Resource Bundle`](https://hl7.org/fhir/R4/bundle.html "https://hl7.org/fhir/R4/bundle.html") in the **FHIR R4 documentation**. ## Reading version-specific FHIR resource history The FHIR `vread` interaction performs a version-specific read of a resource in a HealthLake data store. Using this interaction, you can view the contents of a FHIR resource as it was at a particular time in the past. ###### Note If you use FHIR `history` interaction _without_ `vread`, HealthLake always returns the latest version of the resource's metadata. HealthLake declares it support for versioning in [`CapabilityStatement.rest.resource.versioning`](https://hl7.org/fhir/R4/capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning "https://hl7.org/fhir/R4/capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning") for each supported resource. All HealthLake data stores include `Resource.meta.versionId` (`vid`) on all resources. When FHIR `history` interaction is enabled (by default for data stores created after 10/25/2024 or by request for older data stores), the `Bundle` response includes the `vid` as part of the [`location`](https://hl7.org/fhir/R4/bundle-definitions.html#Bundle.entry.response.location "https://hl7.org/fhir/R4/bundle-definitions.html#Bundle.entry.response.location") element. In the following example, the `vid` displays as the number `1`. To view the full example, see [Example Bundle/bundle-response (JSON)](https://build.fhir.org/bundle-response.json.html "https://build.fhir.org/bundle-response.json.html"). `"response" : { "status" : "201 Created", "location" : "Patient/12423/_history/1", ...}` ###### To read version-specific FHIR resource history 1. Collect HealthLake `region` and `datastoreId` values. For more information, see [Getting data store properties](managing-data-stores-describe.md "managing-data-stores-describe.md"). 2. Determine the FHIR `Resource` type to read and collect associated `id` and `vid` values. For more information, see [Resource types](reference-fhir-resource-types.md "reference-fhir-resource-types.md"). 3. Construct a URL for the request using the values collected for HealthLake and FHIR. To view the entire URL path in the following example, scroll over the **Copy** button. `` GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id`/_history/`vid` `` 4. Send the request. The FHIR `history` interaction uses a `GET` request with either [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") or SMART on FHIR authorization. The following `vread` interaction returns a single instance with the content specified for the FHIR `Patient` resource for the version of the resource metadata specified by the `vid`. To view the entire URL path in the following example, scroll over the **Copy** button. SigV4 SigV4 authorization ``curl --request GET \ 'https://healthlake.`region`.amazonaws.com/datastore/`datastore-id`/r4/Patient/`id`/_history/`vid`' \ --aws-sigv4 'aws:amz:`region`:healthlake' \ --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \ --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \ --header 'Accept: application/json'`` SMART on FHIR SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") data type. `{ "AuthorizationStrategy": "SMART_ON_FHIR", "FineGrainedAuthorizationEnabled": true, "IdpLambdaArn": "arn:aws:lambda:your-region:your-account-id:function:your-lambda-name", "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\",\"permission-v2\"]}" }` The caller can assign permissions in the authorization lambda. For more information, see [OAuth 2.0 scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md").
+| `_count : integer` | The maximum number of search results on a page. The server will<br>return the number requested or the maximum number of search results<br>allowed by default for the data store, whichever is lower. |
+| `_since : instant` | Only include resource versions that were created at or after the<br>given instant in time. |
+| `_at : date(Time)` | Only include resource versions that were current at some point<br>during the time period specified in the date time value. For more<br>information, see [`date`](https://www.hl7.org/fhir/R4/search.html#date "https://www.hl7.org/fhir/R4/search.html#date") in the _HL7 FHIR RESTful<br>API documentation_. | 4. Send the request. The FHIR `history` interaction uses a
+`GET` request with either [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md")
+or SMART on FHIR authorization. The following `curl` example uses the
+`_count` search parameter to return 100 historical search results per
+page for a FHIR `Patient` resource in HealthLake. To view the entire
+example, scroll over the **Copy** button.
+
+SigV4
+SigV4 authorization
+
+```
+curl --request GET \
+  'https://healthlake.`region`.amazonaws.com/datastore/`datastore-id`/r4/Patient/`id`/_history?_count=100' \
+  --aws-sigv4 'aws:amz:`region`:healthlake' \
+  --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \
+  --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \
+  --header 'Accept: application/json'
+
+```
+
+SMART on FHIR
+SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") data type.
+
+```
+{
+    "AuthorizationStrategy": "SMART_ON_FHIR",
+    "FineGrainedAuthorizationEnabled": true,
+    "IdpLambdaArn": "arn:aws:lambda:your-region:your-account-id:function:your-lambda-name",
+    "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\",\"permission-v2\"]}"
+}
+
+```
+
+The caller can assign permissions in the authorization lambda. For more
+information, see [OAuth 2.0
+scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md").
+
+The return content of a `history` interaction is contained in a FHIR
+resource `Bundle`, with type set to `history`. It contains the
+specified version history, sorted with oldest versions last, and includes deleted
+resources. For more information, see [`Resource Bundle`](https://hl7.org/fhir/R4/bundle.html "https://hl7.org/fhir/R4/bundle.html") in the
+**FHIR R4 documentation**.
+
+## Reading
+
+version-specific FHIR resource history
+
+The FHIR `vread` interaction performs a version-specific read of a resource
+in a HealthLake data store. Using this interaction, you can view the contents of a FHIR
+resource as it was at a particular time in the past.
+
+###### Note
+
+If you use FHIR `history` interaction _without_
+`vread`, HealthLake always returns the latest version of the resource's
+metadata.
+
+HealthLake declares it support for versioning in [`CapabilityStatement.rest.resource.versioning`](https://hl7.org/fhir/R4/capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning "https://hl7.org/fhir/R4/capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning") for each supported
+resource. All HealthLake data stores include `Resource.meta.versionId`
+(`vid`) on all resources.
+
+When FHIR `history` interaction is enabled (by default for data stores
+created after 10/25/2024 or by request for older data stores), the `Bundle`
+response includes the `vid` as part of the [`location`](https://hl7.org/fhir/R4/bundle-definitions.html#Bundle.entry.response.location "https://hl7.org/fhir/R4/bundle-definitions.html#Bundle.entry.response.location") element. In the following example, the
+`vid` displays as the number `1`. To view the full example,
+see [Example
+Bundle/bundle-response (JSON)](https://build.fhir.org/bundle-response.json.html "https://build.fhir.org/bundle-response.json.html").
+
+```
+"response" : {
+    "status" : "201 Created",
+    "location" : "Patient/12423/_history/1",
+    ...}
+
+```
+
+###### To read version-specific FHIR resource history
+
+1. Collect HealthLake `region` and `datastoreId` values. For
+   more information, see [Getting data store
+   properties](managing-data-stores-describe.md "managing-data-stores-describe.md").
+2. Determine the FHIR `Resource` type to read and collect associated
+   `id` and `vid` values. For more information, see [Resource types](reference-fhir-resource-types.md "reference-fhir-resource-types.md").
+3. Construct a URL for the request using the values collected for HealthLake and
+   FHIR. To view the entire URL path in the following example, scroll over the
+   **Copy** button.
+
+```
+GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id`/_history/`vid`
+
+```
+
+4. Send the request. The FHIR `history` interaction uses a
+   `GET` request with either [AWS Signature Version
+   4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") or SMART on FHIR authorization. The following `vread`
+   interaction returns a single instance with the content specified for the FHIR
+   `Patient` resource for the version of the resource metadata
+   specified by the `vid`. To view the entire URL path in the following
+   example, scroll over the **Copy** button.
+
+SigV4
+SigV4 authorization
+
+```
+curl --request GET \
+  'https://healthlake.`region`.amazonaws.com/datastore/`datastore-id`/r4/Patient/`id`/_history/`vid`' \
+  --aws-sigv4 'aws:amz:`region`:healthlake' \
+  --user "`$AWS_ACCESS_KEY_ID`:`$AWS_SECRET_ACCESS_KEY`" \
+  --header "x-amz-security-token:`$AWS_SESSION_TOKEN`" \
+  --header 'Accept: application/json'
+
+```
+
+SMART on FHIR
+SMART on FHIR authorization example for the [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") data type.
+
+```
+{
+    "AuthorizationStrategy": "SMART_ON_FHIR",
+    "FineGrainedAuthorizationEnabled": true,
+    "IdpLambdaArn": "arn:aws:lambda:your-region:your-account-id:function:your-lambda-name",
+    "Metadata": "{\"issuer\":\"https://ehr.example.com\", \"jwks_uri\":\"https://ehr.example.com/.well-known/jwks.json\",\"authorization_endpoint\":\"https://ehr.example.com/auth/authorize\",\"token_endpoint\":\"https://ehr.token.com/auth/token\",\"token_endpoint_auth_methods_supported\":[\"client_secret_basic\",\"foo\"],\"grant_types_supported\":[\"client_credential\",\"foo\"],\"registration_endpoint\":\"https://ehr.example.com/auth/register\",\"scopes_supported\":[\"openId\",\"profile\",\"launch\"],\"response_types_supported\":[\"code\"],\"management_endpoint\":\"https://ehr.example.com/user/manage\",\"introspection_endpoint\":\"https://ehr.example.com/user/introspect\",\"revocation_endpoint\":\"https://ehr.example.com/user/revoke\",\"code_challenge_methods_supported\":[\"S256\"],\"capabilities\":[\"launch-ehr\",\"sso-openid-connect\",\"client-public\",\"permission-v2\"]}"
+}
+
+```
+
+The caller can assign permissions in the authorization lambda. For more
+information, see [OAuth 2.0
+scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md").

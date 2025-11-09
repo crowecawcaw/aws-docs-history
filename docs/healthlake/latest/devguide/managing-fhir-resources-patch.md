@@ -21,18 +21,151 @@ PATCH [base]/[resource-type]/[id]{?_format=[mime-type]}
 
 HealthLake supports the following [JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902#section-4 "https://datatracker.ietf.org/doc/html/rfc6902#section-4") operations according to RFC 6902:
 
-| Operation        | Description                                                                                                                                                                   |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add`            | Add a new value to the resource                                                                                                                                               |
-| `remove`         | Remove a value from the resource                                                                                                                                              |
-| `replace`        | Replace an existing value in the resource                                                                                                                                     |
-| `move`           | Functionally identical to a "remove" operation on the "from" location, followed immediately by an "add" operation at the target location with the value that was just removed |
-| `copy`           | Copy the value at a specified location to the target location                                                                                                                 |
-| `test`           | Test that a value at the target location is equal to a specified value                                                                                                        | ## Request Headers                             |
-| Header           | Required                                                                                                                                                                      | Description                                    |
-| ---              | ---                                                                                                                                                                           | ---                                            |
-| `Content-Type`   | Yes                                                                                                                                                                           | Must be `application/json-patch+json`          |
-| `If-Match`       | No                                                                                                                                                                            | Version-specific conditional update using ETag | ## Examples ###### PATCH Request with Multiple Operations `PATCH [base]/Patient/example Content-Type: application/json-patch+json If-Match: W/"1" [ { "op": "replace", "path": "/name/0/family", "value": "Smith" }, { "op": "add", "path": "/telecom/-", "value": { "system": "phone", "value": "************", "use": "home" } }, { "op": "remove", "path": "/address/0" }, { "op": "move", "from": "/name/0/family", "path": "/name/1/family" }, { "op": "test", "path": "/gender", "value": "male" }, { "op": "copy", "from": "/name/0", "path": "/name/1" } ]` ###### PATCH Request with Single Operation `PATCH [base]/Patient/example Content-Type: application/json-patch+json [ { "op": "replace", "path": "/active", "value": false } ]` ###### Sample Response The operation returns the updated resource with new version information: `HTTP/1.1 200 OK Content-Type: application/fhir+json ETag: W/"2" Last-Modified: Mon, 05 May 2025 10:10:10 GMT { "resourceType": "Patient", "id": "example", "active": true, "name": [ { "family": "Smith", "given": ["John"] } ], "telecom": [ { "system": "phone", "value": "************", "use": "home" } ], "meta": { "versionId": "2", "lastUpdated": "2025-05-05T10:10:10Z" } }` ## JSON Patch Path Syntax The path parameter uses JSON Pointer syntax (RFC 6901): |
-| Path Example     | Description                                                                                                                                                                   |                                                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ---                          |
-| `/name/0/family` | First name's family element                                                                                                                                                   |                                                | `/telecom/-`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Append to telecom array      |
-| `/active`        | Root-level active element                                                                                                                                                     |                                                | `/address/0/line/1`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Second line of first address | ## Behavior The PATCH operation: 1. Validates the JSON Patch syntax according to RFC 6902 and RFC 6901 2. Applies operations atomically - all operations succeed or all fail 3. Updates the resource version ID and creates a new history entry 4. Preserves the original resource in history before applying changes 5. Validates FHIR resource constraints after applying patches 6. Supports conditional updates using If-Match header with ETag ## Error Handling The operation handles the following error conditions: <br>• 400 Bad Request: Invalid patch syntax (non-conformant request or malformed JSON Patch) <br>• 404 Not Found: Resource not found (specified ID does not exist) <br>• 409 Conflict: Version conflict (concurrent updates or non-current version ID provided) <br>• 422 Unprocessable Entity: Patch operations cannot be applied to the specified resource elements ## Caveats <br>• Only `application/json-patch+json` content type is supported <br>• Conditional PATCH operations using search conditions are not supported For more information about PATCH operations, see the [FHIR R4 PATCH](https://hl7.org/fhir/http.html#patch "https://hl7.org/fhir/http.html#patch") documentation. |
+| Operation | Description                                                                                                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add`     | Add a new value to the resource                                                                                                                                               |
+| `remove`  | Remove a value from the resource                                                                                                                                              |
+| `replace` | Replace an existing value in the resource                                                                                                                                     |
+| `move`    | Functionally identical to a "remove" operation on the "from" location, followed immediately by an "add" operation at the target location with the value that was just removed |
+| `copy`    | Copy the value at a specified location to the target location                                                                                                                 |
+| `test`    | Test that a value at the target location is equal to a specified value                                                                                                        |
+
+## Request Headers
+
+| Header         | Required | Description                                    |
+| -------------- | -------- | ---------------------------------------------- |
+| `Content-Type` | Yes      | Must be `application/json-patch+json`          |
+| `If-Match`     | No       | Version-specific conditional update using ETag |
+
+## Examples
+
+###### PATCH Request with Multiple Operations
+
+```
+PATCH [base]/Patient/example
+Content-Type: application/json-patch+json
+If-Match: W/"1"
+
+[
+  {
+    "op": "replace",
+    "path": "/name/0/family",
+    "value": "Smith"
+  },
+  {
+    "op": "add",
+    "path": "/telecom/-",
+    "value": {
+      "system": "phone",
+      "value": "************",
+      "use": "home"
+    }
+  },
+  {
+    "op": "remove",
+    "path": "/address/0"
+  },
+  {
+    "op": "move",
+    "from": "/name/0/family",
+    "path": "/name/1/family"
+  },
+  {
+    "op": "test",
+    "path": "/gender",
+    "value": "male"
+  },
+  {
+    "op": "copy",
+    "from": "/name/0",
+    "path": "/name/1"
+  }
+]
+```
+
+###### PATCH Request with Single Operation
+
+```
+PATCH [base]/Patient/example
+Content-Type: application/json-patch+json
+
+[
+  {
+    "op": "replace",
+    "path": "/active",
+    "value": false
+  }
+]
+```
+
+###### Sample Response
+
+The operation returns the updated resource with new version information:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/fhir+json
+ETag: W/"2"
+Last-Modified: Mon, 05 May 2025 10:10:10 GMT
+
+{
+  "resourceType": "Patient",
+  "id": "example",
+  "active": true,
+  "name": [
+    {
+      "family": "Smith",
+      "given": ["John"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "************",
+      "use": "home"
+    }
+  ],
+  "meta": {
+    "versionId": "2",
+    "lastUpdated": "2025-05-05T10:10:10Z"
+  }
+}
+```
+
+## JSON Patch Path Syntax
+
+The path parameter uses JSON Pointer syntax (RFC 6901):
+
+| Path Example        | Description                  |
+| ------------------- | ---------------------------- |
+| `/name/0/family`    | First name's family element  |
+| `/telecom/-`        | Append to telecom array      |
+| `/active`           | Root-level active element    |
+| `/address/0/line/1` | Second line of first address |
+
+## Behavior
+
+The PATCH operation:
+
+1. Validates the JSON Patch syntax according to RFC 6902 and RFC 6901
+2. Applies operations atomically - all operations succeed or all fail
+3. Updates the resource version ID and creates a new history entry
+4. Preserves the original resource in history before applying changes
+5. Validates FHIR resource constraints after applying patches
+6. Supports conditional updates using If-Match header with ETag
+
+## Error Handling
+
+The operation handles the following error conditions:
+
+- 400 Bad Request: Invalid patch syntax (non-conformant request or malformed JSON Patch)
+- 404 Not Found: Resource not found (specified ID does not exist)
+- 409 Conflict: Version conflict (concurrent updates or non-current version ID provided)
+- 422 Unprocessable Entity: Patch operations cannot be applied to the specified resource elements
+
+## Caveats
+
+- Only `application/json-patch+json` content type is supported
+- Conditional PATCH operations using search conditions are not supported
+
+For more information about PATCH operations, see the [FHIR R4 PATCH](https://hl7.org/fhir/http.html#patch "https://hl7.org/fhir/http.html#patch") documentation.

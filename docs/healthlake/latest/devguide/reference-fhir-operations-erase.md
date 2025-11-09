@@ -26,5 +26,62 @@ POST [base]/[ResourceType]/[ID]/_history/[VersionID]/$erase
 ## Parameters
 
 | Parameter          | Type    | Required | Default | Description                                |
-| ------------------ | ------- | -------- | ------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `deleteAuditEvent` | boolean | No       | false   | When true, deletes associated audit events | ## Examples ###### Example Request `POST [base]/Patient/example-patient/$erase?deleteAuditEvent=true` ###### Example Response `{ "resourceType": "OperationOutcome", "id": "erase-job", "issue": [ { "severity": "information", "code": "informational", "diagnostics": "Erase job started successfully. Job ID: 12345678-1234-1234-1234-123456789012" } ] }` ## Job Status To check the status of an erase job: `GET [base]/$erase/[jobId]` The operation returns job status information: `{ "resourceType": "Parameters", "parameter": [ { "name": "jobId", "valueString": "12345678-1234-1234-1234-123456789012" }, { "name": "jobStatus", "valueString": "COMPLETED" }, { "name": "totalResourcesDeleted", "valueInteger": 1 }, { "name": "startTime", "valueInstant": "2023-06-15T10:00:00Z" }, { "name": "endTime", "valueInstant": "2023-06-15T10:05:23Z" } ] }` ## Behavior The `$erase` operation: 1. Processes asynchronously to ensure data integrity 2. Maintains ACID transactions 3. Provides job status tracking 4. Permanently removes the specified resource and its versions 5. Includes comprehensive audit logging of deletion activities 6. Supports selective deletion of audit events ## Audit Logging The `$erase` operation logs as DeleteResource with user ID, timestamp, and resource details. ## Limitations <br>• Erased resources will not appear in search responses <br>• Resources being erased may be temporarily inaccessible during processing <br>• Storage metering is adjusted immediately as resources are permanently removed |
+| ------------------ | ------- | -------- | ------- | ------------------------------------------ |
+| `deleteAuditEvent` | boolean | No       | false   | When true, deletes associated audit events |
+
+## Examples
+
+###### Example Request
+
+```
+POST [base]/Patient/example-patient/$erase
+```
+
+###### Example Response
+
+```
+{
+      "jobId": "5df47e2f51ff3c731847678cb8cad48e",
+      "jobStatus": "SUBMITTED"
+    }
+```
+
+## Job Status
+
+To check the status of an erase job:
+
+```
+GET [base]/$erase/[jobId]
+```
+
+The operation returns job status information:
+
+```
+{
+      "datastoreId": "36622996b1fcecb7e12ee2ee085308d3",
+      "jobId": "5df47e2f51ff3c731847678cb8cad48e",
+      "status": "COMPLETED",
+      "submittedTime": "2025-10-30T16:39:24.160Z"
+    }
+```
+
+## Behavior
+
+The `$erase` operation:
+
+1. Processes asynchronously to ensure data integrity
+2. Maintains ACID transactions
+3. Provides job status tracking
+4. Permanently removes the specified resource and its versions
+5. Includes comprehensive audit logging of deletion activities
+6. Supports selective deletion of audit events
+
+## Audit Logging
+
+The `$erase` operation logs as DeleteResource with user ID, timestamp, and resource details.
+
+## Limitations
+
+- `$erased` resource will not appear in search results or `_history` queries.
+- Resources being erased may be temporarily inaccessible during processing
+- Storage metering is adjusted immediately as resources are permanently removed

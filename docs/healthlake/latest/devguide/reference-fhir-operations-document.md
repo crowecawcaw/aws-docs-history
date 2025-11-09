@@ -22,5 +22,146 @@ GET/POST [base]/Composition/[id]/$document
 HealthLake supports the following FHIR `$document` parameter:
 
 | Parameter | Type    | Required | Default | Description                                                                      |
-| --------- | ------- | -------- | ------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `persist` | boolean | No       | false   | Boolean indicating whether the server should store the generated document bundle | ## Examples ###### GET Request ``GET [base]/Composition/`180f219f-97a8-486d-99d9-ed631fe4fc57`/$document?persist=true`` ###### POST Request with Parameters ``POST [base]/Composition/`180f219f-97a8-486d-99d9-ed631fe4fc57`/$document Content-Type: application/fhir+json { "resourceType": "Parameters", "parameter": [ { "name": "persist", "valueBoolean": true } ] }`` ###### Sample Response The operation returns a Bundle resource of type "document" containing the Composition and all referenced resources: ``{ "resourceType": "Bundle", "id": "`180f219f-97a8-486d-99d9-ed631fe4fc57`", "type": "document", "identifier": { "system": "urn:ietf:rfc:3986", "value": "urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0" }, "timestamp": "2024-06-21T15:30:00Z", "entry": [ { "fullUrl": "`http://example.org/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57`", "resource": { "resourceType": "Composition", "id": "`180f219f-97a8-486d-99d9-ed631fe4fc57`", "status": "final", "type": { "coding": [ { "system": "`http://loinc.org`", "code": "34133-9", "display": "Summary of Episode Note" } ] }, "subject": { "reference": "Patient/example" }, "section": [ { "title": "Allergies", "entry": [ { "reference": "AllergyIntolerance/123" } ] } ] } }, { "fullUrl": "`http://example.org/fhir/Patient/example`", "resource": { "resourceType": "Patient", "id": "example", "name": [ { "family": "Smith", "given": ["John"] } ] } }, { "fullUrl": "`http://example.org/fhir/AllergyIntolerance/123`", "resource": { "resourceType": "AllergyIntolerance", "id": "123", "patient": { "reference": "Patient/example" }, "code": { "coding": [ { "system": "`http://snomed.info/sct`", "code": "418689008", "display": "Allergy to penicillin" } ] } } } ] }`` ## Behavior The `$document` operation: 1. Takes the specified Composition resource as the foundation for the document 2. Identifies and retrieves all resources directly referenced by the Composition 3. Packages the Composition and all referenced resources into a Bundle of type "document" 4. Stores the generated document bundle in the datastore when the persist parameter is set to true 5. Identifies and retrieves resources indirectly referenced by the Composition for comprehensive document generation The `$document` operation currently supports retrieving resource references in the following format: 1. `` GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id` `` 2. Resource/id Unsupported resource references within the Composition resource will be filtered out from the generated document. ## Error Handling The operation handles the following error conditions: <br>• 400 Bad Request: Invalid `$document` operation (non-conformant request) or if the resulting document fails FHIR validation due to filtered out references when persist is set to true <br>• 404 Not Found: Composition resource not found For more information about the `$document` operation specification, see the [FHIR R4 Composition `$document`](https://www.hl7.org/fhir/R4/composition-operation-document.html "https://www.hl7.org/fhir/R4/composition-operation-document.html") documentation. |
+| --------- | ------- | -------- | ------- | -------------------------------------------------------------------------------- |
+| `persist` | boolean | No       | false   | Boolean indicating whether the server should store the generated document bundle |
+
+## Examples
+
+###### GET Request
+
+```
+GET [base]/Composition/`180f219f-97a8-486d-99d9-ed631fe4fc57`/$document?persist=true
+```
+
+###### POST Request with Parameters
+
+```
+POST [base]/Composition/`180f219f-97a8-486d-99d9-ed631fe4fc57`/$document
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "persist",
+      "valueBoolean": true
+    }
+  ]
+}
+```
+
+###### Sample Response
+
+The operation returns a Bundle resource of type "document" containing the Composition and all referenced resources:
+
+```
+{
+  "resourceType": "Bundle",
+  "id": "`180f219f-97a8-486d-99d9-ed631fe4fc57`",
+  "type": "document",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0"
+  },
+  "timestamp": "2024-06-21T15:30:00Z",
+  "entry": [
+    {
+      "fullUrl": "`http://example.org/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57`",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "`180f219f-97a8-486d-99d9-ed631fe4fc57`",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "`http://loinc.org`",
+              "code": "34133-9",
+              "display": "Summary of Episode Note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example"
+        },
+        "section": [
+          {
+            "title": "Allergies",
+            "entry": [
+              {
+                "reference": "AllergyIntolerance/123"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "`http://example.org/fhir/Patient/example`",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "example",
+        "name": [
+          {
+            "family": "Smith",
+            "given": ["John"]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "`http://example.org/fhir/AllergyIntolerance/123`",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "123",
+        "patient": {
+          "reference": "Patient/example"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "`http://snomed.info/sct`",
+              "code": "418689008",
+              "display": "Allergy to penicillin"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Behavior
+
+The `$document` operation:
+
+1. Takes the specified Composition resource as the foundation for the document
+2. Identifies and retrieves all resources directly referenced by the Composition
+3. Packages the Composition and all referenced resources into a Bundle of type "document"
+4. Stores the generated document bundle in the datastore when the persist parameter is set to true
+5. Identifies and retrieves resources indirectly referenced by the Composition for comprehensive document generation
+
+The `$document` operation currently supports retrieving resource references in the following format:
+
+1. ```
+   GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/`Resource`/`id`
+   ```
+
+```
+2. Resource/id
+
+Unsupported resource references within the Composition resource will be filtered out from the generated document.
+
+
+## Error Handling
+
+
+The operation handles the following error conditions:
+
+
+
+* 400 Bad Request: Invalid `$document` operation (non-conformant request) or if the resulting document fails FHIR validation due to filtered out references when persist is set to true
+* 404 Not Found: Composition resource not found
+
+For more information about the `$document` operation specification, see the [FHIR R4 Composition `$document`](https://www.hl7.org/fhir/R4/composition-operation-document.html "https://www.hl7.org/fhir/R4/composition-operation-document.html") documentation.
+```
