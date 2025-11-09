@@ -86,8 +86,223 @@ AWS Shield console. No additional permissions are required.
 
 You can access the following Distributed Denial of Service (DDoS) attack information in the console. Specify the following API permissions in an IAM policy to allow or deny specific actions.
 
-| Action                       | Description                                                                                                           |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DescribeAttackContributors` | Grants permission to get detailed information about the contributors to a specific DDoS attack.                       |
-| `ListMitigations`            | Grants permission to retrieve a list of mitigation actions that have been applied during DDoS attacks.                |
-| `GetGlobalThreatData`        | Grants permission to retrieve global threat intelligence data and trends from AWS Shield's threat monitoring systems. | This example shows how you might create a policy that allows you to see DDoS attack information in the console. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "shield:DescribeAttackContributors" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "shield:ListMitigations" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "shield:GetGlobalThreatData" ], "Resource": "*" } ] }` `` ## Allow users to view their own permissions This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ViewOwnUserInfo", "Effect": "Allow", "Action": [ "iam:GetUserPolicy", "iam:ListGroupsForUser", "iam:ListAttachedUserPolicies", "iam:ListUserPolicies", "iam:GetUser" ], "Resource": ["arn:aws:iam::*:user/${aws:username}"] }, { "Sid": "NavigateInConsole", "Effect": "Allow", "Action": [ "iam:GetGroupPolicy", "iam:GetPolicyVersion", "iam:GetPolicy", "iam:ListAttachedGroupPolicies", "iam:ListGroupPolicies", "iam:ListPolicyVersions", "iam:ListPolicies", "iam:ListUsers" ], "Resource": "*" } ] }` ## Grant read access to your Shield Advanced protections AWS Shield allows cross-account resource access, but it doesn't allow you to create cross-account resource protections. You can only create protections for resources from within the account that owns those resources. The following is an example policy that grants permissions for the `shield:ListProtections` action on all resources. Shield doesn't support identifying specific resources using the resource ARNs (also referred to as resource-level permissions) for some of the API actions, so you specify a wildcard character (\*). This only permits access to the resources that you can retrieve through the action `ListProtections`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ListProtections", "Effect": "Allow", "Action": [ "shield:ListProtections" ], "Resource": "*" } ] }` `` ## Grant read-only access to Shield, CloudFront, and CloudWatch The following policy grants users read-only access to Shield and associated resources, including Amazon CloudFront resources, and Amazon CloudWatch metrics. It's useful for users who need permission to view the settings in Shield protections and attacks and to monitor metrics in CloudWatch. These users can't create, update, or delete Shield resources. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ProtectedResourcesReadAccess", "Effect": "Allow", "Action": [ "cloudfront:List*", "route53:List*", "cloudfront:Describe*", "elasticloadbalancing:Describe*", "cloudwatch:Describe*", "cloudwatch:Get*", "cloudwatch:List*", "cloudfront:GetDistribution*", "globalaccelerator:ListAccelerators", "globalaccelerator:DescribeAccelerator" ], "Resource": [ "arn:aws:elasticloadbalancing:*:*:*", "arn:aws:cloudfront::*:*", "arn:aws:route53:::hostedzone/*", "arn:aws:cloudwatch:*:*:*:*", "arn:aws:globalaccelerator::*:*" ] }, { "Sid": "ShieldReadOnly", "Effect": "Allow", "Action": [ "shield:List*", "shield:Describe*", "shield:Get*" ], "Resource": "*" } ] }` `` ## Grant full access to Shield, CloudFront, and CloudWatch The following policy lets users perform any Shield operation, perform any operation on CloudFront web distributions, and monitor metrics and a sample of requests in CloudWatch. It's useful for users who are Shield administrators. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ProtectedResourcesReadAccess", "Effect": "Allow", "Action": [ "cloudfront:List*", "route53:List*", "cloudfront:Describe*", "elasticloadbalancing:Describe*", "cloudwatch:Describe*", "cloudwatch:Get*", "cloudwatch:List*", "cloudfront:GetDistribution*", "globalaccelerator:ListAccelerators", "globalaccelerator:DescribeAccelerator" ], "Resource": [ "arn:aws:elasticloadbalancing:*:*:*", "arn:aws:cloudfront::*:*", "arn:aws:route53:::hostedzone/*", "arn:aws:cloudwatch:*:*:*:*", "arn:aws:globalaccelerator::*:*" ] }, { "Sid": "ShieldFullAccess", "Effect": "Allow", "Action": [ "shield:*" ], "Resource": "*" } ] }` `` We strongly recommend that you configure multi-factor authentication (MFA) for users who have administrative permissions. For more information, see [Using Multi-Factor Authentication (MFA) Devices with AWS](../../../IAM/latest/UserGuide/Using_ManagingMFA.md "../../../IAM/latest/UserGuide/Using_ManagingMFA.md") in the _IAM User Guide_. |
+| Action                       | Description                                                                                                              |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `DescribeAttackContributors` | Grants permission to get detailed information about the<br>contributors to a specific DDoS attack.                       |
+| `ListMitigations`            | Grants permission to retrieve a list of mitigation actions that<br>have been applied during DDoS attacks.                |
+| `GetGlobalThreatData`        | Grants permission to retrieve global threat intelligence data and<br>trends from AWS Shield's threat monitoring systems. |
+
+This example shows how you might create a policy that allows you to see DDoS
+attack information in the console.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "shield:DescribeAttackContributors"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "shield:ListMitigations"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "shield:GetGlobalThreatData"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Allow users
+
+to view their own permissions
+
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
+identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+## Grant read access to your Shield Advanced protections
+
+AWS Shield allows cross-account resource access, but it doesn't allow you to create
+cross-account resource protections. You can only create protections for resources from
+within the account that owns those resources.
+
+The following is an example policy that grants permissions for the
+`shield:ListProtections` action on all resources. Shield doesn't
+support identifying specific resources using the resource ARNs (also referred to as
+resource-level permissions) for some of the API actions, so you specify a wildcard
+character (\*). This only permits access to the resources that you can retrieve through
+the action `ListProtections`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListProtections",
+ "Effect": "Allow",
+ "Action": [
+ "shield:ListProtections"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Grant read-only access to Shield, CloudFront, and CloudWatch
+
+The following policy grants users read-only access to Shield and associated
+resources, including Amazon CloudFront resources, and Amazon CloudWatch metrics. It's useful for users who
+need permission to view the settings in Shield protections and attacks and to
+monitor metrics in CloudWatch. These users can't create, update, or delete Shield
+resources.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ProtectedResourcesReadAccess",
+ "Effect": "Allow",
+ "Action": [
+ "cloudfront:List*",
+ "route53:List*",
+ "cloudfront:Describe*",
+ "elasticloadbalancing:Describe*",
+ "cloudwatch:Describe*",
+ "cloudwatch:Get*",
+ "cloudwatch:List*",
+ "cloudfront:GetDistribution*",
+ "globalaccelerator:ListAccelerators",
+ "globalaccelerator:DescribeAccelerator"
+ ],
+ "Resource": [
+ "arn:aws:elasticloadbalancing:*:*:*",
+ "arn:aws:cloudfront::*:*",
+ "arn:aws:route53:::hostedzone/*",
+ "arn:aws:cloudwatch:*:*:*:*",
+ "arn:aws:globalaccelerator::*:*"
+ ]
+ },
+ {
+ "Sid": "ShieldReadOnly",
+ "Effect": "Allow",
+ "Action": [
+ "shield:List*",
+ "shield:Describe*",
+ "shield:Get*"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Grant full access to Shield, CloudFront, and
+
+CloudWatch
+
+The following policy lets users perform any Shield operation, perform any operation on
+CloudFront web distributions, and monitor metrics and a sample of requests in CloudWatch. It's useful
+for users who are Shield administrators.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ProtectedResourcesReadAccess",
+ "Effect": "Allow",
+ "Action": [
+ "cloudfront:List*",
+ "route53:List*",
+ "cloudfront:Describe*",
+ "elasticloadbalancing:Describe*",
+ "cloudwatch:Describe*",
+ "cloudwatch:Get*",
+ "cloudwatch:List*",
+ "cloudfront:GetDistribution*",
+ "globalaccelerator:ListAccelerators",
+ "globalaccelerator:DescribeAccelerator"
+ ],
+ "Resource": [
+ "arn:aws:elasticloadbalancing:*:*:*",
+ "arn:aws:cloudfront::*:*",
+ "arn:aws:route53:::hostedzone/*",
+ "arn:aws:cloudwatch:*:*:*:*",
+ "arn:aws:globalaccelerator::*:*"
+ ]
+ },
+ {
+ "Sid": "ShieldFullAccess",
+ "Effect": "Allow",
+ "Action": [
+ "shield:*"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+We strongly recommend that you configure multi-factor authentication (MFA) for users
+who have administrative permissions. For more information, see [Using Multi-Factor Authentication (MFA)
+Devices with AWS](../../../IAM/latest/UserGuide/Using_ManagingMFA.md "../../../IAM/latest/UserGuide/Using_ManagingMFA.md") in the _IAM User Guide_.

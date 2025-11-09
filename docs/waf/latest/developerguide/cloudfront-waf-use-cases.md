@@ -93,8 +93,18 @@ When implementing security headers in multi-tenant distributions, consider the f
 
 Both standard and multi-tenant distributions support AWS WAF logging, but there are important differences in how logs are structured and managed:
 
-| Logging comparison                     | Standard distributions                                                       | Multi-tenant distributions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| -------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logging comparison                     | Standard distributions                                                       | Multi-tenant distributions |
+| -------------------------------------- | ---------------------------------------------------------------------------- | -------------------------- |
 | One log configuration per distribution | Template and tenant-level logging options                                    |
 | Standard log fields                    | Additional tenant identifier fields                                          |
-| Single destination per distribution    | Separate destinations possible for multi-tenant distribution and tenant logs | ## Additional resources <br>• To learn more about multi-tenant distributions, see [Configure distributions](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md") in the _Amazon CloudFront Developer Guide_. <br>• To learn more about using AWS WAF with CloudFront, see [Using AWS WAF protection](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md") in the _Amazon CloudFront Developer Guide_. <br>• To learn more about AWS WAF logs, see [Log fields for protection pack (web ACL) traffic](logging-fields.md "logging-fields.md"). |
+| Single destination per distribution    | Separate destinations possible for multi-tenant distribution and tenant logs |
+
+## Additional resources
+
+- To learn more about multi-tenant distributions, see
+  [Configure distributions](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.md")
+  in the _Amazon CloudFront Developer Guide_.
+- To learn more about using AWS WAF with CloudFront, see
+  [Using AWS WAF protection](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md")
+  in the _Amazon CloudFront Developer Guide_.
+- To learn more about AWS WAF logs, see [Log fields for protection pack (web ACL) traffic](logging-fields.md "logging-fields.md").

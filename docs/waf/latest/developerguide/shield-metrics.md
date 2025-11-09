@@ -65,25 +65,82 @@ you can create a set of rules that notify you as needed, without too much unwant
 Shield Advanced provides the metrics and dimensions in the
 `AWS/DDoSProtection` namespace.
 
-| Detection metrics             | Metric                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `DDoSDetected`                | Indicates whether a DDoS event is underway for a particular Amazon Resource Name (ARN). This metric has a non-zero value during an event.                                                                                                                                                     |
-| `DDoSAttackBitsPerSecond`     | The number of bits observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for network and transport layer (layer 3 and layer 4) DDoS events. This metric has a non-zero value during an event.Units: Bits                                    |
-| `DDoSAttackPacketsPerSecond`  | The number of packets observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for network and transport layer (layer 3 and layer 4) DDoS events. This metric has a non-zero value during an event.Units: Packets                              |
-| `DDoSAttackRequestsPerSecond` | The number of requests observed during a DDoS event for a particular Amazon Resource Name (ARN). This metric is available only for layer 7 DDoS events. The metric is reported only for the most significant layer 7 events. This metric has a non-zero value during an event.Units: Requests | Shield Advanced posts the `DDoSDetected` metric with no other dimensions. The remaining detection metrics include the `AttackVector` dimensions that correspond to the type of attack, from the following list: <br>• `ACKFlood` <br>• `ChargenReflection` <br>• `DNSReflection` <br>• `GenericUDPReflection` <br>• `MemcachedReflection` <br>• `MSSQLReflection` <br>• `NetBIOSReflection` <br>• `NTPReflection` <br>• `PortMapper` <br>• `RequestFlood` <br>• `RIPReflection` <br>• `SNMPReflection` <br>• `SSDPReflection` <br>• `SYNFlood` <br>• `UDPFragment` <br>• `UDPTraffic` <br>• `UDPReflection` ## Mitigation metrics Shield Advanced provides metrics and dimensions in the `AWS/DDoSProtection` namespace. Mitigation metrics | Metric    | Description |
-| ---                           | ---                                                                                                                                                                                                                                                                                           |
-| `VolumePacketsPerSecond`      | The number of packets per second that were dropped or passed by a mitigation that was deployed in response to a detected event.Units: packets                                                                                                                                                 | Mitigation dimensions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Dimension | Description |
-| ---                           | ---                                                                                                                                                                                                                                                                                           |
-| `ResourceArn`                 | Amazon Resource Name (ARN)                                                                                                                                                                                                                                                                    |
-| `MitigationAction`            | The outcome of an applied mitigation. Possible values are `Pass` or `Drop`.                                                                                                                                                                                                                   | ## Top contributors metrics Shield Advanced provides metrics in the `AWS/DDoSProtection` namespace. Top contributors metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Metric    | Description |
-| ---                           | ---                                                                                                                                                                                                                                                                                           |
-| `VolumePacketsPerSecond`      | The number of packets per second for a top contributor.Units: packets                                                                                                                                                                                                                         |
-| `VolumeBitsPerSecond`         | The number of bits per second for a top contributor. Units: bits                                                                                                                                                                                                                              | Shield Advanced posts top contributors metrics by dimension combinations that characterize the event contributors. You can use any of the following combinations of dimensions for any of the top contributors metrics: <br>• `ResourceArn`, `Protocol` <br>• `ResourceArn`, `Protocol`, `SourcePort` <br>• `ResourceArn`, `Protocol`, `DestinationPort` <br>• `ResourceArn`, `Protocol`, `SourceIp` <br>• `ResourceArn`, `Protocol`, `SourceAsn` <br>• `ResourceArn`, `TcpFlags` Top contributors dimensions                                                                                                                                                                                                                               | Dimension | Description |
-| ---                           | ---                                                                                                                                                                                                                                                                                           |
-| `ResourceArn`                 | Amazon Resource Name (ARN).                                                                                                                                                                                                                                                                   |
-| `Protocol`                    | IP protocol name, either `TCP` or `UDP`.                                                                                                                                                                                                                                                      |
-| `SourcePort`                  | Source TCP or UDP port.                                                                                                                                                                                                                                                                       |
-| `DestinationPort`             | Destination TCP or UDP port.                                                                                                                                                                                                                                                                  |
-| `SourceIp`                    | Source IP address.                                                                                                                                                                                                                                                                            |
-| `SourceAsn`                   | Source autonomous system number (ASN).                                                                                                                                                                                                                                                        |
-| `TcpFlags`                    | A combination of flags present in a TCP packet, separated by a dash (`-`). Monitored flags are `ACK`, `FIN`, `RST`, `SYN`. This dimension value always appears sorted alphabetically. For example, `ACK-FIN-RST-SYN`, `ACK-SYN`, and `FIN-RST`.                                               |
+| Detection metrics             | Metric                                                                                                                                                                                                                                                                                                       | Description |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `DDoSDetected`                | Indicates whether a DDoS event is underway for a<br>particular Amazon Resource Name (ARN). This metric has<br>a non-zero value during an event.                                                                                                                                                              |
+| `DDoSAttackBitsPerSecond`     | The number of bits observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Bits                                       |
+| `DDoSAttackPacketsPerSecond`  | The number of packets observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for network and transport layer (layer 3 and layer 4) DDoS events.<br>This metric has a non-zero value during an event.Units:<br>Packets                                 |
+| `DDoSAttackRequestsPerSecond` | The number of requests observed during a DDoS event for a<br>particular Amazon Resource Name (ARN). This metric is<br>available only for layer 7 DDoS events. The metric is<br>reported only for the most significant layer 7 events.<br>This metric has a non-zero value during an event.Units:<br>Requests |
+
+Shield Advanced posts the `DDoSDetected` metric with no other
+dimensions. The remaining detection metrics include the
+`AttackVector` dimensions that correspond to the type of
+attack, from the following list:
+
+- `ACKFlood`
+- `ChargenReflection`
+- `DNSReflection`
+- `GenericUDPReflection`
+- `MemcachedReflection`
+- `MSSQLReflection`
+- `NetBIOSReflection`
+- `NTPReflection`
+- `PortMapper`
+- `RequestFlood`
+- `RIPReflection`
+- `SNMPReflection`
+- `SSDPReflection`
+- `SYNFlood`
+- `UDPFragment`
+- `UDPTraffic`
+- `UDPReflection`
+
+## Mitigation metrics
+
+Shield Advanced provides metrics and dimensions in
+the `AWS/DDoSProtection` namespace.
+
+| Mitigation metrics       | Metric                                                                                                                                              | Description |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `VolumePacketsPerSecond` | The number of packets per second that were dropped or<br>passed by a mitigation that was deployed in response to<br>a detected event.Units: packets |
+
+| Mitigation dimensions | Dimension                                                                      | Description |
+| --------------------- | ------------------------------------------------------------------------------ | ----------- |
+| `ResourceArn`         | Amazon Resource Name (ARN)                                                     |
+| `MitigationAction`    | The outcome of an applied mitigation. Possible values<br>are `Pass` or `Drop`. |
+
+## Top contributors metrics
+
+Shield Advanced provides metrics in
+the `AWS/DDoSProtection` namespace.
+
+| Top contributors metrics | Metric                                                                   | Description |
+| ------------------------ | ------------------------------------------------------------------------ | ----------- |
+| `VolumePacketsPerSecond` | The number of packets per second for a top<br>contributor.Units: packets |
+| `VolumeBitsPerSecond`    | The number of bits per second for a top contributor.<br>Units: bits      |
+
+Shield Advanced posts top contributors metrics by dimension combinations that
+characterize the event contributors. You can use any of the following
+combinations of dimensions for any of the top contributors
+metrics:
+
+- `ResourceArn`, `Protocol`
+- `ResourceArn`, `Protocol`,
+  `SourcePort`
+- `ResourceArn`, `Protocol`,
+  `DestinationPort`
+- `ResourceArn`, `Protocol`,
+  `SourceIp`
+- `ResourceArn`, `Protocol`,
+  `SourceAsn`
+- `ResourceArn`, `TcpFlags`
+
+| Top contributors dimensions | Dimension                                                                                                                                                                                                                                                                  | Description |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `ResourceArn`               | Amazon Resource Name (ARN).                                                                                                                                                                                                                                                |
+| `Protocol`                  | IP protocol name, either `TCP` or<br>`UDP`.                                                                                                                                                                                                                                |
+| `SourcePort`                | Source TCP or UDP port.                                                                                                                                                                                                                                                    |
+| `DestinationPort`           | Destination TCP or UDP port.                                                                                                                                                                                                                                               |
+| `SourceIp`                  | Source IP address.                                                                                                                                                                                                                                                         |
+| `SourceAsn`                 | Source autonomous system number (ASN).                                                                                                                                                                                                                                     |
+| `TcpFlags`                  | A combination of flags present in a TCP packet,<br>separated by<br>a<br>dash (`-`). Monitored<br>flags are `ACK`, `FIN`,<br>`RST`, `SYN`. This dimension<br>value always appears sorted alphabetically. For<br>example, `ACK-FIN-RST-SYN`,<br>`ACK-SYN`, and<br>`FIN-RST`. |

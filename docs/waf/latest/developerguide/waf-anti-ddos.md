@@ -21,6 +21,19 @@ Resource-level DDoS protection:
 - Updates threat intelligence in real time.
 - Protects against known malicious sources.
 
+###### To optimize web ACL request costs for your Application Load Balancer
+
+You must associate a web ACL with your Application Load Balancer to enable resource-level protection.
+If your Application Load Balancer is associated with a web ACL that has no configuration, you will not incur charges from AWS WAF requests, however, AWS WAF will not provide sampled requests or report on the Application Load Balancer in CloudWatch metrics.
+You can take the following actions to enable observability features for the Application Load Balancer:
+
+- Use the `Block` action or `Allow` action with custom request headers in the `DefaultAction`. For information, see [Inserting custom request headers for non-blocking actions](customizing-the-incoming-request.md "customizing-the-incoming-request.md").
+- Add any rules to the web ACL. For information, see [AWS WAF rules](waf-rules.md "waf-rules.md").
+- Enable a logging destination. For information, see [Configuring logging for a protection pack (web ACL)](logging-management-configure.md "logging-management-configure.md").
+- Associate the web ACL with an AWS Firewall Manager policy. For information, see [Creating an AWS Firewall Manager policy for
+  AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
+  AWS WAF will not provide sampled requests or publish CloudWatch metrics without these configurations.
+
 AWS managed rule group DDoS protection
 
 The advanced tier of DDoS protections is offered through the `AWSManagedRulesAntiDDoSRuleSet`. The managed rule group complements the resource-level tier of protection,

@@ -23,5 +23,9 @@ When network security director becomes generally available, pricing will differ 
 AWS accounts have default quotas, formerly referred to as limits, for each AWS service. The following table describes the quota for network security director. For information about quotas that can be changed, see [Service Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
 | Resource                             | Default Quota |
-| ------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Maximum resources processed per scan | 300,000       | When network security director reaches the maximum number of resources that it can process in a network analysis, the network analysis fails. You are not charged for the failed network analysis. If your network analysis fails because it exceeds the maximum resources limit, contact AWS Support. |
+| ------------------------------------ | ------------- |
+| Maximum resources processed per scan | 300,000       |
+
+When network security director reaches the maximum number of resources that it can process in a network analysis, the network analysis fails. You are not charged for the failed network analysis.
+
+If your network analysis fails because it exceeds the maximum resources limit, contact AWS Support.

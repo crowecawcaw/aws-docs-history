@@ -28,8 +28,8 @@ This table describes the logical rule statements and provides
 guidelines for calculating protection pack (web ACL) capacity units (WCU) usage for each. For
 information about WCUs, see [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md "aws-waf-capacity-units.md").
 
-| Logical Statement                                                            | Description                                | WCUs                       |
-| ---------------------------------------------------------------------------- | ------------------------------------------ | -------------------------- |
-| [AND logic](waf-rule-statement-type-and.md "waf-rule-statement-type-and.md") | Combines nested statements with AND logic. | Based on nested statements |
-| [NOT logic](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md") | Negates the results of a nested statement. | Based on nested statement  |
-| [OR logic](waf-rule-statement-type-or.md "waf-rule-statement-type-or.md")    | Combines nested statements with OR logic.  | Based on nested statements |
+| Logical Statement                                                               | Description                                   | WCUs                       |
+| ------------------------------------------------------------------------------- | --------------------------------------------- | -------------------------- |
+| [AND<br>logic](waf-rule-statement-type-and.md "waf-rule-statement-type-and.md") | Combines nested statements with AND<br>logic. | Based on nested statements |
+| [NOT<br>logic](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md") | Negates the results of a nested statement.    | Based on nested statement  |
+| [OR<br>logic](waf-rule-statement-type-or.md "waf-rule-statement-type-or.md")    | Combines nested statements with OR logic.     | Based on nested statements |

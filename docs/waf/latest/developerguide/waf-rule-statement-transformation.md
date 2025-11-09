@@ -104,40 +104,111 @@ AWS WAF replaces characters that are represented in hexadecimal format
 
 AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.
 
-| HTML-encoded character                    | replaced with...                |
-| ----------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `&quot;`                                  | `"`                             |
-| `&amp;`                                   | `&`                             |
-| `&lt;`                                    | `<`                             |
-| `&gt;`                                    | `>`                             |
-| `&nbsp;` or `&NonBreakingSpace;`          | non-breaking space, decimal 160 |
-| `&NewLine;`                               | `\n`, decimal 10                |
-| `&Tab;`                                   | `\t`, decimal 9                 |
-| `&lcub;` or `&lbrace;`                    | `{`                             |
-| `&verbar;`, `&vert;`, or `&VerticalLine;` | `                               | `                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `&rcub;` or `&rbrace;`                    | `}`                             |
-| `&excl;`                                  | `!`                             |
-| `&num;`                                   | `#`                             |
-| `&dollar;`                                | `$`                             |
-| `&percent;` or `&percnt;`                 | `%`                             |
-| `&apos;`                                  | `\`                             |
-| `&lpar;`                                  | `(`                             |
-| `&rpar;`                                  | `)`                             |
-| `&ast;` or `&midast;`                     | `*`                             |
-| `&plus;`                                  | `+`                             |
-| `&comma;`                                 | `,`                             |
-| `&period;`                                | `.`                             |
-| `&sol;`                                   | `/`                             |
-| `&colon;`                                 | `:`                             |
-| `&semi;`                                  | `;`                             |
-| `&equals;`                                | `=`                             |
-| `&quest;`                                 | `?`                             |
-| `&tilde;` or `&DiacriticalTilde;`         | `~`                             |
-| `&minus;`                                 | `-`                             |
-| `&lsqb;` or `&lbrack;`                    | `[`                             |
-| `&bsol;`                                  | `\\`                            |
-| `&rsqb;` or `&rbrack;`                    | `]`                             |
-| `&hat;`                                   | `^`                             |
-| `&lowbar;` or `&underbar;`                | `_`                             |
-| `&grave;` or `&DiacriticalGrave;`         | ```                             |
-|                                           |                                 | JS decode – `JS_DECODE` AWS WAF decodes JavaScript escape sequences. If a `\uHHHH` code is in the full-width ASCII code range of `FF01-FF5E`, then the higher byte is used to detect and adjust the lower byte. If not, only the lower byte is used and the higher byte is zeroed, causing a possible loss of information. Lowercase – `LOWERCASE` AWS WAF converts uppercase letters (A-Z) to lowercase (a-z). MD5 – `MD5` AWS WAF calculates an MD5 hash from the data in the input. The computed hash is in a raw binary form. None – `NONE` AWS WAF inspects the web request as received, without any text transformations. Normalize path – `NORMALIZE_PATH` AWS WAF normalizes the input string by removing multiple slashes, directory self-references, and directory back-references that are not at the beginning of the input. Normalize path Windows – `NORMALIZE_PATH_WIN` AWS WAF converts backslash characters to forward slashes and then processes the resulting string using the `NORMALIZE_PATH` transformation. Remove nulls – `REMOVE_NULLS` AWS WAF removes all `NULL` bytes from the input. Replace comments – `REPLACE_COMMENTS` AWS WAF replaces each occurrence of a C-style comment (/\* ... \*/) with a single space. It doesn't compress multiple consecutive occurrences. It replaces unterminated comments with a space (ASCII 0x20). It doesn't change a standalone termination of a comment (\*/). Replace nulls – `REPLACE_NULLS` AWS WAF replaces each `NULL` byte in the input with the space character (ASCII 0x20). SQL hex decode – `SQL_HEX_DECODE` AWS WAF decodes SQL hex data. For example, AWS WAF decodes (`0x414243`) to (`ABC`). URL decode – `URL_DECODE` AWS WAF decodes a URL-encoded value. URL decode Unicode – `URL_DECODE_UNI` Like `URL_DECODE`, but with support for Microsoft-specific `%u` encoding. If the code is in the full-width ASCII code range of `FF01-FF5E`, the higher byte is used to detect and adjust the lower byte. Otherwise, only the lower byte is used and the higher byte is zeroed. UTF8 to Unicode – `UTF8_TO_UNICODE` AWS WAF converts all UTF-8 character sequences to Unicode. This helps normalize input and it minimizes false-positives and false-negatives for non-English languages. |
+| HTML-encoded character                          | replaced with...                |
+| ----------------------------------------------- | ------------------------------- | --- |
+| `&quot;`                                        | `"`                             |
+| `&amp;`                                         | `&`                             |
+| `&lt;`                                          | `<`                             |
+| `&gt;`                                          | `>`                             |
+| `&nbsp;` or `&NonBreakingSpace;`                | non-breaking space, decimal 160 |
+| `&NewLine;`                                     | `\n`, decimal 10                |
+| `&Tab;`                                         | `\t`, decimal 9                 |
+| `&lcub;` or<br>`&lbrace;`                       | `{`                             |
+| `&verbar;`,<br>`&vert;`, or<br>`&VerticalLine;` | `                               | `   |
+| `&rcub;` or<br>`&rbrace;`                       | `}`                             |
+| `&excl;`                                        | `!`                             |
+| `&num;`                                         | `#`                             |
+| `&dollar;`                                      | `$`                             |
+| `&percent;` or<br>`&percnt;`                    | `%`                             |
+| `&apos;`                                        | `\`                             |
+| `&lpar;`                                        | `(`                             |
+| `&rpar;`                                        | `)`                             |
+| `&ast;` or<br>`&midast;`                        | `*`                             |
+| `&plus;`                                        | `+`                             |
+| `&comma;`                                       | `,`                             |
+| `&period;`                                      | `.`                             |
+| `&sol;`                                         | `/`                             |
+| `&colon;`                                       | `:`                             |
+| `&semi;`                                        | `;`                             |
+| `&equals;`                                      | `=`                             |
+| `&quest;`                                       | `?`                             |
+| `&tilde;` or<br>`&DiacriticalTilde;`            | `~`                             |
+| `&minus;`                                       | `-`                             |
+| `&lsqb;` or<br>`&lbrack;`                       | `[`                             |
+| `&bsol;`                                        | `\\`                            |
+| `&rsqb;` or<br>`&rbrack;`                       | `]`                             |
+| `&hat;`                                         | `^`                             |
+| `&lowbar;` or<br>`&underbar;`                   | `_`                             |
+| `&grave;` or<br>`&DiacriticalGrave;`            | ```                             |
+|                                                 |                                 |
+
+JS decode – `JS_DECODE`
+
+AWS WAF decodes JavaScript escape sequences. If a
+`\uHHHH` code is in the full-width ASCII code range
+of `FF01-FF5E`, then the higher byte is used to detect
+and adjust the lower byte. If not, only the lower byte is used and
+the higher byte is zeroed, causing a possible loss of
+information.
+
+Lowercase – `LOWERCASE`
+
+AWS WAF converts uppercase letters (A-Z) to lowercase (a-z).
+
+MD5 – `MD5`
+
+AWS WAF calculates an MD5 hash from the data in the input. The
+computed hash is in a raw binary form.
+
+None – `NONE`
+
+AWS WAF inspects the web request as received, without any text
+transformations.
+
+Normalize path – `NORMALIZE_PATH`
+
+AWS WAF normalizes the input string by removing multiple slashes, directory self-references, and
+directory back-references that are not at the beginning of the input.
+
+Normalize path Windows – `NORMALIZE_PATH_WIN`
+
+AWS WAF converts backslash characters to forward slashes and then processes the resulting
+string using the `NORMALIZE_PATH` transformation.
+
+Remove nulls – `REMOVE_NULLS`
+
+AWS WAF removes all `NULL` bytes from the input.
+
+Replace comments – `REPLACE_COMMENTS`
+
+AWS WAF replaces each occurrence of a C-style comment (/\* ... \*/)
+with a single space. It doesn't compress multiple consecutive occurrences.
+It replaces unterminated comments with a space (ASCII 0x20). It doesn't change a standalone termination of a comment (\*/).
+
+Replace nulls – `REPLACE_NULLS`
+
+AWS WAF replaces each `NULL` byte in the input with the space
+character (ASCII 0x20).
+
+SQL hex decode – `SQL_HEX_DECODE`
+
+AWS WAF decodes SQL hex data. For example, AWS WAF decodes (`0x414243`)
+to (`ABC`).
+
+URL decode – `URL_DECODE`
+
+AWS WAF decodes a URL-encoded value.
+
+URL decode Unicode – `URL_DECODE_UNI`
+
+Like `URL_DECODE`, but with support for
+Microsoft-specific `%u` encoding. If the code is in the
+full-width ASCII code range of `FF01-FF5E`, the higher
+byte is used to detect and adjust the lower byte. Otherwise, only
+the lower byte is used and the higher byte is zeroed.
+
+UTF8 to Unicode – `UTF8_TO_UNICODE`
+
+AWS WAF converts all UTF-8 character sequences to Unicode. This
+helps normalize input and it minimizes false-positives and
+false-negatives for non-English languages.

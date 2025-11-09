@@ -5,8 +5,7 @@ For more details, see [Working with the updated console experience](working-with
 
 # Resource-level DDoS protection for Application Load Balancers
 
-**Resource level DDoS protection** adds immediate defense to Application Load Balancers without
-the pricing considerations of a AWS WAF managed rule group.
+**Resource level DDoS protection** adds immediate defense to Application Load Balancers without incurring charges of deploying AWS WAF managed rule groups.
 This standard tier of Anti-DDoS protection uses AWS threat intelligence and traffic pattern analysis to protect Application Load Balancers.
 To identify known malicous sources, Anti-DDoS protection performs on-host filtering of both direct client IP addresses and X-Forwarded-For (XFF) headers.
 After a known malicious source is identified, protection is activated through one of two modes:
@@ -53,3 +52,16 @@ enabled by default with **Active under DDoS** mode.
 ###### Note
 
 For information about creating a web ACL, see [Creating a protection pack (web ACL) in AWS WAF](web-acl-creating.md "web-acl-creating.md").
+
+###### To optimize web ACL request costs for your Application Load Balancer
+
+You must associate a web ACL with your Application Load Balancer to enable resource-level protection.
+If your Application Load Balancer is associated with a web ACL that has no configuration, you will not incur charges from AWS WAF requests, however, AWS WAF will not provide sampled requests or report on the Application Load Balancer in CloudWatch metrics.
+You can take the following actions to enable observability features for the Application Load Balancer:
+
+- Use the `Block` action or `Allow` action with custom request headers in the `DefaultAction`. For information, see [Inserting custom request headers for non-blocking actions](customizing-the-incoming-request.md "customizing-the-incoming-request.md").
+- Add any rules to the web ACL. For information, see [AWS WAF rules](waf-rules.md "waf-rules.md").
+- Enable a logging destination. For information, see [Configuring logging for a protection pack (web ACL)](logging-management-configure.md "logging-management-configure.md").
+- Associate the web ACL with an AWS Firewall Manager policy. For information, see [Creating an AWS Firewall Manager policy for
+  AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
+  AWS WAF will not provide sampled requests or publish CloudWatch metrics without these configurations.
