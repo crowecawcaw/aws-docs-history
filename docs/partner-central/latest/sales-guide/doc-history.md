@@ -2,8 +2,8 @@
 
 The following table describes the documentation releases for AWS Partner Central Documentation.
 
-| Change                                         | Description                                                                                                                            | Date             |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Feature release of multi-partner opportunities | Information added for sharing and accepting opportunities with multiple partners. Information added on connecting with other partners. | December 4, 2024 |
-| Feature release of Slack collaboration         | Instructions added for slack collaboration channels.                                                                                   | November 1, 2024 |
-| First release                                  | First release of the AWS Partner Central Sales Guide.                                                                                  | November 2, 2023 |
+| Change                                         | Description                                                                                                                               | Date             |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Feature release of multi-partner opportunities | Information added for sharing and accepting opportunities with multiple partners.<br>Information added on connecting with other partners. | December 4, 2024 |
+| Feature release of Slack collaboration         | Instructions added for slack collaboration channels.                                                                                      | November 1, 2024 |
+| First release                                  | First release of the AWS Partner Central Sales Guide.                                                                                     | November 2, 2023 |
