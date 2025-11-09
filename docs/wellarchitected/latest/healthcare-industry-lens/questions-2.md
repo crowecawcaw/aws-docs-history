@@ -1,17 +1,73 @@
 # Questions
 
-| HCL_PERF6. How does your organization benchmark the performance of a medical imaging solution?                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                             | Quantitatively benchmark the performance of systems in retrieving, analyzing, and reporting on images to meet customer expectations. Tests should realistically capture the network bandwidth, annual volume of data ingested (estimate the types and number of imaging modalities generating data), and the number of concurrent users that the solution will support.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| HCL_PERF7. Does your organization perform tests to quantify medical imaging system performance and quantify end user experience under realistic conditions? |
-| ---                                                                                                                                                         |
-|                                                                                                                                                             | Collect quantitative performance metrics under simulated loads and representative network speeds to provide an acceptable end user experience. Test your solution under accurately simulated loads (such as number of concurrent users and realistic last mile network bandwidth). Radiologists demand high performance from PACS and VNA solutions, and are sensitive to image retrieval latencies. For example, collect metrics like time to first image display that quantify how long it takes for an end user to see a medical image after requesting it. Once performance requirements are met, systems can be cost optimized by balancing image retrieval performance with use of cost-effective storage services (such as right sizing cache volumes and [throughput provisioning](../../../fsx/latest/WindowsGuide/performance.md "../../../fsx/latest/WindowsGuide/performance.md")). |
-| HCL_PERF8. Does your organization leverage high-performance network protocols and compression of data in transit for medical imaging systems?               |
-| ---                                                                                                                                                         |
-|                                                                                                                                                             | Optimize the throughput of medical image data between backends and viewer applications with high-performance, parallelized network protocols like HTTP/2. Also, leverage compression algorithms to reduce the volume of data transferred.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| HCL_PERF9. How do you optimize end user experience with algorithms that prioritize the sequence of data transmitted from the backends to front ends?        |
-| ---                                                                                                                                                         |
-|                                                                                                                                                             | Medical imaging study data may consist of multiple images or a single large image with regions of varying importance. End user experience can be optimized by prioritizing transmission of the images or [areas](https://meridian.allenpress.com/aplm/article/143/2/222/64743/A-Practical-Guide-to-Whole-Slide-Imaging-A-White "https://meridian.allenpress.com/aplm/article/143/2/222/64743/A-Practical-Guide-to-Whole-Slide-Imaging-A-White") that will be of highest initial interest. In this way, the end user can begin their work while data of less interest is transmitted.                                                                                                                                                                                                                                                                                                            |
-| HCL_COST2. How does your organization determine the appropriate storage medium to collect, process, and store medical images?                               |
-| ---                                                                                                                                                         |
-|                                                                                                                                                             | Quantify the overall user-experience using metrics (like first image display time). Provision cloud services that are appropriate for each component’s performance requirements. For example, high IOPS EBS volumes may increase cost but may not improve user experience if the overall solution performance is limited by network connectivity. Further, collect data on medical image access frequency and use it to optimize the cost of storage through each image’s lifecycle. As noted above, medical images tend to be accessed frequently when created and then see less access with time. Decrease storage costs by moving images to lower-cost cloud storage tiers as access becomes less frequent.                                                                                                                                                                                  |
+| HCL_PERF6. How does your organization<br>benchmark the performance of a medical imaging<br>solution? |
+| ---------------------------------------------------------------------------------------------------- |
+|                                                                                                      |
+
+Quantitatively benchmark the performance of systems in
+retrieving, analyzing, and reporting on images to meet customer
+expectations. Tests should realistically capture the network
+bandwidth, annual volume of data ingested (estimate the types
+and number of imaging modalities generating data), and the
+number of concurrent users that the solution will support.
+
+| HCL_PERF7. Does your organization<br>perform tests to quantify medical imaging system performance<br>and quantify end user experience under realistic<br>conditions? |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                                      |
+
+Collect quantitative performance metrics under simulated loads
+and representative network speeds to provide an acceptable end
+user experience. Test your solution under accurately simulated
+loads (such as number of concurrent users and realistic last
+mile network bandwidth). Radiologists demand high performance
+from PACS and VNA solutions, and are sensitive to image
+retrieval latencies. For example, collect metrics like time to
+first image display that quantify how long it takes for an end
+user to see a medical image after requesting it.
+
+Once performance requirements are met, systems can be cost
+optimized by balancing image retrieval performance with use of
+cost-effective storage services (such as right sizing cache volumes
+and
+[throughput
+provisioning](../../../fsx/latest/WindowsGuide/performance.md "../../../fsx/latest/WindowsGuide/performance.md")).
+
+| HCL_PERF8. Does your organization<br>leverage high-performance network protocols and compression<br>of data in transit for medical imaging systems? |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                     |
+
+Optimize the throughput of medical image data between backends
+and viewer applications with high-performance, parallelized
+network protocols like HTTP/2. Also, leverage compression
+algorithms to reduce the volume of data transferred.
+
+| HCL_PERF9. How do you optimize end<br>user experience with algorithms that prioritize the sequence<br>of data transmitted from the backends to front<br>ends? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                                               |
+
+Medical imaging study data may consist of multiple images or a
+single large image with regions of varying importance. End user
+experience can be optimized by prioritizing transmission of the
+images or
+[areas](https://meridian.allenpress.com/aplm/article/143/2/222/64743/A-Practical-Guide-to-Whole-Slide-Imaging-A-White "https://meridian.allenpress.com/aplm/article/143/2/222/64743/A-Practical-Guide-to-Whole-Slide-Imaging-A-White")
+that will be of highest initial interest. In this way, the end
+user can begin their work while data of less interest is
+transmitted.
+
+| HCL_COST2. How does your organization<br>determine the appropriate storage medium to collect, process,<br>and store medical images? |
+| ----------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                     |
+
+Quantify the overall user-experience using metrics (like first
+image display time). Provision cloud services that are
+appropriate for each component’s performance requirements. For
+example, high IOPS EBS volumes may increase cost but may not
+improve user experience if the overall solution performance is
+limited by network connectivity.
+
+Further, collect data on medical image access frequency and use
+it to optimize the cost of storage through each image’s
+lifecycle. As noted above, medical images tend to be accessed
+frequently when created and then see less access with time.
+Decrease storage costs by moving images to lower-cost cloud
+storage tiers as access becomes less frequent.

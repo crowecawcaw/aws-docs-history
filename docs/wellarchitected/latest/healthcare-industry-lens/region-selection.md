@@ -1,5 +1,22 @@
 # Region selection
 
-| HCL_SUS1. How do you identify targets for sustainability improvement? |
-| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                       | **Prioritize targets for improvement by reviewing your workloads against the [sustainability principles](../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md "../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md")** Migrating workloads from on-premises data centers to the cloud can reduce the workload’s carbon footprint by 88%. Regular review of cloud architecture for optimization opportunities can reduce carbon footprints as well.  Both mean that healthcare workload migrations can deliver the benefits of the cloud and simultaneously improve sustainability.  The [Sustainability pillar of the AWS Well-Architected Framework](../sustainability-pillar/sustainability-pillar.md "../sustainability-pillar/sustainability-pillar.md") contains a number of [best practices for sustainability in the cloud](../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md "../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md"). |
+| HCL_SUS1. How do you identify targets<br>for sustainability improvement? |
+| ------------------------------------------------------------------------ |
+|                                                                          |
+
+**Prioritize targets for
+improvement by reviewing your workloads against the
+[sustainability
+principles](../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md "../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md")**
+
+Migrating workloads from on-premises data centers to the cloud
+can reduce the workload’s carbon footprint by 88%. Regular
+review of cloud architecture for optimization opportunities can
+reduce carbon footprints as well.  Both mean that healthcare
+workload migrations can deliver the benefits of the cloud and
+simultaneously improve sustainability.  The
+[Sustainability
+pillar of the AWS Well-Architected Framework](../sustainability-pillar/sustainability-pillar.md "../sustainability-pillar/sustainability-pillar.md") contains a
+number of
+[best
+practices for sustainability in the cloud](../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md "../sustainability-pillar/best-practices-for-sustainability-in-the-cloud.md").

@@ -1,5 +1,15 @@
 # Measure results
 
-| HCL_SUS5. How does your organization measure the effectiveness of sustainability efforts? |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                           | **Quantify and report results to drive continuous improvement processes** The healthcare vertical extensively uses metrics and measures to quantify care quality, effectiveness, and patient experience. Adding metrics to quantify sustainability improvement can better align business interests with sustainability goals. Further, analysis of such reporting can help identify repeatable processes for achieving sustainability improvements. |
+| HCL_SUS5. How does your organization<br>measure the effectiveness of sustainability<br>efforts? |
+| ----------------------------------------------------------------------------------------------- |
+|                                                                                                 |
+
+**Quantify and report results
+to drive continuous improvement processes**
+
+The healthcare vertical extensively uses metrics and measures to
+quantify care quality, effectiveness, and patient experience.
+Adding metrics to quantify sustainability improvement can better
+align business interests with sustainability goals. Further,
+analysis of such reporting can help identify repeatable
+processes for achieving sustainability improvements.

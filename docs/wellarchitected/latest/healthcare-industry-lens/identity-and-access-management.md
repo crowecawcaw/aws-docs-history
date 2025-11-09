@@ -1,8 +1,158 @@
 # Identity and access management
 
-| HCL_SEC1. How do you identify where health data is in your environment?   |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                           | **Determine applicable regulatory frameworks and controls as it pertains to data classification** It is critical that organizations understand what types of data are being hosted and processed, and where that data resides. This understanding is a basis for ensuring that the right controls are in place for aligning with relevant regulatory frameworks and standards. Data classification also aids in traceability and access monitoring of sensitive data. You can start by creating policies and procedures that align to the relevant regulatory frameworks. The policies and procedures should outline a data classification strategy that fits your business and regulatory requirements. **Create and document a data classification strategy** Based on the business requirements, and any applicable regulatory frameworks, implement a data classification policy. This policy should extend beyond simply marking health data, but should include other sensitive or confidential data, as well as public data. The [Data Classification: Secure Cloud Adoption](../../../whitepapers/latest/data-classification/welcome.md "../../../whitepapers/latest/data-classification/welcome.md") whitepaper provides examples of how to categorize data, and how to implement a data classification strategy that implements the appropriate controls based on the data category.  Make sure that health data is classified in accordance with the proper regulatory frameworks that your business aligns to. **Select the appropriate cloud deployment model according to your specific needs, the type of data you handle, and the assessed risk** As outlined in the [Data Classification: Secure Cloud Adoption](../../../whitepapers/latest/data-classification/welcome.md "../../../whitepapers/latest/data-classification/welcome.md") whitepaper, select the appropriate cloud deployment model according to your specific needs, the type of data you handle, and the assessed risk. Depending on the classification of the data, apply the relevant security controls (such as encryption) within your cloud environment. AWS also recommends that health data be classified and labeled as such, simplifying audits and ensuring that the proper technical controls can be implemented. If your environment uses multiple AWS accounts, designate specific accounts to host and process health data to simplify managing where health data is located. For example, if your account structure mirrors your software development lifecycle with accounts designated for development, testing, staging, and production, the production and staging accounts may be designated as “health data” accounts and are therefore documented as containing health data. Then, implement procedures and controls in the development and testing accounts to prevent health data from being stored there. You can also assign [tags](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") to your AWS resources, which consist of a user-defined key and value. Tags help you manage, identify, organize, search for, and filter resources. Create tags to categorize resources by purpose, owner, environment, or other criteria. Use tags to help identify and document resources and objects that contain sensitive health data in accordance you’re your data classification strategy. Do not store sensitive health data in tags, as they are not intended to be used for private or sensitive data. Finally, access to resources can be [controlled through tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md"). **Implement automated data classification** [Amazon Macie](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md") is a fully managed data security service that can help you identify sensitive data residing in Amazon S3. Macie automates the discovery of sensitive data, such as personally identifiable information (PII), to provide you with a better understanding of the data that your organization stores in Amazon S3. Macie also provides you with an inventory of your Amazon S3 buckets, and it automatically evaluates and monitors those buckets for security and access control. You can use Amazon Comprehend (PII) and Amazon Comprehend Medical (PHI) to evaluate unstructured text data in your environment. Amazon Comprehend will provide a confidence score to measure the confidence that the data contains PHI as defined by HIPAA. This score can help you determine the sensitivity of the data reviewed. |
-| HCL_SEC2. How are you implementing least privilege access to health data? |
-| ---                                                                       |
-|                                                                           | The ability to access health data should be limited to the people or systems who require the access to perform specific tasks. This covers access to the data itself, and access the systems that host health data. **Use identity and access management to control access to systems, resources, and data** Use AWS Identity and Access Management to control access to AWS services and resources. Use IAM to control who is authenticated to the environment and who is authorized to use services and resources. As outlined in the [IAM grant least privilege](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") documentation, start with a minimum set of permissions, and grant additional permissions as necessary. This approach exposes you to less risk than starting with permissions that are too lenient and then trying to tighten them later. Health data on the cloud is typically stored in databases, file systems, and object storage services. The optimal storage service is determined by the data type (for example, structured vs. unstructured) and access patterns required by the workload.  For each data store, use a combination of IAM permissions and any additional authorization methods to secure stored health data. For object storage on Amazon S3, use access policies attached to your resources (buckets and objects) to implement additional authorization if necessary. More information can be found at [identity and access management in Amazon S3](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md"). Health data residing in a data lake based in Amazon S3, including those managed by AWS Lake Formation, should consider implementing column, row, and cell-level authorization controls where appropriate. Use operating system file system permissions to limit access to health data stored on instance storage, including when using managed storage services such as Amazon Elastic File System and Amazon FSx for Lustre. Additionally, use resource and condition statements within IAM policies to limit IAM principal access to file systems when using managed storage services. Control access to managed file systems through narrowly scoped security groups to prevent unauthorized resources from connecting to the file system. Sensitive data stored in managed database services, such as Amazon Aurora, Amazon Relational Database Service, Amazon Redshift, and Amazon DynamoDB, implement authorization rules using a combination of IAM permissions and any additional authorization mechanisms available in the AWS service. For example, Amazon Redshift supports access controls as the column-level to limit users access to columns that may contain sensitive data. The AWS documentation for each managed database service contains a section titled Identity and Access Management which documents the access configuration options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| HCL_SEC1. How do you identify where<br>health data is in your environment? |
+| -------------------------------------------------------------------------- |
+|                                                                            |
+
+**Determine applicable
+regulatory frameworks and controls as it pertains to data
+classification**
+
+It is critical that organizations understand what types of
+data are being hosted and processed, and where that data
+resides. This understanding is a basis for ensuring that the
+right controls are in place for aligning with relevant
+regulatory frameworks and standards. Data classification also
+aids in traceability and access monitoring of sensitive data.
+
+You can start by creating policies and procedures that align
+to the relevant regulatory frameworks. The policies and
+procedures should outline a data classification strategy that
+fits your business and regulatory requirements.
+
+**Create and document a
+data classification strategy**
+
+Based on the business requirements, and any applicable
+regulatory frameworks, implement a data classification policy.
+This policy should extend beyond simply marking health data,
+but should include other sensitive or confidential data, as
+well as public data. The [Data
+Classification: Secure Cloud Adoption](../../../whitepapers/latest/data-classification/welcome.md "../../../whitepapers/latest/data-classification/welcome.md") whitepaper
+provides examples of how to categorize data, and how to
+implement a data classification strategy that implements the
+appropriate controls based on the data category.  Make sure
+that health data is classified in accordance with the proper
+regulatory frameworks that your business aligns to.
+
+**Select the appropriate
+cloud deployment model according to your specific needs, the
+type of data you handle, and the assessed risk**
+
+As outlined in the
+[Data
+Classification: Secure Cloud Adoption](../../../whitepapers/latest/data-classification/welcome.md "../../../whitepapers/latest/data-classification/welcome.md") whitepaper,
+select the appropriate cloud deployment model according to
+your specific needs, the type of data you handle, and the
+assessed risk. Depending on the classification of the data,
+apply the relevant security controls (such as encryption) within
+your cloud environment. AWS also recommends that health data
+be classified and labeled as such, simplifying audits and
+ensuring that the proper technical controls can be
+implemented.
+
+If your environment uses multiple AWS accounts, designate
+specific accounts to host and process health data to simplify
+managing where health data is located. For example, if your
+account structure mirrors your software development lifecycle
+with accounts designated for development, testing, staging,
+and production, the production and staging accounts may be
+designated as “health data” accounts and are therefore
+documented as containing health data. Then, implement
+procedures and controls in the development and testing
+accounts to prevent health data from being stored there.
+
+You can also assign
+[tags](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md")
+to your AWS resources, which consist of a user-defined key and
+value. Tags help you manage, identify, organize, search for,
+and filter resources. Create tags to categorize resources by
+purpose, owner, environment, or other criteria. Use tags to
+help identify and document resources and objects that contain
+sensitive health data in accordance you’re your data
+classification strategy. Do not store sensitive health data in
+tags, as they are not intended to be used for private or
+sensitive data. Finally, access to resources can be
+[controlled
+through tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md").
+
+**Implement automated data
+classification**
+
+[Amazon Macie](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md") is a fully managed data security service that can
+help you identify sensitive data residing in Amazon S3. Macie
+automates the discovery of sensitive data, such as personally
+identifiable information (PII), to provide you with a better
+understanding of the data that your organization stores in Amazon S3.
+Macie also provides you with an inventory of your Amazon S3 buckets,
+and it automatically evaluates and monitors those buckets for
+security and access control.
+
+You can use Amazon Comprehend (PII) and Amazon Comprehend
+Medical (PHI) to evaluate unstructured text data in your
+environment. Amazon Comprehend will provide a confidence score
+to measure the confidence that the data contains PHI as
+defined by HIPAA. This score can help you determine the
+sensitivity of the data reviewed.
+
+| HCL_SEC2. How are you implementing<br>least privilege access to health data? |
+| ---------------------------------------------------------------------------- |
+|                                                                              |
+
+The ability to access health data should be limited to the
+people or systems who require the access to perform specific
+tasks. This covers access to the data itself, and access the
+systems that host health data.
+
+**Use identity and access
+management to control access to systems, resources, and
+data**
+
+Use AWS Identity and Access Management to control access
+to AWS services and resources. Use IAM to control who is
+authenticated to the environment and who is authorized to use
+services and resources. As outlined in the
+[IAM
+grant least privilege](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") documentation, start with a
+minimum set of permissions, and grant additional permissions
+as necessary. This approach exposes you to less risk than
+starting with permissions that are too lenient and then trying
+to tighten them later.
+
+Health data on the cloud is typically stored in databases, file
+systems, and object storage services. The optimal storage
+service is determined by the data type (for example,
+structured vs. unstructured) and access patterns required by
+the workload.  For each data store, use a combination of IAM
+permissions and any additional authorization methods to secure
+stored health data.
+
+For object storage on Amazon S3, use access policies attached
+to your resources (buckets and objects) to implement
+additional authorization if necessary. More information can be
+found at [identity
+and access management in Amazon S3](../../../AmazonS3/latest/userguide/s3-access-control.md "../../../AmazonS3/latest/userguide/s3-access-control.md"). Health data
+residing in a data lake based in Amazon S3, including those managed
+by AWS Lake Formation, should consider implementing column,
+row, and cell-level authorization controls where appropriate.
+
+Use operating system file system permissions to limit access
+to health data stored on instance storage, including when
+using managed storage services such as Amazon Elastic File System and Amazon FSx for Lustre. Additionally,
+use resource and condition statements within IAM policies to
+limit IAM principal access to file systems when using managed
+storage services.
+
+Control access to managed file systems through narrowly scoped
+security groups to prevent unauthorized resources from
+connecting to the file system.
+
+Sensitive data stored in managed database services, such as
+Amazon Aurora, Amazon Relational Database Service, Amazon Redshift, and Amazon DynamoDB, implement
+authorization rules using a combination of IAM permissions and
+any additional authorization mechanisms available in the AWS
+service. For example, Amazon Redshift supports access controls
+as the column-level to limit users access to columns that may
+contain sensitive data. The AWS documentation for each managed
+database service contains a section titled Identity and Access
+Management which documents the access configuration options.
