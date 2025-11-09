@@ -1001,19 +1001,22 @@ Agreement ARN's were updated for fine-grained permissions. Any previous referenc
 
 AWS
 
-| Agreement Name                                                | Artifact ARN for Legacy permissions                                                              | Artifact ARN for Fine-grained permissions                      |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ----------------- |
-| AWS Business Associate Addendum                               | arn:aws:artifact:::agreement/AWS Business Associate Addendum                                     | arn:aws:artifact:::agreement/agreement-9c1kBcYznTkcpRIm        |
-| AWS New Zealand Notifiable Data Breach Addendum               | arn:aws:artifact:::agreement/AWS New Zealand Notifiable Data Breach Addendum                     | arn:aws:artifact:::agreement/agreement-3YRq9rGUIu72r7Gt        |
-| AWS Australian Notifiable Data Breach Addendum                | arn:aws:artifact:::agreement/AWS Australian Notifiable Data Breach Addendum                      | arn:aws:artifact:::agreement/agreement-sbLSDe8bitmAXNr9        |
-| AWS SEC Rule 17a-4 Addendum                                   | arn:aws:artifact:::agreement/AWS SEC Rule 17a-4 Addendum                                         | arn:aws:artifact:::agreement/agreement-bexgr7sjvXAW4Gxu        |
-| AWS SEC Rule 18a-6 Addendum                                   | arn:aws:artifact:::agreement/AWS SEC Rule 18a-6 Addendum                                         | arn:aws:artifact:::agreement/agreement-HZTdNwJuqOKLReXC        |
-| AWS Organizations Business Associate Addendum                 | arn:aws:artifact:::agreement/AWS Organizations Business Associate Addendum                       | arn:aws:artifact:::agreement/agreement-y03aUwMAEorHtqjv        |
-| AWS Organizations Australian Notifiable Data Breach Addendum  | arn:aws:artifact:::agreement/AWS Organizations Australian Notifiable Data Breach Addendum        | arn:aws:artifact:::agreement/agreement-YpDMFXTePE7kEg4b        |
-| AWS Organizations New Zealand Notifiable Data Breach Addendum | arn:aws:artifact:::agreement/AWS Organizations New Zealand Notifiable Data Breach Addendum       | arn:aws:artifact:::agreement/agreement-uojEjr3vOnvrhV52        | AWS GovCloud (US) |
-| Agreement Name                                                | Artifact ARN for Legacy permissions                                                              | Artifact ARN for Fine-grained permissions                      |
-| ---                                                           | ---                                                                                              | ---                                                            |
-| AWS Business Associate Addendum                               | arn:aws-us-gov:artifact:::agreement/AWS Business Associate Addendum                              | arn:aws-us-gov:artifact:::agreement/agreement-Og8HCNyYwYNp8AR1 |
-| AWS Australian Notifiable Data Breach Addendum                | arn:aws-us-gov:artifact:::agreement/AWS Australian Notifiable Data Breach Addendum               | arn:aws-us-gov:artifact:::agreement/agreement-G1rBS2MGYjLiCCXy |
-| AWS Organizations Business Associate Addendum                 | arn:aws-us-gov:artifact:::agreement/AWS Organizations Business Associate Addendum                | arn:aws-us-gov:artifact:::agreement/agreement-B47fK0ArVebC9XE1 |
-| AWS Organizations Australian Notifiable Data Breach Addendum  | arn:aws-us-gov:artifact:::agreement/AWS Organizations Australian Notifiable Data Breach Addendum | arn:aws-us-gov:artifact:::agreement/agreement-OsnlbilP8RB73Nw5 |
+| Agreement Name                                                | Artifact ARN for Legacy permissions                                                        | Artifact ARN for Fine-grained permissions               |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| AWS Business Associate Addendum                               | arn:aws:artifact:::agreement/AWS Business Associate Addendum                               | arn:aws:artifact:::agreement/agreement-9c1kBcYznTkcpRIm |
+| AWS New Zealand Notifiable Data Breach Addendum               | arn:aws:artifact:::agreement/AWS New Zealand Notifiable Data Breach Addendum               | arn:aws:artifact:::agreement/agreement-3YRq9rGUIu72r7Gt |
+| AWS Australian Notifiable Data Breach Addendum                | arn:aws:artifact:::agreement/AWS Australian Notifiable Data Breach Addendum                | arn:aws:artifact:::agreement/agreement-sbLSDe8bitmAXNr9 |
+| AWS SEC Rule 17a-4 Addendum                                   | arn:aws:artifact:::agreement/AWS SEC Rule 17a-4 Addendum                                   | arn:aws:artifact:::agreement/agreement-bexgr7sjvXAW4Gxu |
+| AWS SEC Rule 18a-6 Addendum                                   | arn:aws:artifact:::agreement/AWS SEC Rule 18a-6 Addendum                                   | arn:aws:artifact:::agreement/agreement-HZTdNwJuqOKLReXC |
+| AWS Organizations Business Associate Addendum                 | arn:aws:artifact:::agreement/AWS Organizations Business Associate Addendum                 | arn:aws:artifact:::agreement/agreement-y03aUwMAEorHtqjv |
+| AWS Organizations Australian Notifiable Data Breach Addendum  | arn:aws:artifact:::agreement/AWS Organizations Australian Notifiable Data Breach Addendum  | arn:aws:artifact:::agreement/agreement-YpDMFXTePE7kEg4b |
+| AWS Organizations New Zealand Notifiable Data Breach Addendum | arn:aws:artifact:::agreement/AWS Organizations New Zealand Notifiable Data Breach Addendum | arn:aws:artifact:::agreement/agreement-uojEjr3vOnvrhV52 |
+
+AWS GovCloud (US)
+
+| Agreement Name                                               | Artifact ARN for Legacy permissions                                                              | Artifact ARN for Fine-grained permissions                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| AWS Business Associate Addendum                              | arn:aws-us-gov:artifact:::agreement/AWS Business Associate Addendum                              | arn:aws-us-gov:artifact:::agreement/agreement-Og8HCNyYwYNp8AR1 |
+| AWS Australian Notifiable Data Breach Addendum               | arn:aws-us-gov:artifact:::agreement/AWS Australian Notifiable Data Breach Addendum               | arn:aws-us-gov:artifact:::agreement/agreement-G1rBS2MGYjLiCCXy |
+| AWS Organizations Business Associate Addendum                | arn:aws-us-gov:artifact:::agreement/AWS Organizations Business Associate Addendum                | arn:aws-us-gov:artifact:::agreement/agreement-B47fK0ArVebC9XE1 |
+| AWS Organizations Australian Notifiable Data Breach Addendum | arn:aws-us-gov:artifact:::agreement/AWS Organizations Australian Notifiable Data Breach Addendum | arn:aws-us-gov:artifact:::agreement/agreement-OsnlbilP8RB73Nw5 |
