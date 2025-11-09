@@ -214,9 +214,13 @@ keys that you used to configure CHAP for the volume on the Storage Gateway conso
    For guidance on what values to specify, see the following
    table.
 
-| Configuration Setting | Value                                                                                                                                                                               |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `username`            | The initiator name that you found in a previous step in this procedure. The value starts with _iqn_. For example, `iqn.1994-05.com.redhat:8e89b27b5b8` is a valid `username` value. |
-| `password`            | The secret key used to authenticate the initiator (the client you are using) when it communicates with the volume.                                                                  |
-| `username_in`         | The IQN of the target volume. The value starts with _iqn_ and ends with the target name. For example, `iqn.1997-05.com.amazon:myvolume` is a valid `username_in` value.             |
-| `password_in`         | The secret key used to authenticate the target (the volume) when it communicates to the initiator.                                                                                  | 4. Save the changes in the configuration file, and then close the file. 4. Discover and log in to the target. To do so, follow the steps in [Connecting to a Linux Client](GettingStarted-create-tape-gateway.md#iscsi-vtl-linux "GettingStarted-create-tape-gateway.md#iscsi-vtl-linux"). |
+   | Configuration Setting | Value                                                                                                                                                                                              |
+   | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | `username`            | The initiator name that you found in a previous<br>step in this procedure. The value starts with<br>_iqn_. For example,<br>`iqn.1994-05.com.redhat:8e89b27b5b8`<br>is a valid `username`<br>value. |
+   | `password`            | The secret key used to authenticate the initiator<br>(the client you are using) when it communicates with the<br>volume.                                                                           |
+   | `username_in`         | The IQN of the target volume. The value starts<br>with \*iqn<br>• and ends with the<br>target name. For example,<br>`iqn.1997-05.com.amazon:myvolume`<br>is a valid `username_in`<br>value.        |
+   | `password_in`         | The secret key used to authenticate the target<br>(the volume) when it communicates to the<br>initiator.                                                                                           |
+   4. Save the changes in the configuration file, and then close the
+      file.
+
+4. Discover and log in to the target. To do so, follow the steps in [Connecting to a Linux Client](GettingStarted-create-tape-gateway.md#iscsi-vtl-linux "GettingStarted-create-tape-gateway.md#iscsi-vtl-linux").

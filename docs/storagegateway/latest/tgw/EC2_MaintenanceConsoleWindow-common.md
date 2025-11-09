@@ -18,9 +18,13 @@ console
    Configuration** main menu, from which you can perform various
    tasks.
 
-| To Learn About This Task                 | See This Topic                                                                                                                              |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Configure a SOCKS proxy for your gateway | [Routing your gateway deployed on EC2 through an HTTP proxy](EC2_MaintenanceRoutingProxy-common.md "EC2_MaintenanceRoutingProxy-common.md") |
-| Test network connectivity                | [Testing gateway network connectivity](EC2_MaintenanceTestGatewayConnectivity-common.md "EC2_MaintenanceTestGatewayConnectivity-common.md") |
-| Run Storage Gateway console commands     | [Running Storage Gateway commands on the local console](EC2_MaintenanceGatewayConsole-common.md "EC2_MaintenanceGatewayConsole-common.md")  |
-| View a system resource check             | [Viewing your gateway system resource status](EC2_system-resource-check-common.md "EC2_system-resource-check-common.md").                   | To shut down the gateway, enter `0`. To exit the configuration session, enter `X`. |
+| To Learn About This Task                 | See This Topic                                                                                                                                 |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configure a SOCKS proxy for your gateway | [Routing your gateway deployed on<br>EC2 through an HTTP proxy](EC2_MaintenanceRoutingProxy-common.md "EC2_MaintenanceRoutingProxy-common.md") |
+| Test network connectivity                | [Testing gateway network<br>connectivity](EC2_MaintenanceTestGatewayConnectivity-common.md "EC2_MaintenanceTestGatewayConnectivity-common.md") |
+| Run Storage Gateway console commands     | [Running Storage Gateway commands on<br>the local console](EC2_MaintenanceGatewayConsole-common.md "EC2_MaintenanceGatewayConsole-common.md")  |
+| View a system resource check             | [Viewing your gateway system resource<br>status](EC2_system-resource-check-common.md "EC2_system-resource-check-common.md").                   |
+
+To shut down the gateway, enter `0`.
+
+To exit the configuration session, enter `X`.
