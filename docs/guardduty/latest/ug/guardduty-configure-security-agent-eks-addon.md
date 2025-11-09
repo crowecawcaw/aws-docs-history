@@ -41,16 +41,66 @@ add-on manually or update the existing add-on settings.
 
 **CPU settings**
 
-| Parameters                               | Default value            | Configurable range                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------- | ---------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Requests                                 | 200m                     | Between 200m and 10000m, both inclusive                                                                                                                                                                                                                                                                                                  |
-| Limits                                   | 1000m                    | **Memory settings**                                                                                                                                                                                                                                                                                                                      |
-| Parameters                               | Default value            | Configurable range                                                                                                                                                                                                                                                                                                                       |
-| ---                                      | ---                      | ---                                                                                                                                                                                                                                                                                                                                      |
-| Requests                                 | 256Mi                    | Between 256Mi and 20000Mi, both inclusive                                                                                                                                                                                                                                                                                                |
-| Limits                                   | 1024Mi                   | **`PriorityClass` settings** When GuardDuty creates an Amazon EKS add-on for you, the assigned `PriorityClass` is `aws-guardduty-agent.priorityclass`. This means that no action will be taken based on the priority of the agent pod. You can configure this add-on parameter by choosing one of the following `PriorityClass` options: |
-| Configurable `PriorityClass`             | `preemptionPolicy` value | `preemptionPolicy` description                                                                                                                                                                                                                                                                                                           | Pod value |
-| ---                                      | ---                      | ---                                                                                                                                                                                                                                                                                                                                      | ---       |
-| `aws-guardduty-agent.priorityclass`      | `Never`                  | No action                                                                                                                                                                                                                                                                                                                                | 1000000   |
-| `aws-guardduty-agent.priorityclass-high` | `PreemptLowerPriority`   | Assigning this value will preempt a pod running with the priority value lower than the agent pod value.                                                                                                                                                                                                                                  | 100000000 |
-| `system-cluster-critical`**1**           | `PreemptLowerPriority`   | 2000000000                                                                                                                                                                                                                                                                                                                               |           | `system-node-critical`**1** | `PreemptLowerPriority` | 2000001000 | **1** Kubernetes provides these two `PriorityClass` options – `system-cluster-critical` and `system-node-critical`. For more information, see [PriorityClass](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#how-to-use-priority-and-preemption "https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#how-to-use-priority-and-preemption") in the _Kubernetes documentation_. **`dnsPolicy` settings** Choose one of the following DNS policy options that Kubernetes supports. When no configuration is specified, `ClusterFirst` is used as the default value. <br>• `ClusterFirst` <br>• `ClusterFirstWithHostNet` <br>• `Default` For information about these policies, see [Pod's DNS Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") in the _Kubernetes documentation_. ## Verifying configuration schema updates After you have configured the parameters, perform the following steps to verify that the configuration schema has been updated: 1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters"). 2. In the navigation pane, choose **Clusters**. 3. On the **Clusters** page, select the **Cluster name** for which you want to verify the updates. 4. Choose the **Resources** tab. 5. From the **Resource types** pane, under **Workloads**, choose **DaemonSets**. 6. Select **aws-guardduty-agent**. 7. On the **aws-guardduty-agent** page, choose **Raw view** to view the unformatted JSON response. Verify that the configurable parameters display the value that you provided. After you verify, switch to the GuardDuty console. Select the corresponding AWS Region and view the coverage status for your Amazon EKS clusters. For more information, see [Runtime coverage and troubleshooting for Amazon EKS clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md"). |
+| Parameters | Default value | Configurable range                      |
+| ---------- | ------------- | --------------------------------------- |
+| Requests   | 200m          | Between 200m and 10000m, both inclusive |
+| Limits     | 1000m         |
+
+**Memory settings**
+
+| Parameters | Default value | Configurable range                        |
+| ---------- | ------------- | ----------------------------------------- |
+| Requests   | 256Mi         | Between 256Mi and 20000Mi, both inclusive |
+| Limits     | 1024Mi        |
+
+**`PriorityClass` settings**
+
+When GuardDuty creates an Amazon EKS add-on for you, the assigned `PriorityClass` is
+`aws-guardduty-agent.priorityclass`. This means that no action will be taken based
+on the priority of the agent pod. You can configure this add-on parameter by choosing one of
+the following `PriorityClass` options:
+
+| Configurable `PriorityClass`             | `preemptionPolicy` value | `preemptionPolicy` description                                                                             | Pod value |
+| ---------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------- | --------- |
+| `aws-guardduty-agent.priorityclass`      | `Never`                  | No action                                                                                                  | 1000000   |
+| `aws-guardduty-agent.priorityclass-high` | `PreemptLowerPriority`   | Assigning this value will preempt a pod running with the priority value lower than<br>the agent pod value. | 100000000 |
+| `system-cluster-critical`**1**           | `PreemptLowerPriority`   | 2000000000                                                                                                 |
+| `system-node-critical`**1**              | `PreemptLowerPriority`   | 2000001000                                                                                                 |
+
+**1** Kubernetes provides these two
+`PriorityClass` options – `system-cluster-critical` and
+`system-node-critical`. For more information, see [PriorityClass](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#how-to-use-priority-and-preemption "https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#how-to-use-priority-and-preemption") in the _Kubernetes documentation_.
+
+**`dnsPolicy` settings**
+
+Choose one of the following DNS policy options that Kubernetes supports. When no configuration
+is specified, `ClusterFirst` is used as the default value.
+
+- `ClusterFirst`
+- `ClusterFirstWithHostNet`
+- `Default`
+
+For information about these policies, see [Pod's DNS Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") in the _Kubernetes documentation_.
+
+## Verifying configuration schema
+
+updates
+
+After you have configured the parameters, perform the following steps to verify that the
+configuration schema has been updated:
+
+1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
+2. In the navigation pane, choose **Clusters**.
+3. On the **Clusters** page, select the **Cluster name** for
+   which you want to verify the updates.
+4. Choose the **Resources** tab.
+5. From the **Resource types** pane, under **Workloads**,
+   choose **DaemonSets**.
+6. Select **aws-guardduty-agent**.
+7. On the **aws-guardduty-agent** page, choose **Raw view**
+   to view the unformatted JSON response. Verify that the configurable parameters display the value
+   that you provided.
+
+After you verify, switch to the GuardDuty console. Select the corresponding AWS Region and view
+the coverage status for your Amazon EKS clusters. For more information, see [Runtime coverage and troubleshooting for Amazon EKS
+clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md").

@@ -51,7 +51,16 @@ The following table shows the AWS Regions where GuardDuty is available but
 these two Amazon EC2 finding types are not yet supported.
 
 | AWS Region             | Region code    |
-| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------- | -------------- |
 | Asia Pacific (Seoul)   | ap-northeast-2 |
 | Asia Pacific (Osaka)   | ap-northeast-3 |
-| Asia Pacific (Jakarta) | ap-southeast-3 | **AWS GovCloud (US) Regions** For latest information, see [Amazon GuardDuty](../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md "../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md") in the _AWS GovCloud (US) User Guide_. **China Regions** For latest information, see [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff "https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff"). |
+| Asia Pacific (Jakarta) | ap-southeast-3 |
+
+**AWS GovCloud (US) Regions**
+
+For latest information, see [Amazon GuardDuty](../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md "../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md") in the
+_AWS GovCloud (US) User Guide_.
+
+**China Regions**
+
+For latest information, see [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff "https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff").

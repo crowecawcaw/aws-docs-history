@@ -25,7 +25,8 @@ If you use [Method 2 - By using Linux Package Managers](managing-gdu-agent-ec2-m
 scripts as specified in the [Installing the security
 agent manually](installing-gdu-security-agent-ec2-manually.md "installing-gdu-security-agent-ec2-manually.md") section.
 The scripts already include the latest agent release version. For
-information about recently released agent versions, see [GuardDuty security agent versions for Amazon EC2 instances](runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history "runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history").
+information about recently released agent versions, see [GuardDuty security agent versions for Amazon EC2
+instances](runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history "runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history").
 
 After you update the security agent, you can check the installation status by looking
 at the logs. For more information, see [Validating GuardDuty
