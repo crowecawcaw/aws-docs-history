@@ -224,4 +224,5 @@ _Amazon Route 53 Developer Guide_.
 
 If you're not using Route 53 for your DNS, you can request Anycast static
 IP addresses to route apex domains like example.com to CloudFront. For more
-information, see [Request Anycast static IPs to use for allowlisting](request-static-ips.md "request-static-ips.md").
+information, see [Request Anycast static IPs to use for
+allowlisting](request-static-ips.md "request-static-ips.md").

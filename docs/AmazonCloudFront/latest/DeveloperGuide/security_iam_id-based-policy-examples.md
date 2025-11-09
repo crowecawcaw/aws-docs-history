@@ -260,10 +260,205 @@ Bundle](https://console.aws.amazon.com/cloudfront/v3/home#/savings-bundle/overvi
 your code, and are not included in the AWS CLI and AWS SDKs.
 
 | Action              | Description                                                      |
-| ------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ---------------------------------------------------------------- |
 | `CreateSavingsPlan` | Grants permission to create a new savings plan.                  |
 | `GetSavingsPlan`    | Grants permission to get a savings plan.                         |
 | `ListRateCards`     | Grants permission to list CloudFront rate cards for the account. |
 | `ListSavingsPlans`  | Grants permission to list savings plans in the account.          |
 | `ListUsages`        | Grants permission to list CloudFront usage.                      |
-| `UpdateSavingsPlan` | Grants permission to update a savings plan.                      | ###### Notes <br>• For more information about CloudFront savings plans, see the CloudFront Security Savings Bundle section of the [Amazon CloudFront FAQs](https://aws.amazon.com/cloudfront/faqs/ "https://aws.amazon.com/cloudfront/faqs/"). <br>• If you create a savings plan for CloudFront and then want to delete it later, contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service"). ## Customer managed policy examples You can create your own custom IAM policies to allow permissions for CloudFront API actions. You can attach these custom policies to the IAM users or groups that require the specified permissions. These policies work when you are using the CloudFront API, the AWS SDKs, or the AWS CLI. The following examples show permissions for a few common use cases. For the policy that grants a user full access to CloudFront, see [Permissions required to use the CloudFront console](#security_iam_id-based-policy-examples-console-required-permissions "#security_iam_id-based-policy-examples-console-required-permissions"). ###### Examples <br>• [Example 1: Allow read access to all distributions](#security_iam_id-based-policy-examples-allow-read-all-distributions "#security_iam_id-based-policy-examples-allow-read-all-distributions") <br>• [Example 2: Allow creating, updating, and deleting distributions](#security_iam_id-based-policy-examples-allow-create-update-delete-distributions "#security_iam_id-based-policy-examples-allow-create-update-delete-distributions") <br>• [Example 3: Allow creating and listing invalidations](#security_iam_id-based-policy-examples-allow-create-list-invalidations "#security_iam_id-based-policy-examples-allow-create-list-invalidations") <br>• [Example 4: Allow creating a distribution](#create-distribution-iam-policy "#create-distribution-iam-policy") ### Example 1: Allow read access to all distributions The following permissions policy grants the user permissions to view all distributions in the CloudFront console: JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "acm:ListCertificates", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:ListDistributions", "cloudfront:ListCloudFrontOriginAccessIdentities", "elasticloadbalancing:DescribeLoadBalancers", "iam:ListServerCertificates", "sns:ListSubscriptionsByTopic", "sns:ListTopics", "waf:GetWebACL", "waf:ListWebACLs" ], "Resource":"*" }, { "Effect":"Allow", "Action":[ "s3:ListAllMyBuckets" ], "Resource":"arn:aws:s3:::*" } ] }` `` ### Example 2: Allow creating, updating, and deleting distributions The following permissions policy allows users to create, update, and delete distributions by using the CloudFront console: JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "acm:ListCertificates", "cloudfront:CreateDistribution", "cloudfront:DeleteDistribution", "cloudfront:GetDistribution", "cloudfront:GetDistributionConfig", "cloudfront:ListDistributions", "cloudfront:UpdateDistribution", "cloudfront:ListCloudFrontOriginAccessIdentities", "elasticloadbalancing:DescribeLoadBalancers", "iam:ListServerCertificates", "sns:ListSubscriptionsByTopic", "sns:ListTopics", "waf:GetWebACL", "waf:ListWebACLs" ], "Resource":"*" }, { "Effect":"Allow", "Action":[ "s3:ListAllMyBuckets", "s3:PutBucketPolicy" ], "Resource":"arn:aws:s3:::*" } ] }` `` The `cloudfront:ListCloudFrontOriginAccessIdentities` permission allows users to automatically grant to an existing origin access identity the permission to access objects in an Amazon S3 bucket. If you also want users to be able to create origin access identities, you also need to allow the `cloudfront:CreateCloudFrontOriginAccessIdentity` permission. ### Example 3: Allow creating and listing invalidations The following permissions policy allows users to create and list invalidations. It includes read access to CloudFront distributions because you create and view invalidations by first displaying settings for a distribution: JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "acm:ListCertificates", "cloudfront:GetDistribution", "cloudfront:GetStreamingDistribution", "cloudfront:GetDistributionConfig", "cloudfront:ListDistributions", "cloudfront:ListCloudFrontOriginAccessIdentities", "cloudfront:CreateInvalidation", "cloudfront:GetInvalidation", "cloudfront:ListInvalidations", "elasticloadbalancing:DescribeLoadBalancers", "iam:ListServerCertificates", "sns:ListSubscriptionsByTopic", "sns:ListTopics", "waf:GetWebACL", "waf:ListWebACLs" ], "Resource":"*" }, { "Effect":"Allow", "Action":[ "s3:ListAllMyBuckets" ], "Resource":"arn:aws:s3:::*" } ] }` `` ### Example 4: Allow creating a distribution The following permission policy grants the user permission to create and list distributions in the CloudFront console. For the `CreateDistribution` action, specify the wildcard (\*) character for the `Resource` instead of a wildcard for the distribution ARN (`arn:aws:cloudfront::123456789012:distribution/*`). For more information about the `Resource` element, see [IAM JSON policy elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") in the _IAM User Guide_. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": "cloudfront:CreateDistribution", "Resource": "*" }, { "Sid": "VisualEditor1", "Effect": "Allow", "Action": "cloudfront:ListDistributions", "Resource": "*" } ] }` `` |
+| `UpdateSavingsPlan` | Grants permission to update a savings plan.                      |
+
+###### Notes
+
+- For more information about CloudFront savings plans, see the CloudFront Security
+  Savings Bundle section of the [Amazon CloudFront FAQs](https://aws.amazon.com/cloudfront/faqs/ "https://aws.amazon.com/cloudfront/faqs/").
+- If you create a savings plan for CloudFront and then want to delete it later,
+  contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service").
+
+## Customer managed policy
+
+examples
+
+You can create your own custom IAM policies to allow permissions for CloudFront API
+actions. You can attach these custom policies to the IAM users or groups that require
+the specified permissions. These policies work when you are using the CloudFront API, the
+AWS SDKs, or the AWS CLI. The following examples show permissions for a few common use
+cases. For the policy that grants a user full access to CloudFront, see [Permissions required to use the CloudFront console](#security_iam_id-based-policy-examples-console-required-permissions "#security_iam_id-based-policy-examples-console-required-permissions").
+
+###### Examples
+
+- [Example 1: Allow read access to all distributions](#security_iam_id-based-policy-examples-allow-read-all-distributions "#security_iam_id-based-policy-examples-allow-read-all-distributions")
+- [Example 2: Allow creating, updating, and deleting distributions](#security_iam_id-based-policy-examples-allow-create-update-delete-distributions "#security_iam_id-based-policy-examples-allow-create-update-delete-distributions")
+- [Example 3: Allow creating and listing invalidations](#security_iam_id-based-policy-examples-allow-create-list-invalidations "#security_iam_id-based-policy-examples-allow-create-list-invalidations")
+- [Example 4: Allow creating a
+  distribution](#create-distribution-iam-policy "#create-distribution-iam-policy")
+
+### Example 1: Allow read access to all distributions
+
+The following permissions policy grants the user permissions to view all
+distributions in the CloudFront console:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "acm:ListCertificates",
+ "cloudfront:GetDistribution",
+ "cloudfront:GetDistributionConfig",
+ "cloudfront:ListDistributions",
+ "cloudfront:ListCloudFrontOriginAccessIdentities",
+ "elasticloadbalancing:DescribeLoadBalancers",
+ "iam:ListServerCertificates",
+ "sns:ListSubscriptionsByTopic",
+ "sns:ListTopics",
+ "waf:GetWebACL",
+ "waf:ListWebACLs"
+ ],
+ "Resource":"*"
+ },
+ {
+ "Effect":"Allow",
+ "Action":[
+ "s3:ListAllMyBuckets"
+ ],
+ "Resource":"arn:aws:s3:::*"
+ }
+ ]
+}`
+
+```
+
+### Example 2: Allow creating, updating, and deleting distributions
+
+The following permissions policy allows users to create, update, and delete
+distributions by using the CloudFront console:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "acm:ListCertificates",
+ "cloudfront:CreateDistribution",
+ "cloudfront:DeleteDistribution",
+ "cloudfront:GetDistribution",
+ "cloudfront:GetDistributionConfig",
+ "cloudfront:ListDistributions",
+ "cloudfront:UpdateDistribution",
+ "cloudfront:ListCloudFrontOriginAccessIdentities",
+ "elasticloadbalancing:DescribeLoadBalancers",
+ "iam:ListServerCertificates",
+ "sns:ListSubscriptionsByTopic",
+ "sns:ListTopics",
+ "waf:GetWebACL",
+ "waf:ListWebACLs"
+ ],
+ "Resource":"*"
+ },
+ {
+ "Effect":"Allow",
+ "Action":[
+ "s3:ListAllMyBuckets",
+ "s3:PutBucketPolicy"
+ ],
+ "Resource":"arn:aws:s3:::*"
+ }
+ ]
+}`
+
+```
+
+The `cloudfront:ListCloudFrontOriginAccessIdentities` permission allows
+users to automatically grant to an existing origin access identity the permission to
+access objects in an Amazon S3 bucket. If you also want users to be able to create origin
+access identities, you also need to allow the
+`cloudfront:CreateCloudFrontOriginAccessIdentity` permission.
+
+### Example 3: Allow creating and listing invalidations
+
+The following permissions policy allows users to create and list invalidations. It
+includes read access to CloudFront distributions because you create and view invalidations
+by first displaying settings for a distribution:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "acm:ListCertificates",
+ "cloudfront:GetDistribution",
+ "cloudfront:GetStreamingDistribution",
+ "cloudfront:GetDistributionConfig",
+ "cloudfront:ListDistributions",
+ "cloudfront:ListCloudFrontOriginAccessIdentities",
+ "cloudfront:CreateInvalidation",
+ "cloudfront:GetInvalidation",
+ "cloudfront:ListInvalidations",
+ "elasticloadbalancing:DescribeLoadBalancers",
+ "iam:ListServerCertificates",
+ "sns:ListSubscriptionsByTopic",
+ "sns:ListTopics",
+ "waf:GetWebACL",
+ "waf:ListWebACLs"
+ ],
+ "Resource":"*"
+ },
+ {
+ "Effect":"Allow",
+ "Action":[
+ "s3:ListAllMyBuckets"
+ ],
+ "Resource":"arn:aws:s3:::*"
+ }
+ ]
+}`
+
+```
+
+### Example 4: Allow creating a
+
+distribution
+
+The following permission policy grants the user permission to create and list
+distributions in the CloudFront console. For the `CreateDistribution` action,
+specify the wildcard (\*) character for the `Resource` instead of a
+wildcard for the distribution ARN
+(`arn:aws:cloudfront::123456789012:distribution/*`). For more
+information about the `Resource` element, see [IAM JSON policy elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") in the
+_IAM User Guide_.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": "cloudfront:CreateDistribution",
+ "Resource": "*"
+ },
+ {
+ "Sid": "VisualEditor1",
+ "Effect": "Allow",
+ "Action": "cloudfront:ListDistributions",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```

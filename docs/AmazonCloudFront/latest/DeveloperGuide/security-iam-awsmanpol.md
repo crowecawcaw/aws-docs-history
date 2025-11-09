@@ -1,11 +1,11 @@
 # AWS managed policies for Amazon CloudFront
 
 To add permissions to users, groups, and roles, it’s easier to use AWS managed policies
-than to write policies yourself. It takes time and expertise to [create IAM customer managed
-policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your users with only the permissions they need. To get started
-quickly, you can use our AWS managed policies. These policies cover common use cases and are
-available in your AWS account. For more information about AWS managed policies, see [AWS
-managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
+than to write policies yourself. It takes time and expertise to [create IAM customer
+managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your users with only the permissions they need. To
+get started quickly, you can use our AWS managed policies. These policies cover common use
+cases and are available in your AWS account. For more information about AWS managed
+policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
 
 AWS services maintain and update AWS managed policies. You can’t change the permissions
 in AWS managed policies. Services occasionally add additional permissions to an AWS
@@ -32,7 +32,8 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
   AWSCloudFrontLogger](#security-iam-awsmanpol-cloudfront-logger "#security-iam-awsmanpol-cloudfront-logger")
 - [AWS managed policy:
   AWSLambdaReplicator](#security-iam-awsmanpol-lambda-replicator "#security-iam-awsmanpol-lambda-replicator")
-- [AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin")
+- [AWS managed policy:
+  AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin")
 - [CloudFront updates to AWS managed
   policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
@@ -78,7 +79,8 @@ This policy includes the following permissions.
 - `wafv2:GetWebACL` – Allows principals to get detailed information about
   web ACLs in AWS WAF.
 
-To view the permissions for this policy, see [CloudFrontReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [CloudFrontReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md") in the _AWS Managed Policy
+Reference_.
 
 ## AWS managed policy:
 
@@ -128,7 +130,8 @@ This policy includes the following permissions.
 - `iam:ListRoles` – Allows principals to get a list of roles in
   IAM.
 
-To view the permissions for this policy, see [CloudFrontFullAccess](../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [CloudFrontFullAccess](../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md") in the _AWS Managed Policy
+Reference_.
 
 ###### Important
 
@@ -147,7 +150,8 @@ This policy allows CloudFront to push log files to Amazon CloudWatch. For detail
 included in this policy, see [Service-linked role permissions for CloudFront
 logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger").
 
-To view the permissions for this policy, see [AWSCloudFrontLogger](../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloudFrontLogger](../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md") in the _AWS Managed Policy
+Reference_.
 
 ## AWS managed policy:
 
@@ -162,19 +166,23 @@ replicate Lambda@Edge functions to AWS Regions. For details about the permission
 included in this policy, see [Service-linked role permissions for
 Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator").
 
-To view the permissions for this policy, see [AWSLambdaReplicator](../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md "../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSLambdaReplicator](../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md "../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md") in the _AWS Managed Policy
+Reference_.
 
-## AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy
+## AWS managed policy:
 
-You can't attach the **AWSCloudFrontVPCOriginServiceRolePolicy** policy to your IAM entities. This policy is attached to a
-service-linked role that allows CloudFront to perform actions on your behalf. For more
-information, see [Use service-linked roles for
+AWSCloudFrontVPCOriginServiceRolePolicy
+
+You can't attach the **AWSCloudFrontVPCOriginServiceRolePolicy** policy to your IAM entities. This
+policy is attached to a service-linked role that allows CloudFront to perform actions on your
+behalf. For more information, see [Use service-linked roles for
 CloudFront](using-service-linked-roles.md "using-service-linked-roles.md").
 
-This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on your behalf. For details about the permissions
-included in this policy, see [Service-linked role permissions for CloudFront VPC Origins](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
+This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on
+your behalf. For details about the permissions included in this policy, see [Service-linked role permissions for CloudFront VPC Origins](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
 
-To view the permissions for this policy, see [AWSCloudFrontVPCOriginServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
+To view the permissions for this policy, see [AWSCloudFrontVPCOriginServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md") in the _AWS Managed Policy
+Reference_.
 
 ## CloudFront updates to AWS managed
 
@@ -184,12 +192,12 @@ View details about updates to AWS managed policies for CloudFront since this ser
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on the CloudFront [Document history](WhatsNew.md "WhatsNew.md") page.
 
-| Change                                                                                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                    | Date              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") – Update to existing policy                                                                                                                                    | CloudFront added new permission for ACM. The new permission allows principals to get details about an ACM certificate.                                                                                                                         | April 28, 2025    |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access") – Update to existing policy                                                                                                                                    | CloudFront added new permissions for ACM. The new permissions allow principals to get details about an ACM certificate and to request a managed certificate from ACM.                                                                          | April 28, 2025    |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access") – Update to existing policy                                                                                                                                    | CloudFront added new permissions for Amazon EC2 and Elastic Load Balancing. The new permissions allow CloudFront to get detailed information about load balancers in Elastic Load Balancing and instances and internet gateways in Amazon EC2. | November 20, 2024 |
-| [AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin") – New policy                                                                                                                                                        | CloudFront added a new policy. This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on your behalf.                                                                                                      | November 20, 2024 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") and [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access") - Update to two existing policies. | CloudFront added new permissions for key value stores. The new permissions allow users to get information about, and take action on, key value stores.                                                                                         | December 19, 2023 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") – Update to an existing policy                                                                                                                                 | CloudFront added a new permission to describe CloudFront Functions. This permission allows the user, group, or role to read information and metadata about a function, but not the function’s code.                                            | September 8, 2021 |
-| CloudFront started tracking changes                                                                                                                                                                                                                                                    | CloudFront started tracking changes for its AWS managed policies.                                                                                                                                                                              | September 8, 2021 |
+| Change                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                          | Date              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permission for<br>ACM.<br>The new permission allows principals to get details about an ACM<br>certificate.                                                                                                                      | April 28, 2025    |
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for ACM.<br>The new permissions allow principals to get<br>details<br>about an ACM certificate and<br>to<br>request a managed certificate from ACM.                                                                 | April 28, 2025    |
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2 and Elastic Load Balancing.<br>The new permissions allow CloudFront to get detailed information about load<br>balancers in Elastic Load Balancing and instances and internet gateways in Amazon EC2. | November 20, 2024 |
+| [AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin") – New<br>policy                                                                                                                                                           | CloudFront added a new policy.<br>This policy allows CloudFront to manage EC2 elastic network interfaces and<br>security groups on your behalf.                                                                                                      | November 20, 2024 |
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") and<br>[CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access") -<br>Update to two existing policies. | CloudFront added new permissions for key value stores.<br>The new permissions allow users to get information about, and take action<br>on, key value stores.                                                                                         | December 19, 2023 |
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") –<br>Update to an existing policy                                                                                                                                    | CloudFront added a new permission to describe CloudFront Functions.<br>This permission allows the user, group, or role to read information and<br>metadata about a function, but not the function’s code.                                            | September 8, 2021 |
+| CloudFront started tracking changes                                                                                                                                                                                                                                                          | CloudFront started tracking changes for its AWS managed policies.                                                                                                                                                                                    | September 8, 2021 |

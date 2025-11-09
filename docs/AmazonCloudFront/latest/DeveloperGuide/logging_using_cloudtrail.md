@@ -75,6 +75,451 @@ choose from the **Data event type** list on the CloudTrail console. The
 event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to
 CloudTrail** column shows the API calls logged to CloudTrail for the resource type.
 
-| Data event type (console)    | resources.type value             | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CloudFront KeyValueStore** | `AWS::CloudFront::KeyValueStore` | <br>• [DeleteKeys](../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md "../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md") <br>• [DescribeKeyValueStore](../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md "../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md") <br>• [GetKey](../../../cloudfront/latest/APIReference/API_kvs_GetKey.md "../../../cloudfront/latest/APIReference/API_kvs_GetKey.md") <br>• [ListKeys](../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md "../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md") <br>• [PutKeys](../../../cloudfront/latest/APIReference/API_kvs_PutKey.md "../../../cloudfront/latest/APIReference/API_kvs_PutKey.md") <br>• [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## CloudFront management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. Amazon CloudFront logs all CloudFront control plane operations as management events. For a list of the Amazon CloudFront control plane operations that CloudFront logs to CloudTrail, see the [Amazon CloudFront API Reference](../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md "../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md"). ## CloudFront event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. ###### Contents <br>• [Example: UpdateDistribution](logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log") <br>• [Example: UpdateKeys](logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log") ### Example: UpdateDistribution The following example shows a CloudTrail event that demonstrates the [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") operation. For calls to the CloudFront API, the `eventSource` is `cloudfront.amazonaws.com`. `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:role-session-name", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/role-session-name", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2024-02-02T19:23:50Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-02-02T19:26:01Z", "eventSource": "cloudfront.amazonaws.com", "eventName": "UpdateDistribution", "awsRegion": "us-east-1", "sourceIPAddress": "52.94.133.137", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36", "requestParameters": { "distributionConfig": { "defaultRootObject": "", "aliases": { "quantity": 3, "items": [ "alejandro_rosalez.awsps.myinstance.com", "cross-testing.alejandro_rosalez.awsps.myinstance.com", "*.alejandro_rosalez.awsps.myinstance.com" ] }, "cacheBehaviors": { "quantity": 0, "items": [] }, "httpVersion": "http2and3", "originGroups": { "quantity": 0, "items": [] }, "viewerCertificate": { "minimumProtocolVersion": "TLSv1.2_2021", "cloudFrontDefaultCertificate": false, "aCMCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "sSLSupportMethod": "sni-only" }, "webACLId": "arn:aws:wafv2:us-east-1:111122223333:global/webacl/testing-acl/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "customErrorResponses": { "quantity": 0, "items": [] }, "logging": { "includeCookies": false, "prefix": "", "enabled": false, "bucket": "" }, "priceClass": "PriceClass_All", "restrictions": { "geoRestriction": { "restrictionType": "none", "quantity": 0, "items": [] } }, "isIPV6Enabled": true, "callerReference": "1578329170895", "continuousDeploymentPolicyId": "", "enabled": true, "defaultCacheBehavior": { "targetOriginId": "d111111abcdef8", "minTTL": 0, "compress": false, "maxTTL": 31536000, "functionAssociations": { "quantity": 0, "items": [] }, "trustedKeyGroups": { "quantity": 0, "items": [], "enabled": false }, "smoothStreaming": false, "fieldLevelEncryptionId": "", "defaultTTL": 86400, "lambdaFunctionAssociations": { "quantity": 0, "items": [] }, "viewerProtocolPolicy": "redirect-to-https", "forwardedValues": { "cookies": {"forward": "none"}, "queryStringCacheKeys": { "quantity": 0, "items": [] }, "queryString": false, "headers": { "quantity": 1, "items": ["*"] } }, "trustedSigners": { "items": [], "enabled": false, "quantity": 0 }, "allowedMethods": { "quantity": 2, "items": [ "HEAD", "GET" ], "cachedMethods": { "quantity": 2, "items": [ "HEAD", "GET" ] } } }, "staging": false, "origins": { "quantity": 1, "items": [ { "originPath": "", "connectionTimeout": 10, "customOriginConfig": { "originReadTimeout": 30, "hTTPSPort": 443, "originProtocolPolicy": "https-only", "originKeepaliveTimeout": 5, "hTTPPort": 80, "originSslProtocols": { "quantity": 3, "items": [ "TLSv1", "TLSv1.1", "TLSv1.2" ] } }, "id": "d111111abcdef8", "domainName": "d111111abcdef8.cloudfront.net", "connectionAttempts": 3, "customHeaders": { "quantity": 0, "items": [] }, "originShield": {"enabled": false}, "originAccessControlId": "" } ] }, "comment": "HIDDEN_DUE_TO_SECURITY_REASONS" }, "id": "EDFDVBD6EXAMPLE", "ifMatch": "E1RTLUR9YES76O" }, "responseElements": { "distribution": { "activeTrustedSigners": { "quantity": 0, "enabled": false }, "id": "EDFDVBD6EXAMPLE", "domainName": "d111111abcdef8.cloudfront.net", "distributionConfig": { "defaultRootObject": "", "aliases": { "quantity": 3, "items": [ "alejandro_rosalez.awsps.myinstance.com", "cross-testing.alejandro_rosalez.awsps.myinstance.com", "*.alejandro_rosalez.awsps.myinstance.com" ] }, "cacheBehaviors": {"quantity": 0}, "httpVersion": "http2and3", "originGroups": {"quantity": 0}, "viewerCertificate": { "minimumProtocolVersion": "TLSv1.2_2021", "cloudFrontDefaultCertificate": false, "aCMCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "sSLSupportMethod": "sni-only", "certificateSource": "acm", "certificate": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" }, "webACLId": "arn:aws:wafv2:us-east-1:111122223333:global/webacl/testing-acl/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "customErrorResponses": {"quantity": 0}, "logging": { "includeCookies": false, "prefix": "", "enabled": false, "bucket": "" }, "priceClass": "PriceClass_All", "restrictions": { "geoRestriction": { "restrictionType": "none", "quantity": 0 } }, "isIPV6Enabled": true, "callerReference": "1578329170895", "continuousDeploymentPolicyId": "", "enabled": true, "defaultCacheBehavior": { "targetOriginId": "d111111abcdef8", "minTTL": 0, "compress": false, "maxTTL": 31536000, "functionAssociations": {"quantity": 0}, "trustedKeyGroups": { "quantity": 0, "enabled": false }, "smoothStreaming": false, "fieldLevelEncryptionId": "", "defaultTTL": 86400, "lambdaFunctionAssociations": {"quantity": 0}, "viewerProtocolPolicy": "redirect-to-https", "forwardedValues": { "cookies": {"forward": "none"}, "queryStringCacheKeys": {"quantity": 0}, "queryString": false, "headers": { "quantity": 1, "items": ["*"] } }, "trustedSigners": { "enabled": false, "quantity": 0 }, "allowedMethods": { "quantity": 2, "items": [ "HEAD", "GET" ], "cachedMethods": { "quantity": 2, "items": [ "HEAD", "GET" ] } } }, "staging": false, "origins": { "quantity": 1, "items": [ { "originPath": "", "connectionTimeout": 10, "customOriginConfig": { "originReadTimeout": 30, "hTTPSPort": 443, "originProtocolPolicy": "https-only", "originKeepaliveTimeout": 5, "hTTPPort": 80, "originSslProtocols": { "quantity": 3, "items": [ "TLSv1", "TLSv1.1", "TLSv1.2" ] } }, "id": "d111111abcdef8", "domainName": "d111111abcdef8.cloudfront.net", "connectionAttempts": 3, "customHeaders": {"quantity": 0}, "originShield": {"enabled": false}, "originAccessControlId": "" } ] }, "comment": "HIDDEN_DUE_TO_SECURITY_REASONS" }, "aliasICPRecordals": [ { "cNAME": "alejandro_rosalez.awsps.myinstance.com", "iCPRecordalStatus": "APPROVED" }, { "cNAME": "cross-testing.alejandro_rosalez.awsps.myinstance.com", "iCPRecordalStatus": "APPROVED" }, { "cNAME": "*.alejandro_rosalez.awsps.myinstance.com", "iCPRecordalStatus": "APPROVED" } ], "aRN": "arn:aws:cloudfront::111122223333:distribution/EDFDVBD6EXAMPLE", "status": "InProgress", "lastModifiedTime": "Feb 2, 2024 7:26:01 PM", "activeTrustedKeyGroups": { "enabled": false, "quantity": 0 }, "inProgressInvalidationBatches": 0 }, "eTag": "E1YHBLAB2BJY1G" }, "requestID": "4e6b66f9-d548-11e3-a8a9-73e33example", "eventID": "5ab02562-0fc5-43d0-b7b6-90293example", "readOnly": false, "eventType": "AwsApiCall", "apiVersion": "2020_05_31", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "cloudfront.amazonaws.com" }, "sessionCredentialFromConsole": "true" }` ### Example: UpdateKeys The following example shows a CloudTrail event that demonstrates the [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") operation. For calls to the CloudFront KeyValueStore API, the `eventSource` is `edgekeyvaluestore.amazonaws.com` instead of `cloudfront.amazonaws.com`. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:role-session-name", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/role-session-name", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2023-11-01T23:41:14Z", "mfaAuthenticated": "false" } } }, "eventTime": "2023-11-01T23:41:28Z", "eventSource": "edgekeyvaluestore.amazonaws.com", "eventName": "UpdateKeys", "awsRegion": "us-east-1", "sourceIPAddress": "3.235.183.252", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36, "requestParameters": { "kvsARN": "arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "ifMatch": "KV3O6B1CX531EBP", "deletes": [ {"key": "key1"} ] }, "responseElements": { "itemCount": 0, "totalSizeInBytes": 0, "eTag": "KVDC9VEVZ71ZGO" }, "requestID": "5ccf104c-acce-4ea1-b7fc-73e33example", "eventID": "a0b1b5c7-906c-439d-9925-90293example", "readOnly": false, "resources": [ { "accountId": "111122223333", "type": "AWS::CloudFront::KeyValueStore", "ARN": "arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "111122223333.cloudfront-kvs.global.api.aws" } }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console)    | resources.type value             | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CloudFront KeyValueStore** | `AWS::CloudFront::KeyValueStore` | • [DeleteKeys](../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md "../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md")<br>• [DescribeKeyValueStore](../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md "../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md")<br>• [GetKey](../../../cloudfront/latest/APIReference/API_kvs_GetKey.md "../../../cloudfront/latest/APIReference/API_kvs_GetKey.md")<br>• [ListKeys](../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md "../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md")<br>• [PutKeys](../../../cloudfront/latest/APIReference/API_kvs_PutKey.md "../../../cloudfront/latest/APIReference/API_kvs_PutKey.md")<br>• [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events
+that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## CloudFront management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+Amazon CloudFront logs all CloudFront control plane operations as management events. For a list of
+the Amazon CloudFront control plane operations that CloudFront logs to CloudTrail, see the [Amazon CloudFront API Reference](../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md "../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md").
+
+## CloudFront event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+###### Contents
+
+- [Example:
+  UpdateDistribution](logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log")
+- [Example:
+  UpdateKeys](logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log")
+
+### Example:
+
+UpdateDistribution
+
+The following example shows a CloudTrail event that demonstrates the [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") operation.
+
+For calls to the CloudFront API, the `eventSource` is
+`cloudfront.amazonaws.com`.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:role-session-name",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/role-session-name",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2024-02-02T19:23:50Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2024-02-02T19:26:01Z",
+    "eventSource": "cloudfront.amazonaws.com",
+    "eventName": "UpdateDistribution",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "52.94.133.137",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "requestParameters": {
+        "distributionConfig": {
+            "defaultRootObject": "",
+            "aliases": {
+                "quantity": 3,
+                "items": [
+                    "alejandro_rosalez.awsps.myinstance.com",
+                    "cross-testing.alejandro_rosalez.awsps.myinstance.com",
+                    "*.alejandro_rosalez.awsps.myinstance.com"
+                ]
+            },
+            "cacheBehaviors": {
+                "quantity": 0,
+                "items": []
+            },
+            "httpVersion": "http2and3",
+            "originGroups": {
+                "quantity": 0,
+                "items": []
+            },
+            "viewerCertificate": {
+                "minimumProtocolVersion": "TLSv1.2_2021",
+                "cloudFrontDefaultCertificate": false,
+                "aCMCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+                "sSLSupportMethod": "sni-only"
+            },
+            "webACLId": "arn:aws:wafv2:us-east-1:111122223333:global/webacl/testing-acl/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+            "customErrorResponses": {
+                "quantity": 0,
+                "items": []
+            },
+            "logging": {
+                "includeCookies": false,
+                "prefix": "",
+                "enabled": false,
+                "bucket": ""
+            },
+            "priceClass": "PriceClass_All",
+            "restrictions": {
+                "geoRestriction": {
+                    "restrictionType": "none",
+                    "quantity": 0,
+                    "items": []
+                }
+            },
+            "isIPV6Enabled": true,
+            "callerReference": "1578329170895",
+            "continuousDeploymentPolicyId": "",
+            "enabled": true,
+            "defaultCacheBehavior": {
+                "targetOriginId": "d111111abcdef8",
+                "minTTL": 0,
+                "compress": false,
+                "maxTTL": 31536000,
+                "functionAssociations": {
+                    "quantity": 0,
+                    "items": []
+                },
+                "trustedKeyGroups": {
+                    "quantity": 0,
+                    "items": [],
+                    "enabled": false
+                },
+                "smoothStreaming": false,
+                "fieldLevelEncryptionId": "",
+                "defaultTTL": 86400,
+                "lambdaFunctionAssociations": {
+                    "quantity": 0,
+                    "items": []
+                },
+                "viewerProtocolPolicy": "redirect-to-https",
+                "forwardedValues": {
+                    "cookies": {"forward": "none"},
+                    "queryStringCacheKeys": {
+                        "quantity": 0,
+                        "items": []
+                    },
+                    "queryString": false,
+                    "headers": {
+                        "quantity": 1,
+                        "items": ["*"]
+                    }
+                },
+                "trustedSigners": {
+                    "items": [],
+                    "enabled": false,
+                    "quantity": 0
+                },
+                "allowedMethods": {
+                    "quantity": 2,
+                    "items": [
+                        "HEAD",
+                        "GET"
+                    ],
+                    "cachedMethods": {
+                        "quantity": 2,
+                        "items": [
+                            "HEAD",
+                            "GET"
+                        ]
+                    }
+                }
+            },
+            "staging": false,
+            "origins": {
+                "quantity": 1,
+                "items": [
+                    {
+                        "originPath": "",
+                        "connectionTimeout": 10,
+                        "customOriginConfig": {
+                            "originReadTimeout": 30,
+                            "hTTPSPort": 443,
+                            "originProtocolPolicy": "https-only",
+                            "originKeepaliveTimeout": 5,
+                            "hTTPPort": 80,
+                            "originSslProtocols": {
+                                "quantity": 3,
+                                "items": [
+                                    "TLSv1",
+                                    "TLSv1.1",
+                                    "TLSv1.2"
+                                ]
+                            }
+                        },
+                        "id": "d111111abcdef8",
+                        "domainName": "d111111abcdef8.cloudfront.net",
+                        "connectionAttempts": 3,
+                        "customHeaders": {
+                            "quantity": 0,
+                            "items": []
+                        },
+                        "originShield": {"enabled": false},
+                        "originAccessControlId": ""
+                    }
+                ]
+            },
+            "comment": "HIDDEN_DUE_TO_SECURITY_REASONS"
+        },
+        "id": "EDFDVBD6EXAMPLE",
+        "ifMatch": "E1RTLUR9YES76O"
+    },
+    "responseElements": {
+        "distribution": {
+            "activeTrustedSigners": {
+                "quantity": 0,
+                "enabled": false
+            },
+            "id": "EDFDVBD6EXAMPLE",
+            "domainName": "d111111abcdef8.cloudfront.net",
+            "distributionConfig": {
+                "defaultRootObject": "",
+                "aliases": {
+                    "quantity": 3,
+                    "items": [
+                        "alejandro_rosalez.awsps.myinstance.com",
+                        "cross-testing.alejandro_rosalez.awsps.myinstance.com",
+                        "*.alejandro_rosalez.awsps.myinstance.com"
+                    ]
+                },
+                "cacheBehaviors": {"quantity": 0},
+                "httpVersion": "http2and3",
+                "originGroups": {"quantity": 0},
+                "viewerCertificate": {
+                    "minimumProtocolVersion": "TLSv1.2_2021",
+                    "cloudFrontDefaultCertificate": false,
+                    "aCMCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+                    "sSLSupportMethod": "sni-only",
+                    "certificateSource": "acm",
+                    "certificate": "arn:aws:acm:us-east-1:111122223333:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+                },
+                "webACLId": "arn:aws:wafv2:us-east-1:111122223333:global/webacl/testing-acl/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+                "customErrorResponses": {"quantity": 0},
+                "logging": {
+                    "includeCookies": false,
+                    "prefix": "",
+                    "enabled": false,
+                    "bucket": ""
+                },
+                "priceClass": "PriceClass_All",
+                "restrictions": {
+                    "geoRestriction": {
+                        "restrictionType": "none",
+                        "quantity": 0
+                    }
+                },
+                "isIPV6Enabled": true,
+                "callerReference": "1578329170895",
+                "continuousDeploymentPolicyId": "",
+                "enabled": true,
+                "defaultCacheBehavior": {
+                    "targetOriginId": "d111111abcdef8",
+                    "minTTL": 0,
+                    "compress": false,
+                    "maxTTL": 31536000,
+                    "functionAssociations": {"quantity": 0},
+                    "trustedKeyGroups": {
+                        "quantity": 0,
+                        "enabled": false
+                    },
+                    "smoothStreaming": false,
+                    "fieldLevelEncryptionId": "",
+                    "defaultTTL": 86400,
+                    "lambdaFunctionAssociations": {"quantity": 0},
+                    "viewerProtocolPolicy": "redirect-to-https",
+                    "forwardedValues": {
+                        "cookies": {"forward": "none"},
+                        "queryStringCacheKeys": {"quantity": 0},
+                        "queryString": false,
+                        "headers": {
+                            "quantity": 1,
+                            "items": ["*"]
+                        }
+                    },
+                    "trustedSigners": {
+                        "enabled": false,
+                        "quantity": 0
+                    },
+                    "allowedMethods": {
+                        "quantity": 2,
+                        "items": [
+                            "HEAD",
+                            "GET"
+                        ],
+                        "cachedMethods": {
+                            "quantity": 2,
+                            "items": [
+                                "HEAD",
+                                "GET"
+                            ]
+                        }
+                    }
+                },
+                "staging": false,
+                "origins": {
+                    "quantity": 1,
+                    "items": [
+                        {
+                            "originPath": "",
+                            "connectionTimeout": 10,
+                            "customOriginConfig": {
+                                "originReadTimeout": 30,
+                                "hTTPSPort": 443,
+                                "originProtocolPolicy": "https-only",
+                                "originKeepaliveTimeout": 5,
+                                "hTTPPort": 80,
+                                "originSslProtocols": {
+                                    "quantity": 3,
+                                    "items": [
+                                        "TLSv1",
+                                        "TLSv1.1",
+                                        "TLSv1.2"
+                                    ]
+                                }
+                            },
+                            "id": "d111111abcdef8",
+                            "domainName": "d111111abcdef8.cloudfront.net",
+                            "connectionAttempts": 3,
+                            "customHeaders": {"quantity": 0},
+                            "originShield": {"enabled": false},
+                            "originAccessControlId": ""
+                        }
+                    ]
+                },
+                "comment": "HIDDEN_DUE_TO_SECURITY_REASONS"
+            },
+            "aliasICPRecordals": [
+                {
+                    "cNAME": "alejandro_rosalez.awsps.myinstance.com",
+                    "iCPRecordalStatus": "APPROVED"
+                },
+                {
+                    "cNAME": "cross-testing.alejandro_rosalez.awsps.myinstance.com",
+                    "iCPRecordalStatus": "APPROVED"
+                },
+                {
+                    "cNAME": "*.alejandro_rosalez.awsps.myinstance.com",
+                    "iCPRecordalStatus": "APPROVED"
+                }
+            ],
+            "aRN": "arn:aws:cloudfront::111122223333:distribution/EDFDVBD6EXAMPLE",
+            "status": "InProgress",
+            "lastModifiedTime": "Feb 2, 2024 7:26:01 PM",
+            "activeTrustedKeyGroups": {
+                "enabled": false,
+                "quantity": 0
+            },
+            "inProgressInvalidationBatches": 0
+        },
+        "eTag": "E1YHBLAB2BJY1G"
+    },
+    "requestID": "4e6b66f9-d548-11e3-a8a9-73e33example",
+    "eventID": "5ab02562-0fc5-43d0-b7b6-90293example",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "apiVersion": "2020_05_31",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "cloudfront.amazonaws.com"
+    },
+    "sessionCredentialFromConsole": "true"
+}
+```
+
+### Example:
+
+UpdateKeys
+
+The following example shows a CloudTrail event that demonstrates the [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") operation.
+
+For calls to the CloudFront KeyValueStore API, the `eventSource` is
+`edgekeyvaluestore.amazonaws.com` instead of
+`cloudfront.amazonaws.com`.
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE:role-session-name",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/role-session-name",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2023-11-01T23:41:14Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2023-11-01T23:41:28Z",
+    "eventSource": "edgekeyvaluestore.amazonaws.com",
+    "eventName": "UpdateKeys",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "3.235.183.252",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36,
+    "requestParameters": {
+        "kvsARN": "arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "ifMatch": "KV3O6B1CX531EBP",
+        "deletes": [
+            {"key": "key1"}
+        ]
+    },
+    "responseElements": {
+        "itemCount": 0,
+        "totalSizeInBytes": 0,
+        "eTag": "KVDC9VEVZ71ZGO"
+    },
+    "requestID": "5ccf104c-acce-4ea1-b7fc-73e33example",
+    "eventID": "a0b1b5c7-906c-439d-9925-90293example",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::CloudFront::KeyValueStore",
+            "ARN": "arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Data",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "111122223333.cloudfront-kvs.global.api.aws"
+    }
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

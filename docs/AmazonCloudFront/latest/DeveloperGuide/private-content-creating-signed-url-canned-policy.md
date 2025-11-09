@@ -283,7 +283,12 @@ Message Bodies_. 4. Replace characters that are invalid in a URL query string wi
 following table lists invalid and valid characters.
 
 | Replace these invalid characters | With these valid characters |
-| -------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| +                                | - (hyphen)                  |
+| -------------------------------- | --------------------------- |
+| +                                | • (hyphen)                  |
 | =                                | \_ (underscore)             |
-| /                                | ~ (tilde)                   | 5. Append the resulting value to your signed URL after `&Signature=`, and return to [To create a signed URL using a canned policy](#private-content-creating-signed-url-canned-policy-procedure "#private-content-creating-signed-url-canned-policy-procedure") to finish concatenating the parts of your signed URL. |
+| /                                | ~ (tilde)                   |
+
+5. Append the resulting value to your signed URL after `&Signature=`, and return to
+   [To create a signed URL using a
+   canned policy](#private-content-creating-signed-url-canned-policy-procedure "#private-content-creating-signed-url-canned-policy-procedure") to finish
+   concatenating the parts of your signed URL.

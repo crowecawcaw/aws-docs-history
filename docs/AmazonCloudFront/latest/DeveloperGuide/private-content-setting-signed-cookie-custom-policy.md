@@ -258,12 +258,307 @@ Note the following:
    characters.
 
 | Replace these invalid characters | With these valid characters |
-| -------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| +                                | - (hyphen)                  |
+| -------------------------------- | --------------------------- |
+| +                                | • (hyphen)                  |
 | =                                | \_ (underscore)             |
-| /                                | ~ (tilde)                   | 5. Include the resulting value in your `Set-Cookie` header after `CloudFront-Policy=`. 6. Create a signature for the `Set-Cookie` header for `CloudFront-Signature` by hashing, signing, and base64-encoding the policy statement. For more information, see [Create a signature for a signed cookie that uses a custom policy](#private-content-custom-policy-signature-cookies "#private-content-custom-policy-signature-cookies"). ### Values that you specify in the policy statement for a custom policy for signed cookies When you create a policy statement for a custom policy, you specify the following values. **Resource** The base URL including your query strings, if any: `https://d111111abcdef8.cloudfront.net/images/horizon.jpg?size=large&license=yes` ###### Important If you omit the `Resource` parameter, users can access all of the files associated with any distribution that is associated with the key pair that you use to create the signed URL. You can specify only one value for `Resource`. Note the following: <br>• **Protocol** – The value must begin with `http://` or `https://`. <br>• **Query string parameters** – If you have no query string parameters, omit the question mark. <br>• **Wildcards** – You can use the wildcard character that matches zero or more characters (\*) or the wild-card character that matches exactly one character (?) anywhere in the string. For example, the value: `https://d111111abcdef8.cloudfront.net/*game_download.zip*` would include (for example) the following files: + `https://d111111abcdef8.cloudfront.net/game_download.zip` + `https://d111111abcdef8.cloudfront.net/example_game_download.zip?license=yes` + `https://d111111abcdef8.cloudfront.net/test_game_download.zip?license=temp` <br>• **Alternate domain names** – If you specify an alternate domain name (CNAME) in the URL, you must specify the alternate domain name when referencing the file in your webpage or application. Do not specify the Amazon S3 URL for the file. **DateLessThan** The expiration date and time for the URL in Unix time format (in seconds) and Coordinated Universal Time (UTC). Do not enclose the value in quotation marks. For example, March 16, 2015 10:00 am UTC converts to 1426500000 in Unix time format. For more information, see [When CloudFront checks expiration date and time in a signed cookie](private-content-signed-cookies.md#private-content-check-expiration-cookie "private-content-signed-cookies.md#private-content-check-expiration-cookie"). **DateGreaterThan (Optional)** An optional start date and time for the URL in Unix time format (in seconds) and Coordinated Universal Time (UTC). Users are not allowed to access the file on or before the specified date and time. Do not enclose the value in quotation marks. **IpAddress (Optional)** The IP address of the client making the GET request. Note the following: <br>• To allow any IP address to access the file, omit the `IpAddress` parameter. <br>• You can specify either one IP address or one IP address range. For example, you can't set the policy to allow access if the client's IP address is in one of two separate ranges. <br>• To allow access from a single IP address, you specify: `"``IPv4 IP address``/32"` <br>• You must specify IP address ranges in standard IPv4 CIDR format (for example, `192.0.2.0/24`). For more information, go to _RFC 4632, Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan_, [https://tools.ietf.org/html/rfc4632](https://tools.ietf.org/html/rfc4632 "https://tools.ietf.org/html/rfc4632"). ###### Important IP addresses in IPv6 format, such as 2001:0db8:85a3::8a2e:0370:7334, are not supported. If you're using a custom policy that includes `IpAddress`, do not enable IPv6 for the distribution. If you want to restrict access to some content by IP address and support IPv6 requests for other content, you can create two distributions. For more information, see [Enable IPv6 (viewer requests)](DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6 "DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6") in the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md"). ## Example policy statements for a signed cookie that uses a custom policy The following example policy statements show how to control access to a specific file, all of the files in a directory, or all of the files associated with a key pair ID. The examples also show how to control access from an individual IP address or a range of IP addresses, and how to prevent users from using the signed cookie after a specified date and time. If you copy and paste any of these examples, remove any empty spaces (including tabs and newline characters), replace the values with your own values, and include a newline character after the closing brace ( } ). For more information, see [Values that you specify in the policy statement for a custom policy for signed cookies](#private-content-custom-policy-statement-cookies-values "#private-content-custom-policy-statement-cookies-values"). ###### Topics <br>• [Example policy statement: Access one file from a range of IP addresses](#private-content-custom-policy-statement-signed-cookies-example-one-object "#private-content-custom-policy-statement-signed-cookies-example-one-object") <br>• [Example policy statement: Access all files in a directory from a range of IP addresses](#private-content-custom-policy-statement-signed-cookies-example-all-objects "#private-content-custom-policy-statement-signed-cookies-example-all-objects") <br>• [Example policy statement: Access all files associated with a key pair ID from one IP address](#private-content-custom-policy-statement-signed-cookies-example-one-ip "#private-content-custom-policy-statement-signed-cookies-example-one-ip") ### Example policy statement: Access one file from a range of IP addresses The following example custom policy in a signed cookie specifies that a user can access the file `https://d111111abcdef8.cloudfront.net/game_download.zip` from IP addresses in the range `192.0.2.0/24` until January 1, 2023 10:00 am UTC: `{ "Statement": [ { "Resource": "https://d111111abcdef8.cloudfront.net/game_download.zip", "Condition": { "IpAddress": { "AWS:SourceIp": "192.0.2.0/24" }, "DateLessThan": { "AWS:EpochTime": 1767290400 } } } ] }` ### Example policy statement: Access all files in a directory from a range of IP addresses The following example custom policy allows you to create signed cookies for any file in the `training` directory, as indicated by the \* wildcard character in the `Resource` parameter. Users can access the file from an IP address in the range `192.0.2.0/24` until January 1, 2013 10:00 am UTC: `{ "Statement": [ { "Resource": "https://d111111abcdef8.cloudfront.net/training/*", "Condition": { "IpAddress": { "AWS:SourceIp": "192.0.2.0/24" }, "DateLessThan": { "AWS:EpochTime": 1767290400 } } } ] }` Each signed cookie in which you use this policy includes a base URL that identifies a specific file, for example: `https://d111111abcdef8.cloudfront.net/training/orientation.pdf` ### Example policy statement: Access all files associated with a key pair ID from one IP address The following sample custom policy allows you to set signed cookies for any file associated with any distribution, as indicated by the \* wildcard character in the `Resource` parameter. The user must use the IP address `192.0.2.10/32`. (The value `192.0.2.10/32` in CIDR notation refers to a single IP address, `192.0.2.10`.) The files are available only from January 1, 2013 10:00 am UTC until January 2, 2013 10:00 am UTC: `{ "Statement": [ { "Resource": "https://*", "Condition": { "IpAddress": { "AWS:SourceIp": "192.0.2.10/32" }, "DateGreaterThan": { "AWS:EpochTime": 1767290400 }, "DateLessThan": { "AWS:EpochTime": 1767376800 } } } ] }` Each signed cookie in which you use this policy includes a base URL that identifies a specific file in a specific CloudFront distribution, for example: `https://d111111abcdef8.cloudfront.net/training/orientation.pdf` The signed cookie also includes a key pair ID, which must be associated with a trusted key group in the distribution (d111111abcdef8.cloudfront.net) that you specify in the base URL. ## Create a signature for a signed cookie that uses a custom policy The signature for a signed cookie that uses a custom policy is a hashed, signed, and base64-encoded version of the policy statement. For additional information and examples of how to hash, sign, and encode the policy statement, see: <br>• [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md") <br>• [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md") ###### To create a signature for a signed cookie by using a custom policy 1. Use the SHA-1 hash function and RSA to hash and sign the JSON policy statement that you created in the procedure [To create the policy statement for a signed URL that uses a custom policy](private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure "private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes empty spaces but that has not yet been base64-encoded. For the private key that is required by the hash function, use a private key whose public key is in an active trusted key group for the distribution. ###### Note The method that you use to hash and sign the policy statement depends on your programming language and platform. For sample code, see [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the hashed and signed string. 3. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8, Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME (Multipurpose Internet Mail Extensions) Part One: Format of Internet Message Bodies_. 4. Replace characters that are invalid in a URL query string with characters that are valid. The following table lists invalid and valid characters. |
+| /                                | ~ (tilde)                   |
+
+5. Include the resulting value in your `Set-Cookie` header
+   after `CloudFront-Policy=`.
+6. Create a signature for the `Set-Cookie` header for
+   `CloudFront-Signature` by hashing, signing, and
+   base64-encoding the policy statement. For more information, see [Create a
+   signature for a signed cookie that uses a custom policy](#private-content-custom-policy-signature-cookies "#private-content-custom-policy-signature-cookies").
+
+### Values that you specify in the policy statement for a custom policy for
+
+signed cookies
+
+When you create a policy statement for a custom policy, you specify the
+following values.
+
+**Resource**
+
+The base URL including your query strings, if any:
+
+`https://d111111abcdef8.cloudfront.net/images/horizon.jpg?size=large&license=yes`
+
+###### Important
+
+If you omit the `Resource` parameter, users can
+access all of the files associated with any distribution
+that is associated with the key pair that you use to create
+the signed URL.
+
+You can specify only one value for
+`Resource`.
+
+Note the following:
+
+- **Protocol** – The
+  value must begin with `http://` or
+  `https://`.
+- **Query string
+  parameters** – If you have no query
+  string parameters, omit the question mark.
+- **Wildcards** –
+  You can use the wildcard character that matches zero or
+  more characters (\*) or the wild-card character that
+  matches exactly one character (?) anywhere in the
+  string. For example, the value:
+
+`https://d111111abcdef8.cloudfront.net/*game_download.zip*`
+
+would include (for example) the following
+files:
+
+    + `https://d111111abcdef8.cloudfront.net/game_download.zip`
+    + `https://d111111abcdef8.cloudfront.net/example_game_download.zip?license=yes`
+    + `https://d111111abcdef8.cloudfront.net/test_game_download.zip?license=temp`
+
+- **Alternate domain
+  names** – If you specify an
+  alternate domain name (CNAME) in the URL, you must
+  specify the alternate domain name when referencing the
+  file in your webpage or application. Do not specify the
+  Amazon S3 URL for the file.
+
+**DateLessThan**
+
+The expiration date and time for the URL in Unix time format
+(in seconds) and Coordinated Universal Time (UTC). Do not
+enclose the value in quotation marks.
+
+For example, March 16, 2015 10:00 am UTC converts to
+1426500000 in Unix time format.
+
+For more information, see [When CloudFront checks expiration
+date and time in a signed cookie](private-content-signed-cookies.md#private-content-check-expiration-cookie "private-content-signed-cookies.md#private-content-check-expiration-cookie").
+
+**DateGreaterThan (Optional)**
+
+An optional start date and time for the URL in Unix time
+format (in seconds) and Coordinated Universal Time (UTC). Users
+are not allowed to access the file on or before the specified
+date and time. Do not enclose the value in quotation marks.
+
+**IpAddress (Optional)**
+
+The IP address of the client making the GET request. Note the
+following:
+
+- To allow any IP address to access the file, omit the
+  `IpAddress` parameter.
+- You can specify either one IP address or one IP
+  address range. For example, you can't set the policy to
+  allow access if the client's IP address is in one of two
+  separate ranges.
+- To allow access from a single IP address, you
+  specify:
+
+`"``IPv4 IP
+ address``/32"`
+
+- You must specify IP address ranges in standard IPv4
+  CIDR format (for example, `192.0.2.0/24`).
+  For more information, go to _RFC 4632,
+  Classless Inter-domain Routing (CIDR): The Internet
+  Address Assignment and Aggregation Plan_,
+  [https://tools.ietf.org/html/rfc4632](https://tools.ietf.org/html/rfc4632 "https://tools.ietf.org/html/rfc4632").
+
+###### Important
+
+IP addresses in IPv6 format, such as
+2001:0db8:85a3::8a2e:0370:7334, are not supported.
+
+If you're using a custom policy that includes
+`IpAddress`, do not enable IPv6 for the
+distribution. If you want to restrict access to some
+content by IP address and support IPv6 requests for
+other content, you can create two distributions. For
+more information, see [Enable IPv6 (viewer requests)](DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6 "DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6") in
+the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
+
+## Example policy statements for a signed cookie that uses a custom
+
+policy
+
+The following example policy statements show how to control access to a
+specific file, all of the files in a directory, or all of the files associated
+with a key pair ID. The examples also show how to control access from an
+individual IP address or a range of IP addresses, and how to prevent users from
+using the signed cookie after a specified date and time.
+
+If you copy and paste any of these examples, remove any empty spaces (including
+tabs and newline characters), replace the values with your own values, and
+include a newline character after the closing brace ( } ).
+
+For more information, see [Values that you specify in the policy statement for a custom policy for
+signed cookies](#private-content-custom-policy-statement-cookies-values "#private-content-custom-policy-statement-cookies-values").
+
+###### Topics
+
+- [Example policy statement: Access one file from a range of IP
+  addresses](#private-content-custom-policy-statement-signed-cookies-example-one-object "#private-content-custom-policy-statement-signed-cookies-example-one-object")
+- [Example policy statement: Access all files in a directory from a
+  range of IP addresses](#private-content-custom-policy-statement-signed-cookies-example-all-objects "#private-content-custom-policy-statement-signed-cookies-example-all-objects")
+- [Example policy statement: Access all files associated with a key
+  pair ID from one IP address](#private-content-custom-policy-statement-signed-cookies-example-one-ip "#private-content-custom-policy-statement-signed-cookies-example-one-ip")
+
+### Example policy statement: Access one file from a range of IP
+
+addresses
+
+The following example custom policy in a signed cookie specifies that a
+user can access the file
+`https://d111111abcdef8.cloudfront.net/game_download.zip` from IP
+addresses in the range `192.0.2.0/24` until January 1, 2023 10:00
+am UTC:
+
+```
+{
+    "Statement": [
+        {
+            "Resource": "https://d111111abcdef8.cloudfront.net/game_download.zip",
+            "Condition": {
+                "IpAddress": {
+                    "AWS:SourceIp": "192.0.2.0/24"
+                },
+                "DateLessThan": {
+                    "AWS:EpochTime": 1767290400
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example policy statement: Access all files in a directory from a
+
+range of IP addresses
+
+The following example custom policy allows you to create signed cookies
+for any file in the `training` directory, as indicated by the \*
+wildcard character in the `Resource` parameter. Users can access
+the file from an IP address in the range `192.0.2.0/24` until
+January 1, 2013 10:00 am UTC:
+
+```
+{
+    "Statement": [
+        {
+            "Resource": "https://d111111abcdef8.cloudfront.net/training/*",
+            "Condition": {
+                "IpAddress": {
+                    "AWS:SourceIp": "192.0.2.0/24"
+                },
+                "DateLessThan": {
+                    "AWS:EpochTime": 1767290400
+                }
+            }
+        }
+    ]
+}
+```
+
+Each signed cookie in which you use this policy includes a base URL that
+identifies a specific file, for example:
+
+`https://d111111abcdef8.cloudfront.net/training/orientation.pdf`
+
+### Example policy statement: Access all files associated with a key
+
+pair ID from one IP address
+
+The following sample custom policy allows you to set signed cookies for
+any file associated with any distribution, as indicated by the \* wildcard
+character in the `Resource` parameter. The user must use the IP
+address `192.0.2.10/32`. (The value `192.0.2.10/32` in
+CIDR notation refers to a single IP address, `192.0.2.10`.) The
+files are available only from January 1, 2013 10:00 am UTC until January 2,
+2013 10:00 am UTC:
+
+```
+{
+    "Statement": [
+        {
+            "Resource": "https://*",
+            "Condition": {
+                "IpAddress": {
+                    "AWS:SourceIp": "192.0.2.10/32"
+                },
+                "DateGreaterThan": {
+                    "AWS:EpochTime": 1767290400
+                },
+                "DateLessThan": {
+                    "AWS:EpochTime": 1767376800
+                }
+            }
+        }
+    ]
+}
+```
+
+Each signed cookie in which you use this policy includes a base URL that
+identifies a specific file in a specific CloudFront distribution, for
+example:
+
+`https://d111111abcdef8.cloudfront.net/training/orientation.pdf`
+
+The signed cookie also includes a key pair ID, which must be associated
+with a trusted key group in the distribution (d111111abcdef8.cloudfront.net) that you
+specify in the base URL.
+
+## Create a
+
+signature for a signed cookie that uses a custom policy
+
+The signature for a signed cookie that uses a custom policy is a hashed,
+signed, and base64-encoded version of the policy statement.
+
+For additional information and examples of how to hash, sign, and encode the
+policy statement, see:
+
+- [Linux commands and OpenSSL for base64
+  encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
+- [Code examples for creating a signature for a
+  signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
+
+###### To
+
+create a signature for a signed cookie by using a custom policy
+
+1. Use the SHA-1 hash function and RSA to hash and sign the JSON policy
+   statement that you created in the procedure [To create the policy statement for a
+   signed URL that uses a custom policy](private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure "private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes
+   empty spaces but that has not yet been base64-encoded.
+
+For the private key that is required by the hash function, use a
+private key whose public key is in an active trusted key group for the
+distribution.
+
+###### Note
+
+The method that you use to hash and sign the policy statement
+depends on your programming language and platform. For sample code,
+see [Code examples for creating a signature for a
+signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the
+hashed and signed string. 3. Base64-encode the string using MIME base64 encoding. For more
+information, see [Section 6.8,
+Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME
+(Multipurpose Internet Mail Extensions) Part One: Format of Internet
+Message Bodies_. 4. Replace characters that are invalid in a URL query string with
+characters that are valid. The following table lists invalid and valid
+characters.
+
 | Replace these invalid characters | With these valid characters |
-| ---                              | ---                         |
-| +                                | - (hyphen)                  |
+| -------------------------------- | --------------------------- |
+| +                                | • (hyphen)                  |
 | =                                | \_ (underscore)             |
-| /                                | ~ (tilde)                   | 5. Include the resulting value in the `Set-Cookie` header for the `CloudFront-Signature=` name-value pair, and return to [To set a signed cookie using a custom policy](#private-content-setting-signed-cookie-custom-policy-procedure "#private-content-setting-signed-cookie-custom-policy-procedure") to add the `Set-Cookie` header for `CloudFront-Key-Pair-Id`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| /                                | ~ (tilde)                   |
+
+5. Include the resulting value in the `Set-Cookie` header for
+   the `CloudFront-Signature=` name-value pair, and return to
+   [To
+   set a signed cookie using a custom policy](#private-content-setting-signed-cookie-custom-policy-procedure "#private-content-setting-signed-cookie-custom-policy-procedure") to add the `Set-Cookie` header for
+   `CloudFront-Key-Pair-Id`.

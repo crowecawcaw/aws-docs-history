@@ -262,19 +262,34 @@ custom error page.
 If you're using the [CachingDisabled](using-managed-cache-policies.md#managed-cache-policy-caching-disabled "using-managed-cache-policies.md#managed-cache-policy-caching-disabled") managed cache policy, CloudFront
 won't cache these status codes or custom error pages.
 
+|     |                       |
+| --- | --------------------- |
+| 404 | Not Found             |
+| 414 | Request-URI Too Large |
+| 500 | Internal Server Error |
+| 501 | Not Implemented       |
+| 502 | Bad Gateway           |
+| 503 | Service Unavailable   |
+| 504 | Gateway Time-out      |
+
+### HTTP 4xx
+
+status codes that CloudFront caches based on `Cache-Control`
+headers
+
+CloudFront only caches the following HTTP 4xx status codes returned by your origin
+if your origin returns a `Cache-Control max-age` or
+`Cache-Control s-maxage` header. If you have configured a custom
+error page for one of these HTTP status codes – and your origin returns
+one of the cache control headers – CloudFront caches the custom error page.
+
 |      |                        |
-| ---- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 404  | Not Found              |
-| 414  | Request-URI Too Large  |
-| 500  | Internal Server Error  |
-| 501  | Not Implemented        |
-| 502  | Bad Gateway            |
-| 503  | Service Unavailable    |
-| 504  | Gateway Time-out       | ### HTTP 4xx status codes that CloudFront caches based on `Cache-Control` headers CloudFront only caches the following HTTP 4xx status codes returned by your origin if your origin returns a `Cache-Control max-age` or `Cache-Control s-maxage` header. If you have configured a custom error page for one of these HTTP status codes – and your origin returns one of the cache control headers – CloudFront caches the custom error page. |
-|      |                        |
-| ---  | ---                    |
+| ---- | ---------------------- |
 | 400  | Bad Request            |
 | 403  | Forbidden              |
 | 405  | Method Not Allowed     |
 | 412¹ | Precondition Failed    |
-| 415¹ | Unsupported Media Type | ¹CloudFront doesn't support creating custom error pages for these HTTP status codes.                                                                                                                                                                                                                                                                                                                                                          |
+| 415¹ | Unsupported Media Type |
+
+¹CloudFront doesn't support creating custom error pages for these HTTP status
+codes.

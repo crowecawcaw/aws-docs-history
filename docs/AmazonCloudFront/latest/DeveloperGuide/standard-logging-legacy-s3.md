@@ -291,7 +291,7 @@ URL-encoded equivalents are used for the following characters:
 The URL encoding standard is defined in [RFC 1738](https://tools.ietf.org/html/rfc1738.html "https://tools.ietf.org/html/rfc1738.html").
 
 | URL-Encoded value | Character |
-| ----------------- | --------- | --- | --- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | --------- | --- |
 | %3C               | <         |
 | %3E               | >         |
 | %22               | "         |
@@ -300,7 +300,27 @@ The URL encoding standard is defined in [RFC 1738](https://tools.ietf.org/html/r
 | %7B               | {         |
 | %7D               | }         |
 | %7C               |           |     |
-| %5C               | \         |     | %5E | ^     |
-| %7E               | ~         |     | %5B | [     |
-| %5D               | ]         |     | %60 | `     |
-| %27               | '         |     | %20 | space | ## Delete log files CloudFront doesn't automatically delete log files from your Amazon S3 bucket. For information about deleting log files from an Amazon S3 bucket, see [Deleting objects](../../../AmazonS3/latest/userguide/DeletingObjects.md "../../../AmazonS3/latest/userguide/DeletingObjects.md") in the _Amazon Simple Storage Service Console User Guide_. ## Pricing Standard logging is an optional feature of CloudFront. CloudFront doesn’t charge for enabling standard logs. However, you accrue the usual Amazon S3 charges for storing and accessing the files on Amazon S3. You can delete them at any time. For more information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). For more information about CloudFront pricing, see [CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). |
+| %5C               | \         |
+| %5E               | ^         |
+| %7E               | ~         |
+| %5B               | [         |
+| %5D               | ]         |
+| %60               | `         |
+| %27               | '         |
+| %20               | space     |
+
+## Delete log files
+
+CloudFront doesn't automatically delete log files from your Amazon S3 bucket. For information
+about deleting log files from an Amazon S3 bucket, see [Deleting objects](../../../AmazonS3/latest/userguide/DeletingObjects.md "../../../AmazonS3/latest/userguide/DeletingObjects.md") in the
+_Amazon Simple Storage Service Console User Guide_.
+
+## Pricing
+
+Standard logging is an optional feature of CloudFront. CloudFront doesn’t charge for enabling
+standard logs. However, you accrue the usual Amazon S3 charges for storing and accessing the
+files on Amazon S3. You can delete them at any time.
+
+For more information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+
+For more information about CloudFront pricing, see [CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").

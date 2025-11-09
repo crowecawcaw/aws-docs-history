@@ -62,14 +62,23 @@ function URL origin that you want to add OAC to.
 
 distribution with OAC enabled
 
-The following AWS CLI command allows the CloudFront distribution
-(`E1PDK09ESKHJWT`) access your
+The following AWS CLI commands allows the CloudFront distribution
+(`E1PDK09ESKHJWT`) access to your
 Lambda `FUNCTION_URL_NAME`.
 
 ```
 aws lambda add-permission \
 --statement-id "AllowCloudFrontServicePrincipal" \
 --action "lambda:InvokeFunctionUrl" \
+--principal "cloudfront.amazonaws.com" \
+--source-arn "arn:aws:cloudfront::`123456789012`:distribution/`E1PDK09ESKHJWT`" \
+--function-name `FUNCTION_URL_NAME`
+```
+
+```
+aws lambda add-permission \
+--statement-id "AllowCloudFrontServicePrincipalInvokeFunction" \
+--action "lambda:InvokeFunction" \
 --principal "cloudfront.amazonaws.com" \
 --source-arn "arn:aws:cloudfront::`123456789012`:distribution/`E1PDK09ESKHJWT`" \
 --function-name `FUNCTION_URL_NAME`

@@ -206,8 +206,8 @@ offers Origin Shield**
 If your origin is not in an AWS Region in which CloudFront offers Origin Shield, see
 the following table to determine which Region to enable Origin Shield in.
 
-| **If your origin is in ...**           | **Enable Origin Shield in ...**             |
-| -------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **If your origin is in<br>...**        | **Enable Origin Shield in<br>...**          |
+| -------------------------------------- | ------------------------------------------- |
 | US West (N. California) – `us-west-1`  | US West (Oregon) – `us-west-2`              |
 | Africa (Cape Town) – `af-south-1`      | Europe (Ireland) – `eu-west-1`              |
 | Asia Pacific (Hong Kong) – `ap-east-1` | Asia Pacific (Singapore) – `ap-southeast-1` |
@@ -215,4 +215,240 @@ the following table to determine which Region to enable Origin Shield in.
 | Europe (Milan) – `eu-south-1`          | Europe (Frankfurt) – `eu-central-1`         |
 | Europe (Paris) – `eu-west-3`           | Europe (London) – `eu-west-2`               |
 | Europe (Stockholm) – `eu-north-1`      | Europe (London) – `eu-west-2`               |
-| Middle East (Bahrain) – `me-south-1`   | Asia Pacific (Mumbai) – `ap-south-1`        | ### For origins outside of AWS You can use Origin Shield with an origin that is on-premises or is not in an AWS Region. In this case, enable Origin Shield in the AWS Region that has the lowest latency to your origin. If you’re not sure which AWS Region has the lowest latency to your origin, you can use the following suggestions to help you make a determination. <br>• You can consult the preceding table for an approximation of which AWS Region might have the lowest latency to your origin, based on your origin’s geographic location. <br>• You can launch Amazon EC2 instances in a few different AWS Regions that are geographically close to your origin, and run some tests using `ping` to measure the typical network latencies between those Regions and your origin. ## Enable Origin Shield You can enable Origin Shield to improve your cache hit ratio, reduce the load on your origin, and help improve performance. To enable Origin Shield, change the origin settings in a CloudFront distribution. Origin Shield is a property of the origin. For each origin in your CloudFront distributions, you can separately enable Origin Shield in whichever AWS Region provides the best performance for that origin. You can enable Origin Shield in the CloudFront console, with AWS CloudFormation, or with the CloudFront API. Console ###### To enable Origin Shield for an existing origin (console) 1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home"). 2. Choose the distribution that has the origin that you want to update. 3. Choose the **Origins** tab. 4. Choose the origin to update, then choose **Edit**. 5. For **Enable Origin Shield**, choose **Yes**. 6. For **Origin Shield Region**, choose the AWS Region where you want to enable Origin Shield. For help choosing a Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region"). 7. Choose **Save changes**. When your distribution status is **Deployed**, Origin Shield is ready. This takes a few minutes. ###### To enable Origin Shield for a new origin (console) 1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home"). 2. To create the new origin in an existing distribution, do the following: 1. Choose the distribution where you want to create the origin. 2. Choose **Create Origin**, and then proceed to step 3. To create the new origin in a new standard distribution, do the following: 1. Follow the steps to create a standard distribution in the console. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution"). 2. In the **Settings** section, choose **Customize origin settings**. Proceed to step 3. 3. For **Enable Origin Shield**, choose **Yes**. 4. For **Origin Shield Region**, choose the AWS Region where you want to enable Origin Shield. For help choosing a Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region"). 5. Follow the steps in the console to finish creating your origin or distribution. When your distribution status is **Deployed**, Origin Shield is ready. This takes a few minutes. AWS CloudFormation To enable Origin Shield with AWS CloudFormation, use the `OriginShield` property in the `Origin` property type in an `AWS::CloudFront::Distribution` resource. You can add the `OriginShield` property to an existing `Origin`, or include it when you create a new `Origin`. The following example shows the syntax, in YAML format, for enabling `OriginShield` in the US West (Oregon) Region (`us-west-2`). For help choosing a Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region"). This example shows only the `Origin` property type, not the entire `AWS::CloudFront::Distribution` resource. `Origins: <br>• DomainName: 3ae97e9482b0d011.mediapackage.us-west-2.amazonaws.com Id: Example-EMP-3ae97e9482b0d011 OriginShield: Enabled: true OriginShieldRegion: us-west-2 CustomOriginConfig: OriginProtocolPolicy: match-viewer OriginSSLProtocols: TLSv1` For more information, see [AWS::CloudFront::Distribution Origin](../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.md") in the resource and property reference section of the _AWS CloudFormation User Guide_. API To enable Origin Shield with the CloudFront API using the AWS SDKs or AWS Command Line Interface (AWS CLI), use the `OriginShield` type. You specify `OriginShield` in an `Origin`, in a `DistributionConfig`. For information about the `OriginShield` type, see the following information in the _Amazon CloudFront API Reference_. <br>• [OriginShield](../../../cloudfront/latest/APIReference/API_OriginShield.md "../../../cloudfront/latest/APIReference/API_OriginShield.md") (type) <br>• [Origin](../../../cloudfront/latest/APIReference/API_Origin.md "../../../cloudfront/latest/APIReference/API_Origin.md") (type) <br>• [DistributionConfig](../../../cloudfront/latest/APIReference/API_DistributionConfig.md "../../../cloudfront/latest/APIReference/API_DistributionConfig.md") (type) <br>• [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") (operation) <br>• [CreateDistribution](../../../cloudfront/latest/APIReference/API_CreateDistribution.md "../../../cloudfront/latest/APIReference/API_CreateDistribution.md") (operation) The specific syntax for using these types and operations varies based on the SDK, CLI, or API client. For more information, see the reference documentation for your SDK, CLI, or client. ## Estimate Origin Shield costs You accrue charges for Origin Shield based on the number of requests that go to Origin Shield as an incremental layer. For dynamic (non-cacheable) requests that are proxied to the origin, Origin Shield is always an incremental layer. Dynamic requests use the HTTP methods `PUT`, `POST`, `PATCH`, and `DELETE`. `GET` and `HEAD` requests that have a time to live (TTL) setting of less than 3600 seconds are considered dynamic requests. In addition, `GET` and `HEAD` requests that have disabled caching are also considered dynamic requests. To estimate your charges for Origin Shield for dynamic requests, use the following formula: Total number of dynamic requests **x** Origin Shield charge per 10,000 requests **/** 10,000 For non-dynamic requests with the HTTP methods `GET`, `HEAD`, and `OPTIONS`, Origin Shield is sometimes an incremental layer. When you enable Origin Shield, you choose the AWS Region for Origin Shield. For requests that naturally go to the [regional edge cache](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") in the same Region as Origin Shield, Origin Shield is not an incremental layer. You don't accrue Origin Shield charges for these requests. For requests that go to a regional edge cache in a different Region from Origin Shield, and then go to Origin Shield, Origin Shield is an incremental layer. You do accrue Origin Shield charges for these requests. To estimate your charges for Origin Shield for cacheable requests, use the following formula: Total number of cacheable requests **x** (1 – cache hit rate) **x** percentage of requests that go to Origin Shield from a regional edge cache in a different region **x** Origin Shield charge per 10,000 requests **/** 10,000 For more information about the charge per 10,000 requests for Origin Shield, see [CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). ## Origin Shield high availability Origin Shield leverages the CloudFront [regional edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") feature. Each of these edge caches is built in an AWS Region using at least three [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") with fleets of auto-scaling Amazon EC2 instances. Connections from CloudFront locations to Origin Shield also use active error tracking for each request to automatically route the request to a secondary Origin Shield location if the primary Origin Shield location is unavailable. ## How Origin Shield interacts with other CloudFront features The following sections explain how Origin Shield interacts with other CloudFront features. ### Origin Shield and CloudFront logging To see when Origin Shield handled a request, you must enable one of the following: <br>• [CloudFront standard logs (access logs)](AccessLogs.md "AccessLogs.md"). Standard logs are provided free of charge. <br>• [CloudFront real-time logs](real-time-logs.md "real-time-logs.md"). You incur additional charges for using real-time logs. See [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). Cache hits from Origin Shield appear as `OriginShieldHit` in the `x-edge-detailed-result-type` field in CloudFront logs. Origin Shield leverages Amazon CloudFront’s [regional edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches"). If a request is routed from a CloudFront edge location to the regional edge cache that is acting as Origin Shield, it is reported as a `Hit` in the logs, not as an `OriginShieldHit`. ### Origin Shield and origin groups Origin Shield is compatible with [CloudFront origin groups](high_availability_origin_failover.md "high_availability_origin_failover.md"). Because Origin Shield is a property of the origin, requests always travel through Origin Shield for each origin even when the origin is part of an origin group. For a given request, CloudFront routes the request to the primary origin in the origin group through the primary origin’s Origin Shield. If that request fails (according to the origin group failover criteria), CloudFront routes the request to the secondary origin through the secondary origin’s Origin Shield. ### Origin Shield and Lambda@Edge Origin Shield does not impact the functionality of [Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md") functions, but it can affect the AWS Region where those functions run. When you use Origin Shield with Lambda@Edge, [origin-facing triggers](lambda-cloudfront-trigger-events.md "lambda-cloudfront-trigger-events.md") (origin request and origin response) run in the AWS Region where Origin Shield is enabled. If the primary Origin Shield location is unavailable and CloudFront routes requests to a secondary Origin Shield location, Lambda@Edge origin-facing triggers will also shift to use the secondary Origin Shield location. Viewer-facing triggers are not affected. |
+| Middle East (Bahrain) – `me-south-1`   | Asia Pacific (Mumbai) – `ap-south-1`        |
+
+### For origins outside of
+
+AWS
+
+You can use Origin Shield with an origin that is on-premises or is not in an AWS
+Region. In this case, enable Origin Shield in the AWS Region that has the lowest
+latency to your origin. If you’re not sure which AWS Region has the lowest latency
+to your origin, you can use the following suggestions to help you make a
+determination.
+
+- You can consult the preceding table for an approximation of which AWS
+  Region might have the lowest latency to your origin, based on your origin’s
+  geographic location.
+- You can launch Amazon EC2 instances in a few different AWS Regions that are
+  geographically close to your origin, and run some tests using
+  `ping` to measure the typical network latencies between those
+  Regions and your origin.
+
+## Enable Origin Shield
+
+You can enable Origin Shield to improve your cache hit ratio, reduce the load on your
+origin, and help improve performance. To enable Origin Shield, change the origin
+settings in a CloudFront distribution. Origin Shield is a property of the origin. For each
+origin in your CloudFront distributions, you can separately enable Origin Shield in whichever
+AWS Region provides the best performance for that origin.
+
+You can enable Origin Shield in the CloudFront console, with AWS CloudFormation, or with the CloudFront
+API.
+
+Console
+
+###### To enable Origin Shield for an existing origin (console)
+
+1. Sign in to the AWS Management Console and open the CloudFront console at
+   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
+2. Choose the distribution that has the origin that you want to
+   update.
+3. Choose the **Origins**
+   tab.
+4. Choose the origin to update, then choose
+   **Edit**.
+5. For **Enable Origin Shield**, choose
+   **Yes**.
+6. For **Origin Shield Region**, choose the AWS
+   Region where you want to enable Origin Shield. For help choosing a
+   Region, see [Choose the AWS Region for Origin
+   Shield](#choose-origin-shield-region "#choose-origin-shield-region").
+7. Choose **Save changes**.
+
+When your distribution status is **Deployed**, Origin
+Shield is ready. This takes a few minutes.
+
+###### To enable Origin Shield for a new origin (console)
+
+1.  Sign in to the AWS Management Console and open the CloudFront console at
+    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
+2.  To create the new origin in an existing distribution, do the
+    following:
+
+        1. Choose the distribution where you want to create the
+         origin.
+        2. Choose **Create Origin**, and then
+         proceed to step 3.
+
+    To create the new origin in a new standard distribution, do the
+    following:
+
+        1. Follow the steps to create a standard distribution in the console. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution").
+        2. In the **Settings** section, choose
+         **Customize origin settings**. Proceed to step 3.
+
+3.  For **Enable Origin Shield**, choose
+    **Yes**.
+4.  For **Origin Shield Region**, choose the AWS
+    Region where you want to enable Origin Shield. For help choosing a
+    Region, see [Choose the AWS Region for Origin
+    Shield](#choose-origin-shield-region "#choose-origin-shield-region").
+5.  Follow the steps in the console to finish creating your origin or distribution.
+
+When your distribution status is **Deployed**, Origin
+Shield is ready. This takes a few minutes.
+
+AWS CloudFormation
+To enable Origin Shield with AWS CloudFormation, use the `OriginShield`
+property in the `Origin` property type in an
+`AWS::CloudFront::Distribution` resource. You can add the
+`OriginShield` property to an existing `Origin`,
+or include it when you create a new `Origin`.
+
+The following example shows the syntax, in YAML format, for enabling
+`OriginShield` in the US West (Oregon) Region
+(`us-west-2`). For help choosing a Region, see [Choose the AWS Region for Origin
+Shield](#choose-origin-shield-region "#choose-origin-shield-region"). This example shows only the
+`Origin` property type, not the entire
+`AWS::CloudFront::Distribution` resource.
+
+```
+Origins:
+- DomainName: 3ae97e9482b0d011.mediapackage.us-west-2.amazonaws.com
+  Id: Example-EMP-3ae97e9482b0d011
+  OriginShield:
+    Enabled: true
+    OriginShieldRegion: us-west-2
+  CustomOriginConfig:
+    OriginProtocolPolicy: match-viewer
+    OriginSSLProtocols: TLSv1
+```
+
+For more information, see [AWS::CloudFront::Distribution Origin](../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.md") in the
+resource and property reference section of the _AWS CloudFormation User Guide_.
+
+API
+To enable Origin Shield with the CloudFront API using the AWS SDKs or
+AWS Command Line Interface (AWS CLI), use the `OriginShield` type. You specify
+`OriginShield` in an `Origin`, in a
+`DistributionConfig`. For information about the
+`OriginShield` type, see the following information in the
+_Amazon CloudFront API Reference_.
+
+- [OriginShield](../../../cloudfront/latest/APIReference/API_OriginShield.md "../../../cloudfront/latest/APIReference/API_OriginShield.md") (type)
+- [Origin](../../../cloudfront/latest/APIReference/API_Origin.md "../../../cloudfront/latest/APIReference/API_Origin.md") (type)
+- [DistributionConfig](../../../cloudfront/latest/APIReference/API_DistributionConfig.md "../../../cloudfront/latest/APIReference/API_DistributionConfig.md") (type)
+- [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md")
+  (operation)
+- [CreateDistribution](../../../cloudfront/latest/APIReference/API_CreateDistribution.md "../../../cloudfront/latest/APIReference/API_CreateDistribution.md")
+  (operation)
+
+The specific syntax for using these types and operations varies based on
+the SDK, CLI, or API client. For more information, see the reference
+documentation for your SDK, CLI, or client.
+
+## Estimate Origin Shield costs
+
+You accrue charges for Origin Shield based on the number of requests that go to Origin
+Shield as an incremental layer.
+
+For dynamic (non-cacheable) requests that are proxied to the origin, Origin Shield is
+always an incremental layer. Dynamic requests use the HTTP methods `PUT`,
+`POST`, `PATCH`, and `DELETE`.
+
+`GET` and `HEAD` requests that have a time to live (TTL) setting
+of less than 3600 seconds are considered dynamic requests. In addition, `GET`
+and `HEAD` requests that have disabled caching are also considered dynamic
+requests.
+
+To estimate your charges for Origin Shield for dynamic requests, use the following
+formula:
+
+Total number of dynamic requests **x** Origin Shield
+charge per 10,000 requests **/** 10,000
+
+For non-dynamic requests with the HTTP methods `GET`, `HEAD`,
+and `OPTIONS`, Origin Shield is sometimes an incremental layer. When you
+enable Origin Shield, you choose the AWS Region for Origin Shield. For requests that
+naturally go to the [regional edge
+cache](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") in the same Region as Origin Shield, Origin Shield is not an
+incremental layer. You don't accrue Origin Shield charges for these requests. For
+requests that go to a regional edge cache in a different Region from Origin Shield, and
+then go to Origin Shield, Origin Shield is an incremental layer. You do accrue Origin
+Shield charges for these requests.
+
+To estimate your charges for Origin Shield for cacheable requests, use the following
+formula:
+
+Total number of cacheable requests **x** (1 – cache hit
+rate) **x** percentage of requests that go to Origin Shield
+from a regional edge cache in a different region **x**
+Origin Shield charge per 10,000 requests **/**
+10,000
+
+For more information about the charge per 10,000 requests for Origin Shield, see
+[CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
+
+## Origin Shield high
+
+availability
+
+Origin Shield leverages the CloudFront [regional
+edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") feature. Each of these edge caches is built in an AWS Region
+using at least three [Availability
+Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") with fleets of auto-scaling Amazon EC2 instances. Connections from CloudFront
+locations to Origin Shield also use active error tracking for each request to
+automatically route the request to a secondary Origin Shield location if the primary
+Origin Shield location is unavailable.
+
+## How Origin Shield interacts with
+
+other CloudFront features
+
+The following sections explain how Origin Shield interacts with other CloudFront
+features.
+
+### Origin Shield and CloudFront logging
+
+To see when Origin Shield handled a request, you must enable one of the
+following:
+
+- [CloudFront standard logs (access logs)](AccessLogs.md "AccessLogs.md").
+  Standard logs are provided free of charge.
+- [CloudFront real-time logs](real-time-logs.md "real-time-logs.md"). You incur
+  additional charges for using real-time logs. See [Amazon CloudFront
+  Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
+
+Cache hits from Origin Shield appear as `OriginShieldHit` in the
+`x-edge-detailed-result-type` field in CloudFront logs. Origin Shield
+leverages Amazon CloudFront’s [regional edge
+caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches"). If a request is routed from a CloudFront edge location to the regional
+edge cache that is acting as Origin Shield, it is reported as a `Hit` in
+the logs, not as an `OriginShieldHit`.
+
+### Origin Shield and origin
+
+groups
+
+Origin Shield is compatible with [CloudFront origin groups](high_availability_origin_failover.md "high_availability_origin_failover.md"). Because Origin Shield is a property of the origin,
+requests always travel through Origin Shield for each origin even when the origin is
+part of an origin group. For a given request, CloudFront routes the request to the primary
+origin in the origin group through the primary origin’s Origin Shield. If that
+request fails (according to the origin group failover criteria), CloudFront routes the
+request to the secondary origin through the secondary origin’s Origin Shield.
+
+### Origin Shield and
+
+Lambda@Edge
+
+Origin Shield does not impact the functionality of [Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md") functions, but it can affect the
+AWS Region where those functions run.
+
+When you use Origin Shield with Lambda@Edge, [origin-facing triggers](lambda-cloudfront-trigger-events.md "lambda-cloudfront-trigger-events.md") (origin
+request and origin response) run in the AWS Region where Origin Shield is enabled.
+If the primary Origin Shield location is unavailable and CloudFront routes requests to a
+secondary Origin Shield location, Lambda@Edge origin-facing triggers will also shift
+to use the secondary Origin Shield location.
+
+Viewer-facing triggers are not affected.

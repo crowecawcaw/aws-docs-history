@@ -602,11 +602,11 @@ When you use a Lambda function URL as the origin for a CloudFront distribution, 
 function URL must be publicly accessible. To do so, use one of the following
 options:
 
-- If you use origin access control (OAC), the `AuthType`
-  parameter of the Lambda function URL must use the `AWS_IAM`
-  value and allow the `lambda:InvokeFunctionUrl` permission in a
-  resource-based policy. For more information about using Lambda function URLs
-  for OAC, see [Restrict access to an
+- If you use origin access control (OAC), the `AuthType` parameter of the Lambda
+  function URL must use the `AWS_IAM` value and allow the
+  `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`
+  permissions in a resource-based policy. For more information about using Lambda
+  function URLs for OAC, see [Restrict access to an
   AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md "private-content-restricting-access-to-lambda.md").
 - If you don't use OAC, you can set the `AuthType` parameter of
   the function URL to `NONE` and allow the

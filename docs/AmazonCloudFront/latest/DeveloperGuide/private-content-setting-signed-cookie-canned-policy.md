@@ -311,7 +311,12 @@ Message Bodies_. 4. Replace characters that are invalid in a URL query string wi
 following table lists invalid and valid characters.
 
 | Replace these invalid characters | With these valid characters |
-| -------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| +                                | - (hyphen)                  |
+| -------------------------------- | --------------------------- |
+| +                                | • (hyphen)                  |
 | =                                | \_ (underscore)             |
-| /                                | ~ (tilde)                   | 5. Include the resulting value in the `Set-Cookie` header for the `CloudFront-Signature` name-value pair. Then return to [To set a signed cookie using a canned policy](#private-content-setting-signed-cookie-canned-policy-procedure "#private-content-setting-signed-cookie-canned-policy-procedure") add the `Set-Cookie` header for `CloudFront-Key-Pair-Id`. |
+| /                                | ~ (tilde)                   |
+
+5. Include the resulting value in the `Set-Cookie` header for the
+   `CloudFront-Signature` name-value pair. Then return to [To set a signed cookie using a
+   canned policy](#private-content-setting-signed-cookie-canned-policy-procedure "#private-content-setting-signed-cookie-canned-policy-procedure") add the
+   `Set-Cookie` header for `CloudFront-Key-Pair-Id`.

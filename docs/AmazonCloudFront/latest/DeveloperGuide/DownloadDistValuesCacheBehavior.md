@@ -162,10 +162,519 @@ You can use the following wildcard characters in your path pattern:
 
 The following examples show how the wildcard characters work:
 
-| Path pattern   | Files that match the path pattern                                                                                                                                                                                                                                                                        |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `*.jpg`        | All .jpg files.                                                                                                                                                                                                                                                                                          |
-| `images/*.jpg` | All .jpg files in the `images` directory and in subdirectories under the `images` directory.                                                                                                                                                                                                             |
-| `a*.jpg`       | <br>• All .jpg files for which the file name begins with `a`, for example, `apple.jpg` and `appalachian_trail_2012_05_21.jpg`. <br>• All .jpg files for which the file path begins with `a`, for example, `abra/cadabra/magic.jpg`.                                                                      |
-| `a??.jpg`      | All .jpg files for which the file name begins with `a` and is followed by exactly two other characters, for example, `ant.jpg` and `abe.jpg`.                                                                                                                                                            |
-| `*.doc*`       | All files for which the file name extension begins with `.doc`, for example, `.doc`, `.docx`, and `.docm` files. You can't use the path pattern `*.doc?` in this case, because that path pattern wouldn't apply to requests for `.doc` files; the `?` wildcard character replaces exactly one character. | The maximum length of a path pattern is 255 characters. The value can contain any of the following characters: <br>• A-Z, a-z Path patterns are case-sensitive, so the path pattern `*.jpg` doesn't apply to the file `LOGO.JPG` <br>• 0-9 <br>• \_ - . \* $ / ~ " ' @ : + <br>• &, passed and returned as `&amp;` ### Path normalization CloudFront normalizes URI paths consistent with [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6 "https://datatracker.ietf.org/doc/html/rfc3986#section-6") and then matches the path with the correct cache behavior. Once the cache behavior is matched, CloudFront sends the raw URI path to the origin. If they don't match, requests are instead matched to your default cache behavior. Some characters are normalized and removed from the path, such as multiple slashes (`//`) or periods (`..`). This can alter the URL that CloudFront uses to match the intended cache behavior. ###### Example You specify the `/a/b*` and `/a*` paths for your cache behavior. <br>• A viewer sending the `/a/b?c=1` path will match the `/a/b*` cache behavior. <br>• A viewer sending the `/a/b/..?c=1` path will match the `/a*` cache behavior. To work around the paths being normalized, you can update your request paths or the path pattern for the cache behavior. ## Origin or origin group This setting applies only when you create or update a cache behavior for an existing distribution. Enter the value of an existing origin or origin group. This identifies the origin or origin group to which you want CloudFront to route requests when a request (such as https://example.com/logo.jpg) matches the path pattern for a cache behavior (such as \*.jpg) or for the default cache behavior (\*). ## Viewer protocol policy Choose the protocol policy that you want viewers to use to access your content in CloudFront edge locations: <br>• **HTTP and HTTPS**: Viewers can use both protocols. <br>• **Redirect HTTP to HTTPS**: Viewers can use both protocols, but HTTP requests are automatically redirected to HTTPS requests. <br>• **HTTPS Only**: Viewers can only access your content if they're using HTTPS. For more information, see [Require HTTPS for communication between viewers and CloudFront](using-https-viewers-to-cloudfront.md "using-https-viewers-to-cloudfront.md"). ## Allowed HTTP methods Specify the HTTP methods that you want CloudFront to process and forward to your origin: <br>• **GET, HEAD:** You can use CloudFront only to get objects from your origin or to get object headers. <br>• **GET, HEAD, OPTIONS:** You can use CloudFront only to get objects from your origin, get object headers, or retrieve a list of the options that your origin server supports. <br>• **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE:** You can use CloudFront to get, add, update, and delete objects, and to get object headers. In addition, you can perform other POST operations such as submitting data from a web form. ###### Note If you're using gRPC in your workload, you must select **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**. gRPC workloads require the `POST` method. For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md"). CloudFront caches responses to `GET` and `HEAD` requests and, optionally, `OPTIONS` requests. Responses to `OPTIONS` requests are cached separately from responses to `GET` and `HEAD` requests (the `OPTIONS` method is included in the [cache key](understanding-the-cache-key.md "understanding-the-cache-key.md") for `OPTIONS` requests). CloudFront does not cache responses to requests that use other methods. ###### Important If you choose **GET, HEAD, OPTIONS** or **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**, you might need to restrict access to your Amazon S3 bucket or to your custom origin to prevent users from performing operations that you don't want them to perform. The following examples explain how to restrict access: <br>• **If you're using Amazon S3 as an origin for your distribution:** Create a CloudFront origin access control to restrict access to your Amazon S3 content, and give permissions to the origin access control. For example, if you configure CloudFront to accept and forward these methods _only_ because you want to use `PUT`, you must still configure Amazon S3 bucket policies to handle `DELETE` requests appropriately. For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md"). <br>• **If you're using a custom origin:** Configure your origin server to handle all methods. For example, if you configure CloudFront to accept and forward these methods _only_ because you want to use `POST`, you must still configure your origin server to handle `DELETE` requests appropriately. ## Field-level encryption config If you want to enforce field-level encryption on specific data fields, in the dropdown list, choose a field-level encryption configuration. For more information, see [Use field-level encryption to help protect sensitive data](field-level-encryption.md "field-level-encryption.md"). ## Cached HTTP methods Specify whether you want CloudFront to cache the response from your origin when a viewer submits an `OPTIONS` request. CloudFront always caches the response to `GET` and `HEAD` requests. ## Allow gRPC requests over HTTP/2 Specify whether you want your distribution to allow gRPC requests. To enable gRPC, select the following settings: <br>• For **[Allowed HTTP methods](#DownloadDistValuesAllowedHTTPMethods "#DownloadDistValuesAllowedHTTPMethods")**, select the **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE** methods. gRPC requires the `POST` method. <br>• Select the gRPC checkbox that appears after you select the `POST` method. <br>• For **[Supported HTTP versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions")**, select **HTTP/2**. For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md"). ## Cache based on selected request headers Specify whether you want CloudFront to cache objects based on the values of specified headers: <br>• **None (improves caching)** – CloudFront doesn't cache your objects based on header values. <br>• **Allowlist** – CloudFront caches your objects based only on the values of the specified headers. Use **Allowlist Headers** to choose the headers that you want CloudFront to base caching on. <br>• **All** – CloudFront doesn't cache the objects that are associated with this cache behavior. Instead, CloudFront sends every request to the origin. (Not recommended for Amazon S3 origins.) Regardless of the option that you choose, CloudFront forwards certain headers to your origin and takes specific actions based on the headers that you forward. For more information about how CloudFront handles header forwarding, see [HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior"). For more information about how to configure caching in CloudFront by using request headers, see [Cache content based on request headers](header-caching.md "header-caching.md"). ## Allowlist headers These settings apply only when you choose **Allowlist** for **Cache Based on Selected Request Headers**. Specify the headers that you want CloudFront to consider when caching your objects. Select headers from the list of available headers and choose **Add**. To forward a custom header, enter the name of the header in the field, and choose **Add Custom**. For the current maximum number of headers that you can allowlist for each cache behavior, or to request a higher quota (formerly known as limit), see [Quotas on headers](cloudfront-limits.md#limits-custom-headers "cloudfront-limits.md#limits-custom-headers"). ## Object caching If your origin server is adding a `Cache-Control` header to your objects to control how long the objects stay in the CloudFront cache and if you don't want to change the `Cache-Control` value, choose **Use Origin Cache Headers**. To specify a minimum and maximum time that your objects stay in the CloudFront cache regardless of `Cache-Control` headers, and a default time that your objects stay in the CloudFront cache when the `Cache-Control` header is missing from an object, choose **Customize**. Then specify values in the **Minimum TTL**, **Default TTL**, and **Maximum TTL** fields. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md"). ## Minimum TTL Specify the minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to determine whether the object has been updated. ###### Warning If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md"). ## Maximum TTL Specify the maximum amount of time, in seconds, that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. The value that you specify for **Maximum TTL** applies only when your origin adds HTTP headers such as `Cache-Control max-age`, `Cache-Control s-maxage`, or `Expires` to objects. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md"). To specify a value for **Maximum TTL**, you must choose the **Customize** option for the **Object Caching** setting. The default value for **Maximum TTL** is 31536000 seconds (one year). If you change the value of **Minimum TTL** or **Default TTL** to more than 31536000 seconds, then the default value of **Maximum TTL** changes to the value of **Default TTL**. ## Default TTL Specify the default amount of time, in seconds, that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify for **Default TTL** applies only when your origin does _not_ add HTTP headers such as `Cache-Control max-age`, `Cache-Control s-maxage`, or `Expires` to objects. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md"). To specify a value for **Default TTL**, you must choose the **Customize** option for the **Object Caching** setting. The default value for **Default TTL** is 86400 seconds (one day). If you change the value of **Minimum TTL** to more than 86400 seconds, then the default value of **Default TTL** changes to the value of **Minimum TTL**. ## Forward cookies ###### Note For Amazon S3 origins, this option applies to only buckets that are configured as a website endpoint. Specify whether you want CloudFront to forward cookies to your origin server and, if so, which ones. If you choose to forward only selected cookies (an allowlist of cookies), enter the cookie names in the **Allowlist Cookies** field. If you choose **All**, CloudFront forwards all cookies regardless of how many your application uses. Amazon S3 doesn't process cookies, and forwarding cookies to the origin reduces cache ability. For cache behaviors that are forwarding requests to an Amazon S3 origin, choose **None** for **Forward Cookies**. For more information about forwarding cookies to the origin, go to [Cache content based on cookies](Cookies.md "Cookies.md"). ## Allowlist cookies ###### Note For Amazon S3 origins, this option applies to only buckets that are configured as a website endpoint. If you chose **Allowlist** in the **Forward Cookies** list, then in the **Allowlist Cookies** field, enter the names of cookies that you want CloudFront to forward to your origin server for this cache behavior. Enter each cookie name on a new line. You can specify the following wildcards to specify cookie names: <br>• **\*** matches 0 or more characters in the cookie name <br>• **?** matches exactly one character in the cookie name For example, suppose viewer requests for an object include a cookie named: `userid_`member-number``Where each of your users has a unique value for`member-number`. You want CloudFront to cache a separate version of the object for each member. You could accomplish this by forwarding all cookies to your origin, but viewer requests include some cookies that you don't want CloudFront to cache. Alternatively, you could specify the following value as a cookie name, which causes CloudFront to forward to the origin all of the cookies that begin with `userid*`: `userid**`For the current maximum number of cookie names that you can allowlist for each cache behavior, or to request a higher quota (formerly known as limit), see [Quotas on cookies (legacy cache settings)](cloudfront-limits.md#limits-allowlisted-cookies "cloudfront-limits.md#limits-allowlisted-cookies"). ## Query string forwarding and caching CloudFront can cache different versions of your content based on the values of query string parameters. Choose one of the following options: **None (Improves Caching)** Choose this option if your origin returns the same version of an object regardless of the values of query string parameters. This increases the likelihood that CloudFront can serve a request from the cache, which improves performance and reduces the load on your origin. **Forward all, cache based on allowlist** Choose this option if your origin server returns different versions of your objects based on one or more query string parameters. Then specify the parameters that you want CloudFront to use as a basis for caching in the [Query string allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist") field. **Forward all, cache based on all** Choose this option if your origin server returns different versions of your objects for all query string parameters. For more information about caching based on query string parameters, including how to improve performance, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md"). ## Query string allowlist This setting applies only when you choose **Forward all, cache based on allowlist** for [Query string forwarding and caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString"). You can specify the query string parameters that you want CloudFront to use as a basis for caching. ## Smooth Streaming Choose **Yes** if you want to distribute media files in the Microsoft Smooth Streaming format and you do not have an IIS server. Choose **No** if you have a Microsoft IIS server that you want to use as an origin to distribute media files in the Microsoft Smooth Streaming format, or if you are not distributing Smooth Streaming media files. ###### Note If you specify **Yes**, you can still distribute other content using this cache behavior if that content matches the value of **Path Pattern**. For more information, see [Configure video on demand for Microsoft Smooth Streaming](on-demand-video.md#on-demand-streaming-smooth "on-demand-video.md#on-demand-streaming-smooth"). ## Restrict viewer access (use signed URLs or signed cookies) If you want requests for objects that match the`PathPattern`for this cache behavior to use public URLs, choose **No**. If you want requests for objects that match the`PathPattern`for this cache behavior to use signed URLs, choose **Yes**. Then specify the AWS accounts that you want to use to create signed URLs; these accounts are known as trusted signers. For more information about trusted signers, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md"). ## Trusted signers This setting applies only when you choose **Yes** for **Restrict Viewer Access (Use Signed URLs or Signed Cookies**. Choose which AWS accounts you want to use as trusted signers for this cache behavior: <br>• **Self:** Use the account with which you're currently signed into the AWS Management Console as a trusted signer. If you're currently signed in as an IAM user, the associated AWS account is added as a trusted signer. <br>• **Specify Accounts:** Enter account numbers for trusted signers in the **AWS Account Numbers** field. To create signed URLs, an AWS account must have at least one active CloudFront key pair. ###### Important If you're updating a distribution that you're already using to distribute content, add trusted signers only when you're ready to start generating signed URLs for your objects. After you add trusted signers to a distribution, users must use signed URLs to access the objects that match the`PathPattern` for this cache behavior. ## AWS account numbers This setting applies only when you choose **Specify Accounts** for **Trusted Signers**. If you want to create signed URLs using AWS accounts in addition to or instead of the current account, enter one AWS account number per line in this field. Note the following: <br>• The accounts that you specify must have at least one active CloudFront key pair. For more information, see [Create key pairs for your signers](private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs "private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs"). <br>• You can't create CloudFront key pairs for IAM users, so you can't use IAM users as trusted signers. <br>• For information about how to get the AWS account number for an account, see [View AWS account identifiers](../../../accounts/latest/reference/manage-acct-identifiers.md "../../../accounts/latest/reference/manage-acct-identifiers.md") in the *AWS account Management Reference Guide\*. <br>• If you enter the account number for the current account, CloudFront automatically checks the **Self** check box and removes the account number from the **AWS Account Numbers** list. ## Compress objects automatically If you want CloudFront to automatically compress files of certain types when viewers support compressed content, choose **Yes**. When CloudFront compresses your content, downloads are faster because the files are smaller, and your web pages render faster for your users. For more information, see [Serve compressed files](ServingCompressedFiles.md "ServingCompressedFiles.md"). ## CloudFront event This setting applies to **Lambda Function Associations**. You can choose to run a Lambda function when one or more of the following CloudFront events occur: <br>• When CloudFront receives a request from a viewer (viewer request) <br>• Before CloudFront forwards a request to the origin (origin request) <br>• When CloudFront receives a response from the origin (origin response) <br>• Before CloudFront returns the response to the viewer (viewer response) For more information, see [Choose the event to trigger the function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md"). ## Lambda function ARN This setting applies to **Lambda Function Associations**. Specify the Amazon Resource Name (ARN) of the Lambda function that you want to add a trigger for. To learn how to get the ARN for a function, see step 1 of the procedure [Adding Triggers by Using the CloudFront Console](lambda-edge-add-triggers.md#lambda-edge-add-triggers-cf-console "lambda-edge-add-triggers.md#lambda-edge-add-triggers-cf-console"). ## Include body This setting applies to **Lambda Function Associations**. For more information, see [Include body](lambda-generating-http-responses.md#lambda-include-body-access "lambda-generating-http-responses.md#lambda-include-body-access"). |
+| Path pattern   | Files that match the path pattern                                                                                                                                                                                                                                                                                             |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `*.jpg`        | All .jpg files.                                                                                                                                                                                                                                                                                                               |
+| `images/*.jpg` | All .jpg files in the `images` directory<br>and in subdirectories under the `images`<br>directory.                                                                                                                                                                                                                            |
+| `a*.jpg`       | • All .jpg files for which the file name begins<br>with `a`, for example,<br>`apple.jpg` and<br>`appalachian_trail_2012_05_21.jpg`.<br>• All .jpg files for which the file path begins<br>with `a`, for example,<br>`abra/cadabra/magic.jpg`.                                                                                 |
+| `a??.jpg`      | All .jpg files for which the file name begins with<br>`a` and is followed by exactly two other<br>characters, for example, `ant.jpg` and<br>`abe.jpg`.                                                                                                                                                                        |
+| `*.doc*`       | All files for which the file name extension begins<br>with `.doc`, for example, `.doc`,<br>`.docx`, and `.docm` files.<br>You can't use the path pattern `*.doc?` in<br>this case, because that path pattern wouldn't apply to<br>requests for `.doc` files; the `?`<br>wildcard character replaces exactly one<br>character. |
+
+The maximum length of a path pattern is 255 characters. The value can
+contain any of the following characters:
+
+- A-Z, a-z
+
+Path patterns are case-sensitive, so the path pattern
+`*.jpg` doesn't apply to the file
+`LOGO.JPG`
+
+- 0-9
+- \_ - . \* $ / ~ " ' @ : +
+- &, passed and returned as `&amp;`
+
+### Path normalization
+
+CloudFront normalizes URI paths consistent with [RFC
+3986](https://datatracker.ietf.org/doc/html/rfc3986#section-6 "https://datatracker.ietf.org/doc/html/rfc3986#section-6") and then matches the path with the correct cache behavior.
+Once the cache behavior is matched, CloudFront sends the raw URI path to the
+origin. If they don't match, requests are instead matched to your default
+cache behavior.
+
+Some characters are normalized and removed from the path, such as multiple
+slashes (`//`) or periods (`..`). This can alter the
+URL that CloudFront uses to match the intended cache behavior.
+
+###### Example
+
+You specify the `/a/b*` and `/a*` paths for your
+cache behavior.
+
+- A viewer sending the `/a/b?c=1` path will match the
+  `/a/b*` cache behavior.
+- A viewer sending the `/a/b/..?c=1` path will match
+  the `/a*` cache behavior.
+
+To work around the paths being normalized, you can update your request
+paths or the path pattern for the cache behavior.
+
+## Origin or origin
+
+group
+
+This setting applies only when you create or update a cache behavior for an
+existing distribution.
+
+Enter the value of an existing origin or origin group. This identifies the
+origin or origin group to which you want CloudFront to route requests when a request
+(such as https://example.com/logo.jpg) matches the path pattern for a cache
+behavior (such as \*.jpg) or for the default cache behavior (\*).
+
+## Viewer protocol
+
+policy
+
+Choose the protocol policy that you want viewers to use to access your
+content in CloudFront edge locations:
+
+- **HTTP and HTTPS**: Viewers can use both
+  protocols.
+- **Redirect HTTP to HTTPS**: Viewers can use both
+  protocols, but HTTP requests are automatically redirected to HTTPS
+  requests.
+- **HTTPS Only**: Viewers can only access your
+  content if they're using HTTPS.
+
+For more information, see [Require HTTPS for communication
+between viewers and CloudFront](using-https-viewers-to-cloudfront.md "using-https-viewers-to-cloudfront.md").
+
+## Allowed HTTP
+
+methods
+
+Specify the HTTP methods that you want CloudFront to process and forward to your
+origin:
+
+- **GET, HEAD:** You can use CloudFront only
+  to get objects from your origin or to get object headers.
+- **GET, HEAD, OPTIONS:** You can use
+  CloudFront only to get objects from your origin, get object headers, or
+  retrieve a list of the options that your origin server
+  supports.
+- **GET, HEAD, OPTIONS, PUT, POST, PATCH,
+  DELETE:** You can use CloudFront to get, add, update, and
+  delete objects, and to get object headers. In addition, you can
+  perform other POST operations such as submitting data from a web
+  form.
+
+###### Note
+
+If you're using gRPC in your workload, you must select
+**GET, HEAD, OPTIONS, PUT, POST, PATCH,
+DELETE**. gRPC workloads require the `POST`
+method. For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md").
+
+CloudFront caches responses to `GET` and `HEAD`
+requests and, optionally, `OPTIONS` requests. Responses
+to `OPTIONS` requests are cached separately from
+responses to `GET` and `HEAD` requests (the
+`OPTIONS` method is included in the [cache key](understanding-the-cache-key.md "understanding-the-cache-key.md") for
+`OPTIONS` requests). CloudFront does not cache responses to
+requests that use other methods.
+
+###### Important
+
+If you choose **GET, HEAD, OPTIONS** or
+**GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**,
+you might need to restrict access to your Amazon S3 bucket or to your custom
+origin to prevent users from performing operations that you don't want
+them to perform. The following examples explain how to restrict
+access:
+
+- **If you're using Amazon S3 as an origin for
+  your distribution:** Create a CloudFront origin access
+  control to restrict access to your Amazon S3 content, and give
+  permissions to the origin access control. For example, if you
+  configure CloudFront to accept and forward these methods
+  _only_ because you want to use
+  `PUT`, you must still configure Amazon S3 bucket
+  policies to handle `DELETE` requests appropriately.
+  For more information, see [Restrict access to an Amazon S3
+  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+- **If you're using a custom
+  origin:** Configure your origin server to handle
+  all methods. For example, if you configure CloudFront to accept and
+  forward these methods _only_ because you want
+  to use `POST`, you must still configure your origin
+  server to handle `DELETE` requests appropriately.
+
+## Field-level
+
+encryption config
+
+If you want to enforce field-level encryption on specific data fields, in the dropdown
+list, choose a field-level encryption configuration.
+
+For more information, see [Use field-level encryption to help protect sensitive
+data](field-level-encryption.md "field-level-encryption.md").
+
+## Cached HTTP
+
+methods
+
+Specify whether you want CloudFront to cache the response from your origin when
+a viewer submits an `OPTIONS` request. CloudFront always caches the
+response to `GET` and `HEAD` requests.
+
+## Allow gRPC requests over
+
+HTTP/2
+
+Specify whether you want your distribution to allow gRPC requests. To enable
+gRPC, select the following settings:
+
+- For **[Allowed HTTP methods](#DownloadDistValuesAllowedHTTPMethods "#DownloadDistValuesAllowedHTTPMethods")**, select the
+  **GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE**
+  methods. gRPC requires the `POST` method.
+- Select the gRPC checkbox that appears after you select the
+  `POST` method.
+- For **[Supported HTTP
+  versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions")**,
+  select **HTTP/2**.
+
+For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md").
+
+## Cache based on selected
+
+request headers
+
+Specify whether you want CloudFront to cache objects based on the values of
+specified headers:
+
+- **None (improves caching)** – CloudFront doesn't
+  cache your objects based on header values.
+- **Allowlist** – CloudFront caches your objects based only on the
+  values of the specified headers. Use **Allowlist
+  Headers** to choose the headers that you want CloudFront to
+  base caching on.
+- **All** – CloudFront doesn't cache the objects
+  that are associated with this cache behavior. Instead, CloudFront sends
+  every request to the origin. (Not recommended for Amazon S3
+  origins.)
+
+Regardless of the option that you choose, CloudFront forwards certain headers to
+your origin and takes specific actions based on the headers that you
+forward. For more information about how CloudFront handles header forwarding, see
+[HTTP request headers and CloudFront
+behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior").
+
+For more information about how to configure caching in CloudFront by using
+request headers, see [Cache content based on request headers](header-caching.md "header-caching.md").
+
+## Allowlist headers
+
+These settings apply only when you choose **Allowlist** for **Cache Based on Selected Request Headers**.
+
+Specify the headers that you want CloudFront to consider when caching your
+objects. Select headers from the list of available headers and choose
+**Add**. To forward a custom header, enter the name of
+the header in the field, and choose **Add Custom**.
+
+For the current maximum number of headers that you can allowlist for each
+cache behavior, or to request a higher quota (formerly known as limit), see
+[Quotas on headers](cloudfront-limits.md#limits-custom-headers "cloudfront-limits.md#limits-custom-headers").
+
+## Object caching
+
+If your origin server is adding a `Cache-Control` header to
+your objects to control how long the objects stay in the CloudFront cache and if
+you don't want to change the `Cache-Control` value, choose
+**Use Origin Cache Headers**.
+
+To specify a minimum and maximum time that your objects stay in the CloudFront
+cache regardless of `Cache-Control` headers, and a default time
+that your objects stay in the CloudFront cache when the `Cache-Control`
+header is missing from an object, choose **Customize**.
+Then specify values in the **Minimum TTL**,
+**Default TTL**, and **Maximum TTL**
+fields.
+
+For more information, see [Manage how long content stays in the cache
+(expiration)](Expiration.md "Expiration.md").
+
+## Minimum TTL
+
+Specify the minimum amount of time, in seconds, that you want objects to
+stay in the CloudFront cache before CloudFront sends another request to the origin to
+determine whether the object has been updated.
+
+###### Warning
+
+If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers.
+
+For more information, see [Manage how long content stays in the cache
+(expiration)](Expiration.md "Expiration.md").
+
+## Maximum TTL
+
+Specify the maximum amount of time, in seconds, that you want objects to
+stay in CloudFront caches before CloudFront queries your origin to see whether the
+object has been updated. The value that you specify for **Maximum
+TTL** applies only when your origin adds HTTP headers such as
+`Cache-Control max-age`, `Cache-Control s-maxage`,
+or `Expires` to objects. For more information, see [Manage how long content stays in the cache
+(expiration)](Expiration.md "Expiration.md").
+
+To specify a value for **Maximum TTL**, you must choose
+the **Customize** option for the **Object
+Caching** setting.
+
+The default value for **Maximum TTL** is 31536000 seconds
+(one year). If you change the value of **Minimum TTL** or
+**Default TTL** to more than 31536000 seconds, then the
+default value of **Maximum TTL** changes to the value of
+**Default TTL**.
+
+## Default TTL
+
+Specify the default amount of time, in seconds, that you want objects to
+stay in CloudFront caches before CloudFront forwards another request to your origin to
+determine whether the object has been updated. The value that you specify
+for **Default TTL** applies only when your origin does
+_not_ add HTTP headers such as `Cache-Control
+ max-age`, `Cache-Control s-maxage`, or
+`Expires` to objects. For more information, see [Manage how long content stays in the cache
+(expiration)](Expiration.md "Expiration.md").
+
+To specify a value for **Default TTL**, you must choose
+the **Customize** option for the **Object
+Caching** setting.
+
+The default value for **Default TTL** is 86400 seconds
+(one day). If you change the value of **Minimum TTL** to
+more than 86400 seconds, then the default value of **Default
+TTL** changes to the value of **Minimum TTL**.
+
+## Forward cookies
+
+###### Note
+
+For Amazon S3 origins, this option applies to only buckets that are
+configured as a website endpoint.
+
+Specify whether you want CloudFront to forward cookies to your origin server
+and, if so, which ones. If you choose to forward only selected cookies (an
+allowlist of cookies), enter the cookie names in the **Allowlist
+Cookies** field. If you choose **All**, CloudFront
+forwards all cookies regardless of how many your application uses.
+
+Amazon S3 doesn't process cookies, and forwarding cookies to the origin reduces
+cache ability. For cache behaviors that are forwarding requests to an Amazon S3
+origin, choose **None** for **Forward
+Cookies**.
+
+For more information about forwarding cookies to the origin, go to [Cache content based on cookies](Cookies.md "Cookies.md").
+
+## Allowlist
+
+cookies
+
+###### Note
+
+For Amazon S3 origins, this option applies to only buckets that are
+configured as a website endpoint.
+
+If you chose **Allowlist** in the **Forward
+Cookies** list, then in the **Allowlist
+Cookies** field, enter the names of cookies that you want CloudFront
+to forward to your origin server for this cache behavior. Enter each cookie
+name on a new line.
+
+You can specify the following wildcards to specify cookie names:
+
+- **\*** matches 0 or more characters in
+  the cookie name
+- **?** matches exactly one character
+  in the cookie name
+
+For example, suppose viewer requests for an object include a cookie
+named:
+
+`userid_`member-number``
+
+Where each of your users has a unique value for
+`member-number`. You want CloudFront to cache a
+separate version of the object for each member. You could accomplish this by
+forwarding all cookies to your origin, but viewer requests include some
+cookies that you don't want CloudFront to cache. Alternatively, you could specify
+the following value as a cookie name, which causes CloudFront to forward to the
+origin all of the cookies that begin with `userid_`:
+
+`userid_*`
+
+For the current maximum number of cookie names that you can allowlist for
+each cache behavior, or to request a higher quota (formerly known as limit),
+see [Quotas on cookies (legacy cache
+settings)](cloudfront-limits.md#limits-allowlisted-cookies "cloudfront-limits.md#limits-allowlisted-cookies").
+
+## Query string forwarding and
+
+caching
+
+CloudFront can cache different versions of your content based on the values of
+query string parameters. Choose one of the following options:
+
+**None (Improves Caching)**
+
+Choose this option if your origin returns the same version of
+an object regardless of the values of query string parameters.
+This increases the likelihood that CloudFront can serve a request from
+the cache, which improves performance and reduces the load on
+your origin.
+
+**Forward all, cache based on allowlist**
+
+Choose this option if your origin server returns different
+versions of your objects based on one or more query string
+parameters. Then specify the parameters that you want CloudFront to
+use as a basis for caching in the [Query string
+allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist")
+field.
+
+**Forward all, cache based on all**
+
+Choose this option if your origin server returns different
+versions of your objects for all query string parameters.
+
+For more information about caching based on query string parameters,
+including how to improve performance, see [Cache content based on query string
+parameters](QueryStringParameters.md "QueryStringParameters.md").
+
+## Query string
+
+allowlist
+
+This setting applies only when you choose **Forward all, cache based on allowlist**
+for [Query string forwarding and
+caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString"). You can specify the query
+string parameters that you want CloudFront to use as a basis for caching.
+
+## Smooth Streaming
+
+Choose **Yes** if you want to distribute media files in
+the Microsoft Smooth Streaming format and you do not have an IIS
+server.
+
+Choose **No** if you have a Microsoft IIS server that you
+want to use as an origin to distribute media files in the Microsoft Smooth
+Streaming format, or if you are not distributing Smooth Streaming media
+files.
+
+###### Note
+
+If you specify **Yes**, you can still distribute
+other content using this cache behavior if that content matches the
+value of **Path Pattern**.
+
+For more information, see [Configure video on demand for Microsoft
+Smooth Streaming](on-demand-video.md#on-demand-streaming-smooth "on-demand-video.md#on-demand-streaming-smooth").
+
+## Restrict viewer
+
+access (use signed URLs or signed cookies)
+
+If you want requests for objects that match the `PathPattern`
+for this cache behavior to use public URLs, choose
+**No**.
+
+If you want requests for objects that match the `PathPattern`
+for this cache behavior to use signed URLs, choose **Yes**.
+Then specify the AWS accounts that you want to use to create signed URLs;
+these accounts are known as trusted signers.
+
+For more information about trusted signers, see [Specify signers that can create signed
+URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+
+## Trusted signers
+
+This setting applies only when you choose **Yes** for **Restrict Viewer Access (Use Signed URLs or Signed Cookies**.
+
+Choose which AWS accounts you want to use as trusted signers for this
+cache behavior:
+
+- **Self:** Use the account with which you're
+  currently signed into the AWS Management Console as a trusted signer. If you're
+  currently signed in as an IAM user, the associated AWS account
+  is added as a trusted signer.
+- **Specify Accounts:** Enter account numbers for
+  trusted signers in the **AWS Account Numbers**
+  field.
+
+To create signed URLs, an AWS account must have at least one active CloudFront
+key pair.
+
+###### Important
+
+If you're updating a distribution that you're already using to
+distribute content, add trusted signers only when you're ready to start
+generating signed URLs for your objects. After you add trusted signers
+to a distribution, users must use signed URLs to access the objects that
+match the `PathPattern` for this cache behavior.
+
+## AWS account
+
+numbers
+
+This setting applies only when you choose **Specify Accounts** for **Trusted Signers**.
+
+If you want to create signed URLs using AWS accounts in addition to or
+instead of the current account, enter one AWS account number per line in
+this field. Note the following:
+
+- The accounts that you specify must have at least one active CloudFront
+  key pair. For more information, see [Create key pairs for your
+  signers](private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs "private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs").
+- You can't create CloudFront key pairs for IAM users, so you can't use
+  IAM users as trusted signers.
+- For information about how to get the AWS account number for an
+  account, see [View AWS account identifiers](../../../accounts/latest/reference/manage-acct-identifiers.md "../../../accounts/latest/reference/manage-acct-identifiers.md") in
+  the _AWS account Management Reference Guide_.
+- If you enter the account number for the current account, CloudFront
+  automatically checks the **Self** check box and
+  removes the account number from the **AWS Account
+  Numbers** list.
+
+## Compress
+
+objects automatically
+
+If you want CloudFront to automatically compress files of certain types when
+viewers support compressed content, choose **Yes**. When
+CloudFront compresses your content, downloads are faster because the files are
+smaller, and your web pages render faster for your users. For more
+information, see [Serve compressed files](ServingCompressedFiles.md "ServingCompressedFiles.md").
+
+## CloudFront event
+
+This setting applies to **Lambda Function Associations**.
+
+You can choose to run a Lambda function when one or more of the following
+CloudFront events occur:
+
+- When CloudFront receives a request from a viewer (viewer
+  request)
+- Before CloudFront forwards a request to the origin (origin
+  request)
+- When CloudFront receives a response from the origin (origin
+  response)
+- Before CloudFront returns the response to the viewer (viewer
+  response)
+
+For more information, see [Choose the event to trigger the
+function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md").
+
+## Lambda function
+
+ARN
+
+This setting applies to **Lambda Function Associations**.
+
+Specify the Amazon Resource Name (ARN) of the Lambda function that you want
+to add a trigger for. To learn how to get the ARN for a function, see step 1
+of the procedure [Adding Triggers by Using the CloudFront Console](lambda-edge-add-triggers.md#lambda-edge-add-triggers-cf-console "lambda-edge-add-triggers.md#lambda-edge-add-triggers-cf-console").
+
+## Include body
+
+This setting applies to **Lambda Function Associations**.
+
+For more information, see [Include body](lambda-generating-http-responses.md#lambda-include-body-access "lambda-generating-http-responses.md#lambda-include-body-access").
