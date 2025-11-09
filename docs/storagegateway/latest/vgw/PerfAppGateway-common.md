@@ -16,8 +16,56 @@ input/output operations per second (IOPS). For more information, see [Statistics
 The following table summarizes the metrics and corresponding statistic you can use to
 measure the throughput, latency, and IOPS between your applications and gateways.
 
-| Item of Interest | How to Measure                                                                                                                                                                                                                                            |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Throughput       | Use the `ReadBytes` and `WriteBytes` metrics with the `Sum` CloudWatch statistic. For example, the `Sum` value of the `ReadBytes` metric over a sample period of 5 minutes divided by 300 seconds gives you the throughput as a rate in bytes per second. |
-| Latency          | Use the `ReadTime` and `WriteTime` metrics with the `Average` CloudWatch statistic. For example, the `Average` value of the `ReadTime` metric gives you the latency per operation over the sample period of time.                                         |
-| IOPS             | Use the `ReadBytes` and `WriteBytes` metrics with the `Samples` CloudWatch statistic. For example, the `Samples` value of the `ReadBytes` metric over a sample period of 5 minutes divided by 300 seconds gives you IOPS.                                 | For the average latency graphs and average size graphs, the average is calculated over the total number of operations (read or write, whichever is applicable to the graph) that completed during the period. ###### To measure the data throughput from an application to a volume 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose **Metrics**, then choose the **All metrics** tab and then choose **Storage Gateway**. 3. Choose the **Volume metrics** dimension, and find the volume that you want to work with. 4. Choose the `ReadBytes` and `WriteBytes` metrics. 5. For **Time Range**, choose a value. 6. Choose the `Sum` statistic. 7. For **Period**, choose a value of 5 minutes or greater. 8. In the resulting time-ordered sets of data points (one for `ReadBytes` and one for `WriteBytes`), divide each data point by the period (in seconds) to get the throughput at the sample point. The total throughput is the sum of the throughputs. For example, if the read throughput is 2,384,199,680 bytes over a period of 300 seconds, then the approximate throughput rate for that datapoint is 7.9 megabytes per second. ###### To measure the data input/output operations per second from an application to a volume 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose **Metrics**, then choose the **All metrics** tab and then choose **Storage Gateway**. 3. Choose the **Volume metrics** dimension, and find the volume that you want to work with. 4. Choose the `ReadBytes` and `WriteBytes` metrics. 5. For **Time Range**, choose a value. 6. Choose the `Samples` statistic. 7. For **Period**, choose a value of 5 minutes or greater. 8. In the resulting time-ordered sets of data points (one for `ReadBytes` and one for `WriteBytes`), divide each data point by the period (in seconds) to get IOPS. For example, if the number of write operations is 24,373 over a period of 300 seconds, then the IOPS for that data point is 81 write operations per second. |
+| Item of Interest | How to Measure                                                                                                                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Throughput       | Use the `ReadBytes` and `WriteBytes` metrics<br>with the `Sum` CloudWatch statistic. For example, the<br>`Sum` value of the `ReadBytes` metric over<br>a sample period of 5 minutes divided by 300 seconds gives you the<br>throughput as a rate in bytes per second. |
+| Latency          | Use the `ReadTime` and `WriteTime` metrics with<br>the `Average` CloudWatch statistic. For example, the<br>`Average` value of the `ReadTime` metric gives<br>you the latency per operation over the sample period of time.                                            |
+| IOPS             | Use the `ReadBytes` and `WriteBytes` metrics<br>with the `Samples` CloudWatch statistic. For example, the<br>`Samples` value of the `ReadBytes` metric over<br>a sample period of 5 minutes divided by 300 seconds gives you<br>IOPS.                                 |
+
+For the average latency graphs and average size graphs, the average is calculated over
+the total number of operations (read or write, whichever is applicable to the graph)
+that completed during the period.
+
+###### To measure the data throughput from an application to a volume
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose **Metrics**, then choose the **All
+   metrics** tab and then choose **Storage
+   Gateway**.
+3. Choose the **Volume metrics** dimension, and find the volume
+   that you want to work with.
+4. Choose the `ReadBytes` and `WriteBytes` metrics.
+5. For **Time Range**, choose a value.
+6. Choose the `Sum` statistic.
+7. For **Period**, choose a value of 5 minutes or
+   greater.
+8. In the resulting time-ordered sets of data points (one for
+   `ReadBytes` and one for `WriteBytes`), divide each
+   data point by the period (in seconds) to get the throughput at the sample point.
+   The total throughput is the sum of the throughputs.
+   For example, if the read throughput is 2,384,199,680 bytes over a period of 300
+   seconds, then the approximate throughput rate for that datapoint is 7.9 megabytes per
+   second.
+
+###### To measure the data input/output operations per second from an application to a
+
+volume
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose **Metrics**, then choose the **All
+   metrics** tab and then choose **Storage
+   Gateway**.
+3. Choose the **Volume metrics** dimension, and find the volume
+   that you want to work with.
+4. Choose the `ReadBytes` and `WriteBytes` metrics.
+5. For **Time Range**, choose a value.
+6. Choose the `Samples` statistic.
+7. For **Period**, choose a value of 5 minutes or
+   greater.
+8. In the resulting time-ordered sets of data points (one for
+   `ReadBytes` and one for `WriteBytes`), divide each
+   data point by the period (in seconds) to get IOPS.
+   For example, if the number of write operations is 24,373 over a period of 300 seconds,
+   then the IOPS for that data point is 81 write operations per second.

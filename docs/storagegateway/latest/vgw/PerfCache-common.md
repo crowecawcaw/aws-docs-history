@@ -9,8 +9,40 @@ You only monitor cache storage in the cached volumes architecture. For more
 information, see [How Volume Gateway
 works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
-| Item of Interest                                                                                  | How to Measure                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Total usage of cache                                                                              | Use the `CachePercentUsed` and `TotalCacheSize` metrics with the `Average` statistic. For example, use the `CachePercentUsed` with the `Average` statistic to analyze the cache usage over a period of time. The `TotalCacheSize` metric changes only when you add cache to the gateway. |
-| Percent of read requests that are served from the cache                                           | Use the `CacheHitPercent` metric with the `Average` statistic. Typically, you want `CacheHitPercent` to remain high.                                                                                                                                                                     |
-| Percent of the cache that is dirty—that is, it contains content that has not been uploaded to AWS | Use the `CachePercentDirty` metrics with the `Average` statistic. Typically, you want `CachePercentDirty` to remain low.                                                                                                                                                                 | ###### To measure the percent of a cache that is dirty for a gateway and all its volumes 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose the **StorageGateway: Gateway Metrics** dimension, and find the gateway that you want to work with. 3. Choose the `CachePercentDirty` metric. 4. For **Time Range**, choose a value. 5. Choose the `Average` statistic. 6. For **Period**, choose a value of 5 minutes to match the default reporting time. The resulting time-ordered set of data points contains the percentage of the cache that is dirty over the 5 minutes. ###### To measure the percent of the cache that is dirty for a volume 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Choose the **StorageGateway: Volume Metrics** dimension, and find the volume that you want to work with. 3. Choose the `CachePercentDirty` metric. 4. For **Time Range**, choose a value. 5. Choose the `Average` statistic. 6. For **Period**, choose a value of 5 minutes to match the default reporting time. The resulting time-ordered set of data points contains the percentage of the cache that is dirty over the 5 minutes. |
+| Item of Interest                                                                                     | How to Measure                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Total usage of cache                                                                                 | Use the `CachePercentUsed` and<br>`TotalCacheSize` metrics with the<br>`Average` statistic. For example, use the<br>`CachePercentUsed` with the `Average`<br>statistic to analyze the cache usage over a period of time.<br>The `TotalCacheSize` metric changes only when you add<br>cache to the gateway. |
+| Percent of read requests that are served from the<br>cache                                           | Use the `CacheHitPercent` metric with the<br>`Average` statistic.<br>Typically, you want `CacheHitPercent` to remain<br>high.                                                                                                                                                                              |
+| Percent of the cache that is dirty—that is, it contains<br>content that has not been uploaded to AWS | Use the `CachePercentDirty` metrics with the<br>`Average` statistic.<br>Typically, you want `CachePercentDirty` to remain<br>low.                                                                                                                                                                          |
+
+###### To measure the percent of a cache that
+
+is dirty for a gateway and all its volumes
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose the **StorageGateway: Gateway Metrics** dimension, and
+   find the gateway that you want to work with.
+3. Choose the `CachePercentDirty` metric.
+4. For **Time Range**, choose a value.
+5. Choose the `Average` statistic.
+6. For **Period**, choose a value of 5 minutes to match the
+   default reporting time.
+   The resulting time-ordered set of data points contains the percentage of the cache
+   that is dirty over the 5 minutes.
+
+###### To measure the percent of the cache
+
+that is dirty for a volume
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Choose the **StorageGateway: Volume Metrics** dimension, and
+   find the volume that you want to work with.
+3. Choose the `CachePercentDirty` metric.
+4. For **Time Range**, choose a value.
+5. Choose the `Average` statistic.
+6. For **Period**, choose a value of 5 minutes to match the
+   default reporting time.
+   The resulting time-ordered set of data points contains the percentage of the cache
+   that is dirty over the 5 minutes.

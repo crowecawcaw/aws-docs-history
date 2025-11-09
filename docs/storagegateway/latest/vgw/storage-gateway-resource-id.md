@@ -12,7 +12,30 @@ These resources and subresources have unique Amazon Resource Names (ARNs) associ
 them as shown in the following table.
 
 | Resource Type              | ARN Format                                                                               |
-| -------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
 | Gateway ARN                | `arn:aws:storagegateway:`region`:`account-id`:gateway/`gateway-id``                      |
 | Volume ARN                 | `arn:aws:storagegateway:`region`:`account-id`:gateway/`gateway-id`/volume/`volume-id``   |
-| Target ARN ( iSCSI target) | `arn:aws:storagegateway:`region`:`account-id`:gateway/`gateway-id`/target/`iSCSItarget`` | Storage Gateway also supports the use of EC2 instances and EBS volumes and snapshots. These resources are Amazon EC2 resources that are used in Storage Gateway. ## Working with Resource IDs When you create a resource, Storage Gateway assigns the resource a unique resource ID. This resource ID is part of the resource ARN. A resource ID takes the form of a resource identifier, followed by a hyphen, and a unique combination of eight letters and numbers. For example, a gateway ID is of the form `sgw-12A3456B` where `sgw` is the resource identifier for gateways. A volume ID takes the form `vol-3344CCDD` where `vol` is the resource identifier for volumes. For virtual tapes, you can prepend a up to a four character prefix to the barcode ID to help you organize your tapes. Storage Gateway resource IDs are in uppercase. However, when you use these resource IDs with the Amazon EC2 API, Amazon EC2 expects resource IDs in lowercase. You must change your resource ID to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a volume might be `vol-1122AABB`. When you use this ID with the EC2 API, you must change it to `vol-1122aabb`. Otherwise, the EC2 API might not behave as expected. |
+| Target ARN ( iSCSI target) | `arn:aws:storagegateway:`region`:`account-id`:gateway/`gateway-id`/target/`iSCSItarget`` |
+
+Storage Gateway also supports the use of EC2 instances and EBS volumes and snapshots. These
+resources are Amazon EC2 resources that are used in Storage Gateway.
+
+## Working with Resource IDs
+
+When you create a resource, Storage Gateway assigns the resource a unique resource ID.
+This resource ID is part of the resource ARN. A resource ID takes the form of a resource
+identifier, followed by a hyphen, and a unique combination of eight letters and numbers.
+For example, a gateway ID is of the form `sgw-12A3456B` where
+`sgw` is the resource identifier for gateways. A volume ID takes the form
+`vol-3344CCDD` where `vol` is the resource identifier for
+volumes.
+
+For virtual tapes, you can prepend a up to a four character prefix to the barcode ID
+to help you organize your tapes.
+
+Storage Gateway resource IDs are in uppercase. However, when you use these resource IDs with
+the Amazon EC2 API, Amazon EC2 expects resource IDs in lowercase. You must change your resource ID
+to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a
+volume might be `vol-1122AABB`. When you use this ID with the EC2 API, you
+must change it to `vol-1122aabb`. Otherwise, the EC2 API might not behave as
+expected.

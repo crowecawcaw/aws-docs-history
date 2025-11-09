@@ -27,8 +27,11 @@ Each resource displays **[OK**],
 **[WARNING]**, or **[FAIL]**, indicating
 the status of the resource as follows:
 
-| Message       | Description                                                                                                                                                                             |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **[OK]**      | The resource has passed the system resource check.                                                                                                                                      |
-| **[WARNING]** | The resource doesn't meet the recommended requirements, but your gateway can continue to function. Storage Gateway displays a message that describes the results of the resource check. |
-| **[FAIL]**    | The resource doesn't meet the minimum requirements. Your gateway might not function properly. Storage Gateway displays a message that describes the results of the resource check.      | The console also displays the number of errors and warnings next to the resource check menu option. |
+| Message       | Description                                                                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **[OK]**      | The resource has passed the system resource check.                                                                                                                                               |
+| **[WARNING]** | The resource doesn't meet the recommended requirements,<br>but your gateway can continue to function. Storage Gateway displays a<br>message that describes the results of the resource<br>check. |
+| **[FAIL]**    | The resource doesn't meet the minimum requirements. Your<br>gateway might not function properly. Storage Gateway displays a message<br>that describes the results of the resource check.         |
+
+The console also displays the number of errors and warnings next to the
+resource check menu option.

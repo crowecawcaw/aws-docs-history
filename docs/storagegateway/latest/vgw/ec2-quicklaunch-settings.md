@@ -67,16 +67,24 @@ following default specifications:
      navigating to **Security group details**, and choosing
      the security group ID.
 
-| **Port**              | **Protocol**        | **File System Protocol**   |
-| --------------------- | ------------------- | -------------------------- | --------------------------- |
-| 80                    | TCP                 | HTTP access for activation |
-| 3260                  | TCP                 | iSCSI                      | <br>• **Configure storage** |
-| **Default Settings**  | **AMI Root Volume** | **Volume 2 Cache**         | **Volume 3 Cache**          |
-| ---                   | ---                 | ---                        | ---                         |
-| Device Name           |                     | '/dev/sdb'                 | '/dev/sdc'                  |
-| Size                  | 80 Gib              | 165 GiB                    | 150 GiB                     |
-| Volume Type           | gp3                 | gp3                        | gp3                         |
-| IOPS                  | 3000                | 3000                       | 3000                        |
-| Delete on termination | Yes                 | Yes                        | Yes                         |
-| Encrypted             | No                  | No                         | No                          |
-| Throughput            | 125                 | 125                        | 125                         |
+
+
+
+    | **Port** | **Protocol** | **File System Protocol** |
+    | --- | --- | --- |
+    | 80 | TCP | HTTP access for activation |
+    | 3260 | TCP | iSCSI |
+    * **Configure storage**
+
+
+
+
+    | **Default<br>Settings** | **AMI Root<br>Volume** | **Volume 2 Cache** | **Volume 3 Cache** |
+    | --- | --- | --- | --- |
+    | Device Name |  | '/dev/sdb' | '/dev/sdc' |
+    | Size | 80 Gib | 165 GiB | 150 GiB |
+    | Volume Type | gp3 | gp3 | gp3 |
+    | IOPS | 3000 | 3000 | 3000 |
+    | Delete on termination | Yes | Yes | Yes |
+    | Encrypted | No | No | No |
+    | Throughput | 125 | 125 | 125 |
