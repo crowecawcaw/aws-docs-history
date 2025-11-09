@@ -97,5 +97,5 @@ parameters match (for example, billing entities). If you enter a PO
 number in AWS Marketplace that differs from your blanket PO, the charge isn't
 applied to your blanket PO.
 
-For more information, see [Managing your purchase
+For more information, refer to [Managing your purchase
 orders](../../../awsaccountbilling/latest/aboutv2/manage-purchaseorders.md "../../../awsaccountbilling/latest/aboutv2/manage-purchaseorders.md").

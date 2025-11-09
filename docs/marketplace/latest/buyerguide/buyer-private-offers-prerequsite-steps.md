@@ -39,7 +39,7 @@ the Billing and Cost Management console at [https://console.aws.amazon.com/costm
 
 ## Understanding currency options
 
-Private offers can be created in multiple currencies including USD, EUR, GBP, AUD, and JPY. You will receive invoices in the currency of the private offer. For consumption and pay-as-you-go pricing, foreign exchange rates are updated monthly to maintain consistent local currency pricing.
+Private offers can be created in multiple currencies including USD, EUR, GBP, AUD, JPY, and INR. You will receive invoices in the currency of the private offer. For consumption and pay-as-you-go pricing, foreign exchange rates are updated monthly to maintain consistent local currency pricing.
 
 ## Verifying your tax
 

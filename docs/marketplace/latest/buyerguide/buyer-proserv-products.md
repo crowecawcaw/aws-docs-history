@@ -21,7 +21,7 @@ offer for the product. For more information about private offers, see [Private o
    helpful to the seller, including business needs, timelines, and contract
    requirements.
 4. The seller will contact you via the email address that you provided to work
-   out the details of your offer. Once you have agreed, the seller will send you a
+   out the details of your offer. After you agree, the seller sends you a
    link to the offer in AWS Marketplace. Open the link in a browser, and sign into your AWS
    account.
 5. Review the offer details on the procurement page that you opened from the

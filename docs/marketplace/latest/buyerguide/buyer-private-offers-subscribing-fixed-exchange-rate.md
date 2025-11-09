@@ -1,6 +1,10 @@
 # Pay for private offers in multiple currencies
 
-Private offers support multiple currencies: USD, EUR, GBP, AUD, and JPY. You can receive private offers in your preferred currency, eliminating foreign exchange variability for predictable invoicing.
+Private offers support multiple currencies: USD, EUR, GBP, AUD, JPY, and INR. You can receive private offers in your preferred currency, eliminating foreign exchange variability for predictable invoicing.
+
+###### Buyers in India
+
+Buyers in India receive private offers in Indian Rupee (INR) or US Dollar (USD) from sellers in India. For detailed information, see [Buyers in India FAQ](india-buyer-faq.md "india-buyer-faq.md").
 
 ## Multi-currency private offers
 
@@ -21,29 +25,22 @@ date. For example, for a contract-based private offer with no payment schedule, 
 date is the offer acceptance date. For a private offer with a payment schedule, the invoice
 dates are the dates the installments are scheduled to be invoiced.
 
-## Pay for a non-USD private offer
+## Non-USD priced private offers
 
-All AWS pricing remains in USD today. However, you can receive a private offer in four
-other currencies: EUR, GBP, AUD, and JPY, with no foreign exchange variability. Sellers can
-extend a private offer with contract pricing in your preferred payment currency. You will be
-able to view and accept the private offer in your preferred currency, so you know how much you
-will be paying without having to deal with foreign exchange variability.
+All AWS pricing remains in USD. However, you can receive a private offer in EUR, GBP, AUD, JPY, and INR (for buyers and sellers in India only) with no foreign exchange (FX) variability.
 
-At offer acceptance, AWS will convert the agreed-upon non-USD pricing to USD pricing and
-lock the foreign exchange rate for the entirety of the subscription. Post-offer acceptance,
-your invoices will display both USD pricing, the fixed foreign exchange rate at the time of
-offer acceptance, and the non-USD pricing currency. In a scenario where you have moved to a
-new location where your invoices are generated from a different AWS Marketplace operator, your existing
-fixed foreign exchange offers will be canceled. Contact the sellers to re-issue a new offer in
-the currency you would like to pay. It's important to note that in rare cases, your charged
-amount in non-USD will have slight rounding differences due to foreign exchange
-conversion.
+### Contracts only pricing offers
 
-For contract with consumption pricing (CCP) and pay-as-you-go (PAYG) offers, exchange rate handling varies:
+1. Sellers can extend a private offer with contract pricing in your preferred payment currency. You can view and accept the private offer in your preferred currency, so you know how much you will pay without dealing with FX variability.
+2. At offer acceptance, AWS converts the agreed-upon non-USD pricing to USD pricing and locks the FX rate for the entirety of the subscription. After offer acceptance, your invoices display both USD pricing, the fixed FX rate at the time of offer acceptance, and the non-USD pricing currency.
+3. If you move to a new location where your invoices are generated from a different AWS Marketplace operator, your existing fixed FX offers are canceled. Contact the sellers to reissue a new offer in the currency you want to pay.
+4. In rare cases, your charged amount in non-USD might have slight rounding differences due to FX conversion.
 
-- **Contract with consumption pricing (CCP)** - The contract portion maintains a fixed exchange rate for the duration, while consumption charges beyond the contract use monthly updated exchange rates.
-- **Pay-as-you-go (PAYG)** - Exchange rates are updated monthly to maintain consistent local currency pricing for all usage-based charges.
+### Contracts with consumption pricing and pay-as-you-go pricing offers
 
-## Pay for consumption-based charges
+For contracts with consumption pricing (CCP) and pay-as-you-go (PAYG) offers, exchange rate handling varies:
 
-For consumption-based charges in multi-currency private offers, billing depends on the pricing model. Contract with consumption pricing (CCP) offers maintain the contract currency for consumption charges, with exchange rates updated monthly. Pay-as-you-go (PAYG) offers use monthly updated exchange rates to maintain consistent local currency pricing. An example of consumption-based charges is additional usage outside of what is included in the contract. For more information, see [Paying for products in AWS Marketplace](buyer-paying-for-products.md#payment-methods "buyer-paying-for-products.md#payment-methods").
+- **Contract with consumption pricing (CCP)** – The contract portion maintains a fixed FX rate for the duration of the contract. The consumption charges beyond the contract appear on anniversary invoices. These invoices are separate from other consumption pricing products priced in USD. These invoices show USD pricing and a variable FX rate, but your non-USD unit price remains constant.
+- **Pay-as-you-go (PAYG) or usage-based pricing** – The PAYG or usage-based charges appear on anniversary invoices. These invoices are separate from other usage-based products priced in USD. These invoices show USD pricing and a variable FX rate, but your non-USD unit price remains constant.
+
+For more information, see [Payment methods](buyer-paying-for-products.md#payment-methods "buyer-paying-for-products.md#payment-methods").

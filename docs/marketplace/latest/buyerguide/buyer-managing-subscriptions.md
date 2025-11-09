@@ -47,7 +47,7 @@ The current status of your agreement. See the **Agreement status** section for m
 Your subscription agreements can have the following statuses:
 
 | Status     | Description                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ---------------------------------------------------------------------------------------- |
 | Active     | Agreement terms are in effect.                                                           |
 | Pending    | Agreement submitted and being processed. While processing, some actions are unavailable. |
 | Expired    | Agreement ended on the contract end date.                                                |
@@ -55,4 +55,29 @@ Your subscription agreements can have the following statuses:
 | Cancelled  | Agreement ended by your request.                                                         |
 | Replaced   | Agreement ended and transitioned to a new offer.                                         |
 | Terminated | Agreement ended prematurely by AWS.                                                      |
-| Archived   | Agreement ended without a specified reason.                                              | Inactive agreements include those that are expired, cancelled, terminated, replaced, renewed, and archived. ## Viewing subscription details To view detailed information about a specific subscription, choose the product name in the **Manage subscriptions** page. This opens the **subscription detail** page, which shows all active and inactive agreements related to that product. The **subscription detail** page provides a comprehensive view of your relationship with a specific product, including all past and current agreements. ![The subscription detail page showing agreements for a specific product](images/subscription-detail-page.png) ## Viewing agreement details To view detailed information about a specific agreement, choose the agreement ID in either the **Manage subscriptions** page or the **subscription detail** page. This opens the **agreement detail** page, which provides comprehensive information about the agreement, including: <br>• Agreement terms and conditions <br>• Pricing information <br>• Charge summary and associated purchase orders <br>• [Purchase order details](buyer-purchase-orders.md "buyer-purchase-orders.md") (if applicable) <br>• Deployed on AWS status <br>• Option to download the agreement as a PDF From the **agreement detail** page, you can manage your subscription and access all related information in one place. ![The agreement detail page showing comprehensive information about a specific agreement](images/agreement-detail-page.png) |
+| Archived   | Agreement ended without a specified reason.                                              |
+
+Inactive agreements include those that are expired, cancelled, terminated, replaced, renewed, and archived.
+
+## Viewing subscription details
+
+To view detailed information about a specific subscription, choose the product name in the **Manage subscriptions** page. This opens the **subscription detail** page, which shows all active and inactive agreements related to that product.
+
+The **subscription detail** page provides a comprehensive view of your relationship with a specific product, including all past and current agreements.
+
+![The subscription detail page showing agreements for a specific product](images/subscription-detail-page.png)
+
+## Viewing agreement details
+
+To view detailed information about a specific agreement, choose the agreement ID in either the **Manage subscriptions** page or the **subscription detail** page. This opens the **agreement detail** page, which provides comprehensive information about the agreement, including:
+
+- Agreement terms and conditions
+- Pricing information
+- Charge summary and associated purchase orders
+- [Purchase order details](buyer-purchase-orders.md "buyer-purchase-orders.md") (if applicable)
+- Deployed on AWS status
+- Option to download the agreement as a PDF
+
+From the **agreement detail** page, you can manage your subscription and access all related information in one place.
+
+![The agreement detail page showing comprehensive information about a specific agreement](images/agreement-detail-page.png)

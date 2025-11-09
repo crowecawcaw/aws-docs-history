@@ -57,7 +57,7 @@ Additional notes about integrating with procurement systems include the followin
   process. First, submit an approval request for the pay-as-you-go agreement, which defaults
   to $10,000 (this amount is not invoiced against). After AWS Marketplace receives the PO from
   this first approval, return to the procurement page to route for a second approval, which
-  will show the total contract value. Once this second approval is complete, you'll have a
+  will show the total contract value. After this second approval completes, you have a
   final contract agreement.
 - Customers with PSI (Procurement System Integrations) can turn on pre-approvals for free
   products and BYOL products. There are two settings, one each for Free and BYOL. When the

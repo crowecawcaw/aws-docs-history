@@ -21,7 +21,7 @@ console to terminate all running instances of the subscription.
 You must terminate all
 instances in order to stop billing for the subscription.
 
-After you cancel a subscription, you lose access to the software.
+After you cancel your subscription, you lose access to the software.
 
 The following sets of steps explain how to cancel a subscription and terminate all
 instances.

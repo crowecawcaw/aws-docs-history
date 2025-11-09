@@ -4,6 +4,10 @@ The [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com
 primary categories, with subcategories under each. You can search and filter based on the
 categories and subcategories.
 
+###### Buyers in India
+
+Products from sellers in India are identified with `[IN]` suffix and available exclusively to buyers in India. For more information, see [AWS Marketplace in India](http://aws.amazon.com/marketplace/features/india "http://aws.amazon.com/marketplace/features/india") and [Buyers in India FAQ](india-buyer-faq.md "india-buyer-faq.md").
+
 ###### Topics
 
 - [Infrastructure Software](#infrastructure-software-category "#infrastructure-software-category")
