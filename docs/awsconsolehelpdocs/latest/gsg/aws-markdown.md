@@ -152,6 +152,19 @@ Amazon Web Services | AWS
 The Markdown text in the previous example creates the following table:
 
 | Table               | Header |
-| ------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------ |
 | Amazon Web Services | AWS    |
-| 1                   | 2      | In a CloudWatch dashboard text widget, you can also format a hyperlink to appear as a button. To create a button, use `[button:`Button text`]`, followed by the full URL in parentheses(**(** **)**), as in the following example: `[button:Go to AWS](http://my.example.com) [button:primary:This button stands out even more](http://my.example.com)` |
+| 1                   | 2      |
+
+In a CloudWatch dashboard text widget, you can also format a hyperlink to appear as a
+button. To create a button, use `[button:`Button
+text`]`, followed by the full URL in
+parentheses(**(**
+**)**), as in the following example:
+
+```
+
+[button:Go to AWS](http://my.example.com)
+[button:primary:This button stands out even more](http://my.example.com)
+
+```
