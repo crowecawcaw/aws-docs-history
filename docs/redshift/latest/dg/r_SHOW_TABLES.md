@@ -50,7 +50,45 @@ A valid UTF-8 character expression with a pattern to match table names. The
 LIKE option performs a case-sensitive match that supports the following
 pattern-matching metacharacters:
 
-| Metacharacter | Description                                      |
-| ------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------- | ------ | --- | ----- | --- | --- | ------ | --- | ----- | --- | --- | ------ | --- | ----- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------ | ------ | -------- | --- | -------------- | ------ | ---- | -------- | --- | -------------- | ------ | -------- | -------- | --- | -------------- | ------ | ------ | -------- | --- | -------------- | ------ | -------- | -------- | --- | -------------- | ------ | ---------------- | -------- | --- | ----- |
-| `%`           | Matches any sequence of zero or more characters. |
-| `_`           | Matches any single character.                    | If _filter_pattern_ does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. _row_limit_ The maximum number of rows to return. The _row_limit_ can be 0–10,000. ## Examples Following example shows the tables in the Amazon Redshift database named `dev` that are in schema `public`. ``` `SHOW TABLES FROM SCHEMA dev.public;` `database_name | schema_name | table_name | table_type | table_acl | remarks ---------------+-------------+------------+------------+-----------+--------- dev | public | tb  | TABLE |     | dev | public | tb2 | TABLE |     | dev | public | tb3 | TABLE |     | ` ``` Following example shows the tables in the AWS Glue Data Catalog database named `awsdatacatalog`that are in schema`batman`. ``` `SHOW TABLES FROM SCHEMA awsdatacatalog.batman;` `database_name | schema_name | table_name | table_type | table_acl | remarks ----------------+-------------+------------------+------------+-----------+--------- awsdatacatalog | batman | nation | EXTERNAL |     | awsdatacatalog | batman | part | EXTERNAL |     | awsdatacatalog | batman | partsupp | EXTERNAL |     | awsdatacatalog | batman | region | EXTERNAL |     | awsdatacatalog | batman | supplier | EXTERNAL |     | awsdatacatalog | batman | automount_nation | EXTERNAL |     | ` ``` |
+| Metacharacter | Description                                         |
+| ------------- | --------------------------------------------------- |
+| `%`           | Matches any sequence of zero or more<br>characters. |
+| `_`           | Matches any single character.                       |
+
+If _filter_pattern_ does not contain metacharacters, then
+the pattern only represents the string itself; in that case LIKE acts the same
+as the equals operator.
+
+_row_limit_
+
+The maximum number of rows to return. The _row_limit_ can
+be 0–10,000.
+
+## Examples
+
+Following example shows the tables in the Amazon Redshift database named `dev` that
+are in schema `public`.
+
+```
+`SHOW TABLES FROM SCHEMA dev.public;`
+`database_name | schema_name | table_name | table_type | table_acl | remarks
+---------------+-------------+------------+------------+-----------+---------
+ dev | public | tb | TABLE | |
+ dev | public | tb2 | TABLE | |
+ dev | public | tb3 | TABLE | |`
+```
+
+Following example shows the tables in the AWS Glue Data Catalog database named
+`awsdatacatalog` that are in schema `batman`.
+
+```
+`SHOW TABLES FROM SCHEMA awsdatacatalog.batman;`
+`database_name | schema_name | table_name | table_type | table_acl | remarks
+----------------+-------------+------------------+------------+-----------+---------
+ awsdatacatalog | batman | nation | EXTERNAL | |
+ awsdatacatalog | batman | part | EXTERNAL | |
+ awsdatacatalog | batman | partsupp | EXTERNAL | |
+ awsdatacatalog | batman | region | EXTERNAL | |
+ awsdatacatalog | batman | supplier | EXTERNAL | |
+ awsdatacatalog | batman | automount_nation | EXTERNAL | |`
+```

@@ -32,16 +32,51 @@ characters, including a–z and A–Z. SOUNDEX ignores other characters.
 SOUNDEX returns a single Soundex value for a string of multiple words separated by
 spaces.
 
-````
+```
 `SELECT SOUNDEX('AWS Amazon');`
 
 `+---------+
-| soundex | +---------+
-| A252 | +---------+` ``` SOUNDEX returns an empty string if the input string doesn't contain any English letters. ``` `SELECT SOUNDEX('+-*/%');` `+---------+
-| soundex | +---------+
-| | +---------+` ``` ## Examples To return the Soundex value for `Amazon`, use the following example. ``` `SELECT SOUNDEX('Amazon');` `+---------+
-| soundex | +---------+
-| A525 | +---------+` ``` To return the Soundex value for `smith` and `smyth`, use the following example. Note that the Soundex values are the same. ``` `SELECT SOUNDEX('smith'), SOUNDEX('smyth');` `+-------+-------+
-| smith | smyth | +-------+-------+
-| S530 | S530 | +-------+-------+` ```
-````
+| soundex |
++---------+
+| A252 |
++---------+`
+```
+
+SOUNDEX returns an empty string if the input string doesn't contain any English
+letters.
+
+```
+`SELECT SOUNDEX('+-*/%');`
+
+`+---------+
+| soundex |
++---------+
+| |
++---------+`
+```
+
+## Examples
+
+To return the Soundex value for `Amazon`, use the following example.
+
+```
+`SELECT SOUNDEX('Amazon');`
+
+`+---------+
+| soundex |
++---------+
+| A525 |
++---------+`
+```
+
+To return the Soundex value for `smith` and `smyth`, use the following example. Note that the Soundex values are the same.
+
+```
+`SELECT SOUNDEX('smith'), SOUNDEX('smyth');`
+
+`+-------+-------+
+| smith | smyth |
++-------+-------+
+| S530 | S530 |
++-------+-------+`
+```

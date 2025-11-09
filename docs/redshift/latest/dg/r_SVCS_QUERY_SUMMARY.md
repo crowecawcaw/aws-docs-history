@@ -30,22 +30,89 @@ For information about SVL_QUERY_SUMMARY, see [SVL_QUERY_SUMMARY](r_SVL_QUERY_SUM
 
 ## Table columns
 
-| Column name     | Data type        | Description                                                                                                                                                                                                                                                                       |
-| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | --- | ---- | ---- | ------------------------------------------------------ | --- | --- | --- | --- | ------- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | ------ | --- | --- | --- | --- | ------- | --- | --- | --- | ------ | ---------- | --- | --- | --- | ----- | ---- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- | ------- | ----- | --------------------------------------------------------------------------------- | --- | -------- | --------- | ---------- | ------ | --- | -------- | --------- | ------------ | ------ | --- | -------- | --------- | --------------- | ------ | --- | -------- | --------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid          | integer          | ID of user who generated entry.                                                                                                                                                                                                                                                   |
-| query           | integer          | Query ID. Can be used to join various other system tables and views.                                                                                                                                                                                                              |
-| stm             | integer          | Stream: A set of concurrent segments in a query. A query has one or more streams.                                                                                                                                                                                                 |
-| seg             | integer          | Segment number. A query consists of multiple segments, and each segment consists of one or more steps. Query segments can run in parallel. Each segment runs in a single process.                                                                                                 |
-| step            | integer          | Query step that ran.                                                                                                                                                                                                                                                              |
-| maxtime         | bigint           | Maximum amount of time for the step to run (in microseconds).                                                                                                                                                                                                                     |
-| avgtime         | bigint           | Average time for the step to run (in microseconds).                                                                                                                                                                                                                               |
-| rows            | bigint           | Number of data rows involved in the query step.                                                                                                                                                                                                                                   |
-| bytes           | bigint           | Number of data bytes involved in the query step.                                                                                                                                                                                                                                  |
-| rate_row        | double precision | Query execution rate per row.                                                                                                                                                                                                                                                     |
-| rate_byte       | double precision | Query execution rate per byte.                                                                                                                                                                                                                                                    |
-| label           | text             | Step label, which consists of a query step name and, when applicable, table ID and table name (for example, scan tbl=100448 name =user). Three-digit table IDs usually refer to scans of transient tables. When you see `tbl=0`, it usually refers to a scan of a constant value. |
-| is_diskbased    | character(1)     | Whether this step of the query was performed as a disk-based operation on any node in the cluster: true (`t`) or false (`f`). Only certain steps, such as hash, sort, and aggregate steps, can go to disk. Many types of steps are always run in memory.                          |
-| workmem         | bigint           | Amount of working memory (in bytes) assigned to the query step.                                                                                                                                                                                                                   |
-| is_rrscan       | character(1)     | If true (`t`), indicates that range-restricted scan was used on the step. Default is false (`f`).                                                                                                                                                                                 |
-| is_delayed_scan | character(1)     | If true (`t`), indicates that delayed scan was used on the step. Default is false (`f`).                                                                                                                                                                                          |
-| rows_pre_filter | bigint           | For scans of permanent tables, the total number of rows emitted before filtering rows marked for deletion (ghost rows).                                                                                                                                                           | ## Sample queries **Viewing processing information for a query step** The following query shows basic processing information for each step of query 87: `select query, stm, seg, step, rows, bytes from svcs_query_summary where query = 87 order by query, seg, step;` This query retrieves the processing information about query 87, as shown in the following sample output: ``` query | stm | seg | step | rows | bytes -------+-----+-----+------+--------+--------- 87 | 0   | 0   | 0   | 90  | 1890 87 | 0   | 0   | 2   | 90  | 360 87 | 0   | 1   | 0   | 90  | 360 87 | 0   | 1   | 2   | 90  | 1440 87 | 1   | 2   | 0   | 210494 | 4209880 87 | 1   | 2   | 3   | 89500 | 0 87 | 1   | 2   | 6   | 4   | 96 87 | 2   | 3   | 0   | 4   | 96 87 | 2   | 3   | 1   | 4   | 96 87 | 2   | 4   | 0   | 4   | 96 87 | 2   | 4   | 1   | 1   | 24 87 | 3   | 5   | 0   | 1   | 24 87 | 3   | 5   | 4   | 0   | 0 (13 rows) `**Determining whether query steps spilled to disk** The following query shows whether or not any of the steps for the query with query ID 1025 (see the [SVL\_QLOG](r_SVL_QLOG.md "r_SVL_QLOG.md") view to learn how to obtain the query ID for a query) spilled to disk or if the query ran entirely in-memory:` select query, step, rows, workmem, label, is_diskbased from svcs_query_summary where query = 1025 order by workmem desc; `This query returns the following sample output:` query | step | rows | workmem | label | is_diskbased -----+-----+--------+-----------+---------------+-------------- 1025 | 0   | 16000000 | 141557760 | scan tbl=9 | f 1025 | 2   | 16000000 | 135266304 | hash tbl=142 | t 1025 | 0   | 16000000 | 128974848 | scan tbl=116536 | f 1025 | 2   | 16000000 | 122683392 | dist | f (4 rows) ```By scanning the values for IS\_DISKBASED, you can see which query steps went to disk. For query 1025, the hash step ran on disk. Steps might run on disk include hash, aggr, and sort steps. To view only disk-based query steps, add`and is_diskbased = 't'` clause to the SQL statement in the above example. |
+| Column name     | Data type        | Description                                                                                                                                                                                                                                                                                   |
+| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid          | integer          | ID of user who generated entry.                                                                                                                                                                                                                                                               |
+| query           | integer          | Query ID. Can be used to join various other system<br>tables and views.                                                                                                                                                                                                                       |
+| stm             | integer          | Stream: A set of concurrent segments in a query. A<br>query has one or more streams.                                                                                                                                                                                                          |
+| seg             | integer          | Segment number. A query consists of multiple<br>segments, and each segment consists of one or more steps. Query<br>segments can run in parallel. Each segment runs in a single process.                                                                                                       |
+| step            | integer          | Query step that ran.                                                                                                                                                                                                                                                                          |
+| maxtime         | bigint           | Maximum amount of time for the step to run (in<br>microseconds).                                                                                                                                                                                                                              |
+| avgtime         | bigint           | Average time for the step to run (in<br>microseconds).                                                                                                                                                                                                                                        |
+| rows            | bigint           | Number of data rows involved in the query step.                                                                                                                                                                                                                                               |
+| bytes           | bigint           | Number of data bytes involved in the query step.                                                                                                                                                                                                                                              |
+| rate_row        | double precision | Query execution rate per row.                                                                                                                                                                                                                                                                 |
+| rate_byte       | double precision | Query execution rate per byte.                                                                                                                                                                                                                                                                |
+| label           | text             | Step label, which consists of a query step name<br>and, when applicable, table ID and table name (for example, scan<br>tbl=100448 name =user). Three-digit table IDs usually refer to scans<br>of transient tables. When you see `tbl=0`, it usually<br>refers to a scan of a constant value. |
+| is_diskbased    | character(1)     | Whether this step of the query was performed as a<br>disk-based operation on any node in the cluster: true<br>(`t`) or false (`f`).<br>Only certain steps, such as hash, sort, and aggregate steps, can go<br>to disk. Many types of steps are always run in memory.                          |
+| workmem         | bigint           | Amount of working memory (in bytes) assigned to<br>the query step.                                                                                                                                                                                                                            |
+| is_rrscan       | character(1)     | If true (`t`), indicates that<br>range-restricted scan was used on the step. Default is false<br>(`f`).                                                                                                                                                                                       |
+| is_delayed_scan | character(1)     | If true (`t`), indicates that<br>delayed scan was used on the step. Default is false<br>(`f`).                                                                                                                                                                                                |
+| rows_pre_filter | bigint           | For scans of permanent tables, the total number of<br>rows emitted before filtering rows marked for deletion (ghost<br>rows).                                                                                                                                                                 |
+
+## Sample queries
+
+**Viewing processing information for a query step**
+
+The following query shows basic processing information for each step of query 87:
+
+```
+select query, stm, seg, step, rows, bytes
+from svcs_query_summary
+where query = 87
+order by query, seg, step;
+```
+
+This query retrieves the processing information about query 87, as shown in the
+following sample output:
+
+```
+ query | stm | seg | step |  rows  |  bytes
+-------+-----+-----+------+--------+---------
+87     |   0 |   0 |    0 |     90 |    1890
+87     |   0 |   0 |    2 |     90 |     360
+87     |   0 |   1 |    0 |     90 |     360
+87     |   0 |   1 |    2 |     90 |    1440
+87     |   1 |   2 |    0 | 210494 | 4209880
+87     |   1 |   2 |    3 |  89500 |       0
+87     |   1 |   2 |    6 |      4 |      96
+87     |   2 |   3 |    0 |      4 |      96
+87     |   2 |   3 |    1 |      4 |      96
+87     |   2 |   4 |    0 |      4 |      96
+87     |   2 |   4 |    1 |      1 |      24
+87     |   3 |   5 |    0 |      1 |      24
+87     |   3 |   5 |    4 |      0 |       0
+(13 rows)
+```
+
+**Determining whether query steps spilled to disk**
+
+The following query shows whether or not any of the steps for the query with query
+ID 1025 (see the [SVL_QLOG](r_SVL_QLOG.md "r_SVL_QLOG.md") view to
+learn how to obtain the query ID for a query) spilled to disk or if the query ran
+entirely in-memory:
+
+```
+select query, step, rows, workmem, label, is_diskbased
+from svcs_query_summary
+where query = 1025
+order by workmem desc;
+```
+
+This query returns the following sample output:
+
+```
+query| step|  rows  |  workmem   |  label        | is_diskbased
+-----+-----+--------+-----------+---------------+--------------
+1025 |  0  |16000000|  141557760 |scan tbl=9     | f
+1025 |  2  |16000000|  135266304 |hash tbl=142   | t
+1025 |  0  |16000000|  128974848 |scan tbl=116536| f
+1025 |  2  |16000000|  122683392 |dist           | f
+(4 rows)
+```
+
+By scanning the values for IS_DISKBASED, you can see which query steps went to
+disk. For query 1025, the hash step ran on disk. Steps might run on disk include
+hash, aggr, and sort steps. To view only disk-based query steps, add `and
+ is_diskbased = 't'` clause to the SQL statement in the above
+example.

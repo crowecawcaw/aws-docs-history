@@ -18,11 +18,27 @@ SVV_COLUMN_PRIVILEGES is visible to the following users:
 ## Table columns
 
 | Column name    | Data type | Description                                                                |
-| -------------- | --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------- | -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ------ | ------- | ----------- | -------- | ---------- | ------ | ----- | ----------- | -------- | --------- | ------ | ------- | ----------- | -------- | --------- | ------ | ----- | -------- |
+| -------------- | --------- | -------------------------------------------------------------------------- |
 | namespace_name | text      | The name of the namespace where a specified relation exists.               |
 | relation_name  | text      | The name of the relation.                                                  |
 | column_name    | text      | The name of the column.                                                    |
-| privilege_type | text      | The type of the permission. Possible values are SELECT or UPDATE.          |
+| privilege_type | text      | The type of the permission. Possible values are<br>SELECT or UPDATE.       |
 | identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID. |
 | identity_name  | text      | The name of the identity.                                                  |
-| identity_type  | text      | The type of the identity. Possible values are user, role, group or public. | ## Sample query The following example displays the result of the SVV_COLUMN_PRIVILEGES. ``` SELECT namespace_name,relation_name,COLUMN_NAME,privilege_type,identity_name,identity_type FROM svv_column_privileges WHERE relation_name = 'lineitem'; namespace_name | relation_name | column_name | privilege_type | identity_name | identity_type ----------------+---------------+-------------+----------------+---------------+---------------- public | lineitem | l_orderkey | SELECT | reguser | user public | lineitem | l_orderkey | SELECT | role1 | role public | lineitem | l_partkey | SELECT | reguser | user public | lineitem | l_partkey | SELECT | role1 | role ``` |
+| identity_type  | text      | The type of the identity. Possible values are user, role, group or public. |
+
+## Sample query
+
+The following example displays the result of the SVV_COLUMN_PRIVILEGES.
+
+```
+SELECT namespace_name,relation_name,COLUMN_NAME,privilege_type,identity_name,identity_type
+FROM svv_column_privileges WHERE relation_name = 'lineitem';
+
+ namespace_name | relation_name | column_name | privilege_type | identity_name | identity_type
+----------------+---------------+-------------+----------------+---------------+----------------
+    public      |   lineitem    | l_orderkey  |     SELECT     |    reguser    |     user
+    public      |   lineitem    | l_orderkey  |     SELECT     |     role1     |     role
+    public      |   lineitem    | l_partkey   |     SELECT     |    reguser    |     user
+    public      |   lineitem    | l_partkey   |     SELECT     |     role1     |     role
+```

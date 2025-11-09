@@ -72,24 +72,79 @@ If either _pattern_ or _replace_string_ is
 To replace all occurrences of the string `FOX` within the value
 `quick brown fox` using case-insensitive matching, use the following example.
 
-````
+```
 `SELECT REGEXP_REPLACE('the fox', 'FOX', 'quick brown fox', 1, 'i');`
 
 `+---------------------+
-| regexp_replace | +---------------------+
-| the quick brown fox | +---------------------+` ``` The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. To replace each occurrence of such a word with the value `[hidden]`, use the following example. ``` `SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'p');` `+-------------------------------+
-| regexp_replace | +-------------------------------+
-| [hidden] plain A1234 [hidden] | +-------------------------------+` ``` The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. To replace each occurrence of such a word with the value `[hidden]`, but differs from the previous example in that it uses case-insensitive matching, use the following example. ``` `SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'ip');` `+----------------------------------+
-| regexp_replace | +----------------------------------+
-| [hidden] plain [hidden] [hidden] | +----------------------------------+` ``` The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To delete the `@` and domain name from email addresses, use the following example. ``` `SELECT email, REGEXP_REPLACE(email, '@.*\\.(org|gov|com|edu|ca)$') FROM users ORDER BY userid LIMIT 4;` `+-----------------------------------------------+-----------------------+
-| email | regexp_replace | +-----------------------------------------------+-----------------------+
+| regexp_replace |
++---------------------+
+| the quick brown fox |
++---------------------+`
+```
+
+The following example uses a pattern written in the PCRE dialect to locate words
+containing at least one number and one lowercase letter. It uses the
+`?=` operator, which has a specific look-ahead connotation in
+PCRE. To replace each occurrence of such a word with the value `[hidden]`, use the following example.
+
+```
+`SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'p');`
+
+`+-------------------------------+
+| regexp_replace |
++-------------------------------+
+| [hidden] plain A1234 [hidden] |
++-------------------------------+`
+```
+
+The following example uses a pattern written in the PCRE dialect to locate words
+containing at least one number and one lowercase letter. It uses the `?=` operator, which has a
+specific look-ahead connotation in PCRE. To replace each
+occurrence of such a word with the value `[hidden]`, but differs from the previous example in that it uses case-insensitive matching, use the following example.
+
+```
+`SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'ip');`
+
+`+----------------------------------+
+| regexp_replace |
++----------------------------------+
+| [hidden] plain [hidden] [hidden] |
++----------------------------------+`
+```
+
+The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To delete the `@` and domain name from email
+addresses, use the following example.
+
+```
+`SELECT email, REGEXP_REPLACE(email, '@.*\\.(org|gov|com|edu|ca)$')
+FROM users
+ORDER BY userid LIMIT 4;`
+
+`+-----------------------------------------------+-----------------------+
+| email | regexp_replace |
++-----------------------------------------------+-----------------------+
 | Etiam.laoreet.libero@sodalesMaurisblandit.edu | Etiam.laoreet.libero |
 | Suspendisse.tristique@nonnisiAenean.edu | Suspendisse.tristique |
 | amet.faucibus.ut@condimentumegetvolutpat.ca | amet.faucibus.ut |
-| sed@lacusUtnec.ca | sed | +-----------------------------------------------+-----------------------+` ``` To replace the domain names of email addresses with `internal.company.com`, use the following example. ``` `SELECT email, REGEXP_REPLACE(email, '@.*\\.[[:alpha:]]{2,3}','@internal.company.com') FROM users ORDER BY userid LIMIT 4;` `+-----------------------------------------------+--------------------------------------------+
-| email | regexp_replace | +-----------------------------------------------+--------------------------------------------+
+| sed@lacusUtnec.ca | sed |
++-----------------------------------------------+-----------------------+`
+```
+
+To replace the domain names of email addresses with `internal.company.com`, use the following example.
+
+```
+`SELECT email, REGEXP_REPLACE(email, '@.*\\.[[:alpha:]]{2,3}','@internal.company.com')
+FROM users
+ORDER BY userid LIMIT 4;`
+
+`+-----------------------------------------------+--------------------------------------------+
+| email | regexp_replace |
++-----------------------------------------------+--------------------------------------------+
 | Etiam.laoreet.libero@sodalesMaurisblandit.edu | Etiam.laoreet.libero@internal.company.com |
 | Suspendisse.tristique@nonnisiAenean.edu | Suspendisse.tristique@internal.company.com |
 | amet.faucibus.ut@condimentumegetvolutpat.ca | amet.faucibus.ut@internal.company.com |
-| sed@lacusUtnec.ca | sed@internal.company.com | +-----------------------------------------------+--------------------------------------------+` ```
-````
+| sed@lacusUtnec.ca | sed@internal.company.com |
++-----------------------------------------------+--------------------------------------------+`
+```

@@ -30,7 +30,7 @@ A `SUPER` expression or column.
 
 To check if `t` is a `CHAR` using the IS_CHAR function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES ('t');
@@ -38,6 +38,8 @@ INSERT INTO t VALUES ('t');
 SELECT s, IS_CHAR(s) FROM t;`
 
 `+-----+---------+
-| s | is_char | +-----+---------+
-| "t" | true | +-----+---------+` ```
-````
+| s | is_char |
++-----+---------+
+| "t" | true |
++-----+---------+`
+```

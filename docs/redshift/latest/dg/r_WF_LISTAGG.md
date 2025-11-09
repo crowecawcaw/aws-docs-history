@@ -138,7 +138,7 @@ where buyerid = 'b';`
 The following example returns a comma-separated list of sales IDs for each buyer
 ID.
 
-````
+```
 `select buyerid,
 listagg(salesid,',')
 within group (order by salesid)
@@ -147,7 +147,8 @@ from winsales
 order by buyerid;`
 
 `+---------+-------------------------+
-| buyerid | sales_id | +---------+-------------------------+
+| buyerid | sales_id |
++---------+-------------------------+
 | a | 10005,40001,40005 |
 | a | 10005,40001,40005 |
 | a | 10005,40001,40005 |
@@ -158,5 +159,6 @@ order by buyerid;`
 | c | 10001,10006,20002,30007 |
 | c | 10001,10006,20002,30007 |
 | c | 10001,10006,20002,30007 |
-| c | 10001,10006,20002,30007 | +---------+-------------------------+` ```
-````
+| c | 10001,10006,20002,30007 |
++---------+-------------------------+`
+```

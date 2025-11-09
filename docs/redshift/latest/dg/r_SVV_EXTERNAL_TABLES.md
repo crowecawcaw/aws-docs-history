@@ -15,16 +15,37 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name            | Data type | Description                                                                                                            |
-| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------------- | ----------------- | --------------- | --------------- | ------------- | ----------------- | --------------- | --------------------- |
-| redshift_database_name | text      | The name of the local Amazon Redshift database.                                                                        |
-| schemaname             | text      | The name of the Amazon Redshift external schema for the external table.                                                |
-| tablename              | text      | The name of the external table.                                                                                        |
-| tabletype              | text      | The type of table. Some values are TABLE, VIEW, MATERIALIZED VIEW, or " " empty string that represents no information. |
-| location               | text      | The location of the table.                                                                                             |
-| input_format           | text      | The input format                                                                                                       |
-| output_format          | text      | The output format.                                                                                                     |
-| serialization_lib      | text      | The serialization library.                                                                                             |
-| serde_parameters       | text      | SerDe parameters.                                                                                                      |
-| compressed             | integer   | A value that indicates whether the table is compressed; `1` indicates compressed, `0` indicates not compressed.        |
-| parameters             | text      | Table properties.                                                                                                      | ## Example The following example shows details svv_external_tables with a predicate on the external schema used by a federated query. ``` select schemaname, tablename from svv_external_tables where schemaname = 'apg_tpch'; schemaname | tablename ------------+----------- apg_tpch | customer apg_tpch | lineitem apg_tpch | nation apg_tpch | orders apg_tpch | part apg_tpch | partsupp apg_tpch | region apg_tpch | supplier (8 rows) ``` |
+| Column name            | Data type | Description                                                                                                                  |
+| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| redshift_database_name | text      | The name of the local Amazon Redshift database.                                                                              |
+| schemaname             | text      | The name of the Amazon Redshift external schema for the<br>external table.                                                   |
+| tablename              | text      | The name of the external table.                                                                                              |
+| tabletype              | text      | The type of table. Some values are TABLE, VIEW,<br>MATERIALIZED VIEW, or " " empty string that represents no<br>information. |
+| location               | text      | The location of the table.                                                                                                   |
+| input_format           | text      | The input format                                                                                                             |
+| output_format          | text      | The output format.                                                                                                           |
+| serialization_lib      | text      | The serialization library.                                                                                                   |
+| serde_parameters       | text      | SerDe parameters.                                                                                                            |
+| compressed             | integer   | A value that indicates whether the table is<br>compressed; `1` indicates compressed,<br>`0` indicates not compressed.        |
+| parameters             | text      | Table properties.                                                                                                            |
+
+## Example
+
+The following example shows details svv_external_tables with a predicate on the
+external schema used by a federated query.
+
+```
+select schemaname, tablename from svv_external_tables where schemaname = 'apg_tpch';
+schemaname  | tablename
+------------+-----------
+apg_tpch    | customer
+apg_tpch    | lineitem
+apg_tpch    | nation
+apg_tpch    | orders
+apg_tpch    | part
+apg_tpch    | partsupp
+apg_tpch    | region
+apg_tpch    | supplier
+(8 rows)
+
+```

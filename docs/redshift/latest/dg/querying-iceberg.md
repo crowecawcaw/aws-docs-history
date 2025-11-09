@@ -53,10 +53,6 @@ Consider the following when using Amazon Redshift with Iceberg tables:
     changes using delete files.
     For the difference between version 1 and version 2 tables, see [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes "https://iceberg.apache.org/spec/#appendix-e-format-version-changes") in the Apache Iceberg documentation.
 
-- Queries only – Amazon Redshift supports read-only
-  access to Apache Iceberg tables. It supports transactional consistent select
-  queries. You can use a service like Amazon Athena to define and update the schema of
-  Iceberg tables in the AWS Glue Data Catalog.
 - Adding partitions – You don't need to
   manually add partitions for your Apache Iceberg tables. New partitions in Apache
   Iceberg tables are automatically detected by Amazon Redshift and no manual operation is
@@ -93,3 +89,4 @@ Consider the following when using Amazon Redshift with Iceberg tables:
   assumes metadata files are immutable based on the [Iceberg
   specification](https://iceberg.apache.org/spec/#file-system-operations "https://iceberg.apache.org/spec/#file-system-operations"). Metadata file immutability is a requirement for data
   integrity in Amazon Redshift.
+- Federated identity – Federated identity is not supported when writing to Apache Iceberg tables. This includes using the SESSION keyword for the IAM_ROLE parameter when creating external schemas. For more information about IAM_ROLE parameters, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").

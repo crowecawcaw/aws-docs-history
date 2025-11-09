@@ -176,9 +176,10 @@ The
 following is an example of the output of the previous
 operation.
 
-````
+```
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|           Key            |                                                                             Value                                                                             | +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|           Key            |                                                                             Value                                                                             |
++--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |        Model Name        |                                                                   customer_churn_auto_model                                                                   |
 |       Schema Name        |                                                                            public                                                                             |
 |          Owner           |                                                                            awsuser                                                                            |
@@ -201,5 +202,136 @@ operation.
 | Function Parameter Types |                                                                 varchar int4 int4 float8 int4                                                                 |
 |         IAM Role         |                                                                     default-aws-iam-role                                                                      |
 |        S3 Bucket         |                                                                        amzn-s3-demo-bucket                                                                     |
-|       Max Runtime        |                                                                             5400                                                                              | +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ ``` When the model training is complete, the `model_state` variable becomes `Model is Ready`, and the prediction function becomes available. ## Step 3: Perform predictions with the model You can use SQL statements to view the predictions made by the prediction model. In this example, the prediction function created by the CREATE MODEL operation is named `ml_fn_customer_churn_auto`. The input arguments for the prediction function correspond to the types of the features, such as varchar for the `state` and integer for `account_length`. The output of the prediction function is the same type as the TARGET column of the CREATE MODEL statement. 1. You trained the model on data from before 2020-01-01, so now you use the prediction function on the testing set. The following query displays the predictions of whether customers who signed up after 2020-01-01 will go through churn or not. ``` SELECT phone, ml_fn_customer_churn_auto( state, account_length, area_code, total_charge / account_length, cust_serv_calls / account_length ) AS active FROM customer_activity WHERE record_date > '2020-01-01'; ``` 2. The following example uses the same prediction function for a different use case. In this case, Amazon Redshift predicts the proportion of churners and non-churners among customers from different states where the record date is greater than 2020-01-01. ``` WITH predicted AS ( SELECT state, ml_fn_customer_churn_auto( state, account_length, area_code, total_charge / account_length, cust_serv_calls / account_length ) :: varchar(6) AS active FROM customer_activity WHERE record_date > '2020-01-01' ) SELECT state, SUM( CASE WHEN active = 'True.' THEN 1 ELSE 0 END ) AS churners, SUM( CASE WHEN active = 'False.' THEN 1 ELSE 0 END ) AS nonchurners, COUNT(*) AS total_per_state FROM predicted GROUP BY state ORDER BY state; ``` 3. The following example uses the prediction function for the use case of predicting the percentage of customers who churn in a state. In this case, Amazon Redshift predicts the churn percentage where the record date is greater than 2020-01-01. ``` WITH predicted AS ( SELECT state, ml_fn_customer_churn_auto( state, account_length, area_code, total_charge / account_length, cust_serv_calls / account_length ) :: varchar(6) AS active FROM customer_activity WHERE record_date > '2020-01-01' ) SELECT state, CAST((CAST((SUM( CASE WHEN active = 'True.' THEN 1 ELSE 0 END )) AS FLOAT) / CAST(COUNT(*) AS FLOAT)) AS DECIMAL (3, 2)) AS pct_churn, COUNT(*) AS total_customers_per_state FROM predicted GROUP BY state ORDER BY 3 DESC; ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon RedshiftML](cost.md "cost.md") <br>• [CREATE MODEL command](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+|       Max Runtime        |                                                                             5400                                                                              |
++--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+```
+
+When
+the model training is complete, the `model_state` variable becomes `Model is Ready`, and the prediction function becomes available.
+
+## Step 3: Perform predictions with the model
+
+You can use SQL statements to view the predictions made by the prediction model.
+In this example, the prediction function created by the CREATE MODEL operation is
+named `ml_fn_customer_churn_auto`. The input arguments for the prediction
+function correspond to the types of the features, such as varchar for the
+`state` and integer for `account_length`. The output of the
+prediction function is the same type as the TARGET column of the CREATE MODEL statement.
+
+1. You trained the model on data from before 2020-01-01, so now you use the
+   prediction function on the testing set. The following query displays the
+   predictions of whether customers who signed up after 2020-01-01 will go
+   through churn or not.
+
+```
+SELECT
+    phone,
+    ml_fn_customer_churn_auto(
+        state,
+        account_length,
+        area_code,
+        total_charge / account_length,
+        cust_serv_calls / account_length
+    ) AS active
+FROM
+    customer_activity
+WHERE
+    record_date > '2020-01-01';
+```
+
+2. The following example uses the same prediction function for a different
+   use case. In this case, Amazon Redshift predicts the proportion of churners and
+   non-churners among customers from different states where the record date is
+   greater than 2020-01-01.
+
+```
+WITH predicted AS (
+    SELECT
+        state,
+        ml_fn_customer_churn_auto(
+            state,
+            account_length,
+            area_code,
+            total_charge / account_length,
+            cust_serv_calls / account_length
+        ) :: varchar(6) AS active
+    FROM
+        customer_activity
+    WHERE
+        record_date > '2020-01-01'
+)
+SELECT
+    state,
+    SUM(
+        CASE
+            WHEN active = 'True.' THEN 1
+            ELSE 0
+        END
+    ) AS churners,
+    SUM(
+        CASE
+            WHEN active = 'False.' THEN 1
+            ELSE 0
+        END
+    ) AS nonchurners,
+    COUNT(*) AS total_per_state
+FROM
+    predicted
+GROUP BY
+    state
+ORDER BY
+    state;
+```
+
+3. The following example uses the prediction function for the use case of
+   predicting the percentage of customers who churn in a state. In this
+   case, Amazon Redshift predicts the churn percentage where the record date is greater
+   than 2020-01-01.
+
+```
+WITH predicted AS (
+    SELECT
+        state,
+        ml_fn_customer_churn_auto(
+            state,
+            account_length,
+            area_code,
+            total_charge / account_length,
+            cust_serv_calls / account_length
+        ) :: varchar(6) AS active
+    FROM
+        customer_activity
+    WHERE
+        record_date > '2020-01-01'
+)
+SELECT
+    state,
+    CAST((CAST((SUM(
+        CASE
+            WHEN active = 'True.' THEN 1
+            ELSE 0
+        END
+    )) AS FLOAT) / CAST(COUNT(*) AS FLOAT)) AS DECIMAL (3, 2)) AS pct_churn,
+    COUNT(*) AS total_customers_per_state
+FROM
+    predicted
+GROUP BY
+    state
+ORDER BY
+    3 DESC;
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon RedshiftML](cost.md "cost.md")
+- [CREATE MODEL command](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

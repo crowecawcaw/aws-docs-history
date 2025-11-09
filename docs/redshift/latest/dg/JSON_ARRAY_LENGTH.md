@@ -51,12 +51,34 @@ default is `false`.
 
 To return the number of elements in the array, use the following example.
 
-````
+```
 `SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14]');`
 
 `+-------------------+
-| json_array_length | +-------------------+
-| 5 | +-------------------+` ``` To return an error because the JSON is invalid, use the following example. ``` `SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14');` `ERROR: invalid json array object [11,12,13,{"f1":21,"f2":[25,26]},14` ``` To set *null\_if\_invalid* to *true*, so the statement the returns `NULL` instead of returning an error for invalid JSON, use the following example. ``` `SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14',true);` `+-------------------+
-| json_array_length | +-------------------+
-| NULL | +-------------------+` ```
-````
+| json_array_length |
++-------------------+
+| 5 |
++-------------------+`
+```
+
+To return an error because the JSON is invalid, use the following example.
+
+```
+`SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14');`
+
+`ERROR: invalid json array object [11,12,13,{"f1":21,"f2":[25,26]},14`
+```
+
+To set _null_if_invalid_ to
+_true_, so the statement the returns `NULL` instead of returning
+an error for invalid JSON, use the following example.
+
+```
+`SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14',true);`
+
+`+-------------------+
+| json_array_length |
++-------------------+
+| NULL |
++-------------------+`
+```

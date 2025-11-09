@@ -36,12 +36,24 @@ A VARBYTE type binary value.
 
 To convert the JSON array `[10001,10002,"abc"]` into the `SUPER` data type, use the following example.
 
-````
+```
 `SELECT JSON_PARSE('[10001,10002,"abc"]');`
 
 `+---------------------+
-| json_parse | +---------------------+
-| [10001,10002,"abc"] | +---------------------+` ``` To make sure that the function converted the JSON array into the `SUPER` data type, use the following example. For more information, see [JSON\_TYPEOF function](r_json_typeof.md "r_json_typeof.md") ``` `SELECT JSON_TYPEOF(JSON_PARSE('[10001,10002,"abc"]'));` `+-------------+
-| json_typeof | +-------------+
-| array | +-------------+` ```
-````
+| json_parse |
++---------------------+
+| [10001,10002,"abc"] |
++---------------------+`
+```
+
+To make sure that the function converted the JSON array into the `SUPER` data type, use the following example. For more information, see [JSON_TYPEOF function](r_json_typeof.md "r_json_typeof.md")
+
+```
+`SELECT JSON_TYPEOF(JSON_PARSE('[10001,10002,"abc"]'));`
+
+`+-------------+
+| json_typeof |
++-------------+
+| array |
++-------------+`
+```

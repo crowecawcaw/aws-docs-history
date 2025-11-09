@@ -71,9 +71,59 @@ user-defined columns. For more information, see [https://www.postgresql.org/docs
 This table shows examples of delimited identifiers, the resulting output, and a
 discussion:
 
-| Syntax           | Result       | Discussion                                                                                                                                                             |
-| ---------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| "group"          | group        | GROUP is a reserved word, so usage of it within an identifier requires double quotation marks.                                                                         |
-| """WHERE"""      | "where"      | WHERE is also a reserved word. To include quotation marks in the string, escape each double quotation mark character with additional double quotation mark characters. |
-| "This name"      | this name    | Double quotation marks are required to preserve the space.                                                                                                             |
-| "This ""IS IT""" | this "is it" | The quotation marks surrounding IS IT must each be preceded by an extra quotation mark in order to become part of the name.                                            | To create a table named group with a column named this "is it": `create table "group" ( "This ""IS IT""" char(10));` The following queries return the same result: `select "This ""IS IT""" from "group"; this "is it" -------------- (0 rows)` `select "this ""is it""" from "group"; this "is it" -------------- (0 rows)` The following fully qualified `table.column` syntax also returns the same result: `select "group"."this ""is it""" from "group"; this "is it" -------------- (0 rows)` The following CREATE TABLE command creates a table with a slash in a column name: `create table if not exists city_slash_id( "city/id" integer not null, state char(2) not null);` |
+| Syntax           | Result       | Discussion                                                                                                                                                                   |
+| ---------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| "group"          | group        | GROUP is a reserved word, so usage of it within an<br>identifier requires double quotation marks.                                                                            |
+| """WHERE"""      | "where"      | WHERE is also a reserved word. To include quotation<br>marks in the string, escape each double quotation mark character with<br>additional double quotation mark characters. |
+| "This name"      | this name    | Double quotation marks are required to preserve the<br>space.                                                                                                                |
+| "This ""IS IT""" | this "is it" | The quotation marks surrounding IS IT must each be<br>preceded by an extra quotation mark in order to become part of the<br>name.                                            |
+
+To create a table named group with a column named this "is it":
+
+```
+create table "group" (
+"This ""IS IT""" char(10));
+```
+
+The following queries return the same result:
+
+```
+select "This ""IS IT"""
+from "group";
+
+this "is it"
+--------------
+(0 rows)
+
+```
+
+```
+select "this ""is it"""
+from "group";
+
+this "is it"
+--------------
+(0 rows)
+```
+
+The following fully qualified `table.column` syntax also returns the
+same result:
+
+```
+select "group"."this ""is it"""
+from "group";
+
+this "is it"
+--------------
+(0 rows)
+```
+
+The following CREATE TABLE command creates a table with a slash in a column
+name:
+
+```
+create table if not exists city_slash_id(
+                  "city/id" integer not null,
+                  state char(2) not null);
+
+```

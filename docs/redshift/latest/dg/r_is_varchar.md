@@ -31,7 +31,7 @@ A `SUPER` expression or column.
 
 To check if `abc` is a `VARCHAR` using the IS_VARCHAR function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES ('abc');
@@ -39,6 +39,8 @@ INSERT INTO t VALUES ('abc');
 SELECT s, IS_VARCHAR(s) FROM t;`
 
 `+-------+------------+
-| s | is_varchar | +-------+------------+
-| "abc" | true | +-------+------------+` ```
-````
+| s | is_varchar |
++-------+------------+
+| "abc" | true |
++-------+------------+`
+```

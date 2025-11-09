@@ -27,14 +27,103 @@ Existing Python UDFs will continue to function as normal. For more information, 
 
 ranges
 
-| Name                      | Storage                           | Range                                                                                                                                                                                                                                                                                                                                                                                             | Resolution                |
-| ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DATE                      | 4 bytes                           | 4713 BC to 294276 AD                                                                                                                                                                                                                                                                                                                                                                              | 1 day                     |
-| TIME                      | 8 bytes                           | 00:00:00 to 24:00:00                                                                                                                                                                                                                                                                                                                                                                              | 1 microsecond             |
-| TIMETZ                    | 8 bytes                           | 00:00:00+1459 to 00:00:00+1459                                                                                                                                                                                                                                                                                                                                                                    | 1 microsecond             |
-| TIMESTAMP                 | 8 bytes                           | 4713 BC to 294276 AD                                                                                                                                                                                                                                                                                                                                                                              | 1 microsecond             |
-| TIMESTAMPTZ               | 8 bytes                           | 4713 BC to 294276 AD                                                                                                                                                                                                                                                                                                                                                                              | 1 microsecond             | ## DATE Use the DATE data type to store simple calendar dates without timestamps. ## TIME TIME is an alias of TIME WITHOUT TIME ZONE. Use the TIME data type to store the time of day. TIME columns store values with up to a maximum of six digits of precision for fractional seconds. By default, TIME values are Coordinated Universal Time (UTC) in both user tables and Amazon Redshift system tables. ## TIMETZ TIMETZ is an alias of TIME WITH TIME ZONE. Use the TIMETZ data type to store the time of day with a time zone. TIMETZ columns store values with up to a maximum of six digits of precision for fractional seconds. By default, TIMETZ values are UTC in both user tables and Amazon Redshift system tables. ## TIMESTAMP TIMESTAMP is an alias of TIMESTAMP WITHOUT TIME ZONE. Use the TIMESTAMP data type to store complete timestamp values that include the date and the time of day. TIMESTAMP columns store values with up to a maximum of six digits of precision for fractional seconds. If you insert a date into a TIMESTAMP column, or a date with a partial timestamp value, the value is implicitly converted into a full timestamp value. This full timestamp value has default values (00) for missing hours, minutes, and seconds. Time zone values in input strings are ignored. By default, TIMESTAMP values are UTC in both user tables and Amazon Redshift system tables. ## TIMESTAMPTZ TIMESTAMPTZ is an alias of TIMESTAMP WITH TIME ZONE. Use the TIMESTAMPTZ data type to input complete timestamp values that include the date, the time of day, and a time zone. When an input value includes a time zone, Amazon Redshift uses the time zone to convert the value to UTC and stores the UTC value. To view a list of supported time zone names, run the following command. `select pg_timezone_names();` To view a list of supported time zone abbreviations, run the following command. `select pg_timezone_abbrevs();` You can also find current information about time zones in the [IANA Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones"). The following table has examples of time zone formats. |
-| Format                    | Example                           |                                                                                                                                                                                                                                                                                                                                                                                                   | ---                       | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| dd mon hh:mi:ss yyyy tz   | 17 Dec 07:37:16 1997 PST          |                                                                                                                                                                                                                                                                                                                                                                                                   | mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 PST                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 US/Pacific |                                                                                                                                                                                                                                                                                                                                                                                                   | yyyy-mm-dd hh:mi:ss+/-tz  | 1997-12-17 07:37:16-08                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| dd.mm.yyyy hh:mi:ss tz    | 17.12.1997 07:37:16.00 PST        | TIMESTAMPTZ columns store values with up to a maximum of six digits of precision for fractional seconds. If you insert a date into a TIMESTAMPTZ column, or a date with a partial timestamp, the value is implicitly converted into a full timestamp value. This full timestamp value has default values (00) for missing hours, minutes, and seconds. TIMESTAMPTZ values are UTC in user tables. |
+| Name        | Storage | Range                          | Resolution    |
+| ----------- | ------- | ------------------------------ | ------------- |
+| DATE        | 4 bytes | 4713 BC to 294276 AD           | 1 day         |
+| TIME        | 8 bytes | 00:00:00 to 24:00:00           | 1 microsecond |
+| TIMETZ      | 8 bytes | 00:00:00+1459 to 00:00:00+1459 | 1 microsecond |
+| TIMESTAMP   | 8 bytes | 4713 BC to 294276 AD           | 1 microsecond |
+| TIMESTAMPTZ | 8 bytes | 4713 BC to 294276 AD           | 1 microsecond |
+
+## DATE
+
+Use the DATE data type to store simple calendar dates without
+timestamps.
+
+## TIME
+
+TIME is an alias of TIME WITHOUT TIME ZONE.
+
+Use the TIME data type to store the time of day.
+
+TIME columns store values with up to a maximum of six digits of precision
+for fractional seconds.
+
+By default, TIME values are Coordinated Universal Time (UTC) in both user
+tables and Amazon Redshift system tables.
+
+## TIMETZ
+
+TIMETZ is an alias of TIME WITH TIME ZONE.
+
+Use the TIMETZ data type to store the time of day with a time zone.
+
+TIMETZ columns store values with up to a maximum of six digits of precision
+for fractional
+seconds.
+
+By default, TIMETZ values are UTC in both user tables and Amazon Redshift system
+tables.
+
+## TIMESTAMP
+
+TIMESTAMP is an alias of TIMESTAMP WITHOUT TIME ZONE.
+
+Use the TIMESTAMP data type to store complete timestamp values that include
+the date and the time of day.
+
+TIMESTAMP columns store values with up to a maximum of six digits of
+precision for fractional seconds.
+
+If you insert a date into a TIMESTAMP column, or a date with a partial
+timestamp value, the value is implicitly converted into a full timestamp value.
+This full timestamp value has default values (00) for missing hours, minutes,
+and seconds. Time zone values in input strings are ignored.
+
+By default, TIMESTAMP values are UTC in both user tables and Amazon Redshift system
+tables.
+
+## TIMESTAMPTZ
+
+TIMESTAMPTZ is an alias of TIMESTAMP WITH TIME ZONE.
+
+Use the TIMESTAMPTZ data type to input complete timestamp values that
+include the date, the time of day, and a time zone. When an input value
+includes a time zone, Amazon Redshift uses the time zone to convert the value to UTC and
+stores the UTC value.
+
+To view a list of supported time zone names, run the following command.
+
+```
+select pg_timezone_names();
+```
+
+To view a list of supported time zone abbreviations, run the following
+command.
+
+```
+select pg_timezone_abbrevs();
+```
+
+You can also find current information about time zones in the [IANA Time Zone
+Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones").
+
+The following table has examples of time zone formats.
+
+| Format                    | Example                           |
+| ------------------------- | --------------------------------- |
+| dd mon hh:mi:ss yyyy tz   | 17 Dec 07:37:16 1997 PST          |
+| mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 PST        |
+| mm/dd/yyyy hh:mi:ss.ss tz | 12/17/1997 07:37:16.00 US/Pacific |
+| yyyy-mm-dd hh:mi:ss+/-tz  | 1997-12-17 07:37:16-08            |
+| dd.mm.yyyy hh:mi:ss tz    | 17.12.1997 07:37:16.00 PST        |
+
+TIMESTAMPTZ columns store values with up to a maximum of six digits of
+precision for fractional seconds.
+
+If you insert a date into a TIMESTAMPTZ column, or a date with a partial
+timestamp, the value is implicitly converted into a full timestamp value. This
+full timestamp value has default values (00) for missing hours, minutes, and
+seconds.
+
+TIMESTAMPTZ values are UTC in user tables.

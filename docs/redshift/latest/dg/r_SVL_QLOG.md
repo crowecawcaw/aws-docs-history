@@ -19,18 +19,54 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name                    | Data type      | Description                                                                                                                                                                                                                                                                      |
-| ------------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------------------------------------------------------------------------------------- | ----- | -------- | ----------------------------------------------------- | ---- | ----- | ------------------------------------------ | ----- | ------- | ----------------------------------------------------- | ----- | ------- | -------------------------------------------------- | ----- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------- | ------- | ----------------------------------- |
-| userid                         | integer        | ID of the user who generated the entry.                                                                                                                                                                                                                                          |
-| query                          | integer        | Query ID. You can use this ID to join various other system tables and views.                                                                                                                                                                                                     |
-| xid                            | bigint         | Transaction ID.                                                                                                                                                                                                                                                                  |
-| pid                            | integer        | Process ID associated with the query.                                                                                                                                                                                                                                            |
-| starttime                      | timestamp      | Exact time when the statement started executing, with six digits of precision for fractional seconds—for example: `2009-06-12 11:29:19.131358`                                                                                                                                   |
-| endtime                        | timestamp      | Exact time when the statement finished executing, with six digits of precision for fractional seconds—for example: `2009-06-12 11:29:19.193640`                                                                                                                                  |
-| elapsed                        | bigint         | Length of time that it took the query to run (in microseconds).                                                                                                                                                                                                                  |
-| aborted                        | integer        | If a query was stopped by the system or canceled by the user, this column contains `1`. If the query ran to completion, this column contains `0`. Queries that are canceled for workload management purposes and subsequently restarted also have a value of `1` in this column. |
-| label                          | character(320) | Either the name of the file used to run the query, or a label defined with a SET QUERY_GROUP command. If the query is not file-based or the QUERY_GROUP parameter is not set, this field value is `default`.                                                                     |
-| substring                      | character(60)  | Truncated query text.                                                                                                                                                                                                                                                            |
-| source_query                   | integer        | If the query used result caching, the query ID of the query that was the source of the cached results. If result caching was not used, this field value is `NULL`.                                                                                                               |
-| concurrency_scaling_status_txt | text           | A description of whether the query ran on the main cluster or concurrency scaling cluster.                                                                                                                                                                                       |
-| from_sp_call                   | integer        | If the query was called from a stored procedure, the query ID of the procedure call. If the query wasn't run as part of a stored procedure, this field is `NULL`.                                                                                                                | ## Sample queries The following example returns the query ID, execution time, and truncated query text for the five most recent database queries run by the user with `userid = 100`. ``` select query, pid, elapsed, substring from svl_qlog where userid = 100 order by starttime desc limit 5; query | pid | elapsed | substring --------+-------+----------+----------------------------------------------- 187752 | 18921 | 18465685 | select query, elapsed, substring from svl\_... 204168 | 5117 | 59603 | insert into testtable values (100); 187561 | 17046 | 1003052 | select \* from pg_table_def where tablename... 187549 | 17046 | 1108584 | select \* from STV_WLM_SERVICE_CLASS_CONFIG 187468 | 17046 | 5670661 | select \* from pg_table_def where schemaname... (5 rows) ``The following example returns the SQL script name (LABEL column) and elapsed time for a query that was cancelled (`aborted=1`):`` select query, elapsed, trim(label) querylabel from svl_qlog where aborted=1; query | elapsed | querylabel -------+----------+------------------------- 16 | 6935292 | alltickittablesjoin.sql (1 row) ``` |
+| Column name                    | Data type      | Description                                                                                                                                                                                                                                                                                     |
+| ------------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                         | integer        | ID of the user who generated the entry.                                                                                                                                                                                                                                                         |
+| query                          | integer        | Query ID. You can use this ID to join various<br>other system tables and views.                                                                                                                                                                                                                 |
+| xid                            | bigint         | Transaction ID.                                                                                                                                                                                                                                                                                 |
+| pid                            | integer        | Process ID associated with the query.                                                                                                                                                                                                                                                           |
+| starttime                      | timestamp      | Exact time when the statement started executing,<br>with six digits of precision for fractional seconds—for<br>example: `2009-06-12 11:29:19.131358`                                                                                                                                            |
+| endtime                        | timestamp      | Exact time when the statement finished executing,<br>with six digits of precision for fractional seconds—for<br>example: `2009-06-12 11:29:19.193640`                                                                                                                                           |
+| elapsed                        | bigint         | Length of time that it took the query to run<br>(in microseconds).                                                                                                                                                                                                                              |
+| aborted                        | integer        | If a query was stopped by the system or canceled<br>by the user, this column contains `1`. If the<br>query ran to completion, this column contains<br>`0`. Queries that are canceled for workload<br>management purposes and subsequently restarted also have a value of<br>`1` in this column. |
+| label                          | character(320) | Either the name of the file used to run the query,<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>value is `default`.                                                                           |
+| substring                      | character(60)  | Truncated query text.                                                                                                                                                                                                                                                                           |
+| source_query                   | integer        | If the query used result caching, the query ID of<br>the query that was the source of the cached results. If result<br>caching was not used, this field value is `NULL`.                                                                                                                        |
+| concurrency_scaling_status_txt | text           | A description of whether the query ran on the main cluster or concurrency scaling cluster.                                                                                                                                                                                                      |
+| from_sp_call                   | integer        | If the query was called from a stored procedure,<br>the query ID of the procedure call. If the query wasn't run as<br>part of a stored procedure, this field is `NULL`.                                                                                                                         |
+
+## Sample queries
+
+The following example returns the query ID, execution time, and truncated query
+text for the five most recent database queries run by the user with
+`userid = 100`.
+
+```
+select query, pid, elapsed, substring from svl_qlog
+where userid = 100
+order by starttime desc
+limit 5;
+
+ query  |  pid  | elapsed  |           substring
+--------+-------+----------+-----------------------------------------------
+ 187752 | 18921 | 18465685 | select query, elapsed, substring from svl_...
+ 204168 |  5117 |    59603 | insert into testtable values (100);
+ 187561 | 17046 |  1003052 | select * from pg_table_def where tablename...
+ 187549 | 17046 |  1108584 | select * from STV_WLM_SERVICE_CLASS_CONFIG
+ 187468 | 17046 |  5670661 | select * from pg_table_def where schemaname...
+(5 rows)
+
+```
+
+The following example returns the SQL script name (LABEL column) and elapsed time
+for a query that was cancelled (`aborted=1`):
+
+```
+select query, elapsed, trim(label) querylabel
+from svl_qlog where aborted=1;
+
+ query | elapsed  |       querylabel
+-------+----------+-------------------------
+    16 |  6935292 | alltickittablesjoin.sql
+(1 row)
+```

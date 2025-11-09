@@ -30,4 +30,21 @@ The table or view that the row-level security policy is detached
 from.
 
 FROM { _user_name_ | ROLE _role_name_
-| PUBLIC} [, ...] Specifies whether the policy is detached from one or more specified users or roles. ## Usage notes When working with the DETACH RLS POLICY statement, observe the following: <br>• You can detach a policy from a relation, user, role, or public. ## Examples The following example detaches a policy on a table from a role. `DETACH RLS POLICY policy_concerts ON tickit_category_redshift FROM ROLE analyst, ROLE dbadmin;`
+| PUBLIC} [, ...]
+
+Specifies whether the policy is detached from one or more specified users or
+roles.
+
+## Usage notes
+
+When working with the DETACH RLS POLICY statement, observe the following:
+
+- You can detach a policy from a relation, user, role, or public.
+
+## Examples
+
+The following example detaches a policy on a table from a role.
+
+```
+DETACH RLS POLICY policy_concerts ON tickit_category_redshift FROM ROLE analyst, ROLE dbadmin;
+```

@@ -61,7 +61,7 @@ The following example orders the table by the quantity sold and assigns both a
 dense rank and a regular rank to each row. The results are sorted after the window
 function results are applied.
 
-````
+```
 `SELECT salesid, qty,
 DENSE_RANK() OVER(ORDER BY qty DESC) AS d_rnk,
 RANK() OVER(ORDER BY qty DESC) AS rnk
@@ -69,7 +69,8 @@ FROM winsales
 ORDER BY 2,1;`
 
 `+---------+-----+-------+-----+
-| salesid | qty | d_rnk | rnk | +---------+-----+-------+-----+
+| salesid | qty | d_rnk | rnk |
++---------+-----+-------+-----+
 | 10001 | 10 | 5 | 8 |
 | 10006 | 10 | 5 | 8 |
 | 30001 | 10 | 5 | 8 |
@@ -80,8 +81,26 @@ ORDER BY 2,1;`
 | 30004 | 20 | 3 | 4 |
 | 10005 | 30 | 2 | 2 |
 | 30007 | 30 | 2 | 2 |
-| 40001 | 40 | 1 | 1 | +---------+-----+-------+-----+` ``` Note the difference in rankings assigned to the same set of rows when the DENSE\_RANK and RANK functions are used side by side in the same query. The following example partitions the table by sellerid, orders each partition by the quantity, and assigns a dense rank to each row. The results are sorted after the window function results are applied. ``` `SELECT salesid, sellerid, qty, DENSE_RANK() OVER(PARTITION BY sellerid ORDER BY qty DESC) AS d_rnk FROM winsales ORDER BY 2,3,1;` `+---------+----------+-----+-------+
-| salesid | sellerid | qty | d_rnk | +---------+----------+-----+-------+
+| 40001 | 40 | 1 | 1 |
++---------+-----+-------+-----+`
+```
+
+Note the difference in rankings assigned to the same set of rows when the
+DENSE_RANK and RANK functions are used side by side in the same query.
+
+The following example partitions the table by sellerid, orders each partition
+by the quantity, and assigns a dense rank to each row. The
+results are sorted after the window function results are applied.
+
+```
+`SELECT salesid, sellerid, qty,
+DENSE_RANK() OVER(PARTITION BY sellerid ORDER BY qty DESC) AS d_rnk
+FROM winsales
+ORDER BY 2,3,1;`
+
+`+---------+----------+-----+-------+
+| salesid | sellerid | qty | d_rnk |
++---------+----------+-----+-------+
 | 10001 | 1 | 10 | 2 |
 | 10006 | 1 | 10 | 2 |
 | 10005 | 1 | 30 | 1 |
@@ -92,8 +111,30 @@ ORDER BY 2,1;`
 | 30004 | 3 | 20 | 2 |
 | 30007 | 3 | 30 | 1 |
 | 40005 | 4 | 10 | 2 |
-| 40001 | 4 | 40 | 1 | +---------+----------+-----+-------+` ``` To successfully use the last example, use the following command to insert a row into the WINSALES table. This row has the same buyerid, sellerid, and qtysold as another row. This will cause two rows to tie in the last example and thus will show the difference between the DENSE\_RANK and RANK functions. ``` `INSERT INTO winsales VALUES(30009, '2/2/2003', 3, 'b', 20, NULL);` ``` The following example partitions the table by buyerid and sellerid, orders each partition by the quantity, and assigns both a dense rank and a regular rank to each row. The results are sorted after the window function is applied. ``` `SELECT salesid, sellerid, qty, buyerid, DENSE_RANK() OVER(PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS d_rnk, RANK() OVER (PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS rnk FROM winsales ORDER BY rnk;` `+---------+----------+-----+---------+-------+-----+
-| salesid | sellerid | qty | buyerid | d_rnk | rnk | +---------+----------+-----+---------+-------+-----+
+| 40001 | 4 | 40 | 1 |
++---------+----------+-----+-------+`
+```
+
+To successfully use the last example, use the following command to insert a row into the WINSALES table. This row has the same buyerid, sellerid, and qtysold as another row. This will cause two rows to tie in the last example and thus will show the difference between the DENSE_RANK and RANK functions.
+
+```
+`INSERT INTO winsales VALUES(30009, '2/2/2003', 3, 'b', 20, NULL);`
+```
+
+The following example partitions the table by buyerid and sellerid, orders each partition
+by the quantity, and assigns both a dense rank and a regular rank to each row. The
+results are sorted after the window function is applied.
+
+```
+`SELECT salesid, sellerid, qty, buyerid,
+DENSE_RANK() OVER(PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS d_rnk,
+RANK() OVER (PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS rnk
+FROM winsales
+ORDER BY rnk;`
+
+`+---------+----------+-----+---------+-------+-----+
+| salesid | sellerid | qty | buyerid | d_rnk | rnk |
++---------+----------+-----+---------+-------+-----+
 | 20001 | 2 | 20 | b | 1 | 1 |
 | 30007 | 3 | 30 | c | 1 | 1 |
 | 10006 | 1 | 10 | c | 1 | 1 |
@@ -105,5 +146,6 @@ ORDER BY 2,1;`
 | 10001 | 1 | 10 | c | 1 | 1 |
 | 40005 | 4 | 10 | a | 2 | 2 |
 | 30003 | 3 | 15 | b | 2 | 3 |
-| 30001 | 3 | 10 | b | 3 | 4 | +---------+----------+-----+---------+-------+-----+` ```
-````
+| 30001 | 3 | 10 | b | 3 | 4 |
++---------+----------+-----+---------+-------+-----+`
+```

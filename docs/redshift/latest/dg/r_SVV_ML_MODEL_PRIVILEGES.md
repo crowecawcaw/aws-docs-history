@@ -17,13 +17,27 @@ SVV_ML_MODEL_PRIVILEGES is visible to the following users:
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                         |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------------- | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------- | --- | ------- | ------- | ---- | ------------ | ---------- | --- | ------- | ----- | ---- | --------- |
-| namespace_name | text      | The name of the namespace where a specified machine learning model exists.                                                                          |
-| model_name     | text      | The name of the machine learning model.                                                                                                             |
-| model_version  | integer   | The version number of the model.                                                                                                                    |
-| privilege_type | text      | The type of the permission. Possible value is EXECUTE.                                                                                              |
-| identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                          |
-| identity_name  | text      | The name of the identity.                                                                                                                           |
-| identity_type  | text      | The type of the identity. Possible values are user, role, group, or public.                                                                         |
-| admin_option   | boolean   | A value that indicates whether the user can grant the permission to other users and roles. It is always false for the role and group identity type. | ## Sample query The following example displays the result of the SVV_ML_MODEL_PRIVILEGES. ``` SELECT namespace_name,model_name,model_version,privilege_type,identity_name,identity_type,admin_option FROM svv_ml_model_privileges WHERE model_name = 'test_model'; namespace_name | model_name | model_version | privilege_type | identity_name | identity_type | admin_option ----------------+------------+---------------+----------------+----------------+---------------+-------------- public | test_model | 1   | EXECUTE | reguser | user | False public | test_model | 1   | EXECUTE | role1 | role | False ``` |
+| Column name    | Data type | Description                                                                                                                                               |
+| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| namespace_name | text      | The name of the namespace where a specified<br>machine learning model exists.                                                                             |
+| model_name     | text      | The name of the machine learning model.                                                                                                                   |
+| model_version  | integer   | The version number of the model.                                                                                                                          |
+| privilege_type | text      | The type of the permission. Possible value is<br>EXECUTE.                                                                                                 |
+| identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                                |
+| identity_name  | text      | The name of the identity.                                                                                                                                 |
+| identity_type  | text      | The type of the identity. Possible values are user, role, group, or public.                                                                               |
+| admin_option   | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type. |
+
+## Sample query
+
+The following example displays the result of the SVV_ML_MODEL_PRIVILEGES.
+
+```
+SELECT namespace_name,model_name,model_version,privilege_type,identity_name,identity_type,admin_option FROM svv_ml_model_privileges
+WHERE model_name = 'test_model';
+
+ namespace_name | model_name | model_version | privilege_type |  identity_name | identity_type | admin_option
+----------------+------------+---------------+----------------+----------------+---------------+--------------
+      public    | test_model |       1       |    EXECUTE     |     reguser    |     user      |    False
+      public    | test_model |       1       |    EXECUTE     |     role1      |     role      |    False
+```

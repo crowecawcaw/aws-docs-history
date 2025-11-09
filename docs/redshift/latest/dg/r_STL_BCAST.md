@@ -28,7 +28,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- | ---- | ----- | ------- | ------------------------------------------------------------------------- | --- | --- | --- | --- | --- | ----- | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | ------ | --- | --- | --- | --- | --- | -------------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -39,4 +39,31 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
 | bytes       | bigint    | Size, in bytes, of all the output rows for the step.                                                                                                                          |
-| packets     | integer   | Total number of packets sent over the network.                                                                                                                                | ### Sample queries The following example returns broadcast information for the queries where there are one or more packets, and the difference between the start and end of the query was one second or more. `select query, slice, step, rows, bytes, packets, datediff(seconds, starttime, endtime) from stl_bcast where packets>0 and datediff(seconds, starttime, endtime)>0;` ``` query | slice | step | rows | bytes | packets | date_diff -------+-------+------+------+-------+---------+----------- 453 | 2   | 5   | 1   | 264 | 1   | 1 798 | 2   | 5   | 1   | 264 | 1   | 1 1408 | 2   | 5   | 1   | 264 | 1   | 1 2993 | 0   | 5   | 1   | 264 | 1   | 1 5045 | 3   | 5   | 1   | 264 | 1   | 1 8073 | 3   | 5   | 1   | 264 | 1   | 1 8163 | 3   | 5   | 1   | 264 | 1   | 1 9212 | 1   | 5   | 1   | 264 | 1   | 1 9873 | 1   | 5   | 1   | 264 | 1   | 1 (9 rows) ``` |
+| packets     | integer   | Total number of packets sent over the<br>network.                                                                                                                             |
+
+### Sample queries
+
+The following example returns broadcast information for the queries where
+there are one or more packets, and the difference between the start and end of
+the query was one second or more.
+
+```
+select query, slice, step, rows, bytes, packets, datediff(seconds, starttime, endtime)
+from stl_bcast
+where packets>0 and datediff(seconds, starttime, endtime)>0;
+```
+
+```
+ query | slice | step | rows | bytes | packets | date_diff
+-------+-------+------+------+-------+---------+-----------
+   453 |     2 |    5 |    1 |   264 |       1 |         1
+   798 |     2 |    5 |    1 |   264 |       1 |         1
+  1408 |     2 |    5 |    1 |   264 |       1 |         1
+  2993 |     0 |    5 |    1 |   264 |       1 |         1
+  5045 |     3 |    5 |    1 |   264 |       1 |         1
+  8073 |     3 |    5 |    1 |   264 |       1 |         1
+  8163 |     3 |    5 |    1 |   264 |       1 |         1
+  9212 |     1 |    5 |    1 |   264 |       1 |         1
+  9873 |     1 |    5 |    1 |   264 |       1 |         1
+(9 rows)
+```

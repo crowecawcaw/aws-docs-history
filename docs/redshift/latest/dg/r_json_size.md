@@ -42,10 +42,15 @@ system when serialized. JSON_SIZE does not have this limitation.
 To return the length of
 a `SUPER` value serialized to a string, use the following example.
 
-````
+```
 `SELECT JSON_SIZE(JSON_PARSE('[10001,10002,"⬤"]'));`
 
 `+-----------+
-| json_size | +-----------+
-| 19 | +-----------+` ``` Note that the provided `SUPER` expression is 17 characters long, but ⬤ is a 3-byte character, so JSON\_SIZE returns `19`.
-````
+| json_size |
++-----------+
+| 19 |
++-----------+`
+```
+
+Note that the provided `SUPER` expression is 17 characters long, but
+⬤ is a 3-byte character, so JSON_SIZE returns `19`.

@@ -16,15 +16,38 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name    | Data type                   | Description                                                                                 |
-| -------------- | --------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----- | ---------- | -------------- | ------------------------------------------------------------------------------------------------------- | ------------ | ---- | ---- | ------ | -------------------------------------- |
-| ownerid        | integer                     | The ID of the schema owner.                                                                 |
-| xid            | bigint                      | The transaction ID associated with the statement.                                           |
-| pid            | integer                     | The process ID associated with the statement.                                               |
-| userid         | integer                     | The ID of the user who generated the entry.                                                 |
-| schema_id      | integer                     | The namespace or schema ID.                                                                 |
-| schema_name    | character (128)             | The namespace or schema name.                                                               |
-| quota          | integer                     | The amount of disk space (in MB) that the schema can use.                                   |
-| disk_usage     | integer                     | The disk space (in MB) that is currently used by the schema.                                |
-| disk_usage_pct | double precision            | The disk space percentage that is currently used by the schema out of the configured quota. |
-| timestamp      | timestamp without time zone | The time when the violation occurred.                                                       | ## Sample queries The following query shows the result of quota violation: `SELECT userid, TRIM(SCHEMA_NAME) "schema_name", quota, disk_usage, disk_usage_pct, timestamp FROM stl_schema_quota_violations WHERE SCHEMA_NAME = 'sales_schema' ORDER BY timestamp DESC;` This query returns the following sample output for the specified schema: ``` userid | schema_name | quota | disk_usage | disk_usage_pct | timestamp -------+--------------+-------+------------+----------------+---------------------------- 104 | sales_schema | 2048 | 2798 | 136.62 | 2020-04-20 20:09:25.494723 (1 row) ``` |
+| Column name    | Data type                   | Description                                                                                    |
+| -------------- | --------------------------- | ---------------------------------------------------------------------------------------------- |
+| ownerid        | integer                     | The ID of the schema owner.                                                                    |
+| xid            | bigint                      | The transaction ID associated with the statement.                                              |
+| pid            | integer                     | The process ID associated with the statement.                                                  |
+| userid         | integer                     | The ID of the user who generated the entry.                                                    |
+| schema_id      | integer                     | The namespace or schema ID.                                                                    |
+| schema_name    | character (128)             | The namespace or schema name.                                                                  |
+| quota          | integer                     | The amount of disk space (in MB) that the schema<br>can use.                                   |
+| disk_usage     | integer                     | The disk space (in MB) that is currently used by<br>the schema.                                |
+| disk_usage_pct | double precision            | The disk space percentage that is currently used<br>by the schema out of the configured quota. |
+| timestamp      | timestamp without time zone | The time when the violation occurred.                                                          |
+
+## Sample
+
+queries
+
+The following query shows the result of quota violation:
+
+```
+SELECT userid, TRIM(SCHEMA_NAME) "schema_name", quota, disk_usage, disk_usage_pct, timestamp FROM
+stl_schema_quota_violations WHERE SCHEMA_NAME = 'sales_schema' ORDER BY timestamp DESC;
+
+```
+
+This query returns the following sample output for the specified schema:
+
+```
+
+userid | schema_name  | quota | disk_usage | disk_usage_pct |timestamp
+-------+--------------+-------+------------+----------------+----------------------------
+104    | sales_schema | 2048  | 2798       |  136.62        | 2020-04-20 20:09:25.494723
+(1 row)
+
+```

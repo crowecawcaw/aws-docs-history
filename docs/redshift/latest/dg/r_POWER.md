@@ -39,14 +39,29 @@ In the following example, the POWER function is used to forecast what ticket sal
 will look like in the next 10 years, based on the number of tickets sold in 2008 (the
 result of the subquery). The growth rate is set at 7% per year in this example.
 
-````
+```
 `SELECT (SELECT SUM(qtysold) FROM sales, date
 WHERE sales.dateid=date.dateid
 AND year=2008) * POW((1+7::FLOAT/100),10) qty2010;`
 
 `+-------------------+
-| qty2010 | +-------------------+
-| 679353.7540885945 | +-------------------+` ``` The following example is a variation on the previous example, with the growth rate at 7% per year but the interval is set to months (120 months over 10 years). ``` `SELECT (SELECT SUM(qtysold) FROM sales, date WHERE sales.dateid=date.dateid AND year=2008) * POW((1+7::FLOAT/100/12),120) qty2010;` `+-----------------+
-| qty2010 | +-----------------+
-| 694034.54678046 | +-----------------+` ```
-````
+| qty2010 |
++-------------------+
+| 679353.7540885945 |
++-------------------+`
+```
+
+The following example is a variation on the previous example, with the growth rate
+at 7% per year but the interval is set to months (120 months over 10 years).
+
+```
+`SELECT (SELECT SUM(qtysold) FROM sales, date
+WHERE sales.dateid=date.dateid
+AND year=2008) * POW((1+7::FLOAT/100/12),120) qty2010;`
+
+`+-----------------+
+| qty2010 |
++-----------------+
+| 694034.54678046 |
++-----------------+`
+```

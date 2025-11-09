@@ -13,15 +13,26 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name        | Data type                   | Description                                                                                                                                                                       |
-| ------------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query              | integer                     | The query ID.                                                                                                                                                                     |
-| segment            | integer                     | Segment number. A query consists of multiple segments, and each segment consists of one or more steps. Query segments can run in parallel. Each segment runs in a single process. |
-| node               | integer                     | The node number.                                                                                                                                                                  |
-| slice              | integer                     | The data slice that a particular segment ran against.                                                                                                                             |
-| eventtime          | timestamp without time zone | Time in UTC that the step started executing.                                                                                                                                      |
-| retries            | integer                     | The number of retries for the query.                                                                                                                                              |
-| successful_fetches | integer                     | The number of times data was returned.                                                                                                                                            |
-| file_size          | bigint                      | This size of the file in bytes.                                                                                                                                                   |
-| location           | text                        | The location of the table.                                                                                                                                                        |
-| message            | text                        | The error message.                                                                                                                                                                | ## Sample query The following example retrieves data about failed S3 queries. `SELECT svl_s3retries.query, svl_s3retries.segment, svl_s3retries.node, svl_s3retries.slice, svl_s3retries.eventtime, svl_s3retries.retries, svl_s3retries.successful_fetches, svl_s3retries.file_size, btrim((svl_s3retries."location")::text) AS "location", btrim((svl_s3retries.message)::text) AS message FROM svl_s3retries;` |
+| Column name        | Data type                   | Description                                                                                                                                                                                |
+| ------------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| query              | integer                     | The query ID.                                                                                                                                                                              |
+| segment            | integer                     | Segment number.<br>A query consists of multiple segments, and each segment<br>consists of one or more steps. Query segments can run in<br>parallel. Each segment runs in a single process. |
+| node               | integer                     | The node number.                                                                                                                                                                           |
+| slice              | integer                     | The data slice that a particular segment ran<br>against.                                                                                                                                   |
+| eventtime          | timestamp without time zone | Time in UTC that the step started<br>executing.                                                                                                                                            |
+| retries            | integer                     | The number of retries for the query.                                                                                                                                                       |
+| successful_fetches | integer                     | The number of times data was returned.                                                                                                                                                     |
+| file_size          | bigint                      | This size of the file in bytes.                                                                                                                                                            |
+| location           | text                        | The location of the table.                                                                                                                                                                 |
+| message            | text                        | The error message.                                                                                                                                                                         |
+
+## Sample query
+
+The following example retrieves data about failed S3 queries.
+
+```
+
+SELECT svl_s3retries.query, svl_s3retries.segment, svl_s3retries.node, svl_s3retries.slice, svl_s3retries.eventtime, svl_s3retries.retries,
+svl_s3retries.successful_fetches, svl_s3retries.file_size, btrim((svl_s3retries."location")::text) AS "location", btrim((svl_s3retries.message)::text)
+AS message FROM svl_s3retries;
+```

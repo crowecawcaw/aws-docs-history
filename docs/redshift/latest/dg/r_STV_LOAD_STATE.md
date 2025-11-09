@@ -15,20 +15,38 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name              | Data type      | Description                                                                                                                                                 |
-| ------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | -------------------------------------------------------------------- | --- | --- | --- | -------- | -------- | --------------- |
-| userid                   | integer        | ID of user who generated entry.                                                                                                                             |
-| session                  | integer        | Session PID of process doing the load.                                                                                                                      |
-| query                    | integer        | Query ID. Can be used to join various other system tables and views.                                                                                        |
-| slice                    | integer        | Node slice number.                                                                                                                                          |
-| pid                      | integer        | Process ID. All of the queries in a session are run in the same process, so this value remains constant if you run a series of queries in the same session. |
-| recordtime               | timestamp      | Time the record is logged.                                                                                                                                  |
-| bytes_to_load            | bigint         | Total number of bytes to be loaded by this slice. This is 0 if the data being loaded is compressed                                                          |
-| bytes_loaded             | bigint         | Number of bytes loaded by this slice. If the data being loaded is compressed, this is the number of bytes loaded after the data is uncompressed.            |
-| bytes_to_load_compressed | bigint         | Total number of bytes of compressed data to be loaded by this slice. This is 0 if the data being loaded is not compressed.                                  |
-| bytes_loaded_compressed  | bigint         | Number of bytes of compressed data loaded by this slice. This is 0 if the data being loaded is not compressed.                                              |
-| lines                    | integer        | Number of lines loaded by this slice.                                                                                                                       |
-| num_files                | integer        | Number of files to be loaded by this slice.                                                                                                                 |
-| num_files_complete       | integer        | Number of files loaded by this slice.                                                                                                                       |
-| current_file             | character(256) | Name of the file being loaded by this slice.                                                                                                                |
-| pct_complete             | integer        | Percentage of data load completed by this slice.                                                                                                            | ## Sample query To view the progress of each slice for a COPY command, type the following query. This example uses the PG_LAST_COPY_ID() function to retrieve information for the last COPY command. ``` select slice , bytes_loaded, bytes_to_load , pct_complete from stv_load_state where query = pg_last_copy_id(); slice | bytes_loaded | bytes_to_load | pct_complete -------+--------------+---------------+-------------- 2 | 0   | 0   | 0 3 | 12840898 | 39104640 | 32 (2 rows) ``` |
+| Column name              | Data type      | Description                                                                                                                                                       |
+| ------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                   | integer        | ID of user who generated entry.                                                                                                                                   |
+| session                  | integer        | Session PID of process doing the load.                                                                                                                            |
+| query                    | integer        | Query ID. Can be used to join various other system<br>tables and views.                                                                                           |
+| slice                    | integer        | Node slice number.                                                                                                                                                |
+| pid                      | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session. |
+| recordtime               | timestamp      | Time the record is logged.                                                                                                                                        |
+| bytes_to_load            | bigint         | Total number of bytes to be loaded by this slice.<br>This is 0 if the data being loaded is compressed                                                             |
+| bytes_loaded             | bigint         | Number of bytes loaded by this slice. If the data<br>being loaded is compressed, this is the number of bytes loaded after<br>the data is uncompressed.            |
+| bytes_to_load_compressed | bigint         | Total number of bytes of compressed data to be<br>loaded by this slice. This is 0 if the data being loaded is not<br>compressed.                                  |
+| bytes_loaded_compressed  | bigint         | Number of bytes of compressed data loaded by this<br>slice. This is 0 if the data being loaded is not compressed.                                                 |
+| lines                    | integer        | Number of lines loaded by this slice.                                                                                                                             |
+| num_files                | integer        | Number of files to be loaded by this<br>slice.                                                                                                                    |
+| num_files_complete       | integer        | Number of files loaded by this slice.                                                                                                                             |
+| current_file             | character(256) | Name of the file being loaded by this slice.                                                                                                                      |
+| pct_complete             | integer        | Percentage of data load completed by this<br>slice.                                                                                                               |
+
+## Sample query
+
+To view the progress of each slice for a COPY command, type the following query.
+This example uses the PG_LAST_COPY_ID() function to retrieve information for the
+last COPY command.
+
+```
+select slice , bytes_loaded, bytes_to_load , pct_complete from stv_load_state where query = pg_last_copy_id();
+
+ slice | bytes_loaded | bytes_to_load | pct_complete
+-------+--------------+---------------+--------------
+     2 |            0 |             0 |            0
+     3 |     12840898 |      39104640 |           32
+(2 rows)
+
+
+```

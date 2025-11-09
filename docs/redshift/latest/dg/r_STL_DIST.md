@@ -28,7 +28,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- | ---- | ----- | ------- | ----------------------------------------------------------------------------- | --- | --- | ----- | ------- | --- | ----- | --- | --- | ---- | ------ | --- | ----- | --- | --- | ---- | ------ | --- | ----- | --- | --- | ------ | ------- | ---- | ----- | --- | --- | ------ | ------- | ---- | ----- | --- | --- | ---- | ------ | --- | ----- | --- | --- | ---- | ------ | --- | ----- | --- | --- | --- | ----- | --- | -------- | --- | --- | --- | ----- | --- | -------------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -39,4 +39,35 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
 | bytes       | bigint    | Size, in bytes, of all the output rows for the step.                                                                                                                          |
-| packets     | integer   | Total number of packets sent over the network.                                                                                                                                | ## Sample queries The following example returns distribution information for queries with one or more packets and duration greater than zero. `select query, slice, step, rows, bytes, packets, datediff(seconds, starttime, endtime) as duration from stl_dist where packets>0 and datediff(seconds, starttime, endtime)>0 order by query limit 10;` ``` query | slice | step | rows | bytes | packets | duration --------+-------+------+--------+---------+---------+----------- 567 | 1   | 4   | 49990 | 6249564 | 707 | 1 630 | 0   | 5   | 8798 | 408404 | 46  | 2 645 | 1   | 4   | 8798 | 408404 | 46  | 1 651 | 1   | 5   | 192497 | 9226320 | 1039 | 6 669 | 1   | 4   | 192497 | 9226320 | 1039 | 4 675 | 1   | 5   | 3766 | 194656 | 22  | 1 696 | 0   | 4   | 3766 | 194656 | 22  | 1 705 | 0   | 4   | 930 | 44400 | 5   | 1 111525 | 0   | 3   | 68  | 17408 | 2   | 1 (9 rows) ``` |
+| packets     | integer   | Total number of packets sent over the<br>network.                                                                                                                             |
+
+## Sample queries
+
+The following example returns distribution information for queries with one or
+more packets and duration greater than zero.
+
+```
+select query, slice, step, rows, bytes, packets,
+datediff(seconds, starttime, endtime) as duration
+from stl_dist
+where packets>0 and datediff(seconds, starttime, endtime)>0
+order by query
+limit 10;
+```
+
+```
+
+ query  | slice | step |  rows  |  bytes  | packets | duration
+--------+-------+------+--------+---------+---------+-----------
+    567 |     1 |    4 |  49990 | 6249564 |     707 |         1
+    630 |     0 |    5 |   8798 |  408404 |      46 |         2
+    645 |     1 |    4 |   8798 |  408404 |      46 |         1
+    651 |     1 |    5 | 192497 | 9226320 |    1039 |         6
+    669 |     1 |    4 | 192497 | 9226320 |    1039 |         4
+    675 |     1 |    5 |   3766 |  194656 |      22 |         1
+    696 |     0 |    4 |   3766 |  194656 |      22 |         1
+    705 |     0 |    4 |    930 |   44400 |       5 |         1
+ 111525 |     0 |    3 |     68 |   17408 |       2 |         1
+(9 rows)
+
+```

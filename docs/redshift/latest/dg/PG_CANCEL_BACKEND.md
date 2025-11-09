@@ -43,7 +43,7 @@ To cancel a currently running query, first retrieve the process ID for the query
 that you want to cancel. To determine the process IDs for all currently running
 queries, run the following command.
 
-````
+```
 `SELECT pid, TRIM(starttime) AS start,
 duration, TRIM(user_name) AS user,
 SUBSTRING(query,1,40) AS querytxt
@@ -51,8 +51,16 @@ FROM stv_recents
 WHERE status = 'Running';`
 
 `+-----+------------------------+----------+--------+-----------------------------+
-| pid | starttime | duration | user | querytxt | +-----+------------------------+----------+--------+-----------------------------+
+| pid | starttime | duration | user | querytxt |
++-----+------------------------+----------+--------+-----------------------------+
 | 802 | 2013-10-14 09:19:03.55 | 132 | dwuser | select venuename from venue |
 | 834 | 2013-10-14 08:33:49.47 | 1250414 | dwuser | select * from listing; |
-| 964 | 2013-10-14 08:30:43.29 | 326179 | dwuser | select sellerid from sales | +-----+------------------------+----------+--------+-----------------------------+` ``` To cancel the query with process ID 802, use the following example. ``` `SELECT PG_CANCEL_BACKEND(802);` ```
-````
+| 964 | 2013-10-14 08:30:43.29 | 326179 | dwuser | select sellerid from sales |
++-----+------------------------+----------+--------+-----------------------------+`
+```
+
+To cancel the query with process ID 802, use the following example.
+
+```
+`SELECT PG_CANCEL_BACKEND(802);`
+```

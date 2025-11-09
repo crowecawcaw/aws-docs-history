@@ -18,10 +18,49 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type     | Description                                                                                                                |
-| ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------ | --- | ------------------------ | ----- | ------ | --- | -------------------------- | ----- | ------ | --- | -------------------------- | ----- | ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| starttime   | timestamp     | Time that the session started.                                                                                             |
-| process     | integer       | Process ID for the session.                                                                                                |
-| user_name   | character(50) | User associated with the session.                                                                                          |
-| db_name     | character(50) | Name of the database associated with the session.                                                                          |
-| timeout_sec | int           | The maximum time in seconds that a session remains inactive or idle before timing out. 0 indicates that no timeout is set. | ## Sample queries To perform a quick check to see if any other users are currently logged into Amazon Redshift, type the following query: `select count(*) from stv_sessions;` If the result is greater than one, then at least one other user is currently logged in to the database. To view all active sessions for Amazon Redshift, type the following query: `select * from stv_sessions;` The following result shows four active sessions running on Amazon Redshift: ``` starttime | process | user_name | db_name | timeout_sec -------------------------+---------+----------------------------+----------------------------+------------- 2018-08-06 08:44:07.50 | 13779 | IAMA:aws_admin:admin_grp | dev | 0 2008-08-06 08:54:20.50 | 19829 | dwuser | dev | 120 2008-08-06 08:56:34.50 | 20279 | dwuser | dev | 120 2008-08-06 08:55:00.50 | 19996 | dwuser | tickit | 0 (3 rows) ``` The user name prefixed with IAMA indicates that the user signed on using federated single sign-on. For more information, see [Using IAM authentication to generate database user credentials](../mgmt/generating-user-credentials.md "../mgmt/generating-user-credentials.md"). |
+| Column name | Data type     | Description                                                                                                                      |
+| ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| starttime   | timestamp     | Time that the session started.                                                                                                   |
+| process     | integer       | Process ID for the session.                                                                                                      |
+| user_name   | character(50) | User associated with the session.                                                                                                |
+| db_name     | character(50) | Name of the database associated with the<br>session.                                                                             |
+| timeout_sec | int           | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set. |
+
+## Sample queries
+
+To perform a quick check to see if any other users are currently logged into
+Amazon Redshift, type the following query:
+
+```
+select count(*)
+from stv_sessions;
+```
+
+If the result is greater than one, then at least one other user is currently
+logged in to the database.
+
+To view all active sessions for Amazon Redshift, type the following query:
+
+```
+select *
+from stv_sessions;
+```
+
+The following result shows four active sessions running on
+Amazon Redshift:
+
+```
+
+       starttime         | process |user_name                   | db_name                    | timeout_sec
+-------------------------+---------+----------------------------+----------------------------+-------------
+  2018-08-06 08:44:07.50 |   13779 | IAMA:aws_admin:admin_grp   | dev                        | 0
+  2008-08-06 08:54:20.50 |   19829 | dwuser                     | dev                        | 120
+  2008-08-06 08:56:34.50 |   20279 | dwuser                     | dev                        | 120
+  2008-08-06 08:55:00.50 |   19996 | dwuser                     | tickit                     | 0
+(3 rows)
+
+```
+
+The user name prefixed with IAMA indicates that the user signed on using federated
+single sign-on. For more information, see [Using IAM authentication to generate
+database user credentials](../mgmt/generating-user-credentials.md "../mgmt/generating-user-credentials.md").

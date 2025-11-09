@@ -50,13 +50,28 @@ VARCHAR
 
 To replace several characters in a string, use the following example.
 
-````
+```
 `SELECT TRANSLATE('mint tea', 'inea', 'osin');`
 
 `+-----------+
-| translate | +-----------+
-| most tin | +-----------+` ``` The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To replace the at sign (@) with a period for all values in a column, use the following example. ``` `SELECT email, TRANSLATE(email, '@', '.') as obfuscated_email FROM users LIMIT 10;` `+---------------------------------------+---------------------------------------+
-| email | obfuscated_email | +---------------------------------------+---------------------------------------+
+| translate |
++-----------+
+| most tin |
++-----------+`
+```
+
+The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To replace the at sign (@) with a period for all values in a
+column, use the following example.
+
+```
+`SELECT email, TRANSLATE(email, '@', '.') as obfuscated_email
+FROM users LIMIT 10;`
+
+`+---------------------------------------+---------------------------------------+
+| email | obfuscated_email |
++---------------------------------------+---------------------------------------+
 | Cum@accumsan.com | Cum.accumsan.com |
 | lorem.ipsum@Vestibulumante.com | lorem.ipsum.Vestibulumante.com |
 | non.justo.Proin@ametconsectetuer.edu | non.justo.Proin.ametconsectetuer.edu |
@@ -66,8 +81,23 @@ To replace several characters in a string, use the following example.
 | cursus@pedeacurna.edu | cursus.pedeacurna.edu |
 | at@Duis.com | at.Duis.com |
 | quam@facilisisvitaeorci.ca | quam.facilisisvitaeorci.ca |
-| mi.lorem@nunc.edu | mi.lorem.nunc.edu | +---------------------------------------+---------------------------------------+` ``` To replace spaces with underscores and strips out periods for all values in a column, use the following example. ``` `SELECT city, TRANSLATE(city, ' .', '_') FROM users WHERE city LIKE 'Sain%' OR city LIKE 'St%' GROUP BY city ORDER BY city;` `+----------------+---------------+
-| city | translate | +----------------+---------------+
+| mi.lorem@nunc.edu | mi.lorem.nunc.edu |
++---------------------------------------+---------------------------------------+`
+```
+
+To replace spaces with underscores and strips out periods for
+all values in a column, use the following example.
+
+```
+`SELECT city, TRANSLATE(city, ' .', '_')
+FROM users
+WHERE city LIKE 'Sain%' OR city LIKE 'St%'
+GROUP BY city
+ORDER BY city;`
+
+`+----------------+---------------+
+| city | translate |
++----------------+---------------+
 | Saint Albans | Saint_Albans |
 | Saint Cloud | Saint_Cloud |
 | Saint Joseph | Saint_Joseph |
@@ -86,5 +116,6 @@ To replace several characters in a string, use the following example.
 | Stevens Point | Stevens_Point |
 | Stillwater | Stillwater |
 | Stockton | Stockton |
-| Sturgis | Sturgis | +----------------+---------------+` ```
-````
+| Sturgis | Sturgis |
++----------------+---------------+`
+```

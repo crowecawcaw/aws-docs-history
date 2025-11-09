@@ -15,11 +15,30 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name    | Data type | Description                                                 |
-| -------------- | --------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------------------- | ---- | ----------- | ---- | ----------- | ---- | ------------------- |
-| userid         | integer   | ID of the user who generated the entry.                     |
-| xact_id        | bigint    | ID for the undo transaction.                                |
-| xact_id_undone | bigint    | ID for the transaction that was undone.                     |
-| undo_start_ts  | timestamp | Start time for the undo transaction.                        |
-| undo_end_ts    | timestamp | End time for the undo transaction.                          |
-| table_id       | bigint    | ID for the table that was affected by the undo transaction. | ## Sample query To view a concise log of all undone transactions, type the following command: `select xact_id, xact_id_undone, table_id from stl_undone;` This command returns the following sample output: ``` xact_id | xact_id_undone | table_id ---------+----------------+---------- 1344 | 1344 | 100192 1326 | 1326 | 100192 1551 | 1551 | 100192 (3 rows) ``` |
+| Column name    | Data type | Description                                                    |
+| -------------- | --------- | -------------------------------------------------------------- |
+| userid         | integer   | ID of the user who generated the entry.                        |
+| xact_id        | bigint    | ID for the undo transaction.                                   |
+| xact_id_undone | bigint    | ID for the transaction that was undone.                        |
+| undo_start_ts  | timestamp | Start time for the undo transaction.                           |
+| undo_end_ts    | timestamp | End time for the undo transaction.                             |
+| table_id       | bigint    | ID for the table that was affected by the undo<br>transaction. |
+
+## Sample query
+
+To view a concise log of all undone transactions, type the following command:
+
+```
+select xact_id, xact_id_undone, table_id from stl_undone;
+```
+
+This command returns the following sample output:
+
+```
+ xact_id | xact_id_undone | table_id
+---------+----------------+----------
+1344 |           1344 |   100192
+1326 |           1326 |   100192
+1551 |           1551 |   100192
+(3 rows)
+```

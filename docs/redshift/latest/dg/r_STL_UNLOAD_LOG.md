@@ -26,14 +26,43 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name   | Data type       | Description                                                   |
-| ------------- | --------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------- |
+| ------------- | --------------- | ------------------------------------------------------------- |
 | userid        | integer         | ID of the user who generated the entry.                       |
 | query         | integer         | The query ID.                                                 |
 | slice         | integer         | Number that identifies the slice where the query was running. |
-| pid           | integer         | Process ID associated with the query statement.               |
-| path          | character(1280) | The complete Amazon S3 object path for the file.              |
+| pid           | integer         | Process ID associated with the query<br>statement.            |
+| path          | character(1280) | The complete Amazon S3 object path for the<br>file.           |
 | start_time    | timestamp       | Start time for the transaction.                               |
 | end_time      | timestamp       | End time for the transaction.                                 |
-| line_count    | bigint          | Number of lines (rows) unloaded to the file.                  |
+| line_count    | bigint          | Number of lines (rows) unloaded to the<br>file.               |
 | transfer_size | bigint          | Number of bytes transferred.                                  |
-| file_format   | character(10)   | Format of unloaded file.                                      | ## Sample query To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can call an Amazon S3 list operation after the UNLOAD completes. You can also query STL_UNLOAD_LOG. The following query returns the pathname for files that were created by an UNLOAD for the last query completed: `select query, substring(path,0,40) as path from stl_unload_log where query = pg_last_query_id() order by path;` This command returns the following sample output: ``` query | path -------+-------------------------------------- 2320 | s3://amzn-s3-demo-bucket/venue0000_part_00 2320 | s3://amzn-s3-demo-bucket/venue0001_part_00 2320 | s3://amzn-s3-demo-bucket/venue0002_part_00 2320 | s3://amzn-s3-demo-bucket/venue0003_part_00 (4 rows) ``` |
+| file_format   | character(10)   | Format of unloaded file.                                      |
+
+## Sample query
+
+To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can
+call an Amazon S3 list operation after the UNLOAD completes. You can also query STL_UNLOAD_LOG.
+
+The following query returns the pathname for files that were created by an UNLOAD
+for the last query completed:
+
+```
+select query, substring(path,0,40) as path
+from stl_unload_log
+where query = pg_last_query_id()
+order by path;
+```
+
+This command returns the following sample output:
+
+```
+
+ query |             path
+-------+--------------------------------------
+  2320 | s3://amzn-s3-demo-bucket/venue0000_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0001_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0002_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0003_part_00
+(4 rows)
+
+```

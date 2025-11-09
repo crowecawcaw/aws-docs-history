@@ -12,12 +12,42 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name      | Data type      | Description                                                                                                                                          |
-| ---------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----- | -------------------------- | ------ | ------- | ----- | -------------------------- | ------ | ------- | ----- | -------------------------- | ------ | ------- | ----- | -------------------------- | ------ | ------- | ------ | -------------------------- | ------ | ------- | -------- | -------------------------- | --------------------- | ------- | -------- | ------------------------- | --------------------- | ------- | -------- | -------------------------- | --------------------- | ------- | ---------------------------------------------------- | -------------------------- | ------ | ------- | ----- | -------------------------- | ------ | ------- | ----- | ------------------------- | ------ | ------- | ----- | -------------------------- | ------ | ------- | ------------------------------- | -------------------------- | ------ | ------- | ------ | -------------------------- | ------ | ------- | ----------------------------- | -------------------------- | ------ | ------- | ----------------------------- | ------------------------- | ----- |
-| transaction_id   | long           | The transaction identifier.                                                                                                                          |
-| session_id       | int            | The session identifier of the process that executed the alter command.                                                                               |
-| table_id         | int            | The table identifier.                                                                                                                                |
-| alter_table_type | character(32)  | The type of recommendation. Possible values are `distkey`, `sortkey`, and `encode`.                                                                  |
-| status           | character(128) | The completion status of the recommendation. Possible values are `Start`, `Complete`, `Skipped`, `Abort`, `Checkpoint`, and `Failed`.                |
-| event_time       | timestamp      | The timestamp of the status column.                                                                                                                  |
-| alter_from       | character(200) | The previous distribution style and sort keys of the table before applying the recommendation. The value is truncated into 200-character increments. | ## Sample queries In the following example, the rows in the result show actions taken by Amazon Redshift. ``` `SELECT table_id, alter_table_type, status, event_time, alter_from FROM SYS_AUTO_TABLE_OPTIMIZATION;` `table_id | alter_table_type | status | event_time | alter_from ----------+---------------------+------------------------------------------------------+-----------------------------+----------------- 118082 | sortkey | Start | 2020-08-22 19:42:20.727049 | 118078 | sortkey | Start | 2020-08-22 19:43:54.728819 | 118082 | sortkey | Start | 2020-08-22 19:42:52.690264 | 118072 | sortkey | Start | 2020-08-22 19:44:14.793572 | 118082 | sortkey | Failed | 2020-08-22 19:42:20.728917 | 118078 | sortkey | Complete | 2020-08-22 19:43:54.792705 | SORTKEY: None; 118086 | sortkey | Complete | 2020-08-22 19:42:00.72635 | SORTKEY: None; 118082 | sortkey | Complete | 2020-08-22 19:43:34.728144 | SORTKEY: None; 118072 | sortkey | Skipped:Retry exceeds the maximum limit for a table. | 2020-08-22 19:44:46.706155 | 118086 | sortkey | Start | 2020-08-22 19:42:00.685255 | 118082 | sortkey | Start | 2020-08-22 19:43:34.69531 | 118072 | sortkey | Start | 2020-08-22 19:44:46.703331 | 118082 | sortkey | Checkpoint: progress 14.755079% | 2020-08-22 19:42:52.692828 | 118072 | sortkey | Failed | 2020-08-22 19:44:14.796071 | 116723 | sortkey | Abort:This table is not AUTO. | 2020-10-28 05:12:58.479233 | 110203 | distkey | Abort:This table is not AUTO. | 2020-10-28 05:45:54.67259 | ` ``` |
+| Column name      | Data type      | Description                                                                                                                                                |
+| ---------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transaction_id   | long           | The transaction identifier.                                                                                                                                |
+| session_id       | int            | The session identifier of the process that<br>executed the alter command.                                                                                  |
+| table_id         | int            | The table identifier.                                                                                                                                      |
+| alter_table_type | character(32)  | The type of recommendation. Possible values are<br>`distkey`, `sortkey`, and<br>`encode`.                                                                  |
+| status           | character(128) | The completion status of the recommendation.<br>Possible values are `Start`, `Complete`,<br>`Skipped`, `Abort`,<br>`Checkpoint`, and `Failed`.             |
+| event_time       | timestamp      | The timestamp of the status column.                                                                                                                        |
+| alter_from       | character(200) | The previous distribution style and sort keys of<br>the table before applying the recommendation. The value is truncated<br>into 200-character increments. |
+
+## Sample
+
+queries
+
+In the following example, the rows in the result show actions taken by Amazon Redshift.
+
+```
+`SELECT table_id, alter_table_type, status, event_time, alter_from
+FROM SYS_AUTO_TABLE_OPTIMIZATION;`
+
+ `table_id | alter_table_type | status | event_time | alter_from
+----------+---------------------+------------------------------------------------------+-----------------------------+-----------------
+ 118082 | sortkey | Start | 2020-08-22 19:42:20.727049 |
+ 118078 | sortkey | Start | 2020-08-22 19:43:54.728819 |
+ 118082 | sortkey | Start | 2020-08-22 19:42:52.690264 |
+ 118072 | sortkey | Start | 2020-08-22 19:44:14.793572 |
+ 118082 | sortkey | Failed | 2020-08-22 19:42:20.728917 |
+ 118078 | sortkey | Complete | 2020-08-22 19:43:54.792705 | SORTKEY: None;
+ 118086 | sortkey | Complete | 2020-08-22 19:42:00.72635 | SORTKEY: None;
+ 118082 | sortkey | Complete | 2020-08-22 19:43:34.728144 | SORTKEY: None;
+ 118072 | sortkey | Skipped:Retry exceeds the maximum limit for a table. | 2020-08-22 19:44:46.706155 |
+ 118086 | sortkey | Start | 2020-08-22 19:42:00.685255 |
+ 118082 | sortkey | Start | 2020-08-22 19:43:34.69531 |
+ 118072 | sortkey | Start | 2020-08-22 19:44:46.703331 |
+ 118082 | sortkey | Checkpoint: progress 14.755079% | 2020-08-22 19:42:52.692828 |
+ 118072 | sortkey | Failed | 2020-08-22 19:44:14.796071 |
+ 116723 | sortkey | Abort:This table is not AUTO. | 2020-10-28 05:12:58.479233 |
+ 110203 | distkey | Abort:This table is not AUTO. | 2020-10-28 05:45:54.67259 |`
+```

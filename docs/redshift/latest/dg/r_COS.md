@@ -29,12 +29,24 @@ The COS function returns a `DOUBLE PRECISION` number.
 
 To return the cosine of `0`, use the following example.
 
-````
+```
 `SELECT COS(0);`
 
 `+-----+
-| cos | +-----+
-| 1 | +-----+` ``` To return the cosine of `pi`, use the following example. ``` `SELECT COS(PI());` `+-----+
-| cos | +-----+
-| -1 | +-----+` ```
-````
+| cos |
++-----+
+| 1 |
++-----+`
+```
+
+To return the cosine of `pi`, use the following example.
+
+```
+`SELECT COS(PI());`
+
+`+-----+
+| cos |
++-----+
+| -1 |
++-----+`
+```

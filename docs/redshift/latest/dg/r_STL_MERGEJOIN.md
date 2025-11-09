@@ -21,7 +21,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ----- | ------- | ---- | --------- | ------- | ------- | ---- | -------------------------------------------------------------------------------------------------------------------- | ----- | --- | --- | --- | ------------------- | ------------------- | --- | ----- | ------- | ----- | --- | --- | --- | ------------------- | ------------------- | --- | ----- | ------- | ----- | --- | --- | --- | ------------------- | ------------------- | --- | ----- | ------- | ----- | --- | --- | --- | ------------------- | ------------------- | --- | ----- | ------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -31,5 +31,28 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | endtime     | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
-| tbl         | integer   | Table ID. This is the ID for the inner table that was used in the merge join.                                                                                                 |
-| checksum    | bigint    | This information is for internal use only.                                                                                                                                    | ## Sample queries The following example returns merge join results for the most recent query. `select sum(s.qtysold), e.eventname from event e, listing l, sales s where e.eventid=l.eventid and l.listid= s.listid group by e.eventname; select * from stl_mergejoin where query=pg_last_query_id();` ``` userid | query | slice | segment | step | starttime | endtime | tasknum | rows | tbl --------+-------+-------+---------+------+---------------------+---------------------+---------+------+----- 100 | 27399 | 3   | 4   | 4   | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 | 19  | 43428 | 240 100 | 27399 | 0   | 4   | 4   | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 | 19  | 43159 | 240 100 | 27399 | 2   | 4   | 4   | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 | 19  | 42778 | 240 100 | 27399 | 1   | 4   | 4   | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 | 19  | 43091 | 240 ``` |
+| tbl         | integer   | Table ID. This is the ID for the inner<br>table that was used in the merge join.                                                                                              |
+| checksum    | bigint    | This information is for internal use only.                                                                                                                                    |
+
+## Sample queries
+
+The following example returns merge join results for the most recent query.
+
+```
+select sum(s.qtysold), e.eventname
+from event e, listing l, sales s
+where e.eventid=l.eventid
+and l.listid= s.listid
+group by e.eventname;
+
+select * from stl_mergejoin where query=pg_last_query_id();
+```
+
+```
+ userid | query | slice | segment | step |         starttime   |          endtime    | tasknum | rows | tbl
+--------+-------+-------+---------+------+---------------------+---------------------+---------+------+-----
+    100 | 27399 |     3 |       4 |    4 | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 |      19 |43428 | 240
+    100 | 27399 |     0 |       4 |    4 | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 |      19 |43159 | 240
+    100 | 27399 |     2 |       4 |    4 | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 |      19 |42778 | 240
+    100 | 27399 |     1 |       4 |    4 | 2013-10-02 16:30:41 | 2013-10-02 16:30:41 |      19 |43091 | 240
+```

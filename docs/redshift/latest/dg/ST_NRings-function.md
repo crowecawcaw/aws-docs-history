@@ -27,8 +27,24 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned value                        | Geometry subtype                                                                          |
-| ------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0                                     | Returned if _geom_ is a `POINT`, `LINESTRING`, `MULTIPOINT`, or `MULTILINESTRING` subtype |
-| The number of rings.                  | Returned if _geom_ is a `POLYGON` or `MULTIPOLYGON` subtype                               |
-| The number of rings in all components | Returned if _geom_ is a `GEOMETRYCOLLECTION` subtype                                      | ## Examples The following SQL returns the number of rings in a multipolygon. `SELECT ST_NRings(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((0 0,-10 0,0 -10,0 0)))'));` `st_nrings ------------- 2` |
+| Returned value                        | Geometry subtype                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| 0                                     | Returned if \*geom<br>• is a `POINT`, `LINESTRING`,<br>`MULTIPOINT`, or `MULTILINESTRING` subtype |
+| The number of rings.                  | Returned if \*geom<br>• is a `POLYGON` or `MULTIPOLYGON`<br>subtype                               |
+| The number of rings in all components | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype                                         |
+
+## Examples
+
+The following SQL returns the number of rings in a multipolygon.
+
+```
+SELECT ST_NRings(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((0 0,-10 0,0 -10,0 0)))'));
+```
+
+```
+
+ st_nrings
+-------------
+ 2
+
+```

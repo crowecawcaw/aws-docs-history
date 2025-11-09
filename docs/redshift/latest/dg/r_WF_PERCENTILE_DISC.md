@@ -55,13 +55,14 @@ The same data type as the ORDER BY expression in the WITHIN GROUP clause.
 The following examples use the WINSALES table. For a description of the WINSALES
 table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
 
-````
+```
 `SELECT sellerid, qty, PERCENTILE_DISC(0.5)
 WITHIN GROUP (ORDER BY qty)
 OVER() AS MEDIAN FROM winsales;`
 
 `+----------+-----+--------+
-| sellerid | qty | median | +----------+-----+--------+
+| sellerid | qty | median |
++----------+-----+--------+
 | 3 | 10 | 20 |
 | 1 | 10 | 20 |
 | 1 | 10 | 20 |
@@ -72,8 +73,16 @@ OVER() AS MEDIAN FROM winsales;`
 | 3 | 20 | 20 |
 | 1 | 30 | 20 |
 | 3 | 30 | 20 |
-| 4 | 40 | 20 | +----------+-----+--------+` `SELECT sellerid, qty, PERCENTILE_DISC(0.5) WITHIN GROUP (ORDER BY qty) OVER(PARTITION BY sellerid) AS MEDIAN FROM winsales;` `+----------+-----+--------+
-| sellerid | qty | median | +----------+-----+--------+
+| 4 | 40 | 20 |
++----------+-----+--------+`
+
+`SELECT sellerid, qty, PERCENTILE_DISC(0.5)
+WITHIN GROUP (ORDER BY qty)
+OVER(PARTITION BY sellerid) AS MEDIAN FROM winsales;`
+
+`+----------+-----+--------+
+| sellerid | qty | median |
++----------+-----+--------+
 | 4 | 10 | 10 |
 | 4 | 40 | 10 |
 | 3 | 10 | 15 |
@@ -84,8 +93,20 @@ OVER() AS MEDIAN FROM winsales;`
 | 2 | 20 | 20 |
 | 1 | 10 | 10 |
 | 1 | 10 | 10 |
-| 1 | 30 | 10 | +----------+-----+--------+` ``` To find PERCENTILE\_DISC(0.25) and PERCENTILE\_DISC(0.75) for the quantity when partitioned by the seller ID, use the following examples. ``` `SELECT sellerid, qty, PERCENTILE_DISC(0.25) WITHIN GROUP (ORDER BY qty) OVER(PARTITION BY sellerid) AS quartile1 FROM winsales;` `+----------+-----+-----------+
-| sellerid | qty | quartile1 | +----------+-----+-----------+
+| 1 | 30 | 10 |
++----------+-----+--------+`
+```
+
+To find PERCENTILE_DISC(0.25) and PERCENTILE_DISC(0.75) for the quantity when partitioned by the seller ID, use the following examples.
+
+```
+`SELECT sellerid, qty, PERCENTILE_DISC(0.25)
+WITHIN GROUP (ORDER BY qty)
+OVER(PARTITION BY sellerid) AS quartile1 FROM winsales;`
+
+`+----------+-----+-----------+
+| sellerid | qty | quartile1 |
++----------+-----+-----------+
 | 4 | 10 | 10 |
 | 4 | 40 | 10 |
 | 2 | 20 | 20 |
@@ -96,8 +117,16 @@ OVER() AS MEDIAN FROM winsales;`
 | 3 | 30 | 10 |
 | 1 | 10 | 10 |
 | 1 | 10 | 10 |
-| 1 | 30 | 10 | +----------+-----+-----------+` `SELECT sellerid, qty, PERCENTILE_DISC(0.75) WITHIN GROUP (ORDER BY qty) OVER(PARTITION BY sellerid) AS quartile3 FROM winsales;` `+----------+-----+-----------+
-| sellerid | qty | quartile3 | +----------+-----+-----------+
+| 1 | 30 | 10 |
++----------+-----+-----------+`
+
+`SELECT sellerid, qty, PERCENTILE_DISC(0.75)
+WITHIN GROUP (ORDER BY qty)
+OVER(PARTITION BY sellerid) AS quartile3 FROM winsales;`
+
+`+----------+-----+-----------+
+| sellerid | qty | quartile3 |
++----------+-----+-----------+
 | 3 | 10 | 20 |
 | 3 | 15 | 20 |
 | 3 | 20 | 20 |
@@ -108,5 +137,6 @@ OVER() AS MEDIAN FROM winsales;`
 | 2 | 20 | 20 |
 | 1 | 10 | 30 |
 | 1 | 10 | 30 |
-| 1 | 30 | 30 | +----------+-----+-----------+` ```
-````
+| 1 | 30 | 30 |
++----------+-----+-----------+`
+```

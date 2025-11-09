@@ -63,12 +63,90 @@ _pos_.
 
 To return array element at position 2, which is the third element of a zero-based array index, use the following example.
 
-````
+```
 `SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('[111,112,113]', 2);`
 
 `+---------------------------------+
-| json_extract_array_element_text | +---------------------------------+
-| 113 | +---------------------------------+` ``` To return an error because the JSON is invalid, use the following example. ``` `SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1);` `ERROR: invalid json array object ["a",["b",1,["c",2,3,null,]]]` ``` To set *null\_if\_invalid* to *true*, so the statement returns `NULL` instead of returning an error for invalid JSON, use the following example. ``` `SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1,true);` `+---------------------------------+
-| json_extract_array_element_text | +---------------------------------+
-| NULL | +---------------------------------+` ``` Consider the following example statements. If the provided JSON string or the index is NULL, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL regardless of the value of any other parameters. ``` --Statement where json_string is NULL. SELECT json_extract_array_element_text(NULL, 0) `json_extract_array_element_text --------------------------------- NULL` --Statement where pos is NULL and json_string is invalid JSON. SELECT json_extract_array_element_text('invalid_json', NULL); `json_extract_array_element_text --------------------------------- NULL` --Statement where json_string is NULL and null_if_invalid is FALSE. SELECT json_extract_array_element_text(NULL, 0, FALSE); `json_extract_array_element_text --------------------------------- NULL` ``` Consider the following example statements. When *null\_if\_invalid* is TRUE, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL when *json\_string* is invalid JSON. If *null\_if\_invalid* is FALSE or isn’t set, the function returns an error when *json\_string* is invalid. ``` --Statement with invalid JSON where null_if_invalid is TRUE. SELECT json_extract_array_element_text('invalid_json', 0, TRUE); `json_extract_array_element_text --------------------------------- NULL` --Statement with invalid JSON where null_if_invalid is FALSE. SELECT json_extract_array_element_text('invalid_json', 0); `ERROR: JSON parsing error` ``` Consider the following example, where *json\_string* is valid JSON, and *pos* refers to a JSON `null` value. In this case, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL, regardless of the value of *null\_if\_invalid*. ``` --Statement selecting a null value. SELECT json_extract_array_element_text('[null]', 0); json_extract_array_element_text ---------------------------------- NULL ```
-````
+| json_extract_array_element_text |
++---------------------------------+
+| 113 |
++---------------------------------+`
+```
+
+To return an error because the JSON is invalid, use the following example.
+
+```
+`SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1);`
+
+`ERROR: invalid json array object ["a",["b",1,["c",2,3,null,]]]`
+```
+
+To set _null_if_invalid_ to
+_true_, so the statement returns `NULL` instead of returning an
+error for invalid JSON, use the following example.
+
+```
+`SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1,true);`
+
+`+---------------------------------+
+| json_extract_array_element_text |
++---------------------------------+
+| NULL |
++---------------------------------+`
+```
+
+Consider the following example statements. If the provided JSON string or the index is NULL,
+JSON_EXTRACT_ARRAY_ELEMENT_TEXT returns NULL regardless of the value of any other parameters.
+
+```
+--Statement where json_string is NULL.
+SELECT json_extract_array_element_text(NULL, 0)
+`json_extract_array_element_text
+---------------------------------
+ NULL`
+
+--Statement where pos is NULL and json_string is invalid JSON.
+SELECT json_extract_array_element_text('invalid_json', NULL);
+
+ `json_extract_array_element_text
+---------------------------------
+ NULL`
+
+--Statement where json_string is NULL and null_if_invalid is FALSE.
+SELECT json_extract_array_element_text(NULL, 0, FALSE);
+
+ `json_extract_array_element_text
+---------------------------------
+ NULL`
+```
+
+Consider the following example statements. When _null_if_invalid_ is TRUE, JSON_EXTRACT_ARRAY_ELEMENT_TEXT
+returns NULL when _json_string_ is invalid JSON. If _null_if_invalid_
+is FALSE or isn’t set, the function returns an error when _json_string_ is invalid.
+
+```
+--Statement with invalid JSON where null_if_invalid is TRUE.
+SELECT json_extract_array_element_text('invalid_json', 0, TRUE);
+`json_extract_array_element_text
+---------------------------------
+ NULL`
+
+--Statement with invalid JSON where null_if_invalid is FALSE.
+SELECT json_extract_array_element_text('invalid_json', 0);
+
+`ERROR: JSON parsing error`
+```
+
+Consider the following example, where _json_string_ is valid JSON, and
+_pos_ refers to a JSON `null` value.
+In this case, JSON_EXTRACT_ARRAY_ELEMENT_TEXT returns NULL,
+regardless of the value of _null_if_invalid_.
+
+```
+--Statement selecting a null value.
+SELECT json_extract_array_element_text('[null]', 0);
+
+  json_extract_array_element_text
+----------------------------------
+                             NULL
+```

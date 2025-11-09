@@ -201,19 +201,67 @@ to.
 The following table shows the list of input fields that the designated Lambda
 functions that you can expect for the JSON payload.
 
-| Field name        | Description                                                                                                    | Value range                                                                                                                                                                                                                 |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| request_id        | A universally unique identifier (UUID) that uniquely identifies each invoke request.                           | A valid UUID.                                                                                                                                                                                                               |
-| cluster           | The full Amazon Resource Name (ARN) of the cluster.                                                            | A valid cluster ARN.                                                                                                                                                                                                        |
-| user              | The name of the user that makes the call.                                                                      | A valid user name.                                                                                                                                                                                                          |
-| database          | The name of the database that the query is running on.                                                         | A valid database name.                                                                                                                                                                                                      |
-| external_function | The fully qualified name of the external function that makes the call.                                         | A valid fully qualified function name.                                                                                                                                                                                      |
-| query_id          | The query ID of the query that is making the call.                                                             | A valid query ID.                                                                                                                                                                                                           |
-| num_records       | The number of arguments in the payload.                                                                        | A value of 1 - 2^64.                                                                                                                                                                                                        |
-| arguments         | The data payload in the specified format.                                                                      | The data in array format must be a JSON array. Each element is a record that is an array if the number of arguments is larger than 1. By using an array, Amazon Redshift preserves the order of the records in the payload. | The order of the JSON array determines the order of batch processing. The Lambda function must process the arguments iteratively and produce the exact number of records. The following is an example of a payload. `{ "request_id" : "23FF1F97-F28A-44AA-AB67-266ED976BF40", "cluster" : "arn:aws:redshift:xxxx", "user" : "adminuser", "database" : "db1", "external_function": "public.foo", "query_id" : 5678234, "num_records" : 4, "arguments" : [ [ 1, 2 ], [ 3, null], null, [ 4, 6] ] }` The return output of the Lambda function contains the following fields.                                                                                                                                                                                                                                                                        |
-| Field name        | Description                                                                                                    | Value range                                                                                                                                                                                                                 |
-| ---               | ---                                                                                                            | ---                                                                                                                                                                                                                         |
-| success           | The indication of success or failure for the function.                                                         | A value of `"true"` or `"false"`.                                                                                                                                                                                           |
-| error_msg         | The error message if the success value is `"false"` (if the function fails); otherwise, this field is ignored. | A valid message.                                                                                                                                                                                                            |
-| num_records       | The number of records in the payload.                                                                          | A value of 1 - 2^64.                                                                                                                                                                                                        |
-| results           | The results of the call in the specified format.                                                               | N/A                                                                                                                                                                                                                         | The following is an example of the Lambda function output. `{ "success": true,   // true indicates the call succeeded "error_msg" : "my function isn't working",  // shall only exist when success != true "num_records": 4,      // number of records in this payload "results" : [ 1, 4, null, 7 ] }` When you call Lambda functions from SQL queries, Amazon Redshift ensures the security of the connection with the following considerations: <br>• GRANT and REVOKE permissions. For more information about UDF security and permissions, see [UDF security and permissions](udf-security-and-privileges.md "udf-security-and-privileges.md"). <br>• Amazon Redshift only submits the minimum set of data to the designated Lambda function. <br>• Amazon Redshift only calls the designated Lambda function with the designated IAM role. |
+| Field name        | Description                                                                             | Value range                                                                                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request_id        | A universally unique identifier (UUID) that uniquely identifies each invoke<br>request. | A valid UUID.                                                                                                                                                                                                               |
+| cluster           | The full Amazon Resource Name (ARN) of the<br>cluster.                                  | A valid cluster ARN.                                                                                                                                                                                                        |
+| user              | The name of the user that makes the call.                                               | A valid user name.                                                                                                                                                                                                          |
+| database          | The name of the database that the query is running on.                                  | A valid database name.                                                                                                                                                                                                      |
+| external_function | The fully qualified name of the external function that makes the call.                  | A valid fully qualified function name.                                                                                                                                                                                      |
+| query_id          | The query ID of the query that is making the call.                                      | A valid query ID.                                                                                                                                                                                                           |
+| num_records       | The number of arguments in the payload.                                                 | A value of 1<br>• 2^64.                                                                                                                                                                                                     |
+| arguments         | The data payload in the specified format.                                               | The data in array format must be a JSON array. Each element is a record that is an array if the number of arguments is larger than 1. By using an array, Amazon Redshift preserves the order of the records in the payload. |
+
+The order of the JSON array determines the order of batch processing. The Lambda
+function must process the arguments iteratively and produce the exact number of
+records. The following is an example of a payload.
+
+```
+{
+  "request_id" : "23FF1F97-F28A-44AA-AB67-266ED976BF40",
+  "cluster" : "arn:aws:redshift:xxxx",
+  "user" : "adminuser",
+  "database" : "db1",
+  "external_function": "public.foo",
+  "query_id" : 5678234,
+  "num_records" : 4,
+  "arguments" : [
+     [ 1, 2 ],
+     [ 3, null],
+     null,
+     [ 4, 6]
+   ]
+ }
+```
+
+The return output of the Lambda function contains the following fields.
+
+| Field name  | Description                                                                                                          | Value range                       |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| success     | The indication of success or failure for the<br>function.                                                            | A value of `"true"` or `"false"`. |
+| error_msg   | The error message if the success value is<br>`"false"` (if the function fails); otherwise, this field is<br>ignored. | A valid message.                  |
+| num_records | The number of records in the payload.                                                                                | A value of 1<br>• 2^64.           |
+| results     | The results of the call in the specified format.                                                                     | N/A                               |
+
+The following is an example of the Lambda function output.
+
+```
+{
+  "success": true,   // true indicates the call succeeded
+  "error_msg" : "my function isn't working",  // shall only exist when success != true
+  "num_records": 4,      // number of records in this payload
+  "results" : [
+     1,
+     4,
+     null,
+     7
+   ]
+}
+```
+
+When you call Lambda functions from SQL queries, Amazon Redshift ensures the security of the
+connection with the following considerations:
+
+- GRANT and REVOKE permissions. For more information about UDF security and permissions, see [UDF security and permissions](udf-security-and-privileges.md "udf-security-and-privileges.md").
+- Amazon Redshift only submits the minimum set of data to the designated Lambda function.
+- Amazon Redshift only calls the designated Lambda function with the designated IAM role.

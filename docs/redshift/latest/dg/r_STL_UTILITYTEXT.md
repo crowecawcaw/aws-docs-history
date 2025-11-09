@@ -41,13 +41,87 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                                                                                                                       |
-| ----------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------- | --- | ------------------------------------ | --- | ------------------------------------------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer        | ID of the user who generated the entry.                                                                                                                                                           |
-| xid         | bigint         | Transaction ID.                                                                                                                                                                                   |
-| pid         | integer        | Process ID associated with the query statement.                                                                                                                                                   |
-| label       | character(320) | Either the name of the file used to run the query or a label defined with a SET QUERY_GROUP command. If the query is not file-based or the QUERY_GROUP parameter is not set, this field is blank. |
-| starttime   | timestamp      | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                      |
-| endtime     | timestamp      | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                     |
-| sequence    | integer        | When a single statement contains more than 200 characters, additional rows are logged for that statement. Sequence 0 is the first row, 1 is the second, and so on.                                |
-| text        | character(200) | SQL text, in 200-character increments. This field might contain special characters such as backslash (`\\`) and newline (`\n`).                                                                   | ## Sample queries The following query returns the text for "utility" commands that were run on January 26th, 2012. In this case, some SET commands and a SHOW ALL command were run: ``` select starttime, sequence, rtrim(text) from stl_utilitytext where starttime like '2012-01-26%' order by starttime, sequence; starttime | sequence | rtrim ---------------------------+-----+---------------------------------- 2012-01-26 13:05:52.529235 | 0   | show all; 2012-01-26 13:20:31.660255 | 0   | SET query_group to '' 2012-01-26 13:20:54.956131 | 0   | SET query_group to 'soldunsold.sql' ... ``### Reconstructing Stored SQL To reconstruct the SQL stored in the `text` column of STL\_UTILITYTEXT, run a SELECT statement to create SQL from 1 or more parts in the `text` column. Before running the reconstructed SQL, replace any (`\n`) special characters with a new line. The result of the following SELECT statement is rows of reconstructed SQL in the `query_statement` field.`` SELECT LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END) WITHIN GROUP (ORDER BY sequence) as query_statement FROM stl_utilitytext GROUP BY xid order by xid; `For example, the following query sets the query\_group to a string of zeros. The query itself is longer than 200 characters and is stored in parts in STL\_UTILITYTEXT.` set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000000000000000000000000000000000000000000000000000000000000000000 000000'; ``In this example, the query is stored in 2 parts (rows) in the `text` column of STL\_UTILITYTEXT.`` select query, sequence, text from stl_utilitytext where query=pg_last_query_id() order by query desc, sequence limit 10; ` ` starttime | sequence | text ----------------------------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 2019-07-23 22:55:34.926198 | 0   | set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000000000000000000000 2019-07-23 22:55:34.926198 | 1   | 000000'; `To reconstruct the SQL stored in STL\_UTILITYTEXT, run the following SQL.` select LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') within group (order by sequence) AS query_statement from stl_utilitytext where query=pg_last_query_id(); ``To use the resulting reconstructed SQL in your client, replace any (`\n`) special characters with a new line.`` query_statement ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000000000000000000000 000000'; ``` |
+| Column name | Data type      | Description                                                                                                                                                                                                |
+| ----------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer        | ID of the user who generated the entry.                                                                                                                                                                    |
+| xid         | bigint         | Transaction ID.                                                                                                                                                                                            |
+| pid         | integer        | Process ID associated with the query statement.                                                                                                                                                            |
+| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>is blank. |
+| starttime   | timestamp      | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                               |
+| endtime     | timestamp      | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                              |
+| sequence    | integer        | When a single statement contains more than 200<br>characters, additional rows are logged for that statement. Sequence<br>0 is the first row, 1 is the second, and so on.                                   |
+| text        | character(200) | SQL text, in 200-character increments. This field might contain special characters such as backslash (`\\`) and newline (`\n`).                                                                            |
+
+## Sample queries
+
+The following query returns the text for "utility" commands that were run on
+January 26th, 2012. In this case, some SET commands and a SHOW ALL command were run:
+
+```
+select starttime, sequence, rtrim(text)
+from stl_utilitytext
+where starttime like '2012-01-26%'
+order by starttime, sequence;
+
+starttime          | sequence |              rtrim
+---------------------------+-----+----------------------------------
+2012-01-26 13:05:52.529235 |   0 | show all;
+2012-01-26 13:20:31.660255 |   0 | SET query_group to ''
+2012-01-26 13:20:54.956131 |   0 | SET query_group to 'soldunsold.sql'
+...
+```
+
+### Reconstructing Stored SQL
+
+To reconstruct the SQL stored in the `text` column of STL_UTILITYTEXT,
+run a SELECT statement to create SQL from 1 or more parts in the
+`text` column. Before running the reconstructed SQL, replace
+any (`\n`) special characters with a new line. The result of the
+following SELECT statement is rows of reconstructed SQL in the `query_statement` field.
+
+```
+SELECT LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END) WITHIN GROUP (ORDER BY sequence) as query_statement
+FROM stl_utilitytext GROUP BY xid order by xid;
+```
+
+For example, the following query sets the query_group to a string of zeros. The query itself is longer than 200 characters and is stored in parts in STL_UTILITYTEXT.
+
+```
+set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000                  000000';
+```
+
+In this example, the query is stored in 2 parts (rows) in the `text` column of STL_UTILITYTEXT.
+
+```
+select query, sequence, text
+from stl_utilitytext where query=pg_last_query_id() order by query desc, sequence limit 10;
+```
+
+```
+
+
+         starttime          | sequence |                                                                                                   text
+----------------------------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2019-07-23 22:55:34.926198 |        0 | set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ 2019-07-23 22:55:34.926198 |        1 |                   000000';
+```
+
+To reconstruct the SQL stored in STL_UTILITYTEXT, run the following SQL.
+
+```
+select LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') within group (order by sequence) AS query_statement
+from stl_utilitytext where query=pg_last_query_id();
+
+```
+
+To use the resulting reconstructed SQL in your client, replace any (`\n`) special characters with a
+new line.
+
+```
+
+                                                                                                                                      query_statement
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000\n0000000000000000000000000000000000000000000000000000000000000000000000000000000000                  000000';
+
+```

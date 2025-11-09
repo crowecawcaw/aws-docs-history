@@ -21,14 +21,46 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name   | Data type       | Description                                         |
-| ------------- | --------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------- |
-| userid        | integer         | The ID of the user who generated the entry.         |
-| query         | integer         | The query ID.                                       |
-| pid           | integer         | The process ID associated with the query statement. |
-| path          | character(1280) | The complete Amazon S3 object path for the file.    |
-| start_time    | timestamp       | The start time for the UNLOAD operation.            |
-| end_time      | timestamp       | The end time for the UNLOAD operation.              |
-| line_count    | bigint          | The number of lines (rows) unloaded to the file.    |
-| transfer_size | bigint          | The number of bytes transferred.                    |
-| file_format   | character(10)   | The format of unloaded file.                        | ## Sample query To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can call an Amazon S3 list operation after the UNLOAD completes; however, depending on how quickly you issue the call, the list might be incomplete because an Amazon S3 list operation is eventually consistent. To get a complete, authoritative list immediately, query SVCS_UNLOAD_LOG. The following query returns the path name for files that were created by an UNLOAD for the last query completed: `select query, substring(path,0,40) as path from svcs_unload_log where query = pg_last_query_id() order by path;` This command returns the following sample output: ``` query | path ------+--------------------------------------------- 2320 | s3://amzn-s3-demo-bucket/venue0000_part_00 2320 | s3://amzn-s3-demo-bucket/venue0001_part_00 2320 | s3://amzn-s3-demo-bucket/venue0002_part_00 2320 | s3://amzn-s3-demo-bucket/venue0003_part_00 (4 rows) ``` |
+| Column name   | Data type       | Description                                            |
+| ------------- | --------------- | ------------------------------------------------------ |
+| userid        | integer         | The ID of the user who generated the entry.            |
+| query         | integer         | The query ID.                                          |
+| pid           | integer         | The process ID associated with the query<br>statement. |
+| path          | character(1280) | The complete Amazon S3 object path for the<br>file.    |
+| start_time    | timestamp       | The start time for the UNLOAD operation.               |
+| end_time      | timestamp       | The end time for the UNLOAD operation.                 |
+| line_count    | bigint          | The number of lines (rows) unloaded to the<br>file.    |
+| transfer_size | bigint          | The number of bytes transferred.                       |
+| file_format   | character(10)   | The format of unloaded file.                           |
+
+## Sample query
+
+To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can
+call an Amazon S3 list operation after the UNLOAD completes; however, depending on how
+quickly you issue the call, the list might be incomplete because an Amazon S3 list
+operation is eventually consistent. To get a complete, authoritative list
+immediately, query SVCS_UNLOAD_LOG.
+
+The following query returns the path name for files that were created by an UNLOAD
+for the last query completed:
+
+```
+select query, substring(path,0,40) as path
+from svcs_unload_log
+where query = pg_last_query_id()
+order by path;
+```
+
+This command returns the following sample output:
+
+```
+
+ query |             path
+ ------+---------------------------------------------
+  2320 | s3://amzn-s3-demo-bucket/venue0000_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0001_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0002_part_00
+  2320 | s3://amzn-s3-demo-bucket/venue0003_part_00
+(4 rows)
+
+```

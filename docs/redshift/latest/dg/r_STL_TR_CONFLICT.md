@@ -22,11 +22,32 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name   | Data type | Description                                                   |
-| ------------- | --------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------- | -------------------------- | ----------- | ----- | -------------------------- | -------------------------- | ----------- | ----- | -------------------------- | ------------------------- | ----------- | ----- | -------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| xact_id       | bigint    | Transaction ID for the rolled back transaction.               |
-| process_id    | bigint    | Process associated with the transaction that was rolled back. |
-| xact_start_ts | timestamp | Timestamp (UTC) when the transaction started.                 |
-| abort_time    | timestamp | Timestamp (UTC) when the transaction was stopped.             |
-| table_id      | bigint    | Table ID for the table where the conflict occurred.           | ## Sample query To return information about conflicts that involved a particular table, run a query that specifies the table ID: ``` select \* from stl_tr_conflict where table_id=100234 order by xact_start_ts; xact_id | process\_ | xact_start_ts              | abort_time                 | table\_     |
-| id            |           |                                                               | id -------+--------+--------------------------+--------------------------+------ 1876                                                                                                                                     | 8551      | 2010-03-30 09:19:15.852326 | 2010-03-30 09:20:17.582499 | 100234 1928 | 15034 | 2010-03-30 13:20:00.636045 | 2010-03-30 13:20:47.766817 | 100234 1991 | 23753 | 2010-04-01 13:05:01.220059 | 2010-04-01 13:06:06.94098 | 100234 2002 | 23679 | 2010-04-01 13:17:05.173473 | 2010-04-01 13:18:27.898655 | 100234 (4 rows) ``` You can get the table ID from the DETAIL section of the error message for serializability violations (error 1023). |
+| Column name   | Data type | Description                                                      |
+| ------------- | --------- | ---------------------------------------------------------------- |
+| xact_id       | bigint    | Transaction ID for the rolled back transaction.                  |
+| process_id    | bigint    | Process associated with the transaction that was<br>rolled back. |
+| xact_start_ts | timestamp | Timestamp (UTC) when the transaction started.                    |
+| abort_time    | timestamp | Timestamp (UTC) when the transaction was stopped.                |
+| table_id      | bigint    | Table ID for the table where the conflict<br>occurred.           |
+
+## Sample query
+
+To return information about conflicts that involved a particular table, run a
+query that specifies the table ID:
+
+```
+select * from stl_tr_conflict where table_id=100234
+order by xact_start_ts;
+
+xact_id|process_|      xact_start_ts       |        abort_time        |table_
+       |id      |                          |                          |id
+-------+--------+--------------------------+--------------------------+------
+  1876 |  8551  |2010-03-30 09:19:15.852326|2010-03-30 09:20:17.582499|100234
+  1928 | 15034  |2010-03-30 13:20:00.636045|2010-03-30 13:20:47.766817|100234
+  1991 | 23753  |2010-04-01 13:05:01.220059|2010-04-01 13:06:06.94098 |100234
+  2002 | 23679  |2010-04-01 13:17:05.173473|2010-04-01 13:18:27.898655|100234
+(4 rows)
+```
+
+You can get the table ID from the DETAIL section of the error message for
+serializability violations (error 1023).

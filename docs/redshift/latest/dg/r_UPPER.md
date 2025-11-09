@@ -31,13 +31,14 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To convert the CATNAME field to uppercase, use the following.
 
-````
+```
 `SELECT catname, UPPER(catname)
 FROM category
 ORDER BY 1,2;`
 
 `+-----------+-----------+
-| catname | upper | +-----------+-----------+
+| catname | upper |
++-----------+-----------+
 | Classical | CLASSICAL |
 | Jazz | JAZZ |
 | MLB | MLB |
@@ -48,5 +49,6 @@ ORDER BY 1,2;`
 | NHL | NHL |
 | Opera | OPERA |
 | Plays | PLAYS |
-| Pop | POP | +-----------+-----------+` ```
-````
+| Pop | POP |
++-----------+-----------+`
+```

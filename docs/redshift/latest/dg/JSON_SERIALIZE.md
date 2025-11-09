@@ -41,10 +41,12 @@ the JSON string `'null'`.
 
 To serialize a `SUPER` value to a string, use the following example.
 
-````
+```
 `SELECT JSON_SERIALIZE(JSON_PARSE('[10001,10002,"abc"]'));`
 
 `+---------------------+
-| json_serialize | +---------------------+
-| [10001,10002,"abc"] | +---------------------+` ```
-````
+| json_serialize |
++---------------------+
+| [10001,10002,"abc"] |
++---------------------+`
+```

@@ -28,7 +28,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------- | ---- | ------- | ---- | ----------------------------------------------------------------------------------------- | --- | --- | --- | -------------------------- | --- | --- | --- | --- | --- | -------------------------- | --- | --- | --- | --- | --- | -------------------------- | --- | --- | --- | --- | --- | -------------------------- | --- | --- | --- | --- | --- | ------------------------- | --- | --- | --- | --- | --- | -------------------------- | --- | --- | ----- | --- | --- | -------------------------- | --- | -------------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -38,6 +38,27 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | endtime     | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
-| bytes       | bigint    | Size, in bytes, of all the output rows for the step.                                                                                                                          |
-| packets     | integer   | Total number of packets sent over the network.                                                                                                                                |
-| checksum    | bigint    | This information is for internal use only.                                                                                                                                    | ## Sample queries The following query shows which steps in the most recent query were performed on each slice. ``` SELECT query, slice, segment, step, endtime, rows, packets from stl_return where query = pg_last_query_id(); query | slice | segment | step | endtime | rows | packets -------+--------+---------+------+----------------------------+------+--------- 4 | 2   | 3   | 2   | 2013-12-27 01:43:21.469043 | 3   | 0 4 | 3   | 3   | 2   | 2013-12-27 01:43:21.473321 | 0   | 0 4 | 0   | 3   | 2   | 2013-12-27 01:43:21.469118 | 2   | 0 4 | 1   | 3   | 2   | 2013-12-27 01:43:21.474196 | 0   | 0 4 | 4   | 3   | 2   | 2013-12-27 01:43:21.47704 | 2   | 0 4 | 5   | 3   | 2   | 2013-12-27 01:43:21.478593 | 0   | 0 4 | 12811 | 4   | 1   | 2013-12-27 01:43:21.480755 | 0   | 0 (7 rows) ``` |
+| bytes       | bigint    | Size, in bytes, of all the output rows for the<br>step.                                                                                                                       |
+| packets     | integer   | Total number of packets sent over the<br>network.                                                                                                                             |
+| checksum    | bigint    | This information is for internal use only.                                                                                                                                    |
+
+## Sample queries
+
+The following query shows which steps in the most recent query were performed on
+each slice.
+
+```
+SELECT query, slice, segment, step, endtime, rows, packets
+from stl_return where query = pg_last_query_id();
+
+ query |  slice | segment | step |          endtime           | rows | packets
+-------+--------+---------+------+----------------------------+------+---------
+     4 |      2 |       3 |    2 | 2013-12-27 01:43:21.469043 |    3 |       0
+     4 |      3 |       3 |    2 | 2013-12-27 01:43:21.473321 |    0 |       0
+     4 |      0 |       3 |    2 | 2013-12-27 01:43:21.469118 |    2 |       0
+     4 |      1 |       3 |    2 | 2013-12-27 01:43:21.474196 |    0 |       0
+     4 |      4 |       3 |    2 | 2013-12-27 01:43:21.47704  |    2 |       0
+     4 |      5 |       3 |    2 | 2013-12-27 01:43:21.478593 |    0 |       0
+     4 |   12811|       4 |    1 | 2013-12-27 01:43:21.480755 |    0 |       0
+(7 rows)
+```

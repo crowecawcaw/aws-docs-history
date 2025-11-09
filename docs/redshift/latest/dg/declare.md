@@ -76,7 +76,7 @@ The following table shows the maximum total result set size for each cluster nod
 type. Maximum result set sizes are in megabytes.
 
 | Node type                  | Maximum result set per cluster (MB) |
-| -------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ------------- | ----------------------------------------------------------------------------------- | ------------------- | ----------- | -------------- | ------------------- | ------------ | -------------- | ------------------- | ------------ | -------------- | ------------------- | ------------ | -------------- | ------------------- | ------------ | ------------------------------------------------------------------------- | --------- | ------------- | ----------------------------------------------------------------------------------- | ------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ----------------------------------- |
 | DC2 Large multiple nodes   | 192,000                             |
 | DC2 Large single node      | 8,000                               |
 | DC2 8XL multiple nodes     | 3,200,000                           |
@@ -86,4 +86,109 @@ type. Maximum result set sizes are in megabytes.
 | RA3 XLPLUS single node     | 64,000                              |
 | RA3 LARGE multiple nodes   | 240,000                             |
 | RA3 LARGE single node      | 8,000                               |
-| Amazon Redshift Serverless | 150,000                             | To view the active cursor configuration for a cluster, query the [STV_CURSOR_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md") system table as a superuser. To view the state of active cursors, query the [STV_ACTIVE_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table. Only the rows for a user's own cursors are visible to the user, but a superuser can view all cursors. ## Performance considerations when using cursors Because cursors materialize the entire result set on the leader node before beginning to return results to the client, using cursors with very large result sets can have a negative impact on performance. We strongly recommend against using cursors with very large result sets. In some cases, such as when your application uses an ODBC connection, cursors might be the only feasible solution. If possible, we recommend using these alternatives: <br>• Use [UNLOAD](r_UNLOAD.md "r_UNLOAD.md") to export a large table. When you use UNLOAD, the compute nodes work in parallel to transfer the data directly to data files on Amazon Simple Storage Service. For more information, see [Unloading data in Amazon Redshift](c_unloading_data.md "c_unloading_data.md"). <br>• Set the JDBC fetch size parameter in your client application. If you use a JDBC connection and you are encountering client-side out-of-memory errors, you can enable your client to retrieve result sets in smaller batches by setting the JDBC fetch size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md "set-the-JDBC-fetch-size-parameter.md"). ## DECLARE CURSOR examples The following example declares a cursor named LOLLAPALOOZA to select sales information for the Lollapalooza event, and then fetches rows from the result set using the cursor: ``` -- Begin a transaction begin; -- Declare a cursor declare lollapalooza cursor for select eventname, starttime, pricepaid/qtysold as costperticket, qtysold from sales, event where sales.eventid = event.eventid and eventname='Lollapalooza'; -- Fetch the first 5 rows in the cursor lollapalooza: fetch forward 5 from lollapalooza; eventname | starttime | costperticket | qtysold --------------+---------------------+---------------+--------- Lollapalooza | 2008-05-01 19:00:00 | 92.00000000 | 3 Lollapalooza | 2008-11-15 15:00:00 | 222.00000000 | 2 Lollapalooza | 2008-04-17 15:00:00 | 239.00000000 | 3 Lollapalooza | 2008-04-17 15:00:00 | 239.00000000 | 4 Lollapalooza | 2008-04-17 15:00:00 | 239.00000000 | 1 (5 rows) -- Fetch the next row: fetch next from lollapalooza; eventname | starttime | costperticket | qtysold --------------+---------------------+---------------+--------- Lollapalooza | 2008-10-06 14:00:00 | 114.00000000 | 2 -- Close the cursor and end the transaction: close lollapalooza; commit; `The following example loops over a refcursor with all the results from a table:` CREATE TABLE tbl_1 (a int, b int); INSERT INTO tbl_1 values (1, 2),(3, 4); CREATE OR REPLACE PROCEDURE sp_cursor_loop() AS $$ DECLARE target record; curs1 cursor for select \* from tbl_1; BEGIN OPEN curs1; LOOP fetch curs1 into target; exit when not found; RAISE INFO 'a %', target.a; END LOOP; CLOSE curs1; END; $$ LANGUAGE plpgsql; CALL sp_cursor_loop(); SELECT message from svl_stored_proc_messages where querytxt like 'CALL sp_cursor_loop()%'; message ---------- a 1 a 3 ``` |
+| Amazon Redshift Serverless | 150,000                             |
+
+To view the active cursor configuration for a cluster, query the [STV_CURSOR_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md")
+system table as a superuser. To view the state of active cursors, query the [STV_ACTIVE_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table.
+Only the rows for a user's own cursors are visible to the user, but a superuser can
+view all cursors.
+
+## Performance considerations when using
+
+cursors
+
+Because cursors materialize the entire result set on the leader node before beginning
+to return results to the client, using cursors with very large result sets can have a
+negative impact on performance. We strongly recommend against using cursors with very
+large result sets. In some cases, such as when your application uses an ODBC connection,
+cursors might be the only feasible solution. If possible, we recommend using these
+alternatives:
+
+- Use [UNLOAD](r_UNLOAD.md "r_UNLOAD.md") to export a large
+  table. When you use UNLOAD, the compute nodes work in parallel to transfer the
+  data directly to data files on Amazon Simple Storage Service. For more information, see [Unloading data in Amazon Redshift](c_unloading_data.md "c_unloading_data.md").
+- Set the JDBC fetch size parameter in your client application. If you use a JDBC
+  connection and you are encountering client-side out-of-memory errors, you can
+  enable your client to retrieve result sets in smaller batches by setting the JDBC
+  fetch size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md "set-the-JDBC-fetch-size-parameter.md").
+
+## DECLARE CURSOR examples
+
+The following example declares a cursor named LOLLAPALOOZA to select sales
+information for the Lollapalooza event, and then fetches rows from the result set using
+the cursor:
+
+```
+-- Begin a transaction
+
+begin;
+
+-- Declare a cursor
+
+declare lollapalooza cursor for
+select eventname, starttime, pricepaid/qtysold as costperticket, qtysold
+from sales, event
+where sales.eventid = event.eventid
+and eventname='Lollapalooza';
+
+-- Fetch the first 5 rows in the cursor lollapalooza:
+
+fetch forward 5 from lollapalooza;
+
+  eventname   |      starttime      | costperticket | qtysold
+--------------+---------------------+---------------+---------
+ Lollapalooza | 2008-05-01 19:00:00 |   92.00000000 |       3
+ Lollapalooza | 2008-11-15 15:00:00 |  222.00000000 |       2
+ Lollapalooza | 2008-04-17 15:00:00 |  239.00000000 |       3
+ Lollapalooza | 2008-04-17 15:00:00 |  239.00000000 |       4
+ Lollapalooza | 2008-04-17 15:00:00 |  239.00000000 |       1
+(5 rows)
+
+-- Fetch the next row:
+
+fetch next from lollapalooza;
+
+  eventname   |      starttime      | costperticket | qtysold
+--------------+---------------------+---------------+---------
+ Lollapalooza | 2008-10-06 14:00:00 |  114.00000000 |       2
+
+-- Close the cursor and end the transaction:
+
+close lollapalooza;
+commit;
+
+```
+
+The following example loops over a refcursor with all the results from a
+table:
+
+```
+CREATE TABLE tbl_1 (a int, b int);
+INSERT INTO tbl_1 values (1, 2),(3, 4);
+
+CREATE OR REPLACE PROCEDURE sp_cursor_loop() AS $$
+DECLARE
+    target record;
+    curs1 cursor for select * from tbl_1;
+BEGIN
+    OPEN curs1;
+    LOOP
+        fetch curs1 into target;
+        exit when not found;
+        RAISE INFO 'a %', target.a;
+    END LOOP;
+    CLOSE curs1;
+END;
+$$ LANGUAGE plpgsql;
+
+CALL sp_cursor_loop();
+
+SELECT message
+   from svl_stored_proc_messages
+   where querytxt like 'CALL sp_cursor_loop()%';
+
+  message
+----------
+      a 1
+      a 3
+```

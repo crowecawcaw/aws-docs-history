@@ -26,28 +26,28 @@ own the table or have been granted access.
 
 ## Table columns
 
-| Column name              | Data type | Description                                                                                                                                       |
-| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| table_catalog            | text      | The name of the catalog where the table is.                                                                                                       |
-| table_schema             | text      | The schema name for the table.                                                                                                                    |
-| table_name               | text      | The name of the table.                                                                                                                            |
-| column_name              | text      | The name of the column.                                                                                                                           |
-| ordinal_position         | int       | The position of the column in the table.                                                                                                          |
-| column_default           | text      | The default value of the column.                                                                                                                  |
-| is_nullable              | text      | A value that indicates whether the column is nullable.                                                                                            |
-| data_type                | text      | The data type of the column.                                                                                                                      |
-| character_maximum_length | int       | The maximum number of characters in the column.                                                                                                   |
-| numeric_precision        | int       | The numeric precision. If the data_type column is numeric, this column returns the number of significant digits in the entire value.              |
-| numeric_precision_radix  | int       | The numeric precision radix. If the data_type column is numeric, this column returns the base of the columns numeric_precision and numeric_scale. |
-| numeric_scale            | int       | The numeric scale. If the data_type column is numeric, this column returns the number of significant digits in the decimal value.                 |
-| datetime_precision       | int       | The datetime precision.                                                                                                                           |
-| interval_type            | text      | The interval type.                                                                                                                                |
-| interval_precision       | text      | The interval precision.                                                                                                                           |
-| character_set_catalog    | text      | The character set catalog.                                                                                                                        |
-| character_set_schema     | text      | The character set schema.                                                                                                                         |
-| character_set_name       | text      | The character set name.                                                                                                                           |
-| collation_catalog        | text      | The collation catalog.                                                                                                                            |
-| collation_schema         | text      | The collation schema.                                                                                                                             |
-| collation_name           | text      | The collation name.                                                                                                                               |
-| domain_name              | text      | The domain name.                                                                                                                                  |
-| remarks                  | text      | Remarks.                                                                                                                                          |
+| Column name              | Data type | Description                                                                                                                                          |
+| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| table_catalog            | text      | The name of the catalog where the table<br>is.                                                                                                       |
+| table_schema             | text      | The schema name for the table.                                                                                                                       |
+| table_name               | text      | The name of the table.                                                                                                                               |
+| column_name              | text      | The name of the column.                                                                                                                              |
+| ordinal_position         | int       | The position of the column in the table.                                                                                                             |
+| column_default           | text      | The default value of the column.                                                                                                                     |
+| is_nullable              | text      | A value that indicates whether the column is<br>nullable.                                                                                            |
+| data_type                | text      | The data type of the column.                                                                                                                         |
+| character_maximum_length | int       | The maximum number of characters in the column.                                                                                                      |
+| numeric_precision        | int       | The numeric precision. If the data_type column is numeric,<br>this column returns the number of significant digits in the entire value.              |
+| numeric_precision_radix  | int       | The numeric precision radix. If the data_type column is numeric,<br>this column returns the base of the columns numeric_precision and numeric_scale. |
+| numeric_scale            | int       | The numeric scale. If the data_type column is numeric,<br>this column returns the number of significant digits in the decimal value.                 |
+| datetime_precision       | int       | The datetime precision.                                                                                                                              |
+| interval_type            | text      | The interval type.                                                                                                                                   |
+| interval_precision       | text      | The interval precision.                                                                                                                              |
+| character_set_catalog    | text      | The character set catalog.                                                                                                                           |
+| character_set_schema     | text      | The character set schema.                                                                                                                            |
+| character_set_name       | text      | The character set name.                                                                                                                              |
+| collation_catalog        | text      | The collation catalog.                                                                                                                               |
+| collation_schema         | text      | The collation schema.                                                                                                                                |
+| collation_name           | text      | The collation name.                                                                                                                                  |
+| domain_name              | text      | The domain name.                                                                                                                                     |
+| remarks                  | text      | Remarks.                                                                                                                                             |

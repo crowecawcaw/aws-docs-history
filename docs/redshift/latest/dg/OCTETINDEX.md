@@ -37,16 +37,48 @@ If the _substring_ is empty, the function returns `1`.
 
 To return the postion of the substring `q` in the string `Amazon Redshift`, use the following example. This example returns `0` because the _substring_ is not in the _string_.
 
-````
+```
 `SELECT OCTETINDEX('q', 'Amazon Redshift');`
 
 `+------------+
-| octetindex | +------------+
-| 0 | +------------+` ``` To return the postion of an empty substring in the string `Amazon Redshift`, use the following example. This example returns `1` because the *substring* is empty. ``` `SELECT OCTETINDEX('', 'Amazon Redshift');` `+------------+
-| octetindex | +------------+
-| 1 | +------------+` ``` To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `8` because the *substring* begins on the eighth byte of the *string*. ``` `SELECT OCTETINDEX('Redshift', 'Amazon Redshift');` `+------------+
-| octetindex | +------------+
-| 8 | +------------+` ``` To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `21` because the first six characters of the *string* are double-byte characters. ``` `SELECT OCTETINDEX('Redshift', 'Άμαζον Amazon Redshift');` `+------------+
-| octetindex | +------------+
-| 21 | +------------+` ```
-````
+| octetindex |
++------------+
+| 0 |
++------------+`
+```
+
+To return the postion of an empty substring in the string `Amazon Redshift`, use the following example. This example returns `1` because the _substring_ is empty.
+
+```
+`SELECT OCTETINDEX('', 'Amazon Redshift');`
+
+`+------------+
+| octetindex |
++------------+
+| 1 |
++------------+`
+```
+
+To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `8` because the _substring_ begins on the eighth byte of the _string_.
+
+```
+`SELECT OCTETINDEX('Redshift', 'Amazon Redshift');`
+
+`+------------+
+| octetindex |
++------------+
+| 8 |
++------------+`
+```
+
+To return the postion of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `21` because the first six characters of the _string_ are double-byte characters.
+
+```
+`SELECT OCTETINDEX('Redshift', 'Άμαζον Amazon Redshift');`
+
+`+------------+
+| octetindex |
++------------+
+| 21 |
++------------+`
+```

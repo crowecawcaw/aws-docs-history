@@ -155,10 +155,25 @@ that can't be parsed are skipped.
 Metadata columns include the following:
 
 | Metadata column               | Data type                   | Description                                                                              |
-| ----------------------------- | --------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | --------------------------- | ---------------------------------------------------------------------------------------- |
 | approximate_arrival_timestamp | timestamp without time zone | The approximate time that the record was inserted into the Kinesis stream                |
 | partition_key                 | varchar(256)                | The key used by Kinesis to assign the record to a shard                                  |
 | shard_id                      | char(20)                    | The unique identifier of the shard within the stream from which the record was retrieved |
 | sequence_number               | varchar(128)                | The unique identifier of the record from the Kinesis shard                               |
 | refresh_time                  | timestamp without time zone | The time the refresh started                                                             |
-| kinesis_data                  | varbyte                     | The record from the Kinesis stream                                                       | It's important to note if you have business logic in your materialized view definition that business-logic errors can cause streaming ingestion to be blocked in some cases. This might lead to you having to drop and re-create the materialized view. To avoid this, we recommend that you keep your logic as simple as possible and perform most of your business-logic checks on the data after it's ingested. 5. Refresh the view, which invokes Redshift to read from the stream and load data into the materialized view. `REFRESH MATERIALIZED VIEW my_view;` 6. Query data in the materialized view. `select * from my_view;` |
+| kinesis_data                  | varbyte                     | The record from the Kinesis stream                                                       |
+
+It's important to note if you have business logic in your materialized view definition that business-logic errors can cause streaming
+ingestion to be blocked in some cases. This might lead to you having to drop and re-create the materialized view. To avoid this, we
+recommend that you keep your logic as simple as possible and perform most of your business-logic checks on the data
+after it's ingested. 5. Refresh the view, which invokes Redshift to read from the stream and load data into the materialized view.
+
+```
+REFRESH MATERIALIZED VIEW my_view;
+```
+
+6. Query data in the materialized view.
+
+```
+select * from my_view;
+```

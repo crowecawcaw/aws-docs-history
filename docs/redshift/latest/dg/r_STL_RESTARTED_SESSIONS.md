@@ -19,14 +19,28 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name  | Data type       | Description                                       |
-| ------------ | --------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| currenttime  | timestamp       | Time of the event.                                |
-| dbname       | character(50)   | Name of the database associated with the session. |
-| newpid       | integer         | Process ID for the restarted session.             |
-| oldpid       | integer         | Process ID for the original session.              |
-| username     | character(50)   | Name of the user associated with the session.     |
-| remotehost   | character(45)   | Name or IP address of the remote host.            |
-| remoteport   | character(32)   | Port number of the remote host.                   |
-| parkedtime   | timestamp       | This information is for internal use only.        |
-| session_vars | character(2000) | This information is for internal use only.        | ## Sample queries The following example joins STL_RESTARTED_SESSIONS with STL_SESSIONS to show user names for sessions that have been restarted. `select process, stl_restarted_sessions.newpid, user_name from stl_sessions inner join stl_restarted_sessions on stl_sessions.process = stl_restarted_sessions.oldpid order by process; ...` |
+| Column name  | Data type       | Description                                          |
+| ------------ | --------------- | ---------------------------------------------------- |
+| currenttime  | timestamp       | Time of the event.                                   |
+| dbname       | character(50)   | Name of the database associated with the<br>session. |
+| newpid       | integer         | Process ID for the restarted session.                |
+| oldpid       | integer         | Process ID for the original session.                 |
+| username     | character(50)   | Name of the user associated with the<br>session.     |
+| remotehost   | character(45)   | Name or IP address of the remote host.               |
+| remoteport   | character(32)   | Port number of the remote host.                      |
+| parkedtime   | timestamp       | This information is for internal use only.           |
+| session_vars | character(2000) | This information is for internal use only.           |
+
+## Sample queries
+
+The following example joins STL_RESTARTED_SESSIONS with STL_SESSIONS to show user
+names for sessions that have been restarted.
+
+```
+select process, stl_restarted_sessions.newpid, user_name
+from stl_sessions
+inner join stl_restarted_sessions on stl_sessions.process = stl_restarted_sessions.oldpid
+order by process;
+
+...
+```

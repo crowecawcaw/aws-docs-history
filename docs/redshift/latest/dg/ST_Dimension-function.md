@@ -30,10 +30,27 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned value                                        | Geometry subtype                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                                                     | Returned if _geom_ is a `POINT` or `MULTIPOINT` subtype            |
-| 1                                                     | Returned if _geom_ is a `LINESTRING` or `MULTILINESTRING` subtype. |
-| 2                                                     | Returned if _geom_ is a `POLYGON` or `MULTIPOLYGON` subtype        |
-| 0                                                     | Returned if _geom_ is an empty `GEOMETRYCOLLECTION` subtype        |
-| Largest dimension of the components of the collection | Returned if _geom_ is a `GEOMETRYCOLLECTION` subtype               | ## Examples The following SQL converts a well-known text (WKT) representation of a four-point LINESTRING to a GEOMETRY object and returns the dimension of the linestring. `SELECT ST_Dimension(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));` `st_dimension ------------- 1` |
+| Returned value                                        | Geometry subtype                                                           |
+| ----------------------------------------------------- | -------------------------------------------------------------------------- |
+| 0                                                     | Returned if \*geom<br>• is a `POINT` or `MULTIPOINT`<br>subtype            |
+| 1                                                     | Returned if \*geom<br>• is a `LINESTRING` or<br>`MULTILINESTRING` subtype. |
+| 2                                                     | Returned if \*geom<br>• is a `POLYGON` or `MULTIPOLYGON`<br>subtype        |
+| 0                                                     | Returned if \*geom<br>• is an empty `GEOMETRYCOLLECTION`<br>subtype        |
+| Largest dimension of the components of the collection | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype                  |
+
+## Examples
+
+The following SQL converts a well-known text (WKT) representation of a four-point
+LINESTRING to a GEOMETRY object and returns the dimension of the linestring.
+
+```
+SELECT ST_Dimension(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
+```
+
+```
+
+st_dimension
+-------------
+1
+
+```

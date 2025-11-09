@@ -22,7 +22,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name  | Data type    | Description                                                                                                                                                                   |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ------------ | -------------------------------------------------------------- | ------- | --- | --- | ------------- | ---- | --- | --- | ------------- | ------ | --- | --- | ------------- | ------- | --- | --- | ------------- | ---- | --- | --- | ------------- | ------ | --- | --- | ------------- | --- | --- | --- | ----- | ------- | --- | --- | ------------- | ------ | --- | --- | ------------- | ------- | --- | --- | ------------- | --- | --- | --- | ----- | --- | --- | --- | --------------- | --- | --- | --- | ----- | ---- | --- | --- | --------------- | --- | --- | --- | ----- | ---- | --- | --- | ------------- | ------ | --- | --- | ------------- | --- | --- | --- | ----------------------- |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid       | integer      | ID of the user who generated the entry.                                                                                                                                       |
 | query        | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice        | integer      | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -34,6 +34,40 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | rows         | bigint       | Total number of rows that were processed.                                                                                                                                     |
 | bytes        | bigint       | Size, in bytes, of all the output rows for the step.                                                                                                                          |
 | tbl          | integer      | Table ID.                                                                                                                                                                     |
-| is_diskbased | character(1) | If true (t), the query was performed as a disk-based operation. If false (f), the query was performed in memory.                                                              |
-| workmem      | bigint       | Total number of bytes in working memory that were assigned to the step.                                                                                                       |
-| checksum     | bigint       | This information is for internal use only.                                                                                                                                    | ## Sample queries The following example returns sort results for slice 0 and segment 1. `select query, bytes, tbl, is_diskbased, workmem from stl_sort where slice=0 and segment=1;` ``` query | bytes | tbl | is_diskbased | workmem -------+---------+-----+--------------+----------- 567 | 3126968 | 241 | f   | 383385600 604 | 5292 | 242 | f   | 383385600 675 | 104776 | 251 | f   | 383385600 525 | 3126968 | 251 | f   | 383385600 585 | 5068 | 241 | f   | 383385600 630 | 204808 | 266 | f   | 383385600 704 | 0   | 242 | f   | 0 669 | 4606416 | 241 | f   | 383385600 696 | 104776 | 241 | f   | 383385600 651 | 4606416 | 254 | f   | 383385600 632 | 0   | 256 | f   | 0 599 | 396 | 241 | f   | 383385600 86397 | 0   | 242 | f   | 0 621 | 5292 | 241 | f   | 383385600 86325 | 0   | 242 | f   | 0 572 | 5068 | 242 | f   | 383385600 645 | 204808 | 241 | f   | 383385600 590 | 396 | 242 | f   | 383385600 (18 rows) ``` |
+| is_diskbased | character(1) | If true (t), the query was performed as a<br>disk-based operation. If false (f), the query was performed in<br>memory.                                                        |
+| workmem      | bigint       | Total number of bytes in working memory that were<br>assigned to the step.                                                                                                    |
+| checksum     | bigint       | This information is for internal use only.                                                                                                                                    |
+
+## Sample queries
+
+The following example returns sort results for slice 0 and segment 1.
+
+```
+select query, bytes, tbl, is_diskbased, workmem
+from stl_sort
+where slice=0 and segment=1;
+```
+
+```
+ query |  bytes  | tbl | is_diskbased |  workmem
+-------+---------+-----+--------------+-----------
+   567 | 3126968 | 241 | f            | 383385600
+   604 |    5292 | 242 | f            | 383385600
+   675 |  104776 | 251 | f            | 383385600
+   525 | 3126968 | 251 | f            | 383385600
+   585 |    5068 | 241 | f            | 383385600
+   630 |  204808 | 266 | f            | 383385600
+   704 |       0 | 242 | f            |         0
+   669 | 4606416 | 241 | f            | 383385600
+   696 |  104776 | 241 | f            | 383385600
+   651 | 4606416 | 254 | f            | 383385600
+   632 |       0 | 256 | f            |         0
+   599 |     396 | 241 | f            | 383385600
+ 86397 |       0 | 242 | f            |         0
+   621 |    5292 | 241 | f            | 383385600
+ 86325 |       0 | 242 | f            |         0
+   572 |    5068 | 242 | f            | 383385600
+   645 |  204808 | 241 | f            | 383385600
+   590 |     396 | 242 | f            | 383385600
+(18 rows)
+```

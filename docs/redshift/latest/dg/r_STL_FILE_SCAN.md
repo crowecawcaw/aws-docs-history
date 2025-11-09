@@ -25,15 +25,44 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name  | Data type     | Description                                                                                                                                                   |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------- | -------------------------- | -------------------------------- | --------------------------------- | -------------------------------- | ------------------------- | ------------------------- | -------------------------- | -------------------------------- | -------------------------------- | --------------------- |
-| userid       | integer       | ID of the user who generated the entry.                                                                                                                       |
-| query        | integer       | Query ID. The query column can be used to join other system tables and views.                                                                                 |
-| slice        | integer       | Number that identifies the slice where the query was running.                                                                                                 |
-| name         | character(90) | Full path and name of the file that was loaded.                                                                                                               |
-| lines        | bigint        | Number of lines read from the file.                                                                                                                           |
-| bytes        | bigint        | Number of bytes read from the file.                                                                                                                           |
-| loadtime     | bigint        | Amount of time spent loading the file (in microseconds).                                                                                                      |
-| curtime      | Timestamp     | Timestamp representing the time that Amazon Redshift started processing the file.                                                                             |
-| is_partial   | integer       | Value that if true (1) indicates the input file is split into ranges during a COPY operation. If this value is false (0), the input file isn't split.         |
-| start_offset | bigint        | Value that, if the input file is split during a COPY operation, indicates the offset value of the split (in bytes). If the file isn't split, this value is 0. | ## Sample queries The following query retrieves the names and load times of any files that took over 1,000,000 microseconds for Amazon Redshift to read. `select trim(name)as name, loadtime from stl_file_scan where loadtime > 1000000;` This query returns the following example output. ``` name | loadtime ---------------------------+---------- listings_pipe.txt | 9458354 allusers_pipe.txt | 2963761 allevents_pipe.txt | 1409135 tickit/listings_pipe.txt | 7071087 tickit/allevents_pipe.txt | 1237364 tickit/allusers_pipe.txt | 2535138 listings_pipe.txt | 6706370 allusers_pipe.txt | 3579461 allevents_pipe.txt | 1313195 tickit/allusers_pipe.txt | 3236060 tickit/listings_pipe.txt | 4980108 (11 rows) ``` |
+| Column name  | Data type     | Description                                                                                                                                                         |
+| ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid       | integer       | ID of the user who generated the entry.                                                                                                                             |
+| query        | integer       | Query ID. The query column can be used to join other system tables and views.                                                                                       |
+| slice        | integer       | Number that identifies the slice where the query was running.                                                                                                       |
+| name         | character(90) | Full path and name of the file that was<br>loaded.                                                                                                                  |
+| lines        | bigint        | Number of lines read from the file.                                                                                                                                 |
+| bytes        | bigint        | Number of bytes read from the file.                                                                                                                                 |
+| loadtime     | bigint        | Amount of time spent loading the file (in<br>microseconds).                                                                                                         |
+| curtime      | Timestamp     | Timestamp representing the time that Amazon Redshift started<br>processing the file.                                                                                |
+| is_partial   | integer       | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.         |
+| start_offset | bigint        | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
+
+## Sample queries
+
+The following query retrieves the names and load times of any files that took over
+1,000,000 microseconds for Amazon Redshift to read.
+
+```
+select trim(name)as name, loadtime from stl_file_scan
+where loadtime > 1000000;
+```
+
+This query returns the following example output.
+
+```
+           name            | loadtime
+---------------------------+----------
+ listings_pipe.txt         |  9458354
+ allusers_pipe.txt         |  2963761
+ allevents_pipe.txt        |  1409135
+ tickit/listings_pipe.txt  |  7071087
+ tickit/allevents_pipe.txt |  1237364
+ tickit/allusers_pipe.txt  |  2535138
+ listings_pipe.txt         |  6706370
+ allusers_pipe.txt         |  3579461
+ allevents_pipe.txt        |  1313195
+ tickit/allusers_pipe.txt  |  3236060
+ tickit/listings_pipe.txt  |  4980108
+(11 rows)
+```

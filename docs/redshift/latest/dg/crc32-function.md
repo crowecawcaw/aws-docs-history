@@ -36,10 +36,12 @@ based on the CRC-32C polynomial.
 
 To show the 8-bit value for the string `Amazon Redshift`.
 
-````
+```
 `SELECT CRC32('Amazon Redshift');`
 
 `+----------+
-| crc32 | +----------+
-| f2726906 | +----------+` ```
-````
+| crc32 |
++----------+
+| f2726906 |
++----------+`
+```

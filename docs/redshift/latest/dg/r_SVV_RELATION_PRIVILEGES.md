@@ -18,12 +18,26 @@ SVV_RELATION_PRIVILEGES is visible to the following users:
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                         |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | ------ | ------ | ------- | ---- | ------------ | ------ | ------ | ----- | ---- | --------- |
-| namespace_name | text      | The name of the namespace where a specified relation exists.                                                                                        |
-| relation_name  | text      | The name of the relation.                                                                                                                           |
-| privilege_type | text      | The type of the permission. Possible values are INSERT, SELECT, UPDATE, DELETE, REFERENCES, or DROP.                                                |
-| identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                          |
-| identity_name  | text      | The name of the identity.                                                                                                                           |
-| identity_type  | text      | The type of the identity. Possible values are user, role, group, or public.                                                                         |
-| admin_option   | boolean   | A value that indicates whether the user can grant the permission to other users and roles. It is always false for the role and group identity type. | ## Sample query The following example displays the result of the SVV_RELATION_PRIVILEGES. ``` SELECT namespace_name,relation_name,privilege_type,identity_name,identity_type,admin_option FROM svv_relation_privileges WHERE relation_name = 'orders' AND privilege_type = 'SELECT'; namespace_name | relation_name | privilege_type | identity_name | identity_type | admin_option ----------------+---------------+----------------+----------------+---------------+-------------- public | orders | SELECT | reguser | user | False public | orders | SELECT | role1 | role | False ``` |
+| Column name    | Data type | Description                                                                                                                                               |
+| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| namespace_name | text      | The name of the namespace where a specified<br>relation exists.                                                                                           |
+| relation_name  | text      | The name of the relation.                                                                                                                                 |
+| privilege_type | text      | The type of the permission. Possible values are<br>INSERT, SELECT, UPDATE, DELETE, REFERENCES, or DROP.                                                   |
+| identity_id    | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                             |
+| identity_name  | text      | The name of the identity.                                                                                                                                 |
+| identity_type  | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                            |
+| admin_option   | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type. |
+
+## Sample query
+
+The following example displays the result of the SVV_RELATION_PRIVILEGES.
+
+```
+SELECT namespace_name,relation_name,privilege_type,identity_name,identity_type,admin_option FROM svv_relation_privileges
+WHERE relation_name = 'orders' AND privilege_type = 'SELECT';
+
+ namespace_name | relation_name | privilege_type |  identity_name | identity_type | admin_option
+----------------+---------------+----------------+----------------+---------------+--------------
+     public     |    orders     |     SELECT     |    reguser     |     user      |    False
+     public     |    orders     |     SELECT     |     role1      |     role      |    False
+```

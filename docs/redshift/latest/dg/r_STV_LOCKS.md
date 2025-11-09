@@ -17,13 +17,34 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name         | Data type      | Description                                                 |
-| ------------------- | -------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | ------------------------------------------------------------------------------------------- | -------------------------- | ---- | ----------- | -------------------------- | ---- | ----------- | -------------------------- | ---- | ----------------- |
-| table_id            | bigint         | Table ID for the table acquiring the lock.                  |
-| last_commit         | timestamp      | Timestamp for the last commit in the table.                 |
-| last_update         | timestamp      | Timestamp for the last update for the table.                |
-| lock_owner          | bigint         | Transaction ID associated with the lock.                    |
-| lock_owner_pid      | bigint         | Process ID associated with the lock.                        |
-| lock_owner_start_ts | timestamp      | Timestamp for the transaction start time.                   |
-| lock_owner_end_ts   | timestamp      | Timestamp for the transaction end time.                     |
-| lock_status         | character (22) | Status of the process either waiting for or holding a lock. | ## Sample query To view all locks taking place in current transactions, type the following command: `select table_id, last_update, lock_owner, lock_owner_pid from stv_locks;` This query returns the following sample output, which displays three locks currently in effect: ``` table_id | last_update | lock_owner | lock_owner_pid ----------+----------------------------+------------+---------------- 100004 | 2008-12-23 10:08:48.882319 | 1043 | 5656 100003 | 2008-12-23 10:08:48.779543 | 1043 | 5656 100140 | 2008-12-23 10:08:48.021576 | 1043 | 5656 (3 rows) ``` |
+| Column name         | Data type      | Description                                                    |
+| ------------------- | -------------- | -------------------------------------------------------------- |
+| table_id            | bigint         | Table ID for the table acquiring the lock.                     |
+| last_commit         | timestamp      | Timestamp for the last commit in the table.                    |
+| last_update         | timestamp      | Timestamp for the last update for the table.                   |
+| lock_owner          | bigint         | Transaction ID associated with the lock.                       |
+| lock_owner_pid      | bigint         | Process ID associated with the lock.                           |
+| lock_owner_start_ts | timestamp      | Timestamp for the transaction start time.                      |
+| lock_owner_end_ts   | timestamp      | Timestamp for the transaction end time.                        |
+| lock_status         | character (22) | Status of the process either waiting for or<br>holding a lock. |
+
+## Sample query
+
+To view all locks taking place in current transactions, type the following
+command:
+
+```
+select table_id, last_update, lock_owner, lock_owner_pid from stv_locks;
+```
+
+This query returns the following sample output, which displays three locks
+currently in effect:
+
+```
+ table_id |        last_update         | lock_owner | lock_owner_pid
+----------+----------------------------+------------+----------------
+100004  | 2008-12-23 10:08:48.882319 |       1043 |           5656
+100003  | 2008-12-23 10:08:48.779543 |       1043 |           5656
+100140  | 2008-12-23 10:08:48.021576 |       1043 |           5656
+(3 rows)
+```

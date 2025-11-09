@@ -24,13 +24,81 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name | Data type       | Description                                                                                                                                                                  |
-| ----------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------------- | ------------------------ | ----------------------------- | ----------------------------- | ------------------------ | ----------------------------- | ----------------------------- | ------------------------- | ----------------------------- | ----------------------------- | -------------------------------- |
+| ----------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer         | ID of the user who generated the entry.                                                                                                                                      |
 | query       | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                |
 | segment     | integer         | Number that identifies the query segment.                                                                                                                                    |
 | step        | integer         | Query step that ran.                                                                                                                                                         |
-| pid         | integer         | Process ID associated with the statement and slice. The same query might have multiple PIDs if it runs on multiple slices.                                                   |
+| pid         | integer         | Process ID associated with the statement and<br>slice. The same query might have multiple PIDs if it runs on<br>multiple slices.                                             |
 | xid         | bigint          | Transaction ID associated with the statement.                                                                                                                                |
 | event       | character(1024) | Description of the alert event.                                                                                                                                              |
 | solution    | character(1024) | Recommended solution.                                                                                                                                                        |
-| event_time  | timestamp       | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. | ## Usage notes You can use the SVCS_ALERT_EVENT_LOG to identify potential issues in your queries, then follow the practices in [Query performance tuning](c-optimizing-query-performance.md "c-optimizing-query-performance.md") to optimize your database design and rewrite your queries. SVCS_ALERT_EVENT_LOG records the following alerts: <br>• **Missing statistics** Statistics are missing. Run ANALYZE following data loads or significant updates and use STATUPDATE with COPY operations. For more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md"). <br>• **Nested loop** A nested loop is usually a Cartesian product. Evaluate your query to ensure that all participating tables are joined efficiently. <br>• **Very selective filter** The ratio of rows returned to rows scanned is less than 0.05. Rows scanned is the value of `rows_pre_user_filter` and rows returned is the value of rows in the [STL_SCAN](r_STL_SCAN.md "r_STL_SCAN.md") system table. Indicates that the query is scanning an unusually large number of rows to determine the result set. This can be caused by missing or incorrect sort keys. For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md"). <br>• **Excessive ghost rows** A scan skipped a relatively large number of rows that are marked as deleted but not vacuumed, or rows that have been inserted but not committed. For more information, see [Vacuuming tables](t_Reclaiming_storage_space202.md "t_Reclaiming_storage_space202.md"). <br>• **Large distribution** More than 1,000,000 rows were redistributed for hash join or aggregation. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md"). <br>• **Large broadcast** More than 1,000,000 rows were broadcast for hash join. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md"). <br>• **Serial execution** A DS_DIST_ALL_INNER redistribution style was indicated in the query plan, which forces serial execution because the entire inner table was redistributed to a single node. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md"). ## Sample queries The following query shows alert events for four queries. ``` SELECT query, substring(event,0,25) as event, substring(solution,0,25) as solution, trim(event_time) as event_time from svcs_alert_event_log order by query; query | event | solution | event_time -------+-------------------------------+------------------------------+--------------------- 6567 | Missing query planner statist | Run the ANALYZE command | 2014-01-03 18:20:58 7450 | Scanned a large number of del | Run the VACUUM command to rec | 2014-01-03 21:19:31 8406 | Nested Loop Join in the query | Review the join predicates to | 2014-01-04 00:34:22 29512 | Very selective query filter:r | Review the choice of sort key | 2014-01-06 22:00:00 (4 rows) ``` |
+| event_time  | timestamp       | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
+
+## Usage notes
+
+You can use the SVCS_ALERT_EVENT_LOG to identify potential issues in your queries,
+then follow the practices in [Query performance tuning](c-optimizing-query-performance.md "c-optimizing-query-performance.md") to optimize your database
+design and rewrite your queries. SVCS_ALERT_EVENT_LOG records the following alerts:
+
+- **Missing statistics**
+
+Statistics are missing. Run ANALYZE following data loads or significant
+updates and use STATUPDATE with COPY operations. For more information, see
+[Amazon Redshift best practices for designing
+queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
+
+- **Nested loop**
+
+A nested loop is usually a Cartesian product. Evaluate your query to
+ensure that all participating tables are joined efficiently.
+
+- **Very selective filter**
+
+The ratio of rows returned to rows scanned is less than 0.05. Rows scanned
+is the value of `rows_pre_user_filter` and rows returned is the
+value of rows in the [STL_SCAN](r_STL_SCAN.md "r_STL_SCAN.md")
+system table. Indicates that the query is scanning an unusually large number
+of rows to determine the result set. This can be caused by missing or
+incorrect sort keys. For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md").
+
+- **Excessive ghost rows**
+
+A scan skipped a relatively large number of rows that are marked as
+deleted but not vacuumed, or rows that have been inserted but not committed.
+For more information, see [Vacuuming tables](t_Reclaiming_storage_space202.md "t_Reclaiming_storage_space202.md").
+
+- **Large distribution**
+
+More than 1,000,000 rows were redistributed for hash join or aggregation.
+For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
+
+- **Large broadcast**
+
+More than 1,000,000 rows were broadcast for hash join. For more
+information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
+
+- **Serial execution**
+
+A DS_DIST_ALL_INNER redistribution style was indicated in the query plan,
+which forces serial execution because the entire inner table was
+redistributed to a single node. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
+
+## Sample queries
+
+The following query shows alert events for four queries.
+
+```
+SELECT query, substring(event,0,25) as event,
+substring(solution,0,25) as solution,
+trim(event_time) as event_time from svcs_alert_event_log order by query;
+
+ query |             event             |          solution            |     event_time
+-------+-------------------------------+------------------------------+---------------------
+  6567 | Missing query planner statist | Run the ANALYZE command      | 2014-01-03 18:20:58
+  7450 | Scanned a large number of del | Run the VACUUM command to rec| 2014-01-03 21:19:31
+  8406 | Nested Loop Join in the query | Review the join predicates to| 2014-01-04 00:34:22
+ 29512 | Very selective query filter:r | Review the choice of sort key| 2014-01-06 22:00:00
+
+(4 rows)
+```

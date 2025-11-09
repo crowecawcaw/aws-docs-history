@@ -32,12 +32,25 @@ A `DOUBLE PRECISION` number.
 
 To return the arc tangent of `2/2` and multiply it by 4, use the following example.
 
-````
+```
 `SELECT ATAN2(2,2) * 4 AS PI;`
 
 `+-------------------+
-| pi | +-------------------+
-| 3.141592653589793 | +-------------------+` ``` To convert the arc tangent of `1/0` (which evaluates to 0) to the equivalent number of degrees, use the following example. ``` `SELECT (ATAN2(1,0) * 180/(SELECT PI())) AS degrees;` `+---------+
-| degrees | +---------+
-| 90 | +---------+` ```
-````
+| pi |
++-------------------+
+| 3.141592653589793 |
++-------------------+`
+```
+
+To convert the arc tangent of `1/0` (which evaluates to 0) to the equivalent
+number of degrees, use the following example.
+
+```
+`SELECT (ATAN2(1,0) * 180/(SELECT PI())) AS degrees;`
+
+`+---------+
+| degrees |
++---------+
+| 90 |
++---------+`
+```

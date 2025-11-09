@@ -34,13 +34,15 @@ pattern. In this example, the subquery returns the number of tickets sold in 200
 That result is multiplied by the result of the DEXP function, which specifies a
 continuous growth rate of 7% over 10 years.
 
-````
+```
 `SELECT (SELECT SUM(qtysold)
 FROM sales, date
 WHERE sales.dateid=date.dateid
 AND year=2008) * DEXP((7::FLOAT/100)*10) qty2010;`
 
 `+-------------------+
-| qty2010 | +-------------------+
-| 695447.4837722216 | +-------------------+` ```
-````
+| qty2010 |
++-------------------+
+| 695447.4837722216 |
++-------------------+`
+```

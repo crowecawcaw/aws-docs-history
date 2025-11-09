@@ -56,13 +56,29 @@ The LN function returns the same type as the input _expression_.
 To return the natural logarithm or base `e` logarithm of the
 number 2.718281828, use the following example.
 
-````
+```
 `SELECT LN(2.718281828);`
 
 `+--------------------+
-| ln | +--------------------+
-| 0.9999999998311267 | +--------------------+` ``` Note that the answer is nearly equal to 1. The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To return the natural logarithm of the values in the userid column in the USERS table, use the following example. ``` `SELECT username, LN(userid) FROM users ORDER BY userid LIMIT 10;` `+----------+--------------------+
-| username | ln | +----------+--------------------+
+| ln |
++--------------------+
+| 0.9999999998311267 |
++--------------------+`
+```
+
+Note that the answer is nearly equal to 1.
+
+The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To return the natural logarithm of the values in the userid column in
+the USERS table, use the following example.
+
+```
+`SELECT username, LN(userid) FROM users ORDER BY userid LIMIT 10;`
+
+`+----------+--------------------+
+| username | ln |
++----------+--------------------+
 | JSG99FHE | 0 |
 | PGL08LJI | 0.6931471805599453 |
 | IFT66TXU | 1.0986122886681098 |
@@ -72,5 +88,6 @@ number 2.718281828, use the following example.
 | OWY35QYB | 1.9459101490553132 |
 | AZG78YIP | 2.0794415416798357 |
 | MSD36KVR | 2.1972245773362196 |
-| WKW41AIW | 2.302585092994046 | +----------+--------------------+` ```
-````
+| WKW41AIW | 2.302585092994046 |
++----------+--------------------+`
+```

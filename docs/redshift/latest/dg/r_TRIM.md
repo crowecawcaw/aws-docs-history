@@ -44,24 +44,76 @@ conversions.
 To trim both leading and trailing blanks from the string
 `dog` , use the following example.
 
-````
+```
 `SELECT TRIM(' dog ');`
 
 `+-------+
-| btrim | +-------+
-| dog | +-------+` ``` To trim both leading and trailing blanks from the string `dog` , use the following example. ``` `SELECT TRIM(BOTH FROM ' dog ');` `+-------+
-| btrim | +-------+
-| dog | +-------+` ``` To remove the leading double quotation marks from the string `"dog"`, use the following example. ``` `SELECT TRIM(LEADING '"' FROM'"dog"');` `+-------+
-| ltrim | +-------+
-| dog" | +-------+` ``` To remove the trailing double quotation marks from the string `"dog"`, use the following example. ``` `SELECT TRIM(TRAILING '"' FROM'"dog"');` `+-------+
-| rtrim | +-------+
-| "dog | +-------+` ``` TRIM removes any of the characters in *trim\_chars* when they appear at the beginning or end of *string*. The following example trims the characters 'C', 'D', and 'G' when they appear at the beginning or end of VENUENAME, which is a `VARCHAR` column. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). ``` `SELECT venueid, venuename, TRIM('CDG' FROM venuename) FROM venue WHERE venuename LIKE '%Park' ORDER BY 2 LIMIT 7;` `+---------+----------------------------+---------------------------+
-| venueid | venuename | btrim | +---------+----------------------------+---------------------------+
+| btrim |
++-------+
+| dog |
++-------+`
+```
+
+To trim both leading and trailing blanks from the string
+`dog` , use the following example.
+
+```
+`SELECT TRIM(BOTH FROM ' dog ');`
+
+`+-------+
+| btrim |
++-------+
+| dog |
++-------+`
+```
+
+To remove the leading double quotation marks from the string
+`"dog"`, use the following example.
+
+```
+`SELECT TRIM(LEADING '"' FROM'"dog"');`
+
+`+-------+
+| ltrim |
++-------+
+| dog" |
++-------+`
+```
+
+To remove the trailing double quotation marks from the string
+`"dog"`, use the following example.
+
+```
+`SELECT TRIM(TRAILING '"' FROM'"dog"');`
+
+`+-------+
+| rtrim |
++-------+
+| "dog |
++-------+`
+```
+
+TRIM removes any of the characters in _trim_chars_ when they
+appear at the beginning or end of _string_. The following example trims
+the characters 'C', 'D', and 'G' when they appear at the beginning or end of VENUENAME, which
+is a `VARCHAR` column. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+```
+`SELECT venueid, venuename, TRIM('CDG' FROM venuename)
+FROM venue
+WHERE venuename LIKE '%Park'
+ORDER BY 2
+LIMIT 7;`
+
+`+---------+----------------------------+---------------------------+
+| venueid | venuename | btrim |
++---------+----------------------------+---------------------------+
 | 121 | AT&T Park | AT&T Park |
 | 109 | Citizens Bank Park | itizens Bank Park |
 | 102 | Comerica Park | omerica Park |
 | 9 | Dick's Sporting Goods Park | ick's Sporting Goods Park |
 | 97 | Fenway Park | Fenway Park |
 | 112 | Great American Ball Park | reat American Ball Park |
-| 114 | Miller Park | Miller Park | +---------+----------------------------+---------------------------+` ```
-````
+| 114 | Miller Park | Miller Park |
++---------+----------------------------+---------------------------+`
+```

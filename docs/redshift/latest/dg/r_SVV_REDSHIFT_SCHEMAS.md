@@ -14,11 +14,27 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name   | Data type    | Description                                                                                  |
-| ------------- | ------------ | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | ----------- | ---------- | --------------------------------------------------------------------------------------------------------------------- | ------ | --- | ------ | --- | --- |
-| database_name | varchar(128) | The name of the database where a specified schema exists.                                    |
-| schema_name   | varchar(128) | The namespace or schema name.                                                                |
-| schema_owner  | integer      | The internal user ID of the schema owner.                                                    |
-| schema_type   | varchar(16)  | The type of the schema. Possible values are shared and local schemas.                        |
-| schema_acl    | varchar(128) | The string that defines the permissions for the specified user or user group for the schema. |
-| schema_option | varchar(128) | The options of the schema.                                                                   | ## Sample query The following example returns the output of SVV_REDSHIFT_SCHEMAS. ``` SELECT \* FROM svv_redshift_schemas WHERE database_name = 'tickit_db' ORDER BY database_name, SCHEMA_NAME; database_name | schema_name | schema_owner | schema_type | schema_acl | schema_option --------------+--------------------+--------------+-------------+------------+--------------- tickit_db | public | 1   | shared |     | ``` |
+| Column name   | Data type    | Description                                                                                     |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| database_name | varchar(128) | The name of the database where a specified schema<br>exists.                                    |
+| schema_name   | varchar(128) | The namespace or schema name.                                                                   |
+| schema_owner  | integer      | The internal user ID of the schema owner.                                                       |
+| schema_type   | varchar(16)  | The type of the schema. Possible values are shared<br>and local schemas.                        |
+| schema_acl    | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the schema. |
+| schema_option | varchar(128) | The options of the schema.                                                                      |
+
+## Sample query
+
+The following example returns the output of SVV_REDSHIFT_SCHEMAS.
+
+```
+SELECT *
+FROM svv_redshift_schemas
+WHERE database_name = 'tickit_db'
+ORDER BY database_name,
+    SCHEMA_NAME;
+
+database_name |    schema_name     | schema_owner | schema_type | schema_acl | schema_option
+--------------+--------------------+--------------+-------------+------------+---------------
+   tickit_db  |       public       |       1      |    shared   |            |
+```

@@ -14,9 +14,67 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name   | Data type | Description                            |
-| ------------- | --------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------- |
+| ------------- | --------- | -------------------------------------- |
 | query_id      | bigint    | The query identifier.                  |
 | function_name | text      | The name of the user-defined function. |
 | record_time   | timestamp | The time that the record was created.  |
 | sequence      | integer   | The sequence of a single log message.  |
-| message       | text      | The log message text.                  | ## Sample queries The following example shows how UDFs handle system-defined errors. The first block shows the definition for a UDF function that returns the inverse of an argument. When you run the function and provide a 0 as your argument, the function returns an error. The last statement returns the error message logged in SYS_UDF_LOG. ```-- Create a function to find the inverse of a number. CREATE OR REPLACE FUNCTION f_udf_inv(a int) RETURNS float IMMUTABLE AS $$return 1/a $$ LANGUAGE plpythonu; -- Run the function with 0 to create an error. Select f_udf_inv(0); -- Query SYS_UDF_LOG to view the message. Select query_id, record_time, message::varchar from sys_udf_log;`query_id | record_time | message ----------+----------------------------+------------------------------------------------------- 2211 | 2023-08-23 15:53:11.360538 | ZeroDivisionError: integer division or modulo by zero line 2, in f_udf_inv\n return 1/a\n` ``` The following example adds logging and a warning message to the UDF so that a divide by zero operation results in a warning message instead of stopping with an error message. ``` -- Create a function to find the inverse of a number and log a warning if you input 0. CREATE OR REPLACE FUNCTION f_udf_inv_log(a int) RETURNS float IMMUTABLE AS $$ import logging logger = logging.getLogger() #get root logger if a==0: logger.warning('You attempted to divide by zero.\nReturning zero instead of error.\n') return 0 else: return 1/a $$ LANGUAGE plpythonu; -- Run the function with 0 to trigger the warning. Select f_udf_inv_log(0); -- Query SYS_UDF_LOG to view the message. Select query_id, record_time, message::varchar from sys_udf_log; `query_id | record_time | message ----------+----------------------------+------------------------------------------------------------------------------- 0 | 2023-08-23 16:10:48.833503 | WARNING: You attempted to divide by zero.\nReturning zero instead of error.\n` ``` |
+| message       | text      | The log message text.                  |
+
+## Sample queries
+
+The following example shows how UDFs handle system-defined errors. The first block
+shows the definition for a UDF function that returns the inverse of an argument.
+When you run the function and provide a 0 as your argument, the function returns an
+error. The last statement returns the error message logged in SYS_UDF_LOG.
+
+```
+-- Create a function to find the inverse of a number.
+CREATE OR REPLACE FUNCTION f_udf_inv(a int)
+
+RETURNS float
+
+IMMUTABLE AS $$return 1/a
+
+$$ LANGUAGE plpythonu;
+
+-- Run the function with 0 to create an error.
+Select f_udf_inv(0);
+
+-- Query SYS_UDF_LOG to view the message.
+Select query_id, record_time, message::varchar from sys_udf_log;
+
+
+`query_id | record_time | message
+----------+----------------------------+-------------------------------------------------------
+2211 | 2023-08-23 15:53:11.360538 | ZeroDivisionError: integer division or modulo by zero line 2, in f_udf_inv\n return 1/a\n`
+```
+
+The following example adds logging and a warning message to the UDF so that a
+divide by zero operation results in a warning message instead of stopping with an
+error message.
+
+```
+-- Create a function to find the inverse of a number and log a warning if you input 0.
+CREATE OR REPLACE FUNCTION f_udf_inv_log(a int)
+  RETURNS float IMMUTABLE
+ AS $$
+  import logging
+  logger = logging.getLogger() #get root logger
+  if a==0:
+    logger.warning('You attempted to divide by zero.\nReturning zero instead of error.\n')
+    return 0
+  else:
+     return 1/a
+$$ LANGUAGE plpythonu;
+
+-- Run the function with 0 to trigger the warning.
+Select f_udf_inv_log(0);
+
+-- Query SYS_UDF_LOG to view the message.
+Select query_id, record_time, message::varchar from sys_udf_log;
+
+ `query_id | record_time | message
+----------+----------------------------+-------------------------------------------------------------------------------
+ 0 | 2023-08-23 16:10:48.833503 | WARNING: You attempted to divide by zero.\nReturning zero instead of error.\n`
+```

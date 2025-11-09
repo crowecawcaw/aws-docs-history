@@ -13,11 +13,26 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                                                                                                     |
-| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ------------------------------------------------------------------------------------------------------ | ------------------------- | ------------------------------------------- | ---------------------------- | -------------------------- |
-| schema_name    | char(128) | The namespace of the model.                                                                                                                                                                                                     |
-| user_name      | char(128) | The owner of the model.                                                                                                                                                                                                         |
-| model_name     | char(128) | The name of the model.                                                                                                                                                                                                          |
-| life_cycle     | char(20)  | The lifecycle status of the model.                                                                                                                                                                                              |
-| is_refreshable | integer   | The state of the model whether it is refreshable if original tables and columns in the training query still exist and the user still has the permissions to them. Possible values are: 1 (refreshable) and 0 (not refreshable). |
-| model_state    | char(128) | The current state of the model.                                                                                                                                                                                                 | ## Sample query The following query displays the current state of machine learning models. ``` SELECT schema_name, model_name, model_state FROM stv_ml_model_info; schema_name | model_name | model_state -------------+------------------------------+-------------------------------------- public | customer_churn_auto_model | Train Model On SageMaker In Progress public | customer_churn_xgboost_model | Model is Ready (2 row) ``` |
+| Column name    | Data type | Description                                                                                                                                                                                                                              |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| schema_name    | char(128) | The namespace of the model.                                                                                                                                                                                                              |
+| user_name      | char(128) | The owner of the model.                                                                                                                                                                                                                  |
+| model_name     | char(128) | The name of the model.                                                                                                                                                                                                                   |
+| life_cycle     | char(20)  | The lifecycle status of the model.                                                                                                                                                                                                       |
+| is_refreshable | integer   | The state of the model whether it is refreshable<br>if original tables and columns in the training query still exist and<br>the user still has the permissions to them. Possible values are: 1<br>(refreshable) and 0 (not refreshable). |
+| model_state    | char(128) | The current state of the model.                                                                                                                                                                                                          |
+
+## Sample query
+
+The following query displays the current state of machine learning models.
+
+```
+SELECT schema_name, model_name, model_state
+FROM stv_ml_model_info;
+
+ schema_name |        model_name            |             model_state
+-------------+------------------------------+--------------------------------------
+ public      | customer_churn_auto_model    | Train Model On SageMaker In Progress
+ public      | customer_churn_xgboost_model | Model is Ready
+(2 row)
+```

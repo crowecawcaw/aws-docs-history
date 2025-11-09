@@ -29,12 +29,28 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned string value   | Geometry subtype                                     |
-| ----------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ST_Point`              | Returned if _geom_ is a `POINT` subtype              |
-| `ST_LineString`         | Returned if _geom_ is a `LINESTRING` subtype         |
-| `ST_Polygon`            | Returned if _geom_ is a `POLYGON` subtype            |
-| `ST_MultiPoint`         | Returned if _geom_ is a `MULTIPOINT` subtype         |
-| `ST_MultiLineString`    | Returned if _geom_ is a `MULTILINESTRING` subtype    |
-| `ST_MultiPolygon`       | Returned if _geom_ is a `MULTIPOLYGON` subtype       |
-| `ST_GeometryCollection` | Returned if _geom_ is a `GEOMETRYCOLLECTION` subtype | ## Examples The following SQL returns the subtype of the input linestring geometry. `SELECT ST_GeometryType(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));` `st_geometrytype ------------- ST_LineString` |
+| Returned string value   | Geometry subtype                                          |
+| ----------------------- | --------------------------------------------------------- |
+| `ST_Point`              | Returned if \*geom<br>• is a `POINT` subtype              |
+| `ST_LineString`         | Returned if \*geom<br>• is a `LINESTRING` subtype         |
+| `ST_Polygon`            | Returned if \*geom<br>• is a `POLYGON` subtype            |
+| `ST_MultiPoint`         | Returned if \*geom<br>• is a `MULTIPOINT` subtype         |
+| `ST_MultiLineString`    | Returned if \*geom<br>• is a `MULTILINESTRING` subtype    |
+| `ST_MultiPolygon`       | Returned if \*geom<br>• is a `MULTIPOLYGON` subtype       |
+| `ST_GeometryCollection` | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype |
+
+## Examples
+
+The following SQL returns the subtype of the input linestring geometry.
+
+```
+SELECT ST_GeometryType(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
+```
+
+```
+
+st_geometrytype
+-------------
+ ST_LineString
+
+```

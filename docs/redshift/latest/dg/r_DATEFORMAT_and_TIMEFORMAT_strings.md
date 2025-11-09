@@ -31,20 +31,37 @@ and timeparts, or if you have date and time values that use formats different fr
 when using a DATEFORMAT or TIMEFORMAT string. For more information, see [Using automatic recognition with DATEFORMAT and
 TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
 
-| Datepart or timepart                           | Meaning                                                                                                                                                                        |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| YY                                             | Year without century                                                                                                                                                           |
-| YYYY                                           | Year with century                                                                                                                                                              |
-| MM                                             | Month as a number                                                                                                                                                              |
-| MON                                            | Month as a name (abbreviated name or full name)                                                                                                                                |
-| DD                                             | Day of month as a number                                                                                                                                                       |
-| HH or HH24                                     | Hour (24-hour clock) NoteIn DATETIME format strings for SQL functions, HH is the same as HH12. However, in DATEFORMAT and TIMEFORMAT strings for COPY, HH is the same as HH24. |
-| HH12                                           | Hour (12-hour clock)                                                                                                                                                           |
-| MI                                             | Minutes                                                                                                                                                                        |
-| SS                                             | Seconds                                                                                                                                                                        |
-| AM or PM                                       | Meridian indicator (for 12-hour clock)                                                                                                                                         | The default date format is YYYY-MM-DD. The default timestamp without time zone (TIMESTAMP) format is YYYY-MM-DD HH:MI:SS. The default timestamp with time zone (TIMESTAMPTZ) format is YYYY-MM-DD HH:MI:SSOF, where OF is the offset from UTC (for example, -8:00. You can't include a time zone specifier (TZ, tz, or OF) in the timeformat_string. The seconds (SS) field also supports fractional seconds up to a microsecond level of detail. To load TIMESTAMPTZ data that is in a format different from the default format, specify 'auto'. Following are some sample dates or times you can encounter in your source data, and the corresponding DATEFORMAT or TIMEFORMAT strings for them. |
-| Example of source data date or time            | DATEFORMAT or TIMEFORMAT Syntax                                                                                                                                                |
-| ---                                            | ---                                                                                                                                                                            |
-| 03/31/2003                                     | DATEFORMAT AS 'MM/DD/YYYY'                                                                                                                                                     |
-| March 31, 2003                                 | DATEFORMAT AS 'MON DD, YYYY'                                                                                                                                                   |
-| 03.31.2003 18:45:05 03.31.2003 18:45:05.123456 | TIMEFORMAT AS 'MM.DD.YYYY HH:MI:SS'                                                                                                                                            | ## Example For an example of using TIMEFORMAT, see [Load a timestamp or datestamp](r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp "r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp").                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Datepart or timepart | Meaning                                                                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| YY                   | Year without century                                                                                                                                                                 |
+| YYYY                 | Year with century                                                                                                                                                                    |
+| MM                   | Month as a number                                                                                                                                                                    |
+| MON                  | Month as a name (abbreviated name or full name)                                                                                                                                      |
+| DD                   | Day of month as a number                                                                                                                                                             |
+| HH or HH24           | Hour (24-hour clock) NoteIn DATETIME format strings for SQL functions, HH is the same as<br>HH12. However, in DATEFORMAT and TIMEFORMAT strings for COPY, HH is<br>the same as HH24. |
+| HH12                 | Hour (12-hour clock)                                                                                                                                                                 |
+| MI                   | Minutes                                                                                                                                                                              |
+| SS                   | Seconds                                                                                                                                                                              |
+| AM or PM             | Meridian indicator (for 12-hour clock)                                                                                                                                               |
+
+The default date format is YYYY-MM-DD. The default timestamp without time zone
+(TIMESTAMP) format is YYYY-MM-DD HH:MI:SS. The default timestamp with time zone
+(TIMESTAMPTZ) format is YYYY-MM-DD HH:MI:SSOF, where OF is the offset from UTC (for
+example, -8:00. You can't include a time zone specifier (TZ, tz, or OF) in the
+timeformat_string. The seconds (SS) field also supports fractional seconds up to a
+microsecond level of detail. To load TIMESTAMPTZ data that is in a format different from
+the default format, specify 'auto'.
+
+Following are some sample dates or times you can encounter in your source data, and
+the corresponding DATEFORMAT or TIMEFORMAT strings for them.
+
+| Example of source data date or time               | DATEFORMAT or TIMEFORMAT Syntax     |
+| ------------------------------------------------- | ----------------------------------- |
+| 03/31/2003                                        | DATEFORMAT AS 'MM/DD/YYYY'          |
+| March 31, 2003                                    | DATEFORMAT AS 'MON DD, YYYY'        |
+| 03.31.2003 18:45:05 03.31.2003<br>18:45:05.123456 | TIMEFORMAT AS 'MM.DD.YYYY HH:MI:SS' |
+
+## Example
+
+For an example of using TIMEFORMAT, see [Load a timestamp or
+datestamp](r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp "r_COPY_command_examples.md#r_COPY_command_examples-load-a-time-datestamp").

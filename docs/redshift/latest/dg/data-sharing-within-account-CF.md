@@ -92,26 +92,94 @@ for running queries on each cluster described.
    stack was created, using a client tool such as the Amazon Redshift query editor v2.
 2. Query for datashares.
 
-````
+```
 `SHOW DATASHARES;`
 
 `+------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+
-| share_name | share_owner | source_database | consumer_database | share_type | createdate | is_publicaccessible | share_acl | producer_account | producer_namespace | +------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+
-| myproducer_share | 100 | sample_data_dev | myconsumer_db | INBOUND | NULL | true | NULL | `producer-acct` | `your-producer-namespace` | +------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+` ``` The preceding command returns the name of the datashare created by the stack, called `myproducer_share`. It also returns the name of the database associated with the datashare, `myconsumer_db`. Copy the producer namespace identifier to use in a later step. 3. Describe objects in the datashare. ``` `DESC DATASHARE myproducer_share;` `+------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
-| producer_account | producer_namespace | share_type | share_name | object_type | object_name | include_new | +------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+ | `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | schema | myproducer_schema | true |
-| `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | table | myproducer_schema.tickit_sales | NULL | | `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | view | myproducer_schema.ticket_sales_view | NULL | +------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+` ``` When you describe the datashare, it returns properties for tables and views. The stack adds tables and views with sample data to the producer database, for example `tickit_sales` and `tickit_sales_view`. For more information about the TICKIT sample database, see [Sample database](c_sampledb.md "c_sampledb.md"). You don't have to delegate permissions on the datashare to run queries. The stack grants the necessary permissions. 4. Connect to the consumer cluster using your client tool. Describe the datashare, specifying the producer's namespace. ``` DESC DATASHARE myproducer_share OF NAMESPACE '<namespace id>'; --specify the unique identifier for the producer namespace `+------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
-| producer_account | producer_namespace | share_type | share_name | object_type | object_name | include_new | +------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+ | `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | schema | myproducer_schema | NULL |
-| `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | table | myproducer_schema.tickit_sales | NULL | | `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | view | myproducer_schema.ticket_sales_view | NULL | +------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+` ``` 5. You can query tables in the datashare by specifying the datashare's database and schema. For more information, see [Cross-database query examples](cross-database_example.md "cross-database_example.md"). The following queries return sales and seller data from the SALES table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). ``` `SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales_view;` `+---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
-| salesid | listid | sellerid | buyerid | eventid | dateid | qtysold | pricepaid | commission | saletime | +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
+| share_name | share_owner | source_database | consumer_database | share_type | createdate | is_publicaccessible | share_acl | producer_account | producer_namespace |
++------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+
+| myproducer_share | 100 | sample_data_dev | myconsumer_db | INBOUND | NULL | true | NULL | `producer-acct` | `your-producer-namespace` |
++------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+`
+```
+
+The preceding command returns the name of the datashare created by the
+stack, called `myproducer_share`. It also returns the name of the
+database associated with the datashare, `myconsumer_db`.
+
+Copy the producer namespace identifier to use in a later step. 3. Describe objects in the datashare.
+
+```
+`DESC DATASHARE myproducer_share;`
+
+`+------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
+| producer_account | producer_namespace | share_type | share_name | object_type | object_name | include_new |
++------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
+| `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | schema | myproducer_schema | true |
+| `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | table | myproducer_schema.tickit_sales | NULL |
+| `producer-acct` | `your-producer-namespace` | OUTBOUND | myproducer_share | view | myproducer_schema.ticket_sales_view | NULL |
++------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+`
+```
+
+When you describe the datashare, it returns properties for tables and views.
+The stack adds tables and views with sample data to the producer database, for
+example `tickit_sales` and `tickit_sales_view`. For more
+information about the TICKIT sample database, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+You don't have to delegate permissions on the datashare to run queries. The
+stack grants the necessary permissions. 4. Connect to the consumer cluster using your client tool. Describe the
+datashare, specifying the producer's namespace.
+
+```
+DESC DATASHARE myproducer_share OF NAMESPACE '<namespace id>'; --specify the unique identifier for the producer namespace
+
+`+------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
+| producer_account | producer_namespace | share_type | share_name | object_type | object_name | include_new |
++------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
+| `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | schema | myproducer_schema | NULL |
+| `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | table | myproducer_schema.tickit_sales | NULL |
+| `producer-acct` | `your-producer-namespace` | INBOUND | myproducer_share | view | myproducer_schema.ticket_sales_view | NULL |
++------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+`
+```
+
+5. You can query tables in the datashare by specifying the datashare's database
+   and schema. For more information, see [Cross-database query examples](cross-database_example.md "cross-database_example.md"). The following queries return sales
+   and seller data from the SALES table in the TICKIT sample database. For more
+   information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+```
+`SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales_view;`
+
+`+---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
+| salesid | listid | sellerid | buyerid | eventid | dateid | qtysold | pricepaid | commission | saletime |
++---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
 | 1 | 1 | 36861 | 21191 | 7872 | 1875 | 4 | 728 | 109.2 | 2008-02-18 02:36:48 |
 | 2 | 4 | 8117 | 11498 | 4337 | 1983 | 2 | 76 | 11.4 | 2008-06-06 05:00:16 |
 | 3 | 5 | 1616 | 17433 | 8647 | 1983 | 2 | 350 | 52.5 | 2008-06-06 08:26:17 |
 | 4 | 5 | 1616 | 19715 | 8647 | 1986 | 1 | 175 | 26.25 | 2008-06-09 08:38:52 |
-| 5 | 6 | 47402 | 14115 | 8240 | 2069 | 2 | 154 | 23.1 | 2008-08-31 09:17:02 | +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+` ``` ###### Note The query runs against the view in the shared schema. You can't connect directly to databases created from datashares. They are read-only. 6. To run a query that includes aggregations, use the following example. ``` `SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales ORDER BY 1,2 LIMIT 5;` `+---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
-| salesid | listid | sellerid | buyerid | eventid | dateid | qtysold | pricepaid | commission | saletime | +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
+| 5 | 6 | 47402 | 14115 | 8240 | 2069 | 2 | 154 | 23.1 | 2008-08-31 09:17:02 |
++---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+`
+```
+
+###### Note
+
+The query runs against the view in the shared schema. You can't connect
+directly to databases created from datashares. They are read-only. 6. To run a query that includes aggregations, use the following example.
+
+```
+`SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales ORDER BY 1,2 LIMIT 5;`
+
+`+---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
+| salesid | listid | sellerid | buyerid | eventid | dateid | qtysold | pricepaid | commission | saletime |
++---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
 | 1 | 1 | 36861 | 21191 | 7872 | 1875 | 4 | 728 | 109.2 | 2008-02-18 02:36:48 |
 | 2 | 4 | 8117 | 11498 | 4337 | 1983 | 2 | 76 | 11.4 | 2008-06-06 05:00:16 |
 | 3 | 5 | 1616 | 17433 | 8647 | 1983 | 2 | 350 | 52.5 | 2008-06-06 08:26:17 |
 | 4 | 5 | 1616 | 19715 | 8647 | 1986 | 1 | 175 | 26.25 | 2008-06-09 08:38:52 |
-| 5 | 6 | 47402 | 14115 | 8240 | 2069 | 2 | 154 | 23.1 | 2008-08-31 09:17:02 | +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+` ``` The query returns sales and seller data from the sample TICKIT data. For more examples of datashare queries, see [Sharing read access to data within an AWS account](within-account.md "within-account.md").
-````
+| 5 | 6 | 47402 | 14115 | 8240 | 2069 | 2 | 154 | 23.1 | 2008-08-31 09:17:02 |
++---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+`
+```
+
+The query returns sales and seller data from the sample TICKIT data.
+
+For more examples of datashare queries, see [Sharing read access to data within an
+AWS account](within-account.md "within-account.md").

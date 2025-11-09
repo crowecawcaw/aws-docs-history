@@ -13,12 +13,29 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name     | Data type    | Description                                                                                                             |
-| --------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | ----------- | ---------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | ------ | --- | --- | --- |
-| database_name   | varchar(128) | The name of the database where the schema exists.                                                                       |
-| schema_name     | varchar(128) | The name of the schema.                                                                                                 |
-| schema_owner    | integer      | The user ID of the schema owner. For information about user IDs, see [PG_USER_INFO](pg_user_info.md "pg_user_info.md"). |
-| schema_type     | varchar(128) | The type of the schema. Possible values are external, local, and shared schemas.                                        |
-| schema_acl      | varchar(128) | The string that defines the permissions for the specified user or user group for the schema.                            |
-| source_database | varchar(128) | The name of the source database for external schema.                                                                    |
-| schema_option   | varchar(256) | The options of the schema. This is an external schema attribute.                                                        | ## Sample query The following example returns the output of SVV_ALL_SCHEMAS. ``` SELECT \* FROM svv_all_schemas WHERE database_name = 'tickit_db' ORDER BY database_name, SCHEMA_NAME; database_name | schema_name | schema_owner | schema_type | schema_acl | source_database | schema_option ---------------+--------------------+--------------+-------------+------------+-----------------+--------------- tickit_db | public | 1   | shared |     |     | ``` |
+| Column name     | Data type    | Description                                                                                                                |
+| --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| database_name   | varchar(128) | The name of the database where the schema<br>exists.                                                                       |
+| schema_name     | varchar(128) | The name of the schema.                                                                                                    |
+| schema_owner    | integer      | The user ID of the schema owner.<br>For information about user IDs, see [PG_USER_INFO](pg_user_info.md "pg_user_info.md"). |
+| schema_type     | varchar(128) | The type of the schema. Possible values are<br>external, local, and shared schemas.                                        |
+| schema_acl      | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the schema.                            |
+| source_database | varchar(128) | The name of the source database for external schema.                                                                       |
+| schema_option   | varchar(256) | The options of the schema. This is an external<br>schema attribute.                                                        |
+
+## Sample query
+
+The following example returns the output of SVV_ALL_SCHEMAS.
+
+```
+SELECT *
+FROM svv_all_schemas
+WHERE database_name = 'tickit_db'
+ORDER BY database_name,
+    SCHEMA_NAME;
+
+
+ database_name |    schema_name     | schema_owner | schema_type | schema_acl | source_database | schema_option
+---------------+--------------------+--------------+-------------+------------+-----------------+---------------
+   tickit_db   |       public       |       1      |   shared    |            |                 |
+```

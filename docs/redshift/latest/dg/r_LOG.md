@@ -34,11 +34,23 @@ The LOG function returns a `DOUBLE PRECISION` number.
 
 To find the base 2 logarithm of 100, use the following example.
 
-````
+```
 `SELECT LOG(2, 100);`
 `+-------------------+
-| log | +-------------------+
-| 6.643856189774725 | +-------------------+` ``` To find the base 10 logarithm of 100, use the following example. Note that if you omit the base parameter, Amazon Redshift assumes a base of 10. ``` `SELECT LOG(100);` `+-----+
-| log | +-----+
-| 2 | +-----+` ```
-````
+| log |
++-------------------+
+| 6.643856189774725 |
++-------------------+`
+```
+
+To find the base 10 logarithm of 100, use the following example. Note that if you omit the base parameter, Amazon Redshift assumes a base of 10.
+
+```
+`SELECT LOG(100);`
+
+`+-----+
+| log |
++-----+
+| 2 |
++-----+`
+```

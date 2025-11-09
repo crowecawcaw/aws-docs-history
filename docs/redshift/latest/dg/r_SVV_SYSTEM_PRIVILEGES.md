@@ -15,8 +15,21 @@ SVV_SYSTEM_PRIVILEGES is visible to the following users:
 ## Table columns
 
 | Column name      | Data type | Description                                                     |
-| ---------------- | --------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------- | ------------- | -------- |
+| ---------------- | --------- | --------------------------------------------------------------- |
 | system_privilege | text      | The name of the system permission.                              |
 | identity_id      | integer   | The ID of the identity. Possible values are user ID or role ID. |
 | identity_name    | text      | The name of the identity.                                       |
-| identity_type    | text      | The type of the identity. Possible values are user or role.     | ## Sample query The following example displays the result for the specified parameters. ``` SELECT system_privilege,identity_name,identity_type FROM svv_system_privileges WHERE system_privilege = 'ALTER TABLE' AND identity_name = 'sys:superuser'; system_privilege | identity_name | identity_type ------------------+---------------+--------------- ALTER TABLE | sys:superuser | role ``` |
+| identity_type    | text      | The type of the identity. Possible values are user or role.     |
+
+## Sample query
+
+The following example displays the result for the specified parameters.
+
+```
+SELECT system_privilege,identity_name,identity_type FROM svv_system_privileges
+WHERE system_privilege = 'ALTER TABLE' AND identity_name = 'sys:superuser';
+
+ system_privilege | identity_name | identity_type
+------------------+---------------+---------------
+   ALTER TABLE    | sys:superuser |     role
+```

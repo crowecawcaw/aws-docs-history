@@ -58,17 +58,19 @@ INSERT INTO test_json(json_strings) VALUES
 
 To validate the strings in the preceding example, use the following example.
 
-````
+```
 `SELECT id, json_strings, IS_VALID_JSON(json_strings)
 FROM test_json
 ORDER BY id;`
 
 `+----+---------------------+---------------+
-| id | json_strings | is_valid_json | +----+---------------------+---------------+
+| id | json_strings | is_valid_json |
++----+---------------------+---------------+
 | 0 | {"a":2} | true |
 | 4 | {"a":{"b":{"c":1}}} | true |
 | 8 | {"a": [1,2,"b"]} | true |
 | 12 | {{}} | false |
 | 16 | {1:"a"} | false |
-| 20 | [1,2,3] | false | +----+---------------------+---------------+` ```
-````
+| 20 | [1,2,3] | false |
++----+---------------------+---------------+`
+```

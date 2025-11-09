@@ -33,16 +33,68 @@ You can also monitor running queries using the Amazon Redshift console.
 
 ## Table columns
 
-| Column name                | Data type      | Description                                                                                                                                                                                                                                            |
-| -------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---------- | --- | --------- | -------------------------------------------------------------------------------------------- | --- | --- | --- | -------------------------- | ------------------------- | --- | ----------- | --- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------- | ---- | --------- | -------------------------------------------------------------------------- | ------------------------ | --------------- | --------------------------------------- | ------ | -------------------------- | ----------------------------------- | ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid                     | integer        | ID of user who generated entry.                                                                                                                                                                                                                        |
-| slice                      | integer        | Slice where the query is running.                                                                                                                                                                                                                      |
-| query                      | integer        | Query ID. Can be used to join various other system tables and views.                                                                                                                                                                                   |
-| label                      | character(320) | Either the name of the file used to run the query or a label defined with a SET QUERY_GROUP command. If the query is not file-based or the QUERY_GROUP parameter is not set, this field is blank.                                                      |
-| xid                        | bigint         | Transaction ID.                                                                                                                                                                                                                                        |
-| pid                        | integer        | Process ID. All of the queries in a session are run in the same process, so this value remains constant if you run a series of queries in the same session. You can use this column to join to the [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
-| starttime                  | timestamp      | Time that the query started.                                                                                                                                                                                                                           |
-| text                       | character(100) | Query text, truncated to 100 characters if the statement exceeds that limit.                                                                                                                                                                           |
-| suspended                  | integer        | Whether the query is suspended or not. 0 = false; 1 = true.                                                                                                                                                                                            |
-| insert_pristine            | integer        | Whether write queries are/were able to run while the current query is/was running. 1 = no write queries allowed. 0 = write queries allowed. This column is intended for use in debugging.                                                              |
-| concurrency_scaling_status | integer        | Indicates whether the query ran on the main cluster or on a concurrency scaling cluster, Possible values are as follows: 0 - Ran on the main cluster 1 - Ran on a concurrency scaling cluster                                                          | ## Sample queries To view all active queries currently running on the database, type the following query: `select * from stv_inflight;` The sample output below shows two queries currently running, including the STV_INFLIGHT query itself and a query that was run from a script called `avgwait.sql`: ``` select slice, query, trim(label) querylabel, pid, starttime, substring(text,1,20) querytext from stv_inflight; slice | query | querylabel | pid | starttime | querytext -----+-----+-----------+-----+--------------------------+-------------------- 1011 | 21  |     | 646 | 2012-01-26 13:23:15.645503 | select slice, query, 1011 | 20  | avgwait.sql | 499 | 2012-01-26 13:23:14.159912 | select avg(datediff( (2 rows) ``The following query selects several columns, including concurrency\_scaling\_status. This column indicates whether queries are being sent to the concurrency-scaling cluster. If the value is `1` for some results, it's an indication that concurrency-scaling compute resources are being used. For more information, see [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md").`` select userid, query, pid, starttime, text, suspended, concurrency_scaling_status from STV_INFLIGHT; `The sample output shows one query being sent to the concurrency scaling cluster.` query | pid | starttime | text | suspended | concurrency_scaling_status --------+---------+---------------------------- | ------------------------ | --------------- | ------------------------------- 1234567 | 123456 | 2012-01-26 13:23:15.645503 | select userid, query... 0 1 2345678 | 234567 | 2012-01-26 13:23:14.159912 | select avg(datediff(... 0 0 (2 rows) ``` For more tips on troubleshooting query performance, see [Query troubleshooting](queries-troubleshooting.md "queries-troubleshooting.md"). |
+| Column name                | Data type      | Description                                                                                                                                                                                                                                                     |
+| -------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                     | integer        | ID of user who generated entry.                                                                                                                                                                                                                                 |
+| slice                      | integer        | Slice where the query is running.                                                                                                                                                                                                                               |
+| query                      | integer        | Query ID. Can be used to join various other system<br>tables and views.                                                                                                                                                                                         |
+| label                      | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>is blank.                                                      |
+| xid                        | bigint         | Transaction ID.                                                                                                                                                                                                                                                 |
+| pid                        | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session. You can use this column to<br>join to the [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
+| starttime                  | timestamp      | Time that the query started.                                                                                                                                                                                                                                    |
+| text                       | character(100) | Query text, truncated to 100 characters if the<br>statement exceeds that limit.                                                                                                                                                                                 |
+| suspended                  | integer        | Whether the query is suspended or not. 0 = false;<br>1 = true.                                                                                                                                                                                                  |
+| insert_pristine            | integer        | Whether write queries are/were able to run while<br>the current query is/was running. 1 = no write queries allowed. 0 =<br>write queries allowed. This column is intended for use in debugging.                                                                 |
+| concurrency_scaling_status | integer        | Indicates whether the query ran on the main<br>cluster or on a concurrency scaling cluster,<br>Possible values are as follows:<br>0<br>• Ran on the main cluster<br>1<br>• Ran on a concurrency scaling cluster                                                 |
+
+## Sample queries
+
+To view all active queries currently running on the database, type the following
+query:
+
+```
+select * from stv_inflight;
+```
+
+The sample output below shows two queries currently running, including the
+STV_INFLIGHT query itself and a query that was run from a script called
+`avgwait.sql`:
+
+```
+select slice, query, trim(label) querylabel, pid,
+starttime, substring(text,1,20) querytext
+from stv_inflight;
+
+slice|query|querylabel | pid |        starttime         |      querytext
+-----+-----+-----------+-----+--------------------------+--------------------
+1011 |  21 |           | 646 |2012-01-26 13:23:15.645503|select slice, query,
+1011 |  20 |avgwait.sql| 499 |2012-01-26 13:23:14.159912|select avg(datediff(
+(2 rows)
+```
+
+The following query selects several columns, including concurrency_scaling_status. This column indicates whether
+queries are being sent to the concurrency-scaling cluster. If the value is `1` for some results, it's an indication that
+concurrency-scaling compute resources are being used. For more information, see [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md").
+
+```
+select userid,
+query,
+pid,
+starttime,
+text,
+suspended,
+concurrency_scaling_status
+ from STV_INFLIGHT;
+```
+
+The sample output shows one query being sent to the concurrency scaling cluster.
+
+```
+ query  | pid     |        starttime           |   text                 | suspended     |  concurrency_scaling_status
+--------+---------+----------------------------|------------------------|---------------|-------------------------------
+1234567 | 123456  | 2012-01-26 13:23:15.645503 | select userid, query...  0                1
+2345678 | 234567  | 2012-01-26 13:23:14.159912 | select avg(datediff(...  0                0
+(2 rows)
+```
+
+For more tips on troubleshooting query performance, see [Query troubleshooting](queries-troubleshooting.md "queries-troubleshooting.md").

@@ -13,14 +13,27 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name     | Data type    | Description                                           |
-| --------------- | ------------ | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------------------------------- | --- | --- |
-| user_id         | integer      | The ID of the user issuing the request.               |
-| session_id      | integer      | The ID of the leader process running the query.       |
-| transaction_id  | bigint       | The context of the current transaction.               |
-| request_id      | varchar(50)  | The unique ID of the requested API call.              |
-| request_type    | varchar(25)  | The type of the request made to the producer cluster. |
-| transaction_uid | varchar(50)  | The unique ID of the transaction.                     |
-| record_time     | timestamp    | The time when the action is recorded.                 |
-| status          | integer      | The status of the requested API call.                 |
-| error_message   | varchar(512) | The message for an error.                             | ## Sample queries The following example shows the SYS_DATASHARE_USAGE_CONSUMER view. ``` SELECT request_type, status, trim(error) AS error FROM sys_datashare_usage_consumer request_type | status | error_message ----------------+--------+--------------- "GET RELATION" | 0   | ``` |
+| Column name     | Data type    | Description                                              |
+| --------------- | ------------ | -------------------------------------------------------- |
+| user_id         | integer      | The ID of the user issuing the request.                  |
+| session_id      | integer      | The ID of the leader process running the query.          |
+| transaction_id  | bigint       | The context of the current transaction.                  |
+| request_id      | varchar(50)  | The unique ID of the requested API call.                 |
+| request_type    | varchar(25)  | The type of the request made to the producer<br>cluster. |
+| transaction_uid | varchar(50)  | The unique ID of the transaction.                        |
+| record_time     | timestamp    | The time when the action is recorded.                    |
+| status          | integer      | The status of the requested API call.                    |
+| error_message   | varchar(512) | The message for an error.                                |
+
+## Sample queries
+
+The following example shows the SYS_DATASHARE_USAGE_CONSUMER view.
+
+```
+SELECT request_type, status, trim(error) AS error
+FROM sys_datashare_usage_consumer
+
+  request_type  | status | error_message
+----------------+--------+---------------
+ "GET RELATION" |   0    |
+```

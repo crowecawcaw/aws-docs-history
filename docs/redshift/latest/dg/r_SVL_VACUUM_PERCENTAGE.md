@@ -18,8 +18,26 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type | Description                                                                                                         |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
-| xid         | bigint    | Transaction ID for the vacuum statement.                                                                            |
-| table_id    | integer   | Table ID for the vacuumed table.                                                                                    |
-| percentage  | bigint    | Percentage of data blocks after a vacuum (relative to the number of blocks in the table before the vacuum was run). | ## Sample query The following query displays the percentage for a specific operation on table 100238: ``` select \* from svl_vacuum_percentage where table_id=100238 and xid=2200; xid | table_id | percentage -----+----------+------------ 1337 | 100238 | 60 (1 row) ``` After this vacuum operation, the table contained 60 percent of the original blocks. |
+| Column name | Data type | Description                                                                                                            |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| xid         | bigint    | Transaction ID for the vacuum statement.                                                                               |
+| table_id    | integer   | Table ID for the vacuumed table.                                                                                       |
+| percentage  | bigint    | Percentage of data blocks after a vacuum (relative<br>to the number of blocks in the table before the vacuum was run). |
+
+## Sample query
+
+The following query displays the percentage for a specific operation on table
+100238:
+
+```
+select * from svl_vacuum_percentage
+where table_id=100238 and xid=2200;
+
+xid  | table_id | percentage
+-----+----------+------------
+1337 |   100238 |         60
+(1 row)
+```
+
+After this vacuum operation, the table contained 60 percent of the original
+blocks.

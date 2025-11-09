@@ -21,13 +21,24 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name | Data type | Description                                                                                                |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pid         | integer   | The process ID.                                                                                            |
-| query       | integer   | The query ID.                                                                                              |
-| segment     | integer   | The segment number. A query consists of multiple segments, and each segment consists of one or more steps. |
-| step        | integer   | The query step that ran.                                                                                   |
-| node        | integer   | The node number.                                                                                           |
-| slice       | integer   | The data slice that a particular segment ran against.                                                      |
-| eventtime   | timestamp | Time in UTC that the step started executing.                                                               |
-| message     | text      | Message for the log entry.                                                                                 | ## Sample query The following example queries SVL_S3LOG for the last query that ran. `select * from svl_s3log where query = pg_last_query_id() order by query,segment,slice;` |
+| Column name | Data type | Description                                                                                                   |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------- |
+| pid         | integer   | The process ID.                                                                                               |
+| query       | integer   | The query ID.                                                                                                 |
+| segment     | integer   | The segment number. A query consists of multiple<br>segments, and each segment consists of one or more steps. |
+| step        | integer   | The query step that ran.                                                                                      |
+| node        | integer   | The node number.                                                                                              |
+| slice       | integer   | The data slice that a particular segment ran<br>against.                                                      |
+| eventtime   | timestamp | Time in UTC that the step started<br>executing.                                                               |
+| message     | text      | Message for the log entry.                                                                                    |
+
+## Sample query
+
+The following example queries SVL_S3LOG for the last query that ran.
+
+```
+select *
+from svl_s3log
+where query = pg_last_query_id()
+order by query,segment,slice;
+```

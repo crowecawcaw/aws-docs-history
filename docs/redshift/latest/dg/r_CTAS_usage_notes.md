@@ -147,10 +147,48 @@ select * from pg_table_def where tablename like 'sales%';
 The following table summarizes the results. For simplicity, we omit cost, rows,
 and width details from the explain plan.
 
-| Table              | CTAS SELECT statement                                                    | Explain plan top node             | Dist key    | Sort key |
-| ------------------ | ------------------------------------------------------------------------ | --------------------------------- | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| S1_SIMPLE          | `select listid, dateid, qtysold from sales`                              | `XN Seq Scan on sales ...`        | LISTID      | DATEID   |
-| S2_LIMIT           | `select listid, dateid, qtysold from sales limit 100`                    | `XN Limit ...`                    | None (EVEN) | None     |
-| S3_ORDER_BY_LISTID | `select listid, dateid, qtysold from sales order by listid`              | `XN Sort ...` `Sort Key: listid`  | LISTID      | LISTID   |
-| S4_ORDER_BY_QTY    | `select listid, dateid, qtysold from sales order by qtysold`             | `XN Sort ...` `Sort Key: qtysold` | LISTID      | QTYSOLD  |
-| S5_GROUP_BY        | `select listid, dateid, sum(qtysold) from sales group by listid, dateid` | `XN HashAggregate ...`            | None (EVEN) | None     | You can explicitly specify distribution style and sort key in the CTAS statement. For example, the following statement creates a table using EVEN distribution and specifies SALESID as the sort key. `create table sales_disteven diststyle even sortkey (salesid) as select eventid, venueid, dateid, eventname from event;` ## Compression encoding ENCODE AUTO is used as the default for tables. Amazon Redshift automatically manages compression encoding for all columns in the table. ## Distribution of incoming data When the hash distribution scheme of the incoming data matches that of the target table, no physical distribution of the data is actually necessary when the data is loaded. For example, if a distribution key is set for the new table and the data is being inserted from another table that is distributed on the same key column, the data is loaded in place, using the same nodes and slices. However, if the source and target tables are both set to EVEN distribution, data is redistributed into the target table. ## Automatic ANALYZE operations Amazon Redshift automatically analyzes tables that you create with CTAS commands. You do not need to run the ANALYZE command on these tables when they are first created. If you modify them, you should analyze them in the same way as other tables. |
+| Table              | CTAS SELECT statement                                                       | Explain plan top node                | Dist key    | Sort key |
+| ------------------ | --------------------------------------------------------------------------- | ------------------------------------ | ----------- | -------- |
+| S1_SIMPLE          | `select listid, dateid, qtysold from sales`                                 | `XN Seq Scan on sales ...`           | LISTID      | DATEID   |
+| S2_LIMIT           | `select listid, dateid, qtysold from sales limit<br>100`                    | `XN Limit ...`                       | None (EVEN) | None     |
+| S3_ORDER_BY_LISTID | `select listid, dateid, qtysold from sales order by<br>listid`              | `XN Sort ...`<br>`Sort Key: listid`  | LISTID      | LISTID   |
+| S4_ORDER_BY_QTY    | `select listid, dateid, qtysold from sales order by<br>qtysold`             | `XN Sort ...`<br>`Sort Key: qtysold` | LISTID      | QTYSOLD  |
+| S5_GROUP_BY        | `select listid, dateid, sum(qtysold) from sales group by<br>listid, dateid` | `XN HashAggregate ...`               | None (EVEN) | None     |
+
+You can explicitly specify distribution style and sort key in the CTAS statement.
+For example, the following statement creates a table using EVEN distribution and
+specifies SALESID as the sort key.
+
+```
+create table sales_disteven
+diststyle even
+sortkey (salesid)
+as
+select eventid, venueid, dateid, eventname
+from event;
+```
+
+## Compression encoding
+
+ENCODE AUTO is used as the default for tables. Amazon Redshift automatically manages
+compression encoding for all columns in the table.
+
+## Distribution of
+
+incoming data
+
+When the hash distribution scheme of the incoming data matches that of the target
+table, no physical distribution of the data is actually necessary when the data is
+loaded. For example, if a distribution key is set for the new table and the data is
+being inserted from another table that is distributed on the same key column, the
+data is loaded in place, using the same nodes and slices. However, if the source and
+target tables are both set to EVEN distribution, data is redistributed into the
+target table.
+
+## Automatic ANALYZE
+
+operations
+
+Amazon Redshift automatically analyzes tables that you create with CTAS commands. You do
+not need to run the ANALYZE command on these tables when they are first created. If
+you modify them, you should analyze them in the same way as other tables.

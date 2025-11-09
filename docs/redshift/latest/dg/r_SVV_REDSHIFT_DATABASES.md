@@ -16,10 +16,22 @@ permissions for object metadata by users and roles. For more information, see
 ## Table columns
 
 | Column name              | Data type    | Description                                                                                            |
-| ------------------------ | ------------ | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------ | --- | ----- | ---- | ----------------- |
+| ------------------------ | ------------ | ------------------------------------------------------------------------------------------------------ |
 | database_name            | varchar(128) | The name of the database.                                                                              |
 | database_owner           | integer      | The database owner user ID.                                                                            |
-| database_type            | varchar(32)  | The type of database. Possible types are local or shared databases.                                    |
+| database_type            | varchar(32)  | The type of database. Possible types are local or<br>shared databases.                                 |
 | database_acl             | varchar(128) | This information is for internal use only.                                                             |
 | database_options         | varchar(128) | The properties of the database.                                                                        |
-| database_isolation_level | varchar(128) | The isolation level of the database. Possible values include: `Snapshot Isolation` and `Serializable`. | ## Sample query The following example returns the output for SVV_REDSHIFT_DATABASES. ``` `select database_name, database_owner, database_type, database_options, database_isolation_level from svv_redshift_databases;` `database_name | database_owner | database_type | database_options | database_isolation_level --------------+----------------+---------------+------------------+------------------ dev | 1   | local | NULL | Serializable` ``` |
+| database_isolation_level | varchar(128) | The isolation level of the database. Possible values include: `Snapshot Isolation` and `Serializable`. |
+
+## Sample query
+
+The following example returns the output for SVV_REDSHIFT_DATABASES.
+
+```
+`select database_name, database_owner, database_type, database_options, database_isolation_level
+from svv_redshift_databases;`
+`database_name | database_owner | database_type | database_options | database_isolation_level
+--------------+----------------+---------------+------------------+------------------
+ dev | 1 | local | NULL | Serializable`
+```

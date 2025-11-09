@@ -17,7 +17,7 @@ For more information, see [zero-ETL integrations](../mgmt/zero-etl-using.md "../
 columns
 
 | Column name     | Data type      | Description                                     |
-| --------------- | -------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------------- | ----------- | ---------- | -------- | ----------- | -------------- | ------------- | ------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------------ | ------ | ----------------- | ------ | -------------------------- | ---- | --- | --- | --- | -------- |
+| --------------- | -------------- | ----------------------------------------------- |
 | integration_id  | character(128) | The identifier associated with the integration. |
 | checkpoint_name | character(128) | The name of the checkpoint.                     |
 | target_database | character(128) | The name of the Amazon Redshift database.       |
@@ -29,4 +29,15 @@ columns
 | inserted_rows   | bigint         | The number of rows inserted by the ingestion.   |
 | deleted_rows    | bigint         | The number of rows deleted by the ingestion.    |
 | updated_rows    | bigint         | The number of rows updated by the ingestion.    |
-| bytes_ingested  | bigint         | The number of bytes ingested.                   | ## Sample queries The following SQL command displays activity of the integration. ``` `select \* from sys_integration_table_activity;` `integration_id | checkpoint_name | target_database | schema_name | table_name | table_id | record_time | transaction_id | inserted_rows | deleted_rows | updated_rows | bytes_ingested --------------------------------------+-----------------+-----------------+-------------+-------------------+--------------+----------------------------+-----------------+----------------+--------------+--------------+--------------- 4798e675-8f9f-4686-b05f-92c538e19629 |     | sample_test2 | sample | SampleTestChannel | 111276 | 2023-05-12 12:40:30.656625 | 7736 | 2   | 0   | 0   | 125` ``` |
+| bytes_ingested  | bigint         | The number of bytes ingested.                   |
+
+## Sample queries
+
+The following SQL command displays activity of the integration.
+
+```
+`select * from sys_integration_table_activity;`
+`integration_id | checkpoint_name | target_database | schema_name | table_name | table_id | record_time | transaction_id | inserted_rows | deleted_rows | updated_rows | bytes_ingested
+--------------------------------------+-----------------+-----------------+-------------+-------------------+--------------+----------------------------+-----------------+----------------+--------------+--------------+---------------
+ 4798e675-8f9f-4686-b05f-92c538e19629 | | sample_test2 | sample | SampleTestChannel | 111276 | 2023-05-12 12:40:30.656625 | 7736 | 2 | 0 | 0 | 125`
+```

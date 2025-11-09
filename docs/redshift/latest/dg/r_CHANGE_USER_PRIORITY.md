@@ -39,14 +39,36 @@ None
 To change the priority for the user
 `analysis_user` to `LOWEST`, use the following example.
 
-````
+```
 `SELECT CHANGE_USER_PRIORITY('analysis_user', 'lowest');`
 
 `+-------------------------------------------------------------------------------------+
-| change_user_priority | +-------------------------------------------------------------------------------------+
-| Succeeded to change user priority. Changed user (analysis_user) priority to lowest. | +-------------------------------------------------------------------------------------+` ``` To change the priority to `LOW`, use the following example. ``` `SELECT CHANGE_USER_PRIORITY('analysis_user', 'low');` `+----------------------------------------------------------------------------------------------+
-| change_user_priority | +----------------------------------------------------------------------------------------------+
-| Succeeded to change user priority. Changed user (analysis_user) priority from Lowest to low. | +----------------------------------------------------------------------------------------------+` ``` To reset the priority, use the following example. ``` `SELECT CHANGE_USER_PRIORITY('analysis_user', 'reset');` `+-------------------------------------------------------+
-| change_user_priority | +-------------------------------------------------------+
-| Succeeded to reset priority for user (analysis_user). | +-------------------------------------------------------+` ```
-````
+| change_user_priority |
++-------------------------------------------------------------------------------------+
+| Succeeded to change user priority. Changed user (analysis_user) priority to lowest. |
++-------------------------------------------------------------------------------------+`
+```
+
+To change the priority to `LOW`, use the following example.
+
+```
+`SELECT CHANGE_USER_PRIORITY('analysis_user', 'low');`
+
+`+----------------------------------------------------------------------------------------------+
+| change_user_priority |
++----------------------------------------------------------------------------------------------+
+| Succeeded to change user priority. Changed user (analysis_user) priority from Lowest to low. |
++----------------------------------------------------------------------------------------------+`
+```
+
+To reset the priority, use the following example.
+
+```
+`SELECT CHANGE_USER_PRIORITY('analysis_user', 'reset');`
+
+`+-------------------------------------------------------+
+| change_user_priority |
++-------------------------------------------------------+
+| Succeeded to reset priority for user (analysis_user). |
++-------------------------------------------------------+`
+```

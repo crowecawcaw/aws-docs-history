@@ -16,19 +16,33 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name              | Data type    | Description                                                                                                                 |
-| ------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| share_id                 | integer      | The object ID (OID) of the datashare.                                                                                       |
-| share_name               | varchar(128) | The name of the datashare.                                                                                                  |
-| request_id               | varchar(50)  | The unique ID of the requested API call.                                                                                    |
-| request_type             | varchar(25)  | The type of the request made to the producer cluster.                                                                       |
-| object_type              | varchar(64)  | The type of the object being shared from the datashare. Possible values are schemas, tables, columns, functions, and views. |
-| object_oid               | integer      | The ID of the object being shared from the datashare.                                                                       |
-| object_name              | varchar(128) | The name of the object being shared from the datashare.                                                                     |
-| consumer_account         | varchar(16)  | The account of the consumer account that the datashare is shared to.                                                        |
-| consumer_namespace       | varchar(64)  | The namespace of the consumer account that the datashare is shared to.                                                      |
-| consumer_transaction_uid | varchar(50)  | The unique transaction ID of the statement on the consumer cluster.                                                         |
-| recordtime               | timestamp    | The time when the action is recorded.                                                                                       |
-| status                   | integer      | The status of the datashare.                                                                                                |
-| error                    | varchar(512) | The message for an error.                                                                                                   |
-| consumer_region          | char(64)     | The Region that the consumer cluster is in.                                                                                 | ## Sample queries The following example shows a SVL_DATASHARE_USAGE_PRODUCER view. `SELECT DISTINCT request_type FROM svl_datashare_usage_producer WHERE object_name LIKE 'tickit%'; request_type ------------------ "GET RELATION"` |
+| Column name              | Data type    | Description                                                                                                                       |
+| ------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| share_id                 | integer      | The object ID (OID) of the datashare.                                                                                             |
+| share_name               | varchar(128) | The name of the datashare.                                                                                                        |
+| request_id               | varchar(50)  | The unique ID of the requested API call.                                                                                          |
+| request_type             | varchar(25)  | The type of the request made to the producer cluster.                                                                             |
+| object_type              | varchar(64)  | The type of the object being shared from the<br>datashare. Possible values are schemas, tables, columns, functions,<br>and views. |
+| object_oid               | integer      | The ID of the object being shared from the<br>datashare.                                                                          |
+| object_name              | varchar(128) | The name of the object being shared from the<br>datashare.                                                                        |
+| consumer_account         | varchar(16)  | The account of the consumer account that the<br>datashare is shared to.                                                           |
+| consumer_namespace       | varchar(64)  | The namespace of the consumer account that the<br>datashare is shared to.                                                         |
+| consumer_transaction_uid | varchar(50)  | The unique transaction ID of the statement on the consumer cluster.                                                               |
+| recordtime               | timestamp    | The time when the action is recorded.                                                                                             |
+| status                   | integer      | The status of the datashare.                                                                                                      |
+| error                    | varchar(512) | The message for an error.                                                                                                         |
+| consumer_region          | char(64)     | The Region that the consumer cluster is in.                                                                                       |
+
+## Sample queries
+
+The following example shows a SVL_DATASHARE_USAGE_PRODUCER view.
+
+```
+SELECT DISTINCT request_type
+FROM svl_datashare_usage_producer
+WHERE object_name LIKE 'tickit%';
+
+   request_type
+ ------------------
+   "GET RELATION"
+```

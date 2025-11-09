@@ -30,7 +30,7 @@ A `SUPER` expression or column.
 
 To check if `TRUE` is a `BOOLEAN` using the IS_BOOLEAN function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (TRUE);
@@ -38,6 +38,8 @@ INSERT INTO t VALUES (TRUE);
 SELECT s, IS_BOOLEAN(s) FROM t;`
 
 `+------+------------+
-| s | is_boolean | +------+------------+
-| true | true | +------+------------+` ```
-````
+| s | is_boolean |
++------+------------+
+| true | true |
++------+------------+`
+```

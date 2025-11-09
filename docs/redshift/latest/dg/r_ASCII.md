@@ -28,16 +28,50 @@ INTEGER
 
 To return `NULL`, use the following example. The NULLIF function returns `NULL` if the two arguments are the same, so the input argument for the ASCII function is `NULL`. For more information, see [NULLIF function](r_NULLIF_function.md "r_NULLIF_function.md").
 
-````
+```
 `SELECT ASCII(NULLIF('',''));`
 
 `+-------+
-| ascii | +-------+
-| NULL | +-------+` ``` To return the ASCII code 0, use the following example. ``` `SELECT ASCII('');` `+-------+
-| ascii | +-------+
-| 0 | +-------+` ``` To return the ASCII code 97 for the first letter of the word amazon, use the following example. ``` `SELECT ASCII('amazon');` `+-------+
-| ascii | +-------+
-| 97 | +-------+` ``` To return the ASCII code 65 for the first letter of the word Amazon, use the following example. ``` `SELECT ASCII('Amazon');` `+-------+
-| ascii | +-------+
-| 65 | +-------+` ```
-````
+| ascii |
++-------+
+| NULL |
++-------+`
+```
+
+To return the ASCII code 0, use the following example.
+
+```
+`SELECT ASCII('');`
+
+`+-------+
+| ascii |
++-------+
+| 0 |
++-------+`
+```
+
+To return the ASCII code 97 for the first letter of the word
+amazon, use the following example.
+
+```
+`SELECT ASCII('amazon');`
+
+`+-------+
+| ascii |
++-------+
+| 97 |
++-------+`
+```
+
+To return the ASCII code 65 for the first letter of the word
+Amazon, use the following example.
+
+```
+`SELECT ASCII('Amazon');`
+
+`+-------+
+| ascii |
++-------+
+| 65 |
++-------+`
+```

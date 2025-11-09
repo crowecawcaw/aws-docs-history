@@ -45,13 +45,21 @@ by using the [CANCEL](r_CANCEL.md "r_CANCEL.md") command or the [PG_CANCEL_BACKE
 To query the SVV_TRANSACTIONS table to view all locks in
 effect for current transactions, use the following example.
 
-````
+```
 `SELECT * FROM svv_transactions;`
 
 `+-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+
-| txn_owner | txn_db | xid | pid | txn_start | lock_mode | lockable_object_type | relation | granted | +-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+
+| txn_owner | txn_db | xid | pid | txn_start | lock_mode | lockable_object_type | relation | granted |
++-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+
 | rsuser | dev | 96178 | 8585 | 2017-04-12 20:13:07 | AccessShareLock | relation | 51940 | true |
 | rsuser | dev | 96178 | 8585 | 2017-04-12 20:13:07 | AccessShareLock | relation | 52000 | true |
 | rsuser | dev | 96178 | 8585 | 2017-04-12 20:13:07 | AccessShareLock | relation | 108623 | true |
-| rsuser | dev | 96178 | 8585 | 2017-04-12 20:13:07 | ExclusiveLock | transactionid | | true | +-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+` ``` TO terminate the session holding the locks, use the following example. ``` `SELECT PG_TERMINATE_BACKEND(8585);` ```
-````
+| rsuser | dev | 96178 | 8585 | 2017-04-12 20:13:07 | ExclusiveLock | transactionid | | true |
++-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+`
+```
+
+TO terminate the session holding the locks, use the following example.
+
+```
+`SELECT PG_TERMINATE_BACKEND(8585);`
+```

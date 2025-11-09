@@ -34,16 +34,46 @@ DATE
 The following example returns the date portion from the result of the SYSDATE
 function (which returns a timestamp).
 
-````
+```
 `SELECT SYSDATE;`
 
 `+----------------------------+
-| timestamp | +----------------------------+
-| 2011-07-21 10:32:38.248109 | +----------------------------+` `SELECT TRUNC(SYSDATE);` `+------------+
-| trunc | +------------+
-| 2011-07-21 | +------------+` ``` The following example applies the TRUNC function to a `TIMESTAMP` column. The return type is a date. ``` `SELECT TRUNC(starttime) FROM event ORDER BY eventid LIMIT 1;` `+------------+
-| trunc | +------------+
-| 2008-01-25 | +------------+` ``` The following example returns a timestamp value with `00:00:00` as the time by casting the TRUNC function result to a `TIMESTAMP`. ``` `SELECT CAST((TRUNC(SYSDATE)) AS TIMESTAMP);` `+---------------------+
-| trunc | +---------------------+
-| 2011-07-21 00:00:00 | +---------------------+` ```
-````
+| timestamp |
++----------------------------+
+| 2011-07-21 10:32:38.248109 |
++----------------------------+`
+
+`SELECT TRUNC(SYSDATE);`
+
+`+------------+
+| trunc |
++------------+
+| 2011-07-21 |
++------------+`
+```
+
+The following example applies the TRUNC function to a `TIMESTAMP` column. The return
+type is a date.
+
+```
+`SELECT TRUNC(starttime) FROM event
+ORDER BY eventid LIMIT 1;`
+
+`+------------+
+| trunc |
++------------+
+| 2008-01-25 |
++------------+`
+```
+
+The following example returns a timestamp value with `00:00:00` as the time by casting the TRUNC function result to a `TIMESTAMP`.
+
+```
+`SELECT CAST((TRUNC(SYSDATE)) AS TIMESTAMP);`
+
+`+---------------------+
+| trunc |
++---------------------+
+| 2011-07-21 00:00:00 |
++---------------------+`
+```

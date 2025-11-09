@@ -72,14 +72,15 @@ which tickets were sold on January 1, 2008 and January 2, 2008 and the commissio
 paid for ticket sales for the subsequent sale. The following example uses the TICKIT sample database.
 For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
 
-````
+```
 `SELECT eventid, commission, saletime, LEAD(commission, 1) over ( ORDER BY saletime ) AS next_comm
 FROM sales
 WHERE saletime BETWEEN '2008-01-09 00:00:00' AND '2008-01-10 12:59:59'
 LIMIT 10;`
 
 `+---------+------------+---------------------+-----------+
-| eventid | commission | saletime | next_comm | +---------+------------+---------------------+-----------+
+| eventid | commission | saletime | next_comm |
++---------+------------+---------------------+-----------+
 | 1664 | 13.2 | 2008-01-09 01:00:21 | 69.6 |
 | 184 | 69.6 | 2008-01-09 01:00:36 | 116.1 |
 | 6870 | 116.1 | 2008-01-09 01:02:37 | 11.1 |
@@ -89,10 +90,39 @@ LIMIT 10;`
 | 5254 | 209.4 | 2008-01-09 01:29:16 | 26.4 |
 | 3724 | 26.4 | 2008-01-09 01:40:09 | 57.6 |
 | 5303 | 57.6 | 2008-01-09 01:40:21 | 51.6 |
-| 3678 | 51.6 | 2008-01-09 01:42:54 | 43.8 | +---------+------------+---------------------+-----------+` ``` The following example provides the maximum difference for the commision for events in the SALES table for and the commission paid for ticket sales for the subsequent sale for the same event. This example shows how to use LEAD with a GROUP BY clause. Since window functions aren't allowed in aggregate clauses, this example uses a subquery. The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). ``` `SELECT eventid, eventname, max(next_comm_diff) as max_commission_difference FROM ( SELECT sales.eventid, eventname, commission - LEAD(commission, 1) over (ORDER BY sales.eventid, saletime) AS next_comm_diff FROM sales JOIN event ON sales.eventid = event.eventid ) GROUP BY eventid, eventname ORDER BY eventid LIMIT 10` `| eventid | eventname | max_commission_difference | +---------+-----------------------------+---------------------------+
-| 1 | Gotterdammerung | 7.95 | | 2 | Boris Godunov | 227.85 |
-| 3 | Salome | 1350.9 | | 4 | La Cenerentola (Cinderella) | 790.05 |
-| 5 | Il Trovatore | 214.05 | | 6 | L Elisir d Amore | 510.9 |
-| 7 | Doctor Atomic | 180.6 | | 9 | The Fly | 147 |
-| 10 | Rigoletto | 186.6 | +---------+-----------------------------+---------------------------+` ```
-````
+| 3678 | 51.6 | 2008-01-09 01:42:54 | 43.8 |
++---------+------------+---------------------+-----------+`
+```
+
+The following example provides the maximum difference for the commision for events in the SALES table for
+and the commission paid for ticket sales for the subsequent sale for the same event. This example shows how
+to use LEAD with a GROUP BY clause. Since window functions aren't allowed in aggregate clauses, this example
+uses a subquery. The following example uses
+the TICKIT sample database.
+For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+```
+`SELECT eventid, eventname, max(next_comm_diff) as max_commission_difference
+FROM
+(
+ SELECT sales.eventid, eventname, commission - LEAD(commission, 1) over (ORDER BY sales.eventid, saletime) AS next_comm_diff
+ FROM sales JOIN event ON sales.eventid = event.eventid
+)
+GROUP BY eventid, eventname
+ORDER BY eventid
+
+LIMIT 10`
+
+`| eventid | eventname | max_commission_difference |
++---------+-----------------------------+---------------------------+
+| 1 | Gotterdammerung | 7.95 |
+| 2 | Boris Godunov | 227.85 |
+| 3 | Salome | 1350.9 |
+| 4 | La Cenerentola (Cinderella) | 790.05 |
+| 5 | Il Trovatore | 214.05 |
+| 6 | L Elisir d Amore | 510.9 |
+| 7 | Doctor Atomic | 180.6 |
+| 9 | The Fly | 147 |
+| 10 | Rigoletto | 186.6 |
++---------+-----------------------------+---------------------------+`
+```

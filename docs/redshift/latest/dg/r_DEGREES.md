@@ -27,12 +27,24 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the degree equivalent of .5 radians, use the following example.
 
-````
+```
 `SELECT DEGREES(.5);`
 
 `+-------------------+
-| degrees | +-------------------+
-| 28.64788975654116 | +-------------------+` ``` To convert PI radians to degrees, use the following example. ``` `SELECT DEGREES(pi());` `+---------+
-| degrees | +---------+
-| 180 | +---------+` ```
-````
+| degrees |
++-------------------+
+| 28.64788975654116 |
++-------------------+`
+```
+
+To convert PI radians to degrees, use the following example.
+
+```
+`SELECT DEGREES(pi());`
+
+`+---------+
+| degrees |
++---------+
+| 180 |
++---------+`
+```

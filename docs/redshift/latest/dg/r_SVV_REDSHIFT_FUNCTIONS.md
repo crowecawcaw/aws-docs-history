@@ -14,11 +14,28 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name   | Data type    | Description                                                                                              |
-| ------------- | ------------ | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ | --------------- | ---------------- | ---------------- | ----------- |
-| database_name | varchar(128) | The name of the database where the cluster that has these functions exists.                              |
-| schema_name   | varchar(128) | The name of the schema that specifies a given function.                                                  |
-| function_name | varchar(128) | The name of a specified function.                                                                        |
-| function_type | varchar(128) | The type of function. Possible values are regular functions, aggregate functions, and stored procedures. |
-| argument_type | varchar(512) | A string that represents the type of a function's input argument.                                        |
-| result_type   | varchar(128) | The data type of a function's return value.                                                              | ## Sample query The following example returns the output of SVV_REDSHIFT_FUNCTIONS. ``` SELECT \* FROM svv_redshift_functions WHERE database_name = 'tickit_db' AND SCHEMA_NAME = 'public' ORDER BY function_name LIMIT 5; database_name | schema_name | function_name | function_type | argument_type | result_type --------------+-------------+-----------------------+------------------+------------------+------------- tickit_db | public | shared_function | REGULAR FUNCTION | integer, integer | integer ``` |
+| Column name   | Data type    | Description                                                                                                 |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------- |
+| database_name | varchar(128) | The name of the database where the cluster that<br>has these functions exists.                              |
+| schema_name   | varchar(128) | The name of the schema that specifies a given<br>function.                                                  |
+| function_name | varchar(128) | The name of a specified function.                                                                           |
+| function_type | varchar(128) | The type of function. Possible values are regular<br>functions, aggregate functions, and stored procedures. |
+| argument_type | varchar(512) | A string that represents the type of a<br>function's input argument.                                        |
+| result_type   | varchar(128) | The data type of a function's return value.                                                                 |
+
+## Sample query
+
+The following example returns the output of SVV_REDSHIFT_FUNCTIONS.
+
+```
+SELECT *
+FROM svv_redshift_functions
+WHERE database_name = 'tickit_db'
+    AND SCHEMA_NAME = 'public'
+ORDER BY function_name
+LIMIT 5;
+
+database_name | schema_name |      function_name    |  function_type   |   argument_type  | result_type
+--------------+-------------+-----------------------+------------------+------------------+-------------
+   tickit_db  |    public   |     shared_function   | REGULAR FUNCTION | integer, integer |   integer
+```

@@ -31,18 +31,41 @@ value. If the input number has no ASCII match, the function returns `NULL`.
 
 To return the character that corresponds with ASCII code point 0, use the following example. Note that the CHR function returns `NULL` for the input `0`.
 
-````
+```
 `SELECT CHR(0);`
 
 `+-----+
-| chr | +-----+
-| | +-----+` ``` To return the character that corresponds with ASCII code point 65, use the following example. ``` `SELECT CHR(65);` `+-----+
-| chr | +-----+
-| A | +-----+` ``` To return distinct event names that begin with a capital A (ASCII code point 65), use the following example. The following example uses the EVENT table from the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). ``` `SELECT DISTINCT eventname FROM event WHERE SUBSTRING(eventname, 1, 1)=CHR(65) LIMIT 5;` `+-----------------------+
-| eventname | +-----------------------+
+| chr |
++-----+
+| |
++-----+`
+```
+
+To return the character that corresponds with ASCII code point 65, use the following example.
+
+```
+`SELECT CHR(65);`
+
+`+-----+
+| chr |
++-----+
+| A |
++-----+`
+```
+
+To return distinct event names that begin with a capital A (ASCII code point 65), use the following example. The following example uses the EVENT table from the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+```
+`SELECT DISTINCT eventname FROM event
+WHERE SUBSTRING(eventname, 1, 1)=CHR(65) LIMIT 5;`
+
+`+-----------------------+
+| eventname |
++-----------------------+
 | A Catered Affair |
 | As You Like It |
 | A Man For All Seasons |
 | Alan Jackson |
-| Armando Manzanero | +-----------------------+` ```
-````
+| Armando Manzanero |
++-----------------------+`
+```

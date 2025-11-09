@@ -17,11 +17,25 @@ SVV_DATASHARE_PRIVILEGES is visible to the following users:
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                         |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------------------------------------------------------------------------------------------------------- | ----- | --------- | ---- | ---------------- | ----- | ------- | ---- | --------- |
-| datashare_name | text      | The name of the datashare.                                                                                                                          |
-| privilege_type | text      | The type of the permission. Possible values are ALTER or SHARE.                                                                                     |
-| identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                          |
-| identity_name  | text      | The name of the identity.                                                                                                                           |
-| identity_type  | text      | The type of the identity. Possible values are user, role, group, or public.                                                                         |
-| admin_option   | boolean   | A value that indicates whether the user can grant the permission to other users and roles. It is always false for the role and group identity type. | ## Sample query The following example displays the result of the SVV_DATASHARE_PRIVILEGES. ``` SELECT datashare_name,privilege_type,identity_name,identity_type,admin_option FROM svv_datashare_privileges WHERE datashare_name = 'demo_share'; datashare_name | privilege_type | identity_name | identity_type | admin_option ----------------+----------------+----------------+---------------+-------------- demo_share | ALTER | superuser | user | False demo_share | ALTER | reguser | user | False ``` |
+| Column name    | Data type | Description                                                                                                                                               |
+| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| datashare_name | text      | The name of the datashare.                                                                                                                                |
+| privilege_type | text      | The type of the permission. Possible values are<br>ALTER or SHARE.                                                                                        |
+| identity_id    | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                             |
+| identity_name  | text      | The name of the identity.                                                                                                                                 |
+| identity_type  | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                            |
+| admin_option   | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type. |
+
+## Sample query
+
+The following example displays the result of the SVV_DATASHARE_PRIVILEGES.
+
+```
+SELECT datashare_name,privilege_type,identity_name,identity_type,admin_option FROM svv_datashare_privileges
+WHERE datashare_name = 'demo_share';
+
+ datashare_name | privilege_type |  identity_name | identity_type | admin_option
+----------------+----------------+----------------+---------------+--------------
+   demo_share   |     ALTER      |    superuser   |     user      |   False
+   demo_share   |     ALTER      |    reguser     |     user      |   False
+```

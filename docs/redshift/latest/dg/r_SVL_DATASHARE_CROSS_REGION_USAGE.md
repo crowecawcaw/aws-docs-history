@@ -18,11 +18,27 @@ We recommend that you use the SYS monitoring view for your queries.
 ## Table columns
 
 | Column name      | Data type | Description                                                                                                       |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ---------------- | -------------------------------------------------------------------------- | --- | ------- | ---------------- | --- | ------- | ------------- |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
 | query            | integer   | The ID of the query. Use this value to join other system tables and views.                                        |
 | segment          | bigint    | The number of the segment. A query consists of multiple segments, and each segment consists of one or more steps. |
-| start_time       | time      | The time in UTC that the data transfer began.                                                                     |
-| end_time         | time      | The time in UTC that the data transfer ended.                                                                     |
+| start_time       | time      | The time in UTC that the data transfer<br>began.                                                                  |
+| end_time         | time      | The time in UTC that the data transfer<br>ended.                                                                  |
 | transferred_data | bigint    | The number of bytes of data transferred from a producer Region to a consumer Region.                              |
 | source_region    | char(25)  | The producer Region that the query transferred data from.                                                         |
-| recordtime       | timestamp | The time when the action is recorded.                                                                             | ## Sample queries The following example shows a SVL_DATASHARE_CROSS_REGION_USAGE view. ``` SELECT query, segment, transferred_data, source_region from svl_datashare_cross_region_usage where query = pg_last_query_id() order by query,segment; query | segment | transferred_data | source_region --------+---------+------------------+--------------- 200048 | 2   | 4194304 | us-west-1 200048 | 2   | 4194304 | us-east-2 ``` |
+| recordtime       | timestamp | The time when the action is recorded.                                                                             |
+
+## Sample queries
+
+The following example shows a SVL_DATASHARE_CROSS_REGION_USAGE view.
+
+```
+SELECT query, segment, transferred_data, source_region
+from svl_datashare_cross_region_usage
+where query = pg_last_query_id()
+order by query,segment;
+
+  query | segment | transferred_data | source_region
+--------+---------+------------------+---------------
+ 200048 |       2 |          4194304 |    us-west-1
+ 200048 |       2 |          4194304 |    us-east-2
+```

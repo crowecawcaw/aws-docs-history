@@ -24,7 +24,7 @@ strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_str
 when using a DATEFORMAT and TIMEFORMAT string.
 
 | Format                    | Example of Valid Input String |
-| ------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ----------------------------- |
 | ISO 8601                  | 2019-02-11T05:09:12.195Z      |
 | Julian                    | J2451187                      |
 | BC                        | Jan-08-95 BC                  |
@@ -35,4 +35,25 @@ when using a DATEFORMAT and TIMEFORMAT string.
 | DD Mon HH:MI:SS YYYY TZ   | 17 Dec 07:37:16 1997 PST      |
 | MM/DD/YYYY HH:MI:SS.SS TZ | 12/17/1997 07:37:16.00 PST    |
 | YYYY-MM-DD HH:MI:SS+/-TZ  | 1997-12-17 07:37:16-08        |
-| DD.MM.YYYY HH:MI:SS TZ    | 12.17.1997 07:37:16.00 PST    | Automatic recognition doesn't support epochsecs and epochmillisecs. To test whether a date or timestamp value will be automatically converted, use a CAST function to attempt to convert the string to a date or timestamp value. For example, the following commands test the timestamp value `'J2345678 04:05:06.789'`: ``` create table formattest (test char(21)); insert into formattest values('J2345678 04:05:06.789'); select test, cast(test as timestamp) as timestamp, cast(test as date) as date from formattest; test | timestamp | date ----------------------+---------------------+------------ J2345678 04:05:06.789 1710-02-23 04:05:06 1710-02-23 ``` If the source data for a DATE column includes time information, the time component is truncated. If the source data for a TIMESTAMP column omits time information, 00:00:00 is used for the time component. |
+| DD.MM.YYYY HH:MI:SS TZ    | 12.17.1997 07:37:16.00 PST    |
+
+Automatic recognition doesn't support epochsecs and epochmillisecs.
+
+To test whether a date or timestamp value will be automatically converted, use a CAST
+function to attempt to convert the string to a date or timestamp value. For example, the
+following commands test the timestamp value `'J2345678 04:05:06.789'`:
+
+```
+create table formattest (test char(21));
+insert into formattest values('J2345678 04:05:06.789');
+select test, cast(test as timestamp) as timestamp, cast(test as date) as date from formattest;
+
+        test          |      timestamp      |	date
+----------------------+---------------------+------------
+J2345678 04:05:06.789   1710-02-23 04:05:06	1710-02-23
+
+```
+
+If the source data for a DATE column includes time information, the time component is
+truncated. If the source data for a TIMESTAMP column omits time information, 00:00:00 is
+used for the time component.

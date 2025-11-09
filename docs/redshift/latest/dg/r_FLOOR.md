@@ -32,14 +32,24 @@ The following examples use the TICKIT sample database. For more information, see
 
 To show the value of the commission paid for a given sales transaction before and after using the FLOOR function, use the following example.
 
-````
+```
 `SELECT commission
 FROM sales
 WHERE salesid=10000;`
 
 `+------------+
-| commission | +------------+
-| 28.05 | +------------+` `SELECT FLOOR(commission) FROM sales WHERE salesid=10000;` `+-------+
-| floor | +-------+
-| 28 | +-------+` ```
-````
+| commission |
++------------+
+| 28.05 |
++------------+`
+
+`SELECT FLOOR(commission)
+FROM sales
+WHERE salesid=10000;`
+
+`+-------+
+| floor |
++-------+
+| 28 |
++-------+`
+```

@@ -30,7 +30,7 @@ A `SUPER` expression or column.
 
 To check if `5` is a `SMALLINT` using the IS_SMALLINT function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (5);
@@ -38,6 +38,8 @@ INSERT INTO t VALUES (5);
 SELECT s, IS_SMALLINT(s) FROM t;`
 
 `+---+-------------+
-| s | is_smallint | +---+-------------+
-| 5 | true | +---+-------------+` ```
-````
+| s | is_smallint |
++---+-------------+
+| 5 | true |
++---+-------------+`
+```

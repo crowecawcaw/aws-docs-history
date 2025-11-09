@@ -29,10 +29,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the base 10 logarithm of the number 100, use the following example.
 
-````
+```
 `SELECT DLOG10(100);`
 
 `+--------+
-| dlog10 | +--------+
-| 2 | +--------+` ```
-````
+| dlog10 |
++--------+
+| 2 |
++--------+`
+```

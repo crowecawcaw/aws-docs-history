@@ -55,12 +55,12 @@ The following table lists the descriptions and suggested workarounds for VARCHAR
 load errors. If one of these errors occurs, replace the character with a valid UTF-8
 code sequence or remove the character.
 
-| Error code | Description                                                                                                                                                |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1          | The UTF-8 byte sequence exceeds the four-byte maximum supported by VARCHAR.                                                                                |
-| 2          | The UTF-8 byte sequence is incomplete. COPY did not find the expected number of continuation bytes for a multibyte character before the end of the string. |
-| 3          | The UTF-8 single-byte character is out of range. The starting byte must not be 254, 255 or any character between 128 and 191 (inclusive).                  |
-| 4          | The value of the trailing byte in the byte sequence is out of range. The continuation byte must be between 128 and 191 (inclusive).                        |
-| 5          | The UTF-8 character is reserved as a surrogate. Surrogate code points (U+D800 through U+DFFF) are not valid.                                               |
-| 8          | The byte sequence exceeds the maximum UTF-8 code point.                                                                                                    |
-| 9          | The UTF-8 byte sequence does not have a matching code point.                                                                                               |
+| Error code | Description                                                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1          | The UTF-8 byte sequence exceeds the four-byte maximum<br>supported by VARCHAR.                                                                                   |
+| 2          | The UTF-8 byte sequence is incomplete. COPY did not<br>find the expected number of continuation bytes for a multibyte character<br>before the end of the string. |
+| 3          | The UTF-8 single-byte character is out of range. The<br>starting byte must not be 254, 255 or any character between 128 and 191<br>(inclusive).                  |
+| 4          | The value of the trailing byte in the byte sequence is<br>out of range. The continuation byte must be between 128 and 191<br>(inclusive).                        |
+| 5          | The UTF-8 character is reserved as a surrogate.<br>Surrogate code points (U+D800 through U+DFFF) are not valid.                                                  |
+| 8          | The byte sequence exceeds the maximum UTF-8 code<br>point.                                                                                                       |
+| 9          | The UTF-8 byte sequence does not have a matching code<br>point.                                                                                                  |

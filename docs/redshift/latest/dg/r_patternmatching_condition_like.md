@@ -62,14 +62,133 @@ _expression_.
 
 LIKE supports the following pattern-matching metacharacters:
 
-| Operator            | Description                                      |
-| ------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------- | ------------------------ | ---------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------- | ------------------------ | ---------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `%`                 | Matches any sequence of zero or more characters. |
-| `_`                 | Matches any single character.                    | ## Examples The following table shows examples of pattern matching using LIKE:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Expression          | Returns                                          |
-| ---                 | ---                                              |
-| `'abc' LIKE 'abc'`  | True                                             |
-| `'abc' LIKE 'a%'`   | True                                             |
-| `'abc' LIKE '_B_'`  | False                                            |
-| `'abc' ILIKE '_B_'` | True                                             |
-| `'abc' LIKE 'c%'`   | False                                            | The following example finds all cities whose names start with "E": `select distinct city from users where city like 'E%' order by city; city --------------- East Hartford East Lansing East Rutherford East St. Louis Easthampton Easton Eatontown Eau Claire ...` The following example finds users whose last name contains "ten" : `select distinct lastname from users where lastname like '%ten%' order by lastname; lastname ------------- Christensen Wooten ...` The following example demonstrates how to match multiple patterns. `select distinct lastname from tickit.users where lastname like 'Chris%' or lastname like '%Wooten' order by lastname; lastname ------------- Christensen Christian Wooten ...` The following example finds cities whose third and fourth characters are "ea". The command uses ILIKE to demonstrate case insensitivity: `select distinct city from users where city ilike '__EA%' order by city; city ------------- Brea Clearwater Great Falls Ocean City Olean Wheaton (6 rows)` The following example uses the default escape string (\\) to search for strings that include "start\_" (the text `start` followed by an underscore `_`): ``` select tablename, "column" from pg*table_def where "column" like '%start\\*%' limit 5; tablename | column -------------------+--------------- stl_s3client | start_time stl_tr_conflict | xact_start_ts stl_undone | undo_start_ts stl_unload_log | start_time stl_vacuum_detail | start*row (5 rows) ```The following example specifies '^' as the escape character, then uses the escape character to search for strings that include "start\_" (the text`start`followed by an underscore`*`): ``` select tablename, "column" from pg*table_def where "column" like '%start^*%' escape '^' limit 5; tablename | column -------------------+--------------- stl_s3client | start_time stl_tr_conflict | xact_start_ts stl_undone | undo_start_ts stl_unload_log | start_time stl_vacuum_detail | start_row (5 rows) ``The following example uses the `~~*` operator to do a case-insensitive (ILIKE) search for cities that start with "Ag".`` `select distinct city from users where city ~~* 'Ag%' order by city;` `city ------------ Agat Agawam Agoura Hills Aguadilla` ``` |
+| Operator | Description                                         |
+| -------- | --------------------------------------------------- |
+| `%`      | Matches any sequence of zero or more<br>characters. |
+| `_`      | Matches any single character.                       |
+
+## Examples
+
+The following table shows examples of pattern matching using LIKE:
+
+| Expression          | Returns |
+| ------------------- | ------- |
+| `'abc' LIKE 'abc'`  | True    |
+| `'abc' LIKE 'a%'`   | True    |
+| `'abc' LIKE '_B_'`  | False   |
+| `'abc' ILIKE '_B_'` | True    |
+| `'abc' LIKE 'c%'`   | False   |
+
+The following example finds all cities whose names start with "E":
+
+```
+select distinct city from users
+where city like 'E%' order by city;
+city
+---------------
+East Hartford
+East Lansing
+East Rutherford
+East St. Louis
+Easthampton
+Easton
+Eatontown
+Eau Claire
+...
+
+```
+
+The following example finds users whose last name contains "ten" :
+
+```
+select distinct lastname from users
+where lastname like '%ten%' order by lastname;
+lastname
+-------------
+Christensen
+Wooten
+...
+
+```
+
+The following example demonstrates how to match multiple patterns.
+
+```
+select distinct lastname from tickit.users
+where lastname like 'Chris%' or lastname like '%Wooten' order by lastname;
+lastname
+-------------
+Christensen
+Christian
+Wooten
+...
+
+```
+
+The following example finds cities whose third and fourth characters are
+"ea". The command uses ILIKE to demonstrate case insensitivity:
+
+```
+select distinct city from users where city ilike '__EA%' order by city;
+city
+-------------
+Brea
+Clearwater
+Great Falls
+Ocean City
+Olean
+Wheaton
+(6 rows)
+
+```
+
+The following example uses the default escape string (\\) to search for
+strings that include "start\_" (the text `start` followed by an
+underscore `_`):
+
+```
+select tablename, "column" from pg_table_def
+where "column" like '%start\\_%'
+limit 5;
+
+     tablename     |    column
+-------------------+---------------
+ stl_s3client      | start_time
+ stl_tr_conflict   | xact_start_ts
+ stl_undone        | undo_start_ts
+ stl_unload_log    | start_time
+ stl_vacuum_detail | start_row
+(5 rows)
+```
+
+The following example specifies '^' as the escape character, then uses the
+escape character to search for strings that include "start\_" (the text
+`start` followed by an underscore `_`):
+
+```
+select tablename, "column" from pg_table_def
+where "column" like '%start^_%' escape '^'
+limit 5;
+
+     tablename     |    column
+-------------------+---------------
+ stl_s3client      | start_time
+ stl_tr_conflict   | xact_start_ts
+ stl_undone        | undo_start_ts
+ stl_unload_log    | start_time
+ stl_vacuum_detail | start_row
+(5 rows)
+```
+
+The following example uses the `~~*` operator to do a
+case-insensitive (ILIKE) search for cities that start with "Ag".
+
+```
+`select distinct city from users where city ~~* 'Ag%' order by city;`
+                   `city
+------------
+Agat
+Agawam
+Agoura Hills
+Aguadilla`
+```

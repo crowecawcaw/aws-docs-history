@@ -20,13 +20,33 @@ This view is only available when querying provisioned clusters.
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                                                                                                                                                                            |
-| ----------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | --------- | --------- | --------- | --------------------------------------------------------------------------------------- | --- | ---- | -------------------- | --- | ---------- | ------ | --- | ---- | -------------------- | --- | ---------- | ------ | --- | ---- | -------------------- | --- | ---------- | ------ | --- | ---- | -------------------- | --- | ---------- | -------------- |
-| userid      | integer        | ID of user who generated entry.                                                                                                                                                                                                                        |
-| slice       | integer        | Slice where the query is running.                                                                                                                                                                                                                      |
-| query       | integer        | Query ID. Can be used to join various other system tables and views.                                                                                                                                                                                   |
-| pid         | integer        | Process ID. All of the queries in a session are run in the same process, so this value remains constant if you run a series of queries in the same session. You can use this column to join to the [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
-| starttime   | timestamp      | Time that the query started.                                                                                                                                                                                                                           |
-| suspended   | integer        | Whether the query is suspended: `0` = false; `1` = true.                                                                                                                                                                                               |
-| text        | character(200) | Query text, in 200-character increments.                                                                                                                                                                                                               |
-| sequence    | integer        | Sequence number for segments of query statements.                                                                                                                                                                                                      | ## Sample queries The sample output below shows two queries currently running, the SVV_QUERY_INFLIGHT query itself and query 428, which is split into three rows in the table. (The starttime and statement columns are truncated in this sample output.) ``` select slice, query, pid, starttime, suspended, trim(text) as statement, sequence from svv_query_inflight order by query, sequence; slice | query | pid | starttime | suspended | statement | sequence -----+-----+------+----------------------+---------+-----------+--------- 1012 | 428 | 1658 | 2012-04-10 13:53:... | 0   | select ... | 0 1012 | 428 | 1658 | 2012-04-10 13:53:... | 0   | enueid ... | 1 1012 | 428 | 1658 | 2012-04-10 13:53:... | 0   | atname,... | 2 1012 | 429 | 1608 | 2012-04-10 13:53:... | 0   | select ... | 0 (4 rows) ``` |
+| Column name | Data type      | Description                                                                                                                                                                                                                                                     |
+| ----------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer        | ID of user who generated entry.                                                                                                                                                                                                                                 |
+| slice       | integer        | Slice where the query is running.                                                                                                                                                                                                                               |
+| query       | integer        | Query ID. Can be used to join various other system<br>tables and views.                                                                                                                                                                                         |
+| pid         | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session. You can use this column to<br>join to the [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
+| starttime   | timestamp      | Time that the query started.                                                                                                                                                                                                                                    |
+| suspended   | integer        | Whether the query is suspended:<br>`0` = false; `1` =<br>true.                                                                                                                                                                                                  |
+| text        | character(200) | Query text, in 200-character increments.                                                                                                                                                                                                                        |
+| sequence    | integer        | Sequence number for segments of query statements.                                                                                                                                                                                                               |
+
+## Sample queries
+
+The sample output below shows two queries currently running, the
+SVV_QUERY_INFLIGHT query itself and query 428, which is split into three rows in the
+table. (The starttime and statement columns are truncated in this sample output.)
+
+```
+select slice, query, pid, starttime, suspended, trim(text) as statement, sequence
+from svv_query_inflight
+order by query, sequence;
+
+slice|query| pid  |      starttime       |suspended| statement | sequence
+-----+-----+------+----------------------+---------+-----------+---------
+1012 | 428 | 1658 | 2012-04-10 13:53:... |       0 | select ...|    0
+1012 | 428 | 1658 | 2012-04-10 13:53:... |       0 | enueid ...|    1
+1012 | 428 | 1658 | 2012-04-10 13:53:... |       0 | atname,...|    2
+1012 | 429 | 1608 | 2012-04-10 13:53:... |       0 | select ...|    0
+(4 rows)
+```

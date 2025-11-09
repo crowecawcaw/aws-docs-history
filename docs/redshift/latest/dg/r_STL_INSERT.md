@@ -21,7 +21,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name         | Data type    | Description                                                                                                                                                                                                                                                          |
-| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---- | ------- | ---- | --------------------------------------------------------- | --- | --- | --- | ----- | -------- | --- | --- | --- | ----- | ------------------- |
+| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid              | integer      | ID of the user who generated the entry.                                                                                                                                                                                                                              |
 | query               | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                                                        |
 | slice               | integer      | Number that identifies the slice where the query was running.                                                                                                                                                                                                        |
@@ -32,4 +32,22 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | tasknum             | integer      | Number of the query task process that was assigned to run the step.                                                                                                                                                                                                  |
 | rows                | bigint       | Total number of rows that were processed.                                                                                                                                                                                                                            |
 | tbl                 | integer      | Table ID.                                                                                                                                                                                                                                                            |
-| inserted_mega_value | character(1) | This information is for internal use only. This information shows whether the given insert step has inserted a large value. A large value will be stored in multiple blocks. Block size is 1 MB by default, a large value is greater than 1 MB in a default setting. | ## Sample queries The following example returns insert execution steps for the most recent query. `select slice, segment, step, tasknum, rows, tbl from stl_insert where query=pg_last_query_id();` ``` slice | segment | step | tasknum | rows | tbl -------+---------+------+---------+-------+-------- 0 | 2   | 2   | 15  | 24958 | 100548 1 | 2   | 2   | 15  | 25032 | 100548 (2 rows) ``` |
+| inserted_mega_value | character(1) | This information is for internal use only. This information shows whether the given insert step has inserted a large value. A large value will be stored in multiple blocks. Block size is 1 MB by default, a large value is greater than 1 MB in a default setting. |
+
+## Sample queries
+
+The following example returns insert execution steps for the most recent query.
+
+```
+select slice, segment, step, tasknum, rows, tbl
+from stl_insert
+where query=pg_last_query_id();
+```
+
+```
+ slice | segment | step | tasknum | rows  |  tbl
+-------+---------+------+---------+-------+--------
+     0 |       2 |    2 |      15 | 24958 | 100548
+     1 |       2 |    2 |      15 | 25032 | 100548
+(2 rows)
+```

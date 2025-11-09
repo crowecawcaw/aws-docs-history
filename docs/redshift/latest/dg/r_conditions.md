@@ -27,12 +27,12 @@ using the ILIKE predicate.
 
 ## Syntax
 
-````
+```
 comparison_condition
 | logical_condition
 | range_condition
 | pattern_matching_condition
 | null_condition
 | EXISTS_condition
-| IN_condition ```
-````
+| IN_condition
+```

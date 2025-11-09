@@ -25,8 +25,25 @@ resize can still appear in SVL_RESTORE_ALTER_TABLE_PROGRESS.
 
 ## Table columns
 
-| Column name | Data type | Description                                                                                                                                                                                                                                                        |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- | ------- | ---------------------------------------------------------------- | ----- | ---------------------------------------------------- | ------- | ---------------------------------------------------------------- | ------- | ---------------------------------------------------------------- | ------- | -------------------------------------- |
-| tbl         | integer   | The ID of the table.                                                                                                                                                                                                                                               |
-| progress    | char(32)  | The status of redistribution progress of the table. Possible values are percentages from `0.00%` to `100.00%` and the message `ABORTED`. `ABORTED` means that the redistribution was stopped without finishing, with the reason explained in the `message` column. |
-| message     | char(256) | The message associated with the redistribution progress of the table.                                                                                                                                                                                              | ## Sample query The following query returns running and queued queries. ```select * from svl_restore_alter_table_progress;`tbl | progress | message --------+----------+----------------------------------------------------------- 105614 | ABORTED | Abort:Table no longer contains the prior dist key column. 105610 | ABORTED | Abort:Table no longer contains the prior dist key column. 105594 | 0.00% | Table waiting for alter diststyle conversion. 105602 | ABORTED | Abort:Table no longer contains the prior dist key column. 105606 | ABORTED | Abort:Table no longer contains the prior dist key column. 105598 | 100.00% | Restored to distkey successfully.` ``` |
+| Column name | Data type | Description                                                                                                                                                                                                                                                                 |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tbl         | integer   | The ID of the table.                                                                                                                                                                                                                                                        |
+| progress    | char(32)  | The status of redistribution progress of the table.<br>Possible values are percentages from `0.00%` to `100.00%`<br>and the message `ABORTED`. `ABORTED` means that the redistribution<br>was stopped without finishing, with the reason explained in the `message` column. |
+| message     | char(256) | The message associated with the redistribution progress of the table.                                                                                                                                                                                                       |
+
+## Sample query
+
+The following query returns running and queued queries.
+
+```
+select * from svl_restore_alter_table_progress;
+
+`tbl | progress | message
+--------+----------+-----------------------------------------------------------
+105614 | ABORTED | Abort:Table no longer contains the prior dist key column.
+105610 | ABORTED | Abort:Table no longer contains the prior dist key column.
+105594 | 0.00% | Table waiting for alter diststyle conversion.
+105602 | ABORTED | Abort:Table no longer contains the prior dist key column.
+105606 | ABORTED | Abort:Table no longer contains the prior dist key column.
+105598 | 100.00% | Restored to distkey successfully.`
+```

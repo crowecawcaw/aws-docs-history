@@ -24,8 +24,41 @@ This view is only available when querying provisioned clusters.
 
 ## Table columns
 
-| Column name             | Data type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | -------------------------------------------------------------------------------- | -------- | ----------- |
-| table_name              | text      | Name of the table currently being vacuumed, or the table that was last vacuumed if no operation is in progress.                                                                                                                                                                                                                                                                                                                                |
-| status                  | text      | Description of the current activity being done as part of the vacuum operation: <br>• Initialize <br>• Sort <br>• Merge <br>• Delete <br>• Select <br>• Failed <br>• Complete <br>• Skipped <br>• Building INTERLEAVED SORTKEY order                                                                                                                                                                                                           |
-| time_remaining_estimate | text      | Estimated time left for the current vacuum operation to complete, in minutes and seconds: `5m 10s`, for example. An estimated time is not returned until the vacuum completes its first sort operation. If no vacuum is in progress, the last vacuum that was performed is displayed with `Completed` in the STATUS column and an empty TIME_REMAINING_ESTIMATE column. The estimate typically becomes more accurate as the vacuum progresses. | ## Sample queries The following queries, run a few minutes apart, show that a large table named SALESNEW is being vacuumed. ``` select \* from svv_vacuum_progress; table_name | status | time_remaining_estimate --------------+-------------------------------+------------------------- salesnew | Vacuum: initialize salesnew | (1 row) ... select \* from svv_vacuum_progress; table_name | status | time_remaining_estimate -------------+------------------------+------------------------- salesnew | Vacuum salesnew sort | 33m 21s (1 row) `The following query shows that no vacuum operation is currently in progress. The last table to be vacuumed was the SALES table.` select \* from svv_vacuum_progress; table_name | status | time_remaining_estimate -------------+----------+------------------------- sales | Complete | (1 row) ``` |
+| Column name             | Data type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| table_name              | text      | Name of the table currently being vacuumed, or the<br>table that was last vacuumed if no operation is in progress.                                                                                                                                                                                                                                                                                                                                                  |
+| status                  | text      | Description of the current activity being done as<br>part of the vacuum operation:<br>• Initialize<br>• Sort<br>• Merge<br>• Delete<br>• Select<br>• Failed<br>• Complete<br>• Skipped<br>• Building INTERLEAVED SORTKEY order                                                                                                                                                                                                                                      |
+| time_remaining_estimate | text      | Estimated time left for the current vacuum<br>operation to complete, in minutes and seconds: `5m<br>10s`, for example. An estimated time is not returned<br>until the vacuum completes its first sort operation. If no vacuum is<br>in progress, the last vacuum that was performed is displayed with<br>`Completed` in the STATUS column and an<br>empty TIME_REMAINING_ESTIMATE column. The estimate typically becomes<br>more accurate as the vacuum progresses. |
+
+## Sample queries
+
+The following queries, run a few minutes apart, show that a large table named
+SALESNEW is being vacuumed.
+
+```
+select * from svv_vacuum_progress;
+
+table_name    |            status             | time_remaining_estimate
+--------------+-------------------------------+-------------------------
+salesnew      |  Vacuum: initialize salesnew  |
+(1 row)
+...
+select * from svv_vacuum_progress;
+
+table_name   |         status         | time_remaining_estimate
+-------------+------------------------+-------------------------
+salesnew     |  Vacuum salesnew sort  | 33m 21s
+(1 row)
+```
+
+The following query shows that no vacuum operation is currently in progress. The
+last table to be vacuumed was the SALES table.
+
+```
+select * from svv_vacuum_progress;
+
+table_name   |  status  | time_remaining_estimate
+-------------+----------+-------------------------
+  sales      | Complete |
+(1 row)
+```

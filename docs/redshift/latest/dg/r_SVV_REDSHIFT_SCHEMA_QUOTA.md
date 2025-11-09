@@ -14,10 +14,23 @@ This view is available when querying provisioned clusters or Redshift Serverless
 
 ## Table columns
 
-| Column name   | Data type      | Description                                                  |
-| ------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ----------------------------------------------------------- | ---- | ------- |
-| database_name | character(128) | The database that contains the schema.                       |
-| schema_name   | character(128) | The name of the schema.                                      |
-| schema_owner  | integer        | The internal user ID of the schema owner.                    |
-| quota         | integer        | The amount of disk space (in MB) that the schema can use.    |
-| disk_usage    | integer        | The disk space (in MB) that is currently used by the schema. | ## Sample query The following example displays the quota and the current disk usage for the schema named `sales_schema`. ``` `SELECT TRIM(SCHEMA_NAME) "schema_name", QUOTA, disk_usage FROM svv_redshift_schema_quota WHERE SCHEMA_NAME = 'sales_schema';` `schema_name | quota | disk_usage --------------+-------+------------ sales_schema | 2048 | 30` ``` |
+| Column name   | Data type      | Description                                                     |
+| ------------- | -------------- | --------------------------------------------------------------- |
+| database_name | character(128) | The database that contains the schema.                          |
+| schema_name   | character(128) | The name of the schema.                                         |
+| schema_owner  | integer        | The internal user ID of the schema owner.                       |
+| quota         | integer        | The amount of disk space (in MB) that the schema<br>can use.    |
+| disk_usage    | integer        | The disk space (in MB) that is currently used by<br>the schema. |
+
+## Sample query
+
+The following example displays the quota and the current disk usage for the schema named `sales_schema`.
+
+```
+`SELECT TRIM(SCHEMA_NAME) "schema_name", QUOTA, disk_usage FROM svv_redshift_schema_quota
+WHERE SCHEMA_NAME = 'sales_schema';`
+
+`schema_name | quota | disk_usage
+--------------+-------+------------
+sales_schema | 2048 | 30`
+```

@@ -351,7 +351,7 @@ single quotes. Following are examples of parameters for XGBoost and their
 defaults.
 
 | Parameter name   | Parameter value | Default value                           | Notes                        |
-| ---------------- | --------------- | --------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | --- | --- | --- | ----- | ----- | ----- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | --------------- | --------------------------------------- | ---------------------------- |
 | num_class        | Integer         | Required for Multiclass classification. | N/A                          |
 | num_round        | Integer         | 100                                     | N/A                          |
 | tree_method      | String          | Auto                                    | N/A                          |
@@ -365,4 +365,575 @@ defaults.
 | colsample_bynode | Float           | 1                                       | MinValue: 0.1, MaxValue: 1   |
 | colsample_bytree | Float           | 1                                       | MinValue: 0.5, MaxValue: 1   |
 | lambda           | Float           | 1                                       | MinValue: 0, MaxValue: 1000  |
-| max_delta_step   | Integer         | 0                                       | [0, 10]                      | The following example prepares data for XGBoost. `DROP TABLE IF EXISTS abalone_xgb; CREATE TABLE abalone_xgb ( length_val float, diameter float, height float, whole_weight float, shucked_weight float, viscera_weight float, shell_weight float, rings int, record_number int); COPY abalone_xgb FROM 's3://redshift-downloads/redshift-ml/abalone_xg/' REGION 'us-east-1' IAM_ROLE default IGNOREHEADER 1 CSV;` The following example creates an XGBoost model with specified advanced options, such as MODEL_TYPE, OBJECTIVE, and PREPROCESSORS. `DROP MODEL abalone_xgboost_multi_predict_age; CREATE MODEL abalone_xgboost_multi_predict_age FROM ( SELECT length_val, diameter, height, whole_weight, shucked_weight, viscera_weight, shell_weight, rings FROM abalone_xgb WHERE record_number < 2500 ) TARGET rings FUNCTION ml_fn_abalone_xgboost_multi_predict_age IAM_ROLE default AUTO OFF MODEL_TYPE XGBOOST OBJECTIVE 'multi:softmax' PREPROCESSORS 'none' HYPERPARAMETERS DEFAULT EXCEPT (NUM_ROUND '100', NUM_CLASS '30') SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket');` The following example uses an inference query to predict the age of the fish with a record number greater than 2500. It uses the function ml_fn_abalone_xgboost_multi_predict_age created from the above command. `select ml_fn_abalone_xgboost_multi_predict_age(length_val, diameter, height, whole_weight, shucked_weight, viscera_weight, shell_weight)+1.5 as age from abalone_xgb where record_number > 2500;` ## Bring your own model (BYOM) - local inference Amazon Redshift ML supports using bring your own model (BYOM) for local inference. The following summarizes the options for the CREATE MODEL syntax for BYOM. You can use a model trained outside of Amazon Redshift with Amazon SageMaker AI for in-database inference locally in Amazon Redshift. ### CREATE MODEL syntax for local inference The following describes the CREATE MODEL syntax for local inference. ``` CREATE MODEL _model_name_ FROM (_'job_name'_ | _'s3_path'_ ) FUNCTION _function_name_ ( _data_type [, ...]_ ) RETURNS _data_type_ IAM_ROLE { default } [ SETTINGS ( S3_BUCKET _'amzn-s3-demo-bucket'_, | --required KMS_KEY_ID _'kms_string'_) --optional ]; ``` Amazon Redshift currently only supports pretrained XGBoost, MLP, and Linear Learner models for BYOM. You can import SageMaker AI Autopilot and models directly trained in Amazon SageMaker AI for local inference using this path. #### CREATE MODEL parameters for local inference _model_name_ The name of the model. The model name in a schema must be unique. FROM (_'job_name'_ | _'s3_path'_ ) The _job_name_ uses an Amazon SageMaker AI job name as the input. The job name can either be an Amazon SageMaker AI training job name or an Amazon SageMaker AI Autopilot job name. The job must be created in the same AWS account that owns the Amazon Redshift cluster. To find the job name, launch Amazon SageMaker AI. In the **Training** dropdown menu, choose **Training jobs**. The _'s3_path'_ specifies the S3 location of the .tar.gz model artifacts file that is to be used when creating the model. FUNCTION _function_name_ ( _data_type_ [, ...] ) The name of the function to be created and the data types of the input arguments. You can provide a schema name. RETURNS _data_type_ The data type of the value returned by the function. IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'} Use the default keyword to have Amazon Redshift use the IAM role that is set as default and associated with the cluster when the CREATE MODEL command runs. Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses for authentication and authorization. SETTINGS ( S3_BUCKET _'amzn-s3-demo-bucket'_, | KMS_KEY_ID _'kms_string'_) The S3_BUCKET clause specifies the Amazon S3 location that is used to store intermediate results. (Optional) The KMS_KEY_ID clause specifies if Amazon Redshift uses server-side encryption with an AWS KMS key to protect data at rest. Data in transit is protected with Secure Sockets Layer (SSL). For more information, see [CREATE MODEL with user guidance](#r_user_guidance_create_model "#r_user_guidance_create_model"). #### CREATE MODEL for local inference example The following example creates a model that has been previously trained in Amazon SageMaker AI, outside of Amazon Redshift. Because the model type is supported by Amazon Redshift ML for local inference, the following CREATE MODEL creates a function that can be used locally in Amazon Redshift. You can provide a SageMaker AI training job name. `CREATE MODEL customer_churn FROM 'training-job-customer-churn-v4' FUNCTION customer_churn_predict (varchar, int, float, float) RETURNS int IAM_ROLE default SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket');` After the model is created, you can use the function _customer_churn_predict_ with the specified argument types to make predictions. ## Bring your own model (BYOM) - remote inference Amazon Redshift ML also supports using bring your own model (BYOM) for remote inference. The following summarizes the options for the CREATE MODEL syntax for BYOM. ### CREATE MODEL syntax for remote inference The following describes the CREATE MODEL syntax for remote inference. ``` CREATE MODEL _model_name_ FUNCTION _function_name_ ( _data_type_ [, ...] ) RETURNS _data_type_ SAGEMAKER _'endpoint_name'_[:*'model\_name'*] IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' } [SETTINGS (MAX_BATCH_ROWS integer)]; ```#### CREATE MODEL parameters for remote inference *model\_name* The name of the model. The model name in a schema must be unique. FUNCTION *fn\_name* ( [*data\_type*] [, ...] ) The name of the function and the data types of the input arguments. See [Data types](c_Supported_data_types.md "c_Supported_data_types.md") for all of the supported data types.`Geography`, `geometry`, and `hllsketch`aren't supported. You can also provide a function name inside a schema using two-part notation, such as`myschema.myfunction`. RETURNS *data\_type* The data type of the value returned by the function. See [Data types](c_Supported_data_types.md "c_Supported_data_types.md") for all of the supported data types. `Geography`, `geometry`, and `hllsketch` aren't supported. SAGEMAKER _'endpoint_name'_[:*'model\_name'*] The name of the Amazon SageMaker AI endpoint. If the endpoint name points to a multimodel endpoint, add the name of the model to use. The endpoint must be hosted in the same AWS Region and AWS account as the Amazon Redshift cluster. To find your endpoint, launch Amazon SageMaker AI. In the **Inference** dropdown menu, choose **Endpoints**. IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'} Use the default keyword to have Amazon Redshift use the IAM role that is set as default and associated with the cluster when the CREATE MODEL command runs. Alternatively, you can specify the ARN of an IAM role to use that role. MAX_BATCH_ROWS _integer_ The maximum number of rows that Amazon Redshift sends in a single batch request for a single SageMaker AI invocation. It is supported only for BYOM with remote inference. The actual number of rows in a batch also depends on the input size, but is less than or equal to this value. This parameter's minimum value is 1. The maximum value is `INT_MAX`, or 2,147,483,647. This parameter is required only when both input and returned data types are `SUPER`. The default value is `INT_MAX`, or 2,147,483,647. When the model is deployed to a SageMaker AI endpoint, SageMaker AI creates the information of the model in Amazon Redshift. It then performs inference through the external function. You can use the SHOW MODEL command to view the model information on your Amazon Redshift cluster. #### CREATE MODEL for remote inference usage notes Before using CREATE MODEL for remote inference, consider the following: <br>• The endpoint must be hosted by the same AWS account that owns the Amazon Redshift cluster. <br>• Make sure either that the Amazon SageMaker AI endpoint has enough resources to accommodate inference calls from Amazon Redshift or that the Amazon SageMaker AI endpoint can be automatically scaled. <br>• If you're not using the `SUPER` data type as input, the model only accepts inputs in the format of comma-separated values (CSV) which corresponds to a content type of `text/CSV` in SageMaker AI. <br>• If you're not using the `SUPER` data type as input, the output of models is a single value of the type specified when you create the function. The output is in the format of comma-separated values (CSV) through a content type of `text/CSV` in SageMaker AI. `VARCHAR` data types cannot be in quotes and cannot contain new lines, and each output must be in a new line. <br>• Models accept nulls as empty strings. <br>• When the input data type is `SUPER`, only one input argument is supported. <br>• When the input data type is `SUPER`, the returned data type must also be `SUPER`. <br>• MAX_BATCH_ROWS is required when both input and returned data types are SUPER. <br>• When the input data type is `SUPER` the content type of the endpoint invocation is either `application/json` when MAX_BATCH_ROWS is `1` or `application/jsonlines` in all other cases. <br>• When the returned data type is `SUPER` the accept type of the endpoint invocation is either `application/json` when MAX_BATCH_ROWS is `1` or `application/jsonlines` in all other cases. ##### CREATE MODEL for remote inference example The following example creates a model that uses a SageMaker AI endpoint to make predictions. Make sure that the endpoint is running to make predictions and specify its name in the CREATE MODEL command. `CREATE MODEL remote_customer_churn FUNCTION remote_fn_customer_churn_predict (varchar, int, float, float) RETURNS int SAGEMAKER 'customer-churn-endpoint' IAM_ROLE default;` The following example creates a BYOM with remote inference with a large language model model (LLM). LLMs hosted on Amazon SageMaker AI Jumpstart accept and return the `application/json` content type and they support a single JSON per invocation. The input and returned data types must be `SUPER` and MAX_BATCH_ROWS must be set to 1. `CREATE MODEL sample_super_data_model FUNCTION sample_super_data_model_predict(super) RETURNS super SAGEMAKER 'sample_super_data_model_endpoint' IAM_ROLE default SETTINGS (MAX_BATCH_ROWS 1);` ## CREATE MODEL with K-MEANS Amazon Redshift supports the K-Means algorithm that groups data that isn't labeled. This algorithm solves clustering problems where you want to discover groupings in the data. Unclassified data is grouped and partitioned based on its similarities and differences. ### CREATE MODEL with K-MEANS syntax ``` CREATE MODEL model_name FROM { _table_name_ | ( _select_statement_ ) } FUNCTION _function_name_ IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' } AUTO OFF MODEL_TYPE KMEANS PREPROCESSORS 'string' HYPERPARAMETERS DEFAULT EXCEPT ( K 'val' [, ...] ) SETTINGS ( S3_BUCKET 'amzn-s3-demo-bucket', KMS_KEY_ID 'kms_string', | -- optional S3_GARBAGE_COLLECT on / off, | -- optional MAX_CELLS integer, | -- optional MAX_RUNTIME integer -- optional); ``### CREATE MODEL with K-MEANS parameters *AUTO OFF* Turns off CREATE MODEL automatic discovery of preprocessor, algorithm, and hyper-parameters selection. MODEL\_TYPE KMEANS Specifies to use KMEANS to train the model. PREPROCESSORS 'string' Specifies certain combinations of preprocessors to certain sets of columns. The format is a list of columnSets, and the appropriate transforms to be applied to each set of columns. Amazon Redshift supports 3 K-Means preprocessors, namely StandardScaler, MinMax, and NumericPassthrough. If you don't want to apply any preprocessing for K-Means, choose NumericPassthrough explicitly as a transformer. For more information about supported transformers, see [CREATE MODEL with user guidance parameters](#r_user_guidance-create-model-parameters "#r_user_guidance-create-model-parameters"). The K-Means algorithm uses Euclidean distance to calculate similarity. Preprocessing the data ensures that the features of the model stay on the same scale and produce reliable results. HYPERPARAMETERS DEFAULT EXCEPT ( K 'val' [, ...] ) Specifies whether the K-Means parameters are used. You must specify the `K` parameter when using the K-Means algorithm. For more information, see [K-Means Hyperparameters](../../../sagemaker/latest/dg/k-means-api-config.md "../../../sagemaker/latest/dg/k-means-api-config.md") in the *Amazon SageMaker AI Developer Guide* The following example prepares data for K-Means.`` `CREATE MODEL customers_clusters FROM customers FUNCTION customers_cluster IAM_ROLE default AUTO OFF MODEL_TYPE KMEANS PREPROCESSORS '[ { "ColumnSet": [ "*" ], "Transformers": [ "NumericPassthrough" ] } ]' HYPERPARAMETERS DEFAULT EXCEPT ( K '5' ) SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket'); select customer_id, customers_cluster(...) from customers;` `customer_id | customers_cluster -------------------- 12345 1 12346 2 12347 4 12348` `## CREATE MODEL with Forecast Forecast models in Redshift ML use Amazon Forecast to create accurate time-series forecasts. Doing so lets you use historical data over a time period to make predictions about future events. Common use cases of Amazon Forecast include using retail product data to decide how to price inventory, manufacturing quantity data to predict how much of one item to order, and web traffic data to forecast how much traffic a web server might receive. [Quota limits from Amazon Forecast](../../../forecast/latest/dg/limits.md "../../../forecast/latest/dg/limits.md") are enforced in Amazon Redshift forecast models. For example, the maximum number of forecasts is 100, but it's adjustable. Dropping a forecast model doesn’t automatically delete the associated resources in Amazon Forecast. If you delete a Redshift cluster, all associated models are dropped as well. Note that Forecast models are currently only available in the following Regions: <br>• US East (Ohio) (us-east-2) <br>• US East (N. Virginia) (us-east-1) <br>• US West (Oregon) (us-west-2) <br>• Asia Pacific (Mumbai) (ap-south-1) <br>• Asia Pacific (Seoul) (ap-northeast-2) <br>• Asia Pacific (Singapore) (ap-southeast-1) <br>• Asia Pacific (Sydney) (ap-southeast-2) <br>• Asia Pacific (Tokyo) (ap-northeast-1) <br>• Europe (Frankfurt) (eu-central-1) <br>• Europe (Ireland) (eu-west-1) ### CREATE MODEL with Forecast syntax` CREATE [ OR REPLACE ] MODEL forecast_model_name FROM { table_name | ( select_query ) } TARGET column_name IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'} AUTO ON MODEL_TYPE FORECAST SETTINGS ( S3_BUCKET 'amzn-s3-demo-bucket', HORIZON integer, FREQUENCY forecast_frequency [PERCENTILES '0.1', '0.5', '0.9'] ) ``` ### CREATE MODEL with Forecast parameters _forecast_model_name_ The name of the model. The model name must be unique. FROM { table_name | ( select_query ) } The table_name or the query that specifies the training data. This can either be an existing table in the system, or an Amazon Redshift compatible SELECT query enclosed with parentheses. The table or query result must have at least three columns: (1) a varchar column that specifies the name of the time-series. Each dataset can have multiple time-series; (2) a datetime column; and (3) the target column to predict. This target column must be either an int or a float. If you supply a dataset that has more than three columns, Amazon Redshift assumes that all additional columns are part of a related time series. Note that related time series must be of type int or float. For more information about related time series, see [Using Related Time Series Datasets](../../../forecast/latest/dg/related-time-series-datasets.md "../../../forecast/latest/dg/related-time-series-datasets.md"). TARGET column_name The name of the column that becomes the prediction target. The column must exist in the FROM clause. IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' } Use the default keyword to have Amazon Redshift use the IAM role that is set as default and associated with the cluster when the CREAT MODEL command runs. Alternatively, you can specify an ARN of an IAM role to use that role. AUTO ON Turns on the CREATE MODEL automatic discovery of algorithm and hyper-parameters selection. Specifying on when creating a Forecast model indicates to use a Forecast AutoPredictor, where Amazon Forecast applies the optimal combinations of algorithms to each time series in your dataset. MODEL_TYPE FORECAST Specifies to use FORECAST to train the model. S3_BUCKET 'amzn-s3-demo-bucket' The name of the Amazon Simple Storage Service bucket that you previously created and that’s used to share training data and artifacts between Amazon Redshift and Amazon Forecast. Amazon Redshift creates a subfolder in this bucket before unloading the training data. When training is complete, Amazon Redshift deletes the created subfolder and its contents. HORIZON integer The maximum number of predictions the forecast model can return. Once the model is trained, you can't change this integer. FREQUENCY forecast_frequency Specifies how granular you want the forecasts to be. Available options are `Y | M   | W   | D   | H   | 30min | 15min | 10min | 5min | 1min`. Required if you’re training a forecast model. PERCENTILES string A comma-delimited string that specifies the forecast types used to train a predictor. Forecast types can be quantiles from 0.01 to 0.99, by increments of 0.01 or higher. You can also specify the mean forecast with mean. You can specify a maximum of five forecast types. The following example demonstrates how to create a simple forecast model. `CREATE MODEL forecast_example FROM forecast_electricity_ TARGET target IAM_ROLE 'arn:aws:iam::<account-id>:role/<role-name>' AUTO ON MODEL_TYPE FORECAST SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket', HORIZON 24, FREQUENCY 'H', PERCENTILES '0.25,0.50,0.75,mean', S3_GARBAGE_COLLECT OFF);` After you create the forecast model, you can create a new table with the prediction data. `CREATE TABLE forecast_model_results as SELECT Forecast(forecast_example)` You can then query the new table to get predictions. `SELECT * FROM forecast_model_results` |
+| max_delta_step   | Integer         | 0                                       | [0, 10]                      |
+
+The following example prepares data for XGBoost.
+
+```
+DROP TABLE IF EXISTS abalone_xgb;
+
+CREATE TABLE abalone_xgb (
+length_val float,
+diameter float,
+height float,
+whole_weight float,
+shucked_weight float,
+viscera_weight float,
+shell_weight float,
+rings int,
+record_number int);
+
+COPY abalone_xgb
+FROM 's3://redshift-downloads/redshift-ml/abalone_xg/'
+REGION 'us-east-1'
+IAM_ROLE default
+IGNOREHEADER 1 CSV;
+```
+
+The following example creates an XGBoost model with specified advanced options,
+such as MODEL_TYPE, OBJECTIVE, and PREPROCESSORS.
+
+```
+DROP MODEL abalone_xgboost_multi_predict_age;
+
+CREATE MODEL abalone_xgboost_multi_predict_age
+FROM ( SELECT length_val,
+              diameter,
+              height,
+              whole_weight,
+              shucked_weight,
+              viscera_weight,
+              shell_weight,
+              rings
+   FROM abalone_xgb WHERE record_number < 2500 )
+TARGET rings FUNCTION ml_fn_abalone_xgboost_multi_predict_age
+IAM_ROLE default
+AUTO OFF
+MODEL_TYPE XGBOOST
+OBJECTIVE 'multi:softmax'
+PREPROCESSORS 'none'
+HYPERPARAMETERS DEFAULT EXCEPT (NUM_ROUND '100', NUM_CLASS '30')
+SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket');
+```
+
+The following example uses an inference query to predict the age of the fish
+with a record number greater than 2500. It uses the function
+ml_fn_abalone_xgboost_multi_predict_age created from the above command.
+
+```
+select ml_fn_abalone_xgboost_multi_predict_age(length_val,
+                                                   diameter,
+                                                   height,
+                                                   whole_weight,
+                                                   shucked_weight,
+                                                   viscera_weight,
+                                                   shell_weight)+1.5 as age
+from abalone_xgb where record_number > 2500;
+```
+
+## Bring your own model (BYOM) - local
+
+inference
+
+Amazon Redshift ML supports using bring your own model (BYOM) for local inference.
+
+The following summarizes the options for the CREATE MODEL syntax for BYOM. You can
+use a model trained outside of Amazon Redshift with Amazon SageMaker AI for in-database inference
+locally in Amazon Redshift.
+
+### CREATE MODEL syntax for local inference
+
+The following describes the CREATE MODEL syntax for local inference.
+
+```
+CREATE MODEL *model\_name*
+FROM (*'job\_name'* | *'s3\_path'* )
+FUNCTION *function\_name* ( *data\_type [, ...]* )
+RETURNS *data\_type*
+IAM_ROLE { default }
+[ SETTINGS (
+  S3_BUCKET *'amzn-s3-demo-bucket'*, | --required
+  KMS_KEY_ID *'kms\_string'*) --optional
+];
+```
+
+Amazon Redshift currently only supports pretrained XGBoost, MLP, and Linear Learner
+models for BYOM. You can import SageMaker AI Autopilot and models directly trained in
+Amazon SageMaker AI for local inference using this path.
+
+#### CREATE MODEL parameters for
+
+local inference
+
+_model_name_
+
+The name of the model. The model name in a schema must be
+unique.
+
+FROM (_'job_name'_ | _'s3_path'_
+)
+
+The _job_name_ uses an Amazon SageMaker AI job name as the
+input. The job name can either be an Amazon SageMaker AI training job name or an
+Amazon SageMaker AI Autopilot job name. The job must be created in the same AWS
+account that owns the Amazon Redshift cluster. To find the job name, launch
+Amazon SageMaker AI. In the **Training** dropdown menu, choose
+**Training jobs**.
+
+The _'s3_path'_ specifies the S3 location of the
+.tar.gz model artifacts file that is to be used when creating the
+model.
+
+FUNCTION _function_name_ (
+_data_type_ [, ...] )
+
+The name of the function to be created and the data types of the
+input arguments. You can provide a schema name.
+
+RETURNS _data_type_
+
+The data type of the value returned by the function.
+
+IAM_ROLE { default |
+'arn:aws:iam::<account-id>:role/<role-name>'}
+
+Use the default keyword to have Amazon Redshift use
+the IAM role that is set as default and associated with the cluster
+when the CREATE MODEL command runs.
+
+Use the Amazon Resource Name (ARN) for an IAM role that your
+cluster uses for authentication and authorization.
+
+SETTINGS ( S3_BUCKET _'amzn-s3-demo-bucket'_, |
+KMS_KEY_ID _'kms_string'_)
+
+The S3_BUCKET clause specifies the Amazon S3 location that is used to
+store intermediate results.
+
+(Optional) The KMS_KEY_ID clause specifies if Amazon Redshift uses
+server-side encryption with an AWS KMS key to protect data at rest. Data
+in transit is protected with Secure Sockets Layer (SSL).
+
+For more information, see [CREATE MODEL with user
+guidance](#r_user_guidance_create_model "#r_user_guidance_create_model").
+
+#### CREATE MODEL for local inference
+
+example
+
+The following example creates a model that has been previously trained in
+Amazon SageMaker AI, outside of Amazon Redshift. Because the model type is supported by Amazon Redshift
+ML for local inference, the following CREATE MODEL creates a function that can
+be used locally in Amazon Redshift. You can provide a SageMaker AI training job name.
+
+```
+CREATE MODEL customer_churn
+FROM 'training-job-customer-churn-v4'
+FUNCTION customer_churn_predict (varchar, int, float, float)
+RETURNS int
+IAM_ROLE default
+SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket');
+```
+
+After the model is created, you can use the function
+_customer_churn_predict_ with the specified argument
+types to make predictions.
+
+## Bring your own model (BYOM) - remote
+
+inference
+
+Amazon Redshift ML also supports using bring your own model (BYOM) for remote
+inference.
+
+The following summarizes the options for the CREATE MODEL syntax for BYOM.
+
+### CREATE MODEL syntax for remote inference
+
+The following describes the CREATE MODEL syntax for remote inference.
+
+```
+CREATE MODEL *model\_name*
+FUNCTION *function\_name* ( *data\_type* [, ...] )
+RETURNS *data\_type*
+SAGEMAKER *'endpoint\_name'*[:*'model\_name'*]
+IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' }
+[SETTINGS (MAX_BATCH_ROWS integer)];
+```
+
+#### CREATE MODEL parameters for
+
+remote inference
+
+_model_name_
+
+The name of the model. The model name in a schema must be
+unique.
+
+FUNCTION _fn_name_ (
+[*data\_type*] [, ...] )
+
+The name of the function and the data types of the input arguments.
+See [Data
+types](c_Supported_data_types.md "c_Supported_data_types.md") for all of the supported data types.
+`Geography`, `geometry`, and
+`hllsketch` aren't supported.
+
+You can also provide a function name inside a schema using two-part
+notation, such as `myschema.myfunction`.
+
+RETURNS _data_type_
+
+The data type of the value returned by the function. See [Data
+types](c_Supported_data_types.md "c_Supported_data_types.md") for all of the supported data types.
+`Geography`, `geometry`, and
+`hllsketch` aren't supported.
+
+SAGEMAKER
+_'endpoint_name'_[:*'model\_name'*]
+
+The name of the Amazon SageMaker AI endpoint. If the endpoint name points to a
+multimodel endpoint, add the name of the model to use. The endpoint
+must be hosted in the same AWS Region and AWS account as the
+Amazon Redshift cluster. To find your endpoint, launch Amazon SageMaker AI. In the
+**Inference** dropdown menu, choose
+**Endpoints**.
+
+IAM_ROLE { default |
+'arn:aws:iam::<account-id>:role/<role-name>'}
+
+Use the default keyword to have Amazon Redshift use
+the IAM role that is set as default and associated with the cluster
+when the CREATE MODEL command runs. Alternatively, you can specify the
+ARN of an IAM role to use that role.
+
+MAX_BATCH_ROWS _integer_
+
+The maximum number of rows that Amazon Redshift sends in a single batch
+request for a single SageMaker AI invocation. It is supported only for BYOM
+with remote inference. The actual number of rows in a batch also
+depends on the input size, but is less than or equal to this value.
+This parameter's minimum value is 1. The maximum value is
+`INT_MAX`, or 2,147,483,647. This parameter is required
+only when both input and returned data types are `SUPER`.
+The default value is `INT_MAX`, or 2,147,483,647.
+
+When the model is deployed to a SageMaker AI endpoint, SageMaker AI creates the information
+of the model in Amazon Redshift. It then performs inference through the external
+function. You can use the SHOW MODEL command to view the model information on
+your Amazon Redshift cluster.
+
+#### CREATE MODEL for remote
+
+inference usage notes
+
+Before using CREATE MODEL for remote inference, consider the
+following:
+
+- The endpoint must be hosted by the same AWS account that owns the
+  Amazon Redshift cluster.
+- Make sure either that the Amazon SageMaker AI endpoint has enough resources to
+  accommodate inference calls from Amazon Redshift or that the Amazon SageMaker AI endpoint
+  can be automatically scaled.
+- If you're not using the `SUPER` data type as input,
+  the model only accepts inputs in the format of comma-separated values
+  (CSV) which corresponds to a content type of `text/CSV` in
+  SageMaker AI.
+- If you're not using the `SUPER` data type as input,
+  the output of models is a single value of the type specified when you
+  create the function. The output is in the format of comma-separated
+  values (CSV) through a content type of `text/CSV` in SageMaker AI.
+  `VARCHAR` data types cannot be in quotes and cannot contain
+  new lines, and each output must be in a new line.
+- Models accept nulls as empty strings.
+- When the input data type is `SUPER`, only one input
+  argument is supported.
+- When the input data type is `SUPER`, the returned data type
+  must also be `SUPER`.
+- MAX_BATCH_ROWS is required when both input and returned data types are
+  SUPER.
+- When the input data type is `SUPER` the content type of the
+  endpoint invocation is either `application/json` when
+  MAX_BATCH_ROWS is `1` or `application/jsonlines` in
+  all other cases.
+- When the returned data type is `SUPER` the accept type of
+  the endpoint invocation is either `application/json` when
+  MAX_BATCH_ROWS is `1` or `application/jsonlines` in
+  all other cases.
+
+##### CREATE MODEL for remote
+
+inference example
+
+The following example creates a model that uses a SageMaker AI endpoint to make
+predictions. Make sure that the endpoint is running to make predictions and
+specify its name in the CREATE MODEL command.
+
+```
+CREATE MODEL remote_customer_churn
+FUNCTION remote_fn_customer_churn_predict (varchar, int, float, float)
+RETURNS int
+SAGEMAKER 'customer-churn-endpoint'
+IAM_ROLE default;
+```
+
+The following example creates a BYOM with remote inference with a large
+language model model (LLM). LLMs hosted on Amazon SageMaker AI Jumpstart accept and
+return the `application/json` content type and they support a
+single JSON per invocation. The input and returned data types must be
+`SUPER` and MAX_BATCH_ROWS must be set to 1.
+
+```
+CREATE MODEL sample_super_data_model
+FUNCTION sample_super_data_model_predict(super)
+RETURNS super
+SAGEMAKER 'sample_super_data_model_endpoint'
+IAM_ROLE default
+SETTINGS (MAX_BATCH_ROWS 1);
+```
+
+## CREATE MODEL with K-MEANS
+
+Amazon Redshift supports the K-Means algorithm that groups data that isn't labeled.
+This algorithm solves clustering problems where you want to discover groupings in the
+data. Unclassified data is grouped and partitioned based on its similarities and
+differences.
+
+### CREATE MODEL with K-MEANS
+
+syntax
+
+```
+CREATE MODEL model_name
+FROM { *table\_name* | ( *select\_statement* ) }
+FUNCTION *function\_name*
+IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' }
+AUTO OFF
+MODEL_TYPE KMEANS
+PREPROCESSORS 'string'
+HYPERPARAMETERS DEFAULT EXCEPT ( K 'val' [, ...] )
+SETTINGS (
+  S3_BUCKET 'amzn-s3-demo-bucket',
+  KMS_KEY_ID 'kms_string', |
+    -- optional
+  S3_GARBAGE_COLLECT on / off, |
+    -- optional
+  MAX_CELLS integer, |
+    -- optional
+  MAX_RUNTIME integer
+    -- optional);
+```
+
+### CREATE MODEL with K-MEANS
+
+parameters
+
+_AUTO OFF_
+
+Turns off CREATE MODEL automatic discovery of preprocessor, algorithm,
+and hyper-parameters selection.
+
+MODEL_TYPE KMEANS
+
+Specifies to use KMEANS to train the model.
+
+PREPROCESSORS 'string'
+
+Specifies certain combinations of preprocessors to certain sets of
+columns. The format is a list of columnSets, and the appropriate
+transforms to be applied to each set of columns. Amazon Redshift supports 3
+K-Means preprocessors, namely StandardScaler, MinMax, and
+NumericPassthrough. If you don't want to apply any preprocessing for
+K-Means, choose NumericPassthrough explicitly as a transformer. For more
+information about supported transformers, see [CREATE MODEL with user
+guidance parameters](#r_user_guidance-create-model-parameters "#r_user_guidance-create-model-parameters").
+
+The K-Means algorithm uses Euclidean distance to calculate similarity.
+Preprocessing the data ensures that the features of the model stay on the
+same scale and produce reliable results.
+
+HYPERPARAMETERS DEFAULT EXCEPT ( K 'val' [, ...] )
+
+Specifies whether the K-Means parameters are used. You must specify
+the `K` parameter when using the K-Means algorithm. For more
+information, see [K-Means
+Hyperparameters](../../../sagemaker/latest/dg/k-means-api-config.md "../../../sagemaker/latest/dg/k-means-api-config.md") in the _Amazon SageMaker AI Developer
+Guide_
+
+The following example prepares data for K-Means.
+
+```
+`CREATE MODEL customers_clusters
+FROM customers
+FUNCTION customers_cluster
+IAM_ROLE default
+AUTO OFF
+MODEL_TYPE KMEANS
+PREPROCESSORS '[
+{
+ "ColumnSet": [ "*" ],
+ "Transformers": [ "NumericPassthrough" ]
+}
+]'
+HYPERPARAMETERS DEFAULT EXCEPT ( K '5' )
+SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket');
+
+select customer_id, customers_cluster(...) from customers;`
+`customer_id | customers_cluster
+--------------------
+12345 1
+12346 2
+12347 4
+12348`
+```
+
+## CREATE MODEL with Forecast
+
+Forecast models in Redshift ML use Amazon Forecast to create accurate time-series
+forecasts. Doing so lets you use historical data over a time period to make
+predictions about future events. Common use cases of Amazon Forecast include using retail
+product data to decide how to price inventory, manufacturing quantity data to predict
+how much of one item to order, and web traffic data to forecast how much traffic a
+web server might receive.
+
+[Quota limits from Amazon Forecast](../../../forecast/latest/dg/limits.md "../../../forecast/latest/dg/limits.md") are enforced
+in Amazon Redshift forecast models. For example, the maximum number of forecasts is 100, but
+it's adjustable. Dropping a forecast model doesn’t automatically delete the
+associated resources in Amazon Forecast. If you delete a Redshift cluster, all associated
+models are dropped as well.
+
+Note that Forecast models are currently only available in the following
+Regions:
+
+- US East (Ohio) (us-east-2)
+- US East (N. Virginia) (us-east-1)
+- US West (Oregon) (us-west-2)
+- Asia Pacific (Mumbai) (ap-south-1)
+- Asia Pacific (Seoul) (ap-northeast-2)
+- Asia Pacific (Singapore) (ap-southeast-1)
+- Asia Pacific (Sydney) (ap-southeast-2)
+- Asia Pacific (Tokyo) (ap-northeast-1)
+- Europe (Frankfurt) (eu-central-1)
+- Europe (Ireland) (eu-west-1)
+
+### CREATE MODEL with Forecast
+
+syntax
+
+```
+CREATE [ OR REPLACE ] MODEL forecast_model_name
+FROM { table_name | ( select_query ) }
+TARGET column_name
+IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'}
+AUTO ON
+MODEL_TYPE FORECAST
+SETTINGS (
+  S3_BUCKET 'amzn-s3-demo-bucket',
+  HORIZON integer,
+  FREQUENCY forecast_frequency
+  [PERCENTILES '0.1', '0.5', '0.9']
+  )
+```
+
+### CREATE MODEL with Forecast
+
+parameters
+
+_forecast_model_name_
+
+The name of the model. The model name must be unique.
+
+FROM { table_name | ( select_query ) }
+
+The table_name or the query that specifies the training data. This can
+either be an existing table in the system, or an Amazon Redshift compatible
+SELECT query enclosed with parentheses. The table or query result must
+have at least three columns: (1) a varchar column that specifies the name
+of the time-series. Each dataset can have multiple time-series; (2) a
+datetime column; and (3) the target column to predict. This target column
+must be either an int or a float. If you supply a dataset that has more
+than three columns, Amazon Redshift assumes that all additional columns are part
+of a related time series. Note that related time series must be of type
+int or float. For more information about related time series, see [Using Related Time
+Series Datasets](../../../forecast/latest/dg/related-time-series-datasets.md "../../../forecast/latest/dg/related-time-series-datasets.md").
+
+TARGET column_name
+
+The name of the column that becomes the prediction target. The column
+must exist in the FROM clause.
+
+IAM_ROLE { default |
+'arn:aws:iam::<account-id>:role/<role-name>' }
+
+Use the default keyword to have Amazon Redshift use the IAM role that is
+set as default and associated with the cluster when the CREAT MODEL
+command runs. Alternatively, you can specify an ARN of an IAM role to use
+that role.
+
+AUTO ON
+
+Turns on the CREATE MODEL automatic discovery of algorithm and
+hyper-parameters selection. Specifying on when creating a Forecast model
+indicates to use a Forecast AutoPredictor, where Amazon Forecast applies the
+optimal combinations of algorithms to each time series in your
+dataset.
+
+MODEL_TYPE FORECAST
+
+Specifies to use FORECAST to train the model.
+
+S3_BUCKET 'amzn-s3-demo-bucket'
+
+The name of the Amazon Simple Storage Service bucket that you previously created and that’s
+used to share training data and artifacts between Amazon Redshift and Amazon Forecast.
+Amazon Redshift creates a subfolder in this bucket before unloading the training
+data. When training is complete, Amazon Redshift deletes the created subfolder
+and its contents.
+
+HORIZON integer
+
+The maximum number of predictions the forecast model can return. Once
+the model is trained, you can't change this integer.
+
+FREQUENCY forecast_frequency
+
+Specifies how granular you want the forecasts to be. Available options
+are `Y | M | W | D | H | 30min | 15min | 10min | 5min | 1min`.
+Required if you’re training a forecast model.
+
+PERCENTILES string
+
+A comma-delimited string that specifies the forecast types used to
+train a predictor. Forecast types can be quantiles from 0.01 to 0.99, by
+increments of 0.01 or higher. You can also specify the mean forecast with
+mean. You can specify a maximum of five forecast types.
+
+The following example demonstrates how to create a simple forecast
+model.
+
+```
+CREATE MODEL forecast_example
+FROM forecast_electricity_
+TARGET target
+IAM_ROLE 'arn:aws:iam::<account-id>:role/<role-name>'
+AUTO ON
+MODEL_TYPE FORECAST
+SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket',
+          HORIZON 24,
+          FREQUENCY 'H',
+          PERCENTILES '0.25,0.50,0.75,mean',
+          S3_GARBAGE_COLLECT OFF);
+```
+
+After you create the forecast model, you can create a new table with the
+prediction data.
+
+```
+CREATE TABLE forecast_model_results as SELECT Forecast(forecast_example)
+```
+
+You can then query the new table to get predictions.
+
+```
+SELECT * FROM forecast_model_results
+```

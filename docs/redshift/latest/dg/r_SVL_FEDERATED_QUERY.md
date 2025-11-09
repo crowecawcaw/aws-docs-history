@@ -16,15 +16,28 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type        | Description                                                                                                                                        |
-| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | --- | -------------------------- | ------------------------------------------------------------------------- |
-| userid      | integer          | The ID of the user running the query.                                                                                                              |
-| xid         | bigint           | The transaction ID.                                                                                                                                |
-| pid         | integer          | The ID of the leader process running the query.                                                                                                    |
-| query       | integer          | The query ID of a federated call.                                                                                                                  |
-| sourcetype  | character (32)   | The federated call source type, for example "PG".                                                                                                  |
-| recordtime  | timestamp        | The time when a query is sent for federation. UTC is used.                                                                                         |
-| querytext   | character (4000) | The query string sent to the remote PostgreSQL engine for execution.                                                                               |
-| num_rows    | bigint           | The number of rows returned by the federated query.                                                                                                |
-| num_bytes   | bigint           | The number of bytes returned by the federated query.                                                                                               |
-| duration    | bigint           | The time (microseconds) spent fetching rows from cursor calls. It is the time spent running the federated query, as well as, getting results back. | ## Sample queries To show information about federated query calls, run the following query. ``` select query, trim(sourcetype) as type, recordtime, trim(querytext) as "PG Subquery" from svl_federated_query where query = 4292; query | type | recordtime | pg subquery -------+------+----------------------------+--------------------------------------------------------------- 4292 | PG  | 2020-03-27 04:29:58.485126 | SELECT "level" FROM functional.employees WHERE ("level" >= 6) (1 row) ``` |
+| Column name | Data type        | Description                                                                                                                                           |
+| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer          | The ID of the user running the query.                                                                                                                 |
+| xid         | bigint           | The transaction ID.                                                                                                                                   |
+| pid         | integer          | The ID of the leader process running the query.                                                                                                       |
+| query       | integer          | The query ID of a federated call.                                                                                                                     |
+| sourcetype  | character (32)   | The federated call source type, for example "PG".                                                                                                     |
+| recordtime  | timestamp        | The time when a query is sent for federation. UTC is used.                                                                                            |
+| querytext   | character (4000) | The query string sent to the remote PostgreSQL engine for execution.                                                                                  |
+| num_rows    | bigint           | The number of rows returned by the federated query.                                                                                                   |
+| num_bytes   | bigint           | The number of bytes returned by the federated query.                                                                                                  |
+| duration    | bigint           | The time (microseconds) spent fetching rows from cursor calls.<br>It is the time spent running the federated query, as well as, getting results back. |
+
+## Sample queries
+
+To show information about federated query calls, run the following query.
+
+```
+select query, trim(sourcetype) as type, recordtime, trim(querytext) as "PG Subquery" from svl_federated_query where query = 4292;
+
+ query | type |         recordtime         |                          pg subquery
+-------+------+----------------------------+---------------------------------------------------------------
+  4292 | PG   | 2020-03-27 04:29:58.485126 | SELECT "level" FROM functional.employees WHERE ("level" >= 6)
+(1 row)
+```

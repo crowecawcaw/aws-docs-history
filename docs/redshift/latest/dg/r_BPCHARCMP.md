@@ -42,14 +42,15 @@ greater than the user's last name for the first ten entries in the USERS table, 
 alphabetically than the string for LASTNAME, the function returns `1`. If the LASTNAME is
 alphabetically later than FIRSTNAME, the function returns `-1`.
 
-````
+```
 `SELECT userid, firstname, lastname, BPCHARCMP(firstname, lastname)
 FROM users
 ORDER BY 1, 2, 3, 4
 LIMIT 10;`
 
 `+--------+-----------+-----------+-----------+
-| userid | firstname | lastname | bpcharcmp | +--------+-----------+-----------+-----------+
+| userid | firstname | lastname | bpcharcmp |
++--------+-----------+-----------+-----------+
 | 1 | Rafael | Taylor | -1 |
 | 2 | Vladimir | Humphrey | 1 |
 | 3 | Lars | Ratliff | -1 |
@@ -59,8 +60,22 @@ LIMIT 10;`
 | 7 | Tamekah | Juarez | 1 |
 | 8 | Colton | Roy | -1 |
 | 9 | Mufutau | Watkins | -1 |
-| 10 | Naida | Calderon | 1 | +--------+-----------+-----------+-----------+` ``` To return all entries in the USERS table where the function returns `0`, use the following example. The function returns `0` when FIRSTNAME is identical to LASTNAME. ``` `SELECT userid, firstname, lastname, BPCHARCMP(firstname, lastname) FROM users WHERE BPCHARCMP(firstname, lastname)=0 ORDER BY 1, 2, 3, 4;` `+--------+-----------+----------+-----------+
-| userid | firstname | lastname | bpcharcmp | +--------+-----------+----------+-----------+
+| 10 | Naida | Calderon | 1 |
++--------+-----------+-----------+-----------+`
+```
+
+To return all entries in the USERS table where the function returns `0`, use the following example. The function returns `0` when FIRSTNAME is identical to LASTNAME.
+
+```
+`SELECT userid, firstname, lastname,
+BPCHARCMP(firstname, lastname)
+FROM users
+WHERE BPCHARCMP(firstname, lastname)=0
+ORDER BY 1, 2, 3, 4;`
+
+`+--------+-----------+----------+-----------+
+| userid | firstname | lastname | bpcharcmp |
++--------+-----------+----------+-----------+
 | 62 | Chase | Chase | 0 |
 | 4008 | Whitney | Whitney | 0 |
 | 12516 | Graham | Graham | 0 |
@@ -68,5 +83,6 @@ LIMIT 10;`
 | 16712 | Cooper | Cooper | 0 |
 | 18359 | Chase | Chase | 0 |
 | 27530 | Bradley | Bradley | 0 |
-| 31204 | Harding | Harding | 0 | +--------+-----------+----------+-----------+` ```
-````
+| 31204 | Harding | Harding | 0 |
++--------+-----------+----------+-----------+`
+```

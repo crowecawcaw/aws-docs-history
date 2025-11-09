@@ -33,18 +33,34 @@ The following example shows that column `d` in table t2 has `DOUBLE PRECISION` a
 the input is `DOUBLE PRECISION` and that column `n` in table t2 has `NUMERIC(1,0)` as the
 output since the input is `NUMERIC`.
 
-````
+```
 `CREATE TABLE t1(d DOUBLE PRECISION, n NUMERIC(12, 2));
 INSERT INTO t1 VALUES (4.25, 4.25), (-4.25, -4.25);
 CREATE TABLE t2 AS SELECT SIGN(d) AS d, SIGN(n) AS n FROM t1;
 SELECT table_name, column_name, data_type FROM SVV_REDSHIFT_COLUMNS WHERE table_name='t1' OR table_name='t2';`
 
 `+------------+-------------+-----------------------+
-| table_name | column_name | data_type | +------------+-------------+-----------------------+
+| table_name | column_name | data_type |
++------------+-------------+-----------------------+
 | t1 | d | double precision |
 | t1 | n | numeric(12,2) |
 | t2 | d | double precision |
 | t2 | n | numeric(1,0) |
-| t1 | col1 | character varying(20) | +------------+-------------+-----------------------+` ``` The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To determine the sign of the commission paid for a given transaction from the SALES table, use the following example. ``` `SELECT commission, SIGN(commission) FROM sales WHERE salesid=10000;` `+------------+------+
-| commission | sign | +------------+------+ | 28.05 | 1 | +------------+------+` ```
-````
+| t1 | col1 | character varying(20) |
++------------+-------------+-----------------------+`
+```
+
+The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To determine the sign of the commission paid for a given transaction from the SALES table, use the following example.
+
+```
+`SELECT commission, SIGN(commission)
+FROM sales WHERE salesid=10000;`
+
+`+------------+------+
+| commission | sign |
++------------+------+
+| 28.05 | 1 |
++------------+------+`
+```

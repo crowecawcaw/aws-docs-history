@@ -33,16 +33,51 @@ Case insensitive valid values are `hex`, `binary`, `utf8` (also `utf-8` and `utf
 To convert the hex `6162` to a binary value, use the following example.
 The result is automatically shown as the hexadecimal representation of the binary value.
 
-````
+```
 `SELECT TO_VARBYTE('6162', 'hex');`
 
 `+------------+
-| to_varbyte | +------------+
-| 6162 | +------------+` ``` To return the binary representation of `4d`, use the following example. The binary representation of '4d' is `01001101`. ``` `SELECT TO_VARBYTE('01001101', 'binary');` `+------------+
-| to_varbyte | +------------+
-| 4d | +------------+` ``` To convert the string `'a'` in UTF-8 to a binary value, use the following example. The result is automatically shown as the hexadecimal representation of the binary value. ``` `SELECT TO_VARBYTE('a', 'utf8');` `+------------+
-| to_varbyte | +------------+
-| 61 | +------------+` ``` To convert the string `'4'` in hexadecimal to a binary value, use the following example. If the hexadecimal string length is an odd number, then a `0` is prepended to form a valid hexadecimal number. ``` `SELECT TO_VARBYTE('4', 'hex');` `+------------+
-| to_varbyte | +------------+
-| 04 | +------------+` ```
-````
+| to_varbyte |
++------------+
+| 6162 |
++------------+`
+```
+
+To return the binary representation of `4d`, use the following example.
+The binary representation of '4d' is `01001101`.
+
+```
+`SELECT TO_VARBYTE('01001101', 'binary');`
+
+`+------------+
+| to_varbyte |
++------------+
+| 4d |
++------------+`
+```
+
+To convert the string `'a'` in UTF-8 to a binary value, use the following example.
+The result is automatically shown as the hexadecimal representation of the binary value.
+
+```
+`SELECT TO_VARBYTE('a', 'utf8');`
+
+`+------------+
+| to_varbyte |
++------------+
+| 61 |
++------------+`
+```
+
+To convert the string `'4'` in hexadecimal to a binary value, use the following example.
+If the hexadecimal string length is an odd number, then a `0` is prepended to form a valid hexadecimal number.
+
+```
+`SELECT TO_VARBYTE('4', 'hex');`
+
+`+------------+
+| to_varbyte |
++------------+
+| 04 |
++------------+`
+```

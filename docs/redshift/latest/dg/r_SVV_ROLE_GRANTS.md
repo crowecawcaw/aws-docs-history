@@ -17,8 +17,25 @@ SVV_ROLE_GRANTS is visible to the following users:
 ## Table columns
 
 | Column name       | Data type | Description                    |
-| ----------------- | --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- | ------------------ |
+| ----------------- | --------- | ------------------------------ |
 | role_id           | integer   | The ID of the role.            |
 | role_name         | text      | The name of the role.          |
 | granted_role_id   | integer   | The ID for the granted role.   |
-| granted_role_name | text      | The name for the granted role. | ## Sample query The following example returns the output of SVV_ROLE_GRANTS. ``` GRANT ROLE role1 TO ROLE role2; GRANT ROLE role2 TO ROLE role3; SELECT role_name, granted_role_name FROM svv_role_grants; role_name | granted_role_name -----------+-------------------- role2 | role1 role3 | role2 (2 rows) ``` |
+| granted_role_name | text      | The name for the granted role. |
+
+## Sample query
+
+The following example returns the output of SVV_ROLE_GRANTS.
+
+```
+GRANT ROLE role1 TO ROLE role2;
+GRANT ROLE role2 TO ROLE role3;
+
+SELECT role_name, granted_role_name FROM svv_role_grants;
+
+ role_name |  granted_role_name
+-----------+--------------------
+   role2   |      role1
+   role3   |      role2
+(2 rows)
+```

@@ -32,7 +32,7 @@ A `SUPER` expression or column.
 
 To check if `5` is a `BIGINT` using the IS_BIGINT function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (5);
@@ -40,6 +40,8 @@ INSERT INTO t VALUES (5);
 SELECT s, IS_BIGINT(s) FROM t;`
 
 `+---+-----------+
-| s | is_bigint | +---+-----------+
-| 5 | true | +---+-----------+` ```
-````
+| s | is_bigint |
++---+-----------+
+| 5 | true |
++---+-----------+`
+```

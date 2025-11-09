@@ -14,17 +14,39 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name              | Data type     | Description                                                                            |
-| ------------------------ | ------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | ----------- | ---------------- | -------------- | ----------- | --------- | ------------------------ | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------- | ------- | --- | --- | --- | ------- | --- | --- | --- | --------- | ------ | --------------------- | ---------- | --- | --- | --- | ------- | --- | --- | --- | --------- | ------ | --------------------- | ------ | --- | --- | --- | -------- | --- | --- | --- | --------- | ------ | --------------------- | ------- | --- | --- | --- | ------- | --- | --- | --- | --------- | ------ | --------------------- | ------ | --- | --- | --- | ------- | --- | --- | --- | --- |
-| database_name            | varchar(128)  | The name of the database.                                                              |
-| schema_name              | varchar(128)  | The name of the schema.                                                                |
-| table_name               | varchar(128)  | The name of the table.                                                                 |
-| column_name              | varchar(128)  | The name of the column.                                                                |
-| ordinal_position         | integer       | The position of the column in the table.                                               |
-| column_default           | varchar(4000) | The default value of the column.                                                       |
-| is_nullable              | varchar(3)    | A value that indicates whether the column is nullable. Possible values are yes and no. |
-| data_type                | varchar(128)  | The data type of the column.                                                           |
-| character_maximum_length | integer       | The maximum number of characters in the column.                                        |
-| numeric_precision        | integer       | The numeric precision.                                                                 |
-| numeric_scale            | integer       | The numeric scale.                                                                     |
-| remarks                  | varchar(256)  | Remarks.                                                                               | ## Sample queries The following example returns the output of SVV_ALL_COLUMNS. ``` SELECT \* FROM svv_all_columns WHERE database_name = 'tickit_db' AND TABLE_NAME = 'tickit_sales_redshift' ORDER BY COLUMN_NAME, SCHEMA_NAME LIMIT 5; database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks --------------+-------------+-----------------------+-------------+------------------+----------------+-------------+-----------+--------------------------+-------------------+---------------+--------- tickit_db | public | tickit_sales_redshift | buyerid | 4   |     | NO  | integer |     | 32  | 0   | tickit_db | public | tickit_sales_redshift | commission | 9   |     | YES | numeric |     | 8   | 2   | tickit_db | public | tickit_sales_redshift | dateid | 7   |     | NO  | smallint |     | 16  | 0   | tickit_db | public | tickit_sales_redshift | eventid | 5   |     | NO  | integer |     | 32  | 0   | tickit_db | public | tickit_sales_redshift | listid | 2   |     | NO  | integer |     | 32  | 0   | ``` |
+| Column name              | Data type     | Description                                                                               |
+| ------------------------ | ------------- | ----------------------------------------------------------------------------------------- |
+| database_name            | varchar(128)  | The name of the database.                                                                 |
+| schema_name              | varchar(128)  | The name of the schema.                                                                   |
+| table_name               | varchar(128)  | The name of the table.                                                                    |
+| column_name              | varchar(128)  | The name of the column.                                                                   |
+| ordinal_position         | integer       | The position of the column in the table.                                                  |
+| column_default           | varchar(4000) | The default value of the column.                                                          |
+| is_nullable              | varchar(3)    | A value that indicates whether the column is<br>nullable. Possible values are yes and no. |
+| data_type                | varchar(128)  | The data type of the column.                                                              |
+| character_maximum_length | integer       | The maximum number of characters in the<br>column.                                        |
+| numeric_precision        | integer       | The numeric precision.                                                                    |
+| numeric_scale            | integer       | The numeric scale.                                                                        |
+| remarks                  | varchar(256)  | Remarks.                                                                                  |
+
+## Sample queries
+
+The following example returns the output of SVV_ALL_COLUMNS.
+
+```
+SELECT *
+FROM svv_all_columns
+WHERE database_name = 'tickit_db'
+    AND TABLE_NAME = 'tickit_sales_redshift'
+ORDER BY COLUMN_NAME,
+    SCHEMA_NAME
+LIMIT 5;
+
+ database_name | schema_name |     table_name        | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks
+ --------------+-------------+-----------------------+-------------+------------------+----------------+-------------+-----------+--------------------------+-------------------+---------------+---------
+   tickit_db   |    public   | tickit_sales_redshift |    buyerid  |        4         |                |      NO     |  integer  |                          |         32        |       0       |
+   tickit_db   |    public   | tickit_sales_redshift | commission  |        9         |                |     YES     |  numeric  |                          |          8        |	2       |
+   tickit_db   |    public   | tickit_sales_redshift |    dateid   |        7         |                |      NO     |  smallint |                          |         16        |       0       |
+   tickit_db   |    public   | tickit_sales_redshift |   eventid   |        5         |                |      NO     |  integer  |                          |         32        |       0       |
+   tickit_db   |    public   | tickit_sales_redshift |    listid   |        2         |                |      NO     |  integer  |                          |         32        |       0       |
+```

@@ -236,13 +236,324 @@ LIMIT 5;
 
 The following is an example of the output of the previous operation.
 
-````
+```
 +---------------------+------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
-|      trip_time      | trip_count | trip_hour | trip_day | trip_month | trip_year | trip_quarter | trip_month_week | trip_week_day | temp_c | precip_amount_mm | is_holiday | serial_number | +---------------------+------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
+|      trip_time      | trip_count | trip_hour | trip_day | trip_month | trip_year | trip_quarter | trip_month_week | trip_week_day | temp_c | precip_amount_mm | is_holiday | serial_number |
++---------------------+------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
 | 2017-03-21 22:00:00 |         47 |        22 |       21 |          3 |        17 |            1 |               3 |             3 |      1 |                0 |          0 |             1 |
 | 2018-05-04 01:00:00 |         19 |         1 |        4 |          5 |        18 |            2 |               1 |             6 |     12 |                0 |          0 |             3 |
 | 2018-01-11 10:00:00 |         93 |        10 |       11 |          1 |        18 |            1 |               2 |             5 |      9 |                0 |          0 |             5 |
 | 2017-10-28 04:00:00 |         20 |         4 |       28 |         10 |        17 |            4 |               4 |             7 |     11 |                0 |          1 |             7 |
-| 2017-12-31 21:00:00 |         11 |        21 |       31 |         12 |        17 |            4 |               5 |             1 |    -15 |                0 |          1 |             9 | +---------------------+------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+ ``` ### Show the correlation between attributes (optional) Determining correlation helps you measure the strength of association between attributes. The level of association can help you determine what affects your target output. In this tutorial, the target output is `trip_count`. The following query creates or replaces the `sp_correlation` procedure. You use the stored procedure called `sp_correlation` to show the correlation between an attribute and other attributes in a table in Amazon Redshift. ``` CREATE OR REPLACE PROCEDURE sp_correlation(source_schema_name in varchar(255), source_table_name in varchar(255), target_column_name in varchar(255), output_temp_table_name inout varchar(255)) AS $$ DECLARE v_sql varchar(max); v_generated_sql varchar(max); v_source_schema_name varchar(255)=lower(source_schema_name); v_source_table_name varchar(255)=lower(source_table_name); v_target_column_name varchar(255)=lower(target_column_name); BEGIN EXECUTE 'DROP TABLE IF EXISTS ' || output_temp_table_name; v_sql = ' SELECT ''CREATE temp table '|| output_temp_table_name||' AS SELECT ''|| outer_calculation|| '' FROM (SELECT COUNT(1) number_of_items, SUM('||v_target_column_name||') sum_target, SUM(POW('||v_target_column_name||',2)) sum_square_target, POW(SUM('||v_target_column_name||'),2) square_sum_target,''|| inner_calculation|| '' FROM (SELECT ''|| column_name|| '' FROM '||v_source_table_name||'))'' FROM ( SELECT DISTINCT LISTAGG(outer_calculation,'','') OVER () outer_calculation ,LISTAGG(inner_calculation,'','') OVER () inner_calculation ,LISTAGG(column_name,'','') OVER () column_name FROM ( SELECT CASE WHEN atttypid=16 THEN ''DECODE(''||column_name||'',true,1,0)'' ELSE column_name END column_name ,atttypid ,''CAST(DECODE(number_of_items * sum_square_''||rn||'' - square_sum_''||rn||'',0,null,(number_of_items*sum_target_''||rn||'' - sum_target * sum_''||rn|| '')/SQRT((number_of_items * sum_square_target - square_sum_target) * (number_of_items * sum_square_''||rn|| '' - square_sum_''||rn||''))) AS numeric(5,2)) ''||column_name outer_calculation ,''sum(''||column_name||'') sum_''||rn||'',''|| ''SUM(trip_count*''||column_name||'') sum_target_''||rn||'',''|| ''SUM(POW(''||column_name||'',2)) sum_square_''||rn||'',''|| ''POW(SUM(''||column_name||''),2) square_sum_''||rn inner_calculation FROM ( SELECT row_number() OVER (order by a.attnum) rn ,a.attname::VARCHAR column_name ,a.atttypid FROM pg_namespace AS n INNER JOIN pg_class AS c ON n.oid = c.relnamespace INNER JOIN pg_attribute AS a ON c.oid = a.attrelid WHERE a.attnum > 0 AND n.nspname = '''||v_source_schema_name||''' AND c.relname = '''||v_source_table_name||''' AND a.atttypid IN (16,20,21,23,700,701,1700) ) ) )'; EXECUTE v_sql INTO v_generated_sql; EXECUTE  v_generated_sql; END; $$ LANGUAGE plpgsql; ``` The following query shows the correlation between the target column, `trip_count`, and other numeric attributes in our dataset. ``` call sp_correlation( 'public', 'trip_data', 'trip_count', 'tmp_corr_table' ); SELECT * FROM tmp_corr_table; ``` The following example shows the output of the previous `sp_correlation` operation. ``` +------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
-| trip_count | trip_hour | trip_day | trip_month | trip_year | trip_quarter | trip_month_week | trip_week_day | temp_c | precip_amount_mm | is_holiday | serial_number | +------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+ |          1 |      0.32 |     0.01 |       0.18 |      0.12 |         0.18 |               0 |          0.02 |   0.53 |            -0.07 |      -0.13 |             0 | +------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+ ``` ## Step 2: Create the machine learning model 1. The following query splits your data into a training set and a validation set by designating 80% of the dataset for training and 20% for validation. The training set is the input for the ML model to identify the best possible algorithm for the model. After the model is created, you use the validation set to validate the model accuracy. ``` CREATE TABLE training_data AS SELECT trip_count, trip_hour, trip_day, trip_month, trip_year, trip_quarter, trip_month_week, trip_week_day, temp_c, precip_amount_mm, is_holiday FROM trip_data WHERE serial_number > ( SELECT COUNT(1) * 0.2 FROM trip_data ); CREATE TABLE validation_data AS SELECT trip_count, trip_hour, trip_day, trip_month, trip_year, trip_quarter, trip_month_week, trip_week_day, temp_c, precip_amount_mm, is_holiday, trip_time FROM trip_data WHERE serial_number <= ( SELECT COUNT(1) * 0.2 FROM trip_data ); ``` 2. The following query creates a regression model to predict the `trip_count` value for any input date and time. In the following example, replace amzn-s3-demo-bucket with your own S3 bucket. ``` CREATE MODEL predict_rental_count FROM training_data TARGET trip_count FUNCTION predict_rental_count IAM_ROLE default PROBLEM_TYPE regression OBJECTIVE 'mse' SETTINGS ( s3_bucket 'amzn-s3-demo-bucket', s3_garbage_collect off, max_runtime 5000 ); ``` ## Step 3: Validate the model 1. Use the following query to output aspects of the model, and find the mean square error metric in the output. Mean square error is a typical accuracy metric for regression problems. ``` show model predict_rental_count; ``` 2. Run the following prediction queries against the validation data to compare the predicted trip count to the actual trip count. ``` SELECT trip_time, actual_count, predicted_count, (actual_count - predicted_count) difference FROM ( SELECT trip_time, trip_count AS actual_count, PREDICT_RENTAL_COUNT ( trip_hour, trip_day, trip_month, trip_year, trip_quarter, trip_month_week, trip_week_day, temp_c, precip_amount_mm, is_holiday ) predicted_count FROM validation_data ) LIMIT 5; ``` 3. The following query calculates the mean square error and root mean square error based on your validation data. You use mean square error and root mean square error to measure the distance between the predicted numeric target and the actual numeric answer. A good model has a low score in both metrics. The following query returns the value of both metrics. ``` SELECT ROUND( AVG(POWER((actual_count - predicted_count), 2)), 2 ) mse, ROUND( SQRT(AVG(POWER((actual_count - predicted_count), 2))), 2 ) rmse FROM ( SELECT trip_time, trip_count AS actual_count, PREDICT_RENTAL_COUNT ( trip_hour, trip_day, trip_month, trip_year, trip_quarter, trip_month_week, trip_week_day, temp_c, precip_amount_mm, is_holiday ) predicted_count FROM validation_data ); ``` 4. The following query calculates the percent error in trip count for each trip time on 2017-01-01. The query orders the trip times from the time with the lowest percent error to the time with the highest percent error. ``` SELECT trip_time, CAST(ABS(((actual_count - predicted_count) / actual_count)) * 100 AS DECIMAL (7,2)) AS pct_error FROM ( SELECT trip_time, trip_count AS actual_count, PREDICT_RENTAL_COUNT ( trip_hour, trip_day, trip_month, trip_year, trip_quarter, trip_month_week, trip_week_day, temp_c, precip_amount_mm, is_holiday ) predicted_count FROM validation_data ) WHERE trip_time LIKE '2017-01-01 %%:%%:%%' ORDER BY 2 ASC; ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+| 2017-12-31 21:00:00 |         11 |        21 |       31 |         12 |        17 |            4 |               5 |             1 |    -15 |                0 |          1 |             9 |
++---------------------+------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
+```
+
+### Show the correlation between attributes (optional)
+
+Determining correlation helps you measure the strength
+of association between attributes. The level of association can help you
+determine what affects your target output. In this tutorial, the target output
+is `trip_count`.
+
+The following query creates or replaces the
+`sp_correlation` procedure. You use the stored procedure called
+`sp_correlation` to show the correlation between an attribute and
+other attributes in a table in
+Amazon Redshift.
+
+```
+CREATE OR REPLACE PROCEDURE sp_correlation(source_schema_name in varchar(255), source_table_name in varchar(255), target_column_name in varchar(255), output_temp_table_name inout varchar(255)) AS $$
+DECLARE
+  v_sql varchar(max);
+  v_generated_sql varchar(max);
+  v_source_schema_name varchar(255)=lower(source_schema_name);
+  v_source_table_name varchar(255)=lower(source_table_name);
+  v_target_column_name varchar(255)=lower(target_column_name);
+BEGIN
+  EXECUTE 'DROP TABLE IF EXISTS ' || output_temp_table_name;
+  v_sql = '
+SELECT
+  ''CREATE temp table '|| output_temp_table_name||' AS SELECT ''|| outer_calculation||
+  '' FROM (SELECT COUNT(1) number_of_items, SUM('||v_target_column_name||') sum_target, SUM(POW('||v_target_column_name||',2)) sum_square_target, POW(SUM('||v_target_column_name||'),2) square_sum_target,''||
+  inner_calculation||
+  '' FROM (SELECT ''||
+  column_name||
+  '' FROM '||v_source_table_name||'))''
+FROM
+  (
+  SELECT
+    DISTINCT
+    LISTAGG(outer_calculation,'','') OVER () outer_calculation
+    ,LISTAGG(inner_calculation,'','') OVER () inner_calculation
+    ,LISTAGG(column_name,'','') OVER () column_name
+  FROM
+    (
+    SELECT
+      CASE WHEN atttypid=16 THEN ''DECODE(''||column_name||'',true,1,0)'' ELSE column_name END column_name
+      ,atttypid
+      ,''CAST(DECODE(number_of_items * sum_square_''||rn||'' - square_sum_''||rn||'',0,null,(number_of_items*sum_target_''||rn||'' - sum_target * sum_''||rn||
+        '')/SQRT((number_of_items * sum_square_target - square_sum_target) * (number_of_items * sum_square_''||rn||
+        '' - square_sum_''||rn||''))) AS numeric(5,2)) ''||column_name outer_calculation
+      ,''sum(''||column_name||'') sum_''||rn||'',''||
+            ''SUM(trip_count*''||column_name||'') sum_target_''||rn||'',''||
+            ''SUM(POW(''||column_name||'',2)) sum_square_''||rn||'',''||
+            ''POW(SUM(''||column_name||''),2) square_sum_''||rn inner_calculation
+    FROM
+      (
+      SELECT
+        row_number() OVER (order by a.attnum) rn
+        ,a.attname::VARCHAR column_name
+        ,a.atttypid
+      FROM pg_namespace AS n
+        INNER JOIN pg_class AS c ON n.oid = c.relnamespace
+        INNER JOIN pg_attribute AS a ON c.oid = a.attrelid
+      WHERE a.attnum > 0
+        AND n.nspname = '''||v_source_schema_name||'''
+        AND c.relname = '''||v_source_table_name||'''
+        AND a.atttypid IN (16,20,21,23,700,701,1700)
+      )
+    )
+)';
+  EXECUTE v_sql INTO v_generated_sql;
+  EXECUTE  v_generated_sql;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+The following query shows the
+correlation between the target column, `trip_count`, and other
+numeric attributes in our dataset.
+
+```
+call sp_correlation(
+    'public',
+    'trip_data',
+    'trip_count',
+    'tmp_corr_table'
+);
+
+SELECT
+    *
+FROM
+    tmp_corr_table;
+```
+
+The following example shows the
+output of the previous `sp_correlation`
+operation.
+
+```
++------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
+| trip_count | trip_hour | trip_day | trip_month | trip_year | trip_quarter | trip_month_week | trip_week_day | temp_c | precip_amount_mm | is_holiday | serial_number |
++------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
+|          1 |      0.32 |     0.01 |       0.18 |      0.12 |         0.18 |               0 |          0.02 |   0.53 |            -0.07 |      -0.13 |             0 |
++------------+-----------+----------+------------+-----------+--------------+-----------------+---------------+--------+------------------+------------+---------------+
+```
+
+## Step 2: Create the machine learning model
+
+1. The following query splits your data into a training set and a validation
+   set by designating 80% of the dataset for training and 20% for validation.
+   The training set is the input for the ML model to identify the best possible
+   algorithm for the model. After the model is created, you use the validation
+   set to validate the model accuracy.
+
+```
+CREATE TABLE training_data AS
+SELECT
+    trip_count,
+    trip_hour,
+    trip_day,
+    trip_month,
+    trip_year,
+    trip_quarter,
+    trip_month_week,
+    trip_week_day,
+    temp_c,
+    precip_amount_mm,
+    is_holiday
+FROM
+    trip_data
+WHERE
+    serial_number > (
+        SELECT
+            COUNT(1) * 0.2
+        FROM
+            trip_data
+    );
+
+CREATE TABLE validation_data AS
+SELECT
+    trip_count,
+    trip_hour,
+    trip_day,
+    trip_month,
+    trip_year,
+    trip_quarter,
+    trip_month_week,
+    trip_week_day,
+    temp_c,
+    precip_amount_mm,
+    is_holiday,
+    trip_time
+FROM
+    trip_data
+WHERE
+    serial_number <= (
+        SELECT
+            COUNT(1) * 0.2
+        FROM
+            trip_data
+    );
+```
+
+2. The following query creates a regression model to predict the
+   `trip_count` value for any input date and time. In the
+   following example, replace
+   amzn-s3-demo-bucket with your own S3
+   bucket.
+
+```
+CREATE MODEL predict_rental_count
+FROM
+    training_data TARGET trip_count FUNCTION predict_rental_count
+    IAM_ROLE default
+    PROBLEM_TYPE regression
+    OBJECTIVE 'mse'
+    SETTINGS (
+        s3_bucket 'amzn-s3-demo-bucket',
+        s3_garbage_collect off,
+        max_runtime 5000
+    );
+```
+
+## Step 3: Validate the model
+
+1. Use the following query to output aspects of the model, and find the mean
+   square error metric in the output. Mean square error is a typical accuracy
+   metric for regression problems.
+
+```
+show model predict_rental_count;
+```
+
+2. Run the following prediction queries against the validation data to
+   compare the predicted trip count to the actual trip count.
+
+```
+SELECT
+    trip_time,
+    actual_count,
+    predicted_count,
+    (actual_count - predicted_count) difference
+FROM
+    (
+        SELECT
+            trip_time,
+            trip_count AS actual_count,
+            PREDICT_RENTAL_COUNT (
+                trip_hour,
+                trip_day,
+                trip_month,
+                trip_year,
+                trip_quarter,
+                trip_month_week,
+                trip_week_day,
+                temp_c,
+                precip_amount_mm,
+                is_holiday
+            ) predicted_count
+        FROM
+            validation_data
+    )
+LIMIT
+    5;
+```
+
+3. The following query calculates the mean square error and root mean square
+   error based on your validation data. You use mean square error and root mean
+   square error to measure the distance between the predicted numeric target
+   and the actual numeric answer. A good model has a low score in both metrics.
+   The following query returns the value of both metrics.
+
+```
+SELECT
+    ROUND(
+        AVG(POWER((actual_count - predicted_count), 2)),
+        2
+    ) mse,
+    ROUND(
+        SQRT(AVG(POWER((actual_count - predicted_count), 2))),
+        2
+    ) rmse
+FROM
+    (
+        SELECT
+            trip_time,
+            trip_count AS actual_count,
+            PREDICT_RENTAL_COUNT (
+                trip_hour,
+                trip_day,
+                trip_month,
+                trip_year,
+                trip_quarter,
+                trip_month_week,
+                trip_week_day,
+                temp_c,
+                precip_amount_mm,
+                is_holiday
+            ) predicted_count
+        FROM
+            validation_data
+    );
+```
+
+4. The following query calculates the percent error in trip count for each
+   trip time on 2017-01-01. The query orders the trip times from the time with
+   the lowest percent error to the time with the highest percent
+   error.
+
+```
+SELECT
+    trip_time,
+    CAST(ABS(((actual_count - predicted_count) / actual_count)) * 100 AS DECIMAL (7,2)) AS pct_error
+FROM
+    (
+        SELECT
+            trip_time,
+            trip_count AS actual_count,
+            PREDICT_RENTAL_COUNT (
+                trip_hour,
+                trip_day,
+                trip_month,
+                trip_year,
+                trip_quarter,
+                trip_month_week,
+                trip_week_day,
+                temp_c,
+                precip_amount_mm,
+                is_holiday
+            ) predicted_count
+        FROM
+            validation_data
+    )
+WHERE
+   trip_time LIKE '2017-01-01 %%:%%:%%'
+ORDER BY
+   2 ASC;
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

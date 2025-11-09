@@ -13,8 +13,23 @@ can see only metadata to which they have access. For more information, see [CREA
 ## Table columns
 
 | Column name | Data type | Description              |
-| ----------- | --------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------- | --- | ----------- | ------------------------------------------------------------------- | -------- | --- | ---------- | ------------------------------------------------------------------- | -------- | --- | ----------- | ---------------------------------------------------------------- |
+| ----------- | --------- | ------------------------ |
 | esoid       | oid       | External schema ID.      |
 | eskind      | integer   | Kind of external schema. |
 | esdbname    | text      | External database name.  |
-| esoptions   | text      | External schema options. | ## Example The following example shows details for external schemas. ``` select esoid, nspname as schemaname, nspowner, esdbname as external_db, esoptions from pg_namespace a,pg_external_schema b where a.oid=b.esoid; esoid | schemaname | nspowner | external_db | esoptions -------+-----------------+----------+-------------+------------------------------------------------------------- 100134 | spectrum_schema | 100 | spectrum_db | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"} 100135 | spectrum | 100 | spectrumdb | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"} 100149 | external | 100 | external_db | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"} ``` |
+| esoptions   | text      | External schema options. |
+
+## Example
+
+The following example shows details for external schemas.
+
+```
+select esoid, nspname as schemaname, nspowner, esdbname as external_db, esoptions
+from pg_namespace a,pg_external_schema b where a.oid=b.esoid;
+
+esoid  | schemaname      | nspowner | external_db | esoptions
+-------+-----------------+----------+-------------+-------------------------------------------------------------
+100134 | spectrum_schema |      100 | spectrum_db | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
+100135 | spectrum        |      100 | spectrumdb  | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
+100149 | external        |      100 | external_db | {"IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
+```

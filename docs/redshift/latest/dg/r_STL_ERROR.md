@@ -21,14 +21,32 @@ command, see [Load error reference](r_Load_Error_Reference.md "r_Load_Error_Refe
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                                                         |
-| ----------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------------------- | ---- | --- | --------------------------------------------------------------------- | ---- | --- | ----------------------------------------------------------------------------- | --- | --- | ---------------------------------------------------------------------- | --- | ---- | ----------------------------------------------------------------- |
-| userid      | integer        | ID of the user who generated the entry.                                                                                             |
-| process     | character(12)  | Process that threw the exception.                                                                                                   |
-| recordtime  | timestamp      | Time that the error occurred.                                                                                                       |
-| pid         | integer        | Process ID. The [STL_QUERY](r_STL_QUERY.md "r_STL_QUERY.md") table contains process IDs and unique query IDs for completed queries. |
-| errcode     | integer        | Error code corresponding to the error category.                                                                                     |
-| file        | character(90)  | Name of the source file where the error occurred.                                                                                   |
-| linenum     | integer        | Line number in the source file where the error occurred.                                                                            |
-| context     | character(100) | Cause of the error.                                                                                                                 |
-| error       | character(512) | Error message.                                                                                                                      | ## Sample queries The following example retrieves the error information from STL_ERROR. ``` select process, errcode, linenum as line, trim(error) as err from stl_error; process | errcode | line | err --------------+---------+------+------------------------------------------------------------------ padbmaster | 8001 | 194 | Path prefix: s3://redshift-downloads/testnulls/venue.txt\* padbmaster | 8001 | 529 | Listing bucket=redshift-downloads prefix=tests/category-csv-quotes padbmaster | 2   | 190 | database "template0" is not currently accepting connections padbmaster | 32  | 1956 | pq_flush: could not send data to client: Broken pipe (4 rows) ``` |
+| Column name | Data type      | Description                                                                                                                            |
+| ----------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer        | ID of the user who generated the entry.                                                                                                |
+| process     | character(12)  | Process that threw the exception.                                                                                                      |
+| recordtime  | timestamp      | Time that the error occurred.                                                                                                          |
+| pid         | integer        | Process ID. The [STL_QUERY](r_STL_QUERY.md "r_STL_QUERY.md") table contains process IDs and<br>unique query IDs for completed queries. |
+| errcode     | integer        | Error code corresponding to the error category.                                                                                        |
+| file        | character(90)  | Name of the source file where the error occurred.                                                                                      |
+| linenum     | integer        | Line number in the source file where the error<br>occurred.                                                                            |
+| context     | character(100) | Cause of the error.                                                                                                                    |
+| error       | character(512) | Error message.                                                                                                                         |
+
+## Sample queries
+
+The following example retrieves the error information from STL_ERROR.
+
+```
+select process, errcode, linenum as line,
+trim(error) as err
+from stl_error;
+
+   process    | errcode | line |                               err
+--------------+---------+------+------------------------------------------------------------------
+ padbmaster   |    8001 |  194 | Path prefix: s3://redshift-downloads/testnulls/venue.txt*
+ padbmaster   |    8001 |  529 | Listing bucket=redshift-downloads prefix=tests/category-csv-quotes
+ padbmaster   |       2 |  190 | database "template0" is not currently accepting connections
+ padbmaster   |      32 | 1956 | pq_flush: could not send data to client: Broken pipe
+(4 rows)
+```

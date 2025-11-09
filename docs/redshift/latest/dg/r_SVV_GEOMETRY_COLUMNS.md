@@ -14,11 +14,23 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name       | Data type    | Description                                                               |
-| ----------------- | ------------ | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ | ----------------- | --------------- | ---- | -------------------------------------------------------------------------------------------------------------------------- | ------ | ------------- | ----- | --- | --- | ------------ | ------ | ------- | ------------ | --- | --- | ------------- |
+| ----------------- | ------------ | ------------------------------------------------------------------------- |
 | f_table_catalog   | varchar(128) | The name of the database where the table with the GEOMETRY column exists. |
 | f_table_schema    | varchar(128) | The name of the schema where the table with the GEOMETRY column exists.   |
 | f_table_name      | varchar(128) | The name of the table where the GEOMETRY column exists.                   |
 | f_geometry_column | varchar(128) | The name of the GEOMETRY column.                                          |
 | coord_dimension   | integer      | The number of dimensions of the GEOMETRY data.                            |
 | srid              | integer      | The spatial reference system identifier (SRID) of the GEOMETRY olumn.     |
-| type              | varchar(128) | The spatial geometry type name.                                           | ## Sample query The following example displays the result of the SVV_GEOMETRY_COLUMNS. ``` `SELECT \* FROM svv_geometry_columns;` `f_table_catalog | f_table_schema | f_table_name | f_geometry_column | coord_dimension | srid | type -----------------+-----------------+---------------+---------------------+-----------------+------+-------------- dev | public | accomodations | shape | 2   | 0   | GEOMETRY dev | public | zipcode | wkb_geometry | 2   | 0   | GEOMETRY` ``` |
+| type              | varchar(128) | The spatial geometry type name.                                           |
+
+## Sample query
+
+The following example displays the result of the SVV_GEOMETRY_COLUMNS.
+
+```
+`SELECT * FROM svv_geometry_columns;`
+`f_table_catalog | f_table_schema | f_table_name | f_geometry_column | coord_dimension | srid | type
+-----------------+-----------------+---------------+---------------------+-----------------+------+--------------
+dev | public | accomodations | shape | 2 | 0 | GEOMETRY
+dev | public | zipcode | wkb_geometry | 2 | 0 | GEOMETRY`
+```

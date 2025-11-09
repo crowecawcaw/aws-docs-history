@@ -48,13 +48,14 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 To convert the string `Shows` to
 `Theatre` in the CATGROUP field, use the following example.
 
-````
+```
 `SELECT catid, catgroup, REPLACE(catgroup, 'Shows', 'Theatre')
 FROM category
 ORDER BY 1,2,3;`
 
 `+-------+----------+----------+
-| catid | catgroup | replace | +-------+----------+----------+
+| catid | catgroup | replace |
++-------+----------+----------+
 | 1 | Sports | Sports |
 | 2 | Sports | Sports |
 | 3 | Sports | Sports |
@@ -65,5 +66,6 @@ ORDER BY 1,2,3;`
 | 8 | Shows | Theatre |
 | 9 | Concerts | Concerts |
 | 10 | Concerts | Concerts |
-| 11 | Concerts | Concerts | +-------+----------+----------+` ```
-````
+| 11 | Concerts | Concerts |
++-------+----------+----------+`
+```

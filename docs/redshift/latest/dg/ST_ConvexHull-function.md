@@ -37,9 +37,56 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Number of points on the convex hull | Geometry subtype                                                                                                                                                                         |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                                   | A copy of _geom_ is returned.                                                                                                                                                            |
-| 1                                   | A `POINT` subtype is returned.                                                                                                                                                           |
-| 2                                   | A `LINESTRING` subtype is returned. The two points of the returned linestring are lexicographically ordered.                                                                             |
-| 3 or greater                        | A `POLYGON` subtype with no interior rings is returned. The polygon is clockwise oriented, and the first point of the exterior ring is the lexicographically smallest point of the ring. | ## Examples The following SQL returns the extended well-known text (EWKT) representation of a linestring. In this case, the convex hull returned is a polygon. `SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 0,0 1,1 1,0.5 0.5)'))) as output;` `output ------------- POLYGON((0 0,0 1,1 1,1 0,0 0))` The following SQL returns the EWKT representation of a linestring. In this case, the convex hull returned is a linestring. `SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 1,0.2 0.2,0.6 0.6,0.5 0.5)'))) as output;` `output ------------- LINESTRING(0 0,1 1)` The following SQL returns the EWKT representation of a multipoint. In this case, the convex hull returned is a point. `SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('MULTIPOINT(0 0,0 0,0 0)'))) as output;` `output ------------- POINT(0 0)` |
+| Number of points on the convex hull | Geometry subtype                                                                                                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0                                   | A copy of \*geom<br>• is returned.                                                                                                                                                          |
+| 1                                   | A `POINT` subtype is returned.                                                                                                                                                              |
+| 2                                   | A `LINESTRING` subtype is returned. The two points of the returned linestring are<br>lexicographically ordered.                                                                             |
+| 3 or greater                        | A `POLYGON` subtype with no interior rings is returned.<br>The polygon is clockwise oriented, and the first point of the exterior ring is the lexicographically smallest point of the ring. |
+
+## Examples
+
+The following SQL returns the extended well-known text (EWKT) representation of a
+linestring. In this case, the convex hull returned is a polygon.
+
+```
+SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 0,0 1,1 1,0.5 0.5)'))) as output;
+```
+
+```
+
+output
+-------------
+POLYGON((0 0,0 1,1 1,1 0,0 0))
+
+```
+
+The following SQL returns the EWKT representation of a linestring. In this case,
+the convex hull returned is a linestring.
+
+```
+SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 1,0.2 0.2,0.6 0.6,0.5 0.5)'))) as output;
+```
+
+```
+
+output
+-------------
+LINESTRING(0 0,1 1)
+
+```
+
+The following SQL returns the EWKT representation of a multipoint. In this case,
+the convex hull returned is a point.
+
+```
+SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('MULTIPOINT(0 0,0 0,0 0)'))) as output;
+```
+
+```
+
+output
+-------------
+POINT(0 0)
+
+```

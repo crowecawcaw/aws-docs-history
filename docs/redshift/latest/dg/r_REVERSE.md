@@ -36,22 +36,37 @@ The following examples use data from the USERS and SALES tables in the TICKIT sa
 To select five distinct city names and their corresponding reversed names from the
 USERS table, use the following example.
 
-````
+```
 `SELECT DISTINCT city AS cityname, REVERSE(cityname)
 FROM users
 ORDER BY city LIMIT 5;`
 
 `+----------+----------+
-| cityname | reverse | +----------+----------+
+| cityname | reverse |
++----------+----------+
 | Aberdeen | needrebA |
 | Abilene | enelibA |
 | Ada | adA |
 | Agat | tagA |
-| Agawam | mawagA | +----------+----------+` ``` To select five sales IDs and their corresponding reversed IDs cast as character strings, use the following example. ``` `SELECT salesid, REVERSE(salesid) FROM sales ORDER BY salesid DESC LIMIT 5;` `+---------+---------+
-| salesid | reverse | +---------+---------+
+| Agawam | mawagA |
++----------+----------+`
+```
+
+To select five sales IDs and their corresponding reversed IDs cast as character
+strings, use the following example.
+
+```
+`SELECT salesid, REVERSE(salesid)
+FROM sales
+ORDER BY salesid DESC LIMIT 5;`
+
+`+---------+---------+
+| salesid | reverse |
++---------+---------+
 | 172456 | 654271 |
 | 172455 | 554271 |
 | 172454 | 454271 |
 | 172453 | 354271 |
-| 172452 | 254271 | +---------+---------+` ```
-````
+| 172452 | 254271 |
++---------+---------+`
+```

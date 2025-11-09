@@ -40,7 +40,7 @@ The following example uses data from the EVENT table in the TICKIT sample databa
 To return the leftmost 5 and rightmost 5 characters from event
 names that have event IDs between 1000 and 1005, use the following example.
 
-````
+```
 `SELECT eventid, eventname,
 LEFT(eventname,5) AS left_5,
 RIGHT(eventname,5) AS right_5
@@ -49,11 +49,13 @@ WHERE eventid BETWEEN 1000 AND 1005
 ORDER BY 1;`
 
 `+---------+----------------+--------+---------+
-| eventid | eventname | left_5 | right_5 | +---------+----------------+--------+---------+
+| eventid | eventname | left_5 | right_5 |
++---------+----------------+--------+---------+
 | 1000 | Gypsy | Gypsy | Gypsy |
 | 1001 | Chicago | Chica | icago |
 | 1002 | The King and I | The K | and I |
 | 1003 | Pal Joey | Pal J | Joey |
 | 1004 | Grease | Greas | rease |
-| 1005 | Chicago | Chica | icago | +---------+----------------+--------+---------+` ```
-````
+| 1005 | Chicago | Chica | icago |
++---------+----------------+--------+---------+`
+```

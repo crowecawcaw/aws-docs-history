@@ -14,9 +14,29 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name | Data type | Description                                               |
-| ----------- | --------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | --------------------------------------------------------- | --- | --- | -------- | --- | --- | -------- | ---- | --- | -------- | ----- | --- | ------------- | ----- | ----- | ----------- | --- | --- | ---------- | ------ | ----- | ---------- |
-| stairelid   | oid       | Table ID                                                  |
-| stairows    | float     | Total number of rows in the table.                        |
-| staiins     | float     | Number of rows inserted since the last ANALYZE.           |
-| staidels    | float     | Number of rows deleted or updated since the last ANALYZE. | ## Example The following example returns information for table changes since the last ANALYZE. ``` select \* from pg_statistic_indicator; stairelid | stairows | staiins | staidels ----------+----------+---------+--------- 108271 | 11  | 0   | 0 108275 | 365 | 0   | 0 108278 | 8798 | 0   | 0 108280 | 91865 | 0   | 100632 108267 | 89981 | 49990 | 9999 108269 | 808 | 606 | 374 108282 | 152220 | 76110 | 248566 ``` |
+| Column name | Data type | Description                                                  |
+| ----------- | --------- | ------------------------------------------------------------ |
+| stairelid   | oid       | Table ID                                                     |
+| stairows    | float     | Total number of rows in the table.                           |
+| staiins     | float     | Number of rows inserted since the last<br>ANALYZE.           |
+| staidels    | float     | Number of rows deleted or updated since the last<br>ANALYZE. |
+
+## Example
+
+The following example returns information for table changes since the last
+ANALYZE.
+
+```
+select * from pg_statistic_indicator;
+
+stairelid | stairows | staiins | staidels
+----------+----------+---------+---------
+   108271 |       11 |       0 |        0
+   108275 |      365 |       0 |        0
+   108278 |     8798 |       0 |        0
+   108280 |    91865 |       0 |   100632
+   108267 |    89981 |   49990 |     9999
+   108269 |      808 |     606 |      374
+   108282 |   152220 |   76110 |   248566
+
+```

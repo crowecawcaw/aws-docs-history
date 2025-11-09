@@ -10,11 +10,29 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name    | Data type  | Description                                                                                            |
-| -------------- | ---------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------------------- | ------ | ------------------------ | ------- | ----- | -------------------------- | --- | --------------------- | ------- | ----- | -------------------------- | ---- | ---------------------- | ------- | ----- | -------------------------- | ------- | ------------------------- | -------------- |
-| transaction_id | bigint     | The transaction identifier.                                                                            |
-| query_id       | integer    | The query identifier of the stored procedure call.                                                     |
-| record_time    | timestamp  | The time in UTC when the message was generated.                                                        |
-| log_level      | char(10)   | The log level of the generated message. Possible values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
-| message        | char(1024) | The text of the generated message.                                                                     |
-| line_number    | integer    | The line number of the generated message.                                                              | ## Sample queries The following query shows sample output of SYS_PROCEDURE_MESSAGES. `select transaction_id, query_id, record_time, log_level, trim(message), line_number from sys_procedure_messages;` ``` transaction_id | query_id | record_time | log_level | btrim | line_number ---------------+----------+----------------------------+-----------+---------------------------+------------- 25267 | 80562 | 2023-07-17 14:38:31.910136 | NOTICE | test_notice_msg_b9f1e749 | 8 25267 | 80562 | 2023-07-17 14:38:31.910002 | LOG | test_log_msg_833c7420 | 6 25267 | 80562 | 2023-07-17 14:38:31.910111 | INFO | test_info_msg_651373d9 | 7 25267 | 80562 | 2023-07-17 14:38:31.910154 | WARNING | test_warning_msg_831c5747 | 9 (4 rows) ``` |
+| Column name    | Data type  | Description                                                                                               |
+| -------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
+| transaction_id | bigint     | The transaction identifier.                                                                               |
+| query_id       | integer    | The query identifier of the stored procedure<br>call.                                                     |
+| record_time    | timestamp  | The time in UTC when the message was<br>generated.                                                        |
+| log_level      | char(10)   | The log level of the generated message. Possible<br>values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
+| message        | char(1024) | The text of the generated message.                                                                        |
+| line_number    | integer    | The line number of the generated message.                                                                 |
+
+## Sample queries
+
+The following query shows sample output of SYS_PROCEDURE_MESSAGES.
+
+```
+select transaction_id, query_id, record_time, log_level, trim(message), line_number from sys_procedure_messages;
+```
+
+```
+transaction_id | query_id |        record_time         | log_level |           btrim           | line_number
+---------------+----------+----------------------------+-----------+---------------------------+-------------
+     25267     |   80562  | 2023-07-17 14:38:31.910136 |   NOTICE  | test_notice_msg_b9f1e749  |     8
+     25267     |   80562  | 2023-07-17 14:38:31.910002 |    LOG    |  test_log_msg_833c7420    |     6
+     25267     |   80562  | 2023-07-17 14:38:31.910111 |    INFO   |  test_info_msg_651373d9   |     7
+     25267     |   80562  | 2023-07-17 14:38:31.910154 |   WARNING | test_warning_msg_831c5747 |     9
+(4 rows)
+```

@@ -72,12 +72,56 @@ ERROR: Specified types or functions (one per INFO message) not supported on Amaz
 SUBSTR is also a leader-node only function. In the following example, the query
 runs exclusive on the leader node because it does not reference a table.
 
-````
+```
 `SELECT SUBSTR('amazon', 5);`
 
 `+--------+
-| substr | +--------+
-| on | +--------+` ``` In the following example, the query references a table that resides on the compute nodes. This results in an error. ``` `SELECT SUBSTR(catdesc, 1) FROM category LIMIT 1;` `ERROR: SUBSTR() function is not supported (Hint: use SUBSTRING instead)` ``` To successfully run the previous query, use [SUBSTRING](r_SUBSTRING.md "r_SUBSTRING.md"). ``` `SELECT SUBSTRING(catdesc, 1) FROM category LIMIT 1;` `+---------------------------------+
-| substring | +---------------------------------+
-| National Basketball Association | +---------------------------------+` ``` **FACTORIAL()** FACTORIAL() is a leader-node only function. In the following example, the query runs exclusive on the leader node because it does not reference a table. ``` `SELECT FACTORIAL(5);` `factorial ------------- 120` ``` In the following example, the query references a table that resides on the compute nodes. This results in an error when run using query editor v2. ``` `create table t(a int); insert into t values (5); select factorial(a) from t;` `ERROR: Specified types or functions (one per INFO message) not supported on Redshift tables. Info: Function "factorial(bigint)" not supported.` ```
-````
+| substr |
++--------+
+| on |
++--------+`
+```
+
+In the following example, the query references a table that resides on the compute
+nodes. This results in an error.
+
+```
+`SELECT SUBSTR(catdesc, 1) FROM category LIMIT 1;`
+
+`ERROR: SUBSTR() function is not supported (Hint: use SUBSTRING instead)`
+```
+
+To successfully run the previous query, use [SUBSTRING](r_SUBSTRING.md "r_SUBSTRING.md").
+
+```
+`SELECT SUBSTRING(catdesc, 1) FROM category LIMIT 1;`
+
+`+---------------------------------+
+| substring |
++---------------------------------+
+| National Basketball Association |
++---------------------------------+`
+```
+
+**FACTORIAL()**
+
+FACTORIAL() is a leader-node only function. In the following example, the query
+runs exclusive on the leader node because it does not reference a table.
+
+```
+`SELECT FACTORIAL(5);`
+`factorial
+-------------
+ 120`
+```
+
+In the following example, the query references a table that resides on the compute
+nodes. This results in an error when run using query editor v2.
+
+```
+`create table t(a int);
+insert into t values (5);
+select factorial(a) from t;`
+`ERROR: Specified types or functions (one per INFO message) not supported on Redshift tables.
+Info: Function "factorial(bigint)" not supported.`
+```

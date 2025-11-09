@@ -47,25 +47,83 @@ You can use `%` as a modulo operator.
 
 To return the remainder when a number is divided by another, use the following example.
 
-````
+```
 `SELECT MOD(10, 4);`
 
 `+-----+
-| mod | +-----+
-| 2 | +-----+` ``` To return a `DECIMAL` result when using the MOD function, use the following example. ``` `SELECT MOD(10.5, 4);` `+-----+
-| mod | +-----+
-| 2.5 | +-----+` ``` To cast a number before running the MOD function, use the following example. For more information, see [CAST function](r_CAST_function.md "r_CAST_function.md"). ``` `SELECT MOD(CAST(16.4 AS INTEGER), 5);` `+-----+
-| mod | +-----+
-| 1 | +-----+` ``` To check if the first parameter is even by dividing it by 2, use the following example. ``` `SELECT mod(5,2) = 0 AS is_even;` `+---------+
-| is_even | +---------+
-| false | +---------+` ``` To use *%* as a modulo operator, use the following example. ``` `SELECT 11 % 4 as remainder;` `+-----------+
-| remainder | +-----------+
-| 3 | +-----------+` ``` The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To return information for odd-numbered categories in the CATEGORY table, use the following example. ``` `SELECT catid, catname FROM category WHERE MOD(catid,2)=1 ORDER BY 1,2;` `+-------+-----------+
-| catid | catname | +-------+-----------+
+| mod |
++-----+
+| 2 |
++-----+`
+```
+
+To return a `DECIMAL` result when using the MOD function, use the following example.
+
+```
+`SELECT MOD(10.5, 4);`
+
+`+-----+
+| mod |
++-----+
+| 2.5 |
++-----+`
+```
+
+To cast a number before running the MOD function, use the following example. For more information, see [CAST function](r_CAST_function.md "r_CAST_function.md").
+
+```
+`SELECT MOD(CAST(16.4 AS INTEGER), 5);`
+
+`+-----+
+| mod |
++-----+
+| 1 |
++-----+`
+```
+
+To check if the first parameter is even by dividing it by 2, use the following example.
+
+```
+`SELECT mod(5,2) = 0 AS is_even;`
+
+`+---------+
+| is_even |
++---------+
+| false |
++---------+`
+```
+
+To use _%_ as a modulo operator, use the following example.
+
+```
+`SELECT 11 % 4 as remainder;`
+
+ `+-----------+
+| remainder |
++-----------+
+| 3 |
++-----------+`
+```
+
+The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To return information for odd-numbered categories in the
+CATEGORY table, use the following example.
+
+```
+`SELECT catid, catname
+FROM category
+WHERE MOD(catid,2)=1
+ORDER BY 1,2;`
+
+`+-------+-----------+
+| catid | catname |
++-------+-----------+
 | 1 | MLB |
 | 3 | NFL |
 | 5 | MLS |
 | 7 | Plays |
 | 9 | Pop |
-| 11 | Classical | +-------+-----------+` ```
-````
+| 11 | Classical |
++-------+-----------+`
+```

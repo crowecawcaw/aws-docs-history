@@ -32,11 +32,12 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To convert the `VARCHAR` strings in the CATNAME column to lowercase, use the following example.
 
-````
+```
 `SELECT catname, LOWER(catname) FROM category ORDER BY 1,2;`
 
 `+-----------+-----------+
-| catname | lower | +-----------+-----------+
+| catname | lower |
++-----------+-----------+
 | Classical | classical |
 | Jazz | jazz |
 | MLB | mlb |
@@ -47,5 +48,6 @@ To convert the `VARCHAR` strings in the CATNAME column to lowercase, use the fol
 | NHL | nhl |
 | Opera | opera |
 | Plays | plays |
-| Pop | pop | +-----------+-----------+` ```
-````
+| Pop | pop |
++-----------+-----------+`
+```

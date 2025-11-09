@@ -22,15 +22,33 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name | Data type       | Description                                                                                                                                                                            |
-| ----------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ | ---- | ----------------------------------------- | --- | ------- | ---- | ----------------------------------------- | --- | ------- | ---- | ----------------------------------------- | --- | ------- | ---- | ----------------------------------------- | --- | ------- | ---- | ----------------------------------------- | --- | ------------- |
-| userid      | integer         | ID of the user who generated the entry.                                                                                                                                                |
-| query       | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                          |
-| slice       | integer         | Node slice number where the replacement occurred.                                                                                                                                      |
-| tbl         | integer         | Table ID.                                                                                                                                                                              |
-| starttime   | timestamp       | Start time in UTC for the COPY command.                                                                                                                                                |
-| session     | integer         | Session ID for the session performing the COPY command.                                                                                                                                |
-| filename    | character(256)  | Complete path to the input file for the COPY command.                                                                                                                                  |
-| line_number | bigint          | Line number in the input data file that contained an invalid UTF-8 character. A `-1` indicates that the line number is not available, such as, when copying from a columnar data file. |
-| colname     | character(127)  | First field that contained an invalid UTF-8 character.                                                                                                                                 |
-| raw_line    | character(1024) | Raw load data that contained an invalid UTF-8 character.                                                                                                                               | ## Sample queries The following example returns replacements for the most recent COPY operation. ``` `select query, session, filename, line_number, colname from stl_replacements where query = pg_last_copy_id();` `query | session | filename | line_number | colname ------+---------+---------------------------------------------+-------------+-------- 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 251 | city 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 317 | city 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 569 | city 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 623 | city 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 694 | city ...` ``` |
+| Column name | Data type       | Description                                                                                                                                                                                  |
+| ----------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer         | ID of the user who generated the entry.                                                                                                                                                      |
+| query       | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                |
+| slice       | integer         | Node slice number where the replacement<br>occurred.                                                                                                                                         |
+| tbl         | integer         | Table ID.                                                                                                                                                                                    |
+| starttime   | timestamp       | Start time in UTC for the COPY command.                                                                                                                                                      |
+| session     | integer         | Session ID for the session performing the COPY<br>command.                                                                                                                                   |
+| filename    | character(256)  | Complete path to the input file for the COPY<br>command.                                                                                                                                     |
+| line_number | bigint          | Line number in the input data file that contained<br>an invalid UTF-8 character.<br>A `-1` indicates that the line number is not available, such as, when copying from a columnar data file. |
+| colname     | character(127)  | First field that contained an invalid UTF-8<br>character.                                                                                                                                    |
+| raw_line    | character(1024) | Raw load data that contained an invalid UTF-8<br>character.                                                                                                                                  |
+
+## Sample queries
+
+The following example returns replacements for the most recent COPY operation.
+
+```
+`select query, session, filename, line_number, colname
+from stl_replacements
+where query = pg_last_copy_id();`
+`query | session | filename | line_number | colname
+ ------+---------+---------------------------------------------+-------------+--------
+ 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 251 | city
+ 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 317 | city
+ 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 569 | city
+ 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 623 | city
+ 96 | 6314 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 694 | city
+...`
+```

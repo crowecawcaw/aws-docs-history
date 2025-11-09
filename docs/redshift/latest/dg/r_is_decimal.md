@@ -32,7 +32,7 @@ A `SUPER` expression or column.
 
 To check if `1.22` is a `DECIMAL` using the IS_DECIMAL function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (1.22);
@@ -40,6 +40,8 @@ INSERT INTO t VALUES (1.22);
 SELECT s, IS_DECIMAL(s) FROM t;`
 
 `+------+------------+
-| s | is_decimal | +------+------------+
-| 1.22 | true | +------+------------+` ```
-````
+| s | is_decimal |
++------+------------+
+| 1.22 | true |
++------+------------+`
+```

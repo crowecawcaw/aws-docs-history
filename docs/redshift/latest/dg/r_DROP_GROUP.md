@@ -42,13 +42,24 @@ dropping the group. To find the objects that the `guests` group has
 privileges for, use the following example. For more information about the metadata view
 used in the example, see [SVV_RELATION_PRIVILEGES](r_SVV_RELATION_PRIVILEGES.md "r_SVV_RELATION_PRIVILEGES.md").
 
-````
+```
 `SELECT DISTINCT namespace_name, relation_name, identity_name, identity_type
 FROM svv_relation_privileges
 WHERE identity_type='group' AND identity_name='guests';`
 
 `+----------------+---------------+---------------+---------------+
-| namespace_name | relation_name | identity_name | identity_type | +----------------+---------------+---------------+---------------+
-| public | table1 | guests | group | +----------------+---------------+---------------+---------------+
-| public | table2 | guests | group | +----------------+---------------+---------------+---------------+` ``` The following example revokes all privileges on all tables in the `public` schema from the `guests` user group, and then drops the group. ``` REVOKE ALL ON ALL TABLES IN SCHEMA public FROM GROUP guests; DROP GROUP guests; ```
-````
+| namespace_name | relation_name | identity_name | identity_type |
++----------------+---------------+---------------+---------------+
+| public | table1 | guests | group |
++----------------+---------------+---------------+---------------+
+| public | table2 | guests | group |
++----------------+---------------+---------------+---------------+`
+```
+
+The following example revokes all privileges on all tables in the `public`
+schema from the `guests` user group, and then drops the group.
+
+```
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM GROUP guests;
+DROP GROUP guests;
+```

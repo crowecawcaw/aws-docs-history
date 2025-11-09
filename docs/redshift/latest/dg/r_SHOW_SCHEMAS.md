@@ -43,7 +43,47 @@ A valid UTF-8 character expression with a pattern to match schema names. The
 LIKE option performs a case-sensitive match that supports the following
 pattern-matching metacharacters:
 
-| Metacharacter | Description                                      |
-| ------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | ----------- | ---------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --- | ----- | --- | --- | --- | ---------- | --- | ----- | -------------------------- | --- | --- | ------ | --- | ----- | --------------------------- | --- | --- | ------------------ | --- | ----- | -------------------------- | --- | --- | -------------------- | --- | ----- | --- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | ----------- | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- | --- | -------- | --- | --- | -------------- | ----------- | --- | -------- | --- | --- | -------------- | ----- | --- | -------- | --- | --- | -------------- | --------------- | --- | -------- | --- | --- | -------------- | ------------- | --- | -------- | --- | --- | ----- |
-| `%`           | Matches any sequence of zero or more characters. |
-| `_`           | Matches any single character.                    | If _filter_pattern_ does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. _row_limit_ The maximum number of rows to return. The _row_limit_ can be 0–10,000. ## Examples Following example shows the schemas from the Amazon Redshift database named `dev` . ``` `SHOW SCHEMAS FROM DATABASE dev;` `database_name | schema_name | schema_owner | schema_type | schema_acl | source_database | schema_option ---------------+----------------------+--------------+-------------+-----------------------------+-----------------+--------------- dev | pg_automv | 1   | local |     |     | dev | pg_catalog | 1   | local | jpuser=UC/jpuser~=U/jpuser |     | dev | public | 1   | local | jpuser=UC/jpuser~=UC/jpuser |     | dev | information_schema | 1   | local | jpuser=UC/jpuser~=U/jpuser |     | dev | schemad79cd6d93bf043 | 1   | local |     |     | ` ``` Following example shows the schemas in the AWS Glue Data Catalog database named `awsdatacatalog`. The maximum number of output rows is `5`. ``` `SHOW SCHEMAS FROM DATABASE awsdatacatalog LIMIT 5;` `database_name | schema_name | schema_owner | schema_type | schema_acl | source_database | schema_option ----------------+----------------------+--------------+-------------+------------+-----------------+--------------- awsdatacatalog | 000_too_many_glue_db |     | EXTERNAL |     |     | awsdatacatalog | 123_default |     | EXTERNAL |     |     | awsdatacatalog | adhoc |     | EXTERNAL |     |     | awsdatacatalog | all_shapes_10mb |     | EXTERNAL |     |     | awsdatacatalog | all_shapes_1g |     | EXTERNAL |     |     | ` ``` |
+| Metacharacter | Description                                         |
+| ------------- | --------------------------------------------------- |
+| `%`           | Matches any sequence of zero or more<br>characters. |
+| `_`           | Matches any single character.                       |
+
+If _filter_pattern_ does not contain metacharacters, then
+the pattern only represents the string itself; in that case LIKE acts the same
+as the equals operator.
+
+_row_limit_
+
+The maximum number of rows to return. The _row_limit_ can
+be 0–10,000.
+
+## Examples
+
+Following example shows the schemas from the Amazon Redshift database named `dev`
+.
+
+```
+`SHOW SCHEMAS FROM DATABASE dev;`
+`database_name | schema_name | schema_owner | schema_type | schema_acl | source_database | schema_option
+---------------+----------------------+--------------+-------------+-----------------------------+-----------------+---------------
+ dev | pg_automv | 1 | local | | |
+ dev | pg_catalog | 1 | local | jpuser=UC/jpuser~=U/jpuser | |
+ dev | public | 1 | local | jpuser=UC/jpuser~=UC/jpuser | |
+ dev | information_schema | 1 | local | jpuser=UC/jpuser~=U/jpuser | |
+ dev | schemad79cd6d93bf043 | 1 | local | | |`
+```
+
+Following example shows the schemas in the AWS Glue Data Catalog database named
+`awsdatacatalog`. The maximum number of output rows is
+`5`.
+
+```
+`SHOW SCHEMAS FROM DATABASE awsdatacatalog LIMIT 5;`
+`database_name | schema_name | schema_owner | schema_type | schema_acl | source_database | schema_option
+----------------+----------------------+--------------+-------------+------------+-----------------+---------------
+ awsdatacatalog | 000_too_many_glue_db | | EXTERNAL | | |
+ awsdatacatalog | 123_default | | EXTERNAL | | |
+ awsdatacatalog | adhoc | | EXTERNAL | | |
+ awsdatacatalog | all_shapes_10mb | | EXTERNAL | | |
+ awsdatacatalog | all_shapes_1g | | EXTERNAL | | |`
+```

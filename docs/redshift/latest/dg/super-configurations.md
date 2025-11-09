@@ -42,7 +42,7 @@ attribute names with double quotation marks.
 
 The following example illustrates how to set `enable_case_sensitive_identifier` to query data.
 
-````
+```
 SET enable_case_sensitive_identifier to TRUE;
 
 -- Accessing JSON attribute names with uppercase and mixed-case names
@@ -66,5 +66,28 @@ FROM
 
  name | price
 ------+-------
-| 345 (1 row) ``` ## Parsing options for SUPER When you use the JSON\_PARSE function to parse JSON strings into SUPER values, certain restrictions apply: <br>• The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON\_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error. <br>• String values cannot exceed the system max varchar size of 65535 bytes. The `json_parse_truncate_strings` configuration option allows JSON\_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names. For more information about the JSON\_PARSE function, see [JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md"). The following example shows how to set the `json_parse_dedup_attributes` configuration option to the default behavior of returning an error for duplicate attributes. ``` SET json_parse_dedup_attributes=OFF;  --default behavior of returning error instead of de-duplicating attributes ``` The following example shows how to set the `json_parse_truncate_strings` configuration option for the default behavior of returning an error for strings that are longer than this limit. ``` SET json_parse_truncate_strings=OFF;  --default behavior of returning error instead of truncating strings ```
-````
+      | 345
+(1 row)
+```
+
+## Parsing options for SUPER
+
+When you use the JSON_PARSE function to parse JSON strings into SUPER values, certain restrictions apply:
+
+- The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error.
+- String values cannot exceed the system max varchar size of 65535 bytes. The `json_parse_truncate_strings` configuration option allows JSON_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
+
+For more information about the JSON_PARSE function, see [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
+
+The following example shows how to set the `json_parse_dedup_attributes` configuration option to the default behavior of returning an error for duplicate attributes.
+
+```
+SET json_parse_dedup_attributes=OFF;  --default behavior of returning error instead of de-duplicating attributes
+
+```
+
+The following example shows how to set the `json_parse_truncate_strings` configuration option for the default behavior of returning an error for strings that are longer than this limit.
+
+```
+SET json_parse_truncate_strings=OFF;  --default behavior of returning error instead of truncating strings
+```

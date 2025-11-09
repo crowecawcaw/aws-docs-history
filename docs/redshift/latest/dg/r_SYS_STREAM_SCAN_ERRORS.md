@@ -12,17 +12,17 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name           | Data type                   | Description                                                                                                                         |
-| --------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| external_schema_name  | character(128)              | The name of the Kinesis stream or Amazon MSK topic's schema. It is case sensitive.                                                  |
-| stream_name           | character(255)              | The name of the stream or topic. It is case sensitive.                                                                              |
-| mv_name               | character(128)              | The name of the associated materialized view. Empty if none. It is case sensitive.                                                  |
-| transaction_id        | bigint                      | The transaction ID.                                                                                                                 |
-| query_id              | bigint                      | The query ID.                                                                                                                       |
-| stream_timestamp_type | character(1)                | The type of the stream timestamp. It is case sensitive.                                                                             |
-| stream_timestamp      | timestamp without time zone | The time when the record arrived.                                                                                                   |
-| record_time           | timestamp without time zone | The time when the error message was logged.                                                                                         |
-| partition_id          | character(128)              | The partition/shard id. It is case sensitive.                                                                                       |
-| position              | character(128)              | The position of the record. This corresponds with the sequence number in Kinesis or the offset in Amazon MSK. It is case sensitive. |
-| error_code            | integer                     | The error code.                                                                                                                     |
-| error_reason          | character(128)              | The error reason. It is case sensitive.                                                                                             |
+| Column name           | Data type                   | Description                                                                                                                               |
+| --------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| external_schema_name  | character(128)              | The name of the Kinesis stream or Amazon MSK topic's<br>schema. It is case sensitive.                                                     |
+| stream_name           | character(255)              | The name of the stream or topic. It is case<br>sensitive.                                                                                 |
+| mv_name               | character(128)              | The name of the associated materialized view.<br>Empty if none. It is case sensitive.                                                     |
+| transaction_id        | bigint                      | The transaction ID.                                                                                                                       |
+| query_id              | bigint                      | The query ID.                                                                                                                             |
+| stream_timestamp_type | character(1)                | The type of the stream timestamp. It is case<br>sensitive.                                                                                |
+| stream_timestamp      | timestamp without time zone | The time when the record arrived.                                                                                                         |
+| record_time           | timestamp without time zone | The time when the error message was<br>logged.                                                                                            |
+| partition_id          | character(128)              | The partition/shard id. It is case<br>sensitive.                                                                                          |
+| position              | character(128)              | The position of the record. This corresponds with<br>the sequence number in Kinesis or the offset in Amazon MSK. It is case<br>sensitive. |
+| error_code            | integer                     | The error code.                                                                                                                           |
+| error_reason          | character(128)              | The error reason. It is case sensitive.                                                                                                   |

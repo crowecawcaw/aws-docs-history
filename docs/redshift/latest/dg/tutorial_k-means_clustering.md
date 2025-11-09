@@ -202,9 +202,10 @@ When the model is ready, the output of the previous operation should show
 that the `Model State` is `Ready`. The following is an
 example of the output of the SHOW MODEL operation.
 
-````
+```
 +--------------------------+------------------------------------------------------------------------------------------------------+
-|        Model Name        |                                          news_data_clusters                                          | +--------------------------+------------------------------------------------------------------------------------------------------+
+|        Model Name        |                                          news_data_clusters                                          |
++--------------------------+------------------------------------------------------------------------------------------------------+
 |       Schema Name        |                                                public                                                |
 |          Owner           |                                               awsuser                                                |
 |      Creation Time       |                                       Fri, 17.06.2022 16:32:19                                       |
@@ -230,5 +231,183 @@ example of the output of the SHOW MODEL operation.
 |                          |                                                                                                      |
 |     HYPERPARAMETERS:     |                                                                                                      |
 |       feature_dim        |                                                  7                                                   |
-|            k             |                                                  7                                                   | +--------------------------+------------------------------------------------------------------------------------------------------+ ``` ## Step 3: Perform predictions with the model ### Identify the clusters You can find discrete groupings identified in the data by your model, otherwise known as clusters. A cluster is the set of data points that is closer to its cluster center than any other cluster center. Since the K value represents the number of clusters in the model, it also represents the number of cluster centers. The following query identifies the clusters by showing the cluster associated with each `globaleventid`. ``` SELECT globaleventid, news_monitoring_cluster ( AvgTone, EventCode, NumArticles, Actor1Geo_Lat, Actor1Geo_Long, Actor2Geo_Lat, Actor2Geo_Long ) AS cluster FROM gdelt_data; ``` ### Check the distribution of data You can check the distribution of data across clusters to see if the K value that you chose caused the data to be somewhat evenly distributed. Use the following query to determine if the data is evenly distributed across your clusters. ``` SELECT events_cluster, COUNT(*) AS nbr_events FROM ( SELECT globaleventid, news_monitoring_cluster( AvgTone, EventCode, NumArticles, Actor1Geo_Lat, Actor1Geo_Long, Actor2Geo_Lat, Actor2Geo_Long ) AS events_cluster FROM gdelt_data ) GROUP BY 1; ``` Note that you can change the K value to smooth out cluster sizes if the clusters are unevenly distributed. ### Determine the cluster centers A data point is closer to its cluster center than it is to any other cluster center. Thus, finding the cluster centers helps you define the clusters. Run the following query to determine the centers of the clusters based on the number of articles by event code. ``` SELECT news_monitoring_cluster ( AvgTone, EventCode, NumArticles, Actor1Geo_Lat, Actor1Geo_Long, Actor2Geo_Lat, Actor2Geo_Long ) AS events_cluster, eventcode, SUM(numArticles) AS numArticles FROM gdelt_data GROUP BY 1, 2; ``` ### Show information about data points in a cluster Use the following query to return the data for the points assigned to the fifth cluster. The selected articles must have two actors. ``` SELECT news_monitoring_cluster ( AvgTone, EventCode, NumArticles, Actor1Geo_Lat, Actor1Geo_Long, Actor2Geo_Lat, Actor2Geo_Long ) AS events_cluster, eventcode, actor1name, actor2name, SUM(numarticles) AS totalarticles FROM gdelt_data WHERE events_cluster = 5 AND actor1name <> ' ' AND actor2name <> ' ' GROUP BY 1, 2, 3, 4 ORDER BY 5 desc; ``` ### Show data about events with actors of the same ethnic code The following query counts the number of articles written about events with a positive tone. The query also requires that the two actors have the same ethnic code and it returns which cluster each event is assigned to. ``` SELECT news_monitoring_cluster ( AvgTone, EventCode, NumArticles, Actor1Geo_Lat, Actor1Geo_Long, Actor2Geo_Lat, Actor2Geo_Long ) AS events_cluster, SUM(numarticles) AS total_articles, eventcode AS event_code, Actor1EthnicCode AS ethnic_code FROM gdelt_data WHERE Actor1EthnicCode = Actor2EthnicCode AND Actor1EthnicCode <> ' ' AND Actor2EthnicCode <> ' ' AND AvgTone > 0 GROUP BY 1, 3, 4 HAVING (total_articles) > 4 ORDER BY 1, 2 ASC; ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+|            k             |                                                  7                                                   |
++--------------------------+------------------------------------------------------------------------------------------------------+
+```
+
+## Step 3: Perform predictions with the model
+
+### Identify the clusters
+
+You can find discrete groupings identified in the data by your model,
+otherwise known as clusters. A cluster is the set of data points that is closer
+to its cluster center than any other cluster center. Since the K value
+represents the number of clusters in the model, it also represents the number
+of cluster centers. The following query identifies the clusters by showing the
+cluster associated with each `globaleventid`.
+
+```
+SELECT
+    globaleventid,
+    news_monitoring_cluster (
+        AvgTone,
+        EventCode,
+        NumArticles,
+        Actor1Geo_Lat,
+        Actor1Geo_Long,
+        Actor2Geo_Lat,
+        Actor2Geo_Long
+    ) AS cluster
+FROM
+    gdelt_data;
+```
+
+### Check the distribution of data
+
+You can check the distribution of data across clusters to see if the K value
+that you chose caused the data to be somewhat evenly distributed. Use the
+following query to determine if the data is evenly distributed across your
+clusters.
+
+```
+SELECT
+    events_cluster,
+    COUNT(*) AS nbr_events
+FROM
+    (
+        SELECT
+            globaleventid,
+            news_monitoring_cluster(
+                AvgTone,
+                EventCode,
+                NumArticles,
+                Actor1Geo_Lat,
+                Actor1Geo_Long,
+                Actor2Geo_Lat,
+                Actor2Geo_Long
+            ) AS events_cluster
+        FROM
+            gdelt_data
+    )
+GROUP BY
+    1;
+```
+
+Note that you can change the K value to smooth out cluster sizes if the
+clusters are unevenly distributed.
+
+### Determine the cluster centers
+
+A data point is closer to its cluster center than it is to any other cluster
+center. Thus, finding the cluster centers helps you define the clusters.
+
+Run the following query to determine the centers of the clusters based on
+the number of articles by event code.
+
+```
+SELECT
+    news_monitoring_cluster (
+        AvgTone,
+        EventCode,
+        NumArticles,
+        Actor1Geo_Lat,
+        Actor1Geo_Long,
+        Actor2Geo_Lat,
+        Actor2Geo_Long
+    ) AS events_cluster,
+    eventcode,
+    SUM(numArticles) AS numArticles
+FROM
+    gdelt_data
+GROUP BY
+    1,
+    2;
+```
+
+### Show information about data points in a cluster
+
+Use the following query to return the data for the points assigned to the
+fifth cluster. The selected articles must have two actors.
+
+```
+SELECT
+    news_monitoring_cluster (
+        AvgTone,
+        EventCode,
+        NumArticles,
+        Actor1Geo_Lat,
+        Actor1Geo_Long,
+        Actor2Geo_Lat,
+        Actor2Geo_Long
+    ) AS events_cluster,
+    eventcode,
+    actor1name,
+    actor2name,
+    SUM(numarticles) AS totalarticles
+FROM
+    gdelt_data
+WHERE
+    events_cluster = 5
+    AND actor1name <> ' '
+    AND actor2name <> ' '
+GROUP BY
+    1,
+    2,
+    3,
+    4
+ORDER BY
+    5 desc;
+```
+
+### Show data about events with actors of the same ethnic code
+
+The following query counts the number of articles written about events with
+a positive tone. The query also requires that the two actors have the same
+ethnic code and it returns which cluster each event is assigned to.
+
+```
+SELECT
+    news_monitoring_cluster (
+        AvgTone,
+        EventCode,
+        NumArticles,
+        Actor1Geo_Lat,
+        Actor1Geo_Long,
+        Actor2Geo_Lat,
+        Actor2Geo_Long
+    ) AS events_cluster,
+    SUM(numarticles) AS total_articles,
+    eventcode AS event_code,
+    Actor1EthnicCode AS ethnic_code
+FROM
+    gdelt_data
+WHERE
+    Actor1EthnicCode = Actor2EthnicCode
+    AND Actor1EthnicCode <> ' '
+    AND Actor2EthnicCode <> ' '
+    AND AvgTone > 0
+GROUP BY
+    1,
+    3,
+    4
+HAVING
+    (total_articles) > 4
+ORDER BY
+    1,
+    2 ASC;
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

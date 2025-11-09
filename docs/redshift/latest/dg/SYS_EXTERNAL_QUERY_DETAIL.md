@@ -16,28 +16,58 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name          | Data type       | Description                                                                                                           |
-| -------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | -------- | ---------------- | -------------------- | ------------- | ------------- | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- | -------------------------- | -------------------------- | --- | --- | --- | ----- | ------- | --- | ------ | --- | ------------------------- | -------------------------- | --- | --- | --- | ----- | ------- | --- | --- |
-| user_id              | integer         | The identifier of the user who submitted the query.                                                                   |
-| query_id             | bigint          | The query identifier of the external query.                                                                           |
-| transaction_id       | bigint          | The transaction identifier.                                                                                           |
-| child_query_sequence | integer         | The sequence of the rewritten user query. Starts with 0, similar to segment_id.                                       |
-| segment_id           | integer         | The segment identifier of the query segment.                                                                          |
-| source_type          | character(32)   | The data source type of the query, it could be `S3` for Redshift Spectrum, `PG` for federated query.                  |
-| start_time           | timestamp       | The time when the query began.                                                                                        |
-| end_time             | timestamp       | The time when the query completed.                                                                                    |
-| duration             | bigint          | The amount of time (microseconds) spent on the query.                                                                 |
-| total_partitions     | integer         | The number of partitions an Amazon S3 query required.                                                                 |
-| qualified_partitions | integer         | The number of partitions an Amazon S3 query scanned.                                                                  |
-| scanned_files        | bigint          | The number of Amazon S3 files scanned.                                                                                |
-| returned_rows        | bigint          | The number of scanned rows for an Amazon S3 query, or the number of returned rows for a federated query.              |
-| returned_bytes       | bigint          | The number of scanned bytes for an Amazon S3 query, or the number of returned bytes for a federated query.            |
-| file_format          | text            | The file format of Amazon S3 files.                                                                                   |
-| file_location        | text            | The Amazon S3 location of external table.                                                                             |
-| external_query_text  | text            | The segment level query text for a federated query.                                                                   |
-| warning_message      | character(4000) | The warning message displayed when the query runs.                                                                    |
-| table_name           | character(136)  | The table name of the step that is being operated.                                                                    |
-| is_recursive         | character(1)    | Indicates whether there is recursive scan for subfolders.                                                             |
-| is_nested            | character(1)    | Indicates whether the nested column data type is accessed.                                                            |
-| s3list_time          | bigint          | The duration of file listing in milliseconds.                                                                         |
-| get_partition_time   | long            | Time spent to list and qualify partitions for a given external object from the AWS Glue Data Catalog and Apache Hive. | ## Sample queries The following query shows the external query details. `SELECT query_id, segment_id, start_time, end_time, total_partitions, qualified_partitions, scanned_files, returned_rows, returned_bytes, trim(external_query_text) query_text, trim(file_location) file_location FROM sys_external_query_detail ORDER BY query_id, start_time DESC LIMIT 2;` Sample output. ``` query_id | segment_id | start_time | end_time | total_partitions | qualified_partitions | scanned_files | returned_rows | returned_bytes | query_text | file_location ----------+------------+----------------------------+----------------------------+------------------+----------------------+---------------+---------------+----------------+------------+--------------- 763251 | 0   | 2022-02-15 22:32:23.312448 | 2022-02-15 22:32:24.036023 | 3   | 3   | 3   | 38203 | 2683414 |     | 763254 | 0   | 2022-02-15 22:32:40.17103 | 2022-02-15 22:32:40.839313 | 3   | 3   | 3   | 38203 | 2683414 |     | ``` |
+| Column name          | Data type       | Description                                                                                                              |
+| -------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| user_id              | integer         | The identifier of the user who submitted the<br>query.                                                                   |
+| query_id             | bigint          | The query identifier of the external<br>query.                                                                           |
+| transaction_id       | bigint          | The transaction identifier.                                                                                              |
+| child_query_sequence | integer         | The sequence of the rewritten user query. Starts<br>with 0, similar to segment_id.                                       |
+| segment_id           | integer         | The segment identifier of the query<br>segment.                                                                          |
+| source_type          | character(32)   | The data source type of the query, it could be<br>`S3` for Redshift Spectrum, `PG` for federated<br>query.               |
+| start_time           | timestamp       | The time when the query began.                                                                                           |
+| end_time             | timestamp       | The time when the query completed.                                                                                       |
+| duration             | bigint          | The amount of time (microseconds) spent on the<br>query.                                                                 |
+| total_partitions     | integer         | The number of partitions an Amazon S3 query<br>required.                                                                 |
+| qualified_partitions | integer         | The number of partitions an Amazon S3 query<br>scanned.                                                                  |
+| scanned_files        | bigint          | The number of Amazon S3 files scanned.                                                                                   |
+| returned_rows        | bigint          | The number of scanned rows for an Amazon S3 query, or<br>the number of returned rows for a federated query.              |
+| returned_bytes       | bigint          | The number of scanned bytes for an Amazon S3 query, or<br>the number of returned bytes for a federated query.            |
+| file_format          | text            | The file format of Amazon S3 files.                                                                                      |
+| file_location        | text            | The Amazon S3 location of external table.                                                                                |
+| external_query_text  | text            | The segment level query text for a federated<br>query.                                                                   |
+| warning_message      | character(4000) | The warning message displayed when the query<br>runs.                                                                    |
+| table_name           | character(136)  | The table name of the step that is being<br>operated.                                                                    |
+| is_recursive         | character(1)    | Indicates whether there is recursive scan for<br>subfolders.                                                             |
+| is_nested            | character(1)    | Indicates whether the nested column data type is<br>accessed.                                                            |
+| s3list_time          | bigint          | The duration of file listing in<br>milliseconds.                                                                         |
+| get_partition_time   | long            | Time spent to list and qualify partitions for a<br>given external object from the AWS Glue Data Catalog and Apache Hive. |
+
+## Sample queries
+
+The following query shows the external query details.
+
+```
+SELECT query_id,
+       segment_id,
+       start_time,
+       end_time,
+       total_partitions,
+       qualified_partitions,
+       scanned_files,
+       returned_rows,
+       returned_bytes,
+       trim(external_query_text) query_text,
+       trim(file_location) file_location
+FROM sys_external_query_detail
+ORDER BY query_id, start_time DESC
+LIMIT 2;
+```
+
+Sample output.
+
+```
+ query_id | segment_id |         start_time         |          end_time          | total_partitions | qualified_partitions | scanned_files | returned_rows | returned_bytes | query_text | file_location
+----------+------------+----------------------------+----------------------------+------------------+----------------------+---------------+---------------+----------------+------------+---------------
+   763251 |          0 | 2022-02-15 22:32:23.312448 | 2022-02-15 22:32:24.036023 |                3 |                    3 |             3 |         38203 |        2683414 |            |
+   763254 |          0 | 2022-02-15 22:32:40.17103  | 2022-02-15 22:32:40.839313 |                3 |                    3 |             3 |         38203 |        2683414 |            |
+```

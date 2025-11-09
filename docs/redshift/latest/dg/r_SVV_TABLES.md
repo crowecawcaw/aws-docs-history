@@ -14,10 +14,10 @@ permissions for object metadata by users and roles. For more information, see
 
 ## Table columns
 
-| Column name   | Data type | Description                                                                     |
-| ------------- | --------- | ------------------------------------------------------------------------------- |
-| table_catalog | text      | The name of the catalog where the table exists.                                 |
-| table_schema  | text      | The name the schema for the table.                                              |
-| table_name    | text      | The name of the table.                                                          |
-| table_type    | text      | The type of table. Possible values are views, external tables, and base tables. |
-| remarks       | text      | Remarks.                                                                        |
+| Column name   | Data type | Description                                                                        |
+| ------------- | --------- | ---------------------------------------------------------------------------------- |
+| table_catalog | text      | The name of the catalog where the table<br>exists.                                 |
+| table_schema  | text      | The name the schema for the table.                                                 |
+| table_name    | text      | The name of the table.                                                             |
+| table_type    | text      | The type of table. Possible values are views,<br>external tables, and base tables. |
+| remarks       | text      | Remarks.                                                                           |

@@ -32,12 +32,25 @@ Case insensitive valid values are `hex`, `binary`, `utf8` (also `utf-8` and `utf
 
 To convert the binary value `'ab'` to hexadecimal, use the following example.
 
-````
+```
 `SELECT FROM_VARBYTE('ab', 'hex');`
 
 `+--------------+
-| from_varbyte | +--------------+
-| 6162 | +--------------+` ``` To return the binary representation of `'4d'`, use the following example. The binary representation of `'4d'` is the character string `01001101`. ``` `SELECT FROM_VARBYTE(FROM_HEX('4d'), 'binary');` `+--------------+
-| from_varbyte | +--------------+
-| 01001101 | +--------------+` ```
-````
+| from_varbyte |
++--------------+
+| 6162 |
++--------------+`
+```
+
+To return the binary representation of `'4d'`, use the following example.
+The binary representation of `'4d'` is the character string `01001101`.
+
+```
+`SELECT FROM_VARBYTE(FROM_HEX('4d'), 'binary');`
+
+`+--------------+
+| from_varbyte |
++--------------+
+| 01001101 |
++--------------+`
+```

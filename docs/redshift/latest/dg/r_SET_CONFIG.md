@@ -50,10 +50,18 @@ Returns a `CHAR` or `VARCHAR` string.
 To set the value of the `query_group` parameter to
 `test` for the current transaction only, use the following example.
 
-````
+```
 `SELECT SET_CONFIG('query_group', 'test', true);`
 
 `+------------+
-| set_config | +------------+
-| test | +------------+` ``` To set session context variables, use the following example. ``` `SELECT SET_CONFIG(‘app.username’, ‘cuddy’, FALSE);` ```
-````
+| set_config |
++------------+
+| test |
++------------+`
+```
+
+To set session context variables, use the following example.
+
+```
+`SELECT SET_CONFIG(‘app.username’, ‘cuddy’, FALSE);`
+```

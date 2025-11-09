@@ -73,48 +73,116 @@ _expression_.
 
 POSIX pattern matching supports the following metacharacters:
 
-| POSIX                                                   | Description                                                                                                                                                                                                |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| .                                                       | Matches any single character.                                                                                                                                                                              |
-| `*`                                                     | Matches zero or more occurrences.                                                                                                                                                                          |
-| `+`                                                     | Matches one or more occurrences.                                                                                                                                                                           |
-| `?`                                                     | Matches zero or one occurrence.                                                                                                                                                                            |
-| `                                                       | `                                                                                                                                                                                                          | Specifies alternative matches; for example, ``E                                                                                              | H``means`E`or`H`.                                                                         |
-| `^`                                                     | Matches the beginning-of-line character.                                                                                                                                                                   |
-| `$`                                                     | Matches the end-of-line character.                                                                                                                                                                         |
-| `$`                                                     | Matches the end of the string.                                                                                                                                                                             |
-| [ ]                                                     | Brackets specify a matching list, that should match one expression in the list. A caret (`^`) precedes a nonmatching list, which matches any character except for the expressions represented in the list. |
-| `( )`                                                   | Parentheses group items into a single logical item.                                                                                                                                                        |
-| `{m}`                                                   | Repeat the previous item exactly _m_ times.                                                                                                                                                                |
-| `{m,}`                                                  | Repeat the previous item _m_ or more times.                                                                                                                                                                |
-| `{m,n}`                                                 | Repeat the previous item at least _m_ and not more than _n_ times.                                                                                                                                         |
-| `[: :]`                                                 | Matches any character within a POSIX character class. In the following character classes, Amazon Redshift supports only ASCII characters: `[:alnum:]`, `[:alpha:]`, `[:lower:]`, `[:upper:]`               | Amazon Redshift supports the following POSIX character classes.                                                                              |
-| Character Class                                         | Description                                                                                                                                                                                                |
-| ---                                                     | ---                                                                                                                                                                                                        |
-| `[[:alnum:]]`                                           | All ASCII alphanumeric characters                                                                                                                                                                          |
-| `[[:alpha:]]`                                           | All ASCII alphabetic characters                                                                                                                                                                            |
-| `[[:blank:]]`                                           | All blank space characters                                                                                                                                                                                 |
-| `[[:cntrl:]]`                                           | All control characters (nonprinting)                                                                                                                                                                       |
-| `[[:digit:]]`                                           | All numeric digits                                                                                                                                                                                         |
-| `[[:lower:]]`                                           | All lowercase ASCII alphabetic characters                                                                                                                                                                  |
-| `[[:punct:]]`                                           | All punctuation characters                                                                                                                                                                                 |
-| `[[:space:]]`                                           | All space characters (nonprinting)                                                                                                                                                                         |
-| `[[:upper:]]`                                           | All uppercase ASCII alphabetic characters                                                                                                                                                                  |
-| `[[:xdigit:]]`                                          | All valid hexadecimal characters                                                                                                                                                                           | Amazon Redshift supports the following Perl-influenced operators in regular expressions. Escape the operator using two backslashes (‘`\\`’). |
-| Operator                                                | Description                                                                                                                                                                                                | Equivalent character class expression                                                                                                        |
-| ---                                                     | ---                                                                                                                                                                                                        | ---                                                                                                                                          |
-| `\\d`                                                   | A digit character                                                                                                                                                                                          | `[[:digit:]]`                                                                                                                                |
-| `\\D`                                                   | A nondigit character                                                                                                                                                                                       | `[^[:digit:]]`                                                                                                                               |
-| `\\w`                                                   | A word character                                                                                                                                                                                           | `[[:word:]]`                                                                                                                                 |
-| `\\W`                                                   | A nonword character                                                                                                                                                                                        | `[^[:word:]]`                                                                                                                                |
-| `\\s`                                                   | A white space character                                                                                                                                                                                    | `[[:space:]]`                                                                                                                                |
-| `\\S`                                                   | A non–white space character                                                                                                                                                                                | `[^[:space:]]`                                                                                                                               |
-| `\\b`                                                   | A boundary word                                                                                                                                                                                            |                                                                                                                                              | ## Examples The following table shows examples of pattern matching using POSIX operators: |
-| Expression                                              | Returns                                                                                                                                                                                                    |                                                                                                                                              | ---                                                                                       | ---     |
-| `'abc' ~ 'abc'`                                         | True                                                                                                                                                                                                       |                                                                                                                                              | `'abc' ~ 'a'`                                                                             | True    |
-| `'abc' ~ 'A'`                                           | False                                                                                                                                                                                                      |
-| `'abc' ~ '.\*(b                                         | d).\*'`                                                                                                                                                                                                    | True                                                                                                                                         |
-| `'abc' ~ '(b                                            | c).\*'`                                                                                                                                                                                                    | True                                                                                                                                         |
-| `'AbcAbcdefgefg12efgefg12' ~ '((Ab)?c)+d((efg)+(12))+'` | True                                                                                                                                                                                                       |                                                                                                                                              | `'aaaaaab11111xy' ~ 'a{6}.[1]{5}(x                                                        | y){2}'` | True                                                                                                                       |
-| `'$0.87' ~ '\\$[0-9]+(\\.[0-9][0-9])?'`                 | True                                                                                                                                                                                                       |                                                                                                                                              | `'ab c' ~ '[[:space:]]'`                                                                  | True    |
-| `'ab c' ~ '\\s'`                                        | True                                                                                                                                                                                                       |                                                                                                                                              | `' ' ~ '\\S'`                                                                             | False   | The following example finds cities whose names contain `E` or `H`: ``` SELECT DISTINCT city FROM users WHERE city ~ '._E._ | ._H._' ORDER BY city LIMIT 5; city ----------------- Agoura Hills Auburn Hills Benton Harbor Beverly Hills Chicago Heights ``The following example finds cities whose names don't contain `E` or `H`:`` `SELECT DISTINCT city FROM users WHERE city !~ '._E._ | ._H._' ORDER BY city LIMIT 5;` `city ----------------- Aberdeen Abilene Ada Agat Agawam` ``` The following example uses the escape string ('`\\`') to search for strings that include a period. `SELECT venuename FROM venue WHERE venuename ~ '.*\\..*' ORDER BY venueid; venuename ------------------------------ St. Pete Times Forum Jobing.com Arena Hubert H. Humphrey Metrodome U.S. Cellular Field Superpages.com Center E.J. Nutter Center Bernard B. Jacobs Theatre St. James Theatre` |
+| POSIX   | Description                                                                                                                                                                                                         |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ---------------------- |
+| .       | Matches any single character.                                                                                                                                                                                       |
+| `*`     | Matches zero or more occurrences.                                                                                                                                                                                   |
+| `+`     | Matches one or more occurrences.                                                                                                                                                                                    |
+| `?`     | Matches zero or one occurrence.                                                                                                                                                                                     |
+| `       | `                                                                                                                                                                                                                   | Specifies alternative matches; for example,<br>``E | H``means`E` or<br>`H`. |
+| `^`     | Matches the beginning-of-line character.                                                                                                                                                                            |
+| `$`     | Matches the end-of-line character.                                                                                                                                                                                  |
+| `$`     | Matches the end of the string.                                                                                                                                                                                      |
+| [ ]     | Brackets specify a matching list, that should<br>match one expression in the list. A caret (`^`) precedes<br>a nonmatching list, which matches any character except for the<br>expressions represented in the list. |
+| `( )`   | Parentheses group items into a single logical<br>item.                                                                                                                                                              |
+| `{m}`   | Repeat the previous item exactly<br>\*m<br>• times.                                                                                                                                                                 |
+| `{m,}`  | Repeat the previous item _m_<br>or more times.                                                                                                                                                                      |
+| `{m,n}` | Repeat the previous item at least<br>*m<br>• and not more than *n\*<br>times.                                                                                                                                       |
+| `[: :]` | Matches any character within a POSIX character<br>class. In the following character classes, Amazon Redshift supports only<br>ASCII characters: `[:alnum:]`, `[:alpha:]`,<br>`[:lower:]`, `[:upper:]`               |
+
+Amazon Redshift supports the following POSIX character classes.
+
+| Character Class | Description                                  |
+| --------------- | -------------------------------------------- |
+| `[[:alnum:]]`   | All ASCII alphanumeric characters            |
+| `[[:alpha:]]`   | All ASCII alphabetic characters              |
+| `[[:blank:]]`   | All blank space characters                   |
+| `[[:cntrl:]]`   | All control characters (nonprinting)         |
+| `[[:digit:]]`   | All numeric digits                           |
+| `[[:lower:]]`   | All lowercase ASCII alphabetic<br>characters |
+| `[[:punct:]]`   | All punctuation characters                   |
+| `[[:space:]]`   | All space characters (nonprinting)           |
+| `[[:upper:]]`   | All uppercase ASCII alphabetic<br>characters |
+| `[[:xdigit:]]`  | All valid hexadecimal characters             |
+
+Amazon Redshift supports the following Perl-influenced operators in regular
+expressions. Escape the operator using two backslashes (‘`\\`’).  
+
+| Operator | Description                 | Equivalent character class expression |
+| -------- | --------------------------- | ------------------------------------- |
+| `\\d`    | A digit character           | `[[:digit:]]`                         |
+| `\\D`    | A nondigit character        | `[^[:digit:]]`                        |
+| `\\w`    | A word character            | `[[:word:]]`                          |
+| `\\W`    | A nonword character         | `[^[:word:]]`                         |
+| `\\s`    | A white space character     | `[[:space:]]`                         |
+| `\\S`    | A non–white space character | `[^[:space:]]`                        |
+| `\\b`    | A boundary word             |                                       |
+
+## Examples
+
+The following table shows examples of pattern matching using POSIX
+operators:
+
+| Expression                                                 | Returns |
+| ---------------------------------------------------------- | ------- | ---- |
+| `'abc' ~ 'abc'`                                            | True    |
+| `'abc' ~ 'a'`                                              | True    |
+| `'abc' ~ 'A'`                                              | False   |
+| `'abc' ~ '.\*(b                                            | d).\*'` | True |
+| `'abc' ~ '(b                                               | c).\*'` | True |
+| `'AbcAbcdefgefg12efgefg12' ~<br>'((Ab)?c)+d((efg)+(12))+'` | True    |
+| `'aaaaaab11111xy' ~<br>'a{6}.[1]{5}(x                      | y){2}'` | True |
+| `'$0.87' ~ '\\$[0-9]+(\\.[0-9][0-9])?'`                    | True    |
+| `'ab c' ~ '[[:space:]]'`                                   | True    |
+| `'ab c' ~ '\\s'`                                           | True    |
+| `' ' ~ '\\S'`                                              | False   |
+
+The following example finds cities whose names contain `E` or
+`H`:
+
+```
+SELECT DISTINCT city FROM users
+WHERE city ~ '.*E.*|.*H.*' ORDER BY city LIMIT 5;
+
+      city
+-----------------
+ Agoura Hills
+ Auburn Hills
+ Benton Harbor
+ Beverly Hills
+ Chicago Heights
+```
+
+The following example finds cities whose names don't contain `E`
+or `H`:
+
+```
+`SELECT DISTINCT city FROM users WHERE city !~ '.*E.*|.*H.*' ORDER BY city LIMIT 5;`
+`city
+-----------------
+ Aberdeen
+ Abilene
+ Ada
+ Agat
+ Agawam`
+```
+
+The following example uses the escape string ('`\\`') to search
+for strings that include a period.
+
+```
+SELECT venuename FROM venue
+WHERE venuename ~ '.*\\..*'
+ORDER BY venueid;
+
+          venuename
+------------------------------
+ St. Pete Times Forum
+ Jobing.com Arena
+ Hubert H. Humphrey Metrodome
+ U.S. Cellular Field
+ Superpages.com Center
+ E.J. Nutter Center
+ Bernard B. Jacobs Theatre
+ St. James Theatre
+```

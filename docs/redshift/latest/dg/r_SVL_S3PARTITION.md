@@ -21,16 +21,42 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name          | Data type                   | Description                                                                                              |
-| -------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------- | ------- | ------ | ---------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | -------------------------- | -------------------------- | ---- | ---- | --- | ----- |
-| query                | integer                     | The query ID.                                                                                            |
-| segment              | integer                     | A segment number. A query consists of multiple segments, and each segment consists of one or more steps. |
-| node                 | integer                     | The node number.                                                                                         |
-| slice                | integer                     | The data slice that a particular segment ran against.                                                    |
-| starttime            | timestamp without time zone | Time in UTC that the partition pruning started executing.                                                |
-| endtime              | timestamp without time zone | Time in UTC that the partition pruning completed.                                                        |
-| duration             | bigint                      | Elapsed time (in microseconds).                                                                          |
-| total_partitions     | integer                     | Number of total partitions.                                                                              |
-| qualified_partitions | integer                     | Number of qualified partitions.                                                                          |
-| assigned_partitions  | integer                     | Number of assigned partitions on the slice.                                                              |
-| assignment           | character                   | Type of assignment.                                                                                      | ## Sample query The following example gets the partition details for the last query completed. `SELECT query, segment, MIN(starttime) AS starttime, MAX(endtime) AS endtime, datediff(ms,MIN(starttime),MAX(endtime)) AS dur_ms, MAX(total_partitions) AS total_partitions, MAX(qualified_partitions) AS qualified_partitions, MAX(assignment) as assignment_type FROM svl_s3partition WHERE query=pg_last_query_id() GROUP BY query, segment` ``` query | segment | starttime | endtime | dur_ms | total_partitions | qualified_partitions | assignment_type ------+---------+-------------------------------+-----------------------------+-------+------------------+----------------------+---------------- 99232 | 0   | 2018-04-17 22:43:50.201515 | 2018-04-17 22:43:54.674595 | 4473 | 2526 | 334 | p ``` |
+| Column name          | Data type                   | Description                                                                                                 |
+| -------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| query                | integer                     | The query ID.                                                                                               |
+| segment              | integer                     | A segment number. A query consists of multiple<br>segments, and each segment consists of one or more steps. |
+| node                 | integer                     | The node number.                                                                                            |
+| slice                | integer                     | The data slice that a particular segment ran<br>against.                                                    |
+| starttime            | timestamp without time zone | Time in UTC that the partition pruning started<br>executing.                                                |
+| endtime              | timestamp without time zone | Time in UTC that the partition pruning<br>completed.                                                        |
+| duration             | bigint                      | Elapsed time (in microseconds).                                                                             |
+| total_partitions     | integer                     | Number of total partitions.                                                                                 |
+| qualified_partitions | integer                     | Number of qualified partitions.                                                                             |
+| assigned_partitions  | integer                     | Number of assigned partitions on the<br>slice.                                                              |
+| assignment           | character                   | Type of assignment.                                                                                         |
+
+## Sample query
+
+The following example gets the partition details for the last query
+completed.
+
+```
+SELECT query, segment,
+       MIN(starttime) AS starttime,
+       MAX(endtime) AS endtime,
+       datediff(ms,MIN(starttime),MAX(endtime)) AS dur_ms,
+       MAX(total_partitions) AS total_partitions,
+       MAX(qualified_partitions) AS qualified_partitions,
+       MAX(assignment) as assignment_type
+FROM svl_s3partition
+WHERE query=pg_last_query_id()
+GROUP BY query, segment
+```
+
+```
+
+query | segment |           starttime           |           endtime           | dur_ms| total_partitions | qualified_partitions | assignment_type
+------+---------+-------------------------------+-----------------------------+-------+------------------+----------------------+----------------
+99232 |       0 | 2018-04-17 22:43:50.201515    | 2018-04-17 22:43:54.674595  |  4473 |       2526       |        334           | p
+
+```

@@ -37,13 +37,28 @@ None
 
 To show the column `query_priority` in the STV_WLM_QUERY_STATE system table, use the following example.
 
-````
+```
 `SELECT query, service_class, query_priority, state
 FROM stv_wlm_query_state WHERE service_class = 101;`
 
 `+-------+---------------+----------------+---------+
-| query | service_class | query_priority | state | +-------+---------------+----------------+---------+
+| query | service_class | query_priority | state |
++-------+---------------+----------------+---------+
 | 1076 | 101 | Lowest | Running |
-| 1075 | 101 | Lowest | Running | +-------+---------------+----------------+---------+` ``` To show the results of a superuser running the function `change_query_priority` to change the priority to `CRITICAL`, use the following example. ``` `SELECT CHANGE_QUERY_PRIORITY(1076, 'Critical');` `+-------------------------------------------------------------------------------+
-| change_query_priority | +-------------------------------------------------------------------------------+ | Succeeded to change query priority. Priority changed from Lowest to Critical. | +-------------------------------------------------------------------------------+` ```
-````
+| 1075 | 101 | Lowest | Running |
++-------+---------------+----------------+---------+`
+```
+
+To show the results of a superuser running the function
+`change_query_priority` to change the priority to
+`CRITICAL`, use the following example.
+
+```
+`SELECT CHANGE_QUERY_PRIORITY(1076, 'Critical');`
+
+`+-------------------------------------------------------------------------------+
+| change_query_priority |
++-------------------------------------------------------------------------------+
+| Succeeded to change query priority. Priority changed from Lowest to Critical. |
++-------------------------------------------------------------------------------+`
+```

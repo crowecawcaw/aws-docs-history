@@ -21,7 +21,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name  | Data type    | Description                                                                                                                                                                   |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---- | ------------ | ---------------------------------------------------------------- | --- | ---- | --- | ------------ | --- | ---- | --- | -------------- | --- | ---- | --- | ------------ | --- | --- | --- | --------------------- |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid       | integer      | ID of the user who generated the entry.                                                                                                                                       |
 | query        | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice        | integer      | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -31,5 +31,25 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | endtime      | timestamp    | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 | tasknum      | integer      | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows         | bigint       | Total number of rows that were processed.                                                                                                                                     |
-| is_diskbased | character(1) | If true (t), the query was performed as a disk-based operation. If false (f), the query was performed in memory.                                                              |
-| workmem      | bigint       | Total number of bytes in working memory that were assigned to the step.                                                                                                       | ## Sample queries The following example returns window function results for slice 0 and segment 3. `select query, tasknum, rows, is_diskbased, workmem from stl_window where slice=0 and segment=3;` ``` query | tasknum | rows | is_diskbased | workmem -------+---------+------+--------------+---------- 86326 | 36  | 1857 | f   | 95256616 705 | 15  | 1857 | f   | 95256616 86399 | 27  | 1857 | f   | 95256616 649 | 10  | 0   | f   | 95256616 (4 rows) ``` |
+| is_diskbased | character(1) | If true (t), the query was performed as a<br>disk-based operation. If false (f), the query was performed in<br>memory.                                                        |
+| workmem      | bigint       | Total number of bytes in working memory that were<br>assigned to the step.                                                                                                    |
+
+## Sample queries
+
+The following example returns window function results for slice 0 and segment 3.
+
+```
+select query, tasknum, rows, is_diskbased, workmem
+from stl_window
+where slice=0 and segment=3;
+```
+
+```
+ query | tasknum | rows | is_diskbased | workmem
+-------+---------+------+--------------+----------
+ 86326 |      36 | 1857 | f            | 95256616
+   705 |      15 | 1857 | f            | 95256616
+ 86399 |      27 | 1857 | f            | 95256616
+   649 |      10 |    0 | f            | 95256616
+(4 rows)
+```

@@ -75,17 +75,52 @@ Following is a timeline example of how two concurrent write operations would be
 handled when using SNAPSHOT isolation. Each user’s UPDATE statement is allowed
 to commit because they don’t conflict by attempting to update the same rows.
 
-| Time | User 1 action                               | User 2 action                               |
-| ---- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1    | BEGIN;                                      |                                             |
-| 2    |                                             | BEGIN;                                      |
-| 3    | SELECT \* FROM Numbers; `digits ------ 0 1` |                                             |
-| 4    |                                             | SELECT \* FROM Numbers; `digits ------ 0 1` |
-| 5    | UPDATE Numbers SET digits=0 WHERE digits=1; |                                             |
-| 6    | SELECT \* FROM Numbers; `digits ------ 0 0` |                                             |
-| 7    | COMMIT;                                     |                                             |
-| 8    |                                             | Update Numbers SET digits=1 WHERE digits=0; |
-| 9    |                                             | SELECT \* FROM Numbers; `digits ------ 1 1` |
-| 10   |                                             | COMMIT;                                     |
-| 11   | SELECT \* FROM Numbers; `digits ------ 1 0` |                                             |
-| 12   |                                             | SELECT \* FROM Numbers; `digits ------ 1 0` | If the same scenario is run using serializable isolation, then Amazon Redshift terminates user 2 due to a serializable violation and returns error `1023`. For more information, see [Troubleshooting serializable isolation errors](c_serial_isolation-serializable-isolation-troubleshooting.md "c_serial_isolation-serializable-isolation-troubleshooting.md"). In this case, only user 1 can commit successfully. ## Considerations When using isolation levels in Amazon Redshift, consider the following: <br>• Query the STV_DB_ISOLATION_LEVEL catalog view to view which isolation level your database is using. For more information, see [STV_DB_ISOLATION_LEVEL](r_STV_DB_ISOLATION_LEVEL.md "r_STV_DB_ISOLATION_LEVEL.md"). <br>• Query the PG_DATABASE_INFO view to see how many concurrent transactions are supported for your database. For more information, see [PG_DATABASE_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md"). <br>• System catalog tables (PG) and other Amazon Redshift system tables aren't locked in a transaction. Therefore, changes to database objects that arise from DDL and TRUNCATE operations are visible on commit to any concurrent transactions. For example, suppose that table A exists in the database when two concurrent transactions, T1 and T2, start. Suppose that T2 returns a list of tables by selecting from the PG_TABLES catalog table. Then T1 drops table A and commits, and then T2 lists the tables again. Table A is now no longer listed. If T2 tries to query the dropped table, Amazon Redshift returns a "relation does not exist" error. The catalog query that returns the list of tables to T2 or checks that table A exists isn't subject to the same isolation rules as operations performed on user tables. Transactions for updates to these tables run in a read committed isolation mode. <br>• PG-prefix catalog tables don't support SNAPSHOT isolation. |
+| Time | User 1 action                                                       | User 2 action                                                       |
+| ---- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 1    | BEGIN;                                                              |                                                                     |
+| 2    |                                                                     | BEGIN;                                                              |
+| 3    | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>0<br>1<br>` |                                                                     |
+| 4    |                                                                     | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>0<br>1<br>` |
+| 5    | UPDATE Numbers SET digits=0 WHERE<br>digits=1;                      |                                                                     |
+| 6    | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>0<br>0<br>` |                                                                     |
+| 7    | COMMIT;                                                             |                                                                     |
+| 8    |                                                                     | Update Numbers SET digits=1 WHERE<br>digits=0;                      |
+| 9    |                                                                     | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>1<br>1<br>` |
+| 10   |                                                                     | COMMIT;                                                             |
+| 11   | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>1<br>0<br>` |                                                                     |
+| 12   |                                                                     | SELECT \<br>• FROM Numbers;<br>`<br>digits<br>------<br>1<br>0<br>` |
+
+If the same scenario is run using serializable isolation, then Amazon Redshift
+terminates user 2 due to a serializable violation and returns error
+`1023`. For more information, see [Troubleshooting serializable isolation errors](c_serial_isolation-serializable-isolation-troubleshooting.md "c_serial_isolation-serializable-isolation-troubleshooting.md").
+In this case, only user 1 can commit successfully.
+
+## Considerations
+
+When using isolation levels in Amazon Redshift, consider the following:
+
+- Query the STV_DB_ISOLATION_LEVEL catalog view to view which isolation level
+  your database is using. For more information, see
+  [STV_DB_ISOLATION_LEVEL](r_STV_DB_ISOLATION_LEVEL.md "r_STV_DB_ISOLATION_LEVEL.md").
+- Query the PG_DATABASE_INFO view to see how many concurrent transactions are
+  supported for your database. For more information, see
+  [PG_DATABASE_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md").
+- System catalog tables (PG) and other Amazon Redshift system tables aren't locked
+  in a transaction. Therefore, changes to database objects that arise
+  from DDL and TRUNCATE operations are visible on commit to any
+  concurrent transactions.
+
+For example, suppose that table A exists in the database when
+two concurrent transactions, T1 and T2, start. Suppose that T2
+returns a list of tables by selecting from the PG_TABLES catalog
+table. Then T1 drops table A and commits, and then T2 lists the
+tables again. Table A is now no longer listed. If T2 tries to
+query the dropped table, Amazon Redshift returns a "relation does not
+exist" error. The catalog query that returns the list of tables
+to T2 or checks that table A exists isn't subject to the same
+isolation rules as operations performed on user tables.
+
+Transactions for updates to these tables
+run in a read committed isolation mode.
+
+- PG-prefix catalog tables don't support SNAPSHOT isolation.

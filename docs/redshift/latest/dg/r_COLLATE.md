@@ -56,18 +56,51 @@ INSERT INTO T VALUES ('john'),('JOHN');`
 When you run the first query, Amazon Redshift only returns `john`. After the COLLATE function runs on
 col1, the collation becomes `case_insensitive`. The second query returns both `john` and `JOHN`.
 
-````
+```
 `SELECT * FROM T WHERE col1 = 'john';`
 
 `+------+
-| col1 | +------+
-| john | +------+` `SELECT * FROM T WHERE COLLATE(col1, 'case_insensitive') = 'john';` `+------+
-| col1 | +------+
+| col1 |
++------+
 | john |
-| JOHN | +------+` ``` To create table A and define col1 in table A as `case_insensitive`, use the following example. ``` `CREATE TABLE A ( col1 Varchar(20) COLLATE case_insensitive ); INSERT INTO A VALUES ('john'),('JOHN');` ``` When you run the first query, Amazon Redshift returns both `john` and `JOHN`. After the COLLATE function runs on col1, the collation becomes `case_sensitive`. The second query returns only `john`. ``` `SELECT * FROM A WHERE col1 = 'john';` `+------+
-| col1 | +------+
++------+`
+
+`SELECT * FROM T WHERE COLLATE(col1, 'case_insensitive') = 'john';`
+
+`+------+
+| col1 |
++------+
 | john |
-| JOHN | +------+` `SELECT * FROM A WHERE COLLATE(col1, 'case_sensitive') = 'john';` `+------+
-| col1 | +------+
-| john | +------+` ```
-````
+| JOHN |
++------+`
+```
+
+To create table A and define col1 in table A as `case_insensitive`, use the following example.
+
+```
+`CREATE TABLE A ( col1 Varchar(20) COLLATE case_insensitive );
+
+INSERT INTO A VALUES ('john'),('JOHN');`
+```
+
+When you run the first query, Amazon Redshift returns both `john` and `JOHN`. After the COLLATE function runs on
+col1, the collation becomes `case_sensitive`. The second query returns only `john`.
+
+```
+`SELECT * FROM A WHERE col1 = 'john';`
+
+`+------+
+| col1 |
++------+
+| john |
+| JOHN |
++------+`
+
+`SELECT * FROM A WHERE COLLATE(col1, 'case_sensitive') = 'john';`
+
+`+------+
+| col1 |
++------+
+| john |
++------+`
+```

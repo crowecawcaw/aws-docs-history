@@ -26,7 +26,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name  | Data type    | Description                                                                                                                                                                   |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ------- | ---- | ------- | ---- | ----------------------------------------------------------------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | --------- | --- | --- | --- | --- | --- | ---------------- |
+| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid       | integer      | ID of the user who generated the entry.                                                                                                                                       |
 | query        | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice        | integer      | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -36,7 +36,29 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | endtime      | timestamp    | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 | tasknum      | integer      | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows         | bigint       | Total number of rows that were processed.                                                                                                                                     |
-| bytes        | bigint       | Size, in bytes, of all the output rows for the step.                                                                                                                          |
+| bytes        | bigint       | Size, in bytes, of all the output rows for the<br>step.                                                                                                                       |
 | tbl          | integer      | ID of the materialized transient table.                                                                                                                                       |
-| is_diskbased | character(1) | Whether this step of the query was performed as a disk-based operation: true (`t`) or false (`f`).                                                                            |
-| workmem      | bigint       | Number of bytes of working memory assigned to the step.                                                                                                                       | ## Sample queries The following query shows which save steps in the most recent query were performed on each slice. ``` select query, slice, segment, step, tasknum, rows, tbl from stl_save where query = pg_last_query_id(); query | slice | segment | step | tasknum | rows | tbl -------+-------+---------+------+---------+------+----- 52236 | 3   | 0   | 2   | 21  | 0   | 239 52236 | 2   | 0   | 2   | 20  | 0   | 239 52236 | 2   | 2   | 2   | 20  | 0   | 239 52236 | 3   | 2   | 2   | 21  | 0   | 239 52236 | 1   | 0   | 2   | 21  | 0   | 239 52236 | 0   | 0   | 2   | 20  | 0   | 239 52236 | 0   | 2   | 2   | 20  | 0   | 239 52236 | 1   | 2   | 2   | 21  | 0   | 239 (8 rows) ``` |
+| is_diskbased | character(1) | Whether this step of the query was performed as a<br>disk-based operation: true (`t`) or false<br>(`f`).                                                                      |
+| workmem      | bigint       | Number of bytes of working memory assigned to the<br>step.                                                                                                                    |
+
+## Sample queries
+
+The following query shows which save steps in the most recent query were performed
+on each slice.
+
+```
+select query, slice, segment, step, tasknum, rows,  tbl
+from stl_save where query = pg_last_query_id();
+
+ query | slice | segment | step | tasknum | rows | tbl
+-------+-------+---------+------+---------+------+-----
+ 52236 |     3 |       0 |    2 |      21 |    0 | 239
+ 52236 |     2 |       0 |    2 |      20 |    0 | 239
+ 52236 |     2 |       2 |    2 |      20 |    0 | 239
+ 52236 |     3 |       2 |    2 |      21 |    0 | 239
+ 52236 |     1 |       0 |    2 |      21 |    0 | 239
+ 52236 |     0 |       0 |    2 |      20 |    0 | 239
+ 52236 |     0 |       2 |    2 |      20 |    0 | 239
+ 52236 |     1 |       2 |    2 |      21 |    0 | 239
+(8 rows)
+```

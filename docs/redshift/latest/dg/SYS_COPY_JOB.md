@@ -14,11 +14,11 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name      | Data type      | Description                                                                                                        |
-| ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| job_id           | bigint         | The copy job identifier.                                                                                           |
-| job_name         | character(128) | The name of the copy job.                                                                                          |
-| iam_role         | character(128) | The IAM role specified in the COPY statement.                                                                      |
-| job_text         | character(256) | The parameters of the COPY statement.                                                                              |
-| is_auto          | integer        | Indicates whether the COPY JOB is automatically run by Amazon Redshift. A `1` indicates true, `0` indicates false. |
-| on_error_suspend | integer        | This information is for internal use only.                                                                         |
+| Column name      | Data type      | Description                                                                                                              |
+| ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| job_id           | bigint         | The copy job identifier.                                                                                                 |
+| job_name         | character(128) | The name of the copy job.                                                                                                |
+| iam_role         | character(128) | The IAM role specified in the COPY<br>statement.                                                                         |
+| job_text         | character(256) | The parameters of the COPY statement.                                                                                    |
+| is_auto          | integer        | Indicates whether the COPY JOB is automatically<br>run by Amazon Redshift. A `1` indicates true, `0`<br>indicates false. |
+| on_error_suspend | integer        | This information is for internal use only.                                                                               |

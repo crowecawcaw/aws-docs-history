@@ -152,7 +152,7 @@ To drop `my_table` and its dependencies, use the following
 example. This example also returns all dependencies for the table that has been
 dropped.
 
-````
+```
 `DROP TABLE my_table CASCADE;
 
 SELECT dependent_ns.nspname as dependent_schema
@@ -176,5 +176,15 @@ ORDER BY 1,2
 LIMIT 10;`
 
 `+------------------+----------------+---------------+--------------+-------------+
-| dependent_schema | dependent_view | source_schema | source_table | column_name | +------------------+----------------+---------------+--------------+-------------+` ``` **Dropping a table Using IF EXISTS** The following example either drops the FEEDBACK table if it exists, or does nothing and returns a message if it doesn't: ``` drop table if exists feedback; ```
-````
+| dependent_schema | dependent_view | source_schema | source_table | column_name |
++------------------+----------------+---------------+--------------+-------------+`
+```
+
+**Dropping a table Using IF EXISTS**
+
+The following example either drops the FEEDBACK table if it exists, or does nothing
+and returns a message if it doesn't:
+
+```
+drop table if exists feedback;
+```

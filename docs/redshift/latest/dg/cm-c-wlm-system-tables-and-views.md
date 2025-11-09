@@ -22,18 +22,59 @@ system tables. Query the following system tables to do the following:
   manager.
 
 | Table Name                                                                                               | Description                                                                                                  |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | -------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------- | --------------------------------- | ------- | ------ | ----------- | --------- | --- | ------------ | --- | --- | --- | ----------- | ------- | --- | ------------ | --- | --- | --- | ----------- | --------- | --- | ----------- | --- | --- | --- | ----------- | --------- | --- | ---------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [STL_WLM_ERROR](r_STL_WLM_ERROR.md "r_STL_WLM_ERROR.md")                                                 | Contains a log of WLM-related error events.                                                                  |
 | [STL_WLM_QUERY](r_STL_WLM_QUERY.md "r_STL_WLM_QUERY.md")                                                 | Lists queries that are being tracked by WLM.                                                                 |
 | [STV_WLM_CLASSIFICATION_CONFIG](r_STV_WLM_CLASSIFICATION_CONFIG.md "r_STV_WLM_CLASSIFICATION_CONFIG.md") | Shows the current classification rules for WLM.                                                              |
 | [STV_WLM_QUERY_QUEUE_STATE](r_STV_WLM_QUERY_QUEUE_STATE.md "r_STV_WLM_QUERY_QUEUE_STATE.md")             | Records the current state of the query queues.                                                               |
-| [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md")                               | Provides a snapshot of the current state of queries that are being tracked by WLM.                           |
+| [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md")                               | Provides a snapshot of the current state of queries that are<br>being tracked by WLM.                        |
 | [STV_WLM_QUERY_TASK_STATE](r_STV_WLM_QUERY_TASK_STATE.md "r_STV_WLM_QUERY_TASK_STATE.md")                | Contains the current state of query tasks.                                                                   |
 | [STV_WLM_SERVICE_CLASS_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md")    | Records the service class configurations for WLM.                                                            |
 | [STV_WLM_SERVICE_CLASS_STATE](r_STV_WLM_SERVICE_CLASS_STATE.md "r_STV_WLM_SERVICE_CLASS_STATE.md")       | Contains the current state of the service classes.                                                           |
 | [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md")                               | Records details about actions resulting from WLM query monitoring rules associated with user-defined queues. |
-| [STV_WLM_QMR_CONFIG](r_STV_WLM_QMR_CONFIG.md "r_STV_WLM_QMR_CONFIG.md")                                  | Records the configuration for WLM query monitoring rules (QMR).                                              | You use the task ID to track a query in the system tables. The following example shows how to obtain the task ID of the most recently submitted user query: `select task from stl_wlm_query where exec_start_time =(select max(exec_start_time) from stl_wlm_query); task ------ 137 (1 row)` The following example displays queries that are currently executing or waiting in various service classes (queues). This query is useful in tracking the overall concurrent workload for Amazon Redshift: ``` select \* from stv_wlm_query_state order by query; xid | task    | query                                                                | service\_ | wlm*start*                                                                  | state                             | queue\_ | exec\_ |
-|                                                                                                          |                                                                                                              | class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | time    |                                                                      | time      | time ----+----+-----+--------+-------------+---------+-------+-------- 2645 | 84                                | 98      | 3      | 2010-10-... | Returning | 0   | 3438369 2650 | 85  | 100 | 3   | 2010-10-... | Waiting | 0   | 1645879 2660 | 87  | 101 | 2   | 2010-10-... | Executing | 0   | 916046 2661 | 88  | 102 | 1   | 2010-10-... | Executing | 0   | 13291 (4 rows) ``` ## WLM service class IDs The following table lists the IDs assigned to service classes. |
-| ID                                                                                                       | Service class                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | ---     | ---                                                                  |           | 1–4                                                                         | Reserved for system use.          |
-| 5                                                                                                        | Used by the superuser queue.                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 6–13    | Used by manual WLM queues that are defined in the WLM configuration. |           | 14                                                                          | Used by short query acceleration. |
-| 15                                                                                                       | Reserved for maintenance activities run by Amazon Redshift.                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 100–107 | Used by automatic WLM queue when **auto_wlm** is true.               |
+| [STV_WLM_QMR_CONFIG](r_STV_WLM_QMR_CONFIG.md "r_STV_WLM_QMR_CONFIG.md")                                  | Records the configuration for WLM query monitoring rules (QMR).                                              |
+
+You use the task ID to track a query in the system tables. The following example shows
+how to obtain the task ID of the most recently submitted user query:
+
+```
+select task from stl_wlm_query where exec_start_time =(select max(exec_start_time) from stl_wlm_query);
+
+task
+------
+137
+(1 row)
+```
+
+The following example displays queries that are currently executing or waiting in
+various service classes (queues). This query is useful in tracking the overall concurrent
+workload for Amazon Redshift:
+
+```
+
+select * from stv_wlm_query_state order by query;
+
+
+xid |task|query|service_| wlm_start_  |  state  |queue_ | exec_
+    |    |     |class   | time        |         |time   | time
+----+----+-----+--------+-------------+---------+-------+--------
+2645| 84 | 98  | 3      | 2010-10-... |Returning|   0   | 3438369
+2650| 85 | 100 | 3      | 2010-10-... |Waiting  |   0   | 1645879
+2660| 87 | 101 | 2      | 2010-10-... |Executing|   0   | 916046
+2661| 88 | 102 | 1      | 2010-10-... |Executing|   0   | 13291
+(4 rows)
+
+```
+
+## WLM service class IDs
+
+The following table lists the IDs assigned to service classes.
+
+| ID      | Service class                                                           |
+| ------- | ----------------------------------------------------------------------- |
+| 1–4     | Reserved for system use.                                                |
+| 5       | Used by the superuser queue.                                            |
+| 6–13    | Used by manual WLM queues that are defined in the WLM<br>configuration. |
+| 14      | Used by short query acceleration.                                       |
+| 15      | Reserved for maintenance activities run by Amazon Redshift.             |
+| 100–107 | Used by automatic WLM queue when<br>\*_auto_wlm_<br>• is true.          |

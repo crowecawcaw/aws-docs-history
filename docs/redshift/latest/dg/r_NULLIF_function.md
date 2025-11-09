@@ -64,7 +64,7 @@ NULL`
 In the following example, the query returns null when the LISTID and SALESID
 values match:
 
-````
+```
 select nullif(listid,salesid), salesid
 from sales where salesid<10 order by 1, 2 desc;
 
@@ -78,5 +78,42 @@ listid  | salesid
      10 |       8
      10 |       7
      10 |       6
-|       1 (9 rows) ``` You can use NULLIF to ensure that empty strings are always returned as nulls. In the example below, the NULLIF expression returns either a null value or a string that contains at least one character. ``` insert into category values(0,'','Special','Special'); select nullif(catgroup,'') from category where catdesc='Special'; catgroup ---------- null (1 row) ``` NULLIF ignores trailing blanks. If a string is not empty but contains blanks, NULLIF still returns null: ``` create table nulliftest(c1 char(2), c2 char(2)); insert into nulliftest values ('a','a '); insert into nulliftest values ('b','b'); select nullif(c1,c2) from nulliftest; c1 ------ null null (2 rows) ```
-````
+        |       1
+(9 rows)
+```
+
+You can use NULLIF to ensure that empty strings are always returned as nulls. In
+the example below, the NULLIF expression returns either a null value or a string that
+contains at least one character.
+
+```
+insert into category
+values(0,'','Special','Special');
+
+select nullif(catgroup,'') from category
+where catdesc='Special';
+
+catgroup
+----------
+null
+(1 row)
+```
+
+NULLIF ignores trailing blanks. If a string is not empty but contains blanks,
+NULLIF still returns null:
+
+```
+create table nulliftest(c1 char(2), c2 char(2));
+
+insert into nulliftest values ('a','a ');
+
+insert into nulliftest values ('b','b');
+
+
+select nullif(c1,c2) from nulliftest;
+c1
+------
+null
+null
+(2 rows)
+```

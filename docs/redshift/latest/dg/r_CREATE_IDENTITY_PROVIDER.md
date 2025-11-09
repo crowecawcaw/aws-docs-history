@@ -86,7 +86,57 @@ A valid UTF-8 character expression with a pattern to match group names. The
 LIKE option performs a case-sensitive match that supports the following
 pattern-matching metacharacters:
 
-| Metacharacter | Description                                      |
-| ------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `%`           | Matches any sequence of zero or more characters. |
-| `_`           | Matches any single character.                    | If _filter_pattern_ does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. _filter_pattern_ supports the following characters: <br>• Uppercase and lowercase alphabetic characters (A-Z and a-z) <br>• Numerals (0-9) <br>• The following special characters: `_ % ^ * + ? { } , $` ## Examples The following example creates an identity provider named _oauth_standard_, with a TYPE _azure_, to establish communication with Microsoft Azure Active Directory (AD). `CREATE IDENTITY PROVIDER oauth_standard TYPE azure NAMESPACE 'aad' PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c702/", "client_id":"87f4aa26-78b7-410e-bf29-57b39929ef9a", "client_secret":"BUAH~ewrqewrqwerUUY^%tHe1oNZShoiU7", "audience":["https://analysis.windows.net/powerbi/connector/AmazonRedshift"] }'` You can connect an IAM Identity Center managed application with an existing provisioned cluster or Amazon Redshift Serverless workgroup. This gives you the ability to manage access to a Redshift database through IAM Identity Center. To do so, run a SQL command like the following sample. You have to be a database administrator. `CREATE IDENTITY PROVIDER "redshift-idc-app" TYPE AWSIDC NAMESPACE 'awsidc' APPLICATION_ARN 'arn:aws:sso::123456789012:application/ssoins-12345f67fe123d4/apl-a0b0a12dc123b1a4' IAM_ROLE 'arn:aws:iam::123456789012:role/MyRedshiftRole';` The application ARN in this case identifies the managed application to connect to. You can find it by running `SELECT * FROM SVV_IDENTITY_PROVIDERS;`. For more information about using CREATE IDENTITY PROVIDER, including additional examples, see [Native identity provider (IdP) federation for Amazon Redshift](../mgmt/redshift-iam-access-control-native-idp.md "../mgmt/redshift-iam-access-control-native-idp.md"). For more information about setting up a connection to IAM Identity Center from Redshift, see [Connect Redshift with IAM Identity Center to give users a single sign-on experience](../mgmt/redshift-iam-access-control-idp-connect.md "../mgmt/redshift-iam-access-control-idp-connect.md"). |
+| Metacharacter | Description                                         |
+| ------------- | --------------------------------------------------- |
+| `%`           | Matches any sequence of zero or more<br>characters. |
+| `_`           | Matches any single character.                       |
+
+If _filter_pattern_ does not contain metacharacters, then
+the pattern only represents the string itself; in that case LIKE acts the same
+as the equals operator.
+
+_filter_pattern_ supports the following characters:
+
+- Uppercase and lowercase alphabetic characters (A-Z and a-z)
+- Numerals (0-9)
+- The following special characters:
+
+```
+_ % ^ * + ? { } , $
+```
+
+## Examples
+
+The following example creates an identity provider named
+_oauth_standard_, with a TYPE _azure_, to
+establish communication with Microsoft Azure Active Directory (AD).
+
+```
+CREATE IDENTITY PROVIDER oauth_standard TYPE azure
+NAMESPACE 'aad'
+PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c702/",
+"client_id":"87f4aa26-78b7-410e-bf29-57b39929ef9a",
+"client_secret":"BUAH~ewrqewrqwerUUY^%tHe1oNZShoiU7",
+"audience":["https://analysis.windows.net/powerbi/connector/AmazonRedshift"]
+}'
+```
+
+You can connect an IAM Identity Center managed application with an existing provisioned cluster or
+Amazon Redshift Serverless workgroup. This gives you the ability to manage access to a Redshift
+database through IAM Identity Center. To do so, run a SQL command like the following sample. You have
+to be a database administrator.
+
+```
+CREATE IDENTITY PROVIDER "redshift-idc-app" TYPE AWSIDC
+NAMESPACE 'awsidc'
+APPLICATION_ARN 'arn:aws:sso::123456789012:application/ssoins-12345f67fe123d4/apl-a0b0a12dc123b1a4'
+IAM_ROLE 'arn:aws:iam::123456789012:role/MyRedshiftRole';
+```
+
+The application ARN in this case identifies the managed application to connect to.
+You can find it by running `SELECT * FROM SVV_IDENTITY_PROVIDERS;`.
+
+For more information about using CREATE IDENTITY PROVIDER, including additional
+examples, see [Native identity provider (IdP) federation for Amazon Redshift](../mgmt/redshift-iam-access-control-native-idp.md "../mgmt/redshift-iam-access-control-native-idp.md"). For more information
+about setting up a connection to IAM Identity Center from Redshift, see [Connect Redshift
+with IAM Identity Center to give users a single sign-on experience](../mgmt/redshift-iam-access-control-idp-connect.md "../mgmt/redshift-iam-access-control-idp-connect.md").

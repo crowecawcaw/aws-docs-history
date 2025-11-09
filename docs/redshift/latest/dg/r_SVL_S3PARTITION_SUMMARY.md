@@ -15,9 +15,9 @@ For information about SVCS_S3PARTITION, see [SVCS_S3PARTITION_SUMMARY](r_SVCS_S3
 ## Table columns
 
 | Column name             | Data type | Description                                                                            |
-| ----------------------- | --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query                   | integer   | The query ID. You can use this value to join various other system tables and views.    |
-| segment                 | integer   | The segment number. A query consists of multiple segments.                             |
+| ----------------------- | --------- | -------------------------------------------------------------------------------------- |
+| query                   | integer   | The query ID. You can use this value to join<br>various other system tables and views. |
+| segment                 | integer   | The segment number. A query consists of multiple<br>segments.                          |
 | assignment              | char(1)   | The type of partition assignment across nodes.                                         |
 | min_starttime           | timestamp | The time in UTC that the partition processing started.                                 |
 | max_endtime             | timestamp | The time in UTC that the partition processing completed.                               |
@@ -28,4 +28,16 @@ For information about SVCS_S3PARTITION, see [SVCS_S3PARTITION_SUMMARY](r_SVCS_S3
 | qualified_partitions    | integer   | The total number of qualified partitions.                                              |
 | min_assigned_partitions | integer   | The minimum number of partitions assigned on one node.                                 |
 | max_assigned_partitions | integer   | The maximum number of partitions assigned on one node.                                 |
-| avg_assigned_partitions | bigint    | The average number of partitions assigned on one node.                                 | ## Sample query The following example gets the partition scan details for the last query completed. `select query, segment, assignment, min_starttime, max_endtime, min_duration, avg_duration from svl_s3partition_summary where query = pg_last_query_id() order by query,segment;` |
+| avg_assigned_partitions | bigint    | The average number of partitions assigned on one node.                                 |
+
+## Sample query
+
+The following example gets the partition scan details for the last query
+completed.
+
+```
+select query, segment, assignment, min_starttime, max_endtime, min_duration, avg_duration
+from svl_s3partition_summary
+where query = pg_last_query_id()
+order by query,segment;
+```

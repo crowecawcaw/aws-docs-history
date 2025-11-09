@@ -17,9 +17,21 @@ SVV_DATASHARE_CONSUMERS is visible to the following users:
 
 ## Table columns
 
-| Column name        | Data type                   | Description                                                      |
-| ------------------ | --------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| share_name         | varchar(128)                | The name of the datashare.                                       |
-| consumer_account   | varchar(16)                 | The account ID for the datashare consumer.                       |
-| consumer_namespace | varchar(64)                 | The unique cluster identifier of the datashare consumer cluster. |
-| share_date         | timestamp without time zone | The date that the datashare was shared.                          | ## Sample query The following example returns the output for SVV_DATASHARE_CONSUMERS. `SELECT count(*) FROM svv_datashare_consumers WHERE share_name LIKE 'tickit_datashare%'; 1` |
+| Column name        | Data type                   | Description                                                         |
+| ------------------ | --------------------------- | ------------------------------------------------------------------- |
+| share_name         | varchar(128)                | The name of the datashare.                                          |
+| consumer_account   | varchar(16)                 | The account ID for the datashare consumer.                          |
+| consumer_namespace | varchar(64)                 | The unique cluster identifier of the datashare consumer<br>cluster. |
+| share_date         | timestamp without time zone | The date that the datashare was shared.                             |
+
+## Sample query
+
+The following example returns the output for SVV_DATASHARE_CONSUMERS.
+
+```
+SELECT count(*)
+FROM svv_datashare_consumers
+WHERE share_name LIKE 'tickit_datashare%';
+
+1
+```

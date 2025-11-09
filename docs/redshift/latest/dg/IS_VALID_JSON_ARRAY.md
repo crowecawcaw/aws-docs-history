@@ -60,16 +60,18 @@ VALUES('{"a":1}'),
 
 To validate the strings in the preceding example, use the following example.
 
-````
+```
 `SELECT json_arrays, IS_VALID_JSON_ARRAY(json_arrays)
 FROM test_json_arrays ORDER BY id;`
 
 `+------------------------------+---------------------+
-| json_arrays | is_valid_json_array | +------------------------------+---------------------+
+| json_arrays | is_valid_json_array |
++------------------------------+---------------------+
 | [] | true |
 | ["a","b"] | true |
 | ["a",["b",1,["c",2,3,null]]] | true |
 | {"a":1} | false |
 | a | false |
-| [1,2,] | false | +------------------------------+---------------------+` ```
-````
+| [1,2,] | false |
++------------------------------+---------------------+`
+```

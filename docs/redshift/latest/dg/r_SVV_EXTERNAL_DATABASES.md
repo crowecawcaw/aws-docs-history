@@ -12,10 +12,10 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name  | Data type | Description                                                                                                      |
-| ------------ | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| eskind       | integer   | The type of the external catalog for the database; `1` indicates a data catalog, `2` indicates a Hive metastore. |
-| esoptions    | text      | Details of the catalog where the database resides.                                                               |
-| databasename | text      | The name of the database in the external catalog.                                                                |
-| location     | text      | The location of the database.                                                                                    |
-| parameters   | text      | Database parameters.                                                                                             |
+| Column name  | Data type | Description                                                                                                            |
+| ------------ | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| eskind       | integer   | The type of the external catalog for the database;<br>`1` indicates a data catalog,<br>`2` indicates a Hive metastore. |
+| esoptions    | text      | Details of the catalog where the database<br>resides.                                                                  |
+| databasename | text      | The name of the database in the external<br>catalog.                                                                   |
+| location     | text      | The location of the database.                                                                                          |
+| parameters   | text      | Database parameters.                                                                                                   |

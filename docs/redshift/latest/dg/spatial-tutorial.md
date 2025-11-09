@@ -163,6 +163,219 @@ select count(*) from zipcode;
 The following results show the number of rows in each table of test data.
 
 | Table name     | Rows   |
-| -------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------ |
 | accommodations | 22,248 |
-| zipcode        | 190    | ## Step 2: Query spatial data After your tables are created and loaded, you can query them using SQL SELECT statements. The following queries demonstrate some of the information that you can retrieve. You can write many other queries that use spatial functions to satisfy your needs. ###### To query spatial data 1. Query to get the count of the total number of listings stored in the `accommodations` table, as shown following. The spatial reference system is World Geodetic System (WGS) 84, which has the unique spatial reference identifier 4326. `SELECT count(*) FROM public.accommodations WHERE ST_SRID(shape) = 4326;` `count ------- 22248` 2. Fetch the geometry objects in well-known text (WKT) format with some additional attributes. Additionally, you can validate if this postal code data is also stored in World Geodetic System (WGS) 84, which uses the spatial reference ID (SRID) 4326. Spatial data must be stored in the same spatial reference system to be interoperable. `SELECT ogc_field, spatial_name, spatial_type, ST_SRID(wkb_geometry), ST_AsText(wkb_geometry) FROM public.zipcode ORDER BY spatial_name;` `ogc_field  spatial_name  spatial_type  st_srid  st_astext --------------------------------------------------------------- 0           10115        Polygon        4326     POLYGON((...)) 4           10117        Polygon        4326     POLYGON((...)) 8           10119        Polygon        4326     POLYGON((...)) ... (190 rows returned)` 3. Select the polygon of Berlin Mitte (10117), a borough of Berlin, in GeoJSON format, its dimension, and the number of points in this polygon. `SELECT ogc_field, spatial_name, ST_AsGeoJSON(wkb_geometry), ST_Dimension(wkb_geometry), ST_NPoints(wkb_geometry) FROM public.zipcode WHERE spatial_name='10117';` `ogc_field  spatial_name  spatial_type                                   st_dimension  st_npoint ----------------------------------------------------------------------------------------------- 4           10117         {"type":"Polygon", "coordinates":[[[...]]]}    2             331` 4. Run the following SQL command to view how many accommodations are within 500 meters of the Brandenburg Gate. `SELECT count(*) FROM public.accommodations WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500;` `count ------ 29` 5. Get the rough location of the Brandenburg Gate from data stored in the accommodations that are listed as nearby by running the following query. This query requires a subselect. It leads to a different count because the requested location is not the same as the previous query because it is closer to the accommodations. `WITH poi(loc) as ( SELECT st_astext(shape) FROM accommodations WHERE name LIKE '%brandenburg gate%' ) SELECT count(*) FROM accommodations a, poi p WHERE ST_DistanceSphere(a.shape, ST_GeomFromText(p.loc, 4326)) < 500;` `count ------ 60` 6. Run the following query to show the details of all accommodations around the Brandenburg Gate, ordered by price in descending order. `SELECT name, price, ST_AsText(shape) FROM public.accommodations WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500 ORDER BY price DESC;` `name                                                   price  st_astext ------------------------------------------------------------------------------------------------------- DUPLEX APARTMENT/PENTHOUSE in 5* LOCATION! 7583        300    POINT(13.3826510209548 52.5159819722552) DUPLEX-PENTHOUSE IN FIRST LOCATION! 7582               300    POINT(13.3799997083855 52.5135918444834) ... (29 rows returned)` 7. Run the following query to retrieve the most expensive accommodation with its postal code. `SELECT a.price, a.name, ST_AsText(a.shape), z.spatial_name, ST_AsText(z.wkb_geometry) FROM accommodations a, zipcode z WHERE price = 9000 AND ST_Within(a.shape, z.wkb_geometry);` `price   name                                 st_astext                                  spatial_name      st_astext ------------------------------------------------------------------------------------------------------------------------------------------------- 9000    Ueber den Dächern Berlins Zentrum    POINT(13.334436985013 52.4979779501538)    10777             POLYGON((13.3318284987227 52.4956021172799,...` 8. Calculate the maximum, minimum, or median price of accommodations by using a subquery. The following query lists the median price of accommodations by postal code. `SELECT a.price, a.name, ST_AsText(a.shape), z.spatial_name, ST_AsText(z.wkb_geometry) FROM accommodations a, zipcode z WHERE ST_Within(a.shape, z.wkb_geometry) AND price = (SELECT median(price) FROM accommodations) ORDER BY a.price;` `price name                            st_astext                                   spatial_name   st_astext --------------------------------------------------------------------------------------------------------------------------------------------- 45    "Cozy room Berlin-Mitte"        POINT(13.3864349535358 52.5292016386514)    10115          POLYGON((13.3658598465795 52.535659581048,... ... (723 rows returned)` 9. Run the following query to retrieve the number of accommodations listed in Berlin. To find the hot spots, these are grouped by postal code and sorted by the amount of supply. `SELECT z.spatial_name as zip, count(*) as numAccommodations FROM public.accommodations a, public.zipcode z WHERE ST_Within(a.shape, z.wkb_geometry) GROUP BY zip ORDER BY numAccommodations DESC;` `zip  	numaccommodations ---------------------------- 10245	872 10247	832 10437	733 10115	664 ... (187 rows returned)` ## Step 3: Clean up your resources Your cluster continues to accrue charges as long as it's running. When you have completed this tutorial, you can delete your sample cluster. If you want to keep the cluster but recover the storage used by the test data tables, run the following commands to delete the tables. `drop table public.accommodations cascade;` `drop table public.zipcode cascade;` |
+| zipcode        | 190    |
+
+## Step 2: Query spatial data
+
+After your tables are created and loaded, you can query them using SQL SELECT
+statements. The following queries demonstrate some of the information that you can
+retrieve. You can write many other queries that use spatial functions to satisfy your
+needs.
+
+###### To query spatial data
+
+1. Query to get the count of the total number of listings stored in the
+   `accommodations` table, as shown following. The spatial reference
+   system is World Geodetic System (WGS) 84, which has the unique spatial reference
+   identifier 4326.
+
+```
+SELECT count(*) FROM public.accommodations WHERE ST_SRID(shape) = 4326;
+```
+
+```
+
+ count
+-------
+ 22248
+```
+
+2. Fetch the geometry objects in well-known text (WKT) format with some
+   additional attributes. Additionally, you can validate if this postal code data
+   is also stored in World Geodetic System (WGS) 84, which uses the spatial
+   reference ID (SRID) 4326. Spatial data must be stored in the same spatial
+   reference system to be interoperable.
+
+```
+SELECT ogc_field, spatial_name, spatial_type, ST_SRID(wkb_geometry), ST_AsText(wkb_geometry)
+FROM public.zipcode
+ORDER BY spatial_name;
+```
+
+```
+
+ogc_field  spatial_name  spatial_type  st_srid  st_astext
+---------------------------------------------------------------
+0           10115        Polygon        4326     POLYGON((...))
+4           10117        Polygon        4326     POLYGON((...))
+8           10119        Polygon        4326     POLYGON((...))
+...
+(190 rows returned)
+```
+
+3. Select the polygon of Berlin Mitte (10117), a borough of Berlin, in GeoJSON format, its dimension,
+   and the number of points in this polygon.
+
+```
+SELECT ogc_field, spatial_name, ST_AsGeoJSON(wkb_geometry), ST_Dimension(wkb_geometry), ST_NPoints(wkb_geometry)
+FROM public.zipcode
+WHERE spatial_name='10117';
+```
+
+```
+
+ogc_field  spatial_name  spatial_type                                   st_dimension  st_npoint
+-----------------------------------------------------------------------------------------------
+4           10117         {"type":"Polygon", "coordinates":[[[...]]]}    2             331
+
+```
+
+4. Run the following SQL command to view how many accommodations are within 500
+   meters of the Brandenburg Gate.
+
+```
+SELECT count(*)
+FROM public.accommodations
+WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500;
+```
+
+```
+
+count
+------
+  29
+
+```
+
+5. Get the rough location of the Brandenburg Gate from data stored in the
+   accommodations that are listed as nearby by running the following query.
+
+This query requires a subselect. It leads to a different count because the
+requested location is not the same as the previous query because it is closer to
+the accommodations.
+
+```
+WITH poi(loc) as (
+  SELECT st_astext(shape) FROM accommodations WHERE name LIKE '%brandenburg gate%'
+)
+SELECT count(*)
+FROM accommodations a, poi p
+WHERE ST_DistanceSphere(a.shape, ST_GeomFromText(p.loc, 4326)) < 500;
+```
+
+```
+
+count
+------
+  60
+
+```
+
+6. Run the following query to show the details of all accommodations around the
+   Brandenburg Gate, ordered by price in descending order.
+
+```
+SELECT name, price, ST_AsText(shape)
+FROM public.accommodations
+WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500
+ORDER BY price DESC;
+```
+
+```
+
+name                                                   price  st_astext
+-------------------------------------------------------------------------------------------------------
+DUPLEX APARTMENT/PENTHOUSE in 5* LOCATION! 7583        300    POINT(13.3826510209548 52.5159819722552)
+DUPLEX-PENTHOUSE IN FIRST LOCATION! 7582               300    POINT(13.3799997083855 52.5135918444834)
+...
+(29 rows returned)
+
+```
+
+7. Run the following query to retrieve the most expensive accommodation with its
+   postal code.
+
+```
+SELECT
+  a.price, a.name, ST_AsText(a.shape),
+  z.spatial_name, ST_AsText(z.wkb_geometry)
+FROM accommodations a, zipcode z
+WHERE price = 9000 AND ST_Within(a.shape, z.wkb_geometry);
+```
+
+```
+
+price   name                                 st_astext                                  spatial_name      st_astext
+-------------------------------------------------------------------------------------------------------------------------------------------------
+9000    Ueber den Dächern Berlins Zentrum    POINT(13.334436985013 52.4979779501538)    10777             POLYGON((13.3318284987227 52.4956021172799,...
+
+```
+
+8. Calculate the maximum, minimum, or median price of accommodations by using a
+   subquery.
+
+The following query lists the median price of accommodations by postal code.
+
+```
+SELECT
+  a.price, a.name, ST_AsText(a.shape),
+  z.spatial_name, ST_AsText(z.wkb_geometry)
+FROM accommodations a, zipcode z
+WHERE
+  ST_Within(a.shape, z.wkb_geometry) AND
+  price = (SELECT median(price) FROM accommodations)
+ORDER BY a.price;
+```
+
+```
+
+price name                            st_astext                                   spatial_name   st_astext
+---------------------------------------------------------------------------------------------------------------------------------------------
+45    "Cozy room Berlin-Mitte"        POINT(13.3864349535358 52.5292016386514)    10115          POLYGON((13.3658598465795 52.535659581048,...
+...
+(723 rows returned)
+
+```
+
+9. Run the following query to retrieve the number of accommodations listed in
+   Berlin. To find the hot spots, these are grouped by postal code and sorted by
+   the amount of supply.
+
+```
+SELECT z.spatial_name as zip, count(*) as numAccommodations
+FROM public.accommodations a, public.zipcode z
+WHERE ST_Within(a.shape, z.wkb_geometry)
+GROUP BY zip
+ORDER BY numAccommodations DESC;
+```
+
+```
+
+zip  	numaccommodations
+----------------------------
+10245	872
+10247	832
+10437	733
+10115	664
+...
+(187 rows returned)
+
+```
+
+## Step 3: Clean up your resources
+
+Your cluster continues to accrue charges as long as it's running. When you
+have completed this tutorial, you can delete your sample cluster.
+
+If you want to keep the cluster but recover the storage used by the test data
+tables, run the following commands to delete the tables.
+
+```
+drop table public.accommodations cascade;
+```
+
+```
+drop table public.zipcode cascade;
+```

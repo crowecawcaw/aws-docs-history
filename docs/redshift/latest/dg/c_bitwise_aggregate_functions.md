@@ -81,10 +81,17 @@ of the following table). A user who doesn't like any of these events has all eig
 set to 0 (see the second row). A user who likes only sports and jazz is represented in
 the third row following.
 
-| USER   | SPORTS       | THEATRE                | JAZZ | OPERA  | ROCK     | VEGAS | BROADWAY | CLASSICAL |
-| ------ | ------------ | ---------------------- | ---- | ------ | -------- | ----- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------ | --- |
-| User 1 | 1            | 1                      | 1    | 1      | 1        | 1     | 1        | 1         |
-| User 2 | 0            | 0                      | 0    | 0      | 0        | 0     | 0        | 0         |
-| User 3 | 1            | 0                      | 1    | 0      | 0        | 0     | 0        | 0         | In the database table, these binary values can be stored in a single LIKES column as integers, as shown following. |
-| User   | Binary value | Stored value (integer) |      | ---    | ---      | ---   |          | User 1    | 11111111                                                                                                           | 255 |
-| User 2 | 00000000     | 0                      |      | User 3 | 10100000 | 160   |
+| USER   | SPORTS | THEATRE | JAZZ | OPERA | ROCK | VEGAS | BROADWAY | CLASSICAL |
+| ------ | ------ | ------- | ---- | ----- | ---- | ----- | -------- | --------- |
+| User 1 | 1      | 1       | 1    | 1     | 1    | 1     | 1        | 1         |
+| User 2 | 0      | 0       | 0    | 0     | 0    | 0     | 0        | 0         |
+| User 3 | 1      | 0       | 1    | 0     | 0    | 0     | 0        | 0         |
+
+In the database table, these binary values can be stored in a single LIKES column
+as integers, as shown following.
+
+| User   | Binary value | Stored value (integer) |
+| ------ | ------------ | ---------------------- |
+| User 1 | 11111111     | 255                    |
+| User 2 | 00000000     | 0                      |
+| User 3 | 10100000     | 160                    |

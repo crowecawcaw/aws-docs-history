@@ -173,9 +173,71 @@ To determine what proportion of a table was remerged, query SVV_VACUUM_SUMMARY
 after the vacuum operation completes. The following query shows the effect of six
 successive vacuums as CUSTSALES grew larger over time.
 
-````
+```
 `select * from svv_vacuum_summary
 where table_name = 'custsales';`
 `table_name | xid | sort_ | merge_ | elapsed_ | row_ | sortedrow_ | block_ | max_merge_
-| | partitions | increments | time | delta | delta | delta | partitions -----------+------+------------+------------+------------+-------+------------+---------+--------------- custsales | 7072 | 3 | 2 | 143918314 | 0 | 88297472 | 1524 | 47 custsales | 7122 | 3 | 3 | 164157882 | 0 | 88297472 | 772 | 47 custsales | 7212 | 3 | 4 | 187433171 | 0 | 88297472 | 767 | 47 custsales | 7289 | 3 | 4 | 255482945 | 0 | 88297472 | 770 | 47 custsales | 7420 | 3 | 5 | 316583833 | 0 | 88297472 | 769 | 47 custsales | 9007 | 3 | 6 | 306685472 | 0 | 88297472 | 772 | 47 (6 rows)` ``` The merge\_increments column gives an indication of the amount of data that was merged for each vacuum operation. If the number of merge increments over consecutive vacuums increases in proportion to the growth in table size, it indicates that each vacuum operation is remerging an increasing number of rows in the table because the existing and newly sorted regions overlap. ## Load your data in sort key order If you load your data in sort key order using a COPY command, you might reduce or even remove the need to vacuum. COPY automatically adds new rows to the table's sorted region when all of the following are true: <br>• The table uses a compound sort key with only one sort column. <br>• The sort column is NOT NULL. <br>• The table is 100 percent sorted or empty. <br>• All the new rows are higher in sort order than the existing rows, including rows marked for deletion. In this instance, Amazon Redshift uses the first eight bytes of the sort key to determine sort order. For example, suppose you have a table that records customer events using a customer ID and time. If you sort on customer ID, it’s likely that the sort key range of new rows added by incremental loads will overlap the existing range, as shown in the previous example, leading to an expensive vacuum operation. If you set your sort key to a timestamp column, your new rows will be appended in sort order at the end of the table, as the following diagram shows, reducing or even removing the need to vacuum. ![A table that uses a timestamp column as the sort key, getting new records that don't need to be sorted.](images/vacuum-unsorted-region-date-sort.png) ## Use time series tables to reduce stored data If you maintain data for a rolling time period, use a series of tables, as the following diagram illustrates. ![Five tables with data from five quarters. The oldest table is deleted to maintain a year of rolling time.](images/vacuum-example-unsorted-region-copy-time-series.png) Create a new table each time you add a set of data, then delete the oldest table in the series. You gain a double benefit: <br>• You avoid the added cost of deleting rows, because a DROP TABLE operation is much more efficient than a mass DELETE. <br>• If the tables are sorted by timestamp, no vacuum is needed. If each table contains data for one month, a vacuum will at most have to rewrite one month’s worth of data, even if the tables are not sorted by timestamp. You can create a UNION ALL view for use by reporting queries that hides the fact that the data is stored in multiple tables. If a query filters on the sort key, the query planner can efficiently skip all the tables that aren't used. A UNION ALL can be less efficient for other types of queries, so you should evaluate query performance in the context of all queries that use the tables.
-````
+ | | partitions | increments | time | delta | delta | delta | partitions
+ -----------+------+------------+------------+------------+-------+------------+---------+---------------
+ custsales | 7072 | 3 | 2 | 143918314 | 0 | 88297472 | 1524 | 47
+ custsales | 7122 | 3 | 3 | 164157882 | 0 | 88297472 | 772 | 47
+ custsales | 7212 | 3 | 4 | 187433171 | 0 | 88297472 | 767 | 47
+ custsales | 7289 | 3 | 4 | 255482945 | 0 | 88297472 | 770 | 47
+ custsales | 7420 | 3 | 5 | 316583833 | 0 | 88297472 | 769 | 47
+ custsales | 9007 | 3 | 6 | 306685472 | 0 | 88297472 | 772 | 47
+ (6 rows)`
+```
+
+The merge_increments column gives an indication of the amount of data that was
+merged for each vacuum operation. If the number of merge increments over consecutive
+vacuums increases in proportion to the growth in table size, it indicates that each
+vacuum operation is remerging an increasing number of rows in the table because the
+existing and newly sorted regions overlap.
+
+## Load your data in sort key order
+
+If you load your data in sort key order using a COPY command, you might reduce or
+even remove the need to vacuum.
+
+COPY automatically adds new rows to the table's sorted region when all of the
+following are true:
+
+- The table uses a compound sort key with only one sort column.
+- The sort column is NOT NULL.
+- The table is 100 percent sorted or empty.
+- All the new rows are higher in sort order than the existing rows, including
+  rows marked for deletion. In this instance, Amazon Redshift uses the first eight bytes of
+  the sort key to determine sort order.
+
+For example, suppose you have a table that records customer events using a
+customer ID and time. If you sort on customer ID, it’s likely that the sort key range
+of new rows added by incremental loads will overlap the existing range, as shown in
+the previous example, leading to an expensive vacuum operation.
+
+If you set your sort key to a timestamp column, your new rows will be appended in
+sort order at the end of the table, as the following diagram shows, reducing or even
+removing the need to vacuum.
+
+![A table that uses a timestamp column as the sort key, getting new records that don't need to be sorted.](images/vacuum-unsorted-region-date-sort.png)
+
+## Use time series tables to reduce stored data
+
+If you maintain data for a rolling time period, use a series of tables, as the
+following diagram illustrates.
+
+![Five tables with data from five quarters. The oldest table is deleted to maintain a year of rolling time.](images/vacuum-example-unsorted-region-copy-time-series.png)
+
+Create a new table each time you add a set of data, then delete the oldest table
+in the series. You gain a double benefit:
+
+- You avoid the added cost of deleting rows, because a DROP TABLE operation is
+  much more efficient than a mass DELETE.
+- If the tables are sorted by timestamp, no vacuum is needed. If each table
+  contains data for one month, a vacuum will at most have to rewrite one month’s
+  worth of data, even if the tables are not sorted by timestamp.
+
+You can create a UNION ALL view for use by reporting queries that hides the fact
+that the data is stored in multiple tables. If a query filters on the sort key, the
+query planner can efficiently skip all the tables that aren't used. A UNION ALL can
+be less efficient for other types of queries, so you should evaluate query
+performance in the context of all queries that use the tables.

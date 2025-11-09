@@ -14,12 +14,19 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name   | Data type | Description                                                                            |
-| ------------- | --------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| job_owner     | integer   | The identifier of the owner of the job.                                                |
-| channel_arn   | name      | The integration identifier.                                                            |
-| bucket        | text      | The Amazon S3 bucket name associated with the integration.                             |
-| channel state | name      | The state of the integration. Valid values: `Pending`, `Established`, and `Inactive` . |
-| db_name       | name      | The database name of the dependent object.                                             |
-| job_name      | text      | The name of the job.                                                                   |
-| job_state     | integer   | The state of the job. Valid values: `0` for active, `1` for pending.                   | The following example returns S3 integrations for the current database. `` `SELECT * FROM SVV_COPY_JOB_INTEGRATIONS WHERE db_name = pg_catalog.current_database();` `` |
+| Column name   | Data type | Description                                                                               |
+| ------------- | --------- | ----------------------------------------------------------------------------------------- |
+| job_owner     | integer   | The identifier of the owner of the job.                                                   |
+| channel_arn   | name      | The integration identifier.                                                               |
+| bucket        | text      | The Amazon S3 bucket name associated with the integration.                                |
+| channel state | name      | The state of the integration.<br>Valid values: `Pending`, `Established`, and `Inactive` . |
+| db_name       | name      | The database name of the dependent object.                                                |
+| job_name      | text      | The name of the job.                                                                      |
+| job_state     | integer   | The state of the job.<br>Valid values: `0` for active, `1` for pending.                   |
+
+The following example returns S3 integrations for the current database.
+
+```
+`SELECT * FROM SVV_COPY_JOB_INTEGRATIONS WHERE db_name = pg_catalog.current_database();`
+
+```

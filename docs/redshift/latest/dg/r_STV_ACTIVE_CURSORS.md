@@ -14,13 +14,13 @@ A superuser can view all cursors.
 
 ## Table columns
 
-| Column name  | Data type      | Description                                                  |
-| ------------ | -------------- | ------------------------------------------------------------ |
-| userid       | integer        | ID of user who generated entry.                              |
-| name         | character(256) | Cursor name.                                                 |
-| xid          | bigint         | Transaction context.                                         |
-| pid          | integer        | Leader process running the query.                            |
-| starttime    | timestamp      | Time when the cursor was declared.                           |
-| row_count    | bigint         | Number of rows in the cursor result set.                     |
-| byte_count   | bigint         | Number of bytes in the cursor result set.                    |
-| fetched_rows | bigint         | Number of rows currently fetched from the cursor result set. |
+| Column name  | Data type      | Description                                                     |
+| ------------ | -------------- | --------------------------------------------------------------- |
+| userid       | integer        | ID of user who generated entry.                                 |
+| name         | character(256) | Cursor name.                                                    |
+| xid          | bigint         | Transaction context.                                            |
+| pid          | integer        | Leader process running the query.                               |
+| starttime    | timestamp      | Time when the cursor was declared.                              |
+| row_count    | bigint         | Number of rows in the cursor result set.                        |
+| byte_count   | bigint         | Number of bytes in the cursor result set.                       |
+| fetched_rows | bigint         | Number of rows currently fetched from the cursor<br>result set. |

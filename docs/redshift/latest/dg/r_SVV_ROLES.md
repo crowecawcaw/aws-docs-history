@@ -12,8 +12,21 @@ This table is visible to all users.
 ## Table columns
 
 | Column name | Data type | Description                                                             |
-| ----------- | --------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------- | ------------- |
+| ----------- | --------- | ----------------------------------------------------------------------- |
 | role_id     | integer   | The role ID.                                                            |
 | role_name   | text      | The name of the role.                                                   |
 | role_owner  | text      | The name of the role owner.                                             |
-| external_id | text      | The unique identifier of the role in the third-party identity provider. | ## Sample query The following example returns the output of SVV_ROLES. ``` SELECT role_name,role_owner FROM svv_roles WHERE role_name IN ('role1', 'role2'); role_name | role_owner -----------+------------ role1 | superuser role2 | superuser ``` |
+| external_id | text      | The unique identifier of the role in the third-party identity provider. |
+
+## Sample query
+
+The following example returns the output of SVV_ROLES.
+
+```
+SELECT role_name,role_owner FROM svv_roles WHERE role_name IN ('role1', 'role2');
+
+ role_name | role_owner
+-----------+------------
+   role1   | superuser
+   role2   | superuser
+```

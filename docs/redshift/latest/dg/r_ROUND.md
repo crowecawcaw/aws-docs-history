@@ -42,15 +42,39 @@ The following examples use the TICKIT sample database. For more information, see
 
 To round the commission paid for a given transaction to the nearest whole number, use the following example.
 
-````
+```
 `SELECT commission, ROUND(commission)
 FROM sales WHERE salesid=10000;`
 
 `+------------+-------+
-| commission | round | +------------+-------+
-| 28.05 | 28 | +------------+-------+` ``` To round the commission paid for a given transaction to the first decimal place, use the following example. ``` `SELECT commission, ROUND(commission, 1) FROM sales WHERE salesid=10000;` `+------------+-------+
-| commission | round | +------------+-------+
-| 28.05 | 28.1 | +------------+-------+` ``` To extend the precision in the opposite direction as the previous example, use the following example. ``` `SELECT commission, ROUND(commission, -1) FROM sales WHERE salesid=10000;` `+------------+-------+
-| commission | round | +------------+-------+
-| 28.05 | 30 | +------------+-------+` ```
-````
+| commission | round |
++------------+-------+
+| 28.05 | 28 |
++------------+-------+`
+```
+
+To round the commission paid for a given transaction to the first decimal place, use the following example.
+
+```
+`SELECT commission, ROUND(commission, 1)
+FROM sales WHERE salesid=10000;`
+
+`+------------+-------+
+| commission | round |
++------------+-------+
+| 28.05 | 28.1 |
++------------+-------+`
+```
+
+To extend the precision in the opposite direction as the previous example, use the following example.
+
+```
+`SELECT commission, ROUND(commission, -1)
+FROM sales WHERE salesid=10000;`
+
+`+------------+-------+
+| commission | round |
++------------+-------+
+| 28.05 | 30 |
++------------+-------+`
+```

@@ -13,8 +13,20 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name   | Data type | Description                   |
-| ------------- | --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ------------------------------------------------------------------ | ------ | ---- | ------- |
+| ------------- | --------- | ----------------------------- |
 | name          | name      | Library name.                 |
 | language_oid  | oid       | Reserved for system use.      |
 | file_store_id | integer   | Reserved for system use.      |
-| owner         | integer   | User ID of the library owner. | ## Example The following example returns information for user-installed libraries. ``` select \* from pg_library; name | language_oid | file_store_id | owner -----------+--------------+---------------+------ f_urlparse | 108254 | 2000 | 100 ``` |
+| owner         | integer   | User ID of the library owner. |
+
+## Example
+
+The following example returns information for user-installed libraries.
+
+```
+select * from pg_library;
+
+name       | language_oid | file_store_id | owner
+-----------+--------------+---------------+------
+f_urlparse |       108254 |          2000 |   100
+```

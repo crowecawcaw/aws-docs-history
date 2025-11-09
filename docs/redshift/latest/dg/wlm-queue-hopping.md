@@ -24,23 +24,113 @@ assigned to the default queue.
 The following table summarizes the behavior of different types of queries with a WLM
 timeout.
 
-| Query type                               | Action                         |
-| ---------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INSERT, UPDATE, and DELETE               | Cancel                         |
-| User-defined functions (UDFs)            | Cancel                         |
-| UNLOAD                                   | Cancel                         |
-| COPY                                     | Continue execution             |
-| Maintenance operations                   | Continue execution             |
-| Read-only queries in a `returning` state | Continue execution             |
-| Read-only queries in a `running` state   | Reassign or restart            |
-| CREATE TABLE AS (CTAS), SELECT INTO      | Reassign or restart            | ## WLM timeout queue hopping WLM hops the following types of queries when they time out: <br>• Read-only queries, such as SELECT statements, that are in a WLM state of `running`. To find the WLM state of a query, view the STATE column on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table. <br>• CREATE TABLE AS (CTAS) statements. WLM queue hopping supports both user-defined and system-generated CTAS statements. <br>• SELECT INTO statements. Queries that aren't subject to WLM timeout continue running in the original queue until completion. The following types of queries aren't subject to WLM timeout: <br>• COPY statements <br>• Maintenance operations, such as ALTER, ANALYZE and VACUUM <br>• Read-only queries, such as SELECT statements, that have reached a WLM state of `returning`. To find the WLM state of a query, view the STATE column on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table. Queries that aren't eligible for hopping by WLM timeout are canceled when they time out. The following types of queries are not eligible for hopping by a WLM timeout: <br>• INSERT, UPDATE, and DELETE statements <br>• UNLOAD statements <br>• User-defined functions (UDFs) ## WLM timeout reassigned and restarted queries When a query is hopped and no matching queue is found, the query is canceled. When a query is hopped and a matching queue is found, WLM attempts to reassign the query to the new queue. If a query can't be reassigned, it's restarted in the new queue, as described following. A query is reassigned only if all of the following are true: <br>• A matching queue is found. <br>• The new queue has enough free slots to run the query. A query might require multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater than 1. <br>• The new queue has at least as much memory available as the query currently uses. If the query is reassigned, the query continues executing in the new queue. Intermediate results are preserved, so there is minimal effect on total execution time. If the query can't be reassigned, the query is canceled and restarted in the new queue. Intermediate results are deleted. The query waits in the queue, then begins running when enough slots are available. ## QMR hop actions The following table summarizes the behavior of different types of queries with a QMR hop action. |
-| Query type                               | Action                         |
-| ---                                      | ---                            |
-| COPY                                     | Continue execution             |
-| Maintenance operations                   | Continue execution             |
-| User-defined functions (UDFs)            | Continue execution             |
-| UNLOAD                                   | Reassign or continue execution |
-| INSERT, UPDATE, and DELETE               | Reassign or continue execution |
-| Read-only queries in a `returning` state | Reassign or continue execution |
-| Read-only queries in a `running` state   | Reassign or restart            |
-| CREATE TABLE AS (CTAS), SELECT INTO      | Reassign or restart            | To find whether a query that was hopped by QMR was reassigned, restarted, or canceled, query the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system log table. ## QMR hop action reassigned and restarted queries When a query is hopped and no matching queue is found, the query is canceled. When a query is hopped and a matching queue is found, WLM attempts to reassign the query to the new queue. If a query can't be reassigned, it's restarted in the new queue or continues execution in the original queue, as described following. A query is reassigned only if all of the following are true: <br>• A matching queue is found. <br>• The new queue has enough free slots to run the query. A query might require multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater than 1. <br>• The new queue has at least as much memory available as the query currently uses. If the query is reassigned, the query continues executing in the new queue. Intermediate results are preserved, so there is minimal effect on total execution time. If a query can't be reassigned, the query is either restarted or continues execution in the original queue. If the query is restarted, the query is canceled and restarted in the new queue. Intermediate results are deleted. The query waits in the queue, then begins execution when enough slots are available.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Query type                                  | Action              |
+| ------------------------------------------- | ------------------- |
+| INSERT, UPDATE, and DELETE                  | Cancel              |
+| User-defined functions (UDFs)               | Cancel              |
+| UNLOAD                                      | Cancel              |
+| COPY                                        | Continue execution  |
+| Maintenance operations                      | Continue execution  |
+| Read-only queries in a `returning`<br>state | Continue execution  |
+| Read-only queries in a `running` state      | Reassign or restart |
+| CREATE TABLE AS (CTAS), SELECT INTO         | Reassign or restart |
+
+## WLM timeout queue hopping
+
+WLM hops the following types of queries when they time out:
+
+- Read-only queries, such as SELECT statements, that are in a WLM state of
+  `running`. To find the WLM state of a query, view the STATE column
+  on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
+- CREATE TABLE AS (CTAS) statements. WLM queue hopping supports both user-defined
+  and system-generated CTAS statements.
+- SELECT INTO statements.
+
+Queries that aren't subject to WLM timeout continue running in the original queue
+until completion. The following types of queries aren't subject to WLM timeout:
+
+- COPY statements
+- Maintenance operations, such as ALTER, ANALYZE and VACUUM
+- Read-only queries, such as SELECT statements, that have reached a WLM state of
+  `returning`. To find the WLM state of a query, view the STATE column
+  on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
+
+Queries that aren't eligible for hopping by WLM timeout are canceled when they time
+out. The following types of queries are not eligible for hopping by a WLM
+timeout:
+
+- INSERT, UPDATE, and DELETE statements
+- UNLOAD statements
+- User-defined functions (UDFs)
+
+## WLM timeout reassigned
+
+and restarted queries
+
+When a query is hopped and no matching queue is found, the query is canceled.
+
+When a query is hopped and a matching queue is found, WLM attempts to reassign the
+query to the new queue. If a query can't be reassigned, it's restarted in the new queue,
+as described following.
+
+A query is reassigned only if all of the following are true:
+
+- A matching queue is found.
+- The new queue has enough free slots to run the query. A query might require
+  multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
+  than 1.
+- The new queue has at least as much memory available as the query currently
+  uses.
+
+If the query is reassigned, the query continues executing in the new queue.
+Intermediate results are preserved, so there is minimal effect on total execution time.
+
+If the query can't be reassigned, the query is canceled and restarted in the new
+queue. Intermediate results are deleted. The query waits in the queue, then begins
+running when enough slots are available.
+
+## QMR hop actions
+
+The following table summarizes the behavior of different types of queries with a QMR
+hop action.
+
+| Query type                                  | Action                         |
+| ------------------------------------------- | ------------------------------ |
+| COPY                                        | Continue execution             |
+| Maintenance operations                      | Continue execution             |
+| User-defined functions (UDFs)               | Continue execution             |
+| UNLOAD                                      | Reassign or continue execution |
+| INSERT, UPDATE, and DELETE                  | Reassign or continue execution |
+| Read-only queries in a `returning`<br>state | Reassign or continue execution |
+| Read-only queries in a `running` state      | Reassign or restart            |
+| CREATE TABLE AS (CTAS), SELECT INTO         | Reassign or restart            |
+
+To find whether a query that was hopped by QMR was reassigned, restarted, or
+canceled, query the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system log table.
+
+## QMR hop action
+
+reassigned and restarted queries
+
+When a query is hopped and no matching queue is found, the query is canceled.
+
+When a query is hopped and a matching queue is found, WLM attempts to reassign the
+query to the new queue. If a query can't be reassigned, it's restarted in the new queue
+or continues execution in the original queue, as described following.
+
+A query is reassigned only if all of the following are true:
+
+- A matching queue is found.
+- The new queue has enough free slots to run the query. A query might require
+  multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
+  than 1.
+- The new queue has at least as much memory available as the query currently
+  uses.
+
+If the query is reassigned, the query continues executing in the new queue.
+Intermediate results are preserved, so there is minimal effect on total execution time.
+
+If a query can't be reassigned, the query is either restarted or continues execution
+in the original queue. If the query is restarted, the query is canceled and restarted in
+the new queue. Intermediate results are deleted. The query waits in the queue, then
+begins execution when enough slots are available.

@@ -28,12 +28,24 @@ A `SUPER` expression or column.
 
 To serialize a `SUPER` value and returns the result in `VARBYTE` format, use the following example.
 
-````
+```
 `SELECT JSON_SERIALIZE_TO_VARBYTE(JSON_PARSE('[10001,10002,"abc"]'));`
 
 `+----------------------------------------+
-| json_serialize_to_varbyte | +----------------------------------------+
-| 5b31303030312c31303030322c22616263225d | +----------------------------------------+` ``` To serialize a `SUPER` value and casts the result to `VARCHAR` format, use the following example. For more information, see [CAST function](r_CAST_function.md "r_CAST_function.md"). ``` `SELECT CAST((JSON_SERIALIZE_TO_VARBYTE(JSON_PARSE('[10001,10002,"abc"]'))) AS VARCHAR);` `+---------------------------+
-| json_serialize_to_varbyte | +---------------------------+
-| [10001,10002,"abc"] | +---------------------------+` ```
-````
+| json_serialize_to_varbyte |
++----------------------------------------+
+| 5b31303030312c31303030322c22616263225d |
++----------------------------------------+`
+```
+
+To serialize a `SUPER` value and casts the result to `VARCHAR` format, use the following example. For more information, see [CAST function](r_CAST_function.md "r_CAST_function.md").
+
+```
+`SELECT CAST((JSON_SERIALIZE_TO_VARBYTE(JSON_PARSE('[10001,10002,"abc"]'))) AS VARCHAR);`
+
+`+---------------------------+
+| json_serialize_to_varbyte |
++---------------------------+
+| [10001,10002,"abc"] |
++---------------------------+`
+```

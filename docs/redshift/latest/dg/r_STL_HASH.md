@@ -21,7 +21,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name             | Data type    | Description                                                                                                                                                                   |
-| ----------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ----- | -------- | ------- | --------- | -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------- | --- | ------ | --- | -------- | --- | --- | ------ | --- | --- | --- | --- | --- | --- | ----------------- |
+| ----------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid                  | integer      | ID of the user who generated the entry.                                                                                                                                       |
 | query                   | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice                   | integer      | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -33,15 +33,35 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | rows                    | bigint       | Total number of rows that were processed.                                                                                                                                     |
 | bytes                   | bigint       | Size, in bytes, of all the output rows for the step.                                                                                                                          |
 | slots                   | integer      | Total number of hash buckets.                                                                                                                                                 |
-| occupied                | integer      | Total number of slots that contain records.                                                                                                                                   |
+| occupied                | integer      | Total number of slots that contain<br>records.                                                                                                                                |
 | maxlength               | integer      | Size of the largest slot.                                                                                                                                                     |
 | tbl                     | integer      | Table ID.                                                                                                                                                                     |
-| is_diskbased            | character(1) | If true (t), the query was performed as a disk-based operation. If false (f), the query was performed in memory.                                                              |
-| workmem                 | bigint       | Total number of bytes of working memory assigned to the step.                                                                                                                 |
-| num_parts               | integer      | Total number of partitions that a hash table was divided into during a hash step.                                                                                             |
+| is_diskbased            | character(1) | If true (t), the query was performed as a<br>disk-based operation. If false (f), the query was performed in<br>memory.                                                        |
+| workmem                 | bigint       | Total number of bytes of working memory assigned<br>to the step.                                                                                                              |
+| num_parts               | integer      | Total number of partitions that a hash table was<br>divided into during a hash step.                                                                                          |
 | est_rows                | bigint       | Estimated number of rows to be hashed.                                                                                                                                        |
 | num_blocks_permitted    | integer      | This information is for internal use only.                                                                                                                                    |
 | resizes                 | integer      | This information is for internal use only.                                                                                                                                    |
 | checksum                | bigint       | This information is for internal use only.                                                                                                                                    |
 | runtime_filter_size     | integer      | Size of the runtime filter in bytes.                                                                                                                                          |
-| max_runtime_filter_size | integer      | Maximum size of the runtime filter in bytes.                                                                                                                                  | ## Sample queries The following example returns information about the number of partitions that were used in a hash for query 720, and indicates that none of the steps ran on disk. `select slice, rows, bytes, occupied, workmem, num_parts, est_rows, num_blocks_permitted, is_diskbased from stl_hash where query=720 and segment=5 order by slice;` ``` slice | rows | bytes | occupied | workmem | num_parts | est_rows | num_blocks_permitted | is_diskbased -------+------+--------+----------+----------+-----------+----------+----------------------+-------------- 0 | 145 | 585800 | 1   | 88866816 | 16  | 1   | 52 f 1 | 0   | 0   | 0   | 0   | 16  | 1   | 52 f (2 rows) ``` |
+| max_runtime_filter_size | integer      | Maximum size of the runtime filter in bytes.                                                                                                                                  |
+
+## Sample queries
+
+The following example returns information about the number of partitions that were
+used in a hash for query 720, and indicates that none of the steps ran on disk.
+
+```
+select slice, rows, bytes, occupied, workmem, num_parts, est_rows, num_blocks_permitted, is_diskbased
+from stl_hash
+where query=720 and segment=5
+order by slice;
+```
+
+```
+ slice | rows | bytes  | occupied | workmem  | num_parts | est_rows | num_blocks_permitted | is_diskbased
+-------+------+--------+----------+----------+-----------+----------+----------------------+--------------
+     0 |  145 | 585800 |        1 | 88866816 |        16 |        1 |                   52              f
+     1 |    0 |      0 |        0 |        0 |        16 |        1 |                   52              f
+(2 rows)
+```

@@ -86,7 +86,7 @@ DETAIL:  The absolute value is greater than or equal to 10^2 for field with prec
 The following example inserts variable-precision values into a REAL
 column.
 
-````
+```
 `insert into film(replacement_cost) values(1999999.99);
 
 insert into film(replacement_cost) values(1999.99);
@@ -94,7 +94,13 @@ insert into film(replacement_cost) values(1999.99);
 select replacement_cost from film;`
 
 `+------------------+
-| replacement_cost | +------------------+
+| replacement_cost |
++------------------+
 | 2000000 |
-| 1999.99 | +------------------+` ``` The value `1999999.99` is converted to `2000000` to meet the precision requirement for the `REAL` column. The value `1999.99` is loaded as is.
-````
+| 1999.99 |
++------------------+`
+```
+
+The value `1999999.99` is converted to `2000000` to
+meet the precision requirement for the `REAL` column. The value
+`1999.99` is loaded as is.

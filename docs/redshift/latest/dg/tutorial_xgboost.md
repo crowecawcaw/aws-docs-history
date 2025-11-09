@@ -123,9 +123,10 @@ output. The `train:error` metric is a measure of accuracy of your
 model that measures to six decimal places. A value of 0 is most accurate and a
 value of 1 is least accurate.
 
-````
+```
 +--------------------------+--------------------------------------------------+
-|        Model Name        |   model_banknoteauthentication_xgboost_binary    | +--------------------------+--------------------------------------------------+
+|        Model Name        |   model_banknoteauthentication_xgboost_binary    |
++--------------------------+--------------------------------------------------+
 | Schema Name              | public                                           |
 | Owner                    | awsuser                                          |
 | Creation Time            | Tue, 21.06.2022 19:07:35                         |
@@ -150,5 +151,123 @@ value of 1 is least accurate.
 |                          |                                                  |
 | HYPERPARAMETERS:         |                                                  |
 | num_round                |                                              100 |
-| objective                | binary:logistic                                  | +--------------------------+--------------------------------------------------+ ``` ## Step 3: Perform predictions with the model ### Check the accuracy of the model The following prediction query uses the prediction function created in the previous step to check the accuracy of your model. Run this query on the testing set to make sure the model does not correspond too closely to the training set. This close correspondence is also known as overfitting, and overfitting could cause the model to make unreliable predictions. ``` WITH predict_data AS ( SELECT class AS label, func_model_banknoteauthentication_xgboost_binary (variance, skewness, curtosis, entropy) AS predicted, CASE WHEN label IS NULL THEN 0 ELSE label END AS actual, CASE WHEN actual = predicted THEN 1 :: INT ELSE 0 :: INT END AS correct FROM banknoteauthentication_test ), aggr_data AS ( SELECT SUM(correct) AS num_correct, COUNT(*) AS total FROM predict_data ) SELECT (num_correct :: FLOAT / total :: FLOAT) AS accuracy FROM aggr_data; ``` ### Predict the amount of original and counterfeit banknotes The following prediction query returns the predicted amount of original and counterfeit banknotes in the testing set. ``` WITH predict_data AS ( SELECT func_model_banknoteauthentication_xgboost_binary(variance, skewness, curtosis, entropy) AS predicted FROM banknoteauthentication_test ) SELECT CASE WHEN predicted = '0' THEN 'Original banknote' WHEN predicted = '1' THEN 'Counterfeit banknote' ELSE 'NA' END AS banknote_authentication, COUNT(1) AS count FROM predict_data GROUP BY 1; ``` ### Find the average observation for an original and a counterfeit banknote The following prediction query returns the average value of each feature for banknotes that are predicted to be original and counterfeit in the testing set. ``` WITH predict_data AS ( SELECT func_model_banknoteauthentication_xgboost_binary(variance, skewness, curtosis, entropy) AS predicted, variance, skewness, curtosis, entropy FROM banknoteauthentication_test ) SELECT CASE WHEN predicted = '0' THEN 'Original banknote' WHEN predicted = '1' THEN 'Counterfeit banknote' ELSE 'NA' END AS banknote_authentication, TRUNC(AVG(variance), 2) AS avg_variance, TRUNC(AVG(skewness), 2) AS avg_skewness, TRUNC(AVG(curtosis), 2) AS avg_curtosis, TRUNC(AVG(entropy), 2) AS avg_entropy FROM predict_data GROUP BY 1 ORDER BY 2; ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+| objective                | binary:logistic                                  |
++--------------------------+--------------------------------------------------+
+
+```
+
+## Step 3: Perform predictions with the model
+
+### Check the accuracy of the model
+
+The following prediction query uses the prediction function created in the
+previous step to check the accuracy of your model. Run this query on the
+testing set to make sure the model does not correspond too closely to the
+training set. This close correspondence is also known as overfitting, and
+overfitting could cause the model to make unreliable predictions.
+
+```
+WITH predict_data AS (
+    SELECT
+        class AS label,
+        func_model_banknoteauthentication_xgboost_binary (variance, skewness, curtosis, entropy) AS predicted,
+        CASE
+            WHEN label IS NULL THEN 0
+            ELSE label
+        END AS actual,
+        CASE
+            WHEN actual = predicted THEN 1 :: INT
+            ELSE 0 :: INT
+        END AS correct
+    FROM
+        banknoteauthentication_test
+),
+aggr_data AS (
+    SELECT
+        SUM(correct) AS num_correct,
+        COUNT(*) AS total
+    FROM
+        predict_data
+)
+SELECT
+    (num_correct :: FLOAT / total :: FLOAT) AS accuracy
+FROM
+    aggr_data;
+```
+
+### Predict the amount of original and counterfeit banknotes
+
+The following prediction query returns the predicted amount of original and
+counterfeit banknotes in the testing set.
+
+```
+WITH predict_data AS (
+    SELECT
+        func_model_banknoteauthentication_xgboost_binary(variance, skewness, curtosis, entropy) AS predicted
+    FROM
+        banknoteauthentication_test
+)
+SELECT
+    CASE
+        WHEN predicted = '0' THEN 'Original banknote'
+        WHEN predicted = '1' THEN 'Counterfeit banknote'
+        ELSE 'NA'
+    END AS banknote_authentication,
+    COUNT(1) AS count
+FROM
+    predict_data
+GROUP BY
+    1;
+```
+
+### Find the average observation for an original and a counterfeit
+
+banknote
+
+The following prediction query returns the average value of each feature for
+banknotes that are predicted to be original and counterfeit in the testing
+set.
+
+```
+WITH predict_data AS (
+    SELECT
+        func_model_banknoteauthentication_xgboost_binary(variance, skewness, curtosis, entropy) AS predicted,
+          variance,
+          skewness,
+          curtosis,
+          entropy
+    FROM
+        banknoteauthentication_test
+)
+SELECT
+    CASE
+        WHEN predicted = '0' THEN 'Original banknote'
+        WHEN predicted = '1' THEN 'Counterfeit banknote'
+        ELSE 'NA'
+    END AS banknote_authentication,
+    TRUNC(AVG(variance), 2) AS avg_variance,
+    TRUNC(AVG(skewness), 2) AS avg_skewness,
+    TRUNC(AVG(curtosis), 2) AS avg_curtosis,
+    TRUNC(AVG(entropy), 2) AS avg_entropy
+FROM
+    predict_data
+GROUP BY
+    1
+ORDER BY
+    2;
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

@@ -288,9 +288,10 @@ percentage of data points that are classified correctly by the model. You will
 use multi-class accuracy to validate the accuracy of the model in the next
 step.
 
-````
+```
 +--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|              Key               |                                                                                                                                                                                                                                                                                                                                                                                                             Value                                                                                                                                                                                                                                                                                                                                                                                                              | +--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|              Key               |                                                                                                                                                                                                                                                                                                                                                                                                             Value                                                                                                                                                                                                                                                                                                                                                                                                              |
++--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Model Name                     | forest_cover_type_model                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Schema Name                    | public                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Owner                          | awsuser                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -314,10 +315,448 @@ step.
 | Function Parameter Types       | int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8 int8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | IAM Role                       | default-aws-iam-role                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | S3 Bucket                      | amzn-s3-demo-bucket                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Max Runtime                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          15000 | +--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ ``` ## Step 3: Validate the model 1. The following prediction query validates the accuracy of the model on the `covertype_validation` dataset by calculating multi-class accuracy. Multi-class accuracy is the percentage of the model’s predictions that are correct. ``` SELECT CAST(sum(t1.match) AS decimal(7, 2)) AS predicted_matches, CAST(sum(t1.nonmatch) AS decimal(7, 2)) AS predicted_non_matches, CAST(sum(t1.match + t1.nonmatch) AS decimal(7, 2)) AS total_predictions, predicted_matches / total_predictions AS pct_accuracy FROM ( SELECT Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm, Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10, Soil_Type11, Soil_Type12, Soil_Type13, Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40, Cover_type AS actual_cover_type, predict_cover_type( Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm, Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10, Soil_Type11, Soil_Type12, Soil_Type13, Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40 ) AS predicted_cover_type, CASE WHEN actual_cover_type = predicted_cover_type THEN 1 ELSE 0 END AS match, CASE WHEN actual_cover_type <> predicted_cover_type THEN 1 ELSE 0 END AS nonmatch FROM public.covertype_validation ) t1; ``` The output of the previous query should look like the following example. The value of the multi-class accuracy metric should be similar to the `validation:multiclass_accuracy` metric shown by the SHOW MODEL operation’s output. ``` +-------------------+-----------------------+-------------------+--------------+
-| predicted_matches | predicted_non_matches | total_predictions | pct_accuracy | +-------------------+-----------------------+-------------------+--------------+
-|             41211 |                 16324 |             57535 |   0.71627704 | +-------------------+-----------------------+-------------------+--------------+ ``` 2. The following query predicts the most common cover type for `wilderness_area2`. This dataset includes four wilderness areas and seven cover types. A wilderness area can have multiple cover types. ``` SELECT t1. predicted_cover_type, COUNT(*) FROM ( SELECT Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm , Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10 , Soil_Type11, Soil_Type12 , Soil_Type13 , Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40, predict_cover_type( Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm , Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10, Soil_Type11, Soil_Type12, Soil_Type13, Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40) AS predicted_cover_type FROM public.covertype_test WHERE wilderness_area2 = 1) t1 GROUP BY 1; ``` The output of the previous operation should look similar to the following example. This output means that the model predicted that the majority of cover is cover type 1, and there is some cover of cover types 2 and 7. ``` +----------------------+-------+
-| predicted_cover_type | count | +----------------------+-------+ |                    2 |   564 |
-|                    7 |    97 | |                    1 |  2309 | +----------------------+-------+ ``` 3. The following query shows the most common cover type in a single wilderness area. The query displays the amount of that cover type and the cover type’s wilderness area. ``` SELECT t1. predicted_cover_type, COUNT(*), wilderness_area FROM ( SELECT Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm , Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10 , Soil_Type11, Soil_Type12 , Soil_Type13 , Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40, predict_cover_type( Elevation, Aspect, Slope, Horizontal_distance_to_hydrology, Vertical_distance_to_hydrology, Horizontal_distance_to_roadways, HIllshade_9am, Hillshade_noon, Hillshade_3pm , Horizontal_Distance_To_Fire_Points, Wilderness_Area1, Wilderness_Area2, Wilderness_Area3, Wilderness_Area4, soil_type1, Soil_Type2, Soil_Type3, Soil_Type4, Soil_Type5, Soil_Type6, Soil_Type7, Soil_Type8, Soil_Type9, Soil_Type10, Soil_Type11, Soil_Type12, Soil_Type13, Soil_Type14, Soil_Type15, Soil_Type16, Soil_Type17, Soil_Type18, Soil_Type19, Soil_Type20, Soil_Type21, Soil_Type22, Soil_Type23, Soil_Type24, Soil_Type25, Soil_Type26, Soil_Type27, Soil_Type28, Soil_Type29, Soil_Type30, Soil_Type31, Soil_Type32, Soil_Type33, Soil_Type34, Soil_Type36, Soil_Type37, Soil_Type38, Soil_Type39, Soil_Type40) AS predicted_cover_type, CASE WHEN Wilderness_Area1 = 1 THEN 1 WHEN Wilderness_Area2 = 1 THEN 2 WHEN Wilderness_Area3 = 1 THEN 3 WHEN Wilderness_Area4 = 1 THEN 4 ELSE 0 END AS wilderness_area FROM public.covertype_test) t1 GROUP BY 1, 3 ORDER BY 2 DESC LIMIT 1; ``` The output of the previous operation should look similar to the following example. ``` +----------------------+-------+-----------------+
-| predicted_cover_type | count | wilderness_area | +----------------------+-------+-----------------+ |                    2 | 15738 |               1 | +----------------------+-------+-----------------+ ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+| Max Runtime                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          15000 |
++--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+```
+
+## Step 3: Validate the model
+
+1. The following prediction query validates the accuracy of the model on the
+   `covertype_validation` dataset by calculating multi-class
+   accuracy. Multi-class accuracy is the percentage of the model’s predictions
+   that are correct.
+
+```
+SELECT
+    CAST(sum(t1.match) AS decimal(7, 2)) AS predicted_matches,
+    CAST(sum(t1.nonmatch) AS decimal(7, 2)) AS predicted_non_matches,
+    CAST(sum(t1.match + t1.nonmatch) AS decimal(7, 2)) AS total_predictions,
+    predicted_matches / total_predictions AS pct_accuracy
+FROM
+    (
+        SELECT
+            Elevation,
+            Aspect,
+            Slope,
+            Horizontal_distance_to_hydrology,
+            Vertical_distance_to_hydrology,
+            Horizontal_distance_to_roadways,
+            HIllshade_9am,
+            Hillshade_noon,
+            Hillshade_3pm,
+            Horizontal_Distance_To_Fire_Points,
+            Wilderness_Area1,
+            Wilderness_Area2,
+            Wilderness_Area3,
+            Wilderness_Area4,
+            soil_type1,
+            Soil_Type2,
+            Soil_Type3,
+            Soil_Type4,
+            Soil_Type5,
+            Soil_Type6,
+            Soil_Type7,
+            Soil_Type8,
+            Soil_Type9,
+            Soil_Type10,
+            Soil_Type11,
+            Soil_Type12,
+            Soil_Type13,
+            Soil_Type14,
+            Soil_Type15,
+            Soil_Type16,
+            Soil_Type17,
+            Soil_Type18,
+            Soil_Type19,
+            Soil_Type20,
+            Soil_Type21,
+            Soil_Type22,
+            Soil_Type23,
+            Soil_Type24,
+            Soil_Type25,
+            Soil_Type26,
+            Soil_Type27,
+            Soil_Type28,
+            Soil_Type29,
+            Soil_Type30,
+            Soil_Type31,
+            Soil_Type32,
+            Soil_Type33,
+            Soil_Type34,
+            Soil_Type36,
+            Soil_Type37,
+            Soil_Type38,
+            Soil_Type39,
+            Soil_Type40,
+            Cover_type AS actual_cover_type,
+            predict_cover_type(
+                Elevation,
+                Aspect,
+                Slope,
+                Horizontal_distance_to_hydrology,
+                Vertical_distance_to_hydrology,
+                Horizontal_distance_to_roadways,
+                HIllshade_9am,
+                Hillshade_noon,
+                Hillshade_3pm,
+                Horizontal_Distance_To_Fire_Points,
+                Wilderness_Area1,
+                Wilderness_Area2,
+                Wilderness_Area3,
+                Wilderness_Area4,
+                soil_type1,
+                Soil_Type2,
+                Soil_Type3,
+                Soil_Type4,
+                Soil_Type5,
+                Soil_Type6,
+                Soil_Type7,
+                Soil_Type8,
+                Soil_Type9,
+                Soil_Type10,
+                Soil_Type11,
+                Soil_Type12,
+                Soil_Type13,
+                Soil_Type14,
+                Soil_Type15,
+                Soil_Type16,
+                Soil_Type17,
+                Soil_Type18,
+                Soil_Type19,
+                Soil_Type20,
+                Soil_Type21,
+                Soil_Type22,
+                Soil_Type23,
+                Soil_Type24,
+                Soil_Type25,
+                Soil_Type26,
+                Soil_Type27,
+                Soil_Type28,
+                Soil_Type29,
+                Soil_Type30,
+                Soil_Type31,
+                Soil_Type32,
+                Soil_Type33,
+                Soil_Type34,
+                Soil_Type36,
+                Soil_Type37,
+                Soil_Type38,
+                Soil_Type39,
+                Soil_Type40
+            ) AS predicted_cover_type,
+            CASE
+                WHEN actual_cover_type = predicted_cover_type THEN 1
+                ELSE 0
+            END AS match,
+            CASE
+                WHEN actual_cover_type <> predicted_cover_type THEN 1
+                ELSE 0
+            END AS nonmatch
+        FROM
+            public.covertype_validation
+    ) t1;
+```
+
+The output of the previous query should look like the following example.
+The value of the multi-class accuracy metric should be similar to the
+`validation:multiclass_accuracy` metric shown by the SHOW
+MODEL operation’s output.
+
+```
++-------------------+-----------------------+-------------------+--------------+
+| predicted_matches | predicted_non_matches | total_predictions | pct_accuracy |
++-------------------+-----------------------+-------------------+--------------+
+|             41211 |                 16324 |             57535 |   0.71627704 |
++-------------------+-----------------------+-------------------+--------------+
+```
+
+2. The following query predicts the most common cover type for
+   `wilderness_area2`. This dataset includes four wilderness
+   areas and seven cover types. A wilderness area can have multiple cover
+   types.
+
+```
+SELECT t1. predicted_cover_type, COUNT(*)
+FROM
+(
+SELECT
+   Elevation,
+   Aspect,
+   Slope,
+   Horizontal_distance_to_hydrology,
+   Vertical_distance_to_hydrology,
+   Horizontal_distance_to_roadways,
+   HIllshade_9am,
+   Hillshade_noon,
+   Hillshade_3pm ,
+   Horizontal_Distance_To_Fire_Points,
+   Wilderness_Area1,
+   Wilderness_Area2,
+   Wilderness_Area3,
+   Wilderness_Area4,
+   soil_type1,
+   Soil_Type2,
+   Soil_Type3,
+   Soil_Type4,
+   Soil_Type5,
+   Soil_Type6,
+   Soil_Type7,
+   Soil_Type8,
+   Soil_Type9,
+   Soil_Type10 ,
+   Soil_Type11,
+   Soil_Type12 ,
+   Soil_Type13 ,
+   Soil_Type14,
+   Soil_Type15,
+   Soil_Type16,
+   Soil_Type17,
+   Soil_Type18,
+   Soil_Type19,
+   Soil_Type20,
+   Soil_Type21,
+   Soil_Type22,
+   Soil_Type23,
+   Soil_Type24,
+   Soil_Type25,
+   Soil_Type26,
+   Soil_Type27,
+   Soil_Type28,
+   Soil_Type29,
+   Soil_Type30,
+   Soil_Type31,
+   Soil_Type32,
+   Soil_Type33,
+   Soil_Type34,
+   Soil_Type36,
+   Soil_Type37,
+   Soil_Type38,
+   Soil_Type39,
+   Soil_Type40,
+   predict_cover_type( Elevation,
+   Aspect,
+   Slope,
+   Horizontal_distance_to_hydrology,
+   Vertical_distance_to_hydrology,
+   Horizontal_distance_to_roadways,
+   HIllshade_9am,
+   Hillshade_noon,
+   Hillshade_3pm ,
+   Horizontal_Distance_To_Fire_Points,
+   Wilderness_Area1,
+   Wilderness_Area2,
+   Wilderness_Area3,
+   Wilderness_Area4,
+   soil_type1,
+   Soil_Type2,
+   Soil_Type3,
+   Soil_Type4,
+   Soil_Type5,
+   Soil_Type6,
+   Soil_Type7,
+   Soil_Type8,
+   Soil_Type9,
+   Soil_Type10,
+   Soil_Type11,
+   Soil_Type12,
+   Soil_Type13,
+   Soil_Type14,
+   Soil_Type15,
+   Soil_Type16,
+   Soil_Type17,
+   Soil_Type18,
+   Soil_Type19,
+   Soil_Type20,
+   Soil_Type21,
+   Soil_Type22,
+   Soil_Type23,
+   Soil_Type24,
+   Soil_Type25,
+   Soil_Type26,
+   Soil_Type27,
+   Soil_Type28,
+   Soil_Type29,
+   Soil_Type30,
+   Soil_Type31,
+   Soil_Type32,
+   Soil_Type33,
+   Soil_Type34,
+   Soil_Type36,
+   Soil_Type37,
+   Soil_Type38,
+   Soil_Type39,
+   Soil_Type40) AS predicted_cover_type
+
+FROM public.covertype_test
+WHERE wilderness_area2 = 1)
+t1
+GROUP BY 1;
+```
+
+The output of the previous operation should look similar to the following
+example. This output means that the model predicted that the majority of
+cover is cover type 1, and there is some cover of cover types 2 and 7.
+
+```
++----------------------+-------+
+| predicted_cover_type | count |
++----------------------+-------+
+|                    2 |   564 |
+|                    7 |    97 |
+|                    1 |  2309 |
++----------------------+-------+
+```
+
+3. The following query shows the most common cover type in a single
+   wilderness area. The query displays the amount of that cover type and the
+   cover type’s wilderness area.
+
+```
+SELECT t1. predicted_cover_type, COUNT(*), wilderness_area
+FROM
+(
+SELECT
+   Elevation,
+   Aspect,
+   Slope,
+   Horizontal_distance_to_hydrology,
+   Vertical_distance_to_hydrology,
+   Horizontal_distance_to_roadways,
+   HIllshade_9am,
+   Hillshade_noon,
+   Hillshade_3pm ,
+   Horizontal_Distance_To_Fire_Points,
+   Wilderness_Area1,
+   Wilderness_Area2,
+   Wilderness_Area3,
+   Wilderness_Area4,
+   soil_type1,
+   Soil_Type2,
+   Soil_Type3,
+   Soil_Type4,
+   Soil_Type5,
+   Soil_Type6,
+   Soil_Type7,
+   Soil_Type8,
+   Soil_Type9,
+   Soil_Type10 ,
+   Soil_Type11,
+   Soil_Type12 ,
+   Soil_Type13 ,
+   Soil_Type14,
+   Soil_Type15,
+   Soil_Type16,
+   Soil_Type17,
+   Soil_Type18,
+   Soil_Type19,
+   Soil_Type20,
+   Soil_Type21,
+   Soil_Type22,
+   Soil_Type23,
+   Soil_Type24,
+   Soil_Type25,
+   Soil_Type26,
+   Soil_Type27,
+   Soil_Type28,
+   Soil_Type29,
+   Soil_Type30,
+   Soil_Type31,
+   Soil_Type32,
+   Soil_Type33,
+   Soil_Type34,
+   Soil_Type36,
+   Soil_Type37,
+   Soil_Type38,
+   Soil_Type39,
+   Soil_Type40,
+   predict_cover_type( Elevation,
+   Aspect,
+   Slope,
+   Horizontal_distance_to_hydrology,
+   Vertical_distance_to_hydrology,
+   Horizontal_distance_to_roadways,
+   HIllshade_9am,
+   Hillshade_noon,
+   Hillshade_3pm ,
+   Horizontal_Distance_To_Fire_Points,
+   Wilderness_Area1,
+   Wilderness_Area2,
+   Wilderness_Area3,
+   Wilderness_Area4,
+   soil_type1,
+   Soil_Type2,
+   Soil_Type3,
+   Soil_Type4,
+   Soil_Type5,
+   Soil_Type6,
+   Soil_Type7,
+   Soil_Type8,
+   Soil_Type9,
+   Soil_Type10,
+   Soil_Type11,
+   Soil_Type12,
+   Soil_Type13,
+   Soil_Type14,
+   Soil_Type15,
+   Soil_Type16,
+   Soil_Type17,
+   Soil_Type18,
+   Soil_Type19,
+   Soil_Type20,
+   Soil_Type21,
+   Soil_Type22,
+   Soil_Type23,
+   Soil_Type24,
+   Soil_Type25,
+   Soil_Type26,
+   Soil_Type27,
+   Soil_Type28,
+   Soil_Type29,
+   Soil_Type30,
+   Soil_Type31,
+   Soil_Type32,
+   Soil_Type33,
+   Soil_Type34,
+   Soil_Type36,
+   Soil_Type37,
+   Soil_Type38,
+   Soil_Type39,
+   Soil_Type40) AS predicted_cover_type,
+   CASE WHEN Wilderness_Area1 = 1 THEN 1
+        WHEN Wilderness_Area2 = 1 THEN 2
+        WHEN Wilderness_Area3 = 1 THEN 3
+        WHEN Wilderness_Area4 = 1 THEN 4
+        ELSE 0
+   END AS wilderness_area
+
+FROM public.covertype_test)
+t1
+GROUP BY 1, 3
+ORDER BY 2 DESC
+LIMIT 1;
+```
+
+The output of the previous operation should look similar to the following example.
+
+```
++----------------------+-------+-----------------+
+| predicted_cover_type | count | wilderness_area |
++----------------------+-------+-----------------+
+|                    2 | 15738 |               1 |
++----------------------+-------+-----------------+
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

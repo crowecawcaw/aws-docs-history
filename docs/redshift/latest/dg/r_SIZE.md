@@ -27,7 +27,7 @@ A `SUPER` type constant or expression.
 
 To use SIZE to get the in-memory size of several `SUPER` type expressions, use the following example.
 
-````
+```
 `CREATE TABLE test_super_size(a SUPER);
 
 INSERT INTO test_super_size
@@ -43,9 +43,11 @@ FROM test_super_size
 ORDER BY 2, 1;`
 
 `+---------------------------+------+
-| a | size | +---------------------------+------+
+| a | size |
++---------------------------+------+
 | true | 4 |
 | NULL | 4 |
 | [0,1,2,3] | 23 |
-| {"a":0,"b":1,"c":2,"d":3} | 52 | +---------------------------+------+` ```
-````
+| {"a":0,"b":1,"c":2,"d":3} | 52 |
++---------------------------+------+`
+```

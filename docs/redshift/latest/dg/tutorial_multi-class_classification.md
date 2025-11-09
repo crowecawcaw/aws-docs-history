@@ -251,9 +251,10 @@ When the model is ready, the output of the previous operation should show
 that the `Model State` is `Ready`. The following is an
 example of the output of the SHOW MODEL operation.
 
-````
+```
 +--------------------------+-----------------------------------------------------------------------------------------------+
-|        Model Name        |                                  ecommerce_customer_activity                                  | +--------------------------+-----------------------------------------------------------------------------------------------+
+|        Model Name        |                                  ecommerce_customer_activity                                  |
++--------------------------+-----------------------------------------------------------------------------------------------+
 |       Schema Name        |                                            public                                             |
 |          Owner           |                                            awsuser                                            |
 |      Creation Time       |                                   Fri, 17.06.2022 19:02:15                                    |
@@ -277,5 +278,143 @@ example of the output of the SHOW MODEL operation.
 | Function Parameter Types |                          int8 varchar varchar varchar varchar float8                          |
 |         IAM Role         |                                     default-aws-iam-role                                      |
 |        S3 Bucket         |                                         amzn-s3-demo-bucket                                    |
-|       Max Runtime        |                                             5400                                              | +--------------------------+-----------------------------------------------------------------------------------------------+ ``` ## Step 3: Perform predictions with the model The following query shows which customers qualify for your customer loyalty program. If the model predicts that the customer will be active for at least seven months, then the model selects the customer for the loyalty program. ``` SELECT customerid, predict_customer_activity( customerid, country, stockcode, description, invoicedate, sales_amt ) AS predicted_months_active FROM ecommerce_sales_prediction WHERE predicted_months_active >= 7 GROUP BY 1, 2 LIMIT 10; ``` ### Run prediction queries against the validation data (optional) Run the following prediction queries against the validation data to see the model’s level of accuracy. ``` SELECT CAST(SUM(t1.match) AS decimal(7, 2)) AS predicted_matches, CAST(SUM(t1.nonmatch) AS decimal(7, 2)) AS predicted_non_matches, CAST(SUM(t1.match + t1.nonmatch) AS decimal(7, 2)) AS total_predictions, predicted_matches / total_predictions AS pct_accuracy FROM ( SELECT customerid, country, stockcode, description, invoicedate, sales_amt, nbr_months_active, predict_customer_activity( customerid, country, stockcode, description, invoicedate, sales_amt ) AS predicted_months_active, CASE WHEN nbr_months_active = predicted_months_active THEN 1 ELSE 0 END AS match, CASE WHEN nbr_months_active <> predicted_months_active THEN 1 ELSE 0 END AS nonmatch FROM ecommerce_sales_validation )t1; ``` ### Predict how many customers miss entry (optional) The following query compares the number of customers that are predicted to be active for only 5 or 6 months. The model predicts that these customers will miss out on the loyalty program. The query then compares the amount that barely miss the program to the number that are predicted to be eligible for the loyalty program. This query could be used to inform a decision on whether to lower the threshold for the loyalty program. You can also determine if there is a significant amount of customers that are predicted to barely miss out on the program. You could then encourage those customers to increase their activity to get a loyalty program membership. ``` SELECT predict_customer_activity( customerid, country, stockcode, description, invoicedate, sales_amt ) AS predicted_months_active, COUNT(customerid) FROM ecommerce_sales_prediction WHERE predicted_months_active BETWEEN 5 AND 6 GROUP BY 1 ORDER BY 1 ASC LIMIT 10) UNION (SELECT NULL AS predicted_months_active, COUNT (customerid) FROM ecommerce_sales_prediction WHERE predict_customer_activity( customerid, country, stockcode, description, invoicedate, sales_amt ) >=7); ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+|       Max Runtime        |                                             5400                                              |
++--------------------------+-----------------------------------------------------------------------------------------------+
+```
+
+## Step 3: Perform predictions with the model
+
+The following query shows which customers qualify for your customer loyalty
+program. If the model predicts that the customer will be active for at least seven
+months, then the model selects the customer for the loyalty program.
+
+```
+SELECT
+    customerid,
+    predict_customer_activity(
+        customerid,
+        country,
+        stockcode,
+        description,
+        invoicedate,
+        sales_amt
+    ) AS predicted_months_active
+FROM
+    ecommerce_sales_prediction
+WHERE
+    predicted_months_active >= 7
+GROUP BY
+    1,
+    2
+LIMIT
+    10;
+```
+
+###
+
+Run prediction queries against the validation data (optional)
+
+Run the following prediction queries against the validation data to see the
+model’s level of accuracy.
+
+```
+SELECT
+    CAST(SUM(t1.match) AS decimal(7, 2)) AS predicted_matches,
+    CAST(SUM(t1.nonmatch) AS decimal(7, 2)) AS predicted_non_matches,
+    CAST(SUM(t1.match + t1.nonmatch) AS decimal(7, 2)) AS total_predictions,
+    predicted_matches / total_predictions AS pct_accuracy
+FROM
+    (
+        SELECT
+            customerid,
+            country,
+            stockcode,
+            description,
+            invoicedate,
+            sales_amt,
+            nbr_months_active,
+            predict_customer_activity(
+                customerid,
+                country,
+                stockcode,
+                description,
+                invoicedate,
+                sales_amt
+            ) AS predicted_months_active,
+            CASE
+                WHEN nbr_months_active = predicted_months_active THEN 1
+                ELSE 0
+            END AS match,
+            CASE
+                WHEN nbr_months_active <> predicted_months_active THEN 1
+                ELSE 0
+            END AS nonmatch
+        FROM
+            ecommerce_sales_validation
+    )t1;
+```
+
+### Predict how many customers miss entry (optional)
+
+The following query compares the number of customers that are predicted to
+be active for only 5 or 6 months. The model predicts that these customers
+will miss out on the loyalty program. The query then compares the amount that
+barely miss the program to the number that are predicted to be eligible for the
+loyalty program. This query could be used to inform a decision on whether to
+lower the threshold for the loyalty program. You can also determine if there
+is a significant amount of customers that are predicted to barely miss out on
+the program. You could then encourage those customers to increase their
+activity to get a loyalty program membership.
+
+```
+SELECT
+    predict_customer_activity(
+        customerid,
+        country,
+        stockcode,
+        description,
+        invoicedate,
+        sales_amt
+    ) AS predicted_months_active,
+    COUNT(customerid)
+FROM
+    ecommerce_sales_prediction
+WHERE
+    predicted_months_active BETWEEN 5 AND 6
+GROUP BY
+    1
+ORDER BY
+    1 ASC
+LIMIT
+    10)
+UNION
+(SELECT
+      NULL AS predicted_months_active,
+    COUNT (customerid)
+FROM
+    ecommerce_sales_prediction
+WHERE
+    predict_customer_activity(
+        customerid,
+        country,
+        stockcode,
+        description,
+        invoicedate,
+        sales_amt
+    ) >=7);
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

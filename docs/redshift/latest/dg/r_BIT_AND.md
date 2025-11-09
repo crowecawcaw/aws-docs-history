@@ -18,8 +18,65 @@ For example, a table contains four integer values in a column: 3, 7, 10, and 22.
 These integers are represented in binary form as follows:
 
 | Integer | Binary value |
-| ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ------------ | --------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------- | ------------ |
 | 3       | 11           |
 | 7       | 111          |
 | 10      | 1010         |
-| 22      | 10110        | A BIT_AND operation on this dataset finds that all bits are set to `1` in the second-to-last position only. The result is a binary value of `00000010`, which represents the integer value `2`. Therefore, the BIT_AND function returns `2`. ## Syntax ``` BIT_AND ( [DISTINCT | ALL] _expression_ ) ``` ## Arguments _expression_ The target column or expression that the function operates on. This expression must have an INT, INT2, or INT8 data type. The function returns an equivalent INT, INT2, or INT8 data type. DISTINCT | ALL With the argument DISTINCT, the function eliminates all duplicate values for the specified expression before calculating the result. With the argument ALL, the function retains all duplicate values. ALL is the default. For more information, see [DISTINCT support for bit-wise aggregations](c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations "c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations"). ## Examples Given that meaningful business information is stored in integer columns, you can use bit-wise functions to extract and aggregate that information. The following query applies the BIT_AND function to the LIKES column in a table called USERLIKES and groups the results by the CITY column. ``` select city, bit_and(likes) from userlikes group by city order by city; city | bit_and --------------+--------- Los Angeles | 0 Sacramento | 0 San Francisco | 0 San Jose | 64 Santa Barbara | 192 (5 rows) ```You can interpret these results as follows: <br>• The integer value`192`for Santa Barbara translates to the binary value`11000000`. In other words, all users in this city like sports and theatre, but not all users like any other type of event. <br>• The integer `64`translates to`01000000`. So, for users in San Jose, the only type of event that they all like is theatre. <br>• The values of `0` for the other three cities indicate that no "likes" are shared by all users in those cities. |
+| 22      | 10110        |
+
+A BIT_AND operation on this dataset finds that all bits are set to `1`
+in the second-to-last position only. The result is a binary value of
+`00000010`, which represents the integer value `2`. Therefore,
+the BIT_AND function returns `2`.
+
+## Syntax
+
+```
+BIT_AND ( [DISTINCT | ALL] *expression* )
+```
+
+## Arguments
+
+_expression_
+
+The target column or expression that the function operates on. This
+expression must have an INT, INT2, or INT8 data type. The function returns
+an equivalent INT, INT2, or INT8 data type.
+
+DISTINCT | ALL
+
+With the argument DISTINCT, the function eliminates all duplicate values
+for the specified expression before calculating the result. With the
+argument ALL, the function retains all duplicate values. ALL is the default.
+For more information, see [DISTINCT support for
+bit-wise aggregations](c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations "c_bitwise_aggregate_functions.md#distinct-support-for-bit-wise-aggregations").
+
+## Examples
+
+Given that meaningful business information is stored in integer columns, you can
+use bit-wise functions to extract and aggregate that information. The following query
+applies the BIT_AND function to the LIKES column in a table called USERLIKES and
+groups the results by the CITY column.
+
+```
+select city, bit_and(likes) from userlikes group by city
+order by city;
+city          | bit_and
+--------------+---------
+Los Angeles   |       0
+Sacramento    |       0
+San Francisco |       0
+San Jose      |      64
+Santa Barbara |     192
+(5 rows)
+```
+
+You can interpret these results as follows:
+
+- The integer value `192` for Santa Barbara translates to the
+  binary value `11000000`. In other words, all users in this city like
+  sports and theatre, but not all users like any other type of event.
+- The integer `64` translates to `01000000`. So, for
+  users in San Jose, the only type of event that they all like is theatre.
+- The values of `0` for the other three cities indicate that no
+  "likes" are shared by all users in those cities.

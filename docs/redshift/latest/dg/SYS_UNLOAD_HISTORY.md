@@ -14,21 +14,46 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name          | Data type | Description                                                                                               |
-| -------------------- | --------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------- | ------- | --- | ----- |
-| user_id              | integer   | The identifier of the user who submitted the unload.                                                      |
-| query_id             | bigint    | The query identifier of the UNLOAD command.                                                               |
-| transaction_id       | bigint    | The transaction identifier.                                                                               |
-| session_id           | integer   | The process identifier of the process running the unload.                                                 |
-| database_name        | text      | The name of the database the user was connected to when the operation was issued.                         |
-| status               | text      | The status of the UNLOAD command. Valid values include: `running`, `completed`, `aborted`, and `unknown`. |
-| start_time           | timestamp | The time when the unload began.                                                                           |
-| end_time             | timestamp | The time when the unload completed.                                                                       |
-| duration             | bigint    | The amount of time (microseconds) spent in the UNLOAD command.                                            |
-| file_format          | text      | The file format of the output files.                                                                      |
-| compression_type     | text      | The compression type.                                                                                     |
-| unloaded_location    | text      | The Amazon S3 location of unloaded files.                                                                 |
-| unloaded_rows        | bigint    | The number of rows.                                                                                       |
-| unloaded_files_count | bigint    | The file count of the output file.                                                                        |
-| unloaded_files_size  | bigint    | The file size of the output file.                                                                         |
-| error_message        | text      | The error message of the UNLOAD command.                                                                  | ## Sample queries The following query shows the unloaded query details, including format, rows, and file count of unload command. `SELECT query_id, file_format, start_time, duration, unloaded_rows, unloaded_files_count FROM sys_unload_history ORDER BY query_id, file_format limit 100;` Sample output. ``` query_id | file_format | start_time | duration | unloaded_rows | unloaded_files_count ----------+-------------+----------------------------+----------+---------------+---------------------- 527067 | Text | 2022-02-09 05:18:35.844452 | 5932478 | 10  | 1 ``` |
+| Column name          | Data type | Description                                                                                                     |
+| -------------------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| user_id              | integer   | The identifier of the user who submitted the<br>unload.                                                         |
+| query_id             | bigint    | The query identifier of the UNLOAD<br>command.                                                                  |
+| transaction_id       | bigint    | The transaction identifier.                                                                                     |
+| session_id           | integer   | The process identifier of the process running the<br>unload.                                                    |
+| database_name        | text      | The name of the database the user was connected to<br>when the operation was issued.                            |
+| status               | text      | The status of the UNLOAD command. Valid values<br>include: `running`, `completed`,<br>`aborted`, and `unknown`. |
+| start_time           | timestamp | The time when the unload began.                                                                                 |
+| end_time             | timestamp | The time when the unload completed.                                                                             |
+| duration             | bigint    | The amount of time (microseconds) spent in the<br>UNLOAD command.                                               |
+| file_format          | text      | The file format of the output files.                                                                            |
+| compression_type     | text      | The compression type.                                                                                           |
+| unloaded_location    | text      | The Amazon S3 location of unloaded files.                                                                       |
+| unloaded_rows        | bigint    | The number of rows.                                                                                             |
+| unloaded_files_count | bigint    | The file count of the output file.                                                                              |
+| unloaded_files_size  | bigint    | The file size of the output file.                                                                               |
+| error_message        | text      | The error message of the UNLOAD command.                                                                        |
+
+## Sample queries
+
+The following query shows the unloaded query details, including format, rows, and
+file count of unload command.
+
+```
+SELECT query_id,
+       file_format,
+       start_time,
+       duration,
+       unloaded_rows,
+       unloaded_files_count
+FROM sys_unload_history
+ORDER BY query_id,
+file_format limit 100;
+```
+
+Sample output.
+
+```
+ query_id | file_format |         start_time         | duration | unloaded_rows | unloaded_files_count
+----------+-------------+----------------------------+----------+---------------+----------------------
+   527067 | Text        | 2022-02-09 05:18:35.844452 |  5932478 |            10 |                    1
+```

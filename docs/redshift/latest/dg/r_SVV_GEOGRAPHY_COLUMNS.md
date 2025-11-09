@@ -14,11 +14,22 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name        | Data type    | Description                                                                |
-| ------------------ | ------------ | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ | ------------------ | --------------- | ---- | -------------------------------------------------------------------------------------------------------------------------- | ------ | ------------ | -------------- | --- | --- | -------------- |
+| ------------------ | ------------ | -------------------------------------------------------------------------- |
 | f_table_catalog    | varchar(128) | The name of the database where the table with the GEOGRAPHY column exists. |
 | f_table_schema     | varchar(128) | The name of the schema where the table with the GEOGRAPHY column exists.   |
 | f_table_name       | varchar(128) | The name of the table where the GEOGRAPHY column exists.                   |
 | f_geography_column | varchar(128) | The name of the GEOGRAPHY column.                                          |
 | coord_dimension    | integer      | The number of dimensions of the GEOGRAPHY data.                            |
 | srid               | integer      | The spatial reference system identifier (SRID) of the GEOGRAPHY data.      |
-| type               | varchar(128) | The spatial geography data type name.                                      | ## Sample query The following example displays the result of the SVV_GEOGRAPHY_COLUMNS. ``` `SELECT \* FROM svv_geography_columns;` `f_table_catalog | f_table_schema | f_table_name | f_geography_column | coord_dimension | srid | type -----------------+-----------------+---------------+---------------------+-----------------+------+-------------- dev | public | spatial_test | test_geography | 2   | 0   | GEOGRAPHY` ``` |
+| type               | varchar(128) | The spatial geography data type name.                                      |
+
+## Sample query
+
+The following example displays the result of the SVV_GEOGRAPHY_COLUMNS.
+
+```
+`SELECT * FROM svv_geography_columns;`
+`f_table_catalog | f_table_schema | f_table_name | f_geography_column | coord_dimension | srid | type
+-----------------+-----------------+---------------+---------------------+-----------------+------+--------------
+dev | public | spatial_test | test_geography | 2 | 0 | GEOGRAPHY`
+```

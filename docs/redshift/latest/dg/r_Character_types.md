@@ -32,9 +32,96 @@ multibyte characters, up to a maximum of four bytes per character. For example,
 a VARCHAR(12) column can contain 12 single-byte characters, 6 two-byte
 characters, 4 three-byte characters, or 3 four-byte characters.
 
-| Name                                    | Storage                                                                         | Range (width of column) |
-| --------------------------------------- | ------------------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CHAR, CHARACTER or NCHAR                | Length of string, including trailing blanks (if any)                            | 4096 bytes              |
-| VARCHAR, CHARACTER VARYING, or NVARCHAR | 4 bytes + total bytes for characters, where each character can be 1 to 4 bytes. | 65535 bytes (64K -1)    |
-| BPCHAR                                  | Converted to fixed-length CHAR(256).                                            | 256 bytes               |
-| TEXT                                    | Converted to VARCHAR(256).                                                      | 260 bytes               | ###### Note The CREATE TABLE syntax supports the MAX keyword for character data types. For example: `create table test(col1 varchar(max));` The MAX setting defines the width of the column as 4096 bytes for CHAR or 65535 bytes for VARCHAR. ## CHAR or CHARACTER Use a CHAR or CHARACTER column to store fixed-length strings. These strings are padded with blanks, so a CHAR(10) column always occupies 10 bytes of storage. `char(10)` A CHAR column without a length specification results in a CHAR(1) column. ## VARCHAR or CHARACTER VARYING Use a VARCHAR or CHARACTER VARYING column to store variable-length strings with a fixed limit. These strings are not padded with blanks, so a VARCHAR(120) column consists of a maximum of 120 single-byte characters, 60 two-byte characters, 40 three-byte characters, or 30 four-byte characters. `varchar(120)` If you use the VARCHAR data type without a length specifier in a CREATE TABLE statement, the default length is 256. If used in an expression, the size of the output is determined using the input expression (up to 65535). ## NCHAR and NVARCHAR types You can create columns with the NCHAR and NVARCHAR types (also known as NATIONAL CHARACTER and NATIONAL CHARACTER VARYING types). These types are converted to CHAR and VARCHAR types, respectively, and are stored in the specified number of bytes. An NCHAR column without a length specification is converted to a CHAR(1) column. An NVARCHAR column without a length specification is converted to a VARCHAR(256) column. ## TEXT and BPCHAR types You can create an Amazon Redshift table with a TEXT column, but it is converted to a VARCHAR(256) column that accepts variable-length values with a maximum of 256 characters. You can create an Amazon Redshift column with a BPCHAR (blank-padded character) type, which Amazon Redshift converts to a fixed-length CHAR(256) column. ## Significance of trailing blanks Both CHAR and VARCHAR data types store strings up to _n_ bytes in length. An attempt to store a longer string into a column of these types results in an error, unless the extra characters are all spaces (blanks), in which case the string is truncated to the maximum length. If the string is shorter than the maximum length, CHAR values are padded with blanks, but VARCHAR values store the string without blanks. Trailing blanks in CHAR values are always semantically insignificant. They are disregarded when you compare two CHAR values, not included in LENGTH calculations, and removed when you convert a CHAR value to another string type. Trailing spaces in VARCHAR and CHAR values are treated as semantically insignificant when values are compared. Length calculations return the length of VARCHAR character strings with trailing spaces included in the length. Trailing blanks are not counted in the length for fixed-length character strings. |
+| Name                                    | Storage                                                                            | Range (width of column) |
+| --------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------- |
+| CHAR, CHARACTER or NCHAR                | Length of string, including trailing blanks (if<br>any)                            | 4096 bytes              |
+| VARCHAR, CHARACTER VARYING, or NVARCHAR | 4 bytes + total bytes for characters, where each<br>character can be 1 to 4 bytes. | 65535 bytes (64K -1)    |
+| BPCHAR                                  | Converted to fixed-length CHAR(256).                                               | 256 bytes               |
+| TEXT                                    | Converted to VARCHAR(256).                                                         | 260 bytes               |
+
+###### Note
+
+The CREATE TABLE syntax supports the MAX keyword for character data
+types. For example:
+
+```
+create table test(col1 varchar(max));
+```
+
+The MAX setting defines the width of the column as 4096 bytes for CHAR or
+65535 bytes for VARCHAR.
+
+## CHAR or CHARACTER
+
+Use a CHAR or CHARACTER column to store fixed-length strings. These strings
+are padded with blanks, so a CHAR(10) column always occupies 10 bytes of
+storage.
+
+```
+char(10)
+```
+
+A CHAR column without a length specification results in a CHAR(1) column.
+
+## VARCHAR or
+
+CHARACTER VARYING
+
+Use a VARCHAR or CHARACTER VARYING column to store variable-length strings
+with a fixed limit. These strings are not padded with blanks, so a VARCHAR(120)
+column consists of a maximum of 120 single-byte characters, 60 two-byte
+characters, 40 three-byte characters, or 30 four-byte characters.
+
+```
+varchar(120)
+```
+
+If you use the VARCHAR data type without a length specifier in a CREATE
+TABLE statement, the default length is 256. If used in an expression, the size
+of the output is determined using the input expression (up to 65535).
+
+## NCHAR and NVARCHAR
+
+types
+
+You can create columns with the NCHAR and NVARCHAR types (also known as
+NATIONAL CHARACTER and NATIONAL CHARACTER VARYING types). These types are
+converted to CHAR and VARCHAR types, respectively, and are stored in the
+specified number of bytes.
+
+An NCHAR column without a length specification is converted to a CHAR(1)
+column.
+
+An NVARCHAR column without a length specification is converted to a
+VARCHAR(256) column.
+
+## TEXT and BPCHAR
+
+types
+
+You can create an Amazon Redshift table with a TEXT column, but it is converted to
+a VARCHAR(256) column that accepts variable-length values with a maximum of 256
+characters.
+
+You can create an Amazon Redshift column with a BPCHAR (blank-padded character)
+type, which Amazon Redshift converts to a fixed-length CHAR(256) column.
+
+## Significance of trailing blanks
+
+Both CHAR and VARCHAR data types store strings up to _n_
+bytes in length. An attempt to store a longer string into a column of these
+types results in an error, unless the extra characters are all spaces (blanks),
+in which case the string is truncated to the maximum length. If the string is
+shorter than the maximum length, CHAR values are padded with blanks, but
+VARCHAR values store the string without blanks.
+
+Trailing blanks in CHAR values are always semantically insignificant. They
+are disregarded when you compare two CHAR values, not included in LENGTH
+calculations, and removed when you convert a CHAR value to another string type.
+
+Trailing spaces in VARCHAR and CHAR values are treated as semantically
+insignificant when values are compared.
+
+Length calculations return the length of VARCHAR character strings with
+trailing spaces included in the length. Trailing blanks are not counted in the
+length for fixed-length character strings.

@@ -20,8 +20,18 @@ We recommend that you use the SYS monitoring view for your queries.
 ## Table columns
 
 | Column name | Data type | Description                                             |
-| ----------- | --------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------- | ------ | --------------------------------------------------------------- | -------------------------- | --- | ------------------ |
+| ----------- | --------- | ------------------------------------------------------- |
 | pid         | integer   | The process ID of the canceled or terminated process.   |
 | eventtime   | timestamp | The time when the process is canceled or terminated.    |
-| userid      | integer   | The user ID of the user running the command.            |
-| type        | string    | The type of termination. It can be CANCEL or TERMINATE. | The following command shows the latest cancelled query. ``` select \* from svl_terminate order by eventtime desc limit 1; pid | eventtime | userid | type ------+----------------------------+--------+-------- 8324 | 2020-03-24 09:42:07.298937 | 1   | CANCEL (1 row) ``` |
+| userid      | integer   | The user ID of the user running the<br>command.         |
+| type        | string    | The type of termination. It can be CANCEL or TERMINATE. |
+
+The following command shows the latest cancelled query.
+
+```
+select * from svl_terminate order by eventtime desc limit 1;
+ pid  |         eventtime          | userid |  type
+------+----------------------------+--------+--------
+ 8324 | 2020-03-24 09:42:07.298937 |      1 | CANCEL
+(1 row)
+```

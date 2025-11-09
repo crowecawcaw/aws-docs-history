@@ -23,7 +23,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------- | ------- | ------- | ---------------------------------------------------------------------------------- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | ---- | --- | ------------------- | ------------------- | --- | --------------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -32,4 +32,30 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | starttime   | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.  |
 | endtime     | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
-| rows        | bigint    | Total number of rows that were processed.                                                                                                                                     | ## Sample queries The following example returns 10 merge execution results. `select query, step, starttime, endtime, tasknum, rows from stl_merge limit 10;` ``` query | step | starttime | endtime | tasknum | rows -------+------+---------------------+---------------------+---------+------ 9 | 0   | 2013-08-12 20:08:14 | 2013-08-12 20:08:14 | 0   | 0 12 | 0   | 2013-08-12 20:09:10 | 2013-08-12 20:09:10 | 0   | 0 15 | 0   | 2013-08-12 20:10:24 | 2013-08-12 20:10:24 | 0   | 0 20 | 0   | 2013-08-12 20:11:27 | 2013-08-12 20:11:27 | 0   | 0 26 | 0   | 2013-08-12 20:12:28 | 2013-08-12 20:12:28 | 0   | 0 32 | 0   | 2013-08-12 20:14:33 | 2013-08-12 20:14:33 | 0   | 0 38 | 0   | 2013-08-12 20:16:43 | 2013-08-12 20:16:43 | 0   | 0 44 | 0   | 2013-08-12 20:17:05 | 2013-08-12 20:17:05 | 0   | 0 50 | 0   | 2013-08-12 20:18:48 | 2013-08-12 20:18:48 | 0   | 0 56 | 0   | 2013-08-12 20:20:48 | 2013-08-12 20:20:48 | 0   | 0 (10 rows) ``` |
+| rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
+
+## Sample queries
+
+The following example returns 10 merge execution results.
+
+```
+select query, step, starttime, endtime, tasknum, rows
+from stl_merge
+limit 10;
+```
+
+```
+ query | step |       starttime     |        endtime      | tasknum | rows
+-------+------+---------------------+---------------------+---------+------
+     9 |    0 | 2013-08-12 20:08:14 | 2013-08-12 20:08:14 |       0 |    0
+    12 |    0 | 2013-08-12 20:09:10 | 2013-08-12 20:09:10 |       0 |    0
+    15 |    0 | 2013-08-12 20:10:24 | 2013-08-12 20:10:24 |       0 |    0
+    20 |    0 | 2013-08-12 20:11:27 | 2013-08-12 20:11:27 |       0 |    0
+    26 |    0 | 2013-08-12 20:12:28 | 2013-08-12 20:12:28 |       0 |    0
+    32 |    0 | 2013-08-12 20:14:33 | 2013-08-12 20:14:33 |       0 |    0
+    38 |    0 | 2013-08-12 20:16:43 | 2013-08-12 20:16:43 |       0 |    0
+    44 |    0 | 2013-08-12 20:17:05 | 2013-08-12 20:17:05 |       0 |    0
+    50 |    0 | 2013-08-12 20:18:48 | 2013-08-12 20:18:48 |       0 |    0
+    56 |    0 | 2013-08-12 20:20:48 | 2013-08-12 20:20:48 |       0 |    0
+(10 rows)
+```

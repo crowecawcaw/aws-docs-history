@@ -15,11 +15,31 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name             | Data type | Description                                                                |
-| ----------------------- | --------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | ----------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | --- | -------------- | ---------- |
-| database_name           | char(128) | The database that contains the specified materialized view.                |
-| schema_name             | char(128) | The schema of the materialized view.                                       |
-| name                    | char(128) | The name of the materialized view.                                         |
-| dependent_database_name | char(128) | The materialized view database on which this materialized view depends.    |
-| dependent_schema_name   | char(128) | The materialized view schema on which this materialized view depends.      |
-| dependent_name          | char(128) | The name of the materialized view on which this materialized view depends. | ## Sample query The following query returns an output row that indicates that the materialized view `mv_over_foo` uses the materialized view `mv_foo` in its definition as a dependency. ``` CREATE SCHEMA test_ivm_setup; CREATE TABLE test_ivm_setup.foo(a INT); CREATE MATERIALIZED VIEW test_ivm_setup.mv_foo AS SELECT _ FROM test_ivm_setup.foo; CREATE MATERIALIZED VIEW test_ivm_setup.mv_over_foo AS SELECT _ FROM test_ivm_setup.mv_foo; SELECT \* FROM svv_mv_dependency; database_name | schema_name | name | dependent_database_name | dependent_schema_name | dependent_name ---------------+----------------------+-------------+-------------------------+---------------------------+---------- dev | test_ivm_setup | mv_over_foo | dev | test_ivm_setup | mv_foo ``` |
+| Column name             | Data type | Description                                                                   |
+| ----------------------- | --------- | ----------------------------------------------------------------------------- |
+| database_name           | char(128) | The database that contains the specified<br>materialized view.                |
+| schema_name             | char(128) | The schema of the materialized view.                                          |
+| name                    | char(128) | The name of the materialized view.                                            |
+| dependent_database_name | char(128) | The materialized view database on which this<br>materialized view depends.    |
+| dependent_schema_name   | char(128) | The materialized view schema on which this<br>materialized view depends.      |
+| dependent_name          | char(128) | The name of the materialized view on which this<br>materialized view depends. |
+
+## Sample query
+
+The following query returns an output row that indicates that the materialized
+view `mv_over_foo` uses the materialized view `mv_foo` in its
+definition as a
+dependency.
+
+```
+CREATE SCHEMA test_ivm_setup;
+CREATE TABLE test_ivm_setup.foo(a INT);
+CREATE MATERIALIZED VIEW test_ivm_setup.mv_foo AS SELECT * FROM test_ivm_setup.foo;
+CREATE MATERIALIZED VIEW test_ivm_setup.mv_over_foo AS SELECT * FROM test_ivm_setup.mv_foo;
+
+SELECT * FROM svv_mv_dependency;
+
+ database_name | schema_name          | name        | dependent_database_name | dependent_schema_name     | dependent_name
+---------------+----------------------+-------------+-------------------------+---------------------------+----------
+ dev           | test_ivm_setup       | mv_over_foo |                     dev | test_ivm_setup            | mv_foo
+```

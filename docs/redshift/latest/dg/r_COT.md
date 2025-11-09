@@ -28,10 +28,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the cotangent of 1, use the following example.
 
-````
+```
 `SELECT COT(1);`
 
 `+--------------------+
-| cot | +--------------------+
-| 0.6420926159343306 | +--------------------+` ```
-````
+| cot |
++--------------------+
+| 0.6420926159343306 |
++--------------------+`
+```

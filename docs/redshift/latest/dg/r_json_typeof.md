@@ -29,12 +29,24 @@ A `SUPER` expression or column.
 
 To check the type of JSON for the array `[1,2]` using the JSON_TYPEOF function, use the following example.
 
-````
+```
 `SELECT JSON_TYPEOF(ARRAY(1,2));`
 
 `+-------------+
-| json_typeof | +-------------+
-| array | +-------------+` ``` To check the type of JSON for the object `{"name":"Joe"}` using the JSON\_TYPEOF function, use the following example. ``` `SELECT JSON_TYPEOF(JSON_PARSE('{"name":"Joe"}'));` `+-------------+
-| json_typeof | +-------------+
-| object | +-------------+` ```
-````
+| json_typeof |
++-------------+
+| array |
++-------------+`
+```
+
+To check the type of JSON for the object `{"name":"Joe"}` using the JSON_TYPEOF function, use the following example.
+
+```
+`SELECT JSON_TYPEOF(JSON_PARSE('{"name":"Joe"}'));`
+
+`+-------------+
+| json_typeof |
++-------------+
+| object |
++-------------+`
+```

@@ -32,9 +32,37 @@ The following table shows a WLM configuration with the superuser queue and four
 user-defined queues.
 
 | Queue     | Concurrency | User Roles | User Groups | Query Groups |
-| --------- | ----------- | ---------- | ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | ----------- | ---------- | ----------- | ------------ |
 | Superuser | 1           |            |             | superuser    |
 | 1         | 5           | test_db_rw | UG_1        |              |
 | 2         | 5           |            |             | QG_B         |
 | 3         | 5           |            | UG_2        | QG_C         |
-| Default   | 5           |            |             |              | The following illustration shows how queries are assigned to the queues in the previous table according to user groups and query groups. For information about how to assign queries to user groups and query groups at runtime, see [Assigning queries to queues](cm-c-executing-queries.md "cm-c-executing-queries.md") later in this section. ![Sample list of queries assigned to queues according to user groups and query groups.](images/queues-assignment-2.png) In this example, WLM makes the following assignments: 1. The first set of statements shows three ways to assign users to user groups. The statements are run by the user `adminuser`, which is not a member of a user group listed in any WLM queue. No query group is set, so the statements are routed to the default queue. 2. The user `adminuser` is a superuser and the query group is set to `'superuser'`, so the query is assigned to the superuser queue. 3. The user `test_user` is assigned the role `test_db_rw` listed in queue 1, so the query is assigned to queue 1. 4. The user `admin1` is a member of the user group listed in queue 1, so the query is assigned to queue 1. 5. The user `vp1` is not a member of any listed user group. The query group is set to `'QG_B'`, so the query is assigned to queue 2. 6. The user `analyst1` is a member of the user group listed in queue 3, but `'QG_B'` matches queue 2, so the query is assigned to queue 2. 7. The user `ralph` is not a member of any listed user group and the query group was reset, so there is no matching queue. The query is assigned to the default queue. |
+| Default   | 5           |            |             |              |
+
+The following illustration shows how queries are assigned to the queues in the
+previous table according to user groups and query groups. For information about how
+to assign queries to user groups and query groups at runtime, see [Assigning queries to queues](cm-c-executing-queries.md "cm-c-executing-queries.md") later in
+this section.
+
+![Sample list of queries assigned to queues according to user groups and query groups.](images/queues-assignment-2.png)
+
+In this example, WLM makes the following assignments:
+
+1. The first set of statements shows three ways to assign users to user groups.
+   The statements are run by the user `adminuser`, which is not a
+   member of a user group listed in any WLM queue. No query group is set, so the
+   statements are routed to the default queue.
+2. The user `adminuser` is a superuser and the query group is set to
+   `'superuser'`, so the query is assigned to the superuser
+   queue.
+3. The user `test_user` is assigned the role `test_db_rw` listed
+   in queue 1, so the query is assigned to queue 1.
+4. The user `admin1` is a member of the user group listed in queue 1,
+   so the query is assigned to queue 1.
+5. The user `vp1` is not a member of any listed user group. The query
+   group is set to `'QG_B'`, so the query is assigned to queue 2.
+6. The user `analyst1` is a member of the user group listed in queue 3,
+   but `'QG_B'` matches queue 2, so the query is assigned to queue 2.
+7. The user `ralph` is not a member of any listed user group and the
+   query group was reset, so there is no matching queue. The query is assigned to the
+   default queue.

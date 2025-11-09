@@ -17,12 +17,26 @@ SVV_SCHEMA_PRIVILEGES is visible to the following users:
 
 ## Table columns
 
-| Column name     | Data type | Description                                                                                                                                                                                                                                                |
-| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | ----------------------------------------------------------------------------------------------------------- | ----- | ------- | ---- | ------------------ | ----- | ----- | ---- | --------- |
-| namespace_name  | text      | The name of the namespace where a specified schema exists.                                                                                                                                                                                                 |
-| privilege_type  | text      | The type of the permission. For permissions with a privilege_scope of schema, possible values are CREATE, USAGE, and ALTER. For privilege_scope values other than schema, possible values include any permission type available on the permission's scope. |
-| identity_id     | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                                                                                                                                 |
-| identity_name   | text      | The name of the identity.                                                                                                                                                                                                                                  |
-| identity_type   | text      | The type of the identity. Possible values are user, role, group, or public.                                                                                                                                                                                |
-| admin_option    | boolean   | A value that indicates whether the user can grant the permission to other users and roles. It is always false for the role and group identity type.                                                                                                        |
-| privilege_scope | text      | The scope of the permission specified in privilege_type. Possible values are as follows: <br>• SCHEMA <br>• TABLES <br>• FUNCTIONS For information on scoped permissions, go to [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").   | ## Sample query The following example displays the result of the SVV_SCHEMA_PRIVILEGES. ``` SELECT namespace_name,privilege_type,identity_name,identity_type,admin_option FROM svv_schema_privileges WHERE namespace_name = 'test_schema1'; namespace_name | privilege_type | identity_name | identity_type | admin_option ----------------+----------------+----------------+---------------+-------------- test_schema1 | USAGE | reguser | user | False test_schema1 | USAGE | role1 | role | False ``` |
+| Column name     | Data type | Description                                                                                                                                                                                                                                                         |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| namespace_name  | text      | The name of the namespace where a specified schema<br>exists.                                                                                                                                                                                                       |
+| privilege_type  | text      | The type of the permission. For permissions with a privilege_scope<br>of schema, possible values are CREATE, USAGE, and ALTER. For privilege_scope values<br>other than schema, possible values include any permission type available on the permission's<br>scope. |
+| identity_id     | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID.                                                                                                                                                                                          |
+| identity_name   | text      | The name of the identity.                                                                                                                                                                                                                                           |
+| identity_type   | text      | The type of the identity. Possible values are user, role, group, or public.                                                                                                                                                                                         |
+| admin_option    | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type.                                                                                                           |
+| privilege_scope | text      | The scope of the permission specified<br>in privilege_type. Possible values are as follows:<br>• SCHEMA<br>• TABLES<br>• FUNCTIONS<br>For information on scoped permissions, go to [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").         |
+
+## Sample query
+
+The following example displays the result of the SVV_SCHEMA_PRIVILEGES.
+
+```
+SELECT namespace_name,privilege_type,identity_name,identity_type,admin_option FROM svv_schema_privileges
+WHERE namespace_name = 'test_schema1';
+
+ namespace_name | privilege_type |  identity_name | identity_type | admin_option
+----------------+----------------+----------------+---------------+--------------
+ test_schema1   |    USAGE       |     reguser    |     user      |   False
+ test_schema1   |    USAGE       |     role1      |     role      |   False
+```

@@ -16,11 +16,33 @@ We recommend that you use the SYS monitoring view for your queries.
 ## Table columns
 
 | Column name   | Data type | Description                                                                                                                                                                                                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ---- | ----- | ---------- | ---------- | ------------------------------------------------------------------------------------------------------------- | --- | --- | --- | --- | -------------------------- | ---------- | --- | --- | --- | --- | -------------------------- | --------------------- |
+| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | service_class | integer   | ID for the service class. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids"). |
-| position      | integer   | Position of the query in the queue. The query with the smallest `position` value runs next.                                                                                                                    |
-| task          | integer   | ID used to track a query through the workload manager. Can be associated with multiple query IDs. If a query is restarted, the query is assigned a new query ID but not a new task ID.                         |
-| query         | integer   | Query ID. If a query is restarted, the query is assigned a new query ID but not a new task ID.                                                                                                                 |
+| position      | integer   | Position of the query in the queue. The query with<br>the smallest `position` value runs next.                                                                                                                 |
+| task          | integer   | ID used to track a query through the workload<br>manager. Can be associated with multiple query IDs. If a query is<br>restarted, the query is assigned a new query ID but not a new task<br>ID.                |
+| query         | integer   | Query ID. If a query is restarted, the query is<br>assigned a new query ID but not a new task ID.                                                                                                              |
 | slot_count    | integer   | Number of WLM query slots.                                                                                                                                                                                     |
 | start_time    | timestamp | Time that the query entered the queue.                                                                                                                                                                         |
-| queue_time    | bigint    | Number of microseconds that the query has been in the queue.                                                                                                                                                   | ## Sample query The following query shows the queries in the queue for service classes greater than 4. `select * from stv_wlm_query_queue_state where service_class > 4 order by service_class;` This query returns the following sample output. ``` service_class | position | task | query | slot_count | start_time | queue_time ---------------+----------+------+-------+------------+----------------------------+------------ 5 | 0   | 455 | 476 | 5   | 2010-10-06 13:18:24.065838 | 20937257 6 | 1   | 456 | 478 | 5   | 2010-10-06 13:18:26.652906 | 18350191 (2 rows) ``` |
+| queue_time    | bigint    | Number of microseconds that the query has been in<br>the queue.                                                                                                                                                |
+
+## Sample query
+
+The following query shows the queries in the queue for service classes greater
+than 4.
+
+```
+select * from stv_wlm_query_queue_state
+where service_class > 4
+order by service_class;
+```
+
+This query returns the following sample output.
+
+```
+
+ service_class | position | task | query | slot_count |        start_time          | queue_time
+---------------+----------+------+-------+------------+----------------------------+------------
+             5 |        0 |  455 |   476 |          5 | 2010-10-06 13:18:24.065838 |   20937257
+             6 |        1 |  456 |   478 |          5 | 2010-10-06 13:18:26.652906 |   18350191
+(2 rows)
+```

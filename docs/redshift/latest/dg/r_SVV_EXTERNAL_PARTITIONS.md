@@ -12,15 +12,15 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name       | Data type | Description                                                                                                         |
-| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| schemaname        | text      | The name of the Amazon Redshift external schema for the external table with the specified partitions.               |
-| tablename         | text      | The name of the external table.                                                                                     |
-| values            | text      | Values for the partition.                                                                                           |
-| location          | text      | The location of the partition. The column size is limited to 128 characters. Longer values are truncated.           |
-| input_format      | text      | The input format.                                                                                                   |
-| output_format     | text      | The output format.                                                                                                  |
-| serialization_lib | text      | The serialization library.                                                                                          |
-| serde_parameters  | text      | SerDe parameters.                                                                                                   |
-| compressed        | integer   | A value that indicates whether the partition is compressed; `1` indicates compressed, `0` indicates not compressed. |
-| parameters        | text      | Partition properties.                                                                                               |
+| Column name       | Data type | Description                                                                                                               |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------- |
+| schemaname        | text      | The name of the Amazon Redshift external schema for the<br>external table with the specified partitions.                  |
+| tablename         | text      | The name of the external table.                                                                                           |
+| values            | text      | Values for the partition.                                                                                                 |
+| location          | text      | The location of the partition. The column size is<br>limited to 128 characters. Longer values are truncated.              |
+| input_format      | text      | The input format.                                                                                                         |
+| output_format     | text      | The output format.                                                                                                        |
+| serialization_lib | text      | The serialization library.                                                                                                |
+| serde_parameters  | text      | SerDe parameters.                                                                                                         |
+| compressed        | integer   | A value that indicates whether the partition is<br>compressed; `1` indicates compressed,<br>`0` indicates not compressed. |
+| parameters        | text      | Partition properties.                                                                                                     |

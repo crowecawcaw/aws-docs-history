@@ -21,7 +21,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 ## Table columns
 
 | Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ---- | -------- | ------- | ---- | ------------------------------------------------------------------------ | --- | --- | --- | --- | --- | ----- | -------- | --- | --- | --- | --- | --- | ----- | -------- | --- | --- | --- | --- | --- | ----- | -------- | --- | --- | --- | --- | --- | ----- | ------- |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
 | query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
 | slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
@@ -32,4 +32,36 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
 | rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
 | tbl         | integer   | Table ID.                                                                                                                                                                     |
-| checksum    | bigint    | This information is for internal use only.                                                                                                                                    | ## Sample queries Because the following query neglects to join the CATEGORY table, it produces a partial Cartesian product, which is not recommended. It is shown here to illustrate a nested loop. `select count(event.eventname), event.eventname, category.catname, date.caldate from event, category, date where event.dateid = date.dateid group by event.eventname, category.catname, date.caldate;` The following query shows the results from the previous query in the STL_NESTLOOP view. `select query, slice, segment as seg, step, datediff(msec, starttime, endtime) as duration, tasknum, rows, tbl from stl_nestloop where query = pg_last_query_id();` ``` query | slice | seg | step | duration | tasknum | rows | tbl -------+-------+-----+------+----------+---------+-------+----- 6028 | 0   | 4   | 5   | 41  | 22  | 24277 | 240 6028 | 1   | 4   | 5   | 26  | 23  | 24189 | 240 6028 | 3   | 4   | 5   | 25  | 23  | 24376 | 240 6028 | 2   | 4   | 5   | 54  | 22  | 23936 | 240 ``` |
+| checksum    | bigint    | This information is for internal use only.                                                                                                                                    |
+
+## Sample queries
+
+Because the following query neglects to join the CATEGORY table, it produces a
+partial Cartesian product, which is not recommended. It is shown here to illustrate
+a nested loop.
+
+```
+select count(event.eventname), event.eventname, category.catname, date.caldate
+from event, category, date
+where event.dateid = date.dateid
+group by event.eventname, category.catname, date.caldate;
+```
+
+The following query shows the results from the previous query in the STL_NESTLOOP
+view.
+
+```
+select query, slice, segment as seg, step,
+datediff(msec, starttime, endtime) as duration, tasknum, rows, tbl
+from stl_nestloop
+where query = pg_last_query_id();
+```
+
+```
+ query | slice | seg | step | duration | tasknum | rows  | tbl
+-------+-------+-----+------+----------+---------+-------+-----
+  6028 |     0 |   4 |    5 |       41 |      22 | 24277 | 240
+  6028 |     1 |   4 |    5 |       26 |      23 | 24189 | 240
+  6028 |     3 |   4 |    5 |       25 |      23 | 24376 | 240
+  6028 |     2 |   4 |    5 |       54 |      22 | 23936 | 240
+```

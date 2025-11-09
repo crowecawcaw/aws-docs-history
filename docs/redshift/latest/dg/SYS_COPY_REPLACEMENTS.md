@@ -17,12 +17,31 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name | Data type       | Description                                                                                                                                                                           |
-| ----------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------ | --- | ----------------------------------------- | --- | ------- | --- | ----------------------------------------- | --- | ------- | --- | ----------------------------------------- | --- | ------- | --- | ----------------------------------------- | --- | ------- | --- | ----------------------------------------- | --- | ------------- |
-| user_id     | integer         | ID of the user who generated the query.                                                                                                                                               |
-| query_id    | bigint          | The query ID. The column used to join other system tables and views.                                                                                                                  |
-| table_id    | integer         | The table ID.                                                                                                                                                                         |
-| file_name   | character(256)  | The complete path to the input file for the COPY command.                                                                                                                             |
-| column_name | character(127)  | The first field that contains an invalid UTF-8 character.                                                                                                                             |
-| line_number | bigint          | The line number in the input data file that containes an invalid UTF-8 character. -1 indicates that the line number is not available, such as when copying from a columnar data file. |
-| raw_line    | character(1024) | The raw load data that contains an invalid UTF-8 character.                                                                                                                           | ## Sample queries The following example returns replacements for the most recent COPY operation. ``` `select query_idp, table_id, file_name, line_number, colname from sys_copy_replacements where query = pg_last_copy_id();` `query_id | table_id | file_name | line_number | column_name ---------+----------+-------------------------------------------------------+-------------+-------- 96 | 26  | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 123 | city 96 | 26  | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 456 | city 96 | 26  | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 789 | city 96 | 26  | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 012 | city 96 | 26  | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 119 | city ...` ``` |
+| Column name | Data type       | Description                                                                                                                                                                                    |
+| ----------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user_id     | integer         | ID of the user who generated the query.                                                                                                                                                        |
+| query_id    | bigint          | The query ID. The column used to join other system<br>tables and views.                                                                                                                        |
+| table_id    | integer         | The table ID.                                                                                                                                                                                  |
+| file_name   | character(256)  | The complete path to the input file for the COPY<br>command.                                                                                                                                   |
+| column_name | character(127)  | The first field that contains an invalid UTF-8<br>character.                                                                                                                                   |
+| line_number | bigint          | The line number in the input data file that<br>containes an invalid UTF-8 character. -1 indicates that the line<br>number is not available, such as when copying from a columnar data<br>file. |
+| raw_line    | character(1024) | The raw load data that contains an invalid UTF-8<br>character.                                                                                                                                 |
+
+## Sample queries
+
+The following example returns replacements for the most recent COPY
+operation.
+
+```
+`select query_idp, table_id, file_name, line_number, colname
+from sys_copy_replacements
+where query = pg_last_copy_id();`
+`query_id | table_id | file_name | line_number | column_name
+ ---------+----------+-------------------------------------------------------+-------------+--------
+ 96 | 26 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 123 | city
+ 96 | 26 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 456 | city
+ 96 | 26 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 789 | city
+ 96 | 26 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 012 | city
+ 96 | 26 | s3://DOC-EXAMPLE-BUCKET/allusers_pipe.txt | 119 | city
+...`
+```

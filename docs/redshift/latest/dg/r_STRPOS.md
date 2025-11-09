@@ -40,14 +40,46 @@ characters.
 STRPOS returns `0` if the _substring_ is not found within the
 _string_.
 
-````
+```
 `SELECT STRPOS('dogfish', 'fist');`
 
 `+--------+
-| strpos | +--------+
-| 0 | +--------+` ``` ## Examples To show the position of `fish` within `dogfish`, use the following example. ``` `SELECT STRPOS('dogfish', 'fish');` `+--------+
-| strpos | +--------+
-| 4 | +--------+` ``` The following example uses data from the SALES table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md"). To return the number of sales transactions with a COMMISSION over 999.00 from the SALES table, use the following example. ``` `SELECT DISTINCT STRPOS(commission, '.'), COUNT (STRPOS(commission, '.')) FROM sales WHERE STRPOS(commission, '.') > 4 GROUP BY STRPOS(commission, '.') ORDER BY 1, 2;` `+--------+-------+
-| strpos | count | +--------+-------+
-| 5 | 629 | +--------+-------+` ```
-````
+| strpos |
++--------+
+| 0 |
++--------+`
+```
+
+## Examples
+
+To show the position of `fish` within `dogfish`, use the following example.
+
+```
+`SELECT STRPOS('dogfish', 'fish');`
+
+`+--------+
+| strpos |
++--------+
+| 4 |
++--------+`
+```
+
+The following example uses data from the SALES table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+
+To return the number of sales transactions with a COMMISSION
+over 999.00 from the SALES table, use the following example.
+
+```
+`SELECT DISTINCT STRPOS(commission, '.'),
+COUNT (STRPOS(commission, '.'))
+FROM sales
+WHERE STRPOS(commission, '.') > 4
+GROUP BY STRPOS(commission, '.')
+ORDER BY 1, 2;`
+
+`+--------+-------+
+| strpos | count |
++--------+-------+
+| 5 | 629 |
++--------+-------+`
+```

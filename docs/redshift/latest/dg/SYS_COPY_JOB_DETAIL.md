@@ -15,17 +15,34 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name       | Data type      | Description                                                                                                                                                                                                            |
-| ----------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ------------ | ------------------- | -------------------- | -------------------------------------- | ---------------------------------------- | --------------- | -------------------------------------------------- | -------------------------------- | -------------------------- | ------------- |
-| user_id           | integer        | The identifier of the user that owns the job.                                                                                                                                                                          |
-| database_name     | text           | The name of the database containing the job.                                                                                                                                                                           |
-| job_id            | integer        | The copy job identifier.                                                                                                                                                                                               |
-| job_name          | text           | The name of the copy job.                                                                                                                                                                                              |
-| file_location     | text           | The Amazon S3 bucket name for the entry.                                                                                                                                                                               |
-| file_name         | text           | The Amazon S3 key name for the entry.                                                                                                                                                                                  |
-| file_size         | bigint         | The size of the entry in bytes.                                                                                                                                                                                        |
-| file_etag         | text           | The Amazon S3 entity tag (ETag) for the entry.                                                                                                                                                                         |
-| job_text          | character(256) | The parameters of the COPY statement.                                                                                                                                                                                  |
-| modification_time | timestamp      | The time (UTC) at which the S3 object was created or modified initiating ingestion. In S3 listing mode, this is the object modification time. For notification mode, this is the time the notification event occurred. |
-| enqueue_time      | timestamp      | The time (UTC) at which the entry was added to the ingestion queue.                                                                                                                                                    |
-| status            | char(1)        | The status of the entry. Valid values: `P` for pending ingestion, `I` for ingested, `E` for error ingesting, and `U` for unknown (indicating some kind of unexpected state).                                           | The following example returns one row where for ingested entries. ``` `SELECT \* FROM SYS_COPY_JOB_DETAIL WHERE status ilike '%ingested%' limit 1;` `user_id | 100 database_name | dev job_name | many_job_4_3 job_id | 110702 file_location | saral-sqs-system4623202051-0 file_name | frenzy-9/4623202051/file_0_107 file_size | 11302 file_etag | 51b2d78ac5b5aecf4ee6f8374815ad19 modification_time | 2024-07-15 20:43:14 enqueue_time | 2024-07-15 20:44:24 status | Ingested` ``` |
+| Column name       | Data type      | Description                                                                                                                                                                                                                  |
+| ----------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user_id           | integer        | The identifier of the user that owns the job.                                                                                                                                                                                |
+| database_name     | text           | The name of the database containing the job.                                                                                                                                                                                 |
+| job_id            | integer        | The copy job identifier.                                                                                                                                                                                                     |
+| job_name          | text           | The name of the copy job.                                                                                                                                                                                                    |
+| file_location     | text           | The Amazon S3 bucket name for the entry.                                                                                                                                                                                     |
+| file_name         | text           | The Amazon S3 key name for the entry.                                                                                                                                                                                        |
+| file_size         | bigint         | The size of the entry in bytes.                                                                                                                                                                                              |
+| file_etag         | text           | The Amazon S3 entity tag (ETag) for the entry.                                                                                                                                                                               |
+| job_text          | character(256) | The parameters of the COPY statement.                                                                                                                                                                                        |
+| modification_time | timestamp      | The time (UTC) at which the S3 object was created or modified initiating ingestion.<br>In S3 listing mode, this is the object modification time.<br>For notification mode, this is the time the notification event occurred. |
+| enqueue_time      | timestamp      | The time (UTC) at which the entry was added to the ingestion queue.                                                                                                                                                          |
+| status            | char(1)        | The status of the entry.<br>Valid values: `P` for pending ingestion, `I` for ingested, `E` for error ingesting,<br>and `U` for unknown (indicating some kind of unexpected state).                                           |
+
+The following example returns one row where for ingested entries.
+
+```
+`SELECT * FROM SYS_COPY_JOB_DETAIL WHERE status ilike '%ingested%' limit 1;`
+`user_id | 100
+database_name | dev
+job_name | many_job_4_3
+job_id | 110702
+file_location | saral-sqs-system4623202051-0
+file_name | frenzy-9/4623202051/file_0_107
+file_size | 11302
+file_etag | 51b2d78ac5b5aecf4ee6f8374815ad19
+modification_time | 2024-07-15 20:43:14
+enqueue_time | 2024-07-15 20:44:24
+status | Ingested`
+```

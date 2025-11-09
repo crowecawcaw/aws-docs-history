@@ -97,7 +97,7 @@ The owner of the customer_churn can see the following output. A user with only t
 EXECUTE privilege can't see the IAM role, the Amazon S3 bucket, and the estimated cost
 of the mode.
 
-````
+```
 SHOW MODEL customer_churn;
 
        Key                 |           Value
@@ -109,6 +109,19 @@ SHOW MODEL customer_churn;
  Model State               | READY
  validation:F1             | 0.855
  Estimated Cost            | 5.7
-| TRAINING DATA:            | Table                     | customer_data Target Column             | CHURN
-| PARAMETERS:               | Model Type                | auto Problem Type              | binary_classification Objective                 | f1 Function Name             | predict_churn Function Parameters       | age zip average_daily_spend average_daily_cases Function Parameter Types  | int int float float IAM Role                  | 'iam_role' KMS Key                   | 'kms_key' Max Runtime               | 36000 ```
-````
+                           |
+ TRAINING DATA:            |
+ Table                     | customer_data
+ Target Column             | CHURN
+                           |
+ PARAMETERS:               |
+ Model Type                | auto
+ Problem Type              | binary_classification
+ Objective                 | f1
+ Function Name             | predict_churn
+ Function Parameters       | age zip average_daily_spend average_daily_cases
+ Function Parameter Types  | int int float float
+ IAM Role                  | 'iam_role'
+ KMS Key                   | 'kms_key'
+ Max Runtime               | 36000
+```

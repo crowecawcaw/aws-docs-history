@@ -29,13 +29,60 @@ System views that compliment STV_RECENTS include [STL_QUERYTEXT](r_STL_QUERYTEXT
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                               |
-| ----------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --- | --------------------------------------------------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | -------- | --------- | ------- | ----- | ----------------------------------------------------------------------------------------- | ------------------- | --------- | ------ | ------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer        | ID of user who generated entry.                                                                           |
-| status      | character(20)  | Query status. Valid values are `Running`, `Done`.                                                         |
-| starttime   | timestamp      | Time that the query started.                                                                              |
-| duration    | integer        | Number of microseconds since the session started.                                                         |
-| user_name   | character(50)  | User name who ran the process.                                                                            |
-| db_name     | character(50)  | Name of the database.                                                                                     |
-| query       | character(600) | Query text, up to 600 characters. Any additional characters are truncated.                                |
-| pid         | integer        | Process ID for the session associated with the query, which is always -1 for queries that have completed. | ## Sample queries To determine which queries are currently running against the database, run the following query: `select user_name, db_name, pid, query from stv_recents where status = 'Running';` The sample output below shows a single query running on the TICKIT database: ``` user_name | db_name | pid | query ----------+---------+---------+------------- dwuser | tickit | 19996 | select venuename, venueseats from venue where venueseats > 50000 order by venueseats desc; `The following example returns a list of queries (if any) that are running or waiting in a queue to run:` select \* from stv_recents where status<>'Done'; status | starttime | duration | user_name | db_name | query | pid -------+---------------------+----------+---------+-------+-----------+------ Running | 2010-04-21 16:11... | 281566454 | dwuser | tickit | select ... | 23347 `This query does not return results unless you are running a number of concurrent queries and some of those queries are in a queue. The following example extends the previous example. In this case, queries that are truly "in flight" (running, not waiting) are excluded from the result:` select \* from stv_recents where status<>'Done' and pid not in (select pid from stv_inflight); ... ``` For more tips on troubleshooting query performance, see [Query troubleshooting](queries-troubleshooting.md "queries-troubleshooting.md"). |
+| Column name | Data type      | Description                                                                                                  |
+| ----------- | -------------- | ------------------------------------------------------------------------------------------------------------ |
+| userid      | integer        | ID of user who generated entry.                                                                              |
+| status      | character(20)  | Query status. Valid values are<br>`Running`, `Done`.                                                         |
+| starttime   | timestamp      | Time that the query started.                                                                                 |
+| duration    | integer        | Number of microseconds since the session started.                                                            |
+| user_name   | character(50)  | User name who ran the process.                                                                               |
+| db_name     | character(50)  | Name of the database.                                                                                        |
+| query       | character(600) | Query text, up to 600 characters. Any additional<br>characters are truncated.                                |
+| pid         | integer        | Process ID for the session associated with the<br>query, which is always -1 for queries that have completed. |
+
+## Sample queries
+
+To determine which queries are currently running against the database, run the
+following query:
+
+```
+select user_name, db_name, pid, query
+from stv_recents
+where status = 'Running';
+```
+
+The sample output below shows a single query running on the TICKIT database:
+
+```
+
+user_name | db_name |   pid   | query
+----------+---------+---------+-------------
+dwuser    | tickit  |  19996  |select venuename, venueseats from
+venue where venueseats > 50000 order by venueseats desc;
+
+```
+
+The following example returns a list of queries (if any) that are running or
+waiting in a queue to run:
+
+```
+select * from stv_recents where status<>'Done';
+
+status |    starttime        | duration |user_name|db_name| query     | pid
+-------+---------------------+----------+---------+-------+-----------+------
+Running| 2010-04-21 16:11... | 281566454| dwuser  |tickit | select ...| 23347
+```
+
+This query does not return results unless you are running a number of concurrent
+queries and some of those queries are in a queue.
+
+The following example extends the previous example. In this case, queries that are
+truly "in flight" (running, not waiting) are excluded from the result:
+
+```
+select * from stv_recents where status<>'Done'
+and pid not in (select pid from stv_inflight);
+...
+```
+
+For more tips on troubleshooting query performance, see [Query troubleshooting](queries-troubleshooting.md "queries-troubleshooting.md").

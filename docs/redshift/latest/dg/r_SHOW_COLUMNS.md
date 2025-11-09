@@ -55,7 +55,45 @@ A valid UTF-8 character expression with a pattern to match table names. The
 LIKE option performs a case-sensitive match that supports the following
 pattern-matching metacharacters:
 
-| Metacharacter | Description                                      |
-| ------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | ----------- | ---------------- | -------------- | ----------- | --------- | ------------------------ | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----- | ------- | --- | ---- | --- | ------- | ---- | --- | --- | -------------------- | ------ | ----- | ------- | --- | ---- | --- | -------- | ---- | --- | --- | -------------------- | ------ | ----- | ------- | --- | ---- | --- | -------- | ---- | --- | --- | -------------------- | ------ | ----- | ------- | --- | ---- | --- | -------- | ---- | --- | --- | -------------------- | ------ | ----- | ------- | --- | ---- | --- | ----------------- | --- | ---- | ---- | -------------------- | ------ | ----- | ------- | --- | ---- | --- | ---------------------------- | ---- | ---- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- | ----------- | ---------------- | -------------- | ----------- | --------- | ------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------ | ----------- | --- | --- | --- | ------- | --- | --- | -------------- | ------ | ------ | ------ | --- | --- | --- | --------- | --- | --- | ----- |
-| `%`           | Matches any sequence of zero or more characters. |
-| `_`           | Matches any single character.                    | If _filter_pattern_ does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator. _row_limit_ The maximum number of rows to return. The _row_limit_ can be 0–10,000. ## Examples Following example shows the columns in the Amazon Redshift database named `sample_data_dev` that are in schema `tickit` and table `event`. ``` `SHOW COLUMNS FROM TABLE sample_data_dev.tickit.event;` `database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks -------------------+-------------+------------+-------------+------------------+----------------+-------------+------------------------------+--------------------------+-------------------+------------------------ sample_data_dev | tickit | event | eventid | 1   | NULL | NO  | integer | NULL | 32  | 0   | NULL sample_data_dev | tickit | event | eventid | 2   | NULL | NO  | smallint | NULL | 16  | 0   | NULL sample_data_dev | tickit | event | eventid | 3   | NULL | NO  | smallint | NULL | 16  | 0   | NULL sample_data_dev | tickit | event | eventid | 4   | NULL | NO  | smallint | NULL | 16  | 0   | NULL sample_data_dev | tickit | event | eventid | 5   | NULL | YES | character varying | 200 | NULL | NULL | NULL sample_data_dev | tickit | event | eventid | 6   | NULL | YES | timestamp without time zo... | NULL | NULL | NULL | NULL` ``` Following example shows the tables in the AWS Glue Data Catalog database named `awsdatacatalog`that are in schema`batman`and table`nation`. Output is limited to `2` rows. ``` `SHOW COLUMNS FROM TABLE awsdatacatalog.batman.nation LIMIT 2;` `database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | remarks ----------------+-------------+------------+-------------+------------------+----------------+-------------+-----------+--------------------------+-------------------+--------- awsdatacatalog | batman | nation | n_nationkey | 1   |     |     | integer |     |     | awsdatacatalog | batman | nation | n_name | 2   |     |     | character |     |     | ` ``` |
+| Metacharacter | Description                                         |
+| ------------- | --------------------------------------------------- |
+| `%`           | Matches any sequence of zero or more<br>characters. |
+| `_`           | Matches any single character.                       |
+
+If _filter_pattern_ does not contain metacharacters, then
+the pattern only represents the string itself; in that case LIKE acts the same
+as the equals operator.
+
+_row_limit_
+
+The maximum number of rows to return. The _row_limit_ can
+be 0–10,000.
+
+## Examples
+
+Following example shows the columns in the Amazon Redshift database named `sample_data_dev` that
+are in schema `tickit` and table `event`.
+
+```
+`SHOW COLUMNS FROM TABLE sample_data_dev.tickit.event;`
+`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | numeric_scale | remarks
+-------------------+-------------+------------+-------------+------------------+----------------+-------------+------------------------------+--------------------------+-------------------+------------------------
+ sample_data_dev | tickit | event | eventid | 1 | NULL | NO | integer | NULL | 32 | 0 | NULL
+ sample_data_dev | tickit | event | eventid | 2 | NULL | NO | smallint | NULL | 16 | 0 | NULL
+ sample_data_dev | tickit | event | eventid | 3 | NULL | NO | smallint | NULL | 16 | 0 | NULL
+ sample_data_dev | tickit | event | eventid | 4 | NULL | NO | smallint | NULL | 16 | 0 | NULL
+ sample_data_dev | tickit | event | eventid | 5 | NULL | YES | character varying | 200 | NULL | NULL | NULL
+ sample_data_dev | tickit | event | eventid | 6 | NULL | YES | timestamp without time zo... | NULL | NULL | NULL | NULL`
+```
+
+Following example shows the tables in the AWS Glue Data Catalog database named
+`awsdatacatalog` that are in schema `batman` and table
+`nation`. Output is limited to `2` rows.
+
+```
+`SHOW COLUMNS FROM TABLE awsdatacatalog.batman.nation LIMIT 2;`
+`database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable | data_type | character_maximum_length | numeric_precision | remarks
+----------------+-------------+------------+-------------+------------------+----------------+-------------+-----------+--------------------------+-------------------+---------
+ awsdatacatalog | batman | nation | n_nationkey | 1 | | | integer | | |
+ awsdatacatalog | batman | nation | n_name | 2 | | | character | | |`
+```

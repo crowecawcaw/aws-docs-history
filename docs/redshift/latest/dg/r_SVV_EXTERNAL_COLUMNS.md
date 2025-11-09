@@ -14,13 +14,13 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name            | Data type | Description                                                                                                                       |
-| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| redshift_database_name | text      | The name of the local Amazon Redshift database.                                                                                   |
-| schemaname             | text      | The name of the Amazon Redshift external schema for the external table.                                                           |
-| tablename              | text      | The name of the external table.                                                                                                   |
-| columnname             | text      | The name of the column.                                                                                                           |
-| external_type          | text      | The data type of the column.                                                                                                      |
-| columnnum              | integer   | The external column number, starting from 1.                                                                                      |
-| part_key               | integer   | If the column is a partition key, the order of the key. If the column isn't a partition, the value is `0`.                        |
-| is_nullable            | text      | Defines whether a column is nullable or not. Some values are `true`, `false`, or " " empty string that represents no information. |
+| Column name            | Data type | Description                                                                                                                             |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| redshift_database_name | text      | The name of the local Amazon Redshift database.                                                                                         |
+| schemaname             | text      | The name of the Amazon Redshift external schema for the<br>external table.                                                              |
+| tablename              | text      | The name of the external table.                                                                                                         |
+| columnname             | text      | The name of the column.                                                                                                                 |
+| external_type          | text      | The data type of the column.                                                                                                            |
+| columnnum              | integer   | The external column number, starting from<br>1.                                                                                         |
+| part_key               | integer   | If the column is a partition key, the order of the<br>key. If the column isn't a partition, the value is<br>`0`.                        |
+| is_nullable            | text      | Defines whether a column is nullable or not. Some<br>values are `true`, `false`, or " " empty<br>string that represents no information. |

@@ -20,19 +20,30 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Table columns
 
-| Column name      | Data type        | Description                                                |
-| ---------------- | ---------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query            | integer          | The query ID.                                              |
-| segment          | integer          | The segment number. A query consists of multiple segments. |
-| node             | integer          | The node number.                                           |
-| slice            | integer          | The data slice that a particular segment ran against.      |
-| eventtime        | timestamp        | The time in UTC that the event is recorded.                |
-| bucket           | text             | The Amazon S3 bucket name.                                 |
-| prefix           | text             | The prefix of the Amazon S3 bucket location.               |
-| recursive        | char(1)          | Whether there is recursive scan for subfolders.            |
-| retrieved_files  | integer          | The number of listed files.                                |
-| max_file_size    | bigint           | The maximum file size among listed files.                  |
-| avg_file_size    | double precision | The average file size among listed files.                  |
-| generated_splits | integer          | The number of file splits.                                 |
-| avg_split_length | double precision | The average length of file splits in bytes.                |
-| duration         | bigint           | The duration of file listing, in microseconds.             | ## Sample query The following example queries SVL_S3LIST for the last query to run. `select * from svl_s3list where query = pg_last_query_id() order by query,segment;` |
+| Column name      | Data type        | Description                                                   |
+| ---------------- | ---------------- | ------------------------------------------------------------- |
+| query            | integer          | The query ID.                                                 |
+| segment          | integer          | The segment number. A query consists of multiple<br>segments. |
+| node             | integer          | The node number.                                              |
+| slice            | integer          | The data slice that a particular segment ran against.         |
+| eventtime        | timestamp        | The time in UTC that the event is recorded.                   |
+| bucket           | text             | The Amazon S3 bucket name.                                    |
+| prefix           | text             | The prefix of the Amazon S3 bucket location.                  |
+| recursive        | char(1)          | Whether there is recursive scan for subfolders.               |
+| retrieved_files  | integer          | The number of listed files.                                   |
+| max_file_size    | bigint           | The maximum file size among listed files.                     |
+| avg_file_size    | double precision | The average file size among listed files.                     |
+| generated_splits | integer          | The number of file splits.                                    |
+| avg_split_length | double precision | The average length of file splits in bytes.                   |
+| duration         | bigint           | The duration of file listing, in microseconds.                |
+
+## Sample query
+
+The following example queries SVL_S3LIST for the last query to run.
+
+```
+select *
+from svl_s3list
+where query = pg_last_query_id()
+order by query,segment;
+```

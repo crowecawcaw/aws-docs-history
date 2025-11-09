@@ -18,12 +18,29 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type | Description                                                                                                                                                                                                                         |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------- | ------- | ---------- | -------- | --------- | -------- | ------ |
-| userid      | integer   | The ID of the user who initiated the resize.                                                                                                                                                                                        |
-| db_id       | integer   | The ID of the database.                                                                                                                                                                                                             |
-| schema      | char(128) | The name of the schema.                                                                                                                                                                                                             |
-| table_name  | char(128) | The name of the table.                                                                                                                                                                                                              |
-| tbl         | integer   | The ID of the table.                                                                                                                                                                                                                |
-| status      | char(64)  | The status of the migration progress of the table. Possible values are as follows. <br>• `Waiting`: Waiting for redistribution to start <br>• `Applying`: Currently redistributing <br>• `Finished`: Finished redistributing        |
-| task_type   | integer   | The redistribution type for the table. Possible values are as follows. <br>• `1`: KEY <br>• `2`: EVEN For more information about distribution styles, see [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md"). | ## Sample query The following query shows the number of tables in a database that are waiting to be resized, are currently being resized, and are finished resizing. ```select db_id, status, count(*) from stv_xrestore_alter_queue_state group by 1,2 order by 3 desc`db_id | status | count -------+------------+------ 694325 | Waiting | 323 694325 | Finished | 60 694325 | Applying | 1` ``` |
+| Column name | Data type | Description                                                                                                                                                                                                                             |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer   | The ID of the user who initiated the resize.                                                                                                                                                                                            |
+| db_id       | integer   | The ID of the database.                                                                                                                                                                                                                 |
+| schema      | char(128) | The name of the schema.                                                                                                                                                                                                                 |
+| table_name  | char(128) | The name of the table.                                                                                                                                                                                                                  |
+| tbl         | integer   | The ID of the table.                                                                                                                                                                                                                    |
+| status      | char(64)  | The status of the migration progress of the table. Possible values are as follows.<br>• `Waiting`: Waiting for redistribution to start<br>• `Applying`: Currently redistributing<br>• `Finished`: Finished redistributing               |
+| task_type   | integer   | The redistribution type for the table. Possible values are as follows.<br>• `1`: KEY<br>• `2`: EVEN<br>For more information about distribution styles,<br>see [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md"). |
+
+## Sample query
+
+The following query shows the number of tables in a database that are
+waiting to be resized, are currently being resized, and are finished resizing.
+
+```
+select db_id, status, count(*)
+from stv_xrestore_alter_queue_state
+group by 1,2 order by 3 desc
+
+`db_id | status | count
+-------+------------+------
+694325 | Waiting | 323
+694325 | Finished | 60
+694325 | Applying | 1`
+```

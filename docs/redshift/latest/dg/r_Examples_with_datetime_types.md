@@ -78,7 +78,7 @@ configuration parameter.
 The following example inserts timestamps that have different formats and
 display the resulting table.
 
-````
+```
 `create table tstamp(timeofday timestamp, timeofdaytz timestamptz);
 
 insert into tstamp values('Jun 1,2008 09:59:59', 'Jun 1,2008 09:59:59 EST' );
@@ -88,8 +88,10 @@ insert into tstamp values('Jun 1,2008 09:59:59 EST', 'Jun 1,2008 09:59:59');
 SELECT * FROM tstamp;`
 
 `+---------------------+------------------------+
-| timeofday | timeofdaytz | +---------------------+------------------------+
+| timeofday | timeofdaytz |
++---------------------+------------------------+
 | 2008-06-01 09:59:59 | 2008-06-01 14:59:59+00 |
 | 2008-12-31 18:20:00 | 2008-12-31 18:20:00+00 |
-| 2008-06-01 09:59:59 | 2008-06-01 09:59:59+00 | +---------------------+------------------------+` ```
-````
+| 2008-06-01 09:59:59 | 2008-06-01 09:59:59+00 |
++---------------------+------------------------+`
+```

@@ -13,8 +13,8 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name            | Data type | Description                                                                                                                               |
-| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| current_cursor_count   | integer   | Number of cursors currently open.                                                                                                         |
-| max_diskspace_usable   | integer   | Amount of disk space available for cursors, in megabytes. This constraint is based on the maximum cursor result set size for the cluster. |
-| current_diskspace_used | integer   | Amount of disk space currently used by cursors, in megabytes.                                                                             |
+| Column name            | Data type | Description                                                                                                                                     |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| current_cursor_count   | integer   | Number of cursors currently open.                                                                                                               |
+| max_diskspace_usable   | integer   | Amount of disk space available for cursors, in<br>megabytes. This constraint is based on the maximum cursor result set<br>size for the cluster. |
+| current_diskspace_used | integer   | Amount of disk space currently used by cursors, in<br>megabytes.                                                                                |

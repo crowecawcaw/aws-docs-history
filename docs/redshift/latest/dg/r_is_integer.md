@@ -31,7 +31,7 @@ A `SUPER` expression or column.
 
 To check if `5` is an `INTEGER` using the IS_INTEGER function, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (5);
@@ -39,6 +39,8 @@ INSERT INTO t VALUES (5);
 SELECT s, IS_INTEGER(s) FROM t;`
 
 `+---+------------+
-| s | is_integer | +---+------------+
-| 5 | true | +---+------------+` ```
-````
+| s | is_integer |
++---+------------+
+| 5 | true |
++---+------------+`
+```

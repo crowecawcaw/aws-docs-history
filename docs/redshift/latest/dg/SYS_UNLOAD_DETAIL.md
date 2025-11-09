@@ -14,15 +14,39 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name    | Data type        | Description                                                    |
-| -------------- | ---------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------ | --------- | ----------------------------------------------------------- | ------ | --------- | ----------------------------------------------------------- | ------ | --------- | ----------------------------------------------------------- | ------ | --------- | ----------------------------------------------------------- | ------ | --------- | ----------------------------------------------------------- | ------ | ----------------- |
-| user_id        | integer          | The identifier of the user who generated the entry.            |
-| query_id       | integer          | The query identifier of the UNLOAD command.                    |
-| session_id     | integer          | The ID of the process associated with the query statement.     |
-| transaction_id | bigint           | The ID of the transaction associated with the query statement. |
-| file_name      | character (1280) | The complete Amazon S3 object path for the file.               |
-| start_time     | timestamp        | The time when the transaction began.                           |
-| end_time       | timestamp        | The time when the transaction completed.                       |
-| line_count     | bigint           | The number of lines (rows) unloaded to the file.               |
-| transfer_size  | bigint           | The number of bytes transferred.                               |
-| file_format    | character (10)   | The file format of the unloaded files.                         | ## Sample queries The following query shows the unloaded query details, including format, rows, and file count of unload command. `select query_id, substring(file_name, 0, 50), transfer_size, file_format from sys_unload_detail;` Sample output. ``` query_id | substring | transfer_size | file_format ----------+-------------------------------------------------------------+---------------+------------- 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0000_part_00.gz | 395886 | Text 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0001_part_00.gz | 406444 | Text 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0002_part_00.gz | 409431 | Text 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0003_part_00.gz | 403051 | Text 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0004_part_00.gz | 413592 | Text 9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0005_part_00.gz | 395689 | Text (6 rows) ``` |
+| Column name    | Data type        | Description                                                       |
+| -------------- | ---------------- | ----------------------------------------------------------------- |
+| user_id        | integer          | The identifier of the user who generated the<br>entry.            |
+| query_id       | integer          | The query identifier of the UNLOAD<br>command.                    |
+| session_id     | integer          | The ID of the process associated with the query<br>statement.     |
+| transaction_id | bigint           | The ID of the transaction associated with the<br>query statement. |
+| file_name      | character (1280) | The complete Amazon S3 object path for the<br>file.               |
+| start_time     | timestamp        | The time when the transaction began.                              |
+| end_time       | timestamp        | The time when the transaction completed.                          |
+| line_count     | bigint           | The number of lines (rows) unloaded to the<br>file.               |
+| transfer_size  | bigint           | The number of bytes transferred.                                  |
+| file_format    | character (10)   | The file format of the unloaded files.                            |
+
+## Sample queries
+
+The following query shows the unloaded query details, including format, rows, and
+file count of unload command.
+
+```
+select query_id, substring(file_name, 0, 50), transfer_size, file_format from sys_unload_detail;
+```
+
+Sample output.
+
+```
+
+ query_id |                     substring                               | transfer_size | file_format
+----------+-------------------------------------------------------------+---------------+-------------
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0000_part_00.gz  |        395886 | Text
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0001_part_00.gz  |        406444 | Text
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0002_part_00.gz  |        409431 | Text
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0003_part_00.gz  |        403051 | Text
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0004_part_00.gz  |        413592 | Text
+     9272 | s3://amzn-s3-demo-bucket/my_unload_doc_venue0005_part_00.gz  |        395689 | Text
+(6 rows)
+```

@@ -18,26 +18,42 @@ We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name      | Data type | Description                                                                     |
-| ---------------- | --------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | ----------- | -------------------------------------------------------- | --- | --- | --- | ------------ | --- | --- | ------------ | --- | ----- |
-| xid              | bigint    | Transaction id being committed.                                                 |
-| node             | integer   | Node number. `-1` is the leader node.                                           |
-| startqueue       | timestamp | Start of queueing for commit.                                                   |
-| startwork        | timestamp | Start of commit.                                                                |
-| endflush         | timestamp | End of dirty block flush phase.                                                 |
-| endstage         | timestamp | End of metadata staging phase.                                                  |
-| endlocal         | timestamp | End of local commit phase.                                                      |
-| startglobal      | timestamp | Start of global phase.                                                          |
-| endtime          | timestamp | End of the commit.                                                              |
-| queuelen         | bigint    | Number of transactions that were ahead of this transaction in the commit queue. |
-| permblocks       | bigint    | Number of existing permanent blocks at the time of this commit.                 |
-| newblocks        | bigint    | Number of new permanent blocks at the time of this commit.                      |
-| dirtyblocks      | bigint    | Number of blocks that had to be written as part of this commit.                 |
-| headers          | bigint    | Number of block headers that had to be written as part of this commit.          |
-| numxids          | integer   | The number of active DML transactions.                                          |
-| oldestxid        | bigint    | The XID of the oldest active DML transaction.                                   |
-| extwritelatency  | bigint    | This information is for internal use only.                                      |
-| metadatawritten  | int       | This information is for internal use only.                                      |
-| tombstonedblocks | _bigint_  | This information is for internal use only.                                      |
-| tossedblocks     | bigint    | This information is for internal use only.                                      |
-| batched_by       | bigint    | This information is for internal use only.                                      | ## Sample query ``` select node, datediff(ms,startqueue,startwork) as queue_time, datediff(ms, startwork, endtime) as commit_time, queuelen from stl_commit_stats where xid = 2574 order by node; node | queue_time | commit_time | queuelen -----+--------------+-------------+--------- -1 | 0   | 617 | 0 0 | 444950725641 | 616 | 0 1 | 444950725636 | 616 | 0 ``` |
+| Column name      | Data type | Description                                                                        |
+| ---------------- | --------- | ---------------------------------------------------------------------------------- |
+| xid              | bigint    | Transaction id being committed.                                                    |
+| node             | integer   | Node number. `-1` is the leader<br>node.                                           |
+| startqueue       | timestamp | Start of queueing for commit.                                                      |
+| startwork        | timestamp | Start of commit.                                                                   |
+| endflush         | timestamp | End of dirty block flush phase.                                                    |
+| endstage         | timestamp | End of metadata staging phase.                                                     |
+| endlocal         | timestamp | End of local commit phase.                                                         |
+| startglobal      | timestamp | Start of global phase.                                                             |
+| endtime          | timestamp | End of the commit.                                                                 |
+| queuelen         | bigint    | Number of transactions that were ahead of this<br>transaction in the commit queue. |
+| permblocks       | bigint    | Number of existing permanent blocks at the time of<br>this commit.                 |
+| newblocks        | bigint    | Number of new permanent blocks at the time of this<br>commit.                      |
+| dirtyblocks      | bigint    | Number of blocks that had to be written as part of<br>this commit.                 |
+| headers          | bigint    | Number of block headers that had to be written as<br>part of this commit.          |
+| numxids          | integer   | The number of active DML transactions.                                             |
+| oldestxid        | bigint    | The XID of the oldest active DML<br>transaction.                                   |
+| extwritelatency  | bigint    | This information is for internal use only.                                         |
+| metadatawritten  | int       | This information is for internal use only.                                         |
+| tombstonedblocks | _bigint_  | This information is for internal use only.                                         |
+| tossedblocks     | bigint    | This information is for internal use only.                                         |
+| batched_by       | bigint    | This information is for internal use only.                                         |
+
+## Sample query
+
+```
+select node, datediff(ms,startqueue,startwork) as queue_time,
+datediff(ms, startwork, endtime) as commit_time, queuelen
+from stl_commit_stats
+where xid = 2574
+order by node;
+
+node | queue_time   | commit_time | queuelen
+-----+--------------+-------------+---------
+  -1 |            0 |         617 |        0
+   0 | 444950725641 |         616 |        0
+   1 | 444950725636 |         616 |        0
+```

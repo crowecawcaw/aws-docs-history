@@ -29,12 +29,25 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc cosine of `-1`, use the following example.
 
-````
+```
 `SELECT ACOS(-1);`
 
 `+-------------------+
-| acos | +-------------------+
-| 3.141592653589793 | +-------------------+` ``` To convert the arc cosine of `.5` to the equivalent number of degrees, use the following example. ``` `SELECT (ACOS(.5) * 180/(SELECT PI())) AS degrees;` `+-------------------+
-| degrees | +-------------------+
-| 60.00000000000001 | +-------------------+` ```
-````
+| acos |
++-------------------+
+| 3.141592653589793 |
++-------------------+`
+```
+
+To convert the arc cosine of `.5` to the equivalent number of
+degrees, use the following example.
+
+```
+`SELECT (ACOS(.5) * 180/(SELECT PI())) AS degrees;`
+
+`+-------------------+
+| degrees |
++-------------------+
+| 60.00000000000001 |
++-------------------+`
+```

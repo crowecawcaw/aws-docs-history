@@ -28,10 +28,12 @@ A `DOUBLE PRECISION` number.
 
 To return the tangent of zero, use the following example.
 
-````
+```
 `SELECT TAN(0);`
 
 `+-----+
-| tan | +-----+
-| 0 | +-----+` ```
-````
+| tan |
++-----+
+| 0 |
++-----+`
+```

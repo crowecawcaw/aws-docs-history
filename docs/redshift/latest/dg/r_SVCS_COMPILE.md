@@ -20,14 +20,55 @@ For information about SCL_COMPILE, see [SVL_COMPILE](r_SVL_COMPILE.md "r_SVL_COM
 
 ## Table columns
 
-| Column name | Data type | Description                                                                                  |
-| ----------- | --------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- | ----- | ------- | ----- | -------- | ------------------------------------------------------------------------------------ | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | ---- | ----- | ------ | ----- | ----- | --- | --- | ---- | ----- | ------ | ----- | ----- | --- | --- | ---- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | ----- | ------ | ----- | ----- | --- | --- | --- | --------------- |
-| userid      | integer   | The ID of the user who generated the entry.                                                  |
-| xid         | bigint    | The transaction ID associated with the statement.                                            |
-| pid         | integer   | The process ID associated with the statement.                                                |
-| query       | integer   | The query ID. You can use this ID to join various other system tables and views.             |
-| segment     | integer   | The query segment to be compiled.                                                            |
-| locus       | integer   | The location where the segment runs, `1` if on a compute node and `2` if on the leader node. |
-| starttime   | timestamp | The time in Universal Coordinated Time (UTC) that the compile started.                       |
-| endtime     | timestamp | The time in UTC that the compile ended.                                                      |
-| compile     | integer   | A value that is `0` if the compile was reused and `1` if the segment was compiled.           | ## Sample queries In this example, queries 35878 and 35879 ran the same SQL statement. The compile column for query 35878 shows `1` for four query segments, which indicates that the segments were compiled. Query 35879 shows `0` in the compile column for every segment, indicating that the segments did not need to be compiled again. ``` select userid, xid, pid, query, segment, locus, datediff(ms, starttime, endtime) as duration, compile from svcs_compile where query = 35878 or query = 35879 order by query, segment; userid | xid | pid | query | segment | locus | duration | compile --------+--------+-------+-------+---------+-------+----------+--------- 100 | 112780 | 23028 | 35878 | 0   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 1   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 2   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 3   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 4   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 5   | 1   | 0   | 0 100 | 112780 | 23028 | 35878 | 6   | 1   | 1380 | 1 100 | 112780 | 23028 | 35878 | 7   | 1   | 1085 | 1 100 | 112780 | 23028 | 35878 | 8   | 1   | 1197 | 1 100 | 112780 | 23028 | 35878 | 9   | 2   | 905 | 1 100 | 112782 | 23028 | 35879 | 0   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 1   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 2   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 3   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 4   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 5   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 6   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 7   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 8   | 1   | 0   | 0 100 | 112782 | 23028 | 35879 | 9   | 2   | 0   | 0 (20 rows) ``` |
+| Column name | Data type | Description                                                                                        |
+| ----------- | --------- | -------------------------------------------------------------------------------------------------- |
+| userid      | integer   | The ID of the user who generated the entry.                                                        |
+| xid         | bigint    | The transaction ID associated with the statement.                                                  |
+| pid         | integer   | The process ID associated with the statement.                                                      |
+| query       | integer   | The query ID. You can use this ID to join various<br>other system tables and views.                |
+| segment     | integer   | The query segment to be compiled.                                                                  |
+| locus       | integer   | The location where the segment runs,<br>`1` if on a compute node and<br>`2` if on the leader node. |
+| starttime   | timestamp | The time in Universal Coordinated Time (UTC) that<br>the compile started.                          |
+| endtime     | timestamp | The time in UTC that the compile ended.                                                            |
+| compile     | integer   | A value that is `0` if the<br>compile was reused and `1` if the segment was<br>compiled.           |
+
+## Sample queries
+
+In this example, queries 35878 and 35879 ran the same SQL statement. The
+compile column for query 35878 shows `1` for four query segments, which
+indicates that the segments were compiled. Query 35879 shows `0` in the
+compile column for every segment, indicating that the segments did not need to be
+compiled again.
+
+```
+select userid, xid,  pid, query, segment, locus,
+datediff(ms, starttime, endtime) as duration, compile
+from svcs_compile
+where query = 35878 or query = 35879
+order by query, segment;
+
+ userid |  xid   |  pid  | query | segment | locus | duration | compile
+--------+--------+-------+-------+---------+-------+----------+---------
+    100 | 112780 | 23028 | 35878 |       0 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       1 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       2 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       3 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       4 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       5 |     1 |        0 |       0
+    100 | 112780 | 23028 | 35878 |       6 |     1 |     1380 |       1
+    100 | 112780 | 23028 | 35878 |       7 |     1 |     1085 |       1
+    100 | 112780 | 23028 | 35878 |       8 |     1 |     1197 |       1
+    100 | 112780 | 23028 | 35878 |       9 |     2 |      905 |       1
+    100 | 112782 | 23028 | 35879 |       0 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       1 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       2 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       3 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       4 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       5 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       6 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       7 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       8 |     1 |        0 |       0
+    100 | 112782 | 23028 | 35879 |       9 |     2 |        0 |       0
+(20 rows)
+
+```

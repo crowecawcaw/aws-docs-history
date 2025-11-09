@@ -27,10 +27,12 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the radian equivalent of 180 degrees, use the following example.
 
-````
+```
 `SELECT RADIANS(180);`
 
 `+-------------------+
-| radians | +-------------------+
-| 3.141592653589793 | +-------------------+` ```
-````
+| radians |
++-------------------+
+| 3.141592653589793 |
++-------------------+`
+```

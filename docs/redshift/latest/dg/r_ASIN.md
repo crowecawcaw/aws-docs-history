@@ -28,12 +28,25 @@ The input parameter is a `DOUBLE PRECISION` number.
 
 To return the arc sine of `1`, use the following example.
 
-````
+```
 `SELECT ASIN(1) AS halfpi;`
 
 `+--------------------+
-| halfpi | +--------------------+
-| 1.5707963267948966 | +--------------------+` ``` To convert the arc sine of `.5` to the equivalent number of degrees, use the following example. ``` `SELECT (ASIN(.5) * 180/(SELECT PI())) AS degrees;` `+--------------------+
-| degrees | +--------------------+
-| 30.000000000000004 | +--------------------+` ```
-````
+| halfpi |
++--------------------+
+| 1.5707963267948966 |
++--------------------+`
+```
+
+To convert the arc sine of `.5` to the equivalent number of
+degrees, use the following example.
+
+```
+`SELECT (ASIN(.5) * 180/(SELECT PI())) AS degrees;`
+
+`+--------------------+
+| degrees |
++--------------------+
+| 30.000000000000004 |
++--------------------+`
+```

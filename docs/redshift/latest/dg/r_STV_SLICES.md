@@ -15,8 +15,29 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 ## Table columns
 
 | Column name | Data type    | Description                                |
-| ----------- | ------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --- | --- | --- | -------------- |
+| ----------- | ------------ | ------------------------------------------ |
 | node        | integer      | Cluster node where the slice is located.   |
 | slice       | integer      | Node slice.                                |
 | localslice  | integer      | This information is for internal use only. |
-| type        | character(1) | This information is for internal use only. | ## Sample query To view which cluster nodes are managing which slices, type the following query: `select node, slice from stv_slices;` This query returns the following sample output: ``` node | slice ------+------- 0 | 2 0 | 3 0 | 1 0 | 0 (4 rows) ``` |
+| type        | character(1) | This information is for internal use only. |
+
+## Sample query
+
+To view which cluster nodes are managing which slices, type the following
+query:
+
+```
+select node, slice from stv_slices;
+```
+
+This query returns the following sample output:
+
+```
+ node | slice
+------+-------
+    0 |     2
+    0 |     3
+    0 |     1
+    0 |     0
+(4 rows)
+```

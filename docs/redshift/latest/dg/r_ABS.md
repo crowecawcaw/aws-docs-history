@@ -29,12 +29,24 @@ ABS returns the same data type as its argument.
 
 To calculate the absolute value of `-38`, use the following example.
 
-````
+```
 `SELECT ABS(-38);`
 
 `+-----+
-| abs | +-----+
-| 38 | +-----+` ``` To calculate the absolute value of `(14-76)`, use the following example. ``` `SELECT ABS(14-76);` `+-----+
-| abs | +-----+
-| 62 | +-----+` ```
-````
+| abs |
++-----+
+| 38 |
++-----+`
+```
+
+To calculate the absolute value of `(14-76)`, use the following example.
+
+```
+`SELECT ABS(14-76);`
+
+`+-----+
+| abs |
++-----+
+| 62 |
++-----+`
+```

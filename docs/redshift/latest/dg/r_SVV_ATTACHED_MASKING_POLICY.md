@@ -12,15 +12,85 @@ Only superusers and users with the [`sys:secadmin`](r_roles-default.md "r_roles-
 ## Table columns
 
 | Column name             | Data type | Description                                                                         |
-| ----------------------- | --------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | --------- | ----------------------------------------------------------------------------------- |
 | policy_name             | text      | The name of the masking policy attached to the table.                               |
 | schema_name             | text      | The schema of the table to which the policy is attached.                            |
 | table_name              | text      | The name of the table to which the policy is attached.                              |
 | table_type              | text      | The type of the table to which the policy is attached.                              |
 | grantor                 | text      | The name of the user that attached the policy.                                      |
 | grantee                 | text      | The name of the user/role to whom the policy is attached.                           |
-| grantee_type            | text      | The type of grantee. This can be _role_, _user_, or _public_.                       |
+| grantee_type            | text      | The type of grantee. This can be _role_,<br>_user_, or _public_.                    |
 | priority                | int       | The priority of the attached policy.                                                |
 | input_columns           | text      | The input column attributes of the attached policy.                                 |
 | output_columns          | text      | The output column attributes of the attached policy.                                |
-| is_masking_datashare_on | boolean   | Whether the table to which the policy is attached is DDM-protected over datashares. | ## Internal functions SVV_ATTACHED_MASKING_POLICY supports the following internal functions: ### mask_get_policy_for_role_on_column Get the highest priority policy that applies to a given column/role pair. #### Syntax `mask_get_policy_for_role_on_column (relschema, relname, colname, rolename);` #### Parameters _relschema_ The name of the schema the policy is in. _relname_ The name of the table the policy is in. _colname_ The name of the column the policy is attached to. _rolename_ The name of the role the policy is attached to. ### mask_get_policy_for_user_on_column Get the highest priority policy that applies to a given column/user pair. #### Syntax `mask_get_policy_for_user_on_column (relschema, relname, colname, username);` #### Parameters _relschema_ The name of the schema the policy is in. _relname_ The name of the table the policy is in. _colname_ The name of the column the policy is attached to. _rolename_ The name of the user the policy is attached to. |
+| is_masking_datashare_on | boolean   | Whether the table to which the policy is attached is DDM-protected over datashares. |
+
+## Internal functions
+
+SVV_ATTACHED_MASKING_POLICY supports the following internal functions:
+
+### mask_get_policy_for_role_on_column
+
+Get the highest priority policy that applies to a given column/role pair.
+
+#### Syntax
+
+```
+mask_get_policy_for_role_on_column
+                        (relschema,
+                        relname,
+                        colname,
+                        rolename);
+
+```
+
+#### Parameters
+
+_relschema_
+
+The name of the schema the policy is in.
+
+_relname_
+
+The name of the table the policy is in.
+
+_colname_
+
+The name of the column the policy is attached to.
+
+_rolename_
+
+The name of the role the policy is attached to.
+
+### mask_get_policy_for_user_on_column
+
+Get the highest priority policy that applies to a given column/user pair.
+
+#### Syntax
+
+```
+mask_get_policy_for_user_on_column
+                        (relschema,
+                        relname,
+                        colname,
+                        username);
+
+```
+
+#### Parameters
+
+_relschema_
+
+The name of the schema the policy is in.
+
+_relname_
+
+The name of the table the policy is in.
+
+_colname_
+
+The name of the column the policy is attached to.
+
+_rolename_
+
+The name of the user the policy is attached to.

@@ -21,18 +21,29 @@ For information about SVL_S3LIST, see [SVL_S3LIST](r_SVL_S3LIST.md "r_SVL_S3LIST
 
 ## Table columns
 
-| Column name      | Data type        | Description                                                |
-| ---------------- | ---------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query            | integer          | The query ID.                                              |
-| segment          | integer          | The segment number. A query consists of multiple segments. |
-| node             | integer          | The node number.                                           |
-| eventtime        | timestamp        | The time in UTC that the event is recorded.                |
-| bucket           | char(256)        | The Amazon S3 bucket name.                                 |
-| prefix           | char(256)        | The prefix of the Amazon S3 bucket location.               |
-| recursive        | char(1)          | Whether there is recursive scan for subfolders.            |
-| retrieved_files  | integer          | The number of listed files.                                |
-| max_file_size    | bigint           | The maximum file size among listed files.                  |
-| avg_file_size    | double precision | The average file size among listed files.                  |
-| generated_splits | integer          | The number of file splits.                                 |
-| avg_split_length | double precision | The average length of file splits in bytes.                |
-| duration         | bigint           | The duration of file listing, in microseconds.             | ## Sample query The following example queries SVCS_S3LIST for the last query performed. `select * from svcs_s3list where query = pg_last_query_id() order by query,segment;` |
+| Column name      | Data type        | Description                                                   |
+| ---------------- | ---------------- | ------------------------------------------------------------- |
+| query            | integer          | The query ID.                                                 |
+| segment          | integer          | The segment number. A query consists of multiple<br>segments. |
+| node             | integer          | The node number.                                              |
+| eventtime        | timestamp        | The time in UTC that the event is recorded.                   |
+| bucket           | char(256)        | The Amazon S3 bucket name.                                    |
+| prefix           | char(256)        | The prefix of the Amazon S3 bucket location.                  |
+| recursive        | char(1)          | Whether there is recursive scan for subfolders.               |
+| retrieved_files  | integer          | The number of listed files.                                   |
+| max_file_size    | bigint           | The maximum file size among listed files.                     |
+| avg_file_size    | double precision | The average file size among listed files.                     |
+| generated_splits | integer          | The number of file splits.                                    |
+| avg_split_length | double precision | The average length of file splits in bytes.                   |
+| duration         | bigint           | The duration of file listing, in microseconds.                |
+
+## Sample query
+
+The following example queries SVCS_S3LIST for the last query performed.
+
+```
+select *
+from svcs_s3list
+where query = pg_last_query_id()
+order by query,segment;
+```

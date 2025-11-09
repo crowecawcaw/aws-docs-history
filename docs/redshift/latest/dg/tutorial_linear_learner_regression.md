@@ -163,9 +163,10 @@ the following example. Note that the output provides the
 use the mean square error to validate the accuracy of the model in the next
 step.
 
-````
+```
 +--------------------------+----------------------------------------------------------------------------------------------------+
-|        Model Name        |                                   model_abalone_ring_prediction                                    | +--------------------------+----------------------------------------------------------------------------------------------------+
+|        Model Name        |                                   model_abalone_ring_prediction                                    |
++--------------------------+----------------------------------------------------------------------------------------------------+
 | Schema Name              | public                                                                                             |
 | Owner                    | awsuser                                                                                            |
 | Creation Time            | Thu, 30.06.2022 18:00:10                                                                           |
@@ -188,7 +189,154 @@ step.
 | Function Parameter Types | bpchar float8 float8 float8 float8 float8 float8 float8                                            |
 | IAM Role                 | default-aws-iam-role                                                                               |
 | S3 Bucket                | amzn-s3-demo-bucket                                                                                |
-| Max Runtime              |                                                                                              15000 | +--------------------------+----------------------------------------------------------------------------------------------------+ ``` ## Step 3: Validate the model 1. The following prediction query validates the accuracy of the model on the `abalone_validation` dataset by calculating mean square error and root mean square error. ``` SELECT ROUND(AVG(POWER((tgt_label - predicted), 2)), 2) mse, ROUND(SQRT(AVG(POWER((tgt_label - predicted), 2))), 2) rmse FROM ( SELECT Sex, Length, Diameter, Height, Whole, Shucked, Viscera, Shell, Rings AS tgt_label, f_abalone_ring_prediction( Sex, Length, Diameter, Height, Whole, Shucked, Viscera, Shell ) AS predicted, CASE WHEN tgt_label = predicted then 1 ELSE 0 END AS match, CASE WHEN tgt_label <> predicted then 1 ELSE 0 END AS nonmatch FROM abalone_validation ) t1; ``` The output of the previous query should look like the following example. The value of the mean square error metric should be similar to the `validation:mse` metric shown by the SHOW MODEL operation’s output. ``` +-----+--------------------+
-| mse |        rmse        | +-----+--------------------+
-| 5.1 | 2.2600000000000002 | +-----+--------------------+ ``` 2. Use the following query to run the EXPLAIN\_MODEL operation on your prediction function. The operation will return a model explainability report. For more information about the EXPLAIN\_MODEL operation, see the [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") in the Amazon Redshift Database Developer Guide. ``` SELECT EXPLAIN_MODEL ('model_abalone_ring_prediction'); ``` The following information is an example of the model explainability report produced by the previous EXPLAIN\_MODEL operation. The values for each of the inputs are Shapley values. The Shapley values represent the effect each input has on the prediction of your model, with higher-valued inputs having more impact on the prediction. In this example, the higher-valued inputs have more impact on predicting the age of abalone. ``` { "explanations": { "kernel_shap": { "label0": { "expected_value" :10.290688514709473, "global_shap_values": { "diameter" :0.6856910187882492, "height" :0.4415323937124035, "length" :0.21507476107609084, "sex" :0.448611774505744, "shell" :1.70426496893776, "shucked" :2.1181392924386994, "viscera" :0.342220754059912, "whole" :0.6711906974084011 } } } }, "version" :"1.0" }; ``` 3. Use the following query to calculate the percentage of correct predictions that the model makes about abalone that are not yet mature. Abalone that are immature have 10 rings or less, and a correct prediction is accurate to within one ring of the actual number of rings. ``` SELECT TRUNC( SUM( CASE WHEN ROUND( f_abalone_ring_prediction( Sex, Length, Diameter, Height, Whole, Shucked, Viscera, Shell ), 0 ) BETWEEN Rings - 1 AND Rings + 1 THEN 1 ELSE 0 END ) / CAST(COUNT(SHELL) AS FLOAT), 4 ) AS prediction_pct FROM abalone_validation WHERE Rings <= 10; ``` ## Related topics For more information about Amazon Redshift ML, see the following documentation: <br>• [Costs for using Amazon Redshift ML](cost.md "cost.md") <br>• [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md") <br>• [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") For more information about machine learning, see the following documentation: <br>• [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md") <br>• [Machine learning for novices and experts](novice_expert.md "novice_expert.md") <br>• [What Is Fairness and Model Explainability for Machine Learning Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")
-````
+| Max Runtime              |                                                                                              15000 |
++--------------------------+----------------------------------------------------------------------------------------------------+
+```
+
+## Step 3: Validate the model
+
+1. The following prediction query validates the accuracy of the model on the
+   `abalone_validation` dataset by calculating mean square error
+   and root mean square error.
+
+```
+SELECT
+    ROUND(AVG(POWER((tgt_label - predicted), 2)), 2) mse,
+    ROUND(SQRT(AVG(POWER((tgt_label - predicted), 2))), 2) rmse
+FROM
+    (
+        SELECT
+            Sex,
+            Length,
+            Diameter,
+            Height,
+            Whole,
+            Shucked,
+            Viscera,
+            Shell,
+            Rings AS tgt_label,
+            f_abalone_ring_prediction(
+                Sex,
+                Length,
+                Diameter,
+                Height,
+                Whole,
+                Shucked,
+                Viscera,
+                Shell
+            ) AS predicted,
+            CASE
+                WHEN tgt_label = predicted then 1
+                ELSE 0
+            END AS match,
+            CASE
+                WHEN tgt_label <> predicted then 1
+                ELSE 0
+            END AS nonmatch
+        FROM
+            abalone_validation
+    ) t1;
+```
+
+The output of the previous query should look like the following example.
+The value of the mean square error metric should be similar to the
+`validation:mse` metric shown by the SHOW MODEL operation’s
+output.
+
+```
++-----+--------------------+
+| mse |        rmse        |
++-----+--------------------+
+| 5.1 | 2.2600000000000002 |
++-----+--------------------+
+```
+
+2. Use the following query to run the EXPLAIN_MODEL operation on your
+   prediction function. The operation will return a model explainability
+   report. For more information about the EXPLAIN_MODEL operation, see the
+   [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md") in the Amazon Redshift Database Developer Guide.
+
+```
+SELECT
+    EXPLAIN_MODEL ('model_abalone_ring_prediction');
+```
+
+The following information is an example of the model explainability
+report produced by the previous EXPLAIN_MODEL operation. The values for each
+of the inputs are Shapley values. The Shapley values represent the effect
+each input has on the prediction of your model, with higher-valued inputs
+having more impact on the prediction. In this example, the higher-valued
+inputs have more impact on predicting the age of abalone.
+
+```
+{
+    "explanations": {
+        "kernel_shap": {
+            "label0": {
+                "expected_value" :10.290688514709473,
+                "global_shap_values": {
+                    "diameter" :0.6856910187882492,
+                    "height" :0.4415323937124035,
+                    "length" :0.21507476107609084,
+                    "sex" :0.448611774505744,
+                    "shell" :1.70426496893776,
+                    "shucked" :2.1181392924386994,
+                    "viscera" :0.342220754059912,
+                    "whole" :0.6711906974084011
+                }
+            }
+        }
+    },
+    "version" :"1.0"
+};
+```
+
+3. Use the following query to calculate the percentage of correct
+   predictions that the model makes about abalone that are not yet mature.
+   Abalone that are immature have 10 rings or less, and a correct prediction is
+   accurate to within one ring of the actual number of rings.
+
+```
+SELECT
+    TRUNC(
+        SUM(
+            CASE
+                WHEN ROUND(
+                    f_abalone_ring_prediction(
+                        Sex,
+                        Length,
+                        Diameter,
+                        Height,
+                        Whole,
+                        Shucked,
+                        Viscera,
+                        Shell
+                    ),
+                    0
+                ) BETWEEN Rings - 1
+                AND Rings + 1 THEN 1
+                ELSE 0
+            END
+        ) / CAST(COUNT(SHELL) AS FLOAT),
+        4
+    ) AS prediction_pct
+FROM
+    abalone_validation
+WHERE
+    Rings <= 10;
+```
+
+## Related topics
+
+For more information about Amazon Redshift ML, see the following documentation:
+
+- [Costs for using Amazon Redshift ML](cost.md "cost.md")
+- [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
+- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+
+For more information about machine learning, see the following documentation:
+
+- [Machine learning overview](machine_learning_overview.md "machine_learning_overview.md")
+- [Machine learning for novices and experts](novice_expert.md "novice_expert.md")
+- [What Is Fairness and Model Explainability for Machine Learning
+  Predictions?](../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md "../../../sagemaker/latest/dg/clarify-fairness-and-explainability.md")

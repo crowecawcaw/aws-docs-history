@@ -18,11 +18,26 @@ This view is only available when querying provisioned clusters.
 
 ## Table columns
 
-| Column name    | Data type        | Description                                                                                 |
-| -------------- | ---------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---------- | -------------------------------------------------------------------------------- | ---- | --- | ---------------- |
-| schema_id      | integer          | The namespace or schema ID.                                                                 |
-| schema_name    | character (128)  | The namespace or schema name.                                                               |
-| schema_owner   | integer          | The internal user ID of the schema owner.                                                   |
-| quota          | integer          | The amount of disk space (in MB) that the schema can use.                                   |
-| disk_usage     | integer          | The disk space (in MB) that is currently used by the schema.                                |
-| disk_usage_pct | double precision | The disk space percentage that is currently used by the schema out of the configured quota. | ## Sample query The following example displays the quota and the current disk usage for the schema. ``` SELECT TRIM(SCHEMA_NAME) "schema_name", QUOTA, disk_usage, disk_usage_pct FROM svv_schema_quota_state WHERE SCHEMA_NAME = 'sales_schema'; schema_name | quota | disk_usage | disk_usage_pct --------------+-------+------------+---------------- sales_schema | 2048 | 30  | 1.46 (1 row) ``` |
+| Column name    | Data type        | Description                                                                                    |
+| -------------- | ---------------- | ---------------------------------------------------------------------------------------------- |
+| schema_id      | integer          | The namespace or schema ID.                                                                    |
+| schema_name    | character (128)  | The namespace or schema name.                                                                  |
+| schema_owner   | integer          | The internal user ID of the schema owner.                                                      |
+| quota          | integer          | The amount of disk space (in MB) that the schema<br>can use.                                   |
+| disk_usage     | integer          | The disk space (in MB) that is currently used by<br>the schema.                                |
+| disk_usage_pct | double precision | The disk space percentage that is currently used<br>by the schema out of the configured quota. |
+
+## Sample query
+
+The following example displays the quota and the current disk usage for the schema.
+
+```
+SELECT TRIM(SCHEMA_NAME) "schema_name", QUOTA, disk_usage, disk_usage_pct FROM svv_schema_quota_state
+WHERE SCHEMA_NAME = 'sales_schema';
+schema_name   | quota | disk_usage | disk_usage_pct
+--------------+-------+------------+----------------
+sales_schema  | 2048  | 30         | 1.46
+(1 row)
+
+
+```

@@ -18,20 +18,37 @@ views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c
 
 ## Table columns
 
-| Column name          | Data type     | Description                                                                                                   |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------- | ------------ | ------------------------------------------------------------------------------------------------------ | --- | --- | --- | ----------- | --- | --- | --- | ---------------- |
-| database             | text          | The name of the database the user was connected to when the query was issued.                                 |
-| query                | integer       | Query ID.                                                                                                     |
-| xid                  | bigint        | Transaction ID.                                                                                               |
-| userid               | integer       | ID of the user that generated the query.                                                                      |
-| querytxt             | text          | First 100 characters of the query text.                                                                       |
-| queue_start_time     | timestamp     | Time in UTC when the query entered the WLM queue.                                                             |
-| exec_start_time      | timestamp     | Time in UTC when query execution started.                                                                     |
-| service_class        | integer       | ID for the service class. Service classes are defined in the WLM configuration file.                          |
-| slots                | integer       | Number of WLM query slots.                                                                                    |
-| queue_elapsed        | bigint        | Time that the query spent waiting in a WLM queue (in seconds).                                                |
-| exec_elapsed         | bigint        | Time spent executing the query (in seconds).                                                                  |
-| wlm_total_elapsed    | bigint        | Time that the query spent in a WLM queue (queue_elapsed), plus time spent executing the query (exec_elapsed). |
-| commit_queue_elapsed | bigint        | Time that the query spent waiting in the commit queue (in seconds).                                           |
-| commit_exec_time     | bigint        | Time that the query spent in the commit operation (in seconds).                                               |
-| service_class_name   | character(64) | The name of the service class.                                                                                | ## Sample queries The following example shows the time that queries spent in WLM queues. ``` select query, service_class, queue_elapsed, exec_elapsed, wlm_total_elapsed from svl_query_queue_info where wlm_total_elapsed > 0; query | service_class | queue_elapsed | exec_elapsed | wlm_total_elapsed ---------+---------------+---------------+--------------+------------------- 2742669 | 6   | 2   | 916 | 918 2742668 | 6   | 4   | 197 | 201 (2 rows) ``` |
+| Column name          | Data type     | Description                                                                                                      |
+| -------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| database             | text          | The name of the database the user was connected to<br>when the query was issued.                                 |
+| query                | integer       | Query ID.                                                                                                        |
+| xid                  | bigint        | Transaction ID.                                                                                                  |
+| userid               | integer       | ID of the user that generated the query.                                                                         |
+| querytxt             | text          | First 100 characters of the query text.                                                                          |
+| queue_start_time     | timestamp     | Time in UTC when the query entered the WLM queue.                                                                |
+| exec_start_time      | timestamp     | Time in UTC when query execution started.                                                                        |
+| service_class        | integer       | ID for the service class. Service classes are<br>defined in the WLM configuration file.                          |
+| slots                | integer       | Number of WLM query slots.                                                                                       |
+| queue_elapsed        | bigint        | Time that the query spent waiting in a WLM queue<br>(in seconds).                                                |
+| exec_elapsed         | bigint        | Time spent executing the query (in<br>seconds).                                                                  |
+| wlm_total_elapsed    | bigint        | Time that the query spent in a WLM queue<br>(queue_elapsed), plus time spent executing the query (exec_elapsed). |
+| commit_queue_elapsed | bigint        | Time that the query spent waiting in the commit<br>queue (in seconds).                                           |
+| commit_exec_time     | bigint        | Time that the query spent in the commit operation<br>(in seconds).                                               |
+| service_class_name   | character(64) | The name of the service class.                                                                                   |
+
+## Sample queries
+
+The following example shows the time that queries spent in WLM queues.
+
+```
+select query, service_class, queue_elapsed, exec_elapsed, wlm_total_elapsed
+from svl_query_queue_info
+where wlm_total_elapsed > 0;
+
+  query  | service_class | queue_elapsed | exec_elapsed | wlm_total_elapsed
+---------+---------------+---------------+--------------+-------------------
+ 2742669 |             6 |             2 |          916 |                918
+ 2742668 |             6 |             4 |          197 |                201
+(2 rows)
+
+```

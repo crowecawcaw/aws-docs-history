@@ -43,12 +43,27 @@ where sl.tbl = sp.id);
 select * from loadview where table_name='venue';
 ```
 
-````
+```
 
   tbl   | table_name | query |         starttime
 --------+------------+-------+----------------------------
  100551 | venue      | 20974 | 2013-01-29 19:05:58.365391
 
-|     input      | line_number | colname | err_code |       reason +----------------+-------------+---------+----------+--------------------
-| venue_pipe.txt |           1 |       0 |     1214 | Delimiter not found ``` 4. Fix the problem in the input file or the load script, based on the information that the view returns. Some typical load errors to watch for include: <br>• Mismatch between data types in table and values in input data fields. <br>• Mismatch between number of columns in table and number of fields in input data. <br>• Mismatched quotation marks. Amazon Redshift supports both single and double quotation marks; however, these quotation marks must be balanced appropriately. <br>• Incorrect format for date/time data in input files. <br>• Out-of-range values in input files (for numeric columns). <br>• Number of distinct values for a column exceeds the limitation for its compression encoding.
-````
+|     input      | line_number | colname | err_code |       reason
++----------------+-------------+---------+----------+--------------------
+| venue_pipe.txt |           1 |       0 |     1214 | Delimiter not found
+```
+
+4. Fix the problem in the input file or the load script, based on the
+   information that the view returns. Some typical load errors to watch for
+   include:
+   - Mismatch between data types in table and values in input data
+     fields.
+   - Mismatch between number of columns in table and number of fields in
+     input data.
+   - Mismatched quotation marks. Amazon Redshift supports both single and double quotation marks;
+     however, these quotation marks must be balanced appropriately.
+   - Incorrect format for date/time data in input files.
+   - Out-of-range values in input files (for numeric columns).
+   - Number of distinct values for a column exceeds the limitation for its
+     compression encoding.

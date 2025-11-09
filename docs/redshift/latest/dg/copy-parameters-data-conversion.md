@@ -300,14 +300,67 @@ corresponding ending mark, the COPY command fails to load that row and
 returns an error. The following table shows some simple examples of strings
 that contain quotation marks and the resulting loaded values.
 
-| Input String | Loaded Value with REMOVEQUOTES Option
-|
-| --- | --- |
-| "The delimiter is a pipe (|) character" | The delimiter is a pipe (|) character |
-| 'Black' | Black |
-| "White" | White |
-| Blue' | Blue' |
-| 'Blue | _Value not loaded: error condition_ |
-| "Blue | _Value not loaded: error condition_ |
-| ' ' 'Black' ' ' | ' 'Black' ' |
-| ' ' | _<white space>_ | ROUNDEC Rounds up numeric values when the scale of the input value is greater than the scale of the column. By default, COPY truncates values when necessary to fit the scale of the column. For example, if a value of `20.259` is loaded into a DECIMAL(8,2) column, COPY truncates the value to `20.25` by default. If ROUNDEC is specified, COPY rounds the value to `20.26`. The INSERT command always rounds values when necessary to match the column's scale, so a COPY command with the ROUNDEC parameter behaves the same as an INSERT command. TIMEFORMAT [AS] {'_timeformat_string_' | 'auto' | 'epochsecs' | 'epochmillisecs' } Specifies the time format. If no TIMEFORMAT is specified, the default format is `YYYY-MM-DD HH:MI:SS` for TIMESTAMP columns or `YYYY-MM-DD HH:MI:SSOF` for TIMESTAMPTZ columns, where `OF` is the offset from Coordinated Universal Time (UTC). You can't include a time zone specifier in the _timeformat_string_. To load TIMESTAMPTZ data that is in a format different from the default format, specify 'auto'; for more information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md"). For more information about _timeformat_string_, see [DATEFORMAT and TIMEFORMAT strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md"). The `'auto'` argument recognizes several formats that aren't supported when using a DATEFORMAT and TIMEFORMAT string. If the COPY command doesn't recognize the format of your date or time values, or if your date and time values use formats different from each other, use the `'auto'` argument with the DATEFORMAT or TIMEFORMAT parameter. For more information, see [Using automatic recognition with DATEFORMAT and TIMEFORMAT](automatic-recognition.md "automatic-recognition.md"). If your source data is represented as epoch time, that is the number of seconds or milliseconds since January 1, 1970, 00:00:00 UTC, specify `'epochsecs'` or `'epochmillisecs'`. The `'auto'`, `'epochsecs'`, and `'epochmillisecs'` keywords are case-sensitive. The AS keyword is optional. TRIMBLANKS Removes the trailing white space characters from a VARCHAR string. This parameter applies only to columns with a VARCHAR data type. TRUNCATECOLUMNS Truncates data in columns to the appropriate number of characters so that it fits the column specification. Applies only to columns with a VARCHAR or CHAR data type, and rows 4 MB or less in size.
+| Input String               | Loaded Value with REMOVEQUOTES Option  |
+| -------------------------- | -------------------------------------- | ------------------------- | ----------- |
+| "The delimiter is a pipe ( | )<br>character"                        | The delimiter is a pipe ( | ) character |
+| 'Black'                    | Black                                  |
+| "White"                    | White                                  |
+| Blue'                      | Blue'                                  |
+| 'Blue                      | _Value not loaded: error<br>condition_ |
+| "Blue                      | _Value not loaded: error<br>condition_ |
+| ' ' 'Black' ' '            | ' 'Black' '                            |
+| ' '                        | _<white space>_                        |
+
+ROUNDEC
+
+Rounds up numeric values when the scale of the input value is greater
+than the scale of the column. By default, COPY truncates values when
+necessary to fit the scale of the column. For example, if a value of
+`20.259` is loaded into a DECIMAL(8,2) column, COPY truncates
+the value to `20.25` by default. If ROUNDEC is specified, COPY
+rounds the value to `20.26`. The INSERT command always rounds
+values when necessary to match the column's scale, so a COPY command with
+the ROUNDEC parameter behaves the same as an INSERT command.
+
+TIMEFORMAT [AS] {'_timeformat_string_' | 'auto' |
+'epochsecs' | 'epochmillisecs' }
+
+Specifies the time format. If no TIMEFORMAT is specified, the default
+format is `YYYY-MM-DD HH:MI:SS` for TIMESTAMP columns or
+`YYYY-MM-DD HH:MI:SSOF` for TIMESTAMPTZ columns, where
+`OF` is the offset from Coordinated Universal Time (UTC). You
+can't include a time zone specifier in the
+_timeformat_string_. To load TIMESTAMPTZ data that is
+in a format different from the default format, specify 'auto'; for more
+information, see [Using automatic recognition with DATEFORMAT and
+TIMEFORMAT](automatic-recognition.md "automatic-recognition.md"). For more information about
+_timeformat_string_, see [DATEFORMAT and TIMEFORMAT
+strings](r_DATEFORMAT_and_TIMEFORMAT_strings.md "r_DATEFORMAT_and_TIMEFORMAT_strings.md").
+
+The `'auto'` argument recognizes several formats that aren't
+supported when using a DATEFORMAT and TIMEFORMAT string. If the COPY command
+doesn't recognize the format of your date or time values, or if your date
+and time values use formats different from each other, use the
+`'auto'` argument with the DATEFORMAT or TIMEFORMAT parameter.
+For more information, see [Using automatic recognition with DATEFORMAT and
+TIMEFORMAT](automatic-recognition.md "automatic-recognition.md").
+
+If your source data is represented as epoch time, that is the number of
+seconds or milliseconds since January 1, 1970, 00:00:00 UTC, specify
+`'epochsecs'` or `'epochmillisecs'`.
+
+The `'auto'`, `'epochsecs'`, and
+`'epochmillisecs'` keywords are case-sensitive.
+
+The AS keyword is optional.
+
+TRIMBLANKS
+
+Removes the trailing white space characters from a VARCHAR string. This
+parameter applies only to columns with a VARCHAR data type.
+
+TRUNCATECOLUMNS
+
+Truncates data in columns to the appropriate number of characters so that
+it fits the column specification. Applies only to columns with a VARCHAR or
+CHAR data type, and rows 4 MB or less in size.

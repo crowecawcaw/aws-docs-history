@@ -28,7 +28,7 @@ A `SUPER` expression or column.
 
 To apply the DECIMAL_SCALE function to the table t, use the following example.
 
-````
+```
 `CREATE TABLE t(s SUPER);
 
 INSERT INTO t VALUES (3.14159);
@@ -36,6 +36,8 @@ INSERT INTO t VALUES (3.14159);
 SELECT DECIMAL_SCALE(s) FROM t;`
 
 `+---------------+
-| decimal_scale | +---------------+
-| 5 | +---------------+` ```
-````
+| decimal_scale |
++---------------+
+| 5 |
++---------------+`
+```
