@@ -14,7 +14,7 @@ long-term access keys are not supported.
 
 For Amazon Bedrock AgentCore Runtime deployments, your software must use the
 [AgentCore Runtime execution role](../../../bedrock-agentcore/latest/devguide/runtime-permissions.md#runtime-permissions-execution "../../../bedrock-agentcore/latest/devguide/runtime-permissions.md#runtime-permissions-execution")
-to sign the API call for the `MeterUsage` API operation. Long-term access keys are not supported.
+to sign the API call for the [`MeterUsage`](../APIReference/API_marketplace-metering_MeterUsage.md "../APIReference/API_marketplace-metering_MeterUsage.md") API operation. Long-term access keys are not supported.
 
 AWS Marketplace container products can have custom metering on up to 24 different pricing dimensions
 per product. Each dimension can have a long-term contract price associated with it. To enable
@@ -208,7 +208,7 @@ In the following diagram, **Resource 1** has a unique set of
 `Operations`. As a result, they're combined into a single
 `UsageAllocations` entry in the **Metering Record**.
 
-![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](../images/seller-vendor-meter-tag.png)
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png)
 
 Sellers can also combine resources without tags into a single
 `UsageAllocation` with the allocated usage quantity and send it as one of the
@@ -243,10 +243,80 @@ tags**.
 The first and last rows of the **Cost Usage Report** are relevant to
 what the Seller sends to the Metering Service (as shown in the [Seller experience](#container-vendor-metered-tag-seller "#container-vendor-metered-tag-seller") example).
 
-| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
+| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 70             | 2222          | Operations                      |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 3333          | Finance                         |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       | For a code example, see [MeterUsage code example with usage allocation tagging (Optional)](#container-meterusage-code-example "#container-meterusage-code-example"). ## Code example The following code example is provided to help you integrate your container product with the AWS Marketplace APIs required for publishing and maintaining your product. ### `MeterUsage` code example with usage allocation tagging (Optional) The following code example is relevant for container products with consumption pricing models. The Python example sends a metering record with appropriate usage allocation tags to AWS Marketplace to charge your customers for pay-as-you-go fees. `# NOTE: Your application will need to aggregate usage for the #       customer for the hour and set the quantity as seen below. #       AWS Marketplace can only accept records for up to an hour in the past. # # productCode is supplied after the AWS Marketplace Ops team has # published the product to limited # Import AWS Python SDK import boto3 import time usageRecord = [ { "AllocatedUsageQuantity": 2, "Tags": [ { "Key": "BusinessUnit", "Value": "IT" }, { "Key": "AccountId", "Value": "123456789" }, ] }, { "AllocatedUsageQuantity": 1, "Tags": [ { "Key": "BusinessUnit", "Value": "Finance" }, { "Key": "AccountId", "Value": "987654321" }, ] } ] marketplaceClient = boto3.client("meteringmarketplace") response = marketplaceClient.meter_usage( ProductCode="testProduct", Timestamp=int(time.time()), UsageDimension="Dimension1", UsageQuantity=3, DryRun=False, UsageAllocations=usageRecord )` For more information about `MeterUsage`, see [MeterUsage](../../../marketplacemetering/latest/APIReference/API_MeterUsage.md "../../../marketplacemetering/latest/APIReference/API_MeterUsage.md") in the _AWS Marketplace Metering Service API Reference_. ### Example response `{ "MeteringRecordId": "string" }` |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+
+For a code example, see [MeterUsage code example
+with usage allocation tagging (Optional)](#container-meterusage-code-example "#container-meterusage-code-example").
+
+## Code example
+
+The following code example is provided to help you integrate your container product with
+the AWS Marketplace APIs required for publishing and maintaining your product.
+
+### `MeterUsage` code example
+
+with usage allocation tagging (Optional)
+
+The following code example is relevant for container products with consumption pricing
+models. The Python example sends a metering record with appropriate usage allocation tags to
+AWS Marketplace to charge your customers for pay-as-you-go fees.
+
+```
+# NOTE: Your application will need to aggregate usage for the
+#       customer for the hour and set the quantity as seen below.
+#       AWS Marketplace can only accept records for up to an hour in the past.
+#
+# productCode is supplied after the AWS Marketplace Ops team has
+# published the product to limited
+
+# Import AWS Python SDK
+import boto3
+import time
+
+usageRecord = [
+    {
+        "AllocatedUsageQuantity": 2,
+        "Tags":
+            [
+                { "Key": "BusinessUnit", "Value": "IT" },
+                { "Key": "AccountId", "Value": "123456789" },
+            ]
+
+    },
+    {
+        "AllocatedUsageQuantity": 1,
+        "Tags":
+            [
+                { "Key": "BusinessUnit", "Value": "Finance" },
+                { "Key": "AccountId", "Value": "987654321" },
+            ]
+
+    }
+]
+
+marketplaceClient = boto3.client("meteringmarketplace")
+
+response = marketplaceClient.meter_usage(
+    ProductCode="testProduct",
+    Timestamp=int(time.time()),
+    UsageDimension="Dimension1",
+    UsageQuantity=3,
+    DryRun=False,
+    UsageAllocations=usageRecord
+)
+```
+
+For more information about `MeterUsage`, see [MeterUsage](../../../marketplacemetering/latest/APIReference/API_MeterUsage.md "../../../marketplacemetering/latest/APIReference/API_MeterUsage.md") in
+the _AWS Marketplace Metering Service API Reference_.
+
+### Example response
+
+```
+{ "MeteringRecordId": "string" }
+```

@@ -64,6 +64,7 @@ If you're changing jurisdictions, consult your legal and tax advisors before pro
 - Colombia
 - European Union (EU) member states
 - Hong Kong SAR
+- India
 - Israel
 - Japan
 - New Zealand

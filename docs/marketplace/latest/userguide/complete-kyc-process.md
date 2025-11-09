@@ -2,6 +2,10 @@
 
 The Know Your Customer (KYC) process is a verification procedure that helps AWS comply with regulatory requirements including EU anti-money laundering directives and Korean financial transaction reporting requirements. AWS Marketplace transactions through Amazon Web Services EMEA SARL are processed through Amazon Payments Europe, S.C.A. (APE), a licensed electronic money institution in Luxembourg. This step is required for sellers who want to get paid for Republic of Korea transactions, transact using U.K.-based bank accounts, or sell to customers in Europe, the Middle East, and Africa (EMEA).
 
+###### Sellers in India
+
+This process doesn't apply to sellers in India as they can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 ###### Note
 
 Only verified users can process refunds, amend KYC information, and change financial information such as bank account details. Verified users are KYC verified users and secondary users who completed verification.

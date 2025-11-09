@@ -30,7 +30,7 @@ support](https://aws.amazon.com/marketplace/management/contact-us "https://aws.a
 
 The following steps explain how to use the Use the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management") to create a private offer and generate an offer ID. The process creates a blank offer in a draft state.
 
-###### To start creating a new private offer
+###### To start a private offer
 
 1. Sign into the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
 2. Open the **Offers** list and choose **Private offers**.
@@ -43,7 +43,7 @@ The following steps explain how to use the Use the [AWS Marketplace Management P
 ###### Note
 
     * You can't change the product type and product after you create the offer.
-     For more information about private offers for each product type, see [Supported product types](private-offers-supported-product-types.md "private-offers-supported-product-types.md").
+     For more information on private offers per product type, see [Supported product types](private-offers-supported-product-types.md "private-offers-supported-product-types.md").
     * AWS Marketplace channel partners must choose between creating an offer for
      their own products, or creating a channel partner private offer (CPPO) from a resale
      authorization. When creating a CPPO, choose the independent software vendor (ISV), product,
@@ -52,6 +52,15 @@ The following steps explain how to use the Use the [AWS Marketplace Management P
 5. Choose **Continue to offer details**.
 
 A step-by-step experience guides you through the rest of the creation process.
+
+###### Geo-targeting private offers:
+
+You now have the option to select the countries in which buyers can view and accept private offers.
+
+- If you extend the offer to a buyer outside of the selected countries, the buyer cannot accept the offer.
+- You can select **All Countries** to make your offer available to buyers globally.
+- India-based sellers can only sell to buyers located in India. This feature defaults to India for such sellers and cannot be changed.
+- If the buyer is a linked account that is part of an AWS organization, then geo-targeting rules will apply based on the buyer's location and not the payer account's location.
 
 ## Understanding offer statuses
 
@@ -65,7 +74,7 @@ Offers have one of three statuses depending on the lifecycle:
 - **Expired** – The offer is published and extended to the
   buyer. The offer has expired, so buyers can't subscribe to the offer. The expiration date
   can be updated to give your buyers more time to accept the offer. To update offer
-  expiration, see [Updating the expiration of a private offer](creating-private-offer.md#updating-private-offer-expiration "creating-private-offer.md#updating-private-offer-expiration").
+  expiration, refer to [Updating the expiration of a private offer](creating-private-offer.md#updating-private-offer-expiration "creating-private-offer.md#updating-private-offer-expiration").
 
 ###### Note
 
@@ -103,13 +112,12 @@ A renewal is defined as:
 2. Choose **Next**.
 3. On the **Configure offer pricing and duration** page, choose the
    pricing model, contract or usage duration, pricing, currency, and payment schedule. For
-   pricing models that have an installment plan, see [Installment
-   plans](installment-plans.md "installment-plans.md").
+   pricing models that have an installment plan, see [Private offer installment plans](installment-plans.md "installment-plans.md").
 
 ###### Note
 
-Non-USD private offers are limited to contract pricing products. Additionally, make
-sure you have configured your non-USD disbursement preferences. For more information,
+Private offers can be created in non-USD currencies for all pricing types. Make sure
+you have configured your non-USD disbursement preferences. For more information,
 see [Step 4: Set disbursement preferences](set-disbursement-preferences.md "set-disbursement-preferences.md").
 
 All public offers and private offers with consumption pricing can only be created in

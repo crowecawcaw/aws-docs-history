@@ -8,6 +8,10 @@ this buyer to purchase your product, you must include both the United States in 
 countries, and the Europe (Frankfurt) Region in your list of Regions. You can use this topic to learn more about
 Regions and countries for your AWS Marketplace product.
 
+###### Sellers in India
+
+Sellers in India have geographic restrictions and can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 ## AWS Regions
 
 When creating or editing server or machine learning product information, you can limit

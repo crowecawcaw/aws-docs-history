@@ -7,7 +7,7 @@ Contract pricing is available for the following products:
 
 - Single AMI-based products and AMI with AWS CloudFormation template-based products. For more
   information, see [Contract pricing for AMI products on AWS Marketplace](ami-contracts.md "ami-contracts.md")
-- Container-based products. For more information, see [Contract pricing for container products](pricing-container-products.md#container-contracts "pricing-container-products.md#container-contracts").
+- Container-based products. For more information, see [Contract pricing for container products](container-license-manager-integration.md#container-contracts "container-license-manager-integration.md#container-contracts").
 - Software as a service (SaaS)-based products. For more information, see [Pricing for SaaS contracts](saas-contracts.md "saas-contracts.md").
 
 ###### Note

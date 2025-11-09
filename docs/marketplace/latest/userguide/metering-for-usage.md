@@ -40,7 +40,7 @@ example, one day), note the following considerations.
   you. You're responsible for ensuring that your product’s metering records are successfully
   transmitted and received. You can use AWS CloudTrail to verify the record or records that you send are
   accurate. You can also use the information to perform audits over time. For more information,
-  see [Logging AWS Marketplace Metering API calls with
+  see [Logging AWS Marketplace API calls with
   AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md").
 - If this is a SaaS with the pricing model "Subscription" (not pricing models "Contract"
   or "Contract with Consumption"), then the buyer can unsubscribe at any time. When the
@@ -214,10 +214,13 @@ tags**.
 The first and last rows of the **Cost Usage Report** are relevant to
 what the Seller sends to the Metering Service (as shown in the [Seller experience](container-metering-meterusage.md#container-vendor-metered-tag-seller "container-metering-meterusage.md#container-vendor-metered-tag-seller") example).
 
-| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit`                                                                                                                                                                        |
-| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
+| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 70             | 2222          | Operations                      |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 3333          | Finance                         |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
-| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       | For a code example, see [BatchMeterUsage with usage allocation tagging code example (Optional)](saas-code-examples.md#saas-batchmeterusage-tagging "saas-code-examples.md#saas-batchmeterusage-tagging"). |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+
+For a code example, see [BatchMeterUsage with usage
+allocation tagging code example (Optional)](saas-code-examples.md#saas-batchmeterusage-tagging "saas-code-examples.md#saas-batchmeterusage-tagging").

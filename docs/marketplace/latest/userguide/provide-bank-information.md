@@ -6,12 +6,16 @@ Providing bank account information is required for sellers who plan to offer pai
 
 You must complete your tax information before you can provide banking information. For a list of countries where you can offer paid products in AWS Marketplace, see [Seller eligibility requirements](seller-eligibility.md "seller-eligibility.md").
 
+###### Sellers in India
+
+Sellers in India must provide bank accounts located in India with IFSC codes and can only receive disbursements in Indian rupee. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 ## Bank account requirements
 
 The bank account requirements depend on your location:
 
 - **US-based sellers** – If you're based in the United States, you need to provide a US-based bank account that can accept ACH transfers in USD.
-- **Non-US sellers** – If you're based outside the United States, you need to provide a bank account in an eligible jurisdiction that can accept wire transfers in USD. Your bank account must have a valid SWIFT code. Alternatively, you can use Hyperwallet to obtain a US bank account (see [Hyperwallet option for US bank accounts](#hyperwallet-option "#hyperwallet-option")).
+- **Non-US sellers** – (Does not apply to sellers in India) If you're based outside the United States, you need to provide a bank account in an eligible jurisdiction that can accept wire transfers in USD. Your bank account must have a valid SWIFT code. Alternatively, you can use Hyperwallet to obtain a US bank account (see [Hyperwallet option for US bank accounts](#hyperwallet-option "#hyperwallet-option")).
 
 For all sellers, the bank account must be associated with the legal entity you provided during the tax information step.
 

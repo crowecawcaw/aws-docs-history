@@ -55,5 +55,5 @@ _AWS Marketplace Buyer Guide_.
   API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md")
 - [Using service-linked roles for Resale Authorization
   with AWS Marketplace](using-roles-for-resale-authorization.md "using-roles-for-resale-authorization.md")
-- [Logging AWS Marketplace Metering API calls with
+- [Logging AWS Marketplace API calls with
   AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md")

@@ -5,6 +5,10 @@ appear as a single line item in the listing fee invoice issued by AWS. The fee i
 calculated based on the pre-tax Total Contract Value (TCV). This applies to all uplifts, including
 [Regional offer listing fees](#regional-offer-listing-fees "#regional-offer-listing-fees").
 
+###### Sellers in India
+
+Sellers in India have specific listing fee structures with GST applied and automatic deductions from disbursements. For detailed information, see [Sellers in India FAQ](india-seller-faq.md "india-seller-faq.md").
+
 ###### Note
 
 These listing fees are effective as of January 5, 2024 at midnight UTC.

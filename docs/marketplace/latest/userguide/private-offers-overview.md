@@ -17,6 +17,10 @@ offer for your product directly from the product detail page. If you're an AWS P
 Network (APN) partner who's eligible for [APN Customer Engagements (ACE)](https://aws.amazon.com/partners/programs/ace/ "https://aws.amazon.com/partners/programs/ace/")
 and you'd like to provide this option to buyers, see [Adding private offer and demo request buttons](creating-private-offer.md#private-offer-requests-demos "creating-private-offer.md#private-offer-requests-demos") for more information.
 
+###### Sellers in India
+
+Sellers in India can create private offers in USD and INR, and can extend these offers to buyers in India only. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 ###### Topics
 
 - [How private offers work](#how-private-offers-work "#how-private-offers-work")
@@ -100,11 +104,24 @@ information, see [Customer financing is now available in AWS Marketplace](https:
 
 ###### Note
 
-An offer can only be accepted before the expiration date. If the offer expires, it's
-moved to the **Accepted and expired offers** tab.
+Buyers can only accept an offer before its expiration date. Expired offers move
+to the **Accepted and expired offers** tab.
 
-| To view and accept a private offer | The buyer can                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| From the AWS Marketplace console   | Navigate to **Private offers** in the AWS Marketplace console and select the offer ID from the **Available offers** tab.For more information about the buyer experience for private offers, see [Private offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the _AWS Marketplace Buyer Guide_. |
-| Using a seller-provided link       | Follow the link sent by the seller to directly access the private offer. For more information, see [Sending a private offer to a buyer](creating-private-offer.md#send-private-offer "creating-private-offer.md#send-private-offer").                                                                                                 |
-| From your product page             | Navigate to the product page for the product, and choose the link in the banner to view the private offer. For more information about the buyer experience for private offers, see [Private offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the _AWS Marketplace Buyer Guide_.              | ## Reporting for private offers Private offers appear on the existing seller reports and in the reports relevant to the offer. The [Monthly billed revenue report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md") is generated every month and has offer visibility and offer ID information. When an invoice is generated for a buyer, it appears in the report covering the appropriate billing period. For more information, see [Seller dashboards](dashboards.md "dashboards.md"). The **Offer ID** field contains the unique offer ID generated for the private offer. It's blank unless the report entry is for a private offer. The **Offer Visibility** field indicates whether the report entry is a public or private offer. For all private offers, the entry is marked private. |
+| To view and accept a private offer | The buyer can                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| From the AWS Marketplace console   | Navigate to **Private offers\*<br>• in the AWS Marketplace console and select<br>the offer ID from the **Available offers*<br>• tab.For more<br>information about the buyer experience for private offers, see [Private offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the<br>*AWS Marketplace Buyer Guide\*. |
+| Using a seller-provided link       | Follow the link sent by the seller to directly access the private offer.<br>For more information, see [Sending a private<br>offer to a buyer](creating-private-offer.md#send-private-offer "creating-private-offer.md#send-private-offer").                                                                                                              |
+| From your product page             | Navigate to the product page for the product, and choose the link in the banner<br>to view the private offer. For more information about the buyer experience for<br>private offers, see [Private<br>offers](../buyerguide/buyer-private-offers.md "../buyerguide/buyer-private-offers.md") in the _AWS Marketplace Buyer Guide_.                        |
+
+## Reporting for private offers
+
+Private offers appear on the existing seller reports and in the reports relevant to the
+offer. The [Monthly billed revenue report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md") is generated every month and has offer
+visibility and offer ID information. When an invoice is generated for a buyer, it appears in
+the report covering the appropriate billing period. For more information, see [Seller
+dashboards](dashboards.md "dashboards.md").
+
+The **Offer ID** field contains the unique offer ID generated for the
+private offer. It's blank unless the report entry is for a private offer. The **Offer
+Visibility** field indicates whether the report entry is a public or private offer.
+For all private offers, the entry is marked private.

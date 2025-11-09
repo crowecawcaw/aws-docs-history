@@ -23,6 +23,7 @@ workshop_.
 
 ###### Topics
 
+- [Contract pricing for container products](#container-contracts "#container-contracts")
 - [License models](#container-LM-license-models "#container-LM-license-models")
 - [AWS License Manager integration
   prerequisites](#container-LM-prereqs "#container-LM-prereqs")
@@ -32,6 +33,58 @@ workshop_.
 - [License renewals and upgrades](#container-LM-lic-renew-upgrade "#container-LM-lic-renew-upgrade")
 - [Integrating an AWS Marketplace for Containers Anywhere
   with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md")
+
+## Contract pricing for container products
+
+For container-based products with contract pricing, AWS Marketplace bills your customers upfront or by
+the payment schedule that you define, based on the contract between you and your customer. After
+that point, they're entitled to use those resources.
+
+To set your pricing, choose one or more contract durations that you offer customers. You can
+enter different prices for each contract duration. Your options are 1-month, 12-months,
+24-month, and 36-month durations. For private offers, you can specify a custom duration in
+months (up to 60 months).
+
+Choose the category that best describes your product’s pricing. The pricing category appears
+to customers on the AWS Marketplace website. You can choose from **Bandwidth** (GB/s,
+MB/s), **Data** (GB, MB, TB), **Hosts**,
+**Requests**, **Tiers**, or **Users**. If
+none of the predefined categories fit your needs, you can choose the more generic
+**Units** category.
+
+The offer allows for up to 24 dimensions to be added to it.
+
+| Example: Data storage application |          | 1-month price | 12-month price | 24-month price | P36-month price |
+| --------------------------------- | -------- | ------------- | -------------- | -------------- | --------------- |
+| Unencrypted data (GB)             | $1.50/GB | $16.00/GB     | $30.00/GB      | $60.00/GB      |
+| Encrypted data (GB)               | $1.55/GB | $16.60/GB     | $31.20/GB      | $61.20/GB      |
+
+| Example: Log monitoring product                        |      | 1-month price | 12-month price | 24-month price | 36-month price |
+| ------------------------------------------------------ | ---- | ------------- | -------------- | -------------- | -------------- |
+| Basic (10 hosts monitored, 5 containers monitored)     | $100 | $1000         | $2000          | $4000          |
+| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000         | $4000          | $8000          |
+| Pro (40 hosts monitored, 20 containers monitored)      | $400 | $4000         | $8000          | $16,000        |
+| Additional hosts monitored per hour                    | $10  | $100          | $200           | $400           |
+| Additional containers monitored per hour               | $10  | $100          | $200           | $400           |
+
+###### Note
+
+The prices can be for the following durations: 1 month, 12 months, 24 months, or 36
+months. You can choose to offer one or more of these options for your product. The durations
+must be the same across each dimension.
+
+For example, in a case where you have `ReadOnlyUsers` and
+`AdminUsers` dimensions, if you offer a yearly price for ReadOnlyUsers, you
+must offer a yearly price for `AdminUsers`, too.
+
+### Automatic renewals
+
+When customers purchase your product through AWS Marketplace using container contracts, they
+can agree to automatically renew the contract terms. Customers continue to pay for the
+entitlements every month or for 1, 2, or 3 years.
+
+Customers can modify their renewal settings at any time. For more information, see [Modifying an existing contract](../buyerguide/buyer-container-contracts.md#modify-existing-contract "../buyerguide/buyer-container-contracts.md#modify-existing-contract") in the _AWS Marketplace Buyer
+Guide_.
 
 ## License models
 

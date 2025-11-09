@@ -140,10 +140,46 @@ To access your service, buyers do the following:
    endpoints.
 
 | **Client-side DNS name** | **Name**                                                   |
-| ------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ---------------------------------------------------------- |
 | Regional                 | Vpce<0dc9a211a78c90f8>.api.vpce.example.com                |
 | IAD2 (1a )               | **us-east-1a**-Vpce<0dc9a211a78c90f8>.api.vpce.example.com |
-| IAD2 (1b )               | **us-east-1b**-Vpce<0dc9a211a78c90f8>.api.vpce.example.com | If you provided a default private DNS name and the buyer chooses **Enable Private DNS Name** (associated a private hosted zone) when creating a VPC endpoint, the buyer sees the regional default private DNS name to connect to your service. |
-| **Name**                 | **Alias**                                                  | **Alias hosted zone ID**                                                                                                                                                                                                                       | **(Notes)** |
-| ---                      | ---                                                        | ---                                                                                                                                                                                                                                            | ---         |
-| api.example.com          | vpce<0dc9a211a78c90f8>. api.vpce.example.com               | Z00AABBCCDD                                                                                                                                                                                                                                    | IAD1 IAD2   | ## Appendix: Checklists Use the following checklists to ensure that you configure and test your product before you submit it to the AWS Marketplace Seller Operations team. ### Product creation checklist <br>• Create (or use an existing) VPC and then configure it. <br>• Create and configure a network load balancer within the VPC. <br>• Register your service with your network load balancer by creating a VPC endpoint service. <br>• Provide the AWS account ID you used to configure the VPC endpoint to the AWS Marketplace Seller Operations team. <br>• Provide the default endpoint service name (for example, com.amazonaws.vpce.us-east-1.vpce-svc-0bbb070044a2164) to the AWS Marketplace Seller Operations team. <br>• Provide a user-friendly service DNS name (required) to override the randomly generated service DNS name. Request SSL certificates from ACM for the subdomain used for your user-friendly service DNS name. Provide these certificates and the AWS account ID you used to request them to the AWS Marketplace Seller Operations team. <br>• Recommended: Provide a private DNS name. <br>• Create a process to inform and allow your AWS Marketplace buyers the option to connect to your service using AWS PrivateLink technology. Add AWS account IDs for your buyers to your allowed list of accounts. ### Product testing <br>• Verify that your service is configured and discoverable. <br>• Verify that your service is discoverable over the network load balancer. <br>• Verify that a buyer can create a VPC endpoint and access your service. Use an AWS account you own that is not the account you used to set up your service. |
+| IAD2 (1b )               | **us-east-1b**-Vpce<0dc9a211a78c90f8>.api.vpce.example.com |
+
+If you provided a default private DNS name and the buyer chooses **Enable
+Private DNS Name** (associated a private hosted zone) when creating a VPC endpoint,
+the buyer sees the regional default private DNS name to connect to your service.
+
+| **Name**        | **Alias**                                    | **Alias hosted zone ID** | **(Notes)**  |
+| --------------- | -------------------------------------------- | ------------------------ | ------------ |
+| api.example.com | vpce<0dc9a211a78c90f8>. api.vpce.example.com | Z00AABBCCDD              | IAD1<br>IAD2 |
+
+## Appendix: Checklists
+
+Use the following checklists to ensure that you configure and test your product before you
+submit it to the AWS Marketplace Seller Operations team.
+
+### Product creation checklist
+
+- Create (or use an existing) VPC and then configure it.
+- Create and configure a network load balancer within the VPC.
+- Register your service with your network load balancer by creating a VPC endpoint
+  service.
+- Provide the AWS account ID you used to configure the VPC endpoint to the AWS Marketplace Seller Operations
+  team.
+- Provide the default endpoint service name (for example,
+  com.amazonaws.vpce.us-east-1.vpce-svc-0bbb070044a2164) to the AWS Marketplace Seller Operations team.
+- Provide a user-friendly service DNS name (required) to override the randomly
+  generated service DNS name. Request SSL certificates from ACM for the subdomain used for
+  your user-friendly service DNS name. Provide these certificates and the AWS account ID
+  you used to request them to the AWS Marketplace Seller Operations team.
+- Recommended: Provide a private DNS name.
+- Create a process to inform and allow your AWS Marketplace buyers the option to
+  connect to your service using AWS PrivateLink technology. Add AWS account IDs for your buyers
+  to your allowed list of accounts.
+
+### Product testing
+
+- Verify that your service is configured and discoverable.
+- Verify that your service is discoverable over the network load balancer.
+- Verify that a buyer can create a VPC endpoint and access your service.
+  Use an AWS account you own that is not the account you used to set up your service.

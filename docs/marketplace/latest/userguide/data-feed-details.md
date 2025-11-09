@@ -54,15 +54,34 @@ Each data feed includes columns that document the history of the data. Except fo
 `valid_to`, these columns are common to all data feeds. They're included as a
 common history schema and are useful in querying the data.
 
-| Column name          | Description                                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| valid_from           | The first date that the value for the primary key is valid for in relation to values for other fields.                 |
-| valid_to             | This column is only shown on the [Address](data-feed-address.md "data-feed-address.md") data feed and is always blank. |
-| insert_date          | The date a record was inserted into the data feed.                                                                     |
-| update_date          | The date the record was last updated.                                                                                  |
-| delete_date          | This column is always blank.                                                                                           | The following shows an example of these columns. |
-| valid_from           | valid_to                                                                                                               | insert_date                                      | update_date          | delete_date |
-| ---                  | ---                                                                                                                    | ---                                              | ---                  | ---         |
-| 2018-12-12T02:00:00Z |                                                                                                                        | 2018-12-12T02:00:00Z                             | 2018-12-12T02:00:00Z |             |
-| 2019-03-29T03:00:00Z |                                                                                                                        | 2019-03-29T03:00:00Z                             | 2019-03-29T03:00:00Z |             |
-| 2019-03-29T03:00:00Z |                                                                                                                        | 2019-03-29T03:00:00Z                             | 2019-04-28T03:00:00Z |             | The `valid_from` and `update_date` field together form a _bi-temporal data model_. The `valid_from` field, as it is named, tells you when the item is valid from. If the item was edited, it can have multiple records in the feed, each with a different `update_date`, but the same `valid_from` date. For example, to find the current value for an item, you would find the record with the most recent `update_date`, from the list of records with the most recent `valid_from` date. In the example above, the record was originally created 2018-12-12. It was then changed on 2019-03-29 (for example, if the address in the record changed). Later, on 2019-04-28, the address change was corrected (so the `valid_from` didn't change, but the `update_date` did). Correcting the address (a rare event) retroactively changes the record from the original `valid_from` date, so that field didn't change. A query to find the most recent `valid_from` would return two records, the one with the latest `update_date` gives you the actual current record. |
+| Column name | Description                                                                                                            |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| valid_from  | The first date that the value for the primary key is valid for in relation to<br>values for other fields.              |
+| valid_to    | This column is only shown on the [Address](data-feed-address.md "data-feed-address.md") data feed and is always blank. |
+| insert_date | The date a record was inserted into the data feed.                                                                     |
+| update_date | The date the record was last updated.                                                                                  |
+| delete_date | This column is always blank.                                                                                           |
+
+The following shows an example of these columns.
+
+| valid_from           | valid_to | insert_date          | update_date          | delete_date |
+| -------------------- | -------- | -------------------- | -------------------- | ----------- |
+| 2018-12-12T02:00:00Z |          | 2018-12-12T02:00:00Z | 2018-12-12T02:00:00Z |             |
+| 2019-03-29T03:00:00Z |          | 2019-03-29T03:00:00Z | 2019-03-29T03:00:00Z |             |
+| 2019-03-29T03:00:00Z |          | 2019-03-29T03:00:00Z | 2019-04-28T03:00:00Z |             |
+
+The `valid_from` and `update_date` field together form a
+_bi-temporal data model_. The `valid_from` field, as it is
+named, tells you when the item is valid from. If the item was edited, it can have multiple
+records in the feed, each with a different `update_date`, but the same
+`valid_from` date. For example, to find the current value for an item, you
+would find the record with the most recent `update_date`, from the list of
+records with the most recent `valid_from` date.
+
+In the example above, the record was originally created 2018-12-12. It was then changed
+on 2019-03-29 (for example, if the address in the record changed). Later, on 2019-04-28, the
+address change was corrected (so the `valid_from` didn't change, but the
+`update_date` did). Correcting the address (a rare event) retroactively changes
+the record from the original `valid_from` date, so that field didn't change. A
+query to find the most recent `valid_from` would return two records, the one with
+the latest `update_date` gives you the actual current record.

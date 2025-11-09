@@ -165,25 +165,175 @@ products.
   component. Options will appear in the dropdown list based on the FCP category you
   selected. The following table lists the valid units for each category.
 
-| **Category**
-| **Valid units**
-|
-| --- | --- |
-| Users | UserHrs |
-| Hosts | HostHrs |
-| Data | MB, GB, TB |
-| Bandwidth | Mbps, Gbps | <br>• **FCP Dimension Name** – The name used when sending metering records by calling the `MeterUsage` operation. It is visible in billing reports. However, because it isn't external-facing, the name doesn't need to be user-friendly. The name can be no more than 15 characters and can only include alphanumeric and underscore characters. After you set the name and make the product public, you can't change it. Changing the name requires a new AMI. <br>• **FCP Dimension Description** – The customer-facing statement that describes the dimension for the product. The description (can be no more than 70 characters and should be user-friendly. Examples of descriptions include: Administrators per hour and Per Mbps bandwidth provisioned. After the product is published, you can't change this description. <br>• **FCP Rate** – The software charge per unit for this product. This field supports eight decimal places. ###### Notes: <br>• You don't need to fill out hourly and annual pricing fields. <br>• Free trial and annual pricing aren't compatible. <br>• Products that use an AMI, and the Clusters, and AWS Resources feature, can't use the AWS Marketplace Metering Service. <br>• Price, instance type, or AWS Region change will follow the same process as other AWS Marketplace products. <br>• Products with the AWS Marketplace Metering Service can't be converted to other pricing models such as hourly, monthly, or Bring Your Own License (BYOL). <br>• AWS Marketplace recommends adding IAM policy information in your usage instructions or document. <br>• You can include up to 24 FCP dimensions in total. Once created and published, you can't modify existing dimensions, but you can add new ones (up to the limit of 24). If you have questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team. ## Modifying your software to use the Metering Service You will need to modify your software to record customer usage, send hourly usage reports to the Metering Service, and handle new failure modes. The software operates independently of pricing, but the software will need to know about the usage category, how it's consumed, and any dimensions. ### Measuring consumption Your software must determine how much of the selected usage category and which dimensions the customer has consumed. This value will be sent, once each hour, to the Metering Service. In all cases, it's assumed that your software has the ability to measure, record, and read consumption of resources for the purpose of sending it on an hourly basis to the Metering Service. For provisioned consumption, this will typically be read from the software configuration as a sampled value, but might also be a maximum configured value, recorded each hour. For concurrent consumption, this might be either a periodic sample or a maximum value recorded each hour. For accumulated consumption, this will be a value that is accumulated each hour. For pricing on multiple dimensions, multiple values must be measured and sent to the Metering Service, one per dimension. This requires your software to be programmed or configured with the known set of dimensions when you provide the AMI. The set of dimensions can't change after a product is created. For each pricing scenario, the following table describes recommended ways for measuring consumption each hour.
-| **Scenario** | **How to measure** |
-| --- | --- |
-| Provisioned user | Current number of provisioned users (sampled). -OR- Maximum number of provisioned users (seen that hour). |
-| Concurrent user | Current number of concurrent users (sampled). -OR- Maximum number of concurrent users (seen that hour). -OR- Total number of distinct users (seen that hour). |
-| Provisioned host | Current number of provisioned hosts (sampled). -OR- Maximum number of provisioned hosts (seen that hour). |
-| Concurrent host | Current number of concurrent hosts (sampled). -OR- Maximum number of concurrent hosts (seen that hour). -OR- Total number of distinct hosts (seen that hour). |
-| Provisioned bandwidth | Current provisioned bandwidth setting (sampled). -OR- Maximum provisioned bandwidth (seen that hour). |
-| Accumulated data | Current GB of data stored (sampled). -OR- Maximum GB of data stored (seen that hour). -OR- Total GB of data added or processed that hour. -OR- Total GB of data processed that hour. | ## Vendor-metered tagging (Optional) Vendor-metered tagging helps Independent Software Vendors (ISVs) give the buyer more granular insight into their software usage and can help them perform cost allocation. To tag a buyer's software usage, you need to determine how costs are allocated. First ask your buyers what they want to see in their cost allocation. Then you can split the usage across properties that you track for the buyer’s account. Examples of properties include `Account ID`, `Business Unit`, `Cost Centers`, and other relevant metadata for your product. These properties are exposed to the buyer as tags. Using tags, buyers can view their costs split into usage by the tag values in their AWS Billing Console ([https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/")). Vendor-metered tagging doesn't change the price, dimensions, or the total usage that you report. It allows your customer to view their costs by categories appropriate to your product. In a common use case, a buyer subscribes to your product with one AWS account. The buyer also has numerous users associated with the same product subscription. You can create usage allocations with tags that have a key of `Account ID`, and then allocate usage to each user. In this case, buyers can activate the `Account ID` tag in their Billing and Cost Management console and analyze individual user usage. ### Seller experience Sellers can aggregate the metering records for resources with the same set of tags instead of aggregating usage for all resources. For example, sellers can construct the metering record that includes different buckets of `UsageAllocations`. Each bucket represents `UsageQuantity` for a set of tags, such as `AccountId` and `BusinessUnit`. In the following diagram, **Resource 1** has a unique set of `AccountId` and `BusinessUnit` tags, and appears in the **Metering Record** as a single entry. **Resource 2** and **Resource 3** both have the same `AccountId` tag, `2222`, and the same `BusinessUnit` tag, `Operations`. As a result, they're combined into a single `UsageAllocations` entry in the **Metering Record**. ![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png) Sellers can also combine resources without tags into a single `UsageAllocation` with the allocated usage quantity and send it as one of the entries in `UsageAllocations`. Limits include: <br>• Number of tags – 5 <br>• Size of `UsageAllocations` (cardinality) – 2,500 Validations include: <br>• Characters allowed for the tag key and value – a-zA-Z0-9+ -=.\_:\/@ <br>• Maximum tags across `UsageAllocation` list – 5 <br>• Two `UsageAllocations` can't have the same tags (that is, the same combination of tag keys and values). If that's the case, they must use the same `UsageAllocation`. <br>• The sum of `AllocatedUsageQuantity` of `UsageAllocation` must equal the `UsageQuantity`, which is the aggregate usage. ### Buyer experience The following table shows an example of the buyer experience after a buyer activates the `AccountId` and `BusinessUnit` vendor tags. In this example, the buyer can see allocated usage in their **Cost Usage Report**. The vendor-metered tags use the prefix `“aws:marketplace:isv”`. Buyers can activate them in the Billing and Cost Management, under **Cost Allocation Tags**, **AWS-generated cost allocation tags**. The first and last rows of the **Cost Usage Report** are relevant to what the Seller sends to the Metering Service (as shown in the [Seller experience](container-metering-meterusage.md#container-vendor-metered-tag-seller "container-metering-meterusage.md#container-vendor-metered-tag-seller") example). Cost Usage Report (Simplified)| ProductCode | Buyer | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
-| --- | --- | --- | --- | --- | --- |
-| xyz | 111122223333 | Network: per (GB) inspected | 70 | 2222 | Operations |
-| xyz | 111122223333 | Network: per (GB) inspected | 30 | 3333 | Finance |
-| xyz | 111122223333 | Network: per (GB) inspected | 20 | 4444 | IT |
-| xyz | 111122223333 | Network: per (GB) inspected | 20 | 5555 | Marketing |
-| xyz | 111122223333 | Network: per (GB) inspected | 30 | 1111 | Marketing | For a code example, see [MeterUsage with usage allocation tagging (Optional)](custom-metering-with-mp-metering-service.md#ami-meterusage-code-example "custom-metering-with-mp-metering-service.md#ami-meterusage-code-example") ## Configuring custom metering For more information about working with AWS Marketplace Metering Service, see [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").
+| **Category** | **Valid units** |
+| ------------ | --------------- |
+| Users        | UserHrs         |
+| Hosts        | HostHrs         |
+| Data         | MB, GB, TB      |
+| Bandwidth    | Mbps, Gbps      |
+
+- **FCP Dimension Name** – The name used when sending metering
+  records by calling the `MeterUsage` operation. It is visible in billing
+  reports. However, because it isn't external-facing, the name doesn't need to be
+  user-friendly. The name can be no more than 15 characters and can only include
+  alphanumeric and underscore characters. After you set the name and make the product
+  public, you can't change it. Changing the name requires a new AMI.
+- **FCP Dimension Description** – The customer-facing statement that
+  describes the dimension for the product. The description (can be no more than 70
+  characters and should be user-friendly. Examples of descriptions include: Administrators
+  per hour and Per Mbps bandwidth provisioned. After the product is published, you can't
+  change this description.
+- **FCP Rate** – The software charge per unit for this product. This
+  field supports eight decimal places.
+
+###### Notes:
+
+- You don't need to fill out hourly and annual pricing fields.
+- Free trial and annual pricing aren't compatible.
+- Products that use an AMI, and the Clusters, and AWS Resources feature, can't
+  use the AWS Marketplace Metering Service.
+- Price, instance type, or AWS Region change will follow the same process as other
+  AWS Marketplace products.
+- Products with the AWS Marketplace Metering Service can't be converted to other pricing models such as
+  hourly, monthly, or Bring Your Own License (BYOL).
+- AWS Marketplace recommends adding IAM policy information in your usage instructions or
+  document.
+- You can include up to 24 FCP dimensions in total. Once created and published, you
+  can't modify existing dimensions, but you can add new ones (up to the limit of
+  24).
+
+If you have questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
+
+## Modifying your software
+
+to use the Metering Service
+
+You will need to modify your software to record customer usage, send hourly usage reports
+to the Metering Service, and handle new failure modes. The software operates independently of
+pricing, but the software will need to know about the usage category, how it's consumed, and
+any dimensions.
+
+### Measuring consumption
+
+Your software must determine how much of the selected usage category and which
+dimensions the customer has consumed. This value will be sent, once each hour, to the
+Metering Service. In all cases, it's assumed that your software has the ability to measure,
+record, and read consumption of resources for the purpose of sending it on an hourly basis
+to the Metering Service.
+
+For provisioned consumption, this will typically be read from the software configuration
+as a sampled value, but might also be a maximum configured value, recorded each hour. For
+concurrent consumption, this might be either a periodic sample or a maximum value recorded
+each hour. For accumulated consumption, this will be a value that is accumulated each hour.
+
+For pricing on multiple dimensions, multiple values must be measured and sent to the
+Metering Service, one per dimension. This requires your software to be programmed or
+configured with the known set of dimensions when you provide the AMI. The set of dimensions
+can't change after a product is created.
+
+For each pricing scenario, the following table describes recommended ways for measuring
+consumption each hour.
+
+| **Scenario**          | **How to measure**                                                                                                                                                                                     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Provisioned user      | Current number of provisioned users (sampled).<br>-OR-<br>Maximum number of provisioned users (seen that hour).                                                                                        |
+| Concurrent user       | Current number of concurrent users (sampled).<br>-OR-<br>Maximum number of concurrent users (seen that hour).<br>-OR-<br>Total number of distinct users (seen that hour).                              |
+| Provisioned host      | Current number of provisioned hosts (sampled).<br>-OR-<br>Maximum number of provisioned hosts (seen that hour).                                                                                        |
+| Concurrent host       | Current number of concurrent hosts (sampled).<br>-OR-<br>Maximum number of concurrent hosts (seen that hour).<br>-OR-<br>Total number of distinct hosts (seen that hour).                              |
+| Provisioned bandwidth | Current provisioned bandwidth setting (sampled).<br>-OR-<br>Maximum provisioned bandwidth (seen that hour).                                                                                            |
+| Accumulated data      | Current GB of data stored (sampled).<br>-OR-<br>Maximum GB of data stored (seen that hour).<br>-OR-<br>Total GB of data added or processed that hour.<br>-OR-<br>Total GB of data processed that hour. |
+
+## Vendor-metered tagging (Optional)
+
+Vendor-metered tagging helps Independent Software Vendors (ISVs) give the buyer more
+granular insight into their software usage and can help them perform cost allocation.
+
+To
+tag a buyer's software
+usage, you
+need
+to determine how costs are
+allocated.
+First ask your buyers what they want to see in their cost allocation. Then
+you can split the usage across properties that you track for the buyer’s account. Examples of
+properties include `Account ID`, `Business Unit`, `Cost
+ Centers`, and other relevant metadata for your product. These properties are exposed
+to the buyer as tags. Using tags, buyers can view their costs split into usage by the tag
+values in their AWS Billing Console ([https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/")). Vendor-metered tagging
+doesn't change the price, dimensions, or the total usage that you report. It allows your
+customer to view their costs by categories appropriate to your product.
+
+In a common use case, a buyer subscribes to your product with one AWS account. The buyer
+also has numerous users associated with the same product subscription. You can create usage
+allocations with tags that have a key of `Account ID`, and then allocate usage to
+each user. In this case, buyers can activate the `Account ID` tag in their Billing and Cost Management
+console and analyze individual user usage.
+
+### Seller experience
+
+Sellers can aggregate the metering records for resources with the same set of tags
+instead of aggregating usage for all resources. For example, sellers can construct the
+metering record that includes different buckets of `UsageAllocations`. Each
+bucket represents `UsageQuantity` for a set of tags, such as
+`AccountId` and `BusinessUnit`.
+
+In the following diagram, **Resource 1** has a unique set of
+`AccountId` and `BusinessUnit` tags, and appears in the
+**Metering Record** as a single entry.
+
+**Resource 2** and **Resource 3** both have the same
+`AccountId` tag, `2222`, and the same `BusinessUnit` tag,
+`Operations`. As a result, they're combined into a single
+`UsageAllocations` entry in the **Metering Record**.
+
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](images/seller-vendor-meter-tag.png)
+
+Sellers can also combine resources without tags into a single
+`UsageAllocation` with the allocated usage quantity and send it as one of the
+entries in `UsageAllocations`.
+
+Limits include:
+
+- Number of tags – 5
+- Size of `UsageAllocations` (cardinality) – 2,500
+
+Validations include:
+
+- Characters allowed for the tag key and value – a-zA-Z0-9+ -=.\_:\/@
+- Maximum tags across `UsageAllocation` list – 5
+- Two `UsageAllocations` can't have the same tags (that is, the same
+  combination of tag keys and values). If that's the case, they must use the same
+  `UsageAllocation`.
+- The sum of `AllocatedUsageQuantity` of `UsageAllocation` must
+  equal the `UsageQuantity`, which is the aggregate usage.
+
+### Buyer experience
+
+The following table shows an example of the buyer experience after a buyer activates the
+`AccountId` and `BusinessUnit` vendor tags.
+
+In this example, the buyer can see allocated usage in their **Cost Usage
+Report**. The vendor-metered tags use the prefix
+`“aws:marketplace:isv”`. Buyers can activate them in the Billing and Cost Management, under
+**Cost Allocation Tags**, **AWS-generated cost allocation
+tags**.
+
+The first and last rows of the **Cost Usage Report** are relevant to
+what the Seller sends to the Metering Service (as shown in the [Seller experience](container-metering-meterusage.md#container-vendor-metered-tag-seller "container-metering-meterusage.md#container-vendor-metered-tag-seller") example).
+
+| Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
+| ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 70             | 2222          | Operations                      |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 3333          | Finance                         |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
+| xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+
+For a code example, see [MeterUsage with usage allocation
+tagging (Optional)](custom-metering-with-mp-metering-service.md#ami-meterusage-code-example "custom-metering-with-mp-metering-service.md#ami-meterusage-code-example")
+
+## Configuring custom metering
+
+For more information about working with AWS Marketplace Metering Service, see
+[Configuring custom metering for AMI products with
+AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").

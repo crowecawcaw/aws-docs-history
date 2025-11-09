@@ -55,7 +55,7 @@ Your OpenAPI specification must:
 The following table shows supported and unsupported OpenAPI features:
 
 | Category             | Supported                                                                             | Not Supported                        |
-| -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ------------------------------------------------------------------------------------- | ------------------------------------ |
 | Version              | 3.0 and 3.1                                                                           | 2                                    |
 | Schema definitions   | Basic data types (string, number, boolean, etc.)                                      | oneOf specifications                 |
 |                      | Required field validation                                                             | anyOf specifications                 |
@@ -81,4 +81,29 @@ The following table shows supported and unsupported OpenAPI features:
 |                      |                                                                                       | API Key at spec level                |
 |                      |                                                                                       | HTTP Basic auth at spec level        |
 | Server configuration | Basic URL                                                                             |                                      |
-|                      | URL with placeholders                                                                 |                                      | ### Enabling Bedrock AgentCore Gateway Before you enable Gateway integration, test your OpenAPI specification or MCP server with Amazon Bedrock AgentCore Gateway by completing these tasks: <br>• [Create a gateway](../../../bedrock-agentcore/latest/devguide/gateway-building.md "../../../bedrock-agentcore/latest/devguide/gateway-building.md") <br>• [Attach a Target](../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md "../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md") <br>• [Test your Gateway](../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md "../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md") You can enable integration with Amazon Bedrock AgentCore by providing OpenAPI spec. ###### To enable Gateway integration 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management"). 2. Open the [AI agents and tools](https://aws.amazon.com/marketplace/management/products/aiagents "https://aws.amazon.com/marketplace/management/products/aiagents") page. 3. On the **AI agents and tools products** tab, select the product to modify. 4. From the **Request changes** dropdown list, select **Update fulfillment options**. 5. Choose **Enable tool for Amazon Bedrock AgentCore integration**. 6. Upload your OpenAPI specification or use your MCP endpoint for MCP servers with OAuth authentication.. 7. Choose **Submit**. After you submit, the request status appears as **Under review** in the **Requests** tab. When processing completes, the status changes to **Succeeded**. |
+|                      | URL with placeholders                                                                 |                                      |
+
+### Enabling Bedrock AgentCore Gateway
+
+Before you enable Gateway integration, test your OpenAPI specification or MCP
+server with Amazon Bedrock AgentCore Gateway by completing these tasks:
+
+- [Create a gateway](../../../bedrock-agentcore/latest/devguide/gateway-building.md "../../../bedrock-agentcore/latest/devguide/gateway-building.md")
+- [Attach a Target](../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md "../../../bedrock-agentcore/latest/devguide/gateway-building-adding-targets.md")
+- [Test your Gateway](../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md "../../../bedrock-agentcore/latest/devguide/gateway-building-testing.md")
+
+You can enable integration with Amazon Bedrock AgentCore by providing OpenAPI spec.
+
+###### To enable Gateway integration
+
+1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
+2. Open the [AI agents and tools](https://aws.amazon.com/marketplace/management/products/aiagents "https://aws.amazon.com/marketplace/management/products/aiagents") page.
+3. On the **AI agents and tools products** tab,
+   select the product to modify.
+4. From the **Request changes** dropdown list, select **Update fulfillment options**.
+5. Choose **Enable tool for Amazon Bedrock AgentCore integration**.
+6. Upload your OpenAPI specification or use your MCP endpoint for MCP servers
+   with OAuth authentication..
+7. Choose **Submit**.
+
+After you submit, the request status appears as **Under review** in the **Requests** tab. When processing completes, the status changes to **Succeeded**.

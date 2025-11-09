@@ -143,7 +143,56 @@ adequately answer your question, file a support ticket or submit feedback. The f
 additional examples:
 
 | **Do**                                 | **Don't**                        |
-| -------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------- | -------------------------------- |
 | Where can I find my tier renewal date? | When is my tier renewal date?    |
 | How do I enroll in a path?             | Enroll us in the Software path.  |
-| How do I apply for the MSP program?    | Can I apply for the MSP program? | ###### Note For account-related questions, partners must use existing [AWS support channels](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/"). ### Can partners use AWS Partner Assistant to change their account or services? No, but it can guide you on how to make these changes or direct you to support teams who can. ### How does AWS Partner Assistant handle confidential information? AWS Partner Assistant is designed to safeguard user privacy and data, but we don’t recommend sharing sensitive information. ### What happens if AWS Partner Assistant doesn’t understand my question? If AWS Partner Assistant can’t answer your question, try rephrasing it. Alternatively, it can guide you to a support team for assistance. In this scenario, submit thumbs-down feedback along with additional context, which will help us improve the chatbot’s performance. Optionally, you can provide structured feedback from a picklist of common categories. ### What should I do if AWS Partner Assistant isn't responding? Try refreshing the page or restarting the application. If the issue persists, report the problem to our support team. ### What should I do if AWS Partner Assistant provides incorrect information? If you believe AWS Partner Assistant has given you incorrect information, provide feedback at the end of your session using the thumbs-down option. ### Can I turn off AWS Partner Assistant if I don't want to use it? AWS Partner Assistant is an optional feature. If you prefer not to use it, contact our support team. |
+| How do I apply for the MSP program?    | Can I apply for the MSP program? |
+
+###### Note
+
+For account-related questions, partners must use existing [AWS support channels](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
+
+### Can
+
+partners use AWS Partner Assistant to change their account or services?
+
+No, but it can guide you on how to make these changes or direct you to support teams who
+can.
+
+### How does AWS
+
+Partner Assistant handle confidential information?
+
+AWS Partner Assistant is designed to safeguard user privacy and data, but we don’t
+recommend sharing sensitive information.
+
+### What happens
+
+if AWS Partner Assistant doesn’t understand my question?
+
+If AWS Partner Assistant can’t answer your question, try rephrasing it. Alternatively,
+it can guide you to a support team for assistance. In this scenario, submit thumbs-down
+feedback along with additional context, which will help us improve the chatbot’s
+performance. Optionally, you can provide structured feedback from a picklist of common
+categories.
+
+### What should I do if
+
+AWS Partner Assistant isn't responding?
+
+Try refreshing the page or restarting the application. If the issue persists, report the
+problem to our support team.
+
+### What
+
+should I do if AWS Partner Assistant provides incorrect information?
+
+If you believe AWS Partner Assistant has given you incorrect information, provide
+feedback at the end of your session using the thumbs-down option.
+
+### Can I turn off
+
+AWS Partner Assistant if I don't want to use it?
+
+AWS Partner Assistant is an optional feature. If you prefer not to use it, contact our
+support team.

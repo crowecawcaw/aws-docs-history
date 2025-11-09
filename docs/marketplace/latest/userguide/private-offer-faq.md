@@ -302,11 +302,11 @@ or [AWS tax rules](https://youtu.be/MyhJZRiYBR0 "https://youtu.be/MyhJZRiYBR0") 
 
 ### Which currencies are supported for private offers?
 
-Private offers support USD, EUR, GBP, AUD, and JPY. All pricing models (contract, contract with consumption, and pay-as-you-go) support these currencies.
+Private offers support USD, EUR, GBP, AUD, JPY, and INR (for sellers in India only). All pricing models (contract, contract with consumption, and pay-as-you-go) support these currencies.
 
 ### Can I create pay-as-you-go offers in non-USD currencies?
 
-Yes. PAYG private offers support all five currencies. Foreign exchange rates are updated monthly to maintain consistent local currency pricing.
+Yes. PAYG private offers support all supported currencies. Foreign exchange rates are updated monthly to maintain consistent local currency pricing.
 
 ### How often are foreign exchange rates updated?
 

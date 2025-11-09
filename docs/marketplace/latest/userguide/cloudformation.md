@@ -391,7 +391,183 @@ template.
 The following table describes the difference between using the product load form and the
 self-service experience:
 
-|                                                       | Product load form                                                                                                                                                                                                | Self-service experience                                                                                                                                                                                                                      |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Value of `ImageId` property for EC2 resources**     | References a **mapping table** for your AMI ID. For more information, see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form"). | References a **template parameter** for your AMI ID. For more information, see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse").                                                                                |
-| **Value of `TemplateURL` property for nested stacks** | Must be a fixed string and can't use intrinsic functions.                                                                                                                                                        | Can be dynamic by using intrinsic functions. Must reference a set of **template parameters**. For more information, see [Requirements for nested stack templates](#nested-stack-template-requirements "#nested-stack-template-requirements") | The following example templates illustrate an example of an existing product that used the product load form to publish the template. In this example, the AMI ID is `ami-example123456` and a nested template is in a seller’s S3 bucket at the location `https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml`. YAML example published with the product load form: `AWSTemplateFormatVersion: '2010-09-09' Mappings: RegionMap: us-east-1: AMI: ami-example123456 Resources: EC2Instance: Type: AWS::EC2::Instance Properties: ImageId: !FindInMap <br>• RegionMap <br>• !Ref AWS::Region <br>• AMI NestedStack: Type: AWS::CloudFormation::Stack Properties: TemplateURL: https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml` JSON example published with the product load form: `{ "AWSTemplateFormatVersion": "2010-09-09", "Mappings": { "RegionMap": { "us-east-1": { "AMI": "ami-example123456" } } }, "Resources": { "EC2Instance": { "Type": "AWS::EC2::Instance", "Properties": { "ImageId": { "Fn::FindInMap": [ "RegionMap", { "Ref": "AWS::Region" }, "AMI" ] } } }, "NestedStack": { "Type": "AWS::CloudFormation::Stack", "Properties": { "TemplateURL": "https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml" } } } }` The following template examples illustrate the changes required to use the self-service experience to update the product. YAML example published with the self-service experience: `AWSTemplateFormatVersion: '2010-09-09' Metadata: AWS::CloudFormation::Interface: ParameterGroups: <br>• Label: default: AWS Marketplace Parameters Parameters: <br>• ImageId <br>• MPS3BucketName <br>• MPS3BucketRegion <br>• MPS3KeyPrefix Parameters: ImageId: Type: AWS::EC2::Image::Id Default: ami-example123456 Description: The AMI that will be used to launch EC2 resources. MPS3BucketName: Type: String Default: sellerbucket Description: Name of the S3 bucket for your copy of the nested templates. MPS3BucketRegion: Type: String Default: us-east-1 Description: AWS Region where the S3 bucket for your copy of the nested templates is hosted. MPS3KeyPrefix: Type: String Default: sellerproductfolder/ Description: S3 key prefix that is used to simulate a folder for your copy of the nested templates. Resources: EC2Instance: Type: AWS::EC2::Instance Properties: ImageId: !Ref ImageId NestedStack: Type: AWS::CloudFormation::Stack Properties: TemplateURL: !Sub https://${MPS3BucketName}.s3.${MPS3BucketRegion}.${AWS::URLSuffix}/${MPS3KeyPrefix}nested-template.yaml` JSON Example published with the self-service experience: `{ "AWSTemplateFormatVersion": "2010-09-09", "Metadata": { "AWS::CloudFormation::Interface": { "ParameterGroups": [ { "Label": { "default": "AWS Marketplace Parameters" }, "Parameters": [ "ImageId", "MPS3BucketName", "MPS3BucketRegion", "MPS3KeyPrefix" ] } ] } }, "Parameters": { "ImageId": { "Type": "AWS::EC2::Image::Id", "Default": "ami-example123456", "Description": "The AMI that will be used to launch EC2 resources." }, "MPS3BucketName": { "Type": "String", "Default": "sellerbucket", "Description": "Name of the S3 bucket for your copy of the nested templates." }, "MPS3BucketRegion": { "Type": "String", "Default": "us-east-1", "Description": "AWS Region where the S3 bucket for your copy of the nested templates is hosted." }, "MPS3KeyPrefix": { "Type": "String", "Default": "sellerproductfolder/", "Description": "S3 key prefix that is used to simulate a folder for your copy of the nested templates." } }, "Resources": { "EC2Instance": { "Type": "AWS::EC2::Instance", "Properties": { "ImageId": { "Ref": "ImageId" } } }, "NestedStack": { "Type": "AWS::CloudFormation::Stack", "Properties": { "TemplateURL": { "Fn::Sub": "https://${MPS3BucketName}.s3.${MPS3BucketRegion}.${AWS::URLSuffix}/${MPS3KeyPrefix}nested-template.yaml" } } } } }` |
+|                                                          | Product load form                                                                                                                                                                                                           | Self-service experience                                                                                                                                                                                                                         |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Value of `ImageId` property for EC2<br>resources**     | References a \*_mapping table_<br>• for your AMI ID. For<br>more information, see [Requirements for AMI details using the<br>product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form"). | References a \*_template parameter_<br>• for your AMI ID.<br>For more information, see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse").                                                                           |
+| **Value of `TemplateURL` property for nested<br>stacks** | Must be a fixed string and can't use intrinsic functions.                                                                                                                                                                   | Can be dynamic by using intrinsic functions. Must reference a set of **template parameters**. For more information, see [Requirements for nested stack<br>templates](#nested-stack-template-requirements "#nested-stack-template-requirements") |
+
+The following example templates illustrate an example of an existing product that used the
+product load form to publish the template. In this example, the AMI ID is
+`ami-example123456` and a nested template is in a seller’s S3 bucket at the
+location
+`https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml`.
+
+YAML example published with the product load form:
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-example123456
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !FindInMap
+        - RegionMap
+        - !Ref AWS::Region
+        - AMI
+  NestedStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml
+
+```
+
+JSON example published with the product load form:
+
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Mappings": {
+        "RegionMap": {
+            "us-east-1": {
+                "AMI": "ami-example123456"
+            }
+        }
+    },
+    "Resources": {
+        "EC2Instance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": {
+                    "Fn::FindInMap": [
+                        "RegionMap",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        "AMI"
+                    ]
+                }
+            }
+        },
+        "NestedStack": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+                "TemplateURL": "https://sellerbucket.s3.us-east-1.amazonaws.com/sellerproductfolder/nested-template.yaml"
+            }
+        }
+    }
+}
+```
+
+The following template examples illustrate the changes required to use the self-service
+experience to update the product.
+
+YAML example published with the self-service experience:
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: AWS Marketplace Parameters
+        Parameters:
+          - ImageId
+          - MPS3BucketName
+          - MPS3BucketRegion
+          - MPS3KeyPrefix
+Parameters:
+  ImageId:
+    Type: AWS::EC2::Image::Id
+    Default: ami-example123456
+    Description: The AMI that will be used to launch EC2 resources.
+  MPS3BucketName:
+    Type: String
+    Default: sellerbucket
+    Description: Name of the S3 bucket for your copy of the nested templates.
+  MPS3BucketRegion:
+    Type: String
+    Default: us-east-1
+    Description: AWS Region where the S3 bucket for your copy of the nested templates is hosted.
+  MPS3KeyPrefix:
+    Type: String
+    Default: sellerproductfolder/
+    Description: S3 key prefix that is used to simulate a folder for your copy of the nested templates.
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref ImageId
+  NestedStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Sub https://${MPS3BucketName}.s3.${MPS3BucketRegion}.${AWS::URLSuffix}/${MPS3KeyPrefix}nested-template.yaml
+```
+
+JSON Example published with the self-service experience:
+
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Interface": {
+            "ParameterGroups": [
+                {
+                    "Label": {
+                        "default": "AWS Marketplace Parameters"
+                    },
+                    "Parameters": [
+                        "ImageId",
+                        "MPS3BucketName",
+                        "MPS3BucketRegion",
+                        "MPS3KeyPrefix"
+                    ]
+                }
+            ]
+        }
+    },
+    "Parameters": {
+        "ImageId": {
+            "Type": "AWS::EC2::Image::Id",
+            "Default": "ami-example123456",
+            "Description": "The AMI that will be used to launch EC2 resources."
+        },
+        "MPS3BucketName": {
+            "Type": "String",
+            "Default": "sellerbucket",
+            "Description": "Name of the S3 bucket for your copy of the nested templates."
+        },
+        "MPS3BucketRegion": {
+            "Type": "String",
+            "Default": "us-east-1",
+            "Description": "AWS Region where the S3 bucket for your copy of the nested templates is hosted."
+        },
+        "MPS3KeyPrefix": {
+            "Type": "String",
+            "Default": "sellerproductfolder/",
+            "Description": "S3 key prefix that is used to simulate a folder for your copy of the nested templates."
+        }
+    },
+    "Resources": {
+        "EC2Instance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": {
+                    "Ref": "ImageId"
+                }
+            }
+        },
+        "NestedStack": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+                "TemplateURL": {
+                    "Fn::Sub": "https://${MPS3BucketName}.s3.${MPS3BucketRegion}.${AWS::URLSuffix}/${MPS3KeyPrefix}nested-template.yaml"
+                }
+            }
+        }
+    }
+}
+```

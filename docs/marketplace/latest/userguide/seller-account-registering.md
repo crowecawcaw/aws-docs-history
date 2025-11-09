@@ -2,6 +2,10 @@
 
 Registering as a seller is the first step to selling your products on AWS Marketplace. This section guides you through the registration process, including providing required information and completing verification steps.
 
+###### Sellers in India
+
+Sellers in India have specific registration requirements and processes that differ from other regions. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 To register as a seller in AWS Marketplace, you can use an existing AWS account or create a new account. All AWS Marketplace interactions are tied to the account that you choose. AWS Marketplace strongly recommends using AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials.
 
 AWS Marketplace supports several types of sellers, each with their own unique offerings and requirements:

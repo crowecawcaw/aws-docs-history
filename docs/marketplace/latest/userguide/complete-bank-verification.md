@@ -2,6 +2,10 @@
 
 To receive disbursements from Amazon Payments Europe (APE), you must provide additional information to verify your disbursement bank account that is listed in the **Payment Information** tab in the AWS Marketplace Management Portal.
 
+###### Sellers in India
+
+This process doesn't apply to sellers in India as they can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
 ## Bank verification requirements
 
 Bank account verification requires you to upload a bank statement or similar documentation that confirms your account details. The document must clearly show:

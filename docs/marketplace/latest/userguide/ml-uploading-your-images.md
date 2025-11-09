@@ -58,8 +58,88 @@ account=$(aws sts get-caller-identity --query Account --output text)
 To authenticate your Docker CLI client with your AWS account Amazon ECR Docker registry for
 your Region, run the following command.
 
-````
+```
 aws ecr get-login-password \
 --region ${region} \
-| sudo docker login \ --username AWS \ --password-stdin \ ${account}.dkr.ecr.${region}.amazonaws.com ``` ## Create repository and upload image Set a variable for the tag of the uploaded image and another variable for the name of the uploaded image repository. ``` image=`my-inference-image` repo=`my-inference-image` ``` ###### Note In previous sections of this guide where the inference and training images were built, they were tagged as **my-inference-image** and **my-training-image**, respectively. For this example, create and upload the inference image to a repository with the same name. Run the following command to create the image repository in Amazon ECR. ``` aws ecr --region ${region} create-repository --repository-name "${repo}" ``` The full name of the Amazon ECR repository location is made up of the following parts: `<account-id>.dkr.ecr.<region>.amazonaws.com/<image-repository-name>` To push the image to the repository, you must tag it with the full name of the repository location. Set a variable for the full name of the image repository location along with the `latest` tag. ``` fullname="${account}.dkr.ecr.${region}.amazonaws.com/${repo}:latest" ``` Tag the image with the full name. ``` sudo docker tag ${image} ${fullname} ``` Finally, push the inference image to the repository in Amazon ECR. ``` sudo docker push ${fullname} ``` After the upload completes, the image appears in the [repository list of the Amazon ECR console](https://console.aws.amazon.com/ecr/repositories?region=us-east-2 "https://console.aws.amazon.com/ecr/repositories?region=us-east-2") in the Region that you are publishing from. In the previous example, the image was pushed to a repository in the US East (Ohio) Region. ##  Scan your uploaded image In the [Amazon ECR console](https://console.aws.amazon.com/ecr/repositories?region=us-east-2 "https://console.aws.amazon.com/ecr/repositories?region=us-east-2"), choose the AWS Region that you are publishing from, and open the repository that the image was uploaded to. Select your uploaded image and start a scan to check for known vulnerabilities. AWS Marketplace checks the Amazon ECR scan results of the container images used in your Amazon SageMaker AI resource before publishing it. Before you can create your product, you must fix container images that have vulnerabilities with either a Critical or High severity. After your images are scanned successfully, they can be used to create a model package or algorithm resource. If you believe that your product had errors in the scan that are false positives, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") team with information about the error. **Next steps** <br>• See size limits in [Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md") <br>• Continue to [Creating your Amazon SageMaker AI resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md")
-````
+| sudo docker login \
+--username AWS \
+--password-stdin \
+${account}.dkr.ecr.${region}.amazonaws.com
+```
+
+## Create repository and upload image
+
+Set a variable for the tag of the uploaded image and another variable for the name of
+the uploaded image repository.
+
+```
+image=`my-inference-image`
+repo=`my-inference-image`
+```
+
+###### Note
+
+In previous sections of this guide where the inference and
+training images were built, they were tagged as
+**my-inference-image** and
+**my-training-image**,
+respectively. For this example, create and upload the
+inference image to a repository with the same name.
+
+Run the following command to create the image repository in
+Amazon ECR.
+
+```
+aws ecr --region ${region} create-repository --repository-name "${repo}"
+```
+
+The full name of the Amazon ECR repository location is made up of the following parts: `<account-id>.dkr.ecr.<region>.amazonaws.com/<image-repository-name>`
+
+To push the image to the repository, you must tag it with the
+full name of the repository location.
+
+Set a variable for the full name of the image repository location along with the
+`latest` tag.
+
+```
+fullname="${account}.dkr.ecr.${region}.amazonaws.com/${repo}:latest"
+```
+
+Tag the image with the full name.
+
+```
+sudo docker tag ${image} ${fullname}
+```
+
+Finally, push the inference image to the repository in Amazon ECR.
+
+```
+sudo docker push ${fullname}
+```
+
+After the upload completes, the image appears in the [repository list of the Amazon ECR console](https://console.aws.amazon.com/ecr/repositories?region=us-east-2 "https://console.aws.amazon.com/ecr/repositories?region=us-east-2") in the
+Region that you are publishing from. In the previous example, the image was pushed to a
+repository in the US East (Ohio) Region.
+
+## Scan your uploaded image
+
+In the [Amazon ECR
+console](https://console.aws.amazon.com/ecr/repositories?region=us-east-2 "https://console.aws.amazon.com/ecr/repositories?region=us-east-2"), choose the AWS Region that you are publishing from, and open the
+repository that the image was uploaded to. Select your uploaded image and start a scan to
+check for known vulnerabilities. AWS Marketplace checks the Amazon ECR scan results of the container images
+used in your Amazon SageMaker AI resource before publishing it. Before you can create your product, you
+must fix container images that have vulnerabilities with either a Critical or High severity.
+
+After your images are scanned successfully, they can be used to create a model package or
+algorithm resource.
+
+If you believe that your product had errors in the scan that are false positives,
+contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") team
+with information about the error.
+
+**Next steps**
+
+- See size limits in [Requirements and best practices for
+  creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md")
+- Continue to [Creating your Amazon SageMaker AI
+  resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md")

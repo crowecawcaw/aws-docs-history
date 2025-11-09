@@ -140,17 +140,20 @@ You must include an architecture diagram for review. You can't make the diagrams
     AWS account, they must comply with [AWS Marketplace policies for CFTs](cloudformation.md#aws-cloudformation-template-preparation "cloudformation.md#aws-cloudformation-template-preparation"). You must publish those CFTs as part of your SaaS
     listing by following the method provided when you enable the [SaaS Quick Launch deployment option](saas-product-settings.md#saas-quick-launch "saas-product-settings.md#saas-quick-launch") for your buyers. SaaS Quick Launch
     makes it easier for your buyers to configure your SaaS solution.
-  - If Amazon Machine Images (AMIs) are deployed into the buyer's AWS account,
-    they must comply with [AWS Marketplace policies
-    for AMIs](product-and-ami-policies.md "product-and-ami-policies.md"). Your AMIs must [pass the AMI scanner](best-practices-for-building-your-amis.md#self-service-scanning "best-practices-for-building-your-amis.md#self-service-scanning") in the AWS Marketplace Management Portal (seller portal).
-    When [requesting your product to be public](saas-product-settings.md#saas-update-visibility "saas-product-settings.md#saas-update-visibility"), you must also [contact AWS Marketplace
-    operations](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") and provide proof of scan results.
-  - If container images are deployed into a buyer's AWS account, the images must
-    comply with [AWS Marketplace policies
-    for containers](container-product-policies.md "container-product-policies.md"). Your container images can be hosted outside of AWS, but
-    they must be [scanned in Amazon Elastic Container Registry (Amazon ECR)](../../../AmazonECR/latest/userguide/manual-scan.md "../../../AmazonECR/latest/userguide/manual-scan.md")
-    and be free of critical vulnerabilities. When [requesting your product to be public](saas-product-settings.md#saas-update-visibility "saas-product-settings.md#saas-update-visibility"), you must also [contact AWS Marketplace
-    operations](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amazon.com/marketplace/management/contact-us") and provide proof that the container passed the scan.
+  - If an Amazon Machine Image (AMI) is deployed into the buyer's AWS account,
+    it must comply with the [AMI-based product requirements for AWS Marketplace](product-and-ami-policies.md "product-and-ami-policies.md").
+    You must publish the AMI as a separate AMI-based product in AWS Marketplace and indicate that it's an add-on product
+    as required in the [Product usage policies](product-and-ami-policies.md#product-usage "product-and-ami-policies.md#product-usage").
+    You can price your AMI-based product as BYOL because it's an extension of your SaaS offering.
+    AWS Marketplace scans AMI-based products for unpatched common vulnerabilities and exposures (CVEs) and security requirements.
+    Your buyers must also subscribe to your AMI-based product before deploying it.
+  - If a container image is deployed into a buyer's AWS account, it must
+    comply with the [Container-based product requirements for AWS Marketplace](container-product-policies.md "container-product-policies.md").
+    You must publish the container image as a separate container-based product in AWS Marketplace and indicate that it's an add-on product
+    as required in the [Product usage requirements](container-product-policies.md#container-usage-requirements "container-product-policies.md#container-usage-requirements").
+    You can price your container-based product as BYOL because it's an extension of your SaaS offering.
+    AWS Marketplace scans container-based products for unpatched common vulnerabilities and exposures (CVEs) and security requirements.
+    Your buyers must also subscribe to your container-based product before deploying it.
 
 - Successfully call the AWS Marketplace APIs from the AWS account that registered as a
   provider and submitted the SaaS publishing request. The SaaS pricing model determines

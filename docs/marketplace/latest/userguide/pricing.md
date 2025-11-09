@@ -1,7 +1,7 @@
 # Product pricing for AWS Marketplace
 
 As an AWS Marketplace seller, you choose a pricing model for your products. For paid products,
-AWS Marketplace collects software charges from the customer. Public listings use US dollars (USD). Private offers support USD, EUR, GBP, AUD, and JPY.
+AWS Marketplace collects software charges from the customer. Public listings use US dollars (USD). Private offers support USD, EUR, GBP, AUD, JPY, and INR (for sellers in India only).
 There is no service fee for free or open-source software that is made available to customers
 without charge. This topic provides information about pricing models and pricing for software
 products in AWS Marketplace.

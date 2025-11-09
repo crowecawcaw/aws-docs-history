@@ -81,7 +81,7 @@ Private offers are not available for monthly billing contracts.
 products
 
 All professional services product offerings are done through private offers. For more
-information, see [Create private offers](proserv-getting-started.md#proserv-create-offer "proserv-getting-started.md#proserv-create-offer").
+information, see [Creating private offers](proserv-create-offer.md "proserv-create-offer.md").
 
 ## Private offers for SaaS products
 

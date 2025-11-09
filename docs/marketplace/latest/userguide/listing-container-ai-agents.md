@@ -35,9 +35,11 @@
 If the container image utilizes AgentCore, the **Hourly**
 and **Usage with long-term contract** pricing models are
 not supported. To learn more about contract pricing, see
-[Contract pricing for container products](pricing-container-products.md#container-contracts "pricing-container-products.md#container-contracts").
+[Contract pricing for container products
+with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
 To learn more about custom metering for usage-based
-pricing, see [Usage pricing](usage-pricing.md "usage-pricing.md"). 2. Select **Next**. 3. In **Set prices**. 4. Select **Next**.
+pricing, see [Configuring custom metering for container products with
+AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md"). 2. Select **Next**. 3. In **Set prices**. 4. Select **Next**.
 
 ## Step 3: Specify refund policy
 
@@ -77,7 +79,7 @@ Wait 10-15 minutes until your request status is in the _Succeeded_ state.
 
 ###### Note
 
-See [AWS Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md") on how to integrate AgentCore with your Container Image.
+See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md") on how to integrate AgentCore with your Container Image.
 
 1. Locate the URL for the ECR repository:
    - Open the Server products page in AWS Marketplace Management Portal.
@@ -162,7 +164,7 @@ When listing a containerized agent, provide clear deployment instructions, resou
 
 ###### Note
 
-See [AWS Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md") for more details.
+See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md") for more details.
 
 When creating container-based AI agent products for AWS Marketplace, follow these requirements:
 
@@ -216,5 +218,5 @@ When listing an Model Context Protocol-compatible agent or tool on AWS Marketpla
 For more information about implementing Model Context Protocol in your AI agent or tool, refer to these resources:
 
 - [Amazon Bedrock AgentCore Documentation](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")
-- [AWS Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md")
+- [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md")
 - [Container Technical Requirements](container-product-getting-started.md "container-product-getting-started.md")

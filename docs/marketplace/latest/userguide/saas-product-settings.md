@@ -18,7 +18,6 @@ updating pricing details, product visibility, and other settings.
 - [Restrict pricing dimensions](#restrict-pricing-dimensions "#restrict-pricing-dimensions")
 - [Determine how buyers will access your
   product](#configure-product-access "#configure-product-access")
-- [Configure Quick Launch](#saas-quick-launch "#saas-quick-launch")
 - [Update availability by country](#saas-availability-by-country "#saas-availability-by-country")
 - [Update the refund policy of a product](#update-refund-policy "#update-refund-policy")
 - [Update the end user license agreement (EULA)](#saas-update-eula "#saas-update-eula")
@@ -306,7 +305,7 @@ To update the URL that is used to fulfill your SaaS product, use the
    review**. When the request completes, the status will update to
    **Succeeded** or **Failed**.
 
-## Configure Quick Launch
+### Configure Quick Launch
 
 SaaS products listed in AWS Marketplace often require AWS resources to be deployed in the
 subscribing buyer's account (for example, IAM roles). Quick Launch allows you to
@@ -328,7 +327,7 @@ Limited or Public visibility. 2. On the product detail page, choose the **Fulfil
 options** tab. 3. For **Quick Launch**, choose the **Activate and
 configure** button. 4. For **Account login details**, provide a URL for your
 site where the buyer can log in or create an account. This URL opens a new
-tab in the buyer experience. Buyers then log in or create an account and
+tab in the buyer experience. Buyers then sign in or create an account and
 return to AWS Marketplace to launch the template. 5. Create an AWS CloudFormation template.
 
 ###### Tip
@@ -342,15 +341,15 @@ Well-Architected Framework](../../../wellarchitected/latest/framework/welcome.md
 For **AWS CloudFormation template**, choose the **Add AWS CloudFormation
 template** button and provide the following information:
 
-    * **Title** – Provide the name of your
-     CloudFormation deployment.
-    * **Description** – Provide a description of
+    * **Title**
+     – Enter the name of your CloudFormation deployment.
+    * **Description** – Enter a description of
      the template.
-    * **Stack name** – Provide a name for the
+    * **Stack name** – Enter a name for the
      stack. This name is the stack name for the buyer in
      CloudFormation.
     * **CloudFormation template URL** – Provide the
-     Amazon Simple Storage Service will review this
+     Amazon Simple Storage Service (Amazon S3) URL for the template. AWS will review this
      template.
 
 
@@ -378,7 +377,7 @@ template** button and provide the following information:
     ###### Note
 
     If your product requires seller-provided CloudFormation deployment
-     parameters (for example, API keys and [external IDs](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md")), use the
+     parameters, such as API keys and [external IDs](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md"), use the
      `PutDeploymentParameter` operation to share the
      parameter with your customers. For more information, see [PutDeploymentParameter](../../../marketplace-deployment/latest/api-reference/API_PutDeploymentParameter.md "../../../marketplace-deployment/latest/api-reference/API_PutDeploymentParameter.md") in the
      *AWS Marketplace Deployment Service API
@@ -392,25 +391,21 @@ template** button and provide the following information:
    access the product after the CloudFormation stack has been deployed.
 8. (Optional) For **Allowlisted accounts for Quick Launch**,
    provide a comma-separated list of AWS accounts that can view the Quick
-   Launch experience with Limited visibility.
-9. Choose the **Submit** button. The Quick Launch experience
-   will have Limited visibility, meaning it will only be visible to your
-   account and allowlisted accounts. With Limited visibility, you can test your
-   configuration using the **Configure and launch** page after
-   subscribing to your product and choosing the **Set up your
-   account** button.
-   - To preview the page from the buyer's perspective, choose
-     **Preview**. Your configuration changes
-     will reflect on the preview while both pages are open.
-
+   Launch experience with **Limited** visibility.
+9. Choose **Submit**. By default, the Quick Launch
+   experience has **Limited** visibility. Only your account
+   and any allowlisted accounts can view the page. You can use the
+   **Configure and launch** page to test your
+   configuration. To do that, you must first subscribe to your product and
+   choose the **Set up your account** button.
 10. When you're ready, you can publish the Quick Launch experience in the
     AWS Marketplace catalog. Use the **Update Quick Launch visibility**
     button on the **Fulfillment options** tab on the product
     detail page.
 
-When you change the visibility to Public, the AWS Marketplace Seller Operations team
-will review the configuration, conduct buyer testing, and publish the
-experience.
+When you change the visibility to **Public**, the AWS Marketplace
+Seller Operations team reviews the configuration, conducts buyer testing,
+and publishes the experience.
 
 ###### Note
 

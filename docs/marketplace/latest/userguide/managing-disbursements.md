@@ -21,6 +21,8 @@ AWS Marketplace supports disbursements in multiple currencies, but certain restr
 - **US-based ACH accounts and Hyperwallet accounts** – Can only receive payments in USD
 - **SWIFT bank accounts** – Required for non-USD disbursements and optional for USD
 - **Multiple currencies** – Can be assigned to a single bank account where supported
+- **IFSC bank accounts** – Required for INR
+  disbursements (for sellers in India only)
 
 Available currencies for disbursements include:
 
@@ -29,6 +31,7 @@ Available currencies for disbursements include:
 - Great Britain pound (GBP)
 - Australian dollar (AUD)
 - Japanese yen (JPY)
+- Indian rupee (INR) – For sellers in India only
 
 ## Disbursement timing and processing
 

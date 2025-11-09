@@ -67,9 +67,9 @@ Here is a quick feature comparison between the deployment options:
 | --------------------------- | ----------------------------------------- | --------------------------------------------------- |
 | Hosting                     | Vendor-hosted endpoints                   | Customer's own AWS environment                      |
 | Data control                | Data processed on vendor servers          | Greater customer control over data                  |
-| Infrastructure requirements | Minimal - uses vendor infrastructure      | Requires customer to manage infrastructure          |
+| Infrastructure requirements | Minimal<br>• uses vendor infrastructure   | Requires customer to manage infrastructure          |
 | Scalability                 | Managed by vendor                         | Customer controlled, potentially more flexible      |
-| Customization               | Limited - based on API capabilities       | High - full control over the environment            |
+| Customization               | Limited<br>• based on API capabilities    | High<br>• full control over the environment         |
 | Maintenance                 | Handled by vendor                         | Customer responsible for updates and maintenance    |
 | Security                    | Dependent on vendor's security measures   | Customizable security based on customer needs       |
 | Updates and improvements    | Automatically provided by vendor          | Manual updates required, but on customer's schedule |

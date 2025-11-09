@@ -12,13 +12,21 @@ daily.
 
 The following table explains the names and descriptions of the data feed's columns.
 
-| Column name  | Description                                                                                                     |
-| ------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| mapping_type | Whether this is a product ID or offer ID.                                                                       |
-| legacy_id    | The legacy ID for this product or offer.                                                                        |
-| new_id       | The friendly ID for this product or offer. This ID is used as the primary key and with all current API actions. | ## Example of legacy mapping data feed The following shows an example of the legacy mapping data feed. For readability, the data history columns aren't shown. For information about data history fields, see [Historization of the data](data-feed-details.md#data-feed-historization "data-feed-details.md#data-feed-historization"). |
-| mapping_type | legacy_id                                                                                                       | new_id                                                                                                                                                                                                                                                                                                                                  |
-| ---          | ---                                                                                                             | ---                                                                                                                                                                                                                                                                                                                                     |
-| OFFER        | 8a806c74-dbd6-403e-9362-bb08f417ff37                                                                            | offer-dacpxznflfwin                                                                                                                                                                                                                                                                                                                     |
-| PRODUCT      | 1368541d-890b-4b6c-9bb9-4a55306ab642                                                                            | prod-o4grxfafcxxxy                                                                                                                                                                                                                                                                                                                      |
-| OFFER        | 558d8382-6b3a-4c75-8345-a627b552f5f1                                                                            | offer-gszhmle5npzip                                                                                                                                                                                                                                                                                                                     |
+| Column name  | Description                                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------------ |
+| mapping_type | Whether this is a product ID or offer ID.                                                                          |
+| legacy_id    | The legacy ID for this product or offer.                                                                           |
+| new_id       | The friendly ID for this product or offer. This ID is used as the primary key and<br>with all current API actions. |
+
+## Example of legacy mapping data
+
+feed
+
+The following shows an example of the legacy mapping data feed. For readability, the data
+history columns aren't shown. For information about data history fields, see [Historization of the data](data-feed-details.md#data-feed-historization "data-feed-details.md#data-feed-historization").
+
+| mapping_type | legacy_id                            | new_id              |
+| ------------ | ------------------------------------ | ------------------- |
+| OFFER        | 8a806c74-dbd6-403e-9362-bb08f417ff37 | offer-dacpxznflfwin |
+| PRODUCT      | 1368541d-890b-4b6c-9bb9-4a55306ab642 | prod-o4grxfafcxxxy  |
+| OFFER        | 558d8382-6b3a-4c75-8345-a627b552f5f1 | offer-gszhmle5npzip |

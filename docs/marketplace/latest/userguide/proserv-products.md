@@ -1,15 +1,16 @@
 # Professional services products in AWS Marketplace
 
-As a seller, you can offer professional services to AWS Marketplace buyers. Professional services
-include services to assess, migrate, support, manage, and train others in how to use AWS
-services and products in AWS Marketplace. Sellers create a product offering that describes the
-services they provide, negotiate with customers to create an agreement on terms, and then
-create a custom offer for services through AWS Marketplace.
+If you sell professional services, such as data migration management, consulting, or training, you can offer those services to buyers on AWS Marketplace.
+You can create a product offering that describes the
+services you provide, negotiate with customers on price, scope of work, and payment terms, then
+create a private offer for your services.
+
+You create private offers for each customer and project. For more information, see [Creating and managing private offers](creating-private-offer.md "creating-private-offer.md").
 
 ###### Note
 
-As an independent software vendor (ISV), channel partner, or consulting partner, you
-can also authorize another partner to resell your professional services products using
+Independent software vendors (ISVs), channel partners, and consulting partners
+can authorize other partners to resell professional services products by creating
 channel partner private offers. For more information, see [Creating a resell
 opportunity for a channel partner as an ISV](channel-partner-isv-info.md "channel-partner-isv-info.md").
 

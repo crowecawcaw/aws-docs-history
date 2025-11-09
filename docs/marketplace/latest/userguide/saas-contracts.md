@@ -84,10 +84,69 @@ following fields for your pricing dimensions:
     * **Dimension - 3 Years Price** – The software charge per unit for
      the 36-month option for this dimension. This ﬁeld supports three decimal places.
 
-| Example: Data storage application                      |          | Monthly price | 12-month price | 24-month price    | Pay-as-you-go price for additional usage           |
-| ------------------------------------------------------ | -------- | ------------- | -------------- | ----------------- | -------------------------------------------------- | ---- | ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Unencrypted data (GB)                                  | $1.50/GB | $16.00/GB     | $30.00/GB      | $0.1/GB per hour  |
-| Encrypted data (GB)                                    | $1.55/GB | $16.60/GB     | $31.20/GB      | $0.11/GB per hour | Example: Log monitoring product                    |      | Monthly price | 12-month price | Pay-as-you-go price for additional usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---                                                    | ---      | ---           | ---            |                   | Basic (10 hosts monitored, 5 containers monitored) | $100 | $1000         |                |
-| Standard (20 hosts monitored, 10 containers monitored) | $200     | $2000         |                |                   | Pro (40 hosts monitored, 20 containers monitored)  | $400 | $4000         |                |
-| Additional hosts monitored per hour                    |          |               | $0.1           |                   | Additional containers monitored per hour           |      |               | $0.2           | ###### Note The prices can be for the following durations: 1 month, 12 months, 24 months, or 36 months. You can choose to offer one or more of these options for your product. The durations must be the same across each dimension. For example, assume that you have `ReadOnlyUsers` and `AdminUsers` dimensions. If you offer a yearly price for `ReadOnlyUsers`, you must offer a yearly price for `AdminUsers`, too. ## SaaS contract upgrades Customers can upgrade a contract to one of a higher value except for longer durations. For example, they can upgrade to higher quantities or higher-value entitlements. Customers are given a prorated credit for their existing contract. Customers can't decrease the size of their existing contract. They can only decrease the size at renewal, or cancel their renewal. Entitlements are veriﬁed by your SaaS product, which makes calls to the AWS Marketplace Entitlement Service. ## Automatic renewals When a customer purchases your product through AWS Marketplace using SaaS contracts, they can agree to automatic renewal of the contract terms. The customer continues to pay for the entitlements every month or for 1, 2, or 3 years. The customer always has the option to modify the renewal settings. They can cancel the renewal or renew the contract for different quantities and durations. ## When a SaaS contract ends A SaaS contract product has a contract expiry. When a contract ends, the following events occur: 1. Your SaaS product receives an `entitlement-updated` notification indicating the buyer's entitlement has changed. The AWS Marketplace Entitlement Service returns an empty response. 2. You have 1 hour to meter any remaining usage for the customer. After this time has elapsed, you can no longer send metering records for this customer. ## When a SaaS contract is canceled Key points of the SaaS contract cancellation process include the following: 1. Customers can request a cancellation and refund for SaaS contract products though AWS Support. Customers must request refunds within 48 hours through AWS Support. The full or prorated refund is typically granted in 3–5 business days. 2. Your SaaS product is sent notiﬁcation through the Amazon SNS topic for that customer. 3. You have one hour to send a ﬁnal metering record for the customer for any additional usage charges. 4. You notify the customer from your product that the cancellation is in progress. If a customer indicates that they want to cancel through your product, direct the customer to AWS Marketplace. To guarantee that there will be no future charges, customers should conﬁrm the cancellation with AWS Marketplace. |
+| Example: Data storage application |          | Monthly price | 12-month price | 24-month price    | Pay-as-you-go price for additional usage |
+| --------------------------------- | -------- | ------------- | -------------- | ----------------- | ---------------------------------------- |
+| Unencrypted data (GB)             | $1.50/GB | $16.00/GB     | $30.00/GB      | $0.1/GB per hour  |
+| Encrypted data (GB)               | $1.55/GB | $16.60/GB     | $31.20/GB      | $0.11/GB per hour |
+
+| Example: Log monitoring product                        |      | Monthly price | 12-month price | Pay-as-you-go price for additional usage |
+| ------------------------------------------------------ | ---- | ------------- | -------------- | ---------------------------------------- |
+| Basic (10 hosts monitored, 5 containers monitored)     | $100 | $1000         |                |
+| Standard (20 hosts monitored, 10 containers monitored) | $200 | $2000         |                |
+| Pro (40 hosts monitored, 20 containers monitored)      | $400 | $4000         |                |
+| Additional hosts monitored per hour                    |      |               | $0.1           |
+| Additional containers monitored per hour               |      |               | $0.2           |
+
+###### Note
+
+The prices can be for the following durations: 1 month, 12 months, 24 months, or 36
+months. You can choose to offer one or more of these options for your product. The durations
+must be the same across each dimension. For example, assume that you have
+`ReadOnlyUsers` and `AdminUsers` dimensions. If you offer a yearly
+price for `ReadOnlyUsers`, you must offer a yearly price for
+`AdminUsers`, too.
+
+## SaaS contract upgrades
+
+Customers can upgrade a contract to one of a higher value except for longer durations.
+For example, they can upgrade to higher quantities or higher-value entitlements. Customers are
+given a prorated credit for their existing contract. Customers can't decrease the size of
+their existing contract. They can only decrease the size at renewal, or cancel their
+renewal.
+
+Entitlements are veriﬁed by your SaaS product, which makes calls to the
+AWS Marketplace Entitlement Service.
+
+## Automatic renewals
+
+When a customer purchases your product through AWS Marketplace using SaaS contracts, they can
+agree to automatic renewal of the contract terms. The customer continues to pay for the
+entitlements every month or for 1, 2, or 3 years. The customer always has the option to modify
+the renewal settings. They can cancel the renewal or renew the contract for different
+quantities and durations.
+
+## When a SaaS contract ends
+
+A SaaS contract product has a contract expiry. When a contract ends, the following events
+occur:
+
+1. Your SaaS product receives an `entitlement-updated` notification
+   indicating the buyer's entitlement has changed. The AWS Marketplace Entitlement Service returns an empty response.
+2. You have 1 hour to meter any remaining usage for the customer. After this time has
+   elapsed, you can no longer send metering records for this customer.
+
+## When a SaaS contract is canceled
+
+Key points of the SaaS contract cancellation process include the following:
+
+1. Customers can request a cancellation and refund for SaaS contract products though
+   AWS Support.
+
+Customers must request refunds within 48 hours through AWS Support.
+
+The full or prorated refund is typically granted in 3–5 business days. 2. Your SaaS product is sent notiﬁcation through the Amazon SNS topic for that
+customer. 3. You have one hour to send a ﬁnal metering record for the customer for any additional
+usage charges. 4. You notify the customer from your product that the cancellation is in progress. If a
+customer indicates that they want to cancel through your product, direct the customer to
+AWS Marketplace. To guarantee that there will be no future charges, customers should conﬁrm the
+cancellation with AWS Marketplace.
