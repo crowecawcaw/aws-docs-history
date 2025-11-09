@@ -62,6 +62,84 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console)            | resources.type value                  | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Social-Messaging Phone Number ID** | `AWS::SocialMessaging::PhoneNumberId` | <br>• [DeleteWhatsAppMessageMedia](../APIReference/API_DeleteWhatsAppMessageMedia.md "../APIReference/API_DeleteWhatsAppMessageMedia.md") <br>• [GetWhatsAppMessageMedia](../APIReference/API_GetWhatsAppMessageMedia.md "../APIReference/API_GetWhatsAppMessageMedia.md") <br>• [PostWhatsAppMessageMedia](../APIReference/API_PostWhatsAppMessageMedia.md "../APIReference/API_PostWhatsAppMessageMedia.md") <br>• [SendWhatsAppMessage](../APIReference/API_SendWhatsAppMessage.md "../APIReference/API_SendWhatsAppMessage.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## AWS End User Messaging Social management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS End User Messaging Social logs all AWS End User Messaging Social control plane operations as management events. For a list of the AWS End User Messaging Social control plane operations that AWS End User Messaging Social logs to CloudTrail, see the [AWS End User Messaging Social API Reference](../APIReference.md "../APIReference.md"). ## AWS End User Messaging Social event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the operation. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "GR632462JDSBDSHHGS39:session", "arn": "arn:aws:sts::123456789101:assumed-role/Role_name/Session_name", "accountId": "123456789101", "accessKeyId": "12345678901234567890", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "GR632462JDSBDEXAMPLE", "arn": "arn:aws:sts::123456789101:assumed-role/Role_name/Session_name", "accountId": "123456789101", "userName": "user" }, "attributes": { "creationDate": "2024-10-03T17:25:08Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-10-03T17:25:23Z", "eventSource": "social-messaging.amazonaws.com", "eventName": "SendWhatsAppMessage", "awsRegion": "us-east-1", "sourceIPAddress": "1.x.x.x", "userAgent": "agent", "requestParameters": { "originationPhoneNumberId": "phone-number-id-aa012345678901234567890123456789", "metaApiVersion": "v20.0", "message": "Hi" }, "responseElements": { "messageId": "message_id" }, "requestID": "request_id", "eventID": "event_id", "readOnly": false, "resources": [{ "accountId": "123456789101", "type": "AWS::SocialMessaging::PhoneNumberId", "ARN": "arn:aws:social-messaging:us-east-1:123456789101:phone-number-id/phone-number-id-aa012345678901234567890123456789" }], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "123456789101", "eventCategory": "Data", "tlsDetails": { "clientProvidedHostHeader": "social-messaging.us-east-1.amazonaws.com" } }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console)            | resources.type value                  | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Social-Messaging Phone Number ID** | `AWS::SocialMessaging::PhoneNumberId` | • [DeleteWhatsAppMessageMedia](../APIReference/API_DeleteWhatsAppMessageMedia.md "../APIReference/API_DeleteWhatsAppMessageMedia.md")<br>• [GetWhatsAppMessageMedia](../APIReference/API_GetWhatsAppMessageMedia.md "../APIReference/API_GetWhatsAppMessageMedia.md")<br>• [PostWhatsAppMessageMedia](../APIReference/API_PostWhatsAppMessageMedia.md "../APIReference/API_PostWhatsAppMessageMedia.md")<br>• [SendWhatsAppMessage](../APIReference/API_SendWhatsAppMessage.md "../APIReference/API_SendWhatsAppMessage.md") |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## AWS End User Messaging Social management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS End User Messaging Social logs all AWS End User Messaging Social control plane operations as management events. For a list
+of the AWS End User Messaging Social control plane operations that AWS End User Messaging Social logs to CloudTrail, see the
+[AWS End User Messaging Social API Reference](../APIReference.md "../APIReference.md").
+
+## AWS End User Messaging Social event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the
+operation.
+
+```
+{
+        "eventVersion": "1.09",
+        "userIdentity": {
+            "type": "AssumedRole",
+            "principalId": "GR632462JDSBDSHHGS39:session",
+            "arn": "arn:aws:sts::123456789101:assumed-role/Role_name/Session_name",
+            "accountId": "123456789101",
+            "accessKeyId": "12345678901234567890",
+            "sessionContext": {
+                "sessionIssuer": {
+                    "type": "Role",
+                    "principalId": "GR632462JDSBDEXAMPLE",
+                    "arn": "arn:aws:sts::123456789101:assumed-role/Role_name/Session_name",
+                    "accountId": "123456789101",
+                    "userName": "user"
+                },
+                "attributes": {
+                    "creationDate": "2024-10-03T17:25:08Z",
+                    "mfaAuthenticated": "false"
+                }
+            }
+        },
+        "eventTime": "2024-10-03T17:25:23Z",
+        "eventSource": "social-messaging.amazonaws.com",
+        "eventName": "SendWhatsAppMessage",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "1.x.x.x",
+        "userAgent": "agent",
+        "requestParameters": {
+            "originationPhoneNumberId": "phone-number-id-aa012345678901234567890123456789",
+            "metaApiVersion": "v20.0",
+            "message": "Hi"
+        },
+        "responseElements": {
+            "messageId": "message_id"
+        },
+        "requestID": "request_id",
+        "eventID": "event_id",
+        "readOnly": false,
+        "resources": [{
+            "accountId": "123456789101",
+            "type": "AWS::SocialMessaging::PhoneNumberId",
+            "ARN": "arn:aws:social-messaging:us-east-1:123456789101:phone-number-id/phone-number-id-aa012345678901234567890123456789"
+        }],
+        "eventType": "AwsApiCall",
+        "managementEvent": false,
+        "recipientAccountId": "123456789101",
+        "eventCategory": "Data",
+        "tlsDetails": {
+            "clientProvidedHostHeader": "social-messaging.us-east-1.amazonaws.com"
+        }
+    }
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

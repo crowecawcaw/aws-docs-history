@@ -81,13 +81,46 @@ Policy](https://business.whatsapp.com/policy "https://business.whatsapp.com/poli
 The following are prohibited content categories for all message types globally. When
 sending a message with WhatsApp, follow these guidelines:
 
-| Category                     | Examples                                                                                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Gambling                     | <br>• Casinos <br>• Sweepstakes <br>• App/Websites                                                                                                                              |
-| High-risk financial services | <br>• Payday loans <br>• Short-term high-interest loans <br>• Auto loans <br>• Mortgage loans <br>• Student loans <br>• Debt collection <br>• Stock alerts <br>• Cryptocurrency |
-| Debt forgiveness             | <br>• Debt consolidation <br>• Debt reduction <br>• Credit repair programs                                                                                                      |
-| Get-rich-quick schemes       | <br>• Work-from-home programs <br>• Risk-investment opportunities <br>• Pyramid or multi-level marketing schemes                                                                |
-| Illegal substances           | <br>• Cannabis/CBD                                                                                                                                                              |
-| Phishing/smishing            | <br>• Attempts to get users to reveal personal information or website login information.                                                                                        |
-| S.H.A.F.T.                   | <br>• Sex <br>• Hate <br>• Alcohol <br>• Firearms <br>• Tobacco/Vape                                                                                                            |
-| Third-Party Lead Generation  | <br>• Companies that buy, sell, or share consumer information                                                                                                                   | ## Audit your customer lists If you send recurring WhatsApp messages, audit your customer lists on a regular basis. Auditing your customer lists helps to make sure that the only customers who receive your messages are those who want to receive them. When you audit your list, send each opted-in customer a message that reminds them that they're subscribed, and provides them with information about unsubscribing. ## Adjust your sending based on engagement Your customers' priorities can change over time. If customers no longer find your messages to be useful, they might opt out of your messages entirely, or even report your messages as unsolicited. For these reasons, it's important that you adjust your sending practices based on customer engagement. For customers who rarely engage with your messages, you should adjust the frequency of your messages. For example, if you send weekly messages to engaged customers, you could create a separate monthly digest for customers who are less engaged. Finally, remove customers who are completely unengaged from your customer lists. This step prevents customers from becoming frustrated with your messages. It also saves you money and helps protect your reputation as a sender. ## Send at appropriate times Send messages during normal daytime business hours. If you send messages at dinner time or in the middle of the night, there's a good chance that your customers will unsubscribe from your lists to avoid being disturbed. You might want to avoid sending WhatsApp messages when your customers can't respond to them immediately. |
+| Category                     | Examples                                                                                                                                                             |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gambling                     | • Casinos<br>• Sweepstakes<br>• App/Websites                                                                                                                         |
+| High-risk financial services | • Payday loans<br>• Short-term high-interest loans<br>• Auto loans<br>• Mortgage loans<br>• Student loans<br>• Debt collection<br>• Stock alerts<br>• Cryptocurrency |
+| Debt forgiveness             | • Debt consolidation<br>• Debt reduction<br>• Credit repair programs                                                                                                 |
+| Get-rich-quick schemes       | • Work-from-home programs<br>• Risk-investment opportunities<br>• Pyramid or multi-level marketing schemes                                                           |
+| Illegal substances           | • Cannabis/CBD                                                                                                                                                       |
+| Phishing/smishing            | • Attempts to get users to reveal personal<br>information or website login information.                                                                              |
+| S.H.A.F.T.                   | • Sex<br>• Hate<br>• Alcohol<br>• Firearms<br>• Tobacco/Vape                                                                                                         |
+| Third-Party Lead Generation  | • Companies that buy, sell, or share consumer<br>information                                                                                                         |
+
+## Audit your customer lists
+
+If you send recurring WhatsApp messages, audit your customer lists on a regular basis.
+Auditing your customer lists helps to make sure that the only customers who receive your
+messages are those who want to receive them.
+
+When you audit your list, send each opted-in customer a message that reminds them that
+they're subscribed, and provides them with information about unsubscribing.
+
+## Adjust your sending based on
+
+engagement
+
+Your customers' priorities can change over time. If customers no longer find your
+messages to be useful, they might opt out of your messages entirely, or even report your
+messages as unsolicited. For these reasons, it's important that you adjust your sending
+practices based on customer engagement.
+
+For customers who rarely engage with your messages, you should adjust the frequency of
+your messages. For example, if you send weekly messages to engaged customers, you could
+create a separate monthly digest for customers who are less engaged.
+
+Finally, remove customers who are completely unengaged from your customer lists. This
+step prevents customers from becoming frustrated with your messages. It also saves you
+money and helps protect your reputation as a sender.
+
+## Send at appropriate times
+
+Send messages during normal daytime business hours. If you send messages at dinner
+time or in the middle of the night, there's a good chance that your customers will
+unsubscribe from your lists to avoid being disturbed. You might want to avoid sending
+WhatsApp messages when your customers can't respond to them immediately.

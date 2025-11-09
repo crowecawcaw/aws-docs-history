@@ -14,11 +14,15 @@ Before you can use the CloudWatch metrics you must [create a service-link role](
 
 The following tables list the metrics and dimensions that AWS End User Messaging Social exports to the `AWS/SocialMessaging` namespace.
 
-| Metric                         | Unit                                                                                                            | Description                             |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------- | -------------------------- | -------------------------------------------------------------------- |
-| WhatsAppMessageFeeCount        | Count                                                                                                           | The count of WhatsApp message fees      |
-| MetaTemplateMessageFeeCount    | Count                                                                                                           | The count of Meta template message fees |
-| Dimension                      | Description                                                                                                     |                                         | ---                        | ---                                                                  |
-| MessageFeeType                 | Valid fee types are Authentication, Authentication_International, Inbound, Marketing, Service,Standard, Utility |                                         | DestinationCountryCode     | The two letter ISO code for the country                              |
-| WhatsAppPhoneNumberArn         | The arn of the phone number                                                                                     |                                         | MetaTemplateMessageFeeType | Valid fee types are regular, free_customer_service, free_entry_point |
-| MetaTemplateMessageFeeCategory | Valid fee categories are service, marketing, utility, authentication, authentication_international              |
+| Metric                      | Unit  | Description                             |
+| --------------------------- | ----- | --------------------------------------- |
+| WhatsAppMessageFeeCount     | Count | The count of WhatsApp message fees      |
+| MetaTemplateMessageFeeCount | Count | The count of Meta template message fees |
+
+| Dimension                      | Description                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| MessageFeeType                 | Valid fee types are Authentication, Authentication_International, Inbound, Marketing,<br>Service,Standard, Utility |
+| DestinationCountryCode         | The two letter ISO code for the country                                                                            |
+| WhatsAppPhoneNumberArn         | The arn of the phone number                                                                                        |
+| MetaTemplateMessageFeeType     | Valid fee types are regular, free_customer_service, free_entry_point                                               |
+| MetaTemplateMessageFeeCategory | Valid fee categories are service, marketing, utility, authentication,<br>authentication_international              |
