@@ -20,10 +20,11 @@ show status like 'Ssl%';
 
 If SSL is working, you see results like the following.
 
-````
+```
 
 +--------------------------------+----------------------+
-| Variable_name                  | Value                | +--------------------------------+----------------------+
+| Variable_name                  | Value                |
++--------------------------------+----------------------+
 | Ssl_accept_renegotiates        | 0                    |
 | Ssl_accepts                    | 1                    |
 | Ssl_callback_cache_hits        | 0                    |
@@ -46,8 +47,18 @@ If SSL is working, you see results like the following.
 | Ssl_used_session_cache_entries | 0                    |
 | Ssl_verify_depth               | 0                    |
 | Ssl_verify_mode                | 0                    |
-| Ssl_version                    |                      | +--------------------------------+----------------------+ ``` If SSL is disabled, you see results like the following. ``` +--------------------------------+-------+
-| Variable_name                  | Value | +--------------------------------+-------+
+| Ssl_version                    |                      |
++--------------------------------+----------------------+
+
+```
+
+If SSL is disabled, you see results like the following.
+
+```
+
++--------------------------------+-------+
+| Variable_name                  | Value |
++--------------------------------+-------+
 | Ssl_accept_renegotiates        | 0     |
 | Ssl_accepts                    | 0     |
 | Ssl_callback_cache_hits        | 0     |
@@ -70,5 +81,24 @@ If SSL is working, you see results like the following.
 | Ssl_used_session_cache_entries | 0     |
 | Ssl_verify_depth               | 0     |
 | Ssl_verify_mode                | 0     |
-| Ssl_version                    |       | +--------------------------------+-------+ ``` 3. Make sure that you have installed a supported SSL certificate on the database server. 4. Grant usage for the specific user to connect using SSL. ``` GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL; ``` For more detail on the solution in this example, see the following: <br>• [SSL Support for MySQL DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html "../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html") in the *Amazon RDS User Guide*. <br>• [Using SSL to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the *Amazon RDS User Guide*. <br>• [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html "https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html")
-````
+| Ssl_version                    |       |
++--------------------------------+-------+
+
+```
+
+3. Make sure that you have installed a supported SSL certificate on the
+   database server.
+4. Grant usage for the specific user to connect using SSL.
+
+```
+
+GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
+
+```
+
+For more detail on the solution in this example, see the following:
+
+- [SSL Support for MySQL DB Instances](../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html "../../../AmazonRDS/latest/UserGuide/CHAP_MySQL.md#MySQL.Concepts.SSLSupport.html") in the _Amazon RDS User Guide_.
+- [Using SSL to Encrypt a Connection to a DB Instance](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md") in the
+  _Amazon RDS User Guide_.
+- [MySQL documentation](https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html "https://dev.mysql.com/doc/refman/5.6/en/using-encrypted-connections.html")

@@ -239,9 +239,7 @@ widget_id	   widget	safety_rating_id
 
 ### Inner joins
 
-Use an inner join (
-![](../images/icon-inner-join.png)
-) when you want to see only the data where there is a match
+Use an inner join when you want to see only the data where there is a match
 between two tables. For example, suppose that you perform an inner join on the
 **safety-rating** and **widget**
 tables.
@@ -265,11 +263,7 @@ rating_id    safety_rating    widget_id    widget        safety_rating_id
 
 ### Left and right outer joins
 
-These are also known as left or right outer joins. Use a left (
-![](../images/icon-left-join.png)
-) or right (
-![](../images/icon-right-join.png)
-) outer join when you want to see all the data from one
+These are also known as left or right outer joins. Use a left or right outer join when you want to see all the data from one
 table, and only the matching rows from the other table.
 
 In a graphical interface, you can see which table is on the right or the left.
@@ -277,9 +271,7 @@ In a SQL statement, the first table is considered to be on the left. Therefore,
 choosing a left outer join as opposed to a right outer join depends only on how
 the tables are laid out in your query tool.
 
-For example, suppose that you perform a left outer join (
-![](../images/icon-left-join.png)
-) on `safety-rating` (the left table) and
+For example, suppose that you perform a left outer join on `safety-rating` (the left table) and
 `widgets` (the right table). In this case, all
 `safety-rating` rows are returned, and only matching
 `widget` rows are returned. You can see blanks in the result set
@@ -299,9 +291,7 @@ rating_id    safety_rating    widget_id   widget          safety_rating_id
 5	        B                 6        WidgetF   	5
 ```
 
-If you instead use a right outer join (
-![](../images/icon-right-join.png)
-), call the tables in the same order so
+If you instead use a right outer join, call the tables in the same order so
 `safety-rating` is on the left and `widgets` is on the
 right. In this case, only matching `safety-rating` rows are returned,
 and all `widget` rows are returned. You can see blanks in the result
@@ -328,9 +318,7 @@ These are sometimes called just outer joins, but this term can refer to either
 a left outer, right outer, or full outer join. To define the meaning, we use the
 complete name: full outer join.
 
-Use a full outer join (
-![](../images/icon-full-outer-join.png)
-) to see data that matches, plus data from both tables that
+Use a full outer join to see data that matches, plus data from both tables that
 doesn't match. This type of join includes all rows from both tables. For
 example, if you perform a full outer join on the `safety-rating` and
 `widget` tables, all rows are returned. The rows are aligned

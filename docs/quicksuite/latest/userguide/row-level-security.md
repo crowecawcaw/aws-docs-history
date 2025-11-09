@@ -1,5 +1,35 @@
 # Using row-level security in Amazon Quick Suite
 
-|                                     |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Applies to:** Enterprise Edition  | In the Enterprise edition of Amazon Quick Suite, you can restrict access to a dataset by configuring row-level security (RLS) on it. You can do this before or after you have shared the dataset. When you share a dataset with RLS with dataset owners, they can still see all the data. When you share it with readers, however, they can only see the data restricted by the permission dataset rules. Also, when you embed Amazon Quick Suite dashboards in your application for unregistered users of Quick Suite, you can use row-level security (RLS) with tags. In this case, you use tags to specify which data your users can see in the dashboard depending on who they are. You can restrict access to a dataset using username or group-based rules, tag-based rules, or both. Choose user-based rules if you want to secure data for users or groups provisioned (registered) in Quick Suite. To do so, select a permissions dataset that contains rules set by columns for each user or group accessing the data. Only users or groups identified in the rules have access to data. Choose tag-based rules only if you are using embedded dashboards and want to secure data for users not provisioned (unregistered users) in Quick Suite. To do so, define tags on columns to secure data. Values to tags must be passed when embedding dashboards. ###### Topics <br>• [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md") <br>• [Using row-level security with tag-based rules to restrict access to a dataset when embedding dashboards for anonymous users](quicksight-dev-rls-tags.md "quicksight-dev-rls-tags.md") |
+|                                            |
+| ------------------------------------------ |
+| \*_Applies<br>to:_<br>• Enterprise Edition |
+
+In the Enterprise edition of Amazon Quick Suite, you can restrict access to a dataset by
+configuring row-level security (RLS) on it. You can do this before or after you have shared
+the dataset. When you share a dataset with RLS with dataset owners, they can still see all
+the data. When you share it with readers, however, they can only see the data restricted by
+the permission dataset rules.
+
+Also, when you embed Amazon Quick Suite dashboards in your application for unregistered users of
+Quick Suite, you can use row-level security (RLS) with tags. In this case, you use tags to
+specify which data your users can see in the dashboard depending on who they are.
+
+You can restrict access to a dataset using username or group-based rules, tag-based rules,
+or both.
+
+Choose user-based rules if you want to secure data for users or groups provisioned
+(registered) in Quick Suite. To do so, select a permissions dataset that contains rules set
+by columns for each user or group accessing the data. Only users or groups identified in the
+rules have access to data.
+
+Choose tag-based rules only if you are using embedded dashboards and want to secure data
+for users not provisioned (unregistered users) in Quick Suite. To do so, define tags on
+columns to secure data. Values to tags must be passed when embedding dashboards.
+
+###### Topics
+
+- [Using row-level
+  security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md")
+- [Using row-level security with tag-based rules
+  to restrict access to a dataset when embedding dashboards for anonymous
+  users](quicksight-dev-rls-tags.md "quicksight-dev-rls-tags.md")

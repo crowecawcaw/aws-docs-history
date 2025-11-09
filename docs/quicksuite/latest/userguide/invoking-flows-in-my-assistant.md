@@ -134,4 +134,4 @@ Properly concluding flow running within My Assistant ensures a smooth transition
 | ------------------------------ | ------------------------ | ------------------------------------ | ------------------------------------ | ------- |
 | 1                              | Launch a specific flow   | Select from search or browse results | Click on "Expense Report Automation" |
 | 2                              | Use conversation context | Reference previous discussion        | "Use the data we analyzed earlier"   |
-| 3                              | End a flow               | Click on **End** button              | "Select end button on chat"          |
+| 3                              | End a flow               | Click on \*_End_<br>• button         | "Select end button on chat"          |

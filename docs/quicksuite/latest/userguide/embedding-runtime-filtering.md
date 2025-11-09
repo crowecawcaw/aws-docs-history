@@ -71,15 +71,33 @@ information about using the Amazon Quick Sight Embedding SDK, see the [amazon-qu
 The following table describes different dashboard embedding getter methods
 that developers can use.
 
-| Method                                                        | Description                                                                                                                                                                                                                            |
-| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `getFilterGroupsForSheet(sheetId: string)`                    | Returns all FilterGroups that are currently scoped to the sheet that is supplied in the parameter.                                                                                                                                     |
-| `getFilterGroupsForVisual(sheetId: string, visualId: string)` | Returns all `FilterGroups` that are scoped to the visual that is supplied in the parameter.                                                                                                                                            | If the sheet that is supplied in the parameter is not the currently selected sheet of the embedded dashboard, the above methods return an error. **Visual embedding getter methods** The following table describes different visual embedding getter methods that developers can use. |
-| Method                                                        | Description                                                                                                                                                                                                                            |
-| ---                                                           | ---                                                                                                                                                                                                                                    |
-| `getFilterGroups()`                                           | Returns all `FilterGroups` that are currently scoped to the embedded visual.                                                                                                                                                           | **Setter methods** The following table describes different setter methods that developers can use for dashboard or visual embedding.                                                                                                                                                  |
-| Method                                                        | Description                                                                                                                                                                                                                            |
-| ---                                                           | ---                                                                                                                                                                                                                                    |
-| `addFilterGroups(filterGroups: FilterGroup[])`                | Adds and applies the supplied **FilterGroups** to the embedded dashboard or visual. A `ResponseMessage` that indicates whether the addition was successful is returned.                                                                |
-| `updateFilterGroups(filterGroups: FilterGroup[])`             | Updates the `FilterGroups` on the embedded experience that contains the same `FilterGroupId` as the `FilterGroup` that is supplied in the parameter. A `ResponseMessage` that indicates whether the update was successful is returned. |
-| `removeFilterGroups(filterGroupsOrIds: FilterGroup[]          | string[])`                                                                                                                                                                                                                             | Removes the supplied FilterGroups from the dashboard and returns a `ResponseMessage` that indicates whether the removal attempt is successful.                                                                                                                                        | The `FilterGroup` that is supplied must be scoped to the embedded sheet or visual that is currently selected. |
+| Method                                                           | Description                                                                                           |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `getFilterGroupsForSheet(sheetId: string)`                       | Returns all FilterGroups that are currently scoped to the<br>sheet that is supplied in the parameter. |
+| `getFilterGroupsForVisual(sheetId: string, visualId:<br>string)` | Returns all `FilterGroups` that are scoped to<br>the visual that is supplied in the parameter.        |
+
+If the sheet that is supplied in the parameter is not the currently selected
+sheet of the embedded dashboard, the above methods return an error.
+
+**Visual embedding getter methods**
+
+The following table describes different visual embedding getter methods that
+developers can use.
+
+| Method              | Description                                                                     |
+| ------------------- | ------------------------------------------------------------------------------- |
+| `getFilterGroups()` | Returns all `FilterGroups` that are currently<br>scoped to the embedded visual. |
+
+**Setter methods**
+
+The following table describes different setter methods that developers can use
+for dashboard or visual embedding.
+
+| Method                                                   | Description                                                                                                                                                                                                                                        |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `addFilterGroups(filterGroups:<br>FilterGroup[])`        | Adds and applies the supplied<br>\*_FilterGroups_<br>• to the embedded<br>dashboard or visual. A `ResponseMessage` that<br>indicates whether the addition was successful is<br>returned.                                                           |
+| `updateFilterGroups(filterGroups:<br>FilterGroup[])`     | Updates the `FilterGroups` on the embedded<br>experience that contains the same `FilterGroupId`<br>as the `FilterGroup` that is supplied in the<br>parameter. A `ResponseMessage` that indicates<br>whether the update was successful is returned. |
+| `removeFilterGroups(filterGroupsOrIds: FilterGroup[]<br> | string[])`                                                                                                                                                                                                                                         | Removes the supplied FilterGroups from the dashboard and<br>returns a `ResponseMessage` that indicates<br>whether the removal attempt is successful. |
+
+The `FilterGroup` that is supplied must be scoped to the embedded
+sheet or visual that is currently selected.

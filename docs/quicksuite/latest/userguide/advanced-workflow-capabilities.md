@@ -74,7 +74,19 @@ To create a composite dataset, in your workflow:
 This feature enhances collaboration across different teams. For example,
 
 | Role             | Action                                     | Output    |
-| ---------------- | ------------------------------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ------------------------------------------ | --------- |
 | Global Analyst   | Creates dataset with global business logic | Dataset A |
 | Americas Analyst | Uses Dataset A, adds regional logic        | Dataset B |
-| US-West Analyst  | Uses Dataset B, adds local logic           | Dataset C | This hierarchical approach promotes consistent business logic across your organization by assigning clear ownership of transformation layers. It creates a traceable data lineage while supporting up to 10 levels of dataset nesting, enabling controlled and systematic data transformation management. **Best practices** <br>• Establish clear ownership for each transformation layer. <br>• Document dataset relationships and dependencies. <br>• Plan hierarchy depth based on business needs. <br>• Maintain consistent naming conventions. <br>• Review and update upstream datasets carefully. |
+| US-West Analyst  | Uses Dataset B, adds local logic           | Dataset C |
+
+This hierarchical approach promotes consistent business logic across your organization by assigning clear ownership
+of transformation layers. It creates a traceable data lineage while supporting up to 10 levels of dataset nesting, enabling
+controlled and systematic data transformation management.
+
+**Best practices**
+
+- Establish clear ownership for each transformation layer.
+- Document dataset relationships and dependencies.
+- Plan hierarchy depth based on business needs.
+- Maintain consistent naming conventions.
+- Review and update upstream datasets carefully.

@@ -174,11 +174,15 @@ You can easily switch between runtime modes while working with a flow:
 
 Use this table to understand the different execution modes:
 
-| Runtime Modes | #                   | Runtime Mode         | Interface                      | Best For                          | Key Features   |
-| ------------- | ------------------- | -------------------- | ------------------------------ | --------------------------------- | -------------- | -------------------- | ---------------------- | ---------------------------------- | ------ |
-| 1             | Dual Mode           | Chat + Structured    | Most users, learning flows     | Flexible interaction, AI guidance |
-| 2             | Full Structured     | Forms and buttons    | Complex flows, precise control | Clear progress, direct input      |
-| 3             | Full Chat           | Conversation only    | Simple flows, mobile use       | Natural language, AI assistance   | Common Actions | #                    | Action                 | How To                             | Result |
-| ---           | ---                 | ---                  | ---                            |                                   | 1              | Start new run        | Click _New run_ button | Fresh execution, new history entry |
-| 2             | Resume previous run | History → Select run | Continue where you left off    |                                   | 3              | Switch to structured | Click X in chat        | Full structured mode               |
-| 4             | Switch to dual      | Click sparkle icon   | Chat + structured mode         |
+| Runtime Modes | #               | Runtime Mode      | Interface                      | Best For                          | Key Features |
+| ------------- | --------------- | ----------------- | ------------------------------ | --------------------------------- | ------------ |
+| 1             | Dual Mode       | Chat + Structured | Most users, learning flows     | Flexible interaction, AI guidance |
+| 2             | Full Structured | Forms and buttons | Complex flows, precise control | Clear progress, direct input      |
+| 3             | Full Chat       | Conversation only | Simple flows, mobile use       | Natural language, AI assistance   |
+
+| Common Actions | #                    | Action                      | How To                             | Result |
+| -------------- | -------------------- | --------------------------- | ---------------------------------- | ------ |
+| 1              | Start new run        | Click \*New run<br>• button | Fresh execution, new history entry |
+| 2              | Resume previous run  | History → Select run        | Continue where you left off        |
+| 3              | Switch to structured | Click X in chat             | Full structured mode               |
+| 4              | Switch to dual       | Click sparkle icon          | Chat + structured mode             |

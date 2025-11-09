@@ -47,3 +47,9 @@ Joined reports aren't supported as Quick Sight data sources. 8. Choose one of th
      **Edit/Preview data** to open data preparation for
      the selected report or object. For more information about data
      preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
+
+###### Note
+
+The Salesforce connector is not supported in embedded console deployments where
+users authenticate through namespace isolation. The OAuth authentication flow
+requires direct Amazon Quick Sight console access to complete the sign-in process.

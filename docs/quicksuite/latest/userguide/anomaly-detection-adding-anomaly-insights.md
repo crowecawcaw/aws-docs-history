@@ -199,9 +199,9 @@ The insight widget needs to run at least once before you can see results. If
 you think the status might be out of date, you can refresh the page. The insight
 can have the following states.
 
-| Appears on the Page                               | Status                                                                                                                                                                            |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Run now** button                                | The job has not yet started.                                                                                                                                                      |
-| Message about **Analyzing for anomalies**         | The job is currently running.                                                                                                                                                     |
-| Narrative about the detected anomalies (outliers) | The job has run successfully. The message says when this widget's calculation was last updated.                                                                                   |
-| Alert icon with an exclamation point (**!**)      | This icon indicates there was an error during the last run. If the narrative also displays, you can still use **Explore anomalies** to use data from the previous successful run. |
+| Appears on the Page                               | Status                                                                                                                                                                                          |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_Run now_<br>• button                           | The job has not yet started.                                                                                                                                                                    |
+| Message about **Analyzing for<br>anomalies**      | The job is currently running.                                                                                                                                                                   |
+| Narrative about the detected anomalies (outliers) | The job has run successfully. The message says when this<br>widget's calculation was last updated.                                                                                              |
+| Alert icon with an exclamation point (**!**)      | This icon indicates there was an error during the last run.<br>If the narrative also displays, you can still use<br>\*_Explore anomalies_<br>• to use data from the<br>previous successful run. |

@@ -81,6 +81,13 @@ For dashboards and analyses, Amazon Quick Sight supports the following:
 - 20 sheets per dashboard
 - 30 visualization objects per sheet
 
+###### Note
+
+Amazon Quick Sight supports over 30 different _visual types_ (categories of
+charts and visualizations such as bar charts, pie charts, and line charts). Each analysis
+sheet can contain up to 30 _visual instances_ (individual chart
+objects) of any combination of types.
+
 You can also choose to limit how many data points you want to display in your visual,
 before they are added to the **other** category. This category contains
 the aggregated data for all the data beyond the cutoff limit for the visual type you are
@@ -116,12 +123,12 @@ choose **Format visual**. You can use the following table to determine
 which field well contains the data point setting and what number of data points the
 visual type displays by default.
 
-| Visual type           | Where to find the data point setting                                                  | Default number of data points |
-| --------------------- | ------------------------------------------------------------------------------------- | ----------------------------- |
-| Bar chart, horizontal | **Y-axis** – **Number of data points displayed**                                      | 10,000                        |
-| Bar chart, vertical   | **X-axis** – **Number of data points displayed**                                      | 10,000                        |
-| Combo chart           | **X-axis** – **Number of data points displayed**                                      | 2,500                         |
-| Heat map              | **Rows** – **Number of rows displayed** **Columns** – **Number of columns displayed** | 100                           |
-| Line chart            | **X-axis** – **Number of data points displayed**                                      | 10,000                        |
-| Pie chart             | **Group/Color** – **Number of slices displayed**                                      | 20                            |
-| Tree map              | **Group by** – **Number of squares displayed**                                        | 100                           |
+| Visual type           | Where to find the data point setting                                                                     | Default number of data points |
+| --------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| Bar chart, horizontal | **Y-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
+| Bar chart, vertical   | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
+| Combo chart           | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 2,500                         |
+| Heat map              | **Rows\*<br>• – **Number of rows<br>displayed**<br>**Columns\*<br>• – **Number of columns<br>displayed** | 100                           |
+| Line chart            | **X-axis\*<br>• – **Number of data<br>points displayed\*\*                                               | 10,000                        |
+| Pie chart             | **Group/Color\*<br>• – **Number of<br>slices displayed\*\*                                               | 20                            |
+| Tree map              | **Group by\*<br>• – **Number of squares<br>displayed\*\*                                                 | 100                           |

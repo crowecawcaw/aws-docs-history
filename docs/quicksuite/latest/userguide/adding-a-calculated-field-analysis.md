@@ -321,36 +321,59 @@ and the data type of the value that you input. For example, if you input an inte
 to an `abs` calculation, the output value's data type is
 integer.
 
-| Operator          | Input type    | Output type       |
-| ----------------- | ------------- | ----------------- | ----------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `abs`             | Decimal-fixed | Decimal-fixed     |
-| Int               | Int           |                   | Decimal-float     | Decimal-float                             |
-| `ceil`            | Decimal-fixed | Int               |
-| Int               | Int           |                   | Decimal-float     | Int                                       |
-| `exp`             | Decimal-fixed | Decimal-float     |
-| Int               | Decimal-float |                   | Decimal-float     | Decimal-float                             |
-| `floor`           | Decimal-fixed | Int               |
-| Int               | Int           |                   | Decimal-float     | Int                                       |
-| `ln`              | Decimal-fixed | Decimal-float     |
-| Int               | Decimal-float |                   | Decimal-float     | Decimal-float                             |
-| `log`             | Decimal-fixed | Decimal-float     |
-| Int               | Decimal-float |                   | Decimal-float     | Decimal-float                             |
-| `round`           | Decimal-fixed | Decimal-fixed     |
-| Int               | Decimal-fixed |                   | Decimal-float     | Decimal-fixed                             |
-| `sqrt`            | Decimal-fixed | Decimal-float     |
-| Int               | Decimal-float |                   | Decimal-float     | Decimal-float                             | **Binary operators** The following tables show which data type is output based on the data types of the two values that you input. For example, for an arithmetic operator, if you provide two integer data types, the result of the calculation output as an integer. For basic operators (+, -, \*): |
+| Operator      | Input type    | Output type   |
+| ------------- | ------------- | ------------- |
+| `abs`         | Decimal-fixed | Decimal-fixed |
+| Int           | Int           |
+| Decimal-float | Decimal-float |
+| `ceil`        | Decimal-fixed | Int           |
+| Int           | Int           |
+| Decimal-float | Int           |
+| `exp`         | Decimal-fixed | Decimal-float |
+| Int           | Decimal-float |
+| Decimal-float | Decimal-float |
+| `floor`       | Decimal-fixed | Int           |
+| Int           | Int           |
+| Decimal-float | Int           |
+| `ln`          | Decimal-fixed | Decimal-float |
+| Int           | Decimal-float |
+| Decimal-float | Decimal-float |
+| `log`         | Decimal-fixed | Decimal-float |
+| Int           | Decimal-float |
+| Decimal-float | Decimal-float |
+| `round`       | Decimal-fixed | Decimal-fixed |
+| Int           | Decimal-fixed |
+| Decimal-float | Decimal-fixed |
+| `sqrt`        | Decimal-fixed | Decimal-float |
+| Int           | Decimal-float |
+| Decimal-float | Decimal-float |
+
+**Binary operators**
+
+The following tables show which data type is output based on the data types of the
+two values that you input. For example, for an arithmetic operator, if you provide
+two integer data types, the result of the calculation output as an integer.
+
+For basic operators (+, -, \*):
+
 |                   | **Integer**   | **Decimal-fixed** | **Decimal-float** |
-| ---               | ---           | ---               | ---               |
+| ----------------- | ------------- | ----------------- | ----------------- |
 | **Integer**       | Integer       | Decimal-fixed     | Decimal-float     |
 | **Decimal-fixed** | Decimal-fixed | Decimal-fixed     | Decimal-float     |
-| **Decimal-float** | Decimal-float | Decimal-float     | Decimal-float     | For division operators (/):               |
+| **Decimal-float** | Decimal-float | Decimal-float     | Decimal-float     |
+
+For division operators (/):
+
 |                   | **Integer**   | **Decimal-fixed** | **Decimal-float** |
-| ---               | ---           | ---               | ---               |
+| ----------------- | ------------- | ----------------- | ----------------- |
 | **Integer**       | Decimal-float | Decimal-float     | Decimal-float     |
 | **Decimal-fixed** | Decimal-float | Decimal-fixed     | Decimal-float     |
-| **Decimal-float** | Decimal-float | Decimal-float     | Decimal-float     | For exponential and mod operators (^, %): |
+| **Decimal-float** | Decimal-float | Decimal-float     | Decimal-float     |
+
+For exponential and mod operators (^, %):
+
 |                   | **Integer**   | **Decimal-fixed** | **Decimal-float** |
-| ---               | ---           | ---               | ---               |
+| ----------------- | ------------- | ----------------- | ----------------- |
 | **Integer**       | Decimal-float | Decimal-float     | Decimal-float     |
 | **Decimal-fixed** | Decimal-float | Decimal-float     | Decimal-float     |
 | **Decimal-float** | Decimal-float | Decimal-float     | Decimal-float     |

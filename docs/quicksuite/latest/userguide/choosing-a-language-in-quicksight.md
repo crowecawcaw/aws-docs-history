@@ -7,8 +7,8 @@ browser preferences and interactions with localized AWS websites.
 
 Quick Suite supports the following languages:
 
-| Languages available in the Amazon Quick Suite user interface | Official name | Language code       | Localized name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------ | ------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Languages available in the Amazon Quick Suite user interface | Official name | Language code       | Localized name |
+| ------------------------------------------------------------ | ------------- | ------------------- | -------------- |
 | Dansk                                                        | da            | Danish              |
 | Deutsch                                                      | de            | German              |
 | English                                                      | en            | English             |
@@ -23,4 +23,21 @@ Quick Suite supports the following languages:
 | 日本語                                                       | ja            | Japanese            |
 | 한국어                                                       | ko            | Korean              |
 | 中文 (简体)                                                  | zh-CN         | Simplified Chinese  |
-| 中文 (繁體)                                                  | zh-TW         | Traditional Chinese | Choosing a language translates only user interface elements. It doesn't translate the following: <br>• Amazon Quick Suite reserved keywords <br>• User input <br>• Data <br>• Date or number formats <br>• ML Insights, suggested insights, or computations in narratives (including text) Use the following procedure to change the language in the Amazon Quick Suite interface. 1. Choose your user name at top right. 2. To open the language options menu, choose the > symbol near the current language. 3. Choose the language that you want to use. |
+| 中文 (繁體)                                                  | zh-TW         | Traditional Chinese |
+
+Choosing a language translates only user interface elements. It doesn't translate the
+following:
+
+- Amazon Quick Suite reserved keywords
+- User input
+- Data
+- Date or number formats
+- ML Insights, suggested insights, or computations in narratives (including
+  text)
+  Use the following procedure to change the language in the Amazon Quick Suite
+  interface.
+
+1. Choose your user name at top right.
+2. To open the language options menu, choose the > symbol near the current
+   language.
+3. Choose the language that you want to use.

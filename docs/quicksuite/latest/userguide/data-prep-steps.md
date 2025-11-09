@@ -211,18 +211,126 @@ To configure the Aggregate step, in the **Configuration** pane:
 
 **Supported functions per data type**
 
-| Data Type           | Supported Functions                                                                                             |
-| ------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Numeric             | `Average`, `Sum` `Count`, `Count Distinct` `Max`, `Min`                                                         |
-| Date                | `Count`, `Count Distinct` `Max`, `Min` `ListAgg`, `ListAgg distinct` (for date only)                            |
-| String              | `ListAgg`, `ListAgg distinct` `Count`, `Count Distinct` `Max`, `Min`                                            | **Key features** <br>• Applies different aggregation functions to columns within the same step. <br>• **Group by** without aggregation functions acts as SQL SELECT DISTINCT. <br>• `ListAgg` concatenates all values; `ListAgg distinct` includes only unique values. <br>• `ListAgg` functions maintain ascending sort order by default. **Usage notes** <br>• Aggregation significantly reduces row count in your dataset. <br>• `ListAgg` and `ListAgg distinct` support `date` values but not `datetime`. <br>• Use separators to customize string concatenation output. ## Filter The Filter step enables you to narrow down your dataset by including only rows that meet specific criteria. You can apply multiple filter conditions within a single step, all combining through `AND` logic to help focus your analysis on relevant data. **Configuration** To configure the Filter step, in the **Configuration** pane: 1. Select a column to filter. 2. Choose a comparison operator. 3. Specify filter values based on the column's data type. 4. Add additional filter conditions across different columns if needed. ###### Note <br>• String filters with "is in" or "is not in": Enter multiple values (one per line). <br>• Numeric and date filters: Enter single values (except "between" which requires two values). **Supported operators per data type**                      |
-| Data Type           | Supported Operators                                                                                             |
-| ---                 | ---                                                                                                             |
-| Integer and Decimal | Equals, Does not equal Greater than, Less than Is greater than or equal to, Is less than or equal to Is between |
-| Date                | After, Before Is between Is after or equal to, Is before or equal to                                            |
-| String              | Equals, Does not equal Starts with, Ends with Contains, Does not contain Is in, Is not in                       | **Usage notes** <br>• Apply multiple filter conditions in a single step. <br>• Mix conditions across different data types. <br>• Preview filtered results in real-time. ## Pivot The Pivot step transforms row values into unique columns, converting data from a long format to a wide format for easier comparison and analysis. This transformation requires specifications for value filtering, aggregation, and grouping to manage the output columns effectively. **Configuration** To configure the Pivot step, use the following in the **Configuration** pane: 1. **Pivot column**: Select the column whose values will become column headers (e.g., Category). 2. **Pivot column row value**: Filter specific values to include (e.g., Technology, Office Supplies). 3. **Output column header**: Customize new column headers (defaults to pivot column values). 4. **Value column**: Select the column to aggregate (e.g., Sales). 5. **Aggregation function**: Choose the aggregation method (e.g., Sum). 6. **Group by**: Specify organizing columns (e.g., Segment). ![](images/pivot.png) **Supported operators per data type**                                                                                                                                                                                                                                                     |
-| Data Type           | Supported Operators                                                                                             |
-| ---                 | ---                                                                                                             |
-| Integer and Decimal | `Average`, `Sum` `Count`, `Count Distinct` `Max`, `Min`                                                         |
-| Date                | `Count`, `Count Distinct` `Max`, `Min` `ListAgg`, `ListAgg distinct` (date values only)                         |
-| String              | `ListAgg`, `ListAgg distinct` `Count`, `Count Distinct` `Max`, `Min`                                            | **Usage notes** <br>• Each pivoted column contains aggregated values from the value column. <br>• Customize column headers for clarity. <br>• Preview transformation results in real-time. ## Unpivot The Unpivot step transforms columns into rows, converting wide data into a longer, narrower format. This transformation helps organize data spread across multiple columns into a more structured format for easier analysis and visualization. **Configuration** To configure the Unpivot step, in the **Configuration** pane: 1. Select columns to unpivot into rows. 2. Define output column row values. The default is the original column name. Some examples include Technology, Office Supplies, and Furniture. 3. Name the two new outputs columns. <br>• **Unpivoted column header**: The name for former column names (e.g., Category) <br>• **Unpivoted column values**: The name for the unpivoted values (e.g., Sales) ![](images/unpivot.png) **Key features** <br>• Retains all non-unpivoted columns in the output. <br>• Creates two new columns automatically: one for former column names and one for their corresponding values. <br>• Transforms wide data into long format. **Usage notes** <br>• All unpivoted columns must have compatible data types. <br>• Row count typically increases after unpivoting. <br>• Preview changes in real-time before applying them. |
+| Data Type | Supported Functions                                                                        |
+| --------- | ------------------------------------------------------------------------------------------ |
+| Numeric   | `Average`, `Sum`<br>`Count`, `Count Distinct`<br>`Max`, `Min`                              |
+| Date      | `Count`, `Count Distinct`<br>`Max`, `Min`<br>`ListAgg`, `ListAgg distinct` (for date only) |
+| String    | `ListAgg`, `ListAgg distinct`<br>`Count`, `Count Distinct`<br>`Max`, `Min`                 |
+
+**Key features**
+
+- Applies different aggregation functions to columns within the same step.
+- **Group by** without aggregation functions acts as SQL SELECT DISTINCT.
+- `ListAgg` concatenates all values; `ListAgg distinct` includes only unique values.
+- `ListAgg` functions maintain ascending sort order by default.
+
+**Usage notes**
+
+- Aggregation significantly reduces row count in your dataset.
+- `ListAgg` and `ListAgg distinct` support `date` values but not
+  `datetime`.
+- Use separators to customize string concatenation output.
+
+## Filter
+
+The Filter step enables you to narrow down your dataset by including only rows that meet specific criteria.
+You can apply multiple filter conditions within a single step, all combining through `AND` logic to help
+focus your analysis on relevant data.
+
+**Configuration**
+
+To configure the Filter step, in the **Configuration** pane:
+
+1. Select a column to filter.
+2. Choose a comparison operator.
+3. Specify filter values based on the column's data type.
+4. Add additional filter conditions across different columns if needed.
+
+###### Note
+
+- String filters with "is in" or "is not in": Enter multiple values (one per line).
+- Numeric and date filters: Enter single values (except "between" which requires two values).
+
+**Supported operators per data type**
+
+| Data Type           | Supported Operators                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Integer and Decimal | Equals, Does not equal<br>Greater than, Less than<br>Is greater than or equal to, Is less than or equal to<br>Is between |
+| Date                | After, Before<br>Is between<br>Is after or equal to, Is before or equal to                                               |
+| String              | Equals, Does not equal<br>Starts with, Ends with<br>Contains, Does not contain<br>Is in, Is not in                       |
+
+**Usage notes**
+
+- Apply multiple filter conditions in a single step.
+- Mix conditions across different data types.
+- Preview filtered results in real-time.
+
+## Pivot
+
+The Pivot step transforms row values into unique columns, converting data from a long format to a wide
+format for easier comparison and analysis. This transformation requires specifications for value filtering,
+aggregation, and grouping to manage the output columns effectively.
+
+**Configuration**
+
+To configure the Pivot step, use the following in the **Configuration** pane:
+
+1. **Pivot column**: Select the column whose values will become column
+   headers (e.g., Category).
+2. **Pivot column row value**: Filter specific values to include
+   (e.g., Technology, Office Supplies).
+3. **Output column header**: Customize new column headers (defaults
+   to pivot column values).
+4. **Value column**: Select the column to aggregate (e.g., Sales).
+5. **Aggregation function**: Choose the aggregation method (e.g., Sum).
+6. **Group by**: Specify organizing columns (e.g., Segment).
+
+![](images/pivot.png)
+
+**Supported operators per data type**
+
+| Data Type           | Supported Operators                                                                           |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| Integer and Decimal | `Average`, `Sum`<br>`Count`, `Count Distinct`<br>`Max`, `Min`                                 |
+| Date                | `Count`, `Count Distinct`<br>`Max`, `Min`<br>`ListAgg`, `ListAgg distinct` (date values only) |
+| String              | `ListAgg`, `ListAgg distinct`<br>`Count`, `Count Distinct`<br>`Max`, `Min`                    |
+
+**Usage notes**
+
+- Each pivoted column contains aggregated values from the value column.
+- Customize column headers for clarity.
+- Preview transformation results in real-time.
+
+## Unpivot
+
+The Unpivot step transforms columns into rows, converting wide data into a longer, narrower format.
+This transformation helps organize data spread across multiple columns into a more structured format for
+easier analysis and visualization.
+
+**Configuration**
+
+To configure the Unpivot step, in the **Configuration** pane:
+
+1. Select columns to unpivot into rows.
+2. Define output column row values. The default is the original column name. Some examples
+   include Technology, Office Supplies, and Furniture.
+3. Name the two new outputs columns.
+   - **Unpivoted column header**: The name for former
+     column names (e.g., Category)
+   - **Unpivoted column values**: The name for the
+     unpivoted values (e.g., Sales)
+
+![](images/unpivot.png)
+
+**Key features**
+
+- Retains all non-unpivoted columns in the output.
+- Creates two new columns automatically: one for former column names and one for their
+  corresponding values.
+- Transforms wide data into long format.
+
+**Usage notes**
+
+- All unpivoted columns must have compatible data types.
+- Row count typically increases after unpivoting.
+- Preview changes in real-time before applying them.

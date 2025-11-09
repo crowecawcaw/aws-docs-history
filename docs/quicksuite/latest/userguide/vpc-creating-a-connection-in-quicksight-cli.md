@@ -141,15 +141,25 @@ aws quicksight describe-vpc-connection \
 The following table describes the different **Status** values for
 a network interface that `describe-vpc-connection` returns.
 
-| Status                                | Description                                                                                                                                            |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CREATING**                          | The network interface creation is in progress.                                                                                                         |
-| **AVAILABLE**                         | The network interface is available for use.                                                                                                            |
-| **CREATION_FAILURE**                  | The network interface couldn't be created.                                                                                                             |
-| **UPDATING**                          | The security group associated with the network inferface is updating.                                                                                  |
-| **UPDATE_FAILED**                     | The security group associated with the network interface did not update successfully.                                                                  |
-| **DELETING**                          | The network interface is in the process of being deleted.                                                                                              |
-| **DELETED**                           | The network interface is deleted and can no longer be used.                                                                                            |
-| **DELETION_FAILED**                   | The network interface deletion failed and can still be used.                                                                                           |
-| **DELETION_SCHEDULED**                | This network interface is scheduled for deletion.                                                                                                      |
-| **ATTACHMENT_FAILED_ROLLBACK_FAILED** | The elastic interface failed to attach and Amazon Quick Suite was unable to delete the elastic network interface that was created within your account. | You can also use the AWS CLI to generate a list of all VPC connections in your Amazon Quick Suite account. `` aws quicksight list-vpc-connections \ --aws-account-id `123456789012` \ --`region us-west-2` `` |
+| Status                                | Description                                                                                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **CREATING**                          | The network interface creation is in progress.                                                                                                               |
+| **AVAILABLE**                         | The network interface is available for use.                                                                                                                  |
+| **CREATION_FAILURE**                  | The network interface couldn't be created.                                                                                                                   |
+| **UPDATING**                          | The security group associated with the network inferface is<br>updating.                                                                                     |
+| **UPDATE_FAILED**                     | The security group associated with the network interface did<br>not update successfully.                                                                     |
+| **DELETING**                          | The network interface is in the process of being<br>deleted.                                                                                                 |
+| **DELETED**                           | The network interface is deleted and can no longer be<br>used.                                                                                               |
+| **DELETION_FAILED**                   | The network interface deletion failed and can still be<br>used.                                                                                              |
+| **DELETION_SCHEDULED**                | This network interface is scheduled for deletion.                                                                                                            |
+| **ATTACHMENT_FAILED_ROLLBACK_FAILED** | The elastic interface failed to attach and Amazon Quick Suite was<br>unable to delete the elastic network interface that was created<br>within your account. |
+
+You can also use the AWS CLI to generate a list of all VPC connections in your
+Amazon Quick Suite account.
+
+```
+aws quicksight list-vpc-connections \
+--aws-account-id `123456789012` \
+--`region us-west-2`
+
+```

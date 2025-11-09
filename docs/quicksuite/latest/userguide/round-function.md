@@ -24,7 +24,32 @@ The number of decimal places to use for the return values.
 ## Return type
 
 | Operand        | Return type in the legacy data preparation experience | Return type in the new data preparation experience |
-| -------------- | ----------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ----------------------------------------------------- | -------------------------------------------------- |
 | INT            | DECIMAL(FIXED)                                        | DECIMAL(FIXED)                                     |
 | DECIMAL(FIXED) | DECIMAL(FIXED)                                        | DECIMAL(FIXED)                                     |
-| DECIMAL(FLOAT) | DECIMAL(FIXED)                                        | DECIMAL(FLOAT)                                     | ## Example The following example rounds a decimal field to the closest second decimal place. `round(salesAmount, 2)` The following are the given field values. `20.1307 892.0388 57.5447` For these field values, the following values are returned. `20.13 892.04 58.54` |
+| DECIMAL(FLOAT) | DECIMAL(FIXED)                                        | DECIMAL(FLOAT)                                     |
+
+## Example
+
+The following example rounds a decimal field to the closest second decimal
+place.
+
+```
+round(salesAmount, 2)
+```
+
+The following are the given field values.
+
+```
+20.1307
+892.0388
+57.5447
+```
+
+For these field values, the following values are returned.
+
+```
+20.13
+892.04
+58.54
+```

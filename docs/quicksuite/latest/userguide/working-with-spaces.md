@@ -46,11 +46,86 @@ spaces
 The following table shows how each user type in Amazon Quick Suite interacts with
 spaces.
 
-| User type                       | Capabilities                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Administrators                  | <br>• Control whether users with space creation capabilities can create spaces                                                                                                                                                                                                                                                                                                               |
-| Author Pro and Reader Pro users | <br>• Create and maintain spaces <br>• Add topics, dashboards, knowledge bases, and application actions to spaces <br>• Upload files directly into spaces <br>• Attach an agent to a space <br>• Interact with space data through chat <br>• Share spaces                                                                                                                                    | ## Amazon Quick Suite user permission for spaces What you can do with a space also depends on the permissions you're assigned for it. There are two permission types that users can be assigned: <br>• **Owner** – Owners can create, edit, share, and delete a space. <br>• **Viewer** – Viewers can view ask questions, and download files from spaces. The following table outlines how user permissions determine what you can do with a Amazon Quick Suite space:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Permissions type                | Permissions                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---                             | ---                                                                                                                                                                                                                                                                                                                                                                                          |
-| Owners                          | <br>• Create a space <br>• Upload files to a space <br>• Share spaces with others <br>• Link and unlink Amazon Quick Suite resources (topics, dashboards, knowledge bases, and application actions) to a space <br>• Delete a space As an owner, you can designate another user co-owner of a space. If you do so, the user can undertake all post-creation management actions an owner can. |
-| Viewers                         | <br>• Download files uploaded into a space <br>• Ask questions from data inside space <br>• Use a specific space as context for an agent <br>• Search for a space by name <br>• Access a space using a direct URL <br>• View a preset list sample questions to help get started on using the space                                                                                           | ## Understanding file upload status When you upload files, you should see the following status messages: **Uploading** Files are being uploaded into your computer. **Processing** Files are being processed. **Text ready** The text content of the document is ready to be queried. However, the document's images and tables are still processing. **Ready** The text and media of the document has been processed. **Deleting** The document is being deleted. ## Limitations of spaces The following list outlines the limitations of spaces: <br>• A space can't contain other spaces. <br>• Users can't access Amazon Quick Suite resouces (topics, dashboards) in a space if they don't have access to the resource outside it. Sharing a space doesn't automatically give access to users to assets within it. <br>• If an Amazon Quick Suite resource is linked to a space is deleted outside the space, users of the space won't get notified of the deletion. Deleted assets will only display a message indicating unavailability. <br>• Files uploaded to spaces will be rejected if your index data storage capacity is full. Reach out to your system administrator if this happens. <br>• Files uploaded to a space must be one of the following formats: `.html`, `.ppt`, `.docx`, `.txt`, `.pdf`, `.csv`, `.xlsx`, `.xml`, `.jpeg`, `.svg` `.json`, `.md` `.rtf`, `.xslt` `.mp3`, `.wav` `.m4a`, `.flac`, `.ogg`, `.mp4`, `.mov`, `.m4v`. ###### Note You can only upload JPG images to spaces. PNG is not supported at this time. <br>• File uploads are limited to 5 MB for Excel and CSV files, and 50 MB for all other supported file types. You will get a "character limit exceeded" error when you upload larger documents. <br>• Spaces support up to 100 files (compared to 20 files in regular chat conversations), as long as the total space storage is less than 1 GB. <br>• You can add at most 20 resources of a specific resource type (dashboard, topic, knowledge base, or action) to a space. |
+| User type                       | Capabilities                                                                                                                                                                                                                                        |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Administrators                  | • Control whether users with space creation capabilities can<br>create spaces                                                                                                                                                                       |
+| Author Pro and Reader Pro users | • Create and maintain spaces<br>• Add topics, dashboards, knowledge bases, and application<br>actions to spaces<br>• Upload files directly into spaces<br>• Attach an agent to a space<br>• Interact with space data through chat<br>• Share spaces |
+
+## Amazon Quick Suite user permission for spaces
+
+What you can do with a space also depends on the permissions you're assigned for it.
+There are two permission types that users can be assigned:
+
+- **Owner** – Owners can create, edit,
+  share, and delete a space.
+- **Viewer** – Viewers can view ask
+  questions, and download files from spaces.
+
+The following table outlines how user permissions determine what you can do with a
+Amazon Quick Suite space:
+
+| Permissions type | Permissions                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owners           | • Create a space<br>• Upload files to a space<br>• Share spaces with others<br>• Link and unlink Amazon Quick Suite resources (topics,<br>dashboards, knowledge bases, and application actions) to a<br>space<br>• Delete a space<br>As an owner, you can designate another user co-owner of a space.<br>If you do so, the user can undertake all post-creation management<br>actions an owner can. |
+| Viewers          | • Download files uploaded into a space<br>• Ask questions from data inside space<br>• Use a specific space as context for an agent<br>• Search for a space by name<br>• Access a space using a direct URL<br>• View a preset list sample questions to help get started on<br>using the space                                                                                                        |
+
+## Understanding file upload status
+
+When you upload files, you should see the following status messages:
+
+**Uploading**
+
+Files are being uploaded into your computer.
+
+**Processing**
+
+Files are being processed.
+
+**Text ready**
+
+The text content of the document is ready to be queried. However, the
+document's images and tables are still processing.
+
+**Ready**
+
+The text and media of the document has been processed.
+
+**Deleting**
+
+The document is being deleted.
+
+## Limitations of spaces
+
+The following list outlines the limitations of spaces:
+
+- A space can't contain other spaces.
+- Users can't access Amazon Quick Suite resouces (topics, dashboards) in a space if
+  they don't have access to the resource outside it. Sharing a space doesn't
+  automatically give access to users to assets within it.
+- If an Amazon Quick Suite resource is linked to a space is deleted outside the space,
+  users of the space won't get notified of the deletion. Deleted assets will only
+  display a message indicating unavailability.
+- Files uploaded to spaces will be rejected if your index data storage capacity
+  is full. Reach out to your system administrator if this happens.
+- Files uploaded to a space must be one of the following formats:
+  `.html`, `.ppt`, `.docx`,
+  `.txt`, `.pdf`, `.csv`, `.xlsx`,
+  `.xml`, `.jpeg`, `.svg`
+  `.json`, `.md`
+  `.rtf`, `.xslt`
+  `.mp3`, `.wav`
+  `.m4a`, `.flac`, `.ogg`, `.mp4`,
+  `.mov`, `.m4v`.
+
+###### Note
+
+You can only upload JPG images to spaces. PNG is not supported at this
+time.
+
+- File uploads are limited to 5 MB for Excel and CSV files, and 50 MB for all
+  other supported file types. You will get a "character limit exceeded" error when
+  you upload larger documents.
+- Spaces support up to 100 files (compared to 20 files in regular chat
+  conversations), as long as the total space storage is less than 1 GB.
+- You can add at most 20 resources of a specific resource type (dashboard,
+  topic, knowledge base, or action) to a space.

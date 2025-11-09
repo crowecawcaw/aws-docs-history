@@ -79,7 +79,7 @@ permissions. The following table summarizes the admin actions that you can perfo
 Amazon Quick Suite based on the access type that you choose.
 
 | Admin action               | IAM permissions                 | Amazon Quick Suite admin role permissions |
-| -------------------------- | ------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------- | ------------------------------- | ----------------------------------------- |
 | **Manage assets**          | Yes                             | No                                        |
 | **Security & permissions** | Yes                             | No                                        |
 | **Manage VPC connections** | Yes                             | No                                        |
@@ -90,4 +90,9 @@ Amazon Quick Suite based on the access type that you choose.
 | **Your subscriptions**     | No                              | Yes                                       |
 | **Mobile settings**        | No                              | Yes                                       |
 | **Domains and embedding**  | No                              | Yes                                       |
-| **SPICE capacity**         | No                              | Yes                                       | Admin and Admin Pro users have full reader and author capabilities but focus primarily on system administration to ensure efficient and secure operations for all users. For detailed information about author capabilities and subscription types, see [Amazon Quick Suite pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/"). |
+| **SPICE capacity**         | No                              | Yes                                       |
+
+Admin and Admin Pro users have full reader and author capabilities but focus primarily
+on system administration to ensure efficient and secure operations for all users. For
+detailed information about author capabilities and subscription types, see [Amazon Quick Suite
+pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/").

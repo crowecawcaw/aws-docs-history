@@ -166,20 +166,44 @@ of the connection switches to **AVAILABLE**, which indicates that the
 connection has been established. The following table describes the different
 **Status** values for a VPC connection.
 
-| Status                                | Description                                                                                                                                            |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AVAILABLE**                         | The VPC connection is established and can be used.                                                                                                     |
-| **PARTIALLY AVAILABLE**               | One of the network interfaces that is configured to the VPC connection is unavailable. The VPC connection can still be used.                           |
-| **UNAVAILABLE**                       | The VPC connection is not established and can't be used.                                                                                               | To see a summary of a VPC connection, choose a VPC connection from the **VPC connection name** row of the **Manage VPC connections** table. The pop-up box that appears shows information about the network interfaces associated with the VPC connection. The following table describes the different **Status** values for a network interface.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Status                                | Description                                                                                                                                            |
-| ---                                   | ---                                                                                                                                                    |
-| **CREATING**                          | The network interface creation is in progress.                                                                                                         |
-| **AVAILABLE**                         | The network interface is available for use.                                                                                                            |
-| **CREATION_FAILURE**                  | The network interface couldn't be created.                                                                                                             |
-| **UPDATING**                          | The security group associated with the network inferface is updating.                                                                                  |
-| **UPDATE_FAILED**                     | The security group associated with the network interface did not update successfully.                                                                  |
-| **DELETING**                          | The network interface is in the process of being deleted.                                                                                              |
-| **DELETED**                           | The network interface is deleted and can no longer be used.                                                                                            |
-| **DELETION_FAILED**                   | The network interface deletion failed and can still be used.                                                                                           |
-| **DELETION_SCHEDULED**                | This network interface is scheduled for deletion.                                                                                                      |
-| **ATTACHMENT_FAILED_ROLLBACK_FAILED** | The elastic interface failed to attach and Amazon Quick Suite was unable to delete the elastic network interface that was created within your account. | When you delete a network interface from a VPC connection, the status of the connection changes to **PARTIALLY AVAILABLE** to indicate the loss of a network interface. To make changes to an existing VPC connection, choose the more actions (three-dots) button to the right of the connection that you want to modify, and choose **Edit**. In the **Edit VPC connection** window that appears, make your changes, and then choose **SAVE**. To delete a VPC connection, choose the more actions (three-dots) button to the right of the connection that you want to delete and choose **Delete**. In the **Delete Amazon Quick Suite VPC Connection** pop-up that appears, confirm that you want to delete the connection, and then choose **Delete**. |
+| Status                  | Description                                                                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **AVAILABLE**           | The VPC connection is established and can be used.                                                                                 |
+| **PARTIALLY AVAILABLE** | One of the network interfaces that is configured to the VPC<br>connection is unavailable. The VPC connection can still be<br>used. |
+| **UNAVAILABLE**         | The VPC connection is not established and can't be<br>used.                                                                        |
+
+To see a summary of a VPC connection, choose a VPC connection from the **VPC
+connection name** row of the **Manage VPC connections**
+table. The pop-up box that appears shows information about the network interfaces
+associated with the VPC connection.
+
+The following table describes the different **Status** values for a
+network interface.
+
+| Status                                | Description                                                                                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **CREATING**                          | The network interface creation is in progress.                                                                                                               |
+| **AVAILABLE**                         | The network interface is available for use.                                                                                                                  |
+| **CREATION_FAILURE**                  | The network interface couldn't be created.                                                                                                                   |
+| **UPDATING**                          | The security group associated with the network inferface is<br>updating.                                                                                     |
+| **UPDATE_FAILED**                     | The security group associated with the network interface did not<br>update successfully.                                                                     |
+| **DELETING**                          | The network interface is in the process of being deleted.                                                                                                    |
+| **DELETED**                           | The network interface is deleted and can no longer be used.                                                                                                  |
+| **DELETION_FAILED**                   | The network interface deletion failed and can still be<br>used.                                                                                              |
+| **DELETION_SCHEDULED**                | This network interface is scheduled for deletion.                                                                                                            |
+| **ATTACHMENT_FAILED_ROLLBACK_FAILED** | The elastic interface failed to attach and Amazon Quick Suite was unable<br>to delete the elastic network interface that was created within your<br>account. |
+
+When you delete a network interface from a VPC connection, the status of the
+connection changes to **PARTIALLY AVAILABLE** to indicate the loss of a
+network interface.
+
+To make changes to an existing VPC connection, choose the more actions (three-dots)
+button to the right of the connection that you want to modify, and choose
+**Edit**. In the **Edit VPC connection** window
+that appears, make your changes, and then choose **SAVE**.
+
+To delete a VPC connection, choose the more actions (three-dots) button to the right
+of the connection that you want to delete and choose **Delete**. In the
+**Delete Amazon Quick Suite VPC Connection** pop-up that appears, confirm
+that you want to delete the connection, and then choose
+**Delete**.

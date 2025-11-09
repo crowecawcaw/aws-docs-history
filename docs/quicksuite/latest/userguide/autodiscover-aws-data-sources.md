@@ -2,9 +2,49 @@
 
 resources
 
-|                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Applies to:** Enterprise Edition and Standard Edition  |
-|                                                          |
-| ---                                                      |
-| Intended audience: System administrators                 | Each AWS service that you access from Amazon Quick Suite needs to allow traffic from Quick Suite. Instead of opening each service console separately to add permissions, a Quick Suite administrator can do this in the administration screen. Before you begin, make sure that you have addressed the following prerequisites. If you choose to enable autodiscovery of AWS resources for your Quick Suite account, Quick Suite creates an AWS Identity and Access Management (IAM) role in your AWS account. This IAM role grants your account permission to identify and retrieve data from your AWS data sources. Because AWS limits the number of IAM roles that you can create, make sure that you have at least one free role. You need this role for Amazon Quick Suite to use if you want Amazon Quick Suite to autodiscover your AWS resources. You can have Amazon Quick Suite autodiscover Amazon RDS DB instances or Amazon Redshift clusters that are associated with your AWS account. These resources must be located in the same AWS Region as your Amazon Quick Suite account. If you choose to enable autodiscovery, choose one of the following options to make the AWS resource accessible: <br>• For Amazon RDS DB instances that you created in a default VPC and didn't make private, or that aren't in a VPC (EC2-Classic instances), see [Authorizing connections from Amazon Quick Suite to Amazon RDS instances](../../../quicksight/latest/user/enabling-access-rds.md "../../../quicksight/latest/user/enabling-access-rds.md"). In this topic, you can find information on creating a security group to allow connections from Amazon Quick Suite servers. <br>• For Amazon Redshift clusters that you created in a default VPC and didn't choose to make private, or that aren't in a VPC (that is, EC2-Classic instances), see [Authorizing connections from Amazon Quick Suite to Amazon Redshift clusters](../../../quicksight/latest/user/enabling-access-redshift.md "../../../quicksight/latest/user/enabling-access-redshift.md"). In this topic, you can find information on creating a security group to allow connections from Amazon Quick Suite servers. <br>• For an Amazon RDS DB instance or Amazon Redshift cluster that is in a nondefault VPC, see [Authorizing connections from Amazon Quick Suite to Amazon RDS instances](../../../quicksight/latest/user/enabling-access-rds.md "../../../quicksight/latest/user/enabling-access-rds.md") or [Authorizing connections from Amazon Quick Suite to Amazon Redshift clusters](../../../quicksight/latest/user/enabling-access-redshift.md "../../../quicksight/latest/user/enabling-access-redshift.md"). In these topics, you can find information on first creating a security group to allow connections from Amazon Quick Suite servers. In addition, you can find information on then verifying that the VPC meets the requirements described in [Network configuration for an AWS instance in a nondefault VPC](../../../quicksight/latest/user/configure-access.md#network-configuration-aws-nondefault-vpc "../../../quicksight/latest/user/configure-access.md#network-configuration-aws-nondefault-vpc"). <br>• If you don't use a private VPC, set up the Amazon RDS instance to allow connections from the Amazon Quick Suite Region's public IP address. Enabling autodiscovery is the easiest way to make this data available in Amazon Quick Suite. You can still manually create data connections whether or not you enable autodiscovery. |
+|                                                                 |
+| --------------------------------------------------------------- |
+| \*_Applies<br>to:_<br>• Enterprise Edition and Standard Edition |
+
+|                                             |
+| ------------------------------------------- |
+| Intended audience:<br>System administrators |
+
+Each AWS service that you access from Amazon Quick Suite needs to allow traffic from
+Quick Suite. Instead of opening each service console separately to add permissions, a
+Quick Suite administrator can do this in the administration screen. Before you begin,
+make sure that you have addressed the following prerequisites.
+
+If you choose to enable autodiscovery of AWS resources for your Quick Suite
+account, Quick Suite creates an AWS Identity and Access Management (IAM) role in your AWS account. This
+IAM role grants your account permission to identify and retrieve data from your AWS data
+sources.
+
+Because AWS limits the number of IAM roles that you can create, make sure that you
+have at least one free role. You need this role for Amazon Quick Suite to use if you want
+Amazon Quick Suite to autodiscover your AWS resources.
+
+You can have Amazon Quick Suite autodiscover Amazon RDS DB instances or Amazon Redshift clusters that are
+associated with your AWS account. These resources must be located in the same AWS Region
+as your Amazon Quick Suite account.
+
+If you choose to enable autodiscovery, choose one of the following options to make the
+AWS resource accessible:
+
+- For Amazon RDS DB instances that you created in a default VPC and didn't make private,
+  or that aren't in a VPC (EC2-Classic instances), see [Authorizing connections from Amazon Quick Suite to Amazon RDS instances](../../../quicksight/latest/user/enabling-access-rds.md "../../../quicksight/latest/user/enabling-access-rds.md"). In this
+  topic, you can find information on creating a security group to allow connections
+  from Amazon Quick Suite servers.
+- For Amazon Redshift clusters that you created in a default VPC and didn't choose to make
+  private, or that aren't in a VPC (that is, EC2-Classic instances), see [Authorizing connections from Amazon Quick Suite to Amazon Redshift clusters](../../../quicksight/latest/user/enabling-access-redshift.md "../../../quicksight/latest/user/enabling-access-redshift.md"). In this
+  topic, you can find information on creating a security group to allow connections
+  from Amazon Quick Suite servers.
+- For an Amazon RDS DB instance or Amazon Redshift cluster that is in a nondefault VPC, see [Authorizing connections from Amazon Quick Suite to Amazon RDS instances](../../../quicksight/latest/user/enabling-access-rds.md "../../../quicksight/latest/user/enabling-access-rds.md") or [Authorizing connections from Amazon Quick Suite to Amazon Redshift clusters](../../../quicksight/latest/user/enabling-access-redshift.md "../../../quicksight/latest/user/enabling-access-redshift.md"). In these
+  topics, you can find information on first creating a security group to allow
+  connections from Amazon Quick Suite servers. In addition, you can find information on then
+  verifying that the VPC meets the requirements described in [Network configuration for an AWS instance in a nondefault
+  VPC](../../../quicksight/latest/user/configure-access.md#network-configuration-aws-nondefault-vpc "../../../quicksight/latest/user/configure-access.md#network-configuration-aws-nondefault-vpc").
+- If you don't use a private VPC, set up the Amazon RDS instance to allow connections
+  from the Amazon Quick Suite Region's public IP address.
+  Enabling autodiscovery is the easiest way to make this data available in Amazon Quick Suite. You
+  can still manually create data connections whether or not you enable autodiscovery.

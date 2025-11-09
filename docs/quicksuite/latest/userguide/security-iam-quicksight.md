@@ -253,11 +253,11 @@ service began tracking these changes. For automatic alerts about changes to this
 subscribe to the RSS feed on the [Amazon Quick Suite Document
 History](doc-history.md "doc-history.md") page.
 
-| Change                                                            | Description                                                                                                    | Date               |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `AWSQuickSightAssetBundleExportPolicy` – New policy               | Amazon Quick Suite added new permissions to simplify Asset bundle export operations.                           | March 27, 2024     |
-| `AWSQuickSightAssetBundleImportPolicy` – New policy               | Amazon Quick Suite added new permissions to simplify Asset bundle import operations.                           | March 27, 2024     |
-| `AWSQuickSageMakerPolicy` – Update to an existing policy          | Amazon Quick Suite added new permissions to allow integration with Amazon SageMaker AI Canvas.                 | July 25, 2023      |
-| `AWSQuickSightElasticsearchPolicy` – Update to an existing policy | Amazon Quick Suite added new permissions to provide access to Amazon OpenSearch Service resources.             | September 08, 2021 |
-| `AWSQuickSightOpenSearchPolicy` – New policy                      | Amazon Quick Suite added a new policy to allow access to Amazon OpenSearch Service resources from Quick Suite. | September 08, 2021 |
-| Amazon Quick Suite started tracking changes                       | Amazon Quick Suite started tracking changes for its AWS managed policies.                                      | August 2, 2021     |
+| Change                                                               | Description                                                                                                       | Date               |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `AWSQuickSightAssetBundleExportPolicy` – New<br>policy               | Amazon Quick Suite added new permissions to simplify Asset bundle export<br>operations.                           | March 27, 2024     |
+| `AWSQuickSightAssetBundleImportPolicy` – New<br>policy               | Amazon Quick Suite added new permissions to simplify Asset bundle import<br>operations.                           | March 27, 2024     |
+| `AWSQuickSageMakerPolicy` – Update to an<br>existing policy          | Amazon Quick Suite added new permissions to allow integration with<br>Amazon SageMaker AI Canvas.                 | July 25, 2023      |
+| `AWSQuickSightElasticsearchPolicy` – Update to<br>an existing policy | Amazon Quick Suite added new permissions to provide access to Amazon OpenSearch Service<br>resources.             | September 08, 2021 |
+| `AWSQuickSightOpenSearchPolicy` – New<br>policy                      | Amazon Quick Suite added a new policy to allow access to Amazon OpenSearch Service<br>resources from Quick Suite. | September 08, 2021 |
+| Amazon Quick Suite started tracking<br>changes                       | Amazon Quick Suite started tracking changes for its AWS managed<br>policies.                                      | August 2, 2021     |

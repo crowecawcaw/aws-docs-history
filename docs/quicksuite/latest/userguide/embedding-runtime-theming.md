@@ -80,7 +80,117 @@ are granted access to any theme that is listed in the
 The following table describes different setter methods that developers can use
 for runtime theming.
 
-| Method                                                | Description                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `setTheme(themeArn: string)`                          | Replaces the active theme of a dashboard or visual with another theme. If applied, the theme override is removed. An error is returned if you don't have access to the theme or if the theme doesn't exist.                                                                                                                         |
-| `setThemeOverride(themeOverride: ThemeConfiguration)` | Sets a dynamic `ThemeConfiguration` to override the current active theme. This replaces the previously set theme override. Any values that are not supplied in the new `ThemeConfiguration` are defaulted to the values in the currently active theme. An error is returned if the `ThemeConfiguration` that you supply is invalid. | ## Initializing embedded content with a theme To initialize an embedded dashboard or visual with a non-default theme, define a `themeOptions` object on the `DashboardContentOptions` or `VisualContentOptions` parameters, and set the `themeArn` property within `themeOptions` to the desired theme ARN. The following example initializes an embedded dashboard with the `MIDNIGHT` theme. `import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk'; const embeddingContext = await createEmbeddingContext(); const { embedDashboard, } = embeddingContext; const frameOptions = { url: '<YOUR_EMBED_URL>', container: '#experience-container', }; const contentOptions = { themeOptions: { themeArn: "arn:aws:quicksight::aws:theme/MIDNIGHT" } }; // Embedding a dashboard experience const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);` ## Initializing embedded content with a theme override Developers can use theme overrides to define the theme of an embedded dashboard or visual at runtime. This allows the dashboard or visual to inherit a theme from a third-party application without the need to pre-configure a theme within Amazon Quick Sight. To initialize an embedded dashboard or visual with a theme override, set the `themeOverride` property within `themeOptions` in either the `DashboardContentOptions` or `VisualContentOptions` parameters. The following example overrides the font of a dashboard's theme from the default font to `Amazon Ember`. `import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk'; const embeddingContext = await createEmbeddingContext(); const { embedDashboard, } = embeddingContext; const frameOptions = { url: '<YOUR_EMBED_URL>', container: '#experience-container', }; const contentOptions = { themeOptions: { "themeOverride":{"Typography":{"FontFamilies":[{"FontFamily":"Comic Neue"}]}} } }; // Embedding a dashboard experience const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);` ## Initializing embedded content with preloaded themes Developers can configure a set of dashboard themes to be preloaded on initialization. This is most beneficial for quick toggling between different views, for example dark and light modes. An embedded dashboard or visual can be initialized with up to 5 preloaded themes. To use preloaded themes, set the `preloadThemes` property in either `DashboardContentOptions` or `VisualContentOptions` with an array of up to 5 `themeArns`. The following example preloads the `Midnight` and `Rainier` starter themes to a dashboard. `import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk'; const embeddingContext = await createEmbeddingContext(); const { embedDashboard, } = embeddingContext; const frameOptions = { url: '<YOUR_EMBED_URL>', container: '#experience-container', }; const contentOptions = { themeOptions: { "preloadThemes": ["arn:aws:quicksight::aws:theme/RAINIER", "arn:aws:quicksight::aws:theme/MIDNIGHT"] } }; // Embedding a dashboard experience const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);` |
+| Method                                                   | Description                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `setTheme(themeArn: string)`                             | Replaces the active theme of a dashboard or visual with<br>another theme. If applied, the theme override is<br>removed.<br>An error is returned if you don't have access to the theme<br>or if the theme doesn't exist.                                                                                                                                  |
+| `setThemeOverride(themeOverride:<br>ThemeConfiguration)` | Sets a dynamic `ThemeConfiguration` to override<br>the current active theme. This replaces the previously set<br>theme override. Any values that are not supplied in the new<br>`ThemeConfiguration` are defaulted to the<br>values in the currently active theme.<br>An error is returned if the<br>`ThemeConfiguration` that you supply is<br>invalid. |
+
+## Initializing embedded content
+
+with a theme
+
+To initialize an embedded dashboard or visual with a non-default theme, define
+a `themeOptions` object on the `DashboardContentOptions`
+or `VisualContentOptions` parameters, and set the
+`themeArn` property within `themeOptions` to the
+desired theme ARN.
+
+The following example initializes an embedded dashboard with the
+`MIDNIGHT` theme.
+
+```
+import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
+
+const embeddingContext = await createEmbeddingContext();
+
+const {
+    embedDashboard,
+} = embeddingContext;
+
+const frameOptions = {
+    url: '<YOUR_EMBED_URL>',
+    container: '#experience-container',
+};
+const contentOptions = {
+    themeOptions: {
+        themeArn: "arn:aws:quicksight::aws:theme/MIDNIGHT"
+    }
+};
+
+// Embedding a dashboard experience
+const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);
+```
+
+## Initializing
+
+embedded content with a theme override
+
+Developers can use theme overrides to define the theme of an embedded
+dashboard or visual at runtime. This allows the dashboard or visual to inherit a
+theme from a third-party application without the need to pre-configure a theme
+within Amazon Quick Sight. To initialize an embedded dashboard or visual with a
+theme override, set the `themeOverride` property within
+`themeOptions` in either the `DashboardContentOptions`
+or `VisualContentOptions` parameters. The following example overrides
+the font of a dashboard's theme from the default font to `Amazon
+ Ember`.
+
+```
+import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
+
+const embeddingContext = await createEmbeddingContext();
+
+const {
+    embedDashboard,
+} = embeddingContext;
+
+const frameOptions = {
+    url: '<YOUR_EMBED_URL>',
+    container: '#experience-container',
+};
+const contentOptions = {
+    themeOptions: {
+        "themeOverride":{"Typography":{"FontFamilies":[{"FontFamily":"Comic Neue"}]}}
+    }
+};
+
+// Embedding a dashboard experience
+const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);
+```
+
+## Initializing
+
+embedded content with preloaded themes
+
+Developers can configure a set of dashboard themes to be preloaded on
+initialization. This is most beneficial for quick toggling between different
+views, for example dark and light modes. An embedded dashboard or visual can be
+initialized with up to 5 preloaded themes. To use preloaded themes, set the
+`preloadThemes` property in either
+`DashboardContentOptions` or `VisualContentOptions`
+with an array of up to 5 `themeArns`. The following example preloads
+the `Midnight` and `Rainier` starter themes to a
+dashboard.
+
+```
+import { createEmbeddingContext } from 'amazon-quicksight-embedding-sdk';
+
+const embeddingContext = await createEmbeddingContext();
+
+const {
+    embedDashboard,
+} = embeddingContext;
+
+const frameOptions = {
+    url: '<YOUR_EMBED_URL>',
+    container: '#experience-container',
+};
+const contentOptions = {
+    themeOptions: {
+        "preloadThemes": ["arn:aws:quicksight::aws:theme/RAINIER", "arn:aws:quicksight::aws:theme/MIDNIGHT"]
+    }
+};
+
+// Embedding a dashboard experience
+const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);
+```

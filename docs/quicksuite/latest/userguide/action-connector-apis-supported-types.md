@@ -33,8 +33,8 @@ Amazon Quick Suite supports multiple connector types, each with specific actions
 
 The following table shows which Amazon Quick Suite features each action connector type supports:
 
-| Action Connector Feature Compatibility | Action Connector | Chat Agents | Flows | Dashboard Visuals | Dashboard Alerts | Automations | Companions                                                                                                                                                                                                                                                                                                          |
-| -------------------------------------- | ---------------- | ----------- | ----- | ----------------- | ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Action Connector Feature Compatibility | Action Connector | Chat Agents | Flows | Dashboard Visuals | Dashboard Alerts | Automations | Companions |
+| -------------------------------------- | ---------------- | ----------- | ----- | ----------------- | ---------------- | ----------- | ---------- |
 | **AWS Built-in Services**              |
 | AWS Bedrock Agent Runtime              | —                | —           | —     | —                 | ✓                | —           |
 | AWS Bedrock Data Automation Runtime    | —                | —           | —     | —                 | ✓                | —           |
@@ -62,4 +62,11 @@ The following table shows which Amazon Quick Suite features each action connecto
 | **Custom Connector Types**             |
 | Model Context Protocol (MCP)           | ✓                | ✓           | —     | —                 | ✓                | —           |
 | OpenAPI                                | ✓                | ✓           | —     | —                 | —                | —           |
-| REST API                               | —                | —           | —     | —                 | ✓                | —           | **Authentication Support:** <br>• **Chat Agents and Companions** - Support user authentication (3LO, Basic) <br>• **Dashboard Visuals** - Support user authentication (3LO) <br>• **Dashboard Alerts** - Support system authentication (2LO or API Key) <br>• **Automations** - Support system authentication (2LO) |
+| REST API                               | —                | —           | —     | —                 | ✓                | —           |
+
+**Authentication Support:**
+
+- **Chat Agents and Companions** - Support user authentication (3LO, Basic)
+- **Dashboard Visuals** - Support user authentication (3LO)
+- **Dashboard Alerts** - Support system authentication (2LO or API Key)
+- **Automations** - Support system authentication (2LO)

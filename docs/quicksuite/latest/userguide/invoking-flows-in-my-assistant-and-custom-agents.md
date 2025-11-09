@@ -113,13 +113,15 @@ To get the most out of flow invocation in conversational agents, follow these re
 
 ## Amazon Quick Suite reference
 
-| Environment Comparison | #              | Environment                          | Best For                                 | Key Features   |
-| ---------------------- | -------------- | ------------------------------------ | ---------------------------------------- | -------------- | --- | ------ | ------ | ------------ |
-| 1                      | My Assistant   | General knowledge work               | Broad access, comprehensive capabilities |
-| 2                      | Custom Agents  | Specialized tasks                    | Domain focus, tailored experience        | Common Actions | #   | Action | How To | Available In |
-| ---                    | ---            | ---                                  | ---                                      |
-| 1                      | Find flows     | Search or browse                     | Both environments                        |
-| 2                      | Invoke flow    | Select from search                   | Both environments                        |
-| 3                      | Share context  | Reference conversation history       | Both environments                        |
-| 4                      | Track progress | Monitor visual indicators            | Both environments                        |
-| 5                      | End flow       | Complete workflow or exit explicitly | Both environments                        |
+| Environment Comparison | #             | Environment            | Best For                                 | Key Features |
+| ---------------------- | ------------- | ---------------------- | ---------------------------------------- | ------------ |
+| 1                      | My Assistant  | General knowledge work | Broad access, comprehensive capabilities |
+| 2                      | Custom Agents | Specialized tasks      | Domain focus, tailored experience        |
+
+| Common Actions | #              | Action                               | How To            | Available In |
+| -------------- | -------------- | ------------------------------------ | ----------------- | ------------ |
+| 1              | Find flows     | Search or browse                     | Both environments |
+| 2              | Invoke flow    | Select from search                   | Both environments |
+| 3              | Share context  | Reference conversation history       | Both environments |
+| 4              | Track progress | Monitor visual indicators            | Both environments |
+| 5              | End flow       | Complete workflow or exit explicitly | Both environments |

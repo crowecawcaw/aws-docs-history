@@ -172,11 +172,15 @@ Following these best practices will help you share flows effectively and maintai
 
 Use these tables to understand sharing options and permissions:
 
-| Sharing Types | #          | Sharing Type       | Audience    | Approval Required?              | Best For                                                                    |
-| ------------- | ---------- | ------------------ | ----------- | ------------------------------- | --------------------------------------------------------------------------- | --- | ---------------- | -------- | --------- | ---------- | -------- |
+| Sharing Types | #          | Sharing Type       | Audience    | Approval Required?              | Best For |
+| ------------- | ---------- | ------------------ | ----------- | ------------------------------- | -------- |
 | 1             | Individual | Specific people    | Sometimes\* | Testing, targeted collaboration |
 | 2             | Group      | Pre-defined groups | Sometimes\* | Team/department sharing         |
-| 3             | Everyone   | All users          | Often\*     | Organization-wide tools         | \*Depends on your organization's approval review settings Permission Levels | #   | Permission Level | Can Run? | Can Edit? | Can Share? | Best For |
-| ---           | ---        | ---                | ---         | ---                             | ---                                                                         |
-| 1             | Viewer     | ✅ Yes             | ❌ No       | ❌ No                           | Most users, tool consumption                                                |
-| 2             | Co-owner   | ✅ Yes             | ✅ Yes      | ✅ Yes                          | Collaboration, shared ownership                                             |
+| 3             | Everyone   | All users          | Often\*     | Organization-wide tools         |
+
+\*Depends on your organization's approval review settings
+
+| Permission Levels | #        | Permission Level | Can Run? | Can Edit? | Can Share?                      | Best For |
+| ----------------- | -------- | ---------------- | -------- | --------- | ------------------------------- | -------- |
+| 1                 | Viewer   | ✅ Yes           | ❌ No    | ❌ No     | Most users, tool consumption    |
+| 2                 | Co-owner | ✅ Yes           | ✅ Yes   | ✅ Yes    | Collaboration, shared ownership |

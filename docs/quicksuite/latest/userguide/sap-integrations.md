@@ -253,12 +253,171 @@ Available operations for managing product master data:
 SAP connectors support standard query parameters to filter, sort, and format API
 responses. Use these parameters to optimize data retrieval and processing.
 
-| Supported Query Parameters | #              | Parameter                                   | Description | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------- | -------------- | ------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Supported Query Parameters | #              | Parameter                                   | Description | Type |
+| -------------------------- | -------------- | ------------------------------------------- | ----------- | ---- |
 | 1                          | `$top`         | Limits the number of returned items         | integer     |
 | 2                          | `$skip`        | Skips the specified number of items         | integer     |
 | 3                          | `$filter`      | Filters results based on specified criteria | string      |
 | 4                          | `$orderby`     | Orders results by specified fields          | array       |
 | 5                          | `$select`      | Selects specific properties to return       | array       |
 | 6                          | `$expand`      | Expands related entities                    | array       |
-| 7                          | `$inlinecount` | Includes count of items in response         | string      | ## Manage SAP workload integrations After you create your SAP workload integration, you can manage it through several options. ### Edit integration settings Follow these steps to modify your SAP workload integration settings. 1. In the Amazon Quick Suite console, choose **Integrations**. 2. Choose your SAP workload integration type from the integration grid. 3. Select your integration from the list and choose **Edit**. 4. Modify integration settings: <br>• Update authentication credentials (username and password). <br>• Change SAP system URL or connection settings. <br>• Modify integration name or description. 5. Choose **Save changes** to apply your modifications. ### Share integration You can share SAP workload action connectors with other users in your organization. 1. From the SAP integration details page, choose **Share**. 2. Configure sharing options: <br>• **Share with specific users** - Enter user names or email addresses. <br>• **Share with organization** - Make available to all users in your organization. 3. Set permission levels for shared access. 4. Choose **Share integration** to apply the sharing settings. ### Delete integration Follow these steps to permanently remove your SAP integration. 1. From the SAP workload integration details page, choose **Delete**. 2. Review the deletion impact, including any workflows or automations using this integration. 3. Type the integration name to confirm deletion. 4. Choose **Delete integration** to permanently remove it. ## Troubleshoot SAP workload integrations Use these troubleshooting tips to resolve common SAP workload integration issues. ### Authentication issues OAuth 2.0 authentication failures **Symptoms:** Token generation fails, invalid client credentials, or OAuth scope errors. **Resolution:** <br>• Verify OAuth client ID and client secret are correct <br>• Check that OAuth is properly configured in SAP using transaction `/IWFND/MAINT_SERVICE` <br>• Ensure the required scopes are properly configured for your SAP workload connector type <br>• Verify the token URL format matches your SAP system configuration Basic authentication failures **Symptoms:** Login failures, invalid credentials, or access denied errors. **Resolution:** <br>• Verify SAP username and password are correct <br>• Check that the user account has necessary SAP authorizations <br>• Ensure the user account is not locked or expired <br>• Verify the domain URL is accessible and correctly formatted ### SAP system configuration issues API service not activated **Symptoms:** Service unavailable errors, API endpoint not found, or HTTP 404 responses. **Resolution:** <br>• Verify the required SAP API service is activated in your system <br>• Check API service status using SAP transaction codes <br>• Ensure the API service corresponds to your chosen SAP connector type <br>• Contact your SAP administrator to activate missing API services Connection timeouts **Symptoms:** Request timeouts, network connectivity errors, or slow response times. **Resolution:** <br>• Check that your SAP system URL is correct and accessible <br>• Verify network connectivity allows connections to SAP system <br>• Ensure firewall rules permit the integration traffic <br>• Check SAP system performance and availability ### Permission and authorization errors Insufficient SAP authorizations **Symptoms:** Access denied errors, missing authorization messages, or restricted operation failures. **Resolution:** <br>• Ensure the authenticated user has required SAP authorizations for the specific module <br>• Verify the user has access to necessary transaction codes <br>• Check that the user account has appropriate role assignments <br>• Contact your SAP administrator to grant missing permissions Scope permission errors **Symptoms:** OAuth scope errors, insufficient permissions for API operations, or restricted access messages. **Resolution:** <br>• Verify the OAuth configuration includes the required scope for your connector type <br>• Check that the scope permissions are properly granted in SAP system <br>• Ensure the OAuth client has been granted the necessary API access rights ### Data format and parameter errors Invalid parameter formats **Symptoms:** Data validation errors, invalid field length messages, or parameter format exceptions. **Resolution:** <br>• Review action parameters and ensure they match expected SAP data formats <br>• Check field lengths match SAP system requirements (e.g., BusinessPartner max 10 characters) <br>• Verify data types are correct for the specific SAP module <br>• Ensure all required fields are provided for the operation Query parameter errors **Symptoms:** Query syntax errors, unsupported parameter messages, or malformed request errors. **Resolution:** <br>• Verify parameters use correct syntax (e.g., `$filter`, `$top`, `$skip`) <br>• Check that the parameter values are properly formatted <br>• Ensure the SAP API supports the specific parameters being used <br>• Refer to SAP API documentation for supported query options ### SAP system availability issues SAP system unavailability **Symptoms:** Connection refused errors, system not responding, or service unavailable messages. **Resolution:** <br>• Check SAP system status and availability with your SAP administrator <br>• Verify if there are scheduled maintenance windows affecting the system <br>• Check for any SAP system alerts or known issues <br>• Retry the operation after confirming system availability |
+| 7                          | `$inlinecount` | Includes count of items in response         | string      |
+
+## Manage SAP workload integrations
+
+After you create your SAP workload integration, you can manage it through several
+options.
+
+### Edit integration settings
+
+Follow these steps to modify your SAP workload integration settings.
+
+1. In the Amazon Quick Suite console, choose **Integrations**.
+2. Choose your SAP workload integration type from the integration
+   grid.
+3. Select your integration from the list and choose **Edit**.
+4. Modify integration settings:
+   - Update authentication credentials (username and password).
+   - Change SAP system URL or connection settings.
+   - Modify integration name or description.
+
+5. Choose **Save changes** to apply your modifications.
+
+### Share integration
+
+You can share SAP workload action connectors with other users in your
+organization.
+
+1. From the SAP integration details page, choose **Share**.
+2. Configure sharing options:
+   - **Share with specific users** - Enter user names or email addresses.
+   - **Share with organization** - Make available to all users in your organization.
+
+3. Set permission levels for shared access.
+4. Choose **Share integration** to apply the sharing settings.
+
+### Delete integration
+
+Follow these steps to permanently remove your SAP integration.
+
+1. From the SAP workload integration details page, choose
+   **Delete**.
+2. Review the deletion impact, including any workflows or automations using this integration.
+3. Type the integration name to confirm deletion.
+4. Choose **Delete integration** to permanently remove it.
+
+## Troubleshoot SAP workload
+
+integrations
+
+Use these troubleshooting tips to resolve common SAP workload integration
+issues.
+
+### Authentication issues
+
+OAuth 2.0 authentication failures
+
+**Symptoms:** Token generation fails, invalid client credentials, or OAuth scope errors.
+
+**Resolution:**
+
+- Verify OAuth client ID and client secret are correct
+- Check that OAuth is properly configured in SAP using transaction `/IWFND/MAINT_SERVICE`
+- Ensure the required scopes are properly configured for your SAP workload connector type
+- Verify the token URL format matches your SAP system configuration
+
+Basic authentication failures
+
+**Symptoms:** Login failures, invalid credentials, or access denied errors.
+
+**Resolution:**
+
+- Verify SAP username and password are correct
+- Check that the user account has necessary SAP authorizations
+- Ensure the user account is not locked or expired
+- Verify the domain URL is accessible and correctly formatted
+
+### SAP system configuration issues
+
+API service not activated
+
+**Symptoms:** Service unavailable errors, API endpoint not found, or HTTP 404 responses.
+
+**Resolution:**
+
+- Verify the required SAP API service is activated in your system
+- Check API service status using SAP transaction codes
+- Ensure the API service corresponds to your chosen SAP connector type
+- Contact your SAP administrator to activate missing API services
+
+Connection timeouts
+
+**Symptoms:** Request timeouts, network connectivity errors, or slow response times.
+
+**Resolution:**
+
+- Check that your SAP system URL is correct and accessible
+- Verify network connectivity allows connections to SAP system
+- Ensure firewall rules permit the integration traffic
+- Check SAP system performance and availability
+
+### Permission and authorization errors
+
+Insufficient SAP authorizations
+
+**Symptoms:** Access denied errors, missing authorization messages, or restricted operation failures.
+
+**Resolution:**
+
+- Ensure the authenticated user has required SAP authorizations for the specific module
+- Verify the user has access to necessary transaction codes
+- Check that the user account has appropriate role assignments
+- Contact your SAP administrator to grant missing permissions
+
+Scope permission errors
+
+**Symptoms:** OAuth scope errors, insufficient permissions for API operations, or restricted access messages.
+
+**Resolution:**
+
+- Verify the OAuth configuration includes the required scope for your connector type
+- Check that the scope permissions are properly granted in SAP system
+- Ensure the OAuth client has been granted the necessary API access rights
+
+### Data format and parameter errors
+
+Invalid parameter formats
+
+**Symptoms:** Data validation errors, invalid field length messages, or parameter format exceptions.
+
+**Resolution:**
+
+- Review action parameters and ensure they match expected SAP data formats
+- Check field lengths match SAP system requirements (e.g., BusinessPartner max 10 characters)
+- Verify data types are correct for the specific SAP module
+- Ensure all required fields are provided for the operation
+
+Query parameter errors
+
+**Symptoms:** Query syntax errors, unsupported parameter messages, or malformed request errors.
+
+**Resolution:**
+
+- Verify parameters use correct syntax (e.g., `$filter`, `$top`,
+  `$skip`)
+- Check that the parameter values are properly formatted
+- Ensure the SAP API supports the specific parameters being used
+- Refer to SAP API documentation for supported query options
+
+### SAP system availability issues
+
+SAP system unavailability
+
+**Symptoms:** Connection refused errors, system not responding, or service unavailable messages.
+
+**Resolution:**
+
+- Check SAP system status and availability with your SAP administrator
+- Verify if there are scheduled maintenance windows affecting the system
+- Check for any SAP system alerts or known issues
+- Retry the operation after confirming system availability

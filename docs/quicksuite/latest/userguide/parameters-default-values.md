@@ -207,16 +207,107 @@ a default region `NorthEast` and a default segment
 `SMB`.
 
 | Viewed-by        | Default-region | Default-segment |
-| ---------------- | -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | -------------- | --------------- |
 | anacarolinasilva | NorthEast      | SMB             |
 | liujie           | SouthEast      | SMB             |
 | saanvisarkar     | NorthCentral   | SMB             |
-| zhangwei         | SouthCentral   | SMB             | 3. Import this data into Quick Suite, and save it as a new dataset. 4. In your analysis, add the dataset that you created. The analysis needs to use at least one other dataset that matches the columns you defined for the defaults. For more information, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md"). ###### To create a dataset for a multivalue DDP 1. Create dataset columns with multivalue parameters. The first column in the query or file should be for the people using the dashboard. This field can contain user names or group names. However, support for groups is only available in Quick Suite Enterprise edition. 2. For each field that displays a dynamic default for a multivalue parameter, add a column to the dataset. The name of the column doesn't matter—you can use the same name as the field or parameter. Unlike single-value parameters, multivalue parameters allow multiple values in the field that's associated with the parameter. The following example shows a table that appears to contain a single-value parameter and a multivalue parameter. We can make this assumption because each user name has a unique value in one column, and some user names have multiple values in the other column. To make this table easier to understand, we add the word `'default'` in front of the field names from the analysis. Thus, you can read the table by making the following statement, changing the values for each row: When `viewed-by` is `liujie`, the controls display a `default-region` value of `SouthEast`, and a `default-city` value of `Atlanta`. And if we read ahead one row, we see that `liujie` also has `Raleigh` in `default-city`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Viewed-by        | Default-region | Default-city    |
-| ---              | ---            | ---             |
-| anacarolinasilva | NorthEast      | New York        |
-| liujie           | SouthEast      | Atlanta         |
-| liujie           | SouthEast      | Raleigh         |
-| saanvisarkar     | NorthCentral   | Chicago         |
-| zhangwei         | SouthCentral   | Dallas          |
-| zhangwei         | SouthCentral   | Kansas City     | In this example, the parameter that we apply `default-region` to works correctly whether it's a single-value or multivalue parameter. If it's a single-value parameter, two entries work for one user because both entries are the same value, `SouthEast`. If it's a multivalue parameter, it still works, except that only one value is selected by default. However, if we change the parameter that's using `default-city` as its default from a multivalue to a single-value parameter, we don't see these defaults selected. Instead, the parameter uses the static default, if there is one defined. For example, if the static default is set to `Atlanta`, `liujie` has `Atlanta` selected in that control, but not `Raleigh`. In some cases, your static default value might also be used as a dynamic default. If so, make sure to test the control for a user name that doesn't use a default value that can be both. If a user name belongs to multiple groups, the named user sees a set of default values that is a union of the two groups' default values. 3. Import this data into Quick Suite, and save it as a new dataset. 4. In your analysis, add the dataset that you created. The analysis needs to use at least one other dataset that matches the columns you defined for the defaults. For more information, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md"). Use the following procedure to add a dynamic default parameter to your analysis. Before you begin, make sure that you have a dataset that contains the dynamic defaults for each user name or group name. Also make sure that your analysis is using this dataset. For help with these requirements, see the procedures preceding. ###### To add a DDP to your analysis 1. In the Quick Suite console, choose the **Parameters** icon at the top of the page and choose an existing parameter. Choose **Edit parameter** from the parameter's menu. To add a new parameter, choose the plus (`+`) sign near **Parameters**. 2. Choose **Set a dynamic default**. 3. Configure the following options with your settings: <br>• **Dataset with default values and user information** – Choose the dataset that you created and added to your analysis. <br>• **User name column** – To create defaults that are based on user names, choose the column in the dataset that contains the user names. <br>• **Group name column** – To create defaults that are based on group names, choose the column in the dataset that contains the group names. <br>• **Column for default value** – Choose the column that contains default values for this parameter. 4. Choose **Apply** to save your setting changes, and then choose **Update** to save the parameter changes. To exit without saving changes, choose **Cancel** instead. 5. Add a filter for each field that contains dynamic defaults to make the defaults work. To learn more about using filters with parameters, see [Using filters with parameters in Amazon Quick Suite](parameters-filtering-by.md "parameters-filtering-by.md") Amazon Quick Suite uses the static default value for anyone whose user name doesn't exist in the dataset, doesn't have a default assigned, or doesn't have a unique default. Each person can have only one set of defaults. If you don't want to use dynamic defaults, you can set a static default instead. |
+| zhangwei         | SouthCentral   | SMB             |
+
+3. Import this data into Quick Suite, and save it as a new dataset.
+4. In your analysis, add the dataset that you created. The analysis needs to use
+   at least one other dataset that matches the columns you defined for the
+   defaults. For more information, see [Adding a dataset to an
+   analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
+
+###### To create a dataset for a multivalue DDP
+
+1. Create dataset columns with multivalue parameters. The first column in the
+   query or file should be for the people using the dashboard. This field can
+   contain user names or group names. However, support for groups is only available
+   in Quick Suite Enterprise edition.
+2. For each field that displays a dynamic default for a multivalue parameter, add
+   a column to the dataset. The name of the column doesn't matter—you
+   can use the same name as the field or parameter.
+
+Unlike single-value parameters, multivalue parameters allow multiple values in
+the field that's associated with the parameter.
+
+The following example shows a table that appears to contain a single-value
+parameter and a multivalue parameter. We can make this assumption because each
+user name has a unique value in one column, and some user names have multiple
+values in the other column. To make this table easier to understand, we add the
+word `'default'` in front of the field names from the analysis. Thus,
+you can read the table by making the following statement, changing the values
+for each row: When `viewed-by` is `liujie`, the controls
+display a `default-region` value of `SouthEast`, and a
+`default-city` value of `Atlanta`. And if we read
+ahead one row, we see that `liujie` also has `Raleigh` in
+`default-city`.
+
+| Viewed-by        | Default-region | Default-city |
+| ---------------- | -------------- | ------------ |
+| anacarolinasilva | NorthEast      | New York     |
+| liujie           | SouthEast      | Atlanta      |
+| liujie           | SouthEast      | Raleigh      |
+| saanvisarkar     | NorthCentral   | Chicago      |
+| zhangwei         | SouthCentral   | Dallas       |
+| zhangwei         | SouthCentral   | Kansas City  |
+
+In this example, the parameter that we apply `default-region` to
+works correctly whether it's a single-value or multivalue parameter. If
+it's a single-value parameter, two entries work for one user because both
+entries are the same value, `SouthEast`. If it's a multivalue
+parameter, it still works, except that only one value is selected by default.
+However, if we change the parameter that's using `default-city`
+as its default from a multivalue to a single-value parameter, we don't see
+these defaults selected. Instead, the parameter uses the static default, if
+there is one defined. For example, if the static default is set to
+`Atlanta`, `liujie` has `Atlanta` selected
+in that control, but not `Raleigh`.
+
+In some cases, your static default value might also be used as a dynamic
+default. If so, make sure to test the control for a user name that doesn't
+use a default value that can be both.
+
+If a user name belongs to multiple groups, the named user sees a set of
+default values that is a union of the two groups' default values. 3. Import this data into Quick Suite, and save it as a new dataset. 4. In your analysis, add the dataset that you created. The analysis needs to use
+at least one other dataset that matches the columns you defined for the
+defaults. For more information, see [Adding a dataset to an
+analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
+Use the following procedure to add a dynamic default parameter to your analysis.
+Before you begin, make sure that you have a dataset that contains the dynamic defaults
+for each user name or group name. Also make sure that your analysis is using this
+dataset. For help with these requirements, see the procedures preceding.
+
+###### To add a DDP to your analysis
+
+1. In the Quick Suite console, choose the **Parameters**
+   icon at the top of the page and choose an existing parameter. Choose
+   **Edit parameter** from the parameter's menu. To add a
+   new parameter, choose the plus (`+`) sign near
+   **Parameters**.
+2. Choose **Set a dynamic default**.
+3. Configure the following options with your settings:
+   - **Dataset with default values and user information**
+     – Choose the dataset that you created and added to your analysis.
+   - **User name column** – To create defaults that
+     are based on user names, choose the column in the dataset that contains
+     the user names.
+   - **Group name column** – To create defaults
+     that are based on group names, choose the column in the dataset that
+     contains the group names.
+   - **Column for default value** – Choose the
+     column that contains default values for this parameter.
+
+4. Choose **Apply** to save your setting changes, and then
+   choose **Update** to save the parameter changes. To exit
+   without saving changes, choose **Cancel** instead.
+5. Add a filter for each field that contains dynamic defaults to make the
+   defaults work. To learn more about using filters with parameters, see [Using filters with parameters in
+   Amazon Quick Suite](parameters-filtering-by.md "parameters-filtering-by.md")
+
+Amazon Quick Suite uses the static default value for anyone whose user name
+doesn't exist in the dataset, doesn't have a default assigned, or
+doesn't have a unique default. Each person can have only one set of
+defaults. If you don't want to use dynamic defaults, you can set a static
+default instead.

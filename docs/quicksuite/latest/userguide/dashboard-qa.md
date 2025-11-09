@@ -17,11 +17,48 @@ dashboard. To protect sensitive or confidential data, enable
 The following table compares feature availability between dashboard Q&A and topic
 Q&A.
 
-| Q&A feature                                                    | Dashboard Q&A | Topic Q&A           |
-| -------------------------------------------------------------- | ------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allows users in all roles to ask and answer questions of data  | Yes           | Yes                 |
-| Allows author and admin roles to enable data Q&A on dashboards | Yes           | No (Pro users only) |
-| Suported in Quick Suite console embedding                      | No            | Yes                 |
-| Ability to add reviewed answers                                | No            | Yes                 |
-| Ability to customize Q&A-specific metadata                     | No            | Yes                 |
-| Ability to support autocomplete for data values                | No            | Yes                 | Use the procedure below to enable dashboard Q&A on a Quick Sight dashboard. ###### To enable dashboard Q&A on a dashboard 1. Open the [Quick Suite console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/"). 2. Open the analysis that the dashboard that you want to publish with Q&A enabled. 3. Choose **Publish**. 4. Check the **Allow data Q&A** check box. 5. (Optional) Choose **MANAGE Q&A** to choose which datasets you want to include in the dashboard Q&A experience. By default, all datasets that are used by the dashboard are included. 6. Choose **APPLY CHANGES**, and then choose **Publish dashboard**. After you publish a dashboard with the dashboard Q&A experience enabled, users can ask questions about their data with the **Ask a question about this dashboard** input at the top of the dashboard. Quick Suite allows any user to ask questions on dashboards that have dashboard Q&A enabled. However, dashboard Q&A is a feature that incurs the associated enablement fee. Quick Suite admins can disable this feature at the account level at any time. Use the following procedure to disable dashboard Q&A across an entire Quick Suite account. 1. Open the [Quick Suite console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/"). 2. Choose the user icon in the top right, and then choose **Manage Quick Suite**. 3. Choose **Security & permissions**. 4. Navigate to the Amazon Q section, and then choose **Manage**. 5. Toggle **Manage Dashboard Q&A** off. When you toggle **Manage Dashboard Q&A** off, dashboard Q&A is removed from any dashboards that have dashboard Q&A enabled. If your Quick Suite account does not have Pro users or topics, this action stops the Amazon Q enablement fee from billing your Quick Suite account. This setting does not impact Pro users or existing topics in Quick Suite. For more information about opting out of Generative BI, see [Opting out of Generative BI](generative-bi-opt-out.md "generative-bi-opt-out.md"). |
+| Q&A feature                                                       | Dashboard Q&A | Topic Q&A           |
+| ----------------------------------------------------------------- | ------------- | ------------------- |
+| Allows users in all roles to ask and answer questions of<br>data  | Yes           | Yes                 |
+| Allows author and admin roles to enable data Q&A on<br>dashboards | Yes           | No (Pro users only) |
+| Suported in Quick Suite console embedding                         | No            | Yes                 |
+| Ability to add reviewed answers                                   | No            | Yes                 |
+| Ability to customize Q&A-specific metadata                        | No            | Yes                 |
+| Ability to support autocomplete for data values                   | No            | Yes                 |
+
+Use the procedure below to enable dashboard Q&A on a Quick Sight
+dashboard.
+
+###### To enable dashboard Q&A on a dashboard
+
+1. Open the [Quick Suite console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. Open the analysis that the dashboard that you want to publish with Q&A
+   enabled.
+3. Choose **Publish**.
+4. Check the **Allow data Q&A** check box.
+5. (Optional) Choose **MANAGE Q&A** to choose which datasets
+   you want to include in the dashboard Q&A experience. By default, all
+   datasets that are used by the dashboard are included.
+6. Choose **APPLY CHANGES**, and then choose **Publish
+   dashboard**.
+   After you publish a dashboard with the dashboard Q&A experience enabled, users can
+   ask questions about their data with the **Ask a question about this
+   dashboard** input at the top of the dashboard.
+
+Quick Suite allows any user to ask questions on dashboards that have dashboard
+Q&A enabled. However, dashboard Q&A is a feature that incurs the associated
+enablement fee. Quick Suite admins can disable this feature at the account level
+at any time. Use the following procedure to disable dashboard Q&A across an entire
+Quick Suite account.
+
+1. Open the [Quick Suite console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
+2. Choose the user icon in the top right, and then choose **Manage Quick Suite**.
+3. Choose **Security & permissions**.
+4. Navigate to the Amazon Q section, and then choose **Manage**.
+5. Toggle **Manage Dashboard Q&A** off.
+   When you toggle **Manage Dashboard Q&A** off, dashboard Q&A
+   is removed from any dashboards that have dashboard Q&A enabled. If your
+   Quick Suite account does not have Pro users or topics, this action stops the Amazon Q
+   enablement fee from billing your Quick Suite account. This setting does not impact
+   Pro users or existing topics in Quick Suite. For more information about opting out
+   of Generative BI, see [Opting out of Generative BI](generative-bi-opt-out.md "generative-bi-opt-out.md").

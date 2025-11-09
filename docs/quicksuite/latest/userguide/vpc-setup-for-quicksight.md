@@ -2,9 +2,55 @@
 
 Amazon Quick Suite
 
-|                                           |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Applies to:** Enterprise Edition        |
-|                                           |
-| ---                                       |
-| Intended audience: System administrators  | To set up a VPC to use with Amazon Quick Suite Enterprise edition, you need access to Amazon VPC and Amazon EC2. You also need access to each AWS database service that you plan to add to Quick Suite. You can use the console, or you can use the AWS Command Line Interface (AWS CLI). For more information about the CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). To work with the CLI, go to [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"). Before you begin to set up your VPC connection in Amazon Quick Suite, make sure that you understand the components of a VPC deployment. As part of that, familiarize yourself with the VPC's subnets and security groups in relation to the destinations (databases) that you want to reach from Amazon Quick Suite. To set up a successful VPC connection, make sure that the following components work together to allow network traffic to pass between Amazon Quick Suite and your data source: <br>• The Amazon VPC service <br>• The subnets that your data source is using <br>• The Amazon Quick Suite elastic network interfaces and the subnets they use <br>• The route table <br>• Inbound and outbound rules for these security groups: + Security group for your VPC. We recommend you create a new security group to isolate the rules on the VPC security group from the rules on the Amazon Quick Suite network interface's security group). + Security group attached to the Amazon Quick Suite network interface. + Security group attached to the database server (for each database server that you want to use). <br>• (Optional) Amazon Route 53 Resolver inbound endpoints for private DNS resolution. In the following topics, you can find the network components that are involved. You can also find descriptions of their roles in the network configuration of your VPC and your Amazon Quick Suite VPC connection. The network interface for Amazon Quick Suite that is automatically created during setup is called the _Amazon Quick Suite network interface_ _(QNI)._ If your VPC is already completely configured, skip to the next section, [Finding information to connect to a VPC](../../../quicksight/latest/user/vpc-finding-setup-information.md "../../../quicksight/latest/user/vpc-finding-setup-information.md"). ###### Topics <br>• [VPC](vpc-amazon-virtual-private-cloud.md "vpc-amazon-virtual-private-cloud.md") <br>• [Subnets](vpc-subnets.md "vpc-subnets.md") <br>• [Security groups: inbound and outbound rules](vpc-security-groups.md "vpc-security-groups.md") <br>• [Sample rules](vpc-sample-rules.md "vpc-sample-rules.md") <br>• [Route table](vpc-route-table.md "vpc-route-table.md") <br>• [Amazon Quick Suite elastic network interface](vpc-qeni.md "vpc-qeni.md") <br>• [Inbound endpoints for Amazon Route 53 Resolver](vpc-route-53.md "vpc-route-53.md") |
+|                                            |
+| ------------------------------------------ |
+| \*_Applies<br>to:_<br>• Enterprise Edition |
+
+|                                             |
+| ------------------------------------------- |
+| Intended audience:<br>System administrators |
+
+To set up a VPC to use with Amazon Quick Suite Enterprise edition, you need access to Amazon VPC and
+Amazon EC2. You also need access to each AWS database service that you plan to add to
+Quick Suite. You can use the console, or you can use the AWS Command Line Interface (AWS CLI). For more
+information about the CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"). To work
+with the CLI, go to [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
+
+Before you begin to set up your VPC connection in Amazon Quick Suite, make sure that you
+understand the components of a VPC deployment. As part of that, familiarize yourself with
+the VPC's subnets and security groups in relation to the destinations (databases) that
+you want to reach from Amazon Quick Suite. To set up a successful VPC connection, make sure that
+the following components work together to allow network traffic to pass between Amazon Quick Suite
+and your data source:
+
+- The Amazon VPC service
+- The subnets that your data source is using
+- The Amazon Quick Suite elastic network interfaces and the subnets they use
+- The route table
+- Inbound and outbound rules for these security groups:
+  - Security group for your VPC. We recommend you create a new security group
+    to isolate the rules on the VPC security group from the rules on the
+    Amazon Quick Suite network interface's security group).
+  - Security group attached to the Amazon Quick Suite network interface.
+  - Security group attached to the database server (for each database server
+    that you want to use).
+
+- (Optional) Amazon Route 53 Resolver inbound endpoints for private DNS resolution.
+  In the following topics, you can find the network components that are involved. You can
+  also find descriptions of their roles in the network configuration of your VPC and your
+  Amazon Quick Suite VPC connection. The network interface for Amazon Quick Suite that is automatically
+  created during setup is called the _Amazon Quick Suite network
+  interface_ _(QNI)._
+
+If your VPC is already completely configured, skip to the next section, [Finding information to connect to a VPC](../../../quicksight/latest/user/vpc-finding-setup-information.md "../../../quicksight/latest/user/vpc-finding-setup-information.md").
+
+###### Topics
+
+- [VPC](vpc-amazon-virtual-private-cloud.md "vpc-amazon-virtual-private-cloud.md")
+- [Subnets](vpc-subnets.md "vpc-subnets.md")
+- [Security groups: inbound and outbound
+  rules](vpc-security-groups.md "vpc-security-groups.md")
+- [Sample rules](vpc-sample-rules.md "vpc-sample-rules.md")
+- [Route table](vpc-route-table.md "vpc-route-table.md")
+- [Amazon Quick Suite elastic network interface](vpc-qeni.md "vpc-qeni.md")
+- [Inbound endpoints for Amazon Route 53 Resolver](vpc-route-53.md "vpc-route-53.md")

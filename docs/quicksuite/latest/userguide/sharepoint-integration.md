@@ -134,11 +134,124 @@ After setting up your SharePoint integration with data access capabilities, you 
 
 SharePoint action connector provides 19 actions for managing SharePoint content.
 
-| SharePoint Actions | Action Name                           | Description | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------ | ------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SharePoint Actions | Action Name                           | Description | Type |
+| ------------------ | ------------------------------------- | ----------- | ---- |
 | Create Item        | Create a new list item                | Write       |
 | Update Item        | Update an existing list item          | Write       |
 | Delete Item        | Delete a list item                    | Write       |
 | Get Item           | Retrieve a specific list item         | Read        |
 | List Items         | List items in a SharePoint list       | Read        |
-| Get List           | Retrieve details of a SharePoint list | Read        | ###### Note Additional actions are available for Excel file management, site operations, and advanced list management. Review the complete action list after you create your integration. ## Manage knowledge bases After setting up your SharePoint integration, you can create and manage knowledge bases from your SharePoint content. ### Edit existing knowledge bases You can modify your existing SharePoint knowledge bases: 1. In the Amazon Quick Suite console, choose **Knowledge bases**. 2. Select your SharePoint knowledge base from the list. 3. Choose the three-dot icon under **Actions**, then choose **Edit knowledge base**. 4. Update your configuration settings as needed and choose **Save**. ### Create additional knowledge bases You can create multiple knowledge bases from the same SharePoint integration: 1. In the Amazon Quick Suite console, choose **Integrations**, and then select the **Data** tab. 2. Choose your existing SharePoint integration from the list. 3. Choose the three-dot icon under **Actions**, then choose **Create knowledge base**. 4. Configure your knowledge base settings and choose **Create**. For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings "knowledge-base-integrations.md#common-configuration-settings"). ### Supported content types You can create knowledge bases from these SharePoint content types. <br>• **Document libraries:** Word, Excel, PowerPoint, PDF, OneNote (.one) <br>• **Media files:** MP3, MP4, MOV, WMV <br>• **Site pages and wiki pages** ## Manage SharePoint integrations ###### Note Amazon Quick Suite doesn't sync ACLs from data sources. When you create a knowledge base in Amazon Quick Suite, by default only you can get insights from the knowledge base. For shared content, you can provide access to different users and groups by updating the knowledge base permissions. ## Troubleshooting Use this section to resolve common issues with SharePoint integration. ### Authentication issues #### Azure AD problems **Symptoms:** Authentication fails with Azure AD errors, token refresh failures, or permission denied messages. **Causes and resolutions:** <br>• **Incorrect app registration:** Verify the Azure AD app registration includes the required API permissions and OAuth scopes. <br>• **Expired client secret:** Check if the client secret has expired and generate a new one if needed. <br>• **Insufficient permissions:** Ensure the app registration has been granted admin consent for the required permissions. <br>• **Incorrect redirect URI:** Verify the redirect URI in Azure AD matches the one configured in Amazon Quick Suite. #### Permission sync failures **Symptoms:** Users cannot access content they should have permissions for, or see content they shouldn't access. **Causes and resolutions:** <br>• **Permission propagation delay:** SharePoint permissions may take time to propagate. Wait 15-30 minutes and retry. <br>• **Nested group permissions:** Check if the user is part of nested security groups that may affect permissions. <br>• **Broken permission inheritance:** Verify that SharePoint items haven't broken permission inheritance unexpectedly. ### Sync performance issues #### Slow sync **Symptoms:** Knowledge base sync takes longer than expected or appears to hang. **Causes and resolutions:** <br>• **Large content volume:** Reduce the scope of content being synced by applying more restrictive filters. <br>• **Network connectivity:** Check network connection stability and bandwidth availability. <br>• **SharePoint throttling:** SharePoint may be throttling requests. Retry the sync during off-peak hours. #### Content discovery problems **Symptoms:** Expected SharePoint content is not appearing in the knowledge base. **Causes and resolutions:** <br>• **Content filters too restrictive:** Review and adjust content filtering settings to include the missing content. <br>• **Unsupported content types:** Verify that the content type is supported by SharePoint integration. <br>• **Permission restrictions:** Ensure the integration has appropriate permissions to access the content. ### Common error messages `AADSTS50020: User account from identity provider does not exist in tenant` **Cause:** The user account is not properly configured in Azure AD. **Resolution:** Verify the user account exists in the correct Azure AD tenant and has appropriate licenses. `Access denied. You do not have permission to perform this action` **Cause:** Insufficient SharePoint permissions for the requested operation. **Resolution:** Contact your SharePoint administrator to verify and grant appropriate permissions. `The request is throttled` **Cause:** SharePoint is limiting the number of requests due to high usage. **Resolution:** Wait and retry the operation. Consider reducing the frequency of requests or syncing during off-peak hours. |
+| Get List           | Retrieve details of a SharePoint list | Read        |
+
+###### Note
+
+Additional actions are available for Excel file management, site operations, and advanced list management. Review the complete action list after you create your integration.
+
+## Manage knowledge bases
+
+After setting up your SharePoint integration, you can create and manage knowledge bases from your SharePoint content.
+
+### Edit existing knowledge bases
+
+You can modify your existing SharePoint knowledge bases:
+
+1. In the Amazon Quick Suite console, choose **Knowledge bases**.
+2. Select your SharePoint knowledge base from the list.
+3. Choose the three-dot icon under **Actions**, then choose **Edit knowledge base**.
+4. Update your configuration settings as needed and choose **Save**.
+
+### Create additional knowledge bases
+
+You can create multiple knowledge bases from the same SharePoint integration:
+
+1. In the Amazon Quick Suite console, choose **Integrations**, and then select the **Data** tab.
+2. Choose your existing SharePoint integration from the list.
+3. Choose the three-dot icon under **Actions**, then choose **Create knowledge base**.
+4. Configure your knowledge base settings and choose **Create**.
+
+For detailed information about knowledge base configuration options, see [Common configuration settings](knowledge-base-integrations.md#common-configuration-settings "knowledge-base-integrations.md#common-configuration-settings").
+
+### Supported content types
+
+You can create knowledge bases from these SharePoint content types.
+
+- **Document libraries:** Word, Excel, PowerPoint, PDF, OneNote (.one)
+- **Media files:** MP3, MP4, MOV, WMV
+- **Site pages and wiki pages**
+
+## Manage SharePoint integrations
+
+###### Note
+
+Amazon Quick Suite doesn't sync ACLs from data sources. When you create a knowledge base in Amazon Quick Suite,
+by default only you can get insights from the knowledge base.
+For shared content, you can provide access to different users and groups by updating the knowledge base permissions.
+
+## Troubleshooting
+
+Use this section to resolve common issues with SharePoint integration.
+
+### Authentication issues
+
+#### Azure AD problems
+
+**Symptoms:** Authentication fails with Azure AD errors, token refresh failures, or permission denied messages.
+
+**Causes and resolutions:**
+
+- **Incorrect app registration:** Verify the Azure AD app registration includes the required API permissions and OAuth scopes.
+- **Expired client secret:** Check if the client secret has expired and generate a new one if needed.
+- **Insufficient permissions:** Ensure the app registration has been granted admin consent for the required permissions.
+- **Incorrect redirect URI:** Verify the redirect URI in Azure AD matches the one configured in Amazon Quick Suite.
+
+#### Permission sync failures
+
+**Symptoms:** Users cannot access content they should have permissions for, or see content they shouldn't access.
+
+**Causes and resolutions:**
+
+- **Permission propagation delay:** SharePoint permissions may take time to propagate. Wait 15-30 minutes and retry.
+- **Nested group permissions:** Check if the user is part of nested security groups that may affect permissions.
+- **Broken permission inheritance:** Verify that SharePoint items haven't broken permission inheritance unexpectedly.
+
+### Sync performance issues
+
+#### Slow sync
+
+**Symptoms:** Knowledge base sync takes longer than expected or appears to hang.
+
+**Causes and resolutions:**
+
+- **Large content volume:** Reduce the scope of content being synced by applying more restrictive filters.
+- **Network connectivity:** Check network connection stability and bandwidth availability.
+- **SharePoint throttling:** SharePoint may be throttling requests. Retry the sync during off-peak hours.
+
+#### Content discovery problems
+
+**Symptoms:** Expected SharePoint content is not appearing in the knowledge base.
+
+**Causes and resolutions:**
+
+- **Content filters too restrictive:** Review and adjust content filtering settings to include the missing content.
+- **Unsupported content types:** Verify that the content type is supported by SharePoint integration.
+- **Permission restrictions:** Ensure the integration has appropriate permissions to access the content.
+
+### Common error messages
+
+`AADSTS50020: User account from identity provider does not exist in tenant`
+
+**Cause:** The user account is not properly configured in Azure AD.
+
+**Resolution:** Verify the user account exists in the correct Azure AD tenant and has appropriate licenses.
+
+`Access denied. You do not have permission to perform this action`
+
+**Cause:** Insufficient SharePoint permissions for the requested operation.
+
+**Resolution:** Contact your SharePoint administrator to verify and grant appropriate permissions.
+
+`The request is throttled`
+
+**Cause:** SharePoint is limiting the number of requests due to high usage.
+
+**Resolution:** Wait and retry the operation. Consider reducing the frequency of requests or syncing during off-peak hours.
