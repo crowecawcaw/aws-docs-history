@@ -124,21 +124,40 @@ because transit gateways reside outside of the subnet. For more information, see
 For Internet Group Management Protocol (IGMP) multicast traffic, the following are the
 minimum inbound rules. The remote host is the host sending the multicast traffic.
 
-| Type                | Protocol | Source                     | Description                |
-| ------------------- | -------- | -------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Custom Protocol     | IGMP(2)  | 0.0.0.0/32                 | IGMP query                 |
-| Custom UDP Protocol | UDP      | Remote host IP address     | Inbound multicast traffic  | The following are the minimum outbound rules for IGMP.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Type                | Protocol | Source                 | Description               |
+| ------------------- | -------- | ---------------------- | ------------------------- |
+| Custom Protocol     | IGMP(2)  | 0.0.0.0/32             | IGMP query                |
+| Custom UDP Protocol | UDP      | Remote host IP address | Inbound multicast traffic |
+
+The following are the minimum outbound rules for IGMP.
+
 | Type                | Protocol | Destination                | Description                |
-| ---                 | ---      | ---                        | ---                        |
+| ------------------- | -------- | -------------------------- | -------------------------- |
 | Custom Protocol     | IGMP(2)  | 224.0.0.2/32               | IGMP leave                 |
 | Custom Protocol     | IGMP(2)  | Multicast group IP address | IGMP join                  |
-| Custom UDP Protocol | UDP      | Multicast group IP address | Outbound multicast traffic | ### Security groups Security group rules operate at the instance level. They can be applied to both inbound and outbound multicast traffic. The behavior is the same as with unicast traffic. For all group member instances, you must allow inbound traffic from the group source. For more information, see [Security groups](../userguide/vpc-security-groups.md "../userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_. For IGMP multicast traffic, you must have the following inbound rules at a minimum. The remote host is the host sending the multicast traffic. You can't specify a security group as the source of the UDP inbound rule. |
-| Type                | Protocol | Source                     | Description                |
-| ---                 | ---      | ---                        | ---                        |
-| Custom Protocol     | 2        | 0.0.0.0/32                 | IGMP query                 |
-| Custom UDP Protocol | UDP      | Remote host IP address     | Inbound multicast traffic  | For IGMP multicast traffic, you must have the following outbound rules at a minimum.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Custom UDP Protocol | UDP      | Multicast group IP address | Outbound multicast traffic |
+
+### Security groups
+
+Security group rules operate at the instance level. They can be applied to both
+inbound and outbound multicast traffic. The behavior is the same as with unicast
+traffic. For all group member instances, you must allow inbound traffic from the group
+source. For more information, see [Security groups](../userguide/vpc-security-groups.md "../userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_.
+
+For IGMP multicast traffic, you must have the following inbound rules at a minimum.
+The remote host is the host sending the multicast traffic. You can't specify a security
+group as the source of the UDP inbound rule.
+
+| Type                | Protocol | Source                 | Description               |
+| ------------------- | -------- | ---------------------- | ------------------------- |
+| Custom Protocol     | 2        | 0.0.0.0/32             | IGMP query                |
+| Custom UDP Protocol | UDP      | Remote host IP address | Inbound multicast traffic |
+
+For IGMP multicast traffic, you must have the following outbound rules at a
+minimum.
+
 | Type                | Protocol | Destination                | Description                |
-| ---                 | ---      | ---                        | ---                        |
+| ------------------- | -------- | -------------------------- | -------------------------- |
 | Custom Protocol     | 2        | 224.0.0.2/32               | IGMP leave                 |
 | Custom Protocol     | 2        | Multicast group IP address | IGMP join                  |
 | Custom UDP Protocol | UDP      | Multicast group IP address | Outbound multicast traffic |

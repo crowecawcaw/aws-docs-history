@@ -99,12 +99,85 @@ VPC.
 ![Transit gateway Connect attachment and Connect peer](images/transit-gateway-connect-peer.png)
 
 | Diagram component                                                      | Description               |
-| ---------------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------- | ------------------------- |
 | Shows how VPC attachments are represented in the example diagram.      | VPC attachment            |
 | Shows how Connect attachments are represented in the example diagram.  | Connect attachment        |
 | Shows how GRE tunnels are represented in the example diagram.          | GRE tunnel (Connect peer) |
-| Shows how BGP peering sessions are represented in the example diagram. | BGP peering session       | In the preceding example, a Connect attachment is created on an existing VPC attachment (the transport attachment). A Connect peer is created on the Connect attachment to establish a connection to an appliance in the VPC. The transit gateway address is `192.0.2.1`, and the range of BGP addresses is `169.254.6.0/29`. The first IP address in the range (`169.254.6.1`) is configured on the appliance as the peer BGP IP address. The subnet route table for VPC C has a route that points traffic destined for the transit gateway CIDR block to the transit gateway.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Destination                                                            | Target                    |
-| ---                                                                    | ---                       |
-| 172.31.0.0/16                                                          | Local                     |
-| 192.0.2.0/24                                                           | _tgw-id_                  | ## Requirements and considerations The following are the requirements and considerations for a Connect attachment. <br>• For information about what Regions support Connect attachments, see the [AWS Transit Gateways FAQ](https://aws.amazon.com/transit-gateway/faqs/ "https://aws.amazon.com/transit-gateway/faqs/"). <br>• The third-party appliance must be configured to send and receive traffic over a GRE tunnel to and from the transit gateway using the Connect attachment. <br>• The third-party appliance must be configured to use BGP for dynamic route updates and health checks. <br>• The following types of BGP are supported: + Exterior BGP (eBGP): Used for connecting to routers that are in a different autonomous system than the transit gateway. If you use eBGP, you must configure ebgp-multihop with a time-to-live (TTL) value of 2. + Interior BGP (iBGP): Used for connecting to routers that are in the same autonomous system as the transit gateway. The transit gateway will not install routes from an iBGP peer (third-party appliance), unless the routes are originated from an eBGP peer and should have next-hop-self configured. The routes advertised by third-party appliance over the iBGP peering must have an ASN. + MP-BGP (multiprotocol extensions for BGP): Used for supporting multiple protocol types, such as IPv4 and IPv6 address families. <br>• The default BGP keep-alive timeout is 10 seconds and the default hold timer is 30 seconds. <br>• IPv6 BGP peering is not supported; only IPv4-based BGP peering is supported. IPv6 prefixes are exchanged over IPv4 BGP peering using MP-BGP. <br>• Bidirectional Forwarding Detection (BFD) is not supported. <br>• BGP graceful restart is not supported. <br>• When you create a transit gateway peer, if you do not specify a peer ASN number, we pick the transit gateway ASN number. This means that your appliance and transit gateway will be in the same autonomous system doing iBGP. <br>• A Connect peer using the BGP AS-PATH attribute is the preferred route when you have two Connect peers. To use equal-cost multi-path (ECMP) routing between multiple appliances, you must configure the appliance to advertise the same prefixes to the transit gateway with the same BGP AS-PATH attribute. For the transit gateway to choose all of the available ECMP paths, the AS-PATH and Autonomous System Number (ASN) must match. The transit gateway can use ECMP between Connect peers for the same Connect attachment or between Connect attachments on the same transit gateway. The transit gateway cannot use ECMP between both of the redundant BGP peerings a single peer establishes to it. <br>• With a Connect attachment, the routes are propagated to a transit gateway route table by default. <br>• Static routes are not supported. <br>• Configure the GRE tunnel MTU to be smaller than the external interface MTU by subtracting the GRE header (24 bytes) and outer IP header (20 bytes) overhead. For example, if your external interface MTU is 1500 bytes, set the GRE tunnel MTU to 1456 bytes (1500 - 24 - 20 = 1456) to prevent packet fragmentation. ###### Tasks <br>• [Create a Connect attachment](create-tgw-connect-attachment.md "create-tgw-connect-attachment.md") <br>• [Create a Connect peer](create-tgw-connect-peer.md "create-tgw-connect-peer.md") <br>• [View Connect attachments and Connect peers](view-tgw-connect-attachments.md "view-tgw-connect-attachments.md") <br>• [Modify Connect attachment and Connect peer tags](modify-connect-attachment-tag.md "modify-connect-attachment-tag.md") <br>• [Delete a Connect peer](delete-tgw-connect-peer.md "delete-tgw-connect-peer.md") <br>• [Delete a Connect attachment](delete-tgw-connect-attachment.md "delete-tgw-connect-attachment.md") |
+| Shows how BGP peering sessions are represented in the example diagram. | BGP peering session       |
+
+In the preceding example, a Connect attachment is created on an existing VPC
+attachment (the transport attachment). A Connect peer is created on the
+Connect attachment to establish a connection to an appliance in the VPC. The transit gateway
+address is `192.0.2.1`, and the range of BGP addresses is
+`169.254.6.0/29`. The first IP address in the range
+(`169.254.6.1`) is configured on the appliance as the peer BGP IP
+address.
+
+The subnet route table for VPC C has a route that points traffic destined for the transit gateway
+CIDR block to the transit gateway.
+
+| Destination   | Target   |
+| ------------- | -------- |
+| 172.31.0.0/16 | Local    |
+| 192.0.2.0/24  | _tgw-id_ |
+
+## Requirements and considerations
+
+The following are the requirements and considerations for a Connect attachment.
+
+- For information about what Regions support Connect attachments, see the [AWS Transit Gateways FAQ](https://aws.amazon.com/transit-gateway/faqs/ "https://aws.amazon.com/transit-gateway/faqs/").
+- The third-party appliance must be configured to send and receive traffic over
+  a GRE tunnel to and from the transit gateway using the Connect attachment.
+- The third-party appliance must be configured to use BGP for dynamic route
+  updates and health checks.
+- The following types of BGP are supported:
+  - Exterior BGP (eBGP): Used for connecting to routers that are in a
+    different autonomous system than the transit gateway. If you use eBGP, you must
+    configure ebgp-multihop with a time-to-live (TTL) value of 2.
+  - Interior BGP (iBGP): Used for connecting to routers that are in the
+    same autonomous system as the transit gateway. The transit gateway will not
+    install routes from an iBGP peer (third-party appliance), unless the
+    routes are originated from an eBGP peer and should have next-hop-self
+    configured. The routes advertised by third-party appliance over the iBGP
+    peering must have an ASN.
+  - MP-BGP (multiprotocol extensions for BGP): Used for supporting
+    multiple protocol types, such as IPv4 and IPv6 address families.
+
+- The default BGP keep-alive timeout is 10 seconds and the default hold timer is
+  30 seconds.
+- IPv6 BGP peering is not supported; only IPv4-based BGP peering is supported.
+  IPv6 prefixes are exchanged over IPv4 BGP peering using MP-BGP.
+- Bidirectional Forwarding Detection (BFD) is not supported.
+- BGP graceful restart is not supported.
+- When you create a transit gateway peer, if you do not specify a peer ASN number, we pick
+  the transit gateway ASN number. This means that your appliance and transit gateway will be in the
+  same autonomous system doing iBGP.
+- A Connect peer using the BGP AS-PATH attribute is the
+  preferred route when you have two Connect peers.
+
+To use equal-cost multi-path (ECMP) routing between multiple appliances, you
+must configure the appliance to advertise the same prefixes to the transit gateway with
+the same BGP AS-PATH attribute. For the transit gateway to choose all of the available
+ECMP paths, the AS-PATH and Autonomous System Number (ASN) must match. The transit gateway
+can use ECMP between Connect peers for the same Connect attachment or between
+Connect attachments on the same transit gateway. The transit gateway cannot use ECMP between both
+of the redundant BGP peerings a single peer establishes to it.
+
+- With a Connect attachment, the routes are propagated to a transit gateway
+  route table by default.
+- Static routes are not supported.
+- Configure the GRE tunnel MTU to be smaller than the external interface MTU by
+  subtracting the GRE header (24 bytes) and outer IP header (20 bytes) overhead.
+  For example, if your external interface MTU is 1500 bytes, set the GRE tunnel
+  MTU to 1456 bytes (1500 - 24 - 20 = 1456) to prevent packet
+  fragmentation.
+
+###### Tasks
+
+- [Create a Connect attachment](create-tgw-connect-attachment.md "create-tgw-connect-attachment.md")
+- [Create a Connect peer](create-tgw-connect-peer.md "create-tgw-connect-peer.md")
+- [View Connect attachments and
+  Connect peers](view-tgw-connect-attachments.md "view-tgw-connect-attachments.md")
+- [Modify Connect attachment and Connect peer tags](modify-connect-attachment-tag.md "modify-connect-attachment-tag.md")
+- [Delete a Connect peer](delete-tgw-connect-peer.md "delete-tgw-connect-peer.md")
+- [Delete a Connect attachment](delete-tgw-connect-attachment.md "delete-tgw-connect-attachment.md")
