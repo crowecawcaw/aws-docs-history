@@ -47,43 +47,170 @@ actions
 The following AWS Security Finding Format (ASFF) fields are currently supported as criteria for automation
 rules:
 
-| Rule criterion                    | Filter operators                                                        | Field type                                                                        |
-| --------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AwsAccountId`                    | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `AwsAccountName`                  | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `CompanyName`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ComplianceAssociatedStandardsId` | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ComplianceSecurityControlId`     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ComplianceStatus`                | `Is, Is Not`                                                            | Select: [`FAILED`, `NOT_AVAILABLE`, `PASSED`, `WARNING`]                          |
-| `Confidence`                      | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)`        | Number                                                                            |
-| `CreatedAt`                       | `Start, End, DateRange`                                                 | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
-| `Criticality`                     | `Eq (equal-to), Gte (greater-than-equal), Lte (less-than-equal)`        | Number                                                                            |
-| `Description`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `FirstObservedAt`                 | `Start, End, DateRange`                                                 | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
-| `GeneratorId`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `Id`                              | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `LastObservedAt`                  | `Start, End, DateRange`                                                 | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
-| `NoteText`                        | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `NoteUpdatedAt`                   | `Start, End, DateRange`                                                 | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
-| `NoteUpdatedBy`                   | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ProductArn`                      | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ProductName`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `RecordState`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `RelatedFindingsId`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `RelatedFindingsProductArn`       | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourceApplicationArn`          | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourceApplicationName`         | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourceDetailsOther`            | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                            | Map                                                                               |
-| `ResourceId`                      | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourcePartition`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourceRegion`                  | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `ResourceTags`                    | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                            | Map                                                                               |
-| `ResourceType`                    | `Is, Is Not`                                                            | Select (see [Resources](asff-resources.md "asff-resources.md") supported by ASFF) |
-| `SeverityLabel`                   | `Is, Is Not`                                                            | Select: [`CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`]                    |
-| `SourceUrl`                       | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `Title`                           | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `Type`                            | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `UpdatedAt`                       | `Start, End, DateRange`                                                 | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
-| `UserDefinedFields`               | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                            | Map                                                                               |
-| `VerificationState`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS, PREFIX_NOT_EQUALS` | String                                                                            |
-| `WorkflowStatus`                  | `Is, Is Not`                                                            | Select: [`NEW`, `NOTIFIED`, `RESOLVED`, `SUPPRESSED`]                             | For criteria that are labeled as string fields, using different filter operators on the same field affects the evaluation logic. For more information, see [StringFilter](../../1.0/APIReference/API_StringFilter.md "../../1.0/APIReference/API_StringFilter.md") in the _AWS Security Hub CSPM API Reference_. Each criterion supports a maximum number of values that can be used to filter matching findings. For the limits on each criterion, see [AutomationRulesFindingFilters](../../1.0/APIReference/API_AutomationRulesFindingFilters.md "../../1.0/APIReference/API_AutomationRulesFindingFilters.md") in the _AWS Security Hub CSPM API Reference_. The following ASFF fields are currently supported as actions for automation rules: <br>• `Confidence` <br>• `Criticality` <br>• `Note` <br>• `RelatedFindings` <br>• `Severity` <br>• `Types` <br>• `UserDefinedFields` <br>• `VerificationState` <br>• `Workflow` For more information about specific ASFF fields, see [AWS Security Finding Format (ASFF) syntax](securityhub-findings-format.md "securityhub-findings-format.md"). ###### Tip If you want Security Hub CSPM to stop generating findings for a specific control, we recommend disabling the control instead of using an automation rule. When you disable a control, Security Hub CSPM stops running security checks on it and stops generating findings for it, so you won't incur charges for that control. We recommend using automation rules to change the values of specific ASFF fields for findings that match defined criteria. For more information about disabling controls, see [Disabling controls in Security Hub CSPM](disable-controls-overview.md "disable-controls-overview.md"). ## Findings that automation rules evaluate An automation rule evaluates new and updated findings that Security Hub CSPM generates or ingests through the [BatchImportFindings](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation _after_ you create the rule. Security Hub CSPM updates control findings every 12-24 hours or when the associated resource changes state. For more information, see [Schedule for running security checks](securityhub-standards-schedule.md "securityhub-standards-schedule.md"). Automation rules evaluate original, provider-supplied findings. Providers can supply new findings and update existing findings by using the `BatchImportFindings` operation of the Security Hub CSPM API. If the following fields don't exist in the original finding, Security Hub CSPM automatically populates the fields and then uses the populated values in the evaluation by the automation rule: <br>• `AwsAccountName` <br>• `CompanyName` <br>• `ProductName` <br>• `Resource.Tags` <br>• `Workflow.Status` After you create one or more automation rules, the rules aren't triggered if you update finding fields by using the [BatchUpdateFindings](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") operation. If you create an automation rule and make a `BatchUpdateFindings` update that both affect the same finding field, the last update sets the value for that field. Take the following example: 1. You use the `BatchUpdateFindings` operation to change the value for the `Workflow.Status` field of a finding from `NEW` to `NOTIFIED`. 2. If you call `GetFindings`, the `Workflow.Status` field now has a value of `NOTIFIED`. 3. You create an automation rule that changes the `Workflow.Status` field of the finding from `NEW` to `SUPPRESSED`. (Recall that rules ignore updates made using the `BatchUpdateFindings` operation.) 4. The finding provider uses the `BatchImportFindings` operation to update the finding and changes the value for the `Workflow.Status` field of the finding to `NEW`. 5. If you call `GetFindings`, the `Workflow.Status` field now has a value of `SUPPRESSED`. This is the case because the automation rule was applied, and the rule was the last action taken on the finding. When you create or edit a rule on the Security Hub CSPM console, the console displays a beta of findings that match the rule criteria. Whereas automation rules evaluate original findings sent by the finding provider, the console beta reflects findings in their final state as they would be shown in a response to the [GetFindings](../../1.0/APIReference/API_GetFindings.md "../../1.0/APIReference/API_GetFindings.md") operation (that is, after rule actions or other updates are applied to the finding). ## How rule order works When creating automation rules, you assign each rule an order. This determines the order in which Security Hub CSPM applies your automation rules, and becomes important when multiple rules relate to the same finding or finding field. When multiple rule actions relate to the same finding or finding field, the rule with the highest numerical value for rule order applies last and has the ultimate effect. When you create a rule in the Security Hub CSPM console, Security Hub CSPM automatically assigns rule order based on the order of rule creation. The most recently created rule has the lowest numerical value for rule order and therefore applies first. Security Hub CSPM applies subsequent rules in ascending order. When you create a rule through the Security Hub CSPM API or AWS CLI, Security Hub CSPM applies the rule with the lowest numerical value for `RuleOrder` first. It then applies subsequent rules in ascending order. If multiple findings have the same `RuleOrder`, Security Hub CSPM applies a rule with an earlier value for the `UpdatedAt` field first (that is, the rule which was most recently edited applies last). You can modify rule order at any time. **Example of rule order**: **Rule A (rule order is `1`)**: <br>• Rule A criteria + `ProductName` = `Security Hub CSPM` + `Resources.Type` is `S3 Bucket` + `Compliance.Status` = `FAILED` + `RecordState` is `NEW` + `Workflow.Status` = `ACTIVE` <br>• Rule A actions + Update `Confidence` to `95` + Update `Severity` to `CRITICAL` **Rule B (rule order is `2`)**: <br>• Rule B criteria + `AwsAccountId` = `123456789012` <br>• Rule B actions + Update `Severity` to `INFORMATIONAL` Rule A actions apply first to Security Hub CSPM findings that match Rule A criteria. Next, Rule B actions apply to Security Hub CSPM findings with the specified account ID. In this example, since Rule B applies last, the end value of `Severity` in findings from the specified account ID is `INFORMATIONAL`. Based on the Rule A action, the end value of `Confidence` in matched findings is `95`. |
+| Rule criterion                    | Filter operators                                                           | Field type                                                                        |
+| --------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `AwsAccountId`                    | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `AwsAccountName`                  | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `CompanyName`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ComplianceAssociatedStandardsId` | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ComplianceSecurityControlId`     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ComplianceStatus`                | `Is, Is Not`                                                               | Select: [`FAILED`, `NOT_AVAILABLE`,<br>`PASSED`, `WARNING`]                       |
+| `Confidence`                      | `Eq (equal-to), Gte (greater-than-equal), Lte<br>(less-than-equal)`        | Number                                                                            |
+| `CreatedAt`                       | `Start, End, DateRange`                                                    | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
+| `Criticality`                     | `Eq (equal-to), Gte (greater-than-equal), Lte<br>(less-than-equal)`        | Number                                                                            |
+| `Description`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `FirstObservedAt`                 | `Start, End, DateRange`                                                    | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
+| `GeneratorId`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `Id`                              | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `LastObservedAt`                  | `Start, End, DateRange`                                                    | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
+| `NoteText`                        | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `NoteUpdatedAt`                   | `Start, End, DateRange`                                                    | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
+| `NoteUpdatedBy`                   | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ProductArn`                      | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ProductName`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `RecordState`                     | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `RelatedFindingsId`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `RelatedFindingsProductArn`       | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourceApplicationArn`          | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourceApplicationName`         | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourceDetailsOther`            | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                               | Map                                                                               |
+| `ResourceId`                      | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourcePartition`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourceRegion`                  | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `ResourceTags`                    | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                               | Map                                                                               |
+| `ResourceType`                    | `Is, Is Not`                                                               | Select (see [Resources](asff-resources.md "asff-resources.md") supported by ASFF) |
+| `SeverityLabel`                   | `Is, Is Not`                                                               | Select: [`CRITICAL`, `HIGH`,<br>`MEDIUM`, `LOW`, `INFORMATIONAL`]                 |
+| `SourceUrl`                       | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `Title`                           | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `Type`                            | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `UpdatedAt`                       | `Start, End, DateRange`                                                    | Date (formatted as 2022-12-01T21:47:39.269Z)                                      |
+| `UserDefinedFields`               | `CONTAINS, EQUALS, NOT_CONTAINS, NOT_EQUALS`                               | Map                                                                               |
+| `VerificationState`               | `CONTAINS, EQUALS, PREFIX, NOT_CONTAINS, NOT_EQUALS,<br>PREFIX_NOT_EQUALS` | String                                                                            |
+| `WorkflowStatus`                  | `Is, Is Not`                                                               | Select: [`NEW`, `NOTIFIED`,<br>`RESOLVED`, `SUPPRESSED`]                          |
+
+For criteria that are labeled as string fields, using different filter operators on the same field
+affects the evaluation logic. For more information, see [StringFilter](../../1.0/APIReference/API_StringFilter.md "../../1.0/APIReference/API_StringFilter.md") in the _AWS Security Hub CSPM API Reference_.
+
+Each criterion supports a maximum number of values that can be used to filter matching findings. For the limits on
+each criterion, see [AutomationRulesFindingFilters](../../1.0/APIReference/API_AutomationRulesFindingFilters.md "../../1.0/APIReference/API_AutomationRulesFindingFilters.md") in the _AWS Security Hub CSPM API Reference_.
+
+The following ASFF fields are currently supported as actions for automation
+rules:
+
+- `Confidence`
+- `Criticality`
+- `Note`
+- `RelatedFindings`
+- `Severity`
+- `Types`
+- `UserDefinedFields`
+- `VerificationState`
+- `Workflow`
+
+For more information about specific ASFF fields, see [AWS Security Finding Format
+(ASFF) syntax](securityhub-findings-format.md "securityhub-findings-format.md").
+
+###### Tip
+
+If you want Security Hub CSPM to stop generating findings for a specific control, we
+recommend disabling the control instead of using an automation rule. When you
+disable a control, Security Hub CSPM stops running security checks on it and stops generating
+findings for it, so you won't incur charges for that control. We recommend using
+automation rules to change the values of specific ASFF fields for findings that
+match defined criteria. For more information about disabling controls, see [Disabling controls in Security Hub CSPM](disable-controls-overview.md "disable-controls-overview.md").
+
+## Findings that automation rules evaluate
+
+An automation rule evaluates new and updated findings that Security Hub CSPM generates or
+ingests through the [BatchImportFindings](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation _after_
+you create the rule. Security Hub CSPM updates control findings every 12-24 hours or when the
+associated resource changes state. For more information, see [Schedule for running security checks](securityhub-standards-schedule.md "securityhub-standards-schedule.md").
+
+Automation rules evaluate original, provider-supplied findings. Providers can supply
+new findings and update existing findings by using the `BatchImportFindings`
+operation of the Security Hub CSPM API. If the following fields don't exist in the original finding,
+Security Hub CSPM automatically populates the fields and then uses the populated values in the
+evaluation by the automation rule:
+
+- `AwsAccountName`
+- `CompanyName`
+- `ProductName`
+- `Resource.Tags`
+- `Workflow.Status`
+
+After you create one or more automation rules, the rules aren't triggered if you update finding fields by using the [BatchUpdateFindings](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") operation. If you create an automation rule and make a `BatchUpdateFindings` update that both affect the same finding field, the last update sets the value for that field. Take the following example:
+
+1. You use the `BatchUpdateFindings` operation to change the value for the
+   `Workflow.Status` field of a finding from `NEW` to
+   `NOTIFIED`.
+2. If you call `GetFindings`, the `Workflow.Status` field now has a value of `NOTIFIED`.
+3. You create an automation rule that changes the `Workflow.Status` field of the
+   finding from `NEW` to `SUPPRESSED`. (Recall that rules
+   ignore updates made using the `BatchUpdateFindings`
+   operation.)
+4. The finding provider uses the `BatchImportFindings` operation to update the finding
+   and changes the value for the `Workflow.Status` field of the finding
+   to `NEW`.
+5. If you call `GetFindings`, the `Workflow.Status` field now has a value
+   of `SUPPRESSED`. This is the case because the automation rule was
+   applied, and the rule was the last action taken on the finding.
+
+When you create or edit a rule on the Security Hub CSPM console, the console displays a beta
+of findings that match the rule criteria. Whereas automation rules evaluate original
+findings sent by the finding provider, the console beta reflects findings in their final
+state as they would be shown in a response to the [GetFindings](../../1.0/APIReference/API_GetFindings.md "../../1.0/APIReference/API_GetFindings.md") operation (that is, after rule actions or other
+updates are applied to the finding).
+
+## How rule order works
+
+When creating automation rules, you assign each rule an order. This determines the
+order in which Security Hub CSPM applies your automation rules, and becomes important when
+multiple rules relate to the same finding or finding field.
+
+When multiple rule actions relate to the same finding or finding field, the rule
+with the highest numerical value for rule order applies last and has the ultimate
+effect.
+
+When you create a rule in the Security Hub CSPM console, Security Hub CSPM automatically assigns rule
+order based on the order of rule creation. The most recently created rule has the
+lowest numerical value for rule order and therefore applies first. Security Hub CSPM applies
+subsequent rules in ascending order.
+
+When you create a rule through the Security Hub CSPM API or AWS CLI, Security Hub CSPM applies the rule with
+the lowest numerical value for `RuleOrder` first. It then applies
+subsequent rules in ascending order. If multiple findings have the same
+`RuleOrder`, Security Hub CSPM applies a rule with an earlier value for the
+`UpdatedAt` field first (that is, the rule which was most recently
+edited applies last).
+
+You can modify rule order at any time.
+
+**Example of rule order**:
+
+**Rule A (rule order is `1`)**:
+
+- Rule A criteria
+  - `ProductName` = `Security Hub CSPM`
+  - `Resources.Type` is `S3 Bucket`
+  - `Compliance.Status` = `FAILED`
+  - `RecordState` is `NEW`
+  - `Workflow.Status` = `ACTIVE`
+
+- Rule A actions
+  - Update `Confidence` to `95`
+  - Update `Severity` to `CRITICAL`
+
+**Rule B (rule order is `2`)**:
+
+- Rule B criteria
+  - `AwsAccountId` = `123456789012`
+
+- Rule B actions
+  - Update `Severity` to `INFORMATIONAL`
+
+Rule A actions apply first to Security Hub CSPM findings that match Rule A criteria. Next,
+Rule B actions apply to Security Hub CSPM findings with the specified account ID. In this
+example, since Rule B applies last, the end value of `Severity` in
+findings from the specified account ID is `INFORMATIONAL`. Based on the
+Rule A action, the end value of `Confidence` in matched findings is
+`95`.

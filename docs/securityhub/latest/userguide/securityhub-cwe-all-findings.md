@@ -129,14 +129,28 @@ specify filter values for the following finding attributes:
 
 ###### To create an EventBridge rule (console)
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. Using the following values, create an EventBridge rule that monitors finding
-   events:
-   - For **Rule type**, choose **Rule with an
-     event pattern**.
-   - Choose how to build the event pattern.
+1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
+2.  Using the following values, create an EventBridge rule that monitors finding
+    events:
 
-| To build the event pattern with...                                                                                                              | Do this...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A template                                                                                                                                      | In the **Event pattern** section, choose the following options: + For **Event source**, choose **AWS services**. + For **AWS service**, choose **Security Hub**. + For **Event type**, choose **Security Hub Findings - Imported**. + (Optional) To make the rule more specific, add filter values. For example, to limit the rule to findings with active record states, for **Specific Record state(s)**, choose **Active**.                                                                                                                                                                                                                                                                                                                |
-| A custom event pattern (Use a custom pattern if you want to filter findings based on attributes that do not appear in the EventBridge console.) | + In the **Event pattern** section, choose **Custom patterns (JSON editor)**, and then paste the following event pattern into the text area: ``{ "source": [ "aws.securityhub" ], "detail-type": [ "Security Hub Findings - Imported" ], "detail": { "findings": { "`<attribute name>`": [ "`<value1>`", "`<value2>`"] } } }`` + Update the event pattern to include the attribute and attribute values that you want to use as a filter. For example, to apply the rule to findings that have a verification state of `TRUE_POSITIVE`, use the following pattern example: `{ "source": [ "aws.securityhub" ], "detail-type": [ "Security Hub Findings - Imported" ], "detail": { "findings": { "VerificationState": ["TRUE_POSITIVE"] } } }` | <br>• For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when an event is received that matches the event pattern defined in the rule. For details about creating rules, see [Creating Amazon EventBridge rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User Guide_. |
+        * For **Rule type**, choose **Rule with an
+         event pattern**.
+        * Choose how to build the event pattern.
+
+
+
+
+        | To build the event pattern with... | Do this... |
+        | --- | --- |
+        | A template | In the **Event pattern**<br>section, choose the following options:<br>+ For **Event source**,<br>choose **AWS services**.<br>+ For **AWS service**,<br>choose **Security Hub**.<br>+ For **Event type**, choose<br>**Security Hub Findings -<br>Imported**.<br>+ (Optional) To make the rule more specific,<br>add filter values. For example, to limit the rule<br>to findings with active record states, for<br>**Specific Record state(s)**,<br>choose **Active**. |
+        | A custom event pattern<br>(Use a custom pattern if you want to filter<br>findings based on attributes that do not appear in<br>the EventBridge console.) | + In the **Event pattern**<br>section, choose **Custom patterns (JSON<br>editor)**, and then paste the following<br>event pattern into the text area:<br>```<br>{<br>"source": [<br>"aws.securityhub"<br>],<br>"detail-type": [<br>"Security Hub Findings<br>• Imported"<br>],<br>"detail": {<br>"findings": {<br>"`<attribute name>`": [ "`<value1>`", "`<value2>`"]<br>}<br>}<br>}<br>```<br>+ Update the event pattern to include the<br>attribute and attribute values that you want to<br>use as a filter.<br>For example, to apply the rule to findings<br>that have a verification state of<br>`TRUE_POSITIVE`, use the following<br>pattern example:<br>```<br>{<br>"source": [<br>"aws.securityhub"<br>],<br>"detail-type": [<br>"Security Hub Findings<br>• Imported"<br>],<br>"detail": {<br>"findings": {<br>"VerificationState": ["TRUE_POSITIVE"]<br>}<br>}<br>}<br>``` |
+        * For **Target types**, choose
+         **AWS service**, and for
+         **Select a target**, choose a
+         target such as an Amazon SNS topic or AWS Lambda function. The target is
+         triggered when an event is received that matches the event pattern
+         defined in the rule.
+
+    For details about creating rules, see [Creating Amazon EventBridge
+    rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User
+    Guide_.

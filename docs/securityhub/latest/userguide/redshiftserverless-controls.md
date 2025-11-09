@@ -116,9 +116,97 @@ SI-7(6)
 
 **Parameters:**
 
-| Parameter             | Description                                                                                                                                                                                                                          | Type                            | Allowed custom values                                                                                                      | Security Hub default value |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kmsKeyArns`          | A list of Amazon Resource Names (ARNs) of AWS KMS keys to include in the evaluation. The control generates a `FAILED` finding if a Redshift Serverless namespace isn't encrypted with a KMS key in the list.                         | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example: `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value           | This control checks whether an Amazon Redshift Serverless namespace is encrypted at rest with a customer managed AWS KMS key. The control fails if the Redshift Serverless namespace isn't encrypted with a customer managed KMS key. You can optionally specify a list of KMS keys for the control to include in the evaluation. In Amazon Redshift Serverless, a namespace defines a logical container for database objects. This control periodically checks whether the encryption settings for a namespace specify a customer managed AWS KMS key, instead of an AWS managed KMS key, for encryption of data in the namespace. With a customer managed KMS key, you have full control of the key. This includes defining and maintaining the key policy, managing grants, rotating cryptographic material, assigning tags, creating aliases, and enabling and disabling the key. ### Remediation For information about updating the encryption settings for an Amazon Redshift Serverless namespace and specifying a customer managed AWS KMS key, see [Changing the AWS KMS key for a namespace](../../../redshift/latest/mgmt/serverless-workgroups-and-namespaces-rotate-kms-key.md "../../../redshift/latest/mgmt/serverless-workgroups-and-namespaces-rotate-kms-key.md") in the _Amazon Redshift Management Guide_. ## [RedshiftServerless.5] Redshift Serverless namespaces should not use the default admin username **Category:** Identify > Resource configuration **Severity:** Medium **Resource type:** `AWS::RedshiftServerless::Namespace` **AWS Config rule:** [redshift-serverless-default-admin-check](../../../config/latest/developerguide/redshift-serverless-default-admin-check.md "../../../config/latest/developerguide/redshift-serverless-default-admin-check.md") **Schedule type:** Periodic **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Parameter             | Description                                                                                                                                                                                                                          | Type                            | Allowed custom values                                                                                                      | Security Hub default value |
-| ---                   | ---                                                                                                                                                                                                                                  | ---                             | ---                                                                                                                        | ---                        |
-| `validAdminUserNames` | A list of admin usernames that Redshift Serverless namespaces should use. The control generates a `FAILED` finding if a namespace uses an admin username that isn't in the list. The list cannot specify the default value, `admin`. | StringList (maximum of 6 items) | 1–6 valid admin usernames for Redshift Serverless namespaces.                                                              | No default value           | This control checks whether the admin username for an Amazon Redshift Serverless namespace is the default admin username, `admin`. The control fails if the admin username for the Redshift Serverless namespace is `admin`. You can optionally specify a list of admin usernames for the control to include in the evaluation. When creating an Amazon Redshift Serverless namespace, you should specify a custom admin username for the namespace. The default admin username is public knowledge. By specifying a custom admin username, you can, for example, help mitigate the risk or effectiveness of brute force attacks against the namespace. ### Remediation You can change the admin username for an Amazon Redshift Serverless namespace by using the Amazon Redshift Serverless console or API. To change it by using the console, choose the namespace configuration, and then choose **Edit admin credentials** on the **Actions** menu. To change it programmatically, use the [UpdateNamespace](../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md "../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md") operation or, if you’re using the AWS CLI, run the [update-namespace](../../../cli/latest/reference/redshift-serverless/update-namespace.md "../../../cli/latest/reference/redshift-serverless/update-namespace.md") command. If you change the admin username, you must also change the admin password at the same time. ## [RedshiftServerless.6] Redshift Serverless namespaces should export logs to CloudWatch Logs **Category:** Identify > Logging **Severity:** Medium **Resource type:** `AWS::RedshiftServerless::Namespace` **AWS Config rule:** [redshift-serverless-publish-logs-to-cloudwatch](../../../config/latest/developerguide/redshift-serverless-publish-logs-to-cloudwatch.md "../../../config/latest/developerguide/redshift-serverless-publish-logs-to-cloudwatch.md") **Schedule type:** Periodic **Parameters:** None This control checks whether an Amazon Redshift Serverless namespace is configured to export connection and user logs to Amazon CloudWatch Logs. The control fails if the Redshift Serverless namespace isn't configured to export the logs to CloudWatch Logs. If you configure Amazon Redshift Serverless to export connection log (`connectionlog`) and user log (`userlog`) data to a log group in Amazon CloudWatch Logs, you can collect and store your log records in durable storage, which can support security, access, and availability reviews and audits. With CloudWatch Logs, you can also perform real-time analysis of log data and use CloudWatch to create alarms and review metrics. ### Remediation To export log data for an Amazon Redshift Serverless namespace to Amazon CloudWatch Logs, the respective logs must be selected for export in the audit logging configuration settings for the namespace. For information about updating these settings, see [Editing security and encryption](../../../redshift/latest/mgmt/serverless-console-configuration-edit-network-settings.md "../../../redshift/latest/mgmt/serverless-console-configuration-edit-network-settings.md") in the _Amazon Redshift Management Guide_. |
+| Parameter    | Description                                                                                                                                                                                                        | Type                            | Allowed custom values                                                                                                         | Security Hub default value |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `kmsKeyArns` | A list of Amazon Resource Names (ARNs) of AWS KMS keys to include in the<br>evaluation. The control generates a `FAILED` finding if a Redshift Serverless namespace<br>isn't encrypted with a KMS key in the list. | StringList (maximum of 3 items) | 1–3 ARNs of existing KMS keys. For example:<br>`arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`. | No default value           |
+
+This control checks whether an Amazon Redshift Serverless namespace is encrypted at rest with a customer
+managed AWS KMS key. The control fails if the Redshift Serverless namespace isn't encrypted with a
+customer managed KMS key. You can optionally specify a list of KMS keys for the control to
+include in the evaluation.
+
+In Amazon Redshift Serverless, a namespace defines a logical container for database objects. This control
+periodically checks whether the encryption settings for a namespace specify a customer managed
+AWS KMS key, instead of an AWS managed KMS key, for encryption of data in the
+namespace. With a customer managed KMS key, you have full control of the key. This includes
+defining and maintaining the key policy, managing grants, rotating cryptographic material,
+assigning tags, creating aliases, and enabling and disabling the key.
+
+### Remediation
+
+For information about updating the encryption settings for an Amazon Redshift Serverless namespace and
+specifying a customer managed AWS KMS key, see [Changing the AWS KMS key for a namespace](../../../redshift/latest/mgmt/serverless-workgroups-and-namespaces-rotate-kms-key.md "../../../redshift/latest/mgmt/serverless-workgroups-and-namespaces-rotate-kms-key.md") in the _Amazon Redshift
+Management Guide_.
+
+## [RedshiftServerless.5] Redshift Serverless namespaces should not use the default admin username
+
+**Category:** Identify > Resource configuration
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RedshiftServerless::Namespace`
+
+**AWS Config rule:**
+[redshift-serverless-default-admin-check](../../../config/latest/developerguide/redshift-serverless-default-admin-check.md "../../../config/latest/developerguide/redshift-serverless-default-admin-check.md")
+
+**Schedule type:** Periodic
+
+**Parameters:**
+
+| Parameter             | Description                                                                                                                                                                                                                                   | Type                            | Allowed custom values                                         | Security Hub default value |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------- | -------------------------- |
+| `validAdminUserNames` | A list of admin usernames that Redshift Serverless namespaces should use. The control<br>generates a `FAILED` finding if a namespace uses an admin username that<br>isn't in the list. The list cannot specify the default value,<br>`admin`. | StringList (maximum of 6 items) | 1–6 valid admin usernames for Redshift Serverless namespaces. | No default value           |
+
+This control checks whether the admin username for an Amazon Redshift Serverless namespace is the default
+admin username, `admin`. The control fails if the admin username for the Redshift Serverless
+namespace is `admin`. You can optionally specify a list of admin usernames for the
+control to include in the evaluation.
+
+When creating an Amazon Redshift Serverless namespace, you should specify a custom admin username for the
+namespace. The default admin username is public knowledge. By specifying a custom admin
+username, you can, for example, help mitigate the risk or effectiveness of brute force attacks
+against the namespace.
+
+### Remediation
+
+You can change the admin username for an Amazon Redshift Serverless namespace by using the Amazon Redshift Serverless
+console or API. To change it by using the console, choose the namespace configuration, and
+then choose **Edit admin credentials** on the **Actions**
+menu. To change it programmatically, use the [UpdateNamespace](../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md "../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md") operation or, if you’re using the AWS CLI, run the [update-namespace](../../../cli/latest/reference/redshift-serverless/update-namespace.md "../../../cli/latest/reference/redshift-serverless/update-namespace.md") command. If you change the admin username, you must also change
+the admin password at the same time.
+
+## [RedshiftServerless.6] Redshift Serverless namespaces should export logs to
+
+CloudWatch Logs
+
+**Category:** Identify > Logging
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RedshiftServerless::Namespace`
+
+**AWS Config rule:**
+[redshift-serverless-publish-logs-to-cloudwatch](../../../config/latest/developerguide/redshift-serverless-publish-logs-to-cloudwatch.md "../../../config/latest/developerguide/redshift-serverless-publish-logs-to-cloudwatch.md")
+
+**Schedule type:** Periodic
+
+**Parameters:** None
+
+This control checks whether an Amazon Redshift Serverless namespace is configured to export connection and
+user logs to Amazon CloudWatch Logs. The control fails if the Redshift Serverless namespace isn't configured to export
+the logs to CloudWatch Logs.
+
+If you configure Amazon Redshift Serverless to export connection log (`connectionlog`) and user
+log (`userlog`) data to a log group in Amazon CloudWatch Logs, you can collect and store your
+log records in durable storage, which can support security, access, and availability reviews
+and audits. With CloudWatch Logs, you can also perform real-time analysis of log data and use CloudWatch to
+create alarms and review metrics.
+
+### Remediation
+
+To export log data for an Amazon Redshift Serverless namespace to Amazon CloudWatch Logs, the respective logs must be
+selected for export in the audit logging configuration settings for the namespace. For
+information about updating these settings, see [Editing security and encryption](../../../redshift/latest/mgmt/serverless-console-configuration-edit-network-settings.md "../../../redshift/latest/mgmt/serverless-console-configuration-edit-network-settings.md") in the _Amazon Redshift Management
+Guide_.

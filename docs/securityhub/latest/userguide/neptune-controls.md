@@ -179,5 +179,169 @@ enabled
 **Parameters:**
 
 | Parameter                      | Description                             | Type    | Allowed custom values | Security Hub default value |
-| ------------------------------ | --------------------------------------- | ------- | --------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `minimumBackupRetentionPeriod` | Minimum backup retention period in days | Integer | `7` to `35`           | `7`                        | This control checks whether a Neptune DB cluster has automated backups enabled, and a backup retention period greater than or equal to the specified time frame. The control fails if backups aren't enabled for the Neptune DB cluster, or if the retention period is less than the specified time frame. Unless you provide a custom parameter value for the backup retention period, Security Hub uses a default value of 7 days. Backups help you recover more quickly from a security incident and strengthen the resilience of your systems. By automating backups for your Neptune DB clusters, you'll be able to restore your systems to a point in time and minimize downtime and data loss. ### Remediation To enable automated backups and set a backup retention period for your Neptune DB clusters, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.Enabling "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.Enabling") in the _Amazon RDS User Guide_. For **Backup retention period**, choose a value greater than or equal to 7. ## [Neptune.6] Neptune DB cluster snapshots should be encrypted at rest **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(18) **Category:** Protect > Data Protection > Encryption of data-at-rest **Severity:** Medium **Resource type:** `AWS::RDS::DBClusterSnapshot` **AWS Config rule:** [`neptune-cluster-snapshot-encrypted`](../../../config/latest/developerguide/neptune-cluster-snapshot-encrypted.md "../../../config/latest/developerguide/neptune-cluster-snapshot-encrypted.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether a Neptune DB cluster snapshot is encrypted at rest. The control fails if a Neptune DB cluster isn't encrypted at rest. Data at rest refers to any data that's stored in persistent, non-volatile storage for any duration. Encryption helps you protect the confidentiality of such data, reducing the risk that an unauthorized user gets access to it. Data in Neptune DB clusters snapshots should be encrypted at rest for an added layer of security. ### Remediation You can't encrypt an existing Neptune DB cluster snapshot. Instead, you must restore the snapshot to a new DB cluster and enable encryption on the cluster. You can create an encrypted snapshot from the encrypted cluster. For instructions, see [Restoring from a DB cluster snapshot](../../../neptune/latest/userguide/backup-restore-restore-snapshot.md "../../../neptune/latest/userguide/backup-restore-restore-snapshot.md") and [Creating a DB cluster snapshot in Neptune](../../../neptune/latest/userguide/backup-restore-create-snapshot.md "../../../neptune/latest/userguide/backup-restore-create-snapshot.md") in the _Neptune User Guide_. ## [Neptune.7] Neptune DB clusters should have IAM database authentication enabled **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6 **Category:** Protect > Secure access management > Passwordless authentication **Severity:** Medium **Resource type:** `AWS::RDS::DBCluster` **AWS Config rule:** [`neptune-cluster-iam-database-authentication`](../../../config/latest/developerguide/neptune-cluster-iam-database-authentication.md "../../../config/latest/developerguide/neptune-cluster-iam-database-authentication.md") **Schedule type:** Change triggered **Parameters:** None This control checks if a Neptune DB cluster has IAM database authentication enabled. The control fails if IAM database authentication isn't enabled for a Neptune DB cluster. IAM database authentication for Amazon Neptune database clusters removes the need to store user credentials within the database configuration because authentication is managed externally using IAM. When IAM database authentication is enabled, each request needs to be signed using AWS Signature Version 4. ### Remediation By default, IAM database authentication is disabled when you create a Neptune DB cluster. To enable it, see [Enabling IAM database authentication in Neptune](../../../neptune/latest/userguide/iam-auth-enable.md "../../../neptune/latest/userguide/iam-auth-enable.md") in the _Neptune User Guide_. ## [Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2) **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::RDS::DBCluster` **AWS Config rule:** [`neptune-cluster-copy-tags-to-snapshot-enabled`](../../../config/latest/developerguide/neptune-cluster-copy-tags-to-snapshot-enabled.md "../../../config/latest/developerguide/neptune-cluster-copy-tags-to-snapshot-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks if a Neptune DB cluster is configured to copy all tags to snapshots when the snapshots are created. The control fails if a Neptune DB cluster isn't configured to copy tags to snapshots. Identification and inventory of your IT assets is a crucial aspect of governance and security. You should tag snapshots in the same way as their parent Amazon RDS database clusters. Copying tags ensures that the metadata for the DB snapshots matches that of the parent database clusters, and that access policies for the DB snapshot also match those of the parent DB instance. ### Remediation To copy tags to snapshots for Neptune DB clusters, see [Copying tags in Neptune](../../../neptune/latest/userguide/tagging.md#tagging-overview "../../../neptune/latest/userguide/tagging.md#tagging-overview") in the _Neptune User Guide_. ## [Neptune.9] Neptune DB clusters should be deployed across multiple Availability Zones **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5) **Category:** Recover > Resilience > High availability **Severity:** Medium **Resource type:** `AWS::RDS::DBCluster` **AWS Config rule:** [`neptune-cluster-multi-az-enabled`](../../../config/latest/developerguide/neptune-cluster-multi-az-enabled.md "../../../config/latest/developerguide/neptune-cluster-multi-az-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks if an Amazon Neptune DB cluster has read-replica instances in multiple Availability Zones (AZs). The control fails if the cluster is deployed in only one AZ. If an AZ is unavailable and during regular maintenance events, read-replicas serve as failover targets for the primary instance. That is, if the primary instance fails, Neptune promotes a read-replica instance to become the primary instance. By contrast, if your DB cluster doesn't include any read-replica instances, your DB cluster remains unavailable when the primary instance fails until it has been re-created. Re-creating the primary instance takes considerably longer than promoting a read-replica. To ensure high availability, we recommend that you create one or more read-replica instances that have the same DB instance class as the primary instance and are located in different AZs than the primary instance. ### Remediation To deploy a Neptune DB cluster in multiple AZs,, see [Read-replica DB instances in a Neptune DB cluster](../../../neptune/latest/userguide/feature-overview-db-clusters.md#feature-overview-read-replicas "../../../neptune/latest/userguide/feature-overview-db-clusters.md#feature-overview-read-replicas") in the _Neptune User Guide_. |
+| ------------------------------ | --------------------------------------- | ------- | --------------------- | -------------------------- |
+| `minimumBackupRetentionPeriod` | Minimum backup retention period in days | Integer | `7` to `35`           | `7`                        |
+
+This control checks whether a Neptune DB cluster has automated backups enabled, and
+a backup retention period greater than or equal to the specified time frame. The control fails if backups
+aren't enabled for the Neptune DB cluster, or if the retention period is less than the specified time frame.
+Unless you provide a custom parameter value for the backup retention period, Security Hub uses a default value of 7 days.
+
+Backups help you recover more quickly from a security incident and strengthen the
+resilience of your systems. By automating backups for your Neptune DB clusters, you'll
+be able to restore your systems to a point in time and minimize downtime and data loss.
+
+### Remediation
+
+To enable automated backups and set a backup retention period for your Neptune DB
+clusters, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.Enabling "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.Enabling") in the
+_Amazon RDS User Guide_. For **Backup retention period**, choose a value greater
+than or equal to 7.
+
+## [Neptune.6] Neptune DB cluster snapshots should be
+
+encrypted at rest
+
+**Related requirements:** NIST.800-53.r5 CA-9(1),
+NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
+SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(18)
+
+**Category:** Protect > Data Protection > Encryption of data-at-rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RDS::DBClusterSnapshot`
+
+**AWS Config rule:**
+[`neptune-cluster-snapshot-encrypted`](../../../config/latest/developerguide/neptune-cluster-snapshot-encrypted.md "../../../config/latest/developerguide/neptune-cluster-snapshot-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a Neptune DB cluster snapshot is encrypted at rest. The
+control fails if a Neptune DB cluster isn't encrypted at rest.
+
+Data at rest refers to any data that's stored in persistent, non-volatile storage for
+any duration. Encryption helps you protect the confidentiality of such data, reducing
+the risk that an unauthorized user gets access to it. Data in Neptune DB clusters
+snapshots should be encrypted at rest for an added layer of security.
+
+### Remediation
+
+You can't encrypt an existing Neptune DB cluster snapshot. Instead, you must restore the snapshot
+to a new DB cluster and enable encryption on the cluster. You can create an encrypted snapshot from the
+encrypted cluster. For instructions, see [Restoring from a DB cluster
+snapshot](../../../neptune/latest/userguide/backup-restore-restore-snapshot.md "../../../neptune/latest/userguide/backup-restore-restore-snapshot.md") and [Creating a DB cluster snapshot in
+Neptune](../../../neptune/latest/userguide/backup-restore-create-snapshot.md "../../../neptune/latest/userguide/backup-restore-create-snapshot.md") in the _Neptune User Guide_.
+
+## [Neptune.7] Neptune DB clusters should have IAM
+
+database authentication enabled
+
+**Related requirements:** NIST.800-53.r5 AC-2(1),
+NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5
+AC-6
+
+**Category:** Protect > Secure access management >
+Passwordless authentication
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RDS::DBCluster`
+
+**AWS Config rule:**
+[`neptune-cluster-iam-database-authentication`](../../../config/latest/developerguide/neptune-cluster-iam-database-authentication.md "../../../config/latest/developerguide/neptune-cluster-iam-database-authentication.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks if a Neptune DB cluster has IAM database authentication
+enabled. The control fails if IAM database authentication isn't enabled for a
+Neptune DB cluster.
+
+IAM database authentication for Amazon Neptune database clusters removes the need to
+store user credentials within the database configuration because authentication is
+managed externally using IAM. When IAM database authentication is enabled, each
+request needs to be signed using AWS Signature Version 4.
+
+### Remediation
+
+By default, IAM database authentication is disabled when you create a Neptune
+DB cluster. To enable it, see [Enabling IAM database
+authentication in Neptune](../../../neptune/latest/userguide/iam-auth-enable.md "../../../neptune/latest/userguide/iam-auth-enable.md") in the
+_Neptune User Guide_.
+
+## [Neptune.8] Neptune DB clusters should be configured to
+
+copy tags to snapshots
+
+**Related requirements:** NIST.800-53.r5 CA-9(1),
+NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::RDS::DBCluster`
+
+**AWS Config rule:**
+[`neptune-cluster-copy-tags-to-snapshot-enabled`](../../../config/latest/developerguide/neptune-cluster-copy-tags-to-snapshot-enabled.md "../../../config/latest/developerguide/neptune-cluster-copy-tags-to-snapshot-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks if a Neptune DB cluster is configured to copy all tags to
+snapshots when the snapshots are created. The control fails if a Neptune DB cluster
+isn't configured to copy tags to snapshots.
+
+Identification and inventory of your IT assets is a crucial aspect of governance and
+security. You should tag snapshots in the same way as their parent Amazon RDS database
+clusters. Copying tags ensures that the metadata for the DB snapshots matches that of
+the parent database clusters, and that access policies for the DB snapshot also match
+those of the parent DB instance.
+
+### Remediation
+
+To copy tags to snapshots for Neptune DB clusters, see [Copying tags in Neptune](../../../neptune/latest/userguide/tagging.md#tagging-overview "../../../neptune/latest/userguide/tagging.md#tagging-overview") in the
+_Neptune User Guide_.
+
+## [Neptune.9] Neptune DB clusters should be deployed across multiple Availability Zones
+
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36,
+NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+
+**Category:** Recover > Resilience > High availability
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::RDS::DBCluster`
+
+**AWS Config rule:**
+[`neptune-cluster-multi-az-enabled`](../../../config/latest/developerguide/neptune-cluster-multi-az-enabled.md "../../../config/latest/developerguide/neptune-cluster-multi-az-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks if an Amazon Neptune DB cluster has read-replica instances in multiple Availability Zones (AZs).
+The control fails if the cluster is deployed in only one AZ.
+
+If an AZ is unavailable and during regular maintenance events, read-replicas serve as failover targets for the
+primary instance. That is, if the primary instance fails, Neptune promotes a read-replica instance to become the
+primary instance. By contrast, if your DB cluster doesn't include any read-replica instances, your DB cluster
+remains unavailable when the primary instance fails until it has been re-created. Re-creating the primary instance
+takes considerably longer than promoting a read-replica. To ensure high availability, we recommend that you create one
+or more read-replica instances that have the same DB instance class as the primary instance and are located in
+different AZs than the primary instance.
+
+### Remediation
+
+To deploy a Neptune DB cluster in multiple AZs,, see [Read-replica DB instances in a Neptune DB cluster](../../../neptune/latest/userguide/feature-overview-db-clusters.md#feature-overview-read-replicas "../../../neptune/latest/userguide/feature-overview-db-clusters.md#feature-overview-read-replicas") in the
+_Neptune User Guide_.

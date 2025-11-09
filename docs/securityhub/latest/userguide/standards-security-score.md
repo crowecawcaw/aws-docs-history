@@ -42,9 +42,56 @@ status](controls-overall-status.md "controls-overall-status.md").
 **Scoring example:**
 
 | Standard                                        | Passed controls | Failed controls | Unknown controls | Standard score |
-| ----------------------------------------------- | --------------- | --------------- | ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------- | --------------- | --------------- | ---------------- | -------------- |
 | AWS Foundational Security Best Practices v1.0.0 | 168             | 22              | 0                | 88%            |
 | CIS AWS Foundations Benchmark v1.4.0            | 8               | 29              | 0                | 22%            |
 | CIS AWS Foundations Benchmark v1.2.0            | 6               | 35              | 0                | 15%            |
 | NIST Special Publication 800-53 Revision 5      | 159             | 56              | 0                | 74%            |
-| PCI DSS v3.2.1                                  | 28              | 17              | 0                | 62%            | When calculating the summary security score, Security Hub CSPM counts each control only once across standards. For example, if you have enabled a control that applies to three enabled standards, it only counts as one enabled control for scoring purposes. In this example, although the total number of enabled controls across enabled standards is 528, Security Hub CSPM counts each unique control only once for scoring purposes. The number of unique enabled controls is likely lower than 528. If we assume the number of unique enabled controls is 515, and the number of unique passed controls is 357, the summary score is 69%. This score is calculated by dividing the number of unique passed controls by the number of unique enabled controls. You might have a summary score that differs from the standard security score, even if you've enabled only one standard in your account in the current Region. This can occur if you're signed in to an administrator account and member accounts have additional standards or different standards enabled. This can also occur if you're viewing the score from the aggregation Region and additional standards or different standards are enabled in linked Regions. ## Security scores for administrator accounts If you're signed in to an administrator account, the summary security score and standard scores account for control statuses in the administrator account and all of the member accounts. If the status of a control is **Failed** in even one member account, its status is **Failed** in the administrator account and impacts the administrator account scores. If you're signed in to an administrator account and are viewing scores in an aggregation Region, security scores account for control statuses in all member accounts _and_ all linked Regions. ## Security scores if you have set an aggregation Region If you have set an aggregation AWS Region, the summary security score and standard scores account for control statuses in all linked Regions. If the status of a control is **Failed** in even one linked Region, its status is **Failed** in the aggregation Region and impacts the aggregation Region scores. If you're signed in to an administrator account and are viewing scores in an aggregation Region, security scores account for control statuses in all member accounts _and_ all linked Regions. |
+| PCI DSS v3.2.1                                  | 28              | 17              | 0                | 62%            |
+
+When calculating the summary security score, Security Hub CSPM counts each control only
+once across standards. For example, if you have enabled a control that applies to three enabled standards, it only
+counts as one enabled control for scoring purposes.
+
+In this example, although the total number of enabled controls across enabled standards is 528, Security Hub CSPM counts each
+unique control only once for scoring purposes. The number of unique enabled controls is likely lower than 528. If we assume the number of unique enabled controls
+is 515, and the number of unique passed controls is 357, the summary score is 69%. This score is calculated by dividing
+the number of unique passed controls by the number of unique enabled controls.
+
+You might have a summary score that differs from the standard security score, even if you've
+enabled only one standard in your account in the current Region. This can occur if
+you're signed in to an administrator account and member accounts have additional
+standards or different standards enabled. This can also occur if you're viewing the
+score from the aggregation Region and additional standards or different standards are
+enabled in linked Regions.
+
+## Security scores for administrator
+
+accounts
+
+If you're signed in to an administrator account, the summary security score and
+standard scores account for control statuses in the administrator account and all of the
+member accounts.
+
+If the status of a control is **Failed** in even one member account,
+its status is **Failed** in the administrator account and impacts the
+administrator account scores.
+
+If you're signed in to an administrator account and are viewing scores in an
+aggregation Region, security scores account for control statuses in all member accounts
+_and_ all linked Regions.
+
+## Security scores if you have set
+
+an aggregation Region
+
+If you have set an aggregation AWS Region, the summary security score and standard
+scores account for control statuses in all  linked Regions.
+
+If the status of a control is **Failed** in even one linked Region,
+its status is **Failed** in the aggregation Region and impacts the
+aggregation Region scores.
+
+If you're signed in to an administrator account and are viewing scores in an
+aggregation Region, security scores account for control statuses in all member accounts
+_and_ all linked Regions.

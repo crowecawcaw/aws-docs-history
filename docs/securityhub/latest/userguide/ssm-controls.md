@@ -221,5 +221,105 @@ For information about configuring sharing for Systems Manager documents, see [Sh
 **Parameters:**
 
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Systems Manager document has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the document doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the document doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. The control doesn't evaluate Systems Manager documents that are owned by Amazon. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation To add tags to an AWS Systems Manager document, you can use the [AddTagsToResource](../../../systems-manager/latest/APIReference/API_AddTagsToResource.md "../../../systems-manager/latest/APIReference/API_AddTagsToResource.md") operation of the AWS Systems Manager API or, if you're using the AWS CLI, run the [add-tags-to-resource](../../../cli/latest/reference/ssm/add-tags-to-resource.md "../../../cli/latest/reference/ssm/add-tags-to-resource.md") command. You can also use the AWS Systems Manager console. ## [SSM.6] SSM Automation should have CloudWatch logging enabled **Category:** Identify > Logging **Severity:** Medium **Resource type:** `AWS::::Account` **AWS Config rule:** [ssm-automation-logging-enabled](../../../config/latest/developerguide/ssm-automation-logging-enabled.md "../../../config/latest/developerguide/ssm-automation-logging-enabled.md") **Schedule type:** Periodic **Parameters:** None This control checks whether Amazon CloudWatch logging is enabled for AWS Systems Manager (SSM) Automation. The control fails if CloudWatch logging isn't enabled for SSM Automation. SSM Automation is an AWS Systems Manager tool that helps you build automated solutions to deploy, configure, and manage AWS resources at scale using predefined or custom runbooks. To meet operational or security requirements for your organization, you might need to provide a record of the scripts that it runs. You can configure SSM Automation to send the output from `aws:executeScript` actions in your runbooks to an Amazon CloudWatch Logs log group that you specify. With CloudWatch Logs, you can monitor, store, and access log files from various AWS services. ### Remediation For information about enabling CloudWatch logging for SSM Automation, see [Logging Automation action output with CloudWatch Logs](../../../systems-manager/latest/userguide/automation-action-logging.md "../../../systems-manager/latest/userguide/automation-action-logging.md") in the _AWS Systems Manager User Guide_. ## [SSM.7] SSM documents should have the block public sharing setting enabled **Category:** Protect > Secure access management > Resource not publicly accessible **Severity:** Critical **Resource type:** `AWS::::Account` **AWS Config rule:** [ssm-automation-block-public-sharing](../../../config/latest/developerguide/ssm-automation-block-public-sharing.md "../../../config/latest/developerguide/ssm-automation-block-public-sharing.md") **Schedule type:** Periodic **Parameters:** None This control checks whether the block public sharing setting is enabled for AWS Systems Manager documents. The control fails if the block public sharing setting is disabled for Systems Manager documents. The block public sharing setting for AWS Systems Manager (SSM) documents is an account-level setting. Enabling this setting can prevent unwanted access to your SSM documents. If you enable this setting, your change doesn't affect any SSM documents that you're currently sharing with the public. Unless your use case requires you to share SSM documents with the public, we recommend that you enable the block public sharing setting. The setting can differ for each AWS Region. ### Remediation For information about enabling the block public sharing setting for AWS Systems Manager (SSM) documents, see [Block public sharing for SSM documents](../../../systems-manager/latest/userguide/documents-ssm-sharing.md#block-public-access "../../../systems-manager/latest/userguide/documents-ssm-sharing.md#block-public-access") in the _AWS Systems Manager User Guide_. |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Systems Manager document has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the document
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the document doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix. The control doesn't evaluate Systems Manager documents that are owned by Amazon.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+To add tags to an AWS Systems Manager document, you can use the [AddTagsToResource](../../../systems-manager/latest/APIReference/API_AddTagsToResource.md "../../../systems-manager/latest/APIReference/API_AddTagsToResource.md") operation of the AWS Systems Manager API or, if you're using
+the AWS CLI, run the [add-tags-to-resource](../../../cli/latest/reference/ssm/add-tags-to-resource.md "../../../cli/latest/reference/ssm/add-tags-to-resource.md") command. You can also use the AWS Systems Manager
+console.
+
+## [SSM.6] SSM Automation should have CloudWatch logging
+
+enabled
+
+**Category:** Identify > Logging
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::::Account`
+
+**AWS Config rule:**
+[ssm-automation-logging-enabled](../../../config/latest/developerguide/ssm-automation-logging-enabled.md "../../../config/latest/developerguide/ssm-automation-logging-enabled.md")
+
+**Schedule type:** Periodic
+
+**Parameters:** None
+
+This control checks whether Amazon CloudWatch logging is enabled for AWS Systems Manager (SSM)
+Automation. The control fails if CloudWatch logging isn't enabled for SSM Automation.
+
+SSM Automation is an AWS Systems Manager tool that helps you build automated solutions to
+deploy, configure, and manage AWS resources at scale using predefined or custom
+runbooks. To meet operational or security requirements for your organization, you might
+need to provide a record of the scripts that it runs. You can configure SSM Automation
+to send the output from `aws:executeScript` actions in your runbooks to an
+Amazon CloudWatch Logs log group that you specify. With CloudWatch Logs, you can monitor, store, and access log
+files from various AWS services.
+
+### Remediation
+
+For information about enabling CloudWatch logging for SSM Automation, see [Logging
+Automation action output with CloudWatch Logs](../../../systems-manager/latest/userguide/automation-action-logging.md "../../../systems-manager/latest/userguide/automation-action-logging.md") in the _AWS Systems Manager User Guide_.
+
+## [SSM.7] SSM documents should have the block public sharing
+
+setting enabled
+
+**Category:** Protect > Secure access management > Resource not publicly accessible
+
+**Severity:** Critical
+
+**Resource type:**
+`AWS::::Account`
+
+**AWS Config rule:**
+[ssm-automation-block-public-sharing](../../../config/latest/developerguide/ssm-automation-block-public-sharing.md "../../../config/latest/developerguide/ssm-automation-block-public-sharing.md")
+
+**Schedule type:** Periodic
+
+**Parameters:** None
+
+This control checks whether the block public sharing setting is enabled for AWS Systems Manager
+documents. The control fails if the block public sharing setting is disabled for Systems Manager
+documents.
+
+The block public sharing setting for AWS Systems Manager (SSM) documents is an account-level
+setting. Enabling this setting can prevent unwanted access to your SSM documents. If
+you enable this setting, your change doesn't affect any SSM documents that you're
+currently sharing with the public. Unless your use case requires you to share SSM
+documents with the public, we recommend that you enable the block public sharing
+setting. The setting can differ for each AWS Region.
+
+### Remediation
+
+For information about enabling the block public sharing setting for AWS Systems Manager
+(SSM) documents, see [Block
+public sharing for SSM documents](../../../systems-manager/latest/userguide/documents-ssm-sharing.md#block-public-access "../../../systems-manager/latest/userguide/documents-ssm-sharing.md#block-public-access") in the _AWS Systems Manager User Guide_.

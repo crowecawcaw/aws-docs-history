@@ -434,8 +434,271 @@ SI-13(5)
 **Parameters:**
 
 | Parameter              | Description                          | Type | Allowed custom values | Security Hub default value |
-| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        | This control checks whether a Classic Load Balancer has been configured to span at least the specified number of Availability Zones (AZs). The control fails if the Classic Load Balancer does not span at least the specified number of AZs. Unless you provide a custom parameter value for the minimum number of AZs, Security Hub uses a default value of two AZs. A Classic Load Balancer can be set up to distribute incoming requests across Amazon EC2 instances in a single Availability Zone or multiple Availability Zones. A Classic Load Balancer that does not span multiple Availability Zones is unable to redirect traffic to targets in another Availability Zone if the sole configured Availability Zone becomes unavailable. ### Remediation To add Availability Zones to a Classic Load Balancer, see [Add or remove subnets for your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md "../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md") in the _User Guide for Classic Load Balancers_. ## [ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode **Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4 **Category:** Protect > Data Protection > Data integrity **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancingV2::LoadBalancer` **AWS Config rule:** [alb-desync-mode-check](../../../config/latest/developerguide/alb-desync-mode-check.md "../../../config/latest/developerguide/alb-desync-mode-check.md") **Schedule type:** Change triggered **Parameters:** <br>• `desyncMode`: `defensive, strictest` (not customizable) This control checks whether an Application Load Balancer is configured with defensive or strictest desync mitigation mode. The control fails if an Application Load Balancer is not configured with defensive or strictest desync mitigation mode. HTTP Desync issues can lead to request smuggling and make applications vulnerable to request queue or cache poisoning. In turn, these vulnerabilities can lead to credential stuffing or execution of unauthorized commands. Application Load Balancers configured with defensive or strictest desync mitigation mode protect your application from security issues that may be caused by HTTP Desync. ### Remediation To update desync mitigation mode of an Application Load Balancer, see [Desync mitigation mode](../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode "../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode") in the _User Guide for Application Load Balancers_. ## [ELB.13] Application, Network and Gateway Load Balancers should span multiple Availability Zones **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5) **Category:** Recover > Resilience > High availability **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancingV2::LoadBalancer` **AWS Config rule:** [elbv2-multiple-az](../../../config/latest/developerguide/elbv2-multiple-az.md "../../../config/latest/developerguide/elbv2-multiple-az.md") **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
+| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+
+This control checks whether a Classic Load Balancer has been configured to span at least the specified
+number of Availability Zones (AZs). The control fails if the Classic Load Balancer does not span at
+least the specified number of AZs. Unless you provide a custom parameter value for the
+minimum number of AZs, Security Hub uses a default value of two AZs.
+
+A Classic Load Balancer can be set up to distribute incoming requests across Amazon EC2 instances in a
+single Availability Zone or multiple Availability Zones. A Classic Load Balancer that does not span
+multiple Availability Zones is unable to redirect traffic to targets in another
+Availability Zone if the sole configured Availability Zone becomes unavailable.
+
+### Remediation
+
+To add Availability Zones to a Classic Load Balancer, see [Add or remove
+subnets for your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md "../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md") in the _User Guide for Classic Load Balancers_.
+
+## [ELB.12] Application Load Balancer should be configured with defensive or strictest
+
+desync mitigation mode
+
+**Related requirements:** NIST.800-53.r5 AC-4(21),
+NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
+
+**Category:** Protect > Data Protection > Data integrity
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::LoadBalancer`
+
+**AWS Config rule:**
+[alb-desync-mode-check](../../../config/latest/developerguide/alb-desync-mode-check.md "../../../config/latest/developerguide/alb-desync-mode-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+- `desyncMode`: `defensive, strictest` (not
+  customizable)
+
+This control checks whether an Application Load Balancer is configured with defensive or strictest desync
+mitigation mode. The control fails if an Application Load Balancer is not configured with defensive or
+strictest desync mitigation mode.
+
+HTTP Desync issues can lead to request smuggling and make applications vulnerable to
+request queue or cache poisoning. In turn, these vulnerabilities can lead to credential
+stuffing or execution of unauthorized commands. Application Load Balancers configured with defensive or
+strictest desync mitigation mode protect your application from security issues that may
+be caused by HTTP Desync.
+
+### Remediation
+
+To update desync mitigation mode of an Application Load Balancer, see [Desync mitigation mode](../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode "../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode") in the _User Guide for Application Load Balancers_.
+
+## [ELB.13] Application, Network and Gateway Load Balancers should span multiple
+
+Availability Zones
+
+**Related requirements:** NIST.800-53.r5 CP-10,
+NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5
+SI-13(5)
+
+**Category:** Recover > Resilience > High availability
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::LoadBalancer`
+
+**AWS Config rule:**
+[elbv2-multiple-az](../../../config/latest/developerguide/elbv2-multiple-az.md "../../../config/latest/developerguide/elbv2-multiple-az.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter              | Description                          | Type | Allowed custom values | Security Hub default value |
-| ---                    | ---                                  | ---  | ---                   | ---                        |
-| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        | This control checks whether an Elastic Load Balancer V2 (Application, Network, or Gateway Load Balancer) has registered instances from at least the specified number of Availability Zones (AZs). The control fails if an Elastic Load Balancer V2 doesn't have instances registered in at least the specified number of AZs. Unless you provide a custom parameter value for the minimum number of AZs, Security Hub uses a default value of two AZs. Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, in one or more Availability Zones. Elastic Load Balancing scales your load balancer as your incoming traffic changes over time. It is recommended to configure at least two availability zones to ensure availability of services, as the Elastic Load Balancer will be able to direct traffic to another availability zone if one becomes unavailable. Having multiple availability zones configured will help eliminate having a single point of failure for the application. ### Remediation To add an Availability Zone to an Application Load Balancer, see [Availability Zones for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md") in the _User Guide for Application Load Balancers_. To add an Availability Zone to an Network Load Balancer, see [Network Load Balancers](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones") in the _User Guide for Network Load Balancers_. To add an Availability Zone to a Gateway Load Balancer, see [Create a Gateway Load Balancer](../../../elasticloadbalancing/latest/gateway/create-load-balancer.md "../../../elasticloadbalancing/latest/gateway/create-load-balancer.md") in the _User Guide for Gateway Load Balancers_. ## [ELB.14] Classic Load Balancer should be configured with defensive or strictest desync mitigation mode **Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4 **Category:** Protect > Data Protection > Data integrity **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancing::LoadBalancer` **AWS Config rule:** [clb-desync-mode-check](../../../config/latest/developerguide/clb-desync-mode-check.md "../../../config/latest/developerguide/clb-desync-mode-check.md") **Schedule type:** Change triggered **Parameters:** <br>• `desyncMode`: `defensive, strictest` (not customizable) This control checks whether a Classic Load Balancer is configured with defensive or strictest desync mitigation mode. The control fails if the Classic Load Balancer isn't configured with defensive or strictest desync mitigation mode. HTTP Desync issues can lead to request smuggling and make applications vulnerable to request queue or cache poisoning. In turn, these vulnerabilities can lead to credential hijacking or execution of unauthorized commands. Classic Load Balancers configured with defensive or strictest desync mitigation mode protect your application from security issues that may be caused by HTTP Desync. ### Remediation To update desync mitigation mode on a Classic Load Balancer, see [Modify desync mitigation mode](../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode "../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode") in the _User Guide for Classic Load Balancers_. ## [ELB.16] Application Load Balancers should be associated with an AWS WAF web ACL **Related requirements:** NIST.800-53.r5 AC-4(21) **Category:** Protect > Protective services **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancingV2::LoadBalancer` **AWS Config rule:** [alb-waf-enabled](../../../config/latest/developerguide/alb-waf-enabled.md "../../../config/latest/developerguide/alb-waf-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether an Application Load Balancer is associated with an AWS WAF Classic or AWS WAF web access control list (web ACL). The control fails if the `Enabled` field for the AWS WAF configuration is set to `false`. AWS WAF is a web application firewall that helps protect web applications and APIs from attacks. With AWS WAF, you can configure a web ACL, which is a set of rules that allow, block, or count web requests based on customizable web security rules and conditions that you define. We recommend associating your Application Load Balancer with an AWS WAF web ACL to help protect it from malicious attacks. ### Remediation To associate an Application Load Balancer with a web ACL, see [Associating or disassociating a web ACL with an AWS resource](../../../waf/latest/developerguide/web-acl-associating-aws-resource.md "../../../waf/latest/developerguide/web-acl-associating-aws-resource.md") in the _AWS WAF Developer Guide_. ## [ELB.17] Application and Network Load Balancers with listeners should use recommended security policies **Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6) **Category:** Protect > Data Protection > Encryption of data-in-transit **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancingV2::Listener` **AWS Config rule:** [elbv2-predefined-security-policy-ssl-check](../../../config/latest/developerguide/elbv2-predefined-security-policy-ssl-check.md "../../../config/latest/developerguide/elbv2-predefined-security-policy-ssl-check.md") **Schedule type:** Change triggered **Parameters:** `sslPolicies`: `ELBSecurityPolicy-TLS13-1-2-2021-06, ELBSecurityPolicy-TLS13-1-2-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-3-2021-06, ELBSecurityPolicy-TLS13-1-3-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-2-Res-2021-06, ELBSecurityPolicy-TLS13-1-2-Res-FIPS-2023-04` (not customizable) This control checks whether the HTTPS listener for an Application Load Balancer or the TLS listener for a Network Load Balancer is configured to encrypt data in transit by using a recommended security policy. The control fails if the HTTPS or TLS listener for a load balancer isn't configured to use a recommended security policy. Elastic Load Balancing uses an SSL negotiation configuration, known as a _security policy_, to negotiate connections between a client and a load balancer. The security policy specifies a combination of protocols and ciphers. The protocol establishes a secure connection between a client and a server. A cipher is an encryption algorithm that uses encryption keys to create a coded message. During the connection negotiation process, the client and the load balancer present a list of ciphers and protocols that they each support, in order of preference. Using a recommended security policy for a load balancer can help you meet compliance and security standards. ### Remediation For information about recommended security policies and how to update listeners, see the following sections of the _Elastic Load Balancing User Guides_: [Security policies for Application Load Balancers](../../../elasticloadbalancing/latest/application/describe-ssl-policies.md "../../../elasticloadbalancing/latest/application/describe-ssl-policies.md"), [Security policies for Network Load Balancers](../../../elasticloadbalancing/latest/network/describe-ssl-policies.md "../../../elasticloadbalancing/latest/network/describe-ssl-policies.md"), [Update an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/listener-update-certificates.md "../../../elasticloadbalancing/latest/application/listener-update-certificates.md"), and [Update a listener for your Network Load Balancer](../../../elasticloadbalancing/latest/network/listener-update-rules.md "../../../elasticloadbalancing/latest/network/listener-update-rules.md"). ## [ELB.18] Application and Network Load Balancer listeners should use secure protocols to encrypt data in transit **Category:** Protect > Data Protection > Encryption of data-in-transit **Severity:** Medium **Resource type:** `AWS::ElasticLoadBalancingV2::Listener` **AWS Config rule:** [elbv2-listener-encryption-in-transit](../../../config/latest/developerguide/elbv2-listener-encryption-in-transit.md "../../../config/latest/developerguide/elbv2-listener-encryption-in-transit.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether the listener for an Application Load Balancer or Network Load Balancer is configured to use a secure protocol for encryption of data in transit. The control fails if an Application Load Balancer listener isn't configured to use the HTTPS protocol, or a Network Load Balancer listener isn't configured to use the TLS protocol. To encrypt data that's transmitted between a client and a load balancer, Elastic Load Balancer listeners should be configured to use industry-standard security protocols: HTTPS for Application Load Balancers, or TLS for Network Load Balancers. Otherwise, data that's transmitted between a client and a load balancer is vulnerable to interception, tampering, and unauthorized access. Use of HTTPS or TLS by a listener aligns with security best practices and helps ensure the confidentiality and integrity of data during transmission. This is particularly important for applications that handle sensitive information, or must comply with security standards that require encryption of data in transit. ### Remediation For information about configuring security protocols for listeners, see the following sections of the _Elastic Load Balancing User Guides_: [Create an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") and [Create a listener for your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-listener.md "../../../elasticloadbalancing/latest/network/create-listener.md"). |
+| ---------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
+| `minAvailabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+
+This control checks whether an Elastic Load Balancer V2 (Application, Network, or
+Gateway Load Balancer) has registered instances from at least the specified number of Availability Zones
+(AZs). The control fails if an Elastic Load Balancer V2 doesn't have instances
+registered in at least the specified number of AZs. Unless you provide a custom
+parameter value for the minimum number of AZs, Security Hub uses a default value of two
+AZs.
+
+Elastic Load Balancing automatically distributes your incoming traffic across multiple targets, such as
+EC2 instances, containers, and IP addresses, in one or more Availability Zones. Elastic Load Balancing
+scales your load balancer as your incoming traffic changes over time. It is recommended
+to configure at least two availability zones to ensure availability of services, as the
+Elastic Load Balancer will be able to direct traffic to another availability zone if one
+becomes unavailable. Having multiple availability zones configured will help eliminate
+having a single point of failure for the application.
+
+### Remediation
+
+To add an Availability Zone to an Application Load Balancer, see [Availability Zones for your Application Load Balancer](../../../elasticloadbalancing/latest/application/load-balancer-subnets.md "../../../elasticloadbalancing/latest/application/load-balancer-subnets.md") in the
+_User Guide for Application Load Balancers_. To add an Availability Zone to an Network Load Balancer,
+see [Network Load Balancers](../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones "../../../elasticloadbalancing/latest/network/network-load-balancers.md#availability-zones") in the _User Guide for Network Load Balancers_. To add an
+Availability Zone to a Gateway Load Balancer, see [Create a
+Gateway Load Balancer](../../../elasticloadbalancing/latest/gateway/create-load-balancer.md "../../../elasticloadbalancing/latest/gateway/create-load-balancer.md") in the _User Guide for Gateway Load Balancers_.
+
+## [ELB.14] Classic Load Balancer should be configured with defensive or strictest
+
+desync mitigation mode
+
+**Related requirements:** NIST.800-53.r5 AC-4(21),
+NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
+
+**Category:** Protect > Data Protection > Data integrity
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancing::LoadBalancer`
+
+**AWS Config rule:**
+[clb-desync-mode-check](../../../config/latest/developerguide/clb-desync-mode-check.md "../../../config/latest/developerguide/clb-desync-mode-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+- `desyncMode`: `defensive, strictest` (not
+  customizable)
+
+This control checks whether a Classic Load Balancer is configured with defensive or strictest desync
+mitigation mode. The control fails if the Classic Load Balancer isn't configured with defensive or
+strictest desync mitigation mode.
+
+HTTP Desync issues can lead to request smuggling and make applications vulnerable to
+request queue or cache poisoning. In turn, these vulnerabilities can lead to credential
+hijacking or execution of unauthorized commands. Classic Load Balancers configured with defensive or
+strictest desync mitigation mode protect your application from security issues that may
+be caused by HTTP Desync.
+
+### Remediation
+
+To update desync mitigation mode on a Classic Load Balancer, see [Modify desync mitigation mode](../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode "../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode") in the
+_User Guide for Classic Load Balancers_.
+
+## [ELB.16] Application Load Balancers should be associated with an AWS WAF web
+
+ACL
+
+**Related requirements:** NIST.800-53.r5 AC-4(21)
+
+**Category:** Protect > Protective services
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::LoadBalancer`
+
+**AWS Config rule:**
+[alb-waf-enabled](../../../config/latest/developerguide/alb-waf-enabled.md "../../../config/latest/developerguide/alb-waf-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Application Load Balancer is associated with an AWS WAF Classic or AWS WAF web
+access control list (web ACL). The control fails if the `Enabled` field for
+the AWS WAF configuration is set to `false`.
+
+AWS WAF is a web application firewall that helps protect web applications and APIs from
+attacks. With AWS WAF, you can configure a web ACL, which is a set of rules that allow,
+block, or count web requests based on customizable web security rules and conditions
+that you define. We recommend associating your Application Load Balancer with an AWS WAF web ACL to help
+protect it from malicious attacks.
+
+### Remediation
+
+To associate an Application Load Balancer with a web ACL, see [Associating or disassociating a web ACL with an AWS resource](../../../waf/latest/developerguide/web-acl-associating-aws-resource.md "../../../waf/latest/developerguide/web-acl-associating-aws-resource.md") in the
+_AWS WAF Developer Guide_.
+
+## [ELB.17] Application and Network Load Balancers with listeners
+
+should use recommended security policies
+
+**Related requirements:** NIST.800-53.r5 AC-17(2),
+NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
+SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4),
+NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5
+SI-7(6)
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::Listener`
+
+**AWS Config rule:**
+[elbv2-predefined-security-policy-ssl-check](../../../config/latest/developerguide/elbv2-predefined-security-policy-ssl-check.md "../../../config/latest/developerguide/elbv2-predefined-security-policy-ssl-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+`sslPolicies`: `ELBSecurityPolicy-TLS13-1-2-2021-06,
+ ELBSecurityPolicy-TLS13-1-2-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-3-2021-06,
+ ELBSecurityPolicy-TLS13-1-3-FIPS-2023-04, ELBSecurityPolicy-TLS13-1-2-Res-2021-06,
+ ELBSecurityPolicy-TLS13-1-2-Res-FIPS-2023-04` (not customizable)
+
+This control checks whether the HTTPS listener for an Application Load Balancer or the TLS listener for a
+Network Load Balancer is configured to encrypt data in transit by using a recommended security policy.
+The control fails if the HTTPS or TLS listener for a load balancer isn't configured to
+use a recommended security policy.
+
+Elastic Load Balancing uses an SSL negotiation configuration, known as a _security policy_, to negotiate connections between a client and a load
+balancer. The security policy specifies a combination of protocols and ciphers. The
+protocol establishes a secure connection between a client and a server. A cipher is an
+encryption algorithm that uses encryption keys to create a coded message. During the
+connection negotiation process, the client and the load balancer present a list of
+ciphers and protocols that they each support, in order of preference. Using a
+recommended security policy for a load balancer can help you meet compliance and
+security standards.
+
+### Remediation
+
+For information about recommended security policies and how to update listeners,
+see the following sections of the _Elastic Load Balancing User
+Guides_: [Security policies for Application Load Balancers](../../../elasticloadbalancing/latest/application/describe-ssl-policies.md "../../../elasticloadbalancing/latest/application/describe-ssl-policies.md"), [Security
+policies for Network Load Balancers](../../../elasticloadbalancing/latest/network/describe-ssl-policies.md "../../../elasticloadbalancing/latest/network/describe-ssl-policies.md"), [Update an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/listener-update-certificates.md "../../../elasticloadbalancing/latest/application/listener-update-certificates.md"), and [Update a
+listener for your Network Load Balancer](../../../elasticloadbalancing/latest/network/listener-update-rules.md "../../../elasticloadbalancing/latest/network/listener-update-rules.md").
+
+## [ELB.18] Application and Network Load Balancer listeners should
+
+use secure protocols to encrypt data in transit
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::ElasticLoadBalancingV2::Listener`
+
+**AWS Config rule:**
+[elbv2-listener-encryption-in-transit](../../../config/latest/developerguide/elbv2-listener-encryption-in-transit.md "../../../config/latest/developerguide/elbv2-listener-encryption-in-transit.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether the listener for an Application Load Balancer or Network Load Balancer is configured to use a
+secure protocol for encryption of data in transit. The control fails if an Application Load Balancer
+listener isn't configured to use the HTTPS protocol, or a Network Load Balancer listener isn't
+configured to use the TLS protocol.
+
+To encrypt data that's transmitted between a client and a load balancer, Elastic Load
+Balancer listeners should be configured to use industry-standard security protocols:
+HTTPS for Application Load Balancers, or TLS for Network Load Balancers. Otherwise, data that's transmitted between a client
+and a load balancer is vulnerable to interception, tampering, and unauthorized access.
+Use of HTTPS or TLS by a listener aligns with security best practices and helps ensure
+the confidentiality and integrity of data during transmission. This is particularly
+important for applications that handle sensitive information, or must comply with
+security standards that require encryption of data in transit.
+
+### Remediation
+
+For information about configuring security protocols for listeners, see the
+following sections of the _Elastic Load Balancing User Guides_:
+[Create
+an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") and [Create a listener
+for your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-listener.md "../../../elasticloadbalancing/latest/network/create-listener.md").

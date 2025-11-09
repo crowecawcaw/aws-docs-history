@@ -278,12 +278,10 @@ The value of the top-level `Severity` object for a finding should be updated onl
 by using the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API.
 
 To provide severity information, finding providers should update the `Severity`
-object under `FindingProviderFields` when making a [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API request.
-If a
+object under `FindingProviderFields` when making a [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API request.  If a
 `BatchImportFindings` request for a new finding only provides
 `Label` or only provides `Normalized`, Security Hub CSPM automatically
-populates the value of the other field.
-The `Product` and
+populates the value of the other field.  The `Product` and
 `Original` fields may also be populated.
 
 If the top-level `Finding.Severity` object is present but `Finding.FindingProviderFields` is not present,

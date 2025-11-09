@@ -269,5 +269,95 @@ For more information, see [Node-to-node encryption](../../../opensearch-service/
 **Parameters:**
 
 | Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         | This control checks whether an Amazon OpenSearch Service domain has tags with the specific keys defined in the parameter `requiredTagKeys`. The control fails if the domain doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence of a tag key and fails if the domain isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored. A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. ###### Note Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_. ### Remediation To add tags to an OpenSearch Service domain, see [Working with tags](../../../opensearch-service/latest/developerguide/managedomains-awsresourcetagging.md#managedomains-awsresourcetagging-console "../../../opensearch-service/latest/developerguide/managedomains-awsresourcetagging.md#managedomains-awsresourcetagging-console") in the _Amazon OpenSearch Service Developer Guide_. ## [Opensearch.10] OpenSearch domains should have the latest software update installed **Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3 **Category:** Identify > Vulnerability, patch, and version management **Severity:** Low **Resource type:** `AWS::OpenSearch::Domain` **AWS Config rule:** [`opensearch-update-check`](../../../config/latest/developerguide/opensearch-update-check.md "../../../config/latest/developerguide/opensearch-update-check.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether an Amazon OpenSearch Service domain has the latest software update installed. The control fails if a software update is available but not installed for the domain. OpenSearch Service software updates provide the latest platform fixes, updates, and features available for the environment. Keeping up-to-date with patch installation helps maintain domain security and availability. If no action is taken on required updates, the service software is updated automatically (typically after 2 weeks). We recommend scheduling updates during a time of low traffic to the domain to minimize service disruption. ### Remediation To install software updates for an OpenSearch domain, see [Starting an update](../../../opensearch-service/latest/developerguide/service-software.md#service-software-requesting "../../../opensearch-service/latest/developerguide/service-software.md#service-software-requesting") in the _Amazon OpenSearch Service Developer Guide_. ## [Opensearch.11] OpenSearch domains should have at least three dedicated primary nodes **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2, NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-36, NIST.800-53.r5 SI-13 **Category:** Recover > Resilience > High availability **Severity:** Low **Resource type:** `AWS::OpenSearch::Domain` **AWS Config rule:** [`opensearch-primary-node-fault-tolerance`](../../../config/latest/developerguide/opensearch-primary-node-fault-tolerance.md "../../../config/latest/developerguide/opensearch-primary-node-fault-tolerance.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether an Amazon OpenSearch Service domain is configured with at least three dedicated primary nodes. The control fails if the domain has fewer than three dedicated primary nodes. OpenSearch Service uses dedicated primary nodes to increase cluster stability. A dedicated primary node performs cluster management tasks, but doesn't hold data or respond to data upload requests. We recommend that you use multi-AZ with standby, which adds three dedicated primary nodes to each production OpenSearch domain. ### Remediation To change the number of primary nodes for an OpenSearch domain, see [Creating and managing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/createupdatedomains.md "../../../opensearch-service/latest/developerguide/createupdatedomains.md") in the _Amazon OpenSearch Service Developer Guide_. |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+
+This control checks whether an Amazon OpenSearch Service domain has tags with the specific keys defined in the parameter
+`requiredTagKeys`. The control fails if the domain doesn’t have any tag keys or if it doesn’t have all the keys specified in the
+parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence
+of a tag key and fails if the domain isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
+are ignored.
+
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
+categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
+Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
+access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
+and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
+policies to allow operations when the principal's tag matches the resource tag. For more information, see
+[What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
+
+###### Note
+
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
+to many AWS services, including AWS Billing. For more tagging best practices, see
+[Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
+_AWS General Reference_.
+
+### Remediation
+
+To add tags to an OpenSearch Service domain, see [Working with tags](../../../opensearch-service/latest/developerguide/managedomains-awsresourcetagging.md#managedomains-awsresourcetagging-console "../../../opensearch-service/latest/developerguide/managedomains-awsresourcetagging.md#managedomains-awsresourcetagging-console") in the _Amazon OpenSearch Service Developer Guide_.
+
+## [Opensearch.10] OpenSearch domains should have the latest software update installed
+
+**Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3
+
+**Category:** Identify > Vulnerability, patch, and version management
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::OpenSearch::Domain`
+
+**AWS Config rule:**
+[`opensearch-update-check`](../../../config/latest/developerguide/opensearch-update-check.md "../../../config/latest/developerguide/opensearch-update-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon OpenSearch Service domain has the latest software update installed. The control fails if a
+software update is available but not installed for the domain.
+
+OpenSearch Service software updates provide the latest platform fixes, updates, and features available for the environment.
+Keeping up-to-date with patch installation helps maintain domain security and availability. If no action is taken on
+required updates, the service software is updated automatically (typically after 2 weeks). We recommend scheduling updates
+during a time of low traffic to the domain to minimize service disruption.
+
+### Remediation
+
+To install software updates for an OpenSearch domain, see [Starting an update](../../../opensearch-service/latest/developerguide/service-software.md#service-software-requesting "../../../opensearch-service/latest/developerguide/service-software.md#service-software-requesting") in
+the _Amazon OpenSearch Service Developer Guide_.
+
+## [Opensearch.11] OpenSearch domains should have at least three dedicated primary nodes
+
+**Related requirements:** NIST.800-53.r5 CP-10,
+NIST.800-53.r5 CP-2,
+NIST.800-53.r5 SC-5,
+NIST.800-53.r5 SC-36,
+NIST.800-53.r5 SI-13
+
+**Category:** Recover > Resilience > High availability
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::OpenSearch::Domain`
+
+**AWS Config rule:**
+[`opensearch-primary-node-fault-tolerance`](../../../config/latest/developerguide/opensearch-primary-node-fault-tolerance.md "../../../config/latest/developerguide/opensearch-primary-node-fault-tolerance.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon OpenSearch Service domain is configured with at least three dedicated primary nodes. The
+control fails if the domain has fewer than three dedicated primary nodes.
+
+OpenSearch Service uses dedicated primary nodes to increase cluster stability. A dedicated primary node performs cluster
+management tasks, but doesn't hold data or respond to data upload requests. We recommend that you use multi-AZ with standby, which
+adds three dedicated primary nodes to each production OpenSearch domain.
+
+### Remediation
+
+To change the number of primary nodes for an OpenSearch domain, see [Creating and managing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/createupdatedomains.md "../../../opensearch-service/latest/developerguide/createupdatedomains.md") in
+the _Amazon OpenSearch Service Developer Guide_.

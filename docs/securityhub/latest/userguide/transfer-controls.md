@@ -19,18 +19,303 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 
 **Parameters:**
 
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+
+This control checks whether an AWS Transfer Family workflow has tags with the specific keys defined in the parameter
+`requiredTagKeys`. The control fails if the workflow doesn’t have any tag keys or if it doesn’t have all the keys specified in the
+parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence
+of a tag key and fails if the workflow isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`,
+are ignored.
+
+A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to
+categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources.
+Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based
+access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles)
+and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC
+policies to allow operations when the principal's tag matches the resource tag. For more information, see
+[What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
+
+###### Note
+
+Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible
+to many AWS services, including AWS Billing. For more tagging best practices, see
+[Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the
+_AWS General Reference_.
+
+### Remediation
+
+###### To add tags to a Transfer Family workflow (console)
+
+1. Open the AWS Transfer Family console.
+2. In the navigation pane, choose **Workflows**. Then, select the workflow that
+   you want to tag.
+3. Choose **Manage tags**, and then add the tags.
+
+## [Transfer.2] Transfer Family servers should not use FTP protocol for endpoint connection
+
+**Related requirements:** NIST.800-53.r5 CM-7, NIST.800-53.r5 IA-5, NIST.800-53.r5 SC-8, PCI DSS v4.0.1/4.2.1
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::Transfer::Server`
+
+**AWS Config rule:**
+[transfer-family-server-no-ftp](../../../config/latest/developerguide/transfer-family-server-no-ftp.md "../../../config/latest/developerguide/transfer-family-server-no-ftp.md")
+
+**Schedule type:** Periodic
+
+**Parameters:** None
+
+This control checks whether an AWS Transfer Family server uses a protocol other than FTP for endpoint connection. The control
+fails if the server uses FTP protocol for a client to connect to the server's endpoint.
+
+FTP (File Transfer Protocol) establishes the endpoint connection through unencrypted channels, leaving data sent
+over these channels vulnerable to interception. Using SFTP (SSH File Transfer Protocol), FTPS (File Transfer Protocol Secure), or
+AS2 (Applicability Statement 2) offers an extra layer of security by encrypting your data in transit and can be used to help prevent
+potential attackers from using person-in-the-middle or similar attacks to eavesdrop on or manipulate network traffic.
+
+### Remediation
+
+To modify the protocol for a Transfer Family server, see [Edit the file transfer protocols](../../../transfer/latest/userguide/edit-server-config.md#edit-protocols "../../../transfer/latest/userguide/edit-server-config.md#edit-protocols") in the _AWS Transfer Family User Guide_.
+
+## [Transfer.3] Transfer Family connectors should have logging enabled
+
+**Related requirements:** NIST.800-53.r5 AC-2(12),
+NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5
+AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5
+AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7,
+NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5
+SI-4(20), NIST.800-53.r5 SI-7(8)
+
+**Category:** Identify > Logging
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::Transfer::Connector`
+
+**AWS Config rule:**
+[transfer-connector-logging-enabled](../../../config/latest/developerguide/transfer-connector-logging-enabled.md "../../../config/latest/developerguide/transfer-connector-logging-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether Amazon CloudWatch logging is enabled for an AWS Transfer Family connector. The
+control fails if CloudWatch logging isn't enabled for the connector.
+
+Amazon CloudWatch is a monitoring and observability service that provides visibility into your
+AWS resources, including AWS Transfer Family resources. For Transfer Family, CloudWatch
+provides consolidated auditing and logging for workflow progress and results. This
+includes several metrics that Transfer Family defines for workflows. You can configure
+Transfer Family to automatically log connector events in CloudWatch. To do this, you
+specify a logging role for the connector. For the logging role, you create an IAM role
+and a resource-based IAM policy that defines the permissions for the role.
+
+### Remediation
+
+For information about enabling CloudWatch logging for a Transfer Family connector, see [Amazon CloudWatch logging for
+AWS Transfer Family servers](../../../transfer/latest/userguide/structured-logging.md "../../../transfer/latest/userguide/structured-logging.md") in the _AWS Transfer Family User Guide_.
+
+## [Transfer.4] Transfer Family agreements should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Transfer::Agreement`
+
+**AWS Config rule:** [transfer-agreement-tagged](../../../config/latest/developerguide/transfer-agreement-tagged.md "../../../config/latest/developerguide/transfer-agreement-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive.         | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         | This control checks whether an AWS Transfer Family workflow has tags with the specific keys defined in the parameter `requiredTagKeys`. The control fails if the workflow doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence of a tag key and fails if the workflow isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored. A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. ###### Note Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_. ### Remediation ###### To add tags to a Transfer Family workflow (console) 1. Open the AWS Transfer Family console. 2. In the navigation pane, choose **Workflows**. Then, select the workflow that you want to tag. 3. Choose **Manage tags**, and then add the tags. ## [Transfer.2] Transfer Family servers should not use FTP protocol for endpoint connection **Related requirements:** NIST.800-53.r5 CM-7, NIST.800-53.r5 IA-5, NIST.800-53.r5 SC-8, PCI DSS v4.0.1/4.2.1 **Category:** Protect > Data Protection > Encryption of data-in-transit **Severity:** Medium **Resource type:** `AWS::Transfer::Server` **AWS Config rule:** [transfer-family-server-no-ftp](../../../config/latest/developerguide/transfer-family-server-no-ftp.md "../../../config/latest/developerguide/transfer-family-server-no-ftp.md") **Schedule type:** Periodic **Parameters:** None This control checks whether an AWS Transfer Family server uses a protocol other than FTP for endpoint connection. The control fails if the server uses FTP protocol for a client to connect to the server's endpoint. FTP (File Transfer Protocol) establishes the endpoint connection through unencrypted channels, leaving data sent over these channels vulnerable to interception. Using SFTP (SSH File Transfer Protocol), FTPS (File Transfer Protocol Secure), or AS2 (Applicability Statement 2) offers an extra layer of security by encrypting your data in transit and can be used to help prevent potential attackers from using person-in-the-middle or similar attacks to eavesdrop on or manipulate network traffic. ### Remediation To modify the protocol for a Transfer Family server, see [Edit the file transfer protocols](../../../transfer/latest/userguide/edit-server-config.md#edit-protocols "../../../transfer/latest/userguide/edit-server-config.md#edit-protocols") in the _AWS Transfer Family User Guide_. ## [Transfer.3] Transfer Family connectors should have logging enabled **Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8) **Category:** Identify > Logging **Severity:** Medium **Resource type:** `AWS::Transfer::Connector` **AWS Config rule:** [transfer-connector-logging-enabled](../../../config/latest/developerguide/transfer-connector-logging-enabled.md "../../../config/latest/developerguide/transfer-connector-logging-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether Amazon CloudWatch logging is enabled for an AWS Transfer Family connector. The control fails if CloudWatch logging isn't enabled for the connector. Amazon CloudWatch is a monitoring and observability service that provides visibility into your AWS resources, including AWS Transfer Family resources. For Transfer Family, CloudWatch provides consolidated auditing and logging for workflow progress and results. This includes several metrics that Transfer Family defines for workflows. You can configure Transfer Family to automatically log connector events in CloudWatch. To do this, you specify a logging role for the connector. For the logging role, you create an IAM role and a resource-based IAM policy that defines the permissions for the role. ### Remediation For information about enabling CloudWatch logging for a Transfer Family connector, see [Amazon CloudWatch logging for AWS Transfer Family servers](../../../transfer/latest/userguide/structured-logging.md "../../../transfer/latest/userguide/structured-logging.md") in the _AWS Transfer Family User Guide_. ## [Transfer.4] Transfer Family agreements should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Transfer::Agreement` **AWS Config rule:** [transfer-agreement-tagged](../../../config/latest/developerguide/transfer-agreement-tagged.md "../../../config/latest/developerguide/transfer-agreement-tagged.md") **Schedule type:** Change triggered **Parameters:** |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Transfer Family agreement has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the agreement
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the agreement doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Transfer Family agreement, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and
+Tag Editor User Guide_.
+
+## [Transfer.5] Transfer Family certificates should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Transfer::Certificate`
+
+**AWS Config rule:** [transfer-certificate-tagged](../../../config/latest/developerguide/transfer-certificate-tagged.md "../../../config/latest/developerguide/transfer-certificate-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Transfer Family agreement has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the agreement doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the agreement doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Transfer Family agreement, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor User Guide_. ## [Transfer.5] Transfer Family certificates should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Transfer::Certificate` **AWS Config rule:** [transfer-certificate-tagged](../../../config/latest/developerguide/transfer-certificate-tagged.md "../../../config/latest/developerguide/transfer-certificate-tagged.md") **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Transfer Family certificate has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the certificate
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the certificate doesn't have any tag keys. The
+control ignores system tags, which are applied automatically and have the
+`aws:` prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Transfer Family certificate, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and
+Tag Editor User Guide_.
+
+## [Transfer.6] Transfer Family connectors should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Transfer::Connector`
+
+**AWS Config rule:** [transfer-connector-tagged](../../../config/latest/developerguide/transfer-connector-tagged.md "../../../config/latest/developerguide/transfer-connector-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Transfer Family certificate has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the certificate doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the certificate doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Transfer Family certificate, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor User Guide_. ## [Transfer.6] Transfer Family connectors should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Transfer::Connector` **AWS Config rule:** [transfer-connector-tagged](../../../config/latest/developerguide/transfer-connector-tagged.md "../../../config/latest/developerguide/transfer-connector-tagged.md") **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Transfer Family connector has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the connector
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the connector doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Transfer Family connector, see [Resource
+tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor
+User Guide_.
+
+## [Transfer.7] Transfer Family profiles should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Transfer::Profile`
+
+**AWS Config rule:** [transfer-profile-tagged](../../../config/latest/developerguide/transfer-profile-tagged.md "../../../config/latest/developerguide/transfer-profile-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Transfer Family connector has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the connector doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the connector doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Transfer Family connector, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor User Guide_. ## [Transfer.7] Transfer Family profiles should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Transfer::Profile` **AWS Config rule:** [transfer-profile-tagged](../../../config/latest/developerguide/transfer-profile-tagged.md "../../../config/latest/developerguide/transfer-profile-tagged.md") **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Transfer Family profile has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the profile doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the profile doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. The control evaluates local profiles and partner profiles. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Transfer Family profile, see [Resource tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Transfer Family profile has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the profile
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the profile doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix. The control evaluates local profiles and partner profiles.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Transfer Family profile, see [Resource
+tagging methods](../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods "../../../tag-editor/latest/userguide/tagging.md#intro-tag-methods") in the _Tagging AWS Resources and Tag Editor
+User Guide_.

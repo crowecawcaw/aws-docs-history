@@ -186,9 +186,126 @@ SI-13(5)
 
 **Parameters:**
 
-| Parameter           | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `availabilityZones` | Minimum number of Availability Zones                                                               | Enum                            | `2, 3, 4, 5, 6`                                                                                                                                                               | `2`                        | This control checks if an AWS Lambda function that connects to a virtual private cloud (VPC) operates in at least the specified number of Availability Zone (AZs). The control fails if the function doesn't operate in at least the specified number of AZs. Unless you provide a custom parameter value for the minimum number of AZs, Security Hub uses a default value of two AZs. Deploying resources across multiple AZs is an AWS best practice to ensure high availability within your architecture. Availability is a core pillar in the confidentiality, integrity, and availability triad security model. All Lambda functions that connect to a VPC should have a multi-AZ deployment to ensure that a single zone of failure doesn't cause a total disruption of operations. ### Remediation If you configure your function to connect to a VPC in your account, specify subnets in multiple AZs to ensure high availability. For instructions, see [Configuring VPC access](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") in the _AWS Lambda Developer Guide_. Lambda automatically runs other functions in multiple AZs to ensure that it is available to process events in case of a service interruption in a single zone. ## [Lambda.6] Lambda functions should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Lambda::Function` **AWS Config rule:** `tagged-lambda-function` (custom Security Hub rule) **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Parameter           | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---                 | ---                                                                                                | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredTagKeys`   | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         | This control checks whether an AWS Lambda function has tags with the specific keys defined in the parameter `requiredTagKeys`. The control fails if the function doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence of a tag key and fails if the function isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored. A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. ###### Note Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_. ### Remediation To add tags to a Lambda function, see [Using tags on Lambda functions](../../../lambda/latest/dg/configuration-tags.md "../../../lambda/latest/dg/configuration-tags.md") in the _AWS Lambda Developer Guide_. ## [Lambda.7] Lambda functions should have AWS X-Ray active tracing enabled **Related requirements:** NIST.800-53.r5 CA-7 **Category:** Identify > Logging **Severity:** Low **Resource type:** `AWS::Lambda::Function` **AWS Config rule:** [lambda-function-xray-enabled](../../../config/latest/developerguide/lambda-function-xray-enabled.md "../../../config/latest/developerguide/lambda-function-xray-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether active tracing with AWS X-Ray is enabled for an AWS Lambda function. The control fails if active tracing with X-Ray is disabled for the Lambda function. AWS X-Ray can provide tracing and monitoring capabilities for AWS Lambda functions, which can save time and effort debugging and operating Lambda functions. It can help you diagnose errors and identify performance bottlenecks, slowdowns, and timeouts by breaking down latency for Lambda functions. It can also help with data privacy and compliance requirements. If you enable active tracing for a Lambda function, X-Ray provides a holistic view of data flow and processing within the Lambda function, which can help you identify potential security vulnerabilities or non-compliant data handling practices. This visibility can help you maintain data integrity, confidentiality, and compliance with relevant regulations. ###### Note AWS X-Ray tracing is currently not supported for Lambda functions with Amazon Managed Streaming for Apache Kafka (Amazon MSK), self-managed Apache Kafka, Amazon MQ with ActiveMQ and RabbitMQ, or Amazon DocumentDB event source mappings. ### Remediation For information about enabling active tracing for an AWS Lambda function, see [Visualize Lambda function invocations using AWS X-Ray](../../../lambda/latest/dg/services-xray.md "../../../lambda/latest/dg/services-xray.md") in the _AWS Lambda Developer Guide_. |
+| Parameter           | Description                          | Type | Allowed custom values | Security Hub default value |
+| ------------------- | ------------------------------------ | ---- | --------------------- | -------------------------- |
+| `availabilityZones` | Minimum number of Availability Zones | Enum | `2, 3, 4, 5, 6`       | `2`                        |
+
+This control checks if an AWS Lambda function that connects to a virtual private cloud
+(VPC) operates in at least the specified number of Availability Zone (AZs). The control
+fails if the function doesn't operate in at least the specified number of AZs. Unless
+you provide a custom parameter value for the minimum number of AZs, Security Hub uses a default
+value of two AZs.
+
+Deploying resources across multiple AZs is an AWS best practice to ensure high
+availability within your architecture. Availability is a core pillar in the
+confidentiality, integrity, and availability triad security model. All Lambda functions
+that connect to a VPC should have a multi-AZ deployment to ensure that a single zone of
+failure doesn't cause a total disruption of operations.
+
+### Remediation
+
+If you configure your function to connect to a VPC in your account, specify
+subnets in multiple AZs to ensure high availability. For instructions, see [Configuring VPC access](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") in the
+_AWS Lambda Developer Guide_.
+
+Lambda automatically runs other functions in multiple AZs to ensure that it is
+available to process events in case of a service interruption in a single
+zone.
+
+## [Lambda.6] Lambda functions should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Lambda::Function`
+
+**AWS Config rule:**
+`tagged-lambda-function` (custom Security Hub rule)
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+| Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | `No default value`         |
+
+This control checks whether an AWS Lambda function has tags with the specific keys
+defined in the parameter `requiredTagKeys`. The control fails if the function
+doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter
+`requiredTagKeys`. If the parameter `requiredTagKeys` isn't
+provided, the control only checks for the existence of a tag key and fails if the
+function isn't tagged with any key. System tags, which are automatically applied and
+begin with `aws:`, are ignored.
+
+A tag is a label that you assign to an AWS resource, and it consists of a key and an
+optional value. You can create tags to categorize resources by purpose, owner,
+environment, or other criteria. Tags can help you identify, organize, search for, and
+filter resources. Tagging also helps you track accountable resource owners for actions
+and notifications. When you use tagging, you can implement attribute-based access
+control (ABAC) as an authorization strategy, which defines permissions based on tags.
+You can attach tags to IAM entities (users or roles) and to AWS resources. You can
+create a single ABAC policy or a separate set of policies for your IAM principals. You
+can design these ABAC policies to allow operations when the principal's tag matches the
+resource tag. For more information, see [What is
+ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
+
+###### Note
+
+Don’t add personally identifiable information (PII) or other confidential or
+sensitive information in tags. Tags are accessible to many AWS services, including
+AWS Billing. For more tagging best practices, see [Tagging your
+AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_.
+
+### Remediation
+
+To add tags to a Lambda function, see [Using tags
+on Lambda functions](../../../lambda/latest/dg/configuration-tags.md "../../../lambda/latest/dg/configuration-tags.md") in the _AWS Lambda Developer Guide_.
+
+## [Lambda.7] Lambda functions should have AWS X-Ray active
+
+tracing enabled
+
+**Related requirements:** NIST.800-53.r5 CA-7
+
+**Category:** Identify > Logging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Lambda::Function`
+
+**AWS Config rule:**
+[lambda-function-xray-enabled](../../../config/latest/developerguide/lambda-function-xray-enabled.md "../../../config/latest/developerguide/lambda-function-xray-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether active tracing with AWS X-Ray is enabled for an AWS Lambda
+function. The control fails if active tracing with X-Ray is disabled for the Lambda
+function.
+
+AWS X-Ray can provide tracing and monitoring capabilities for AWS Lambda functions,
+which can save time and effort debugging and operating Lambda functions. It can help you
+diagnose errors and identify performance bottlenecks, slowdowns, and timeouts by
+breaking down latency for Lambda functions. It can also help with data privacy and
+compliance requirements. If you enable active tracing for a Lambda function, X-Ray
+provides a holistic view of data flow and processing within the Lambda function, which
+can help you identify potential security vulnerabilities or non-compliant data handling
+practices. This visibility can help you maintain data integrity, confidentiality, and
+compliance with relevant regulations.
+
+###### Note
+
+AWS X-Ray tracing is currently not supported for Lambda functions with Amazon Managed Streaming for Apache Kafka
+(Amazon MSK), self-managed Apache Kafka, Amazon MQ with ActiveMQ and RabbitMQ, or Amazon DocumentDB
+event source mappings.
+
+### Remediation
+
+For information about enabling active tracing for an AWS Lambda function, see
+[Visualize
+Lambda function invocations using AWS X-Ray](../../../lambda/latest/dg/services-xray.md "../../../lambda/latest/dg/services-xray.md") in the _AWS Lambda Developer Guide_.

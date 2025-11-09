@@ -31,8 +31,7 @@ disable that control from the home Region. The exception is if you use [central 
 use central configuration, the delegated Security Hub CSPM administrator can configure controls in the home Region and linked Regions from the
 home Region.
 
-If you have set an home Region, [security scores](standards-security-score.md "standards-security-score.md") account for control statuses in all
-linked Regions.
+If you have set an home Region, [security scores](standards-security-score.md "standards-security-score.md") account for control statuses in all  linked Regions.
 To view cross-Region security scores and compliance statuses, add the following
 permissions to your IAM role that uses Security Hub CSPM:
 

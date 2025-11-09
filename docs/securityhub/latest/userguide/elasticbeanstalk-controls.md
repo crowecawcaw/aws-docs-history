@@ -61,9 +61,53 @@ For instructions on how to enable enhanced health reporting, see [Enabling enhan
 
 **Parameters:**
 
-| Parameter         | Description                                         | Type | Allowed custom values                                                                                        | Security Hub default value |
-| ----------------- | --------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `UpdateLevel`     | Version update level                                | Enum | `minor`, `patch`                                                                                             | No default value           | This control checks whether managed platform updates are enabled for an Elastic Beanstalk environment. The control fails if no managed platform updates are enabled. By default, the control passes if any type of platform update is enabled. Optionally, you can provide a custom parameter value to require a specific update level. Enabling managed platform updates ensures that the latest available platform fixes, updates, and features for the environment are installed. Keeping up to date with patch installation is an important step in securing systems. ### Remediation To enable managed platform updates, see [To configure managed platform updates under Managed platform updates](../../../elasticbeanstalk/latest/dg/environment-platform-update-managed.md "../../../elasticbeanstalk/latest/dg/environment-platform-update-managed.md") in the _AWS Elastic Beanstalk Developer Guide_. ## [ElasticBeanstalk.3] Elastic Beanstalk should stream logs to CloudWatch **Related requirements:** PCI DSS v4.0.1/10.4.2 **Category:** Identify > Logging **Severity:** High **Resource type:** `AWS::ElasticBeanstalk::Environment` **AWS Config rule:** [`elastic-beanstalk-logs-to-cloudwatch`](../../../config/latest/developerguide/elastic-beanstalk-logs-to-cloudwatch.md "../../../config/latest/developerguide/elastic-beanstalk-logs-to-cloudwatch.md") **Schedule type:** Change triggered **Parameters:** |
-| Parameter         | Description                                         | Type | Allowed custom values                                                                                        | Security Hub default value |
-| ---               | ---                                                 | ---  | ---                                                                                                          | ---                        |
-| `RetentionInDays` | Number of days to keep log events before expiration | Enum | `1`, `3`, `5`, `7`, `14`, `30`, `60`, `90`, `120`, `150`, `180`, `365` , `400`, `545`, `731`, `1827`, `3653` | No default value           | This control checks whether an Elastic Beanstalk environment is configured to send logs to CloudWatch Logs. The control fails if an Elastic Beanstalk environment isn't configured to send logs to CloudWatch Logs. Optionally, you can provide a custom value for the `RetentionInDays` parameter if you want the control to pass only if logs are retained for the specified number of days before expiration. CloudWatch helps you collect and monitor various metrics for your applications and infrastructure resources. You can also use CloudWatch to configure alarm actions based on specific metrics. We recommend integrating Elastic Beanstalk with CloudWatch to get increased visibility into your Elastic Beanstalk environment. Elastic Beanstalk logs include the eb-activity.log, access logs from the environment nginx or Apache proxy server, and logs that are specific to an environment. ### Remediation To integrate Elastic Beanstalk with CloudWatch Logs, see [Streaming instance logs to CloudWatch Logs](../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming "../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming") in the _AWS Elastic Beanstalk Developer Guide_.                                                                                                                                                                             |
+| Parameter     | Description          | Type | Allowed custom values | Security Hub default value |
+| ------------- | -------------------- | ---- | --------------------- | -------------------------- |
+| `UpdateLevel` | Version update level | Enum | `minor`, `patch`      | No default value           |
+
+This control checks whether managed platform updates are enabled for an Elastic Beanstalk
+environment. The control fails if no managed platform updates are enabled. By default, the control passes if any
+type of platform update is enabled. Optionally, you can provide a custom parameter value to require a specific update level.
+
+Enabling managed platform updates ensures that the latest available platform fixes,
+updates, and features for the environment are installed. Keeping up to date with patch
+installation is an important step in securing systems.
+
+### Remediation
+
+To enable managed platform updates, see [To configure managed platform updates under Managed platform updates](../../../elasticbeanstalk/latest/dg/environment-platform-update-managed.md "../../../elasticbeanstalk/latest/dg/environment-platform-update-managed.md") in the _AWS Elastic Beanstalk Developer Guide_.
+
+## [ElasticBeanstalk.3] Elastic Beanstalk should stream logs to CloudWatch
+
+**Related requirements:** PCI DSS v4.0.1/10.4.2
+
+**Category:** Identify > Logging
+
+**Severity:** High
+
+**Resource type:**
+`AWS::ElasticBeanstalk::Environment`
+
+**AWS Config rule:**
+[`elastic-beanstalk-logs-to-cloudwatch`](../../../config/latest/developerguide/elastic-beanstalk-logs-to-cloudwatch.md "../../../config/latest/developerguide/elastic-beanstalk-logs-to-cloudwatch.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
+| Parameter         | Description                                         | Type | Allowed custom values                                                                                              | Security Hub default value |
+| ----------------- | --------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| `RetentionInDays` | Number of days to keep log events before expiration | Enum | `1`, `3`, `5`, `7`, `14`, `30`,<br>`60`, `90`, `120`, `150`, `180`, `365`<br>, `400`, `545`, `731`, `1827`, `3653` | No default value           |
+
+This control checks whether an Elastic Beanstalk environment is configured to send logs to CloudWatch Logs. The control fails if an
+Elastic Beanstalk environment isn't configured to send logs to CloudWatch Logs. Optionally, you can provide a custom value for the
+`RetentionInDays` parameter if you want the control to pass only if logs are retained for the specified number of days before expiration.
+
+CloudWatch helps you collect and monitor various metrics for your applications and infrastructure resources. You can also
+use CloudWatch to configure alarm actions based on specific metrics. We recommend integrating Elastic Beanstalk with CloudWatch to get
+increased visibility into your Elastic Beanstalk environment. Elastic Beanstalk logs include the eb-activity.log, access logs from the
+environment nginx or Apache proxy server, and logs that are specific to an environment.
+
+### Remediation
+
+To integrate Elastic Beanstalk with CloudWatch Logs, see [Streaming instance logs to CloudWatch Logs](../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming "../../../elasticbeanstalk/latest/dg/AWSHowTo.md#AWSHowTo.cloudwatchlogs.streaming") in the _AWS Elastic Beanstalk Developer Guide_.

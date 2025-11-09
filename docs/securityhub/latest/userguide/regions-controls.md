@@ -214,6 +214,10 @@ The following controls are not supported in the US West (N. California) Region.
 - [[IVS.2] IVS recording configurations should be tagged](ivs-controls.md#ivs-2 "ivs-controls.md#ivs-2")
 - [[IVS.3] IVS channels should be tagged](ivs-controls.md#ivs-3 "ivs-controls.md#ivs-3")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.18] Redshift clusters should have Multi-AZ
   deployments enabled](redshift-controls.md#redshift-18 "redshift-controls.md#redshift-18")
 - [[Route53.1] Route 53 health checks should be tagged](route53-controls.md#route53-1 "route53-controls.md#route53-1")
@@ -599,6 +603,7 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest](dynamodb-controls.md#dynamodb-3 "dynamodb-controls.md#dynamodb-3")
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 - [[EC2.14] Security groups should not allow ingress from
@@ -630,6 +635,8 @@ The following controls are not supported in the Asia Pacific (Hyderabad) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
@@ -874,6 +881,7 @@ The following controls are not supported in the Asia Pacific (Jakarta) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -1097,6 +1105,8 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -1116,6 +1126,7 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -1184,6 +1195,8 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -1417,16 +1430,16 @@ The following controls are not supported in the Asia Pacific (Malaysia) Region.
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
-- [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
-- [[Redshift.6] Amazon Redshift should have automatic upgrades to major versions enabled](redshift-controls.md#redshift-6 "redshift-controls.md#redshift-6")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
-- [[Redshift.11] Redshift clusters should be tagged](redshift-controls.md#redshift-11 "redshift-controls.md#redshift-11")
-- [[Redshift.13] Redshift cluster snapshots should be tagged](redshift-controls.md#redshift-13 "redshift-controls.md#redshift-13")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
 - [[Redshift.16] Redshift cluster subnet groups should have subnets from multiple Availability Zones](redshift-controls.md#redshift-16 "redshift-controls.md#redshift-16")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -1580,6 +1593,7 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -1621,6 +1635,8 @@ The following controls are not supported in the Asia Pacific (Melbourne) Region.
 - [[EC2.173] EC2 Spot Fleet requests with launch
   parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec2-173 "ec2-controls.md#ec2-173")
 - [[EC2.175] EC2 launch templates should be tagged](ec2-controls.md#ec2-175 "ec2-controls.md#ec2-175")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
@@ -1975,6 +1991,8 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -1995,6 +2013,7 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -2094,6 +2113,8 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -2368,9 +2389,15 @@ The following controls are not supported in the Asia Pacific (New Zealand) Regio
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 - [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
@@ -2568,10 +2595,6 @@ The following controls are not supported in the Asia Pacific (Osaka) Region.
   provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
 - [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
   termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
-- [[ELB.4] Application Load Balancer should be configured to drop invalid http
-  headers](elb-controls.md#elb-4 "elb-controls.md#elb-4")
-- [[ELB.6] Application, Gateway, and Network Load Balancers should have deletion
-  protection enabled](elb-controls.md#elb-6 "elb-controls.md#elb-6")
 - [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined
   security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
 - [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
@@ -2949,6 +2972,8 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -2969,6 +2994,7 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -3068,6 +3094,8 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -3342,9 +3370,15 @@ The following controls are not supported in the Asia Pacific (Taipei) Region.
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 - [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
@@ -3539,6 +3573,8 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -3547,7 +3583,6 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[DataSync.1] DataSync tasks should have logging enabled](datasync-controls.md#datasync-1 "datasync-controls.md#datasync-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
 - [[Detective.1] Detective behavior graphs should be tagged](detective-controls.md#detective-1 "detective-controls.md#detective-1")
-- [[DMS.1] Database Migration Service replication instances should not be public](dms-controls.md#dms-1 "dms-controls.md#dms-1")
 - [[DMS.2] DMS certificates should be tagged](dms-controls.md#dms-2 "dms-controls.md#dms-2")
 - [[DMS.3] DMS event subscriptions should be tagged](dms-controls.md#dms-3 "dms-controls.md#dms-3")
 - [[DMS.4] DMS replication instances should be tagged](dms-controls.md#dms-4 "dms-controls.md#dms-4")
@@ -3559,6 +3594,7 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -3629,6 +3665,8 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -3863,9 +3901,15 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 - [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
@@ -3873,10 +3917,6 @@ The following controls are not supported in the Asia Pacific (Thailand) Region.
 - [[Redshift.7] Redshift clusters should use enhanced VPC routing](redshift-controls.md#redshift-7 "redshift-controls.md#redshift-7")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
-- [[Redshift.11] Redshift clusters should be tagged](redshift-controls.md#redshift-11 "redshift-controls.md#redshift-11")
-- [[Redshift.12] Redshift event notification subscriptions should be tagged](redshift-controls.md#redshift-12 "redshift-controls.md#redshift-12")
-- [[Redshift.13] Redshift cluster snapshots should be tagged](redshift-controls.md#redshift-13 "redshift-controls.md#redshift-13")
-- [[Redshift.14] Redshift cluster subnet groups should be tagged](redshift-controls.md#redshift-14 "redshift-controls.md#redshift-14")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
 - [[Redshift.16] Redshift cluster subnet groups should have subnets from multiple Availability Zones](redshift-controls.md#redshift-16 "redshift-controls.md#redshift-16")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -4189,6 +4229,7 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -4251,6 +4292,8 @@ The following controls are not supported in the Canada West (Calgary) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -4477,11 +4520,12 @@ The following controls are not supported in the Canada West (Calgary) Region.
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
-- [[Redshift.6] Amazon Redshift should have automatic upgrades to major versions enabled](redshift-controls.md#redshift-6 "redshift-controls.md#redshift-6")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
@@ -4578,7 +4622,6 @@ The following controls are not supported in the China (Beijing) Region.
 - [[AppRunner.2] App Runner VPC connectors should be tagged](apprunner-controls.md#apprunner-2 "apprunner-controls.md#apprunner-2")
 - [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1 "appsync-controls.md#appsync-1")
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
-- [[AutoScaling.10] EC2 Auto Scaling groups should be tagged](autoscaling-controls.md#autoscaling-10 "autoscaling-controls.md#autoscaling-10")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[Batch.1] Batch job queues should be tagged](batch-controls.md#batch-1 "batch-controls.md#batch-1")
@@ -4621,6 +4664,8 @@ The following controls are not supported in the China (Beijing) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -4628,8 +4673,6 @@ The following controls are not supported in the China (Beijing) Region.
 - [[DataFirehose.1] Firehose delivery streams should be encrypted at rest](datafirehose-controls.md#datafirehose-1 "datafirehose-controls.md#datafirehose-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
 - [[Detective.1] Detective behavior graphs should be tagged](detective-controls.md#detective-1 "detective-controls.md#detective-1")
-- [[DMS.4] DMS replication instances should be tagged](dms-controls.md#dms-4 "dms-controls.md#dms-4")
-- [[DMS.5] DMS replication subnet groups should be tagged](dms-controls.md#dms-5 "dms-controls.md#dms-5")
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
@@ -4654,17 +4697,8 @@ The following controls are not supported in the China (Beijing) Region.
   accept VPC attachment requests](ec2-controls.md#ec2-23 "ec2-controls.md#ec2-23")
 - [[EC2.28] EBS volumes should be covered by a backup
   plan](ec2-controls.md#ec2-28 "ec2-controls.md#ec2-28")
-- [[EC2.33] EC2 transit gateway attachments should
-  be tagged](ec2-controls.md#ec2-33 "ec2-controls.md#ec2-33")
-- [[EC2.34] EC2 transit gateway route tables should
-  be tagged](ec2-controls.md#ec2-34 "ec2-controls.md#ec2-34")
-- [[EC2.35] EC2 network interfaces should be
-  tagged](ec2-controls.md#ec2-35 "ec2-controls.md#ec2-35")
 - [[EC2.36] EC2 customer gateways should be
   tagged](ec2-controls.md#ec2-36 "ec2-controls.md#ec2-36")
-- [[EC2.42] EC2 route tables should be
-  tagged](ec2-controls.md#ec2-42 "ec2-controls.md#ec2-42")
-- [[EC2.46] Amazon VPCs should be tagged](ec2-controls.md#ec2-46 "ec2-controls.md#ec2-46")
 - [[EC2.51] EC2 Client VPN endpoints should have client
   connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
 - [[EC2.53] EC2 security groups should not allow
@@ -4694,11 +4728,8 @@ The following controls are not supported in the China (Beijing) Region.
 - [[EFS.6] EFS mount targets should not be associated with subnets that assign
   public IP addresses on launch](efs-controls.md#efs-6 "efs-controls.md#efs-6")
 - [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3 "eks-controls.md#eks-3")
-- [[EKS.6] EKS clusters should be tagged](eks-controls.md#eks-6 "eks-controls.md#eks-6")
 - [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
   provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
 - [[ELB.17] Application and Network Load Balancers with listeners
   should use recommended security policies](elb-controls.md#elb-17 "elb-controls.md#elb-17")
 - [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
@@ -4791,7 +4822,6 @@ The following controls are not supported in the China (Beijing) Region.
 - [[NetworkFirewall.4] The default stateless action for Network Firewall policies should be drop or forward for full packets](networkfirewall-controls.md#networkfirewall-4 "networkfirewall-controls.md#networkfirewall-4")
 - [[NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets](networkfirewall-controls.md#networkfirewall-5 "networkfirewall-controls.md#networkfirewall-5")
 - [[NetworkFirewall.6] Stateless Network Firewall rule group should not be empty](networkfirewall-controls.md#networkfirewall-6 "networkfirewall-controls.md#networkfirewall-6")
-- [[NetworkFirewall.7] Network Firewall firewalls should be tagged](networkfirewall-controls.md#networkfirewall-7 "networkfirewall-controls.md#networkfirewall-7")
 - [[NetworkFirewall.9] Network Firewall firewalls should have deletion protection enabled](networkfirewall-controls.md#networkfirewall-9 "networkfirewall-controls.md#networkfirewall-9")
 - [[NetworkFirewall.10] Network Firewall firewalls should have subnet change
   protection enabled](networkfirewall-controls.md#networkfirewall-10 "networkfirewall-controls.md#networkfirewall-10")
@@ -4808,7 +4838,6 @@ The following controls are not supported in the China (Beijing) Region.
 - [[PCA.2] AWS Private CA certificate authorities should be tagged](pca-controls.md#pca-2 "pca-controls.md#pca-2")
 - [[RDS.7] RDS clusters should have deletion protection enabled](rds-controls.md#rds-7 "rds-controls.md#rds-7")
 - [[RDS.12] IAM authentication should be configured for RDS clusters](rds-controls.md#rds-12 "rds-controls.md#rds-12")
-- [[RDS.13] RDS automatic minor version upgrades should be enabled](rds-controls.md#rds-13 "rds-controls.md#rds-13")
 - [[RDS.14] Amazon Aurora clusters should have backtracking enabled](rds-controls.md#rds-14 "rds-controls.md#rds-14")
 - [[RDS.15] RDS DB clusters should be configured for multiple Availability Zones](rds-controls.md#rds-15 "rds-controls.md#rds-15")
 - [[RDS.16] Aurora DB clusters should be configured to copy tags to DB
@@ -4819,13 +4848,18 @@ The following controls are not supported in the China (Beijing) Region.
 - [[RDS.27] RDS DB clusters should be encrypted at rest](rds-controls.md#rds-27 "rds-controls.md#rds-27")
 - [[RDS.28] RDS DB clusters should be tagged](rds-controls.md#rds-28 "rds-controls.md#rds-28")
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
-- [[RDS.32] RDS DB snapshots should be tagged](rds-controls.md#rds-32 "rds-controls.md#rds-32")
 - [[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs](rds-controls.md#rds-34 "rds-controls.md#rds-34")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
 - [[RDS.37] Aurora PostgreSQL DB clusters should publish logs to CloudWatch Logs](rds-controls.md#rds-37 "rds-controls.md#rds-37")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -4842,8 +4876,6 @@ The following controls are not supported in the China (Beijing) Region.
 - [[S3.24] S3 Multi-Region Access Points should have block public access settings enabled](s3-controls.md#s3-24 "s3-controls.md#s3-24")
 - [[S3.25] S3 directory buckets should have lifecycle
   configurations](s3-controls.md#s3-25 "s3-controls.md#s3-25")
-- [[SageMaker.1] Amazon SageMaker notebook instances should not have
-  direct internet access](sagemaker-controls.md#sagemaker-1 "sagemaker-controls.md#sagemaker-1")
 - [[SageMaker.4] SageMaker endpoint production variants should have an
   initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagemaker-controls.md#sagemaker-4")
 - [[SageMaker.5] SageMaker models should have network isolation enabled](sagemaker-controls.md#sagemaker-5 "sagemaker-controls.md#sagemaker-5")
@@ -4889,7 +4921,6 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[AppRunner.2] App Runner VPC connectors should be tagged](apprunner-controls.md#apprunner-2 "apprunner-controls.md#apprunner-2")
 - [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1 "appsync-controls.md#appsync-1")
 - [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6 "appsync-controls.md#appsync-6")
-- [[AutoScaling.10] EC2 Auto Scaling groups should be tagged](autoscaling-controls.md#autoscaling-10 "autoscaling-controls.md#autoscaling-10")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
 - [[Backup.4] AWS Backup report plans should be tagged](backup-controls.md#backup-4 "backup-controls.md#backup-4")
 - [[Batch.1] Batch job queues should be tagged](batch-controls.md#batch-1 "batch-controls.md#batch-1")
@@ -4934,6 +4965,8 @@ The following controls are not supported in the China (Ningxia) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -4941,8 +4974,6 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[DataFirehose.1] Firehose delivery streams should be encrypted at rest](datafirehose-controls.md#datafirehose-1 "datafirehose-controls.md#datafirehose-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
 - [[Detective.1] Detective behavior graphs should be tagged](detective-controls.md#detective-1 "detective-controls.md#detective-1")
-- [[DMS.4] DMS replication instances should be tagged](dms-controls.md#dms-4 "dms-controls.md#dms-4")
-- [[DMS.5] DMS replication subnet groups should be tagged](dms-controls.md#dms-5 "dms-controls.md#dms-5")
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
@@ -4961,17 +4992,8 @@ The following controls are not supported in the China (Ningxia) Region.
   used](ec2-controls.md#ec2-24 "ec2-controls.md#ec2-24")
 - [[EC2.28] EBS volumes should be covered by a backup
   plan](ec2-controls.md#ec2-28 "ec2-controls.md#ec2-28")
-- [[EC2.33] EC2 transit gateway attachments should
-  be tagged](ec2-controls.md#ec2-33 "ec2-controls.md#ec2-33")
-- [[EC2.34] EC2 transit gateway route tables should
-  be tagged](ec2-controls.md#ec2-34 "ec2-controls.md#ec2-34")
-- [[EC2.35] EC2 network interfaces should be
-  tagged](ec2-controls.md#ec2-35 "ec2-controls.md#ec2-35")
 - [[EC2.36] EC2 customer gateways should be
   tagged](ec2-controls.md#ec2-36 "ec2-controls.md#ec2-36")
-- [[EC2.42] EC2 route tables should be
-  tagged](ec2-controls.md#ec2-42 "ec2-controls.md#ec2-42")
-- [[EC2.46] Amazon VPCs should be tagged](ec2-controls.md#ec2-46 "ec2-controls.md#ec2-46")
 - [[EC2.50] EC2 VPN gateways should be
   tagged](ec2-controls.md#ec2-50 "ec2-controls.md#ec2-50")
 - [[EC2.51] EC2 Client VPN endpoints should have client
@@ -4999,11 +5021,8 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[EFS.6] EFS mount targets should not be associated with subnets that assign
   public IP addresses on launch](efs-controls.md#efs-6 "efs-controls.md#efs-6")
 - [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3 "eks-controls.md#eks-3")
-- [[EKS.6] EKS clusters should be tagged](eks-controls.md#eks-6 "eks-controls.md#eks-6")
 - [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
   provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
 - [[ELB.17] Application and Network Load Balancers with listeners
   should use recommended security policies](elb-controls.md#elb-17 "elb-controls.md#elb-17")
 - [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
@@ -5092,7 +5111,6 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[NetworkFirewall.4] The default stateless action for Network Firewall policies should be drop or forward for full packets](networkfirewall-controls.md#networkfirewall-4 "networkfirewall-controls.md#networkfirewall-4")
 - [[NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets](networkfirewall-controls.md#networkfirewall-5 "networkfirewall-controls.md#networkfirewall-5")
 - [[NetworkFirewall.6] Stateless Network Firewall rule group should not be empty](networkfirewall-controls.md#networkfirewall-6 "networkfirewall-controls.md#networkfirewall-6")
-- [[NetworkFirewall.7] Network Firewall firewalls should be tagged](networkfirewall-controls.md#networkfirewall-7 "networkfirewall-controls.md#networkfirewall-7")
 - [[NetworkFirewall.9] Network Firewall firewalls should have deletion protection enabled](networkfirewall-controls.md#networkfirewall-9 "networkfirewall-controls.md#networkfirewall-9")
 - [[NetworkFirewall.10] Network Firewall firewalls should have subnet change
   protection enabled](networkfirewall-controls.md#networkfirewall-10 "networkfirewall-controls.md#networkfirewall-10")
@@ -5107,18 +5125,16 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[Opensearch.11] OpenSearch domains should have at least three dedicated primary nodes](opensearch-controls.md#opensearch-11 "opensearch-controls.md#opensearch-11")
 - [[PCA.1] AWS Private CA root certificate authority should be disabled](pca-controls.md#pca-1 "pca-controls.md#pca-1")
 - [[PCA.2] AWS Private CA certificate authorities should be tagged](pca-controls.md#pca-2 "pca-controls.md#pca-2")
-- [[RDS.13] RDS automatic minor version upgrades should be enabled](rds-controls.md#rds-13 "rds-controls.md#rds-13")
 - [[RDS.14] Amazon Aurora clusters should have backtracking enabled](rds-controls.md#rds-14 "rds-controls.md#rds-14")
-- [[RDS.15] RDS DB clusters should be configured for multiple Availability Zones](rds-controls.md#rds-15 "rds-controls.md#rds-15")
 - [[RDS.24] RDS Database clusters should use a custom administrator username](rds-controls.md#rds-24 "rds-controls.md#rds-24")
 - [[RDS.25] RDS database instances should use a custom administrator username](rds-controls.md#rds-25 "rds-controls.md#rds-25")
 - [[RDS.26] RDS DB instances should be protected by a backup plan](rds-controls.md#rds-26 "rds-controls.md#rds-26")
-- [[RDS.28] RDS DB clusters should be tagged](rds-controls.md#rds-28 "rds-controls.md#rds-28")
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
-- [[RDS.32] RDS DB snapshots should be tagged](rds-controls.md#rds-32 "rds-controls.md#rds-32")
 - [[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs](rds-controls.md#rds-34 "rds-controls.md#rds-34")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
@@ -5135,8 +5151,6 @@ The following controls are not supported in the China (Ningxia) Region.
 - [[S3.24] S3 Multi-Region Access Points should have block public access settings enabled](s3-controls.md#s3-24 "s3-controls.md#s3-24")
 - [[S3.25] S3 directory buckets should have lifecycle
   configurations](s3-controls.md#s3-25 "s3-controls.md#s3-25")
-- [[SageMaker.1] Amazon SageMaker notebook instances should not have
-  direct internet access](sagemaker-controls.md#sagemaker-1 "sagemaker-controls.md#sagemaker-1")
 - [[SageMaker.4] SageMaker endpoint production variants should have an
   initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagemaker-controls.md#sagemaker-4")
 - [[SageMaker.5] SageMaker models should have network isolation enabled](sagemaker-controls.md#sagemaker-5 "sagemaker-controls.md#sagemaker-5")
@@ -5522,6 +5536,7 @@ The following controls are not supported in the Europe (Paris) Region.
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
   enabled](connect-controls.md#connect-2 "connect-controls.md#connect-2")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[EC2.24] Amazon EC2 paravirtual instance types should not be
   used](ec2-controls.md#ec2-24 "ec2-controls.md#ec2-24")
 - [[EC2.173] EC2 Spot Fleet requests with launch
@@ -5640,6 +5655,7 @@ The following controls are not supported in the Europe (Spain) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -5687,6 +5703,8 @@ The following controls are not supported in the Europe (Spain) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
@@ -6025,6 +6043,7 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -6059,6 +6078,8 @@ The following controls are not supported in the Europe (Zurich) Region.
 - [[EC2.175] EC2 launch templates should be tagged](ec2-controls.md#ec2-175 "ec2-controls.md#ec2-175")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS](efs-controls.md#efs-1 "efs-controls.md#efs-1")
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
@@ -6291,6 +6312,7 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -6348,6 +6370,8 @@ The following controls are not supported in the Israel (Tel Aviv) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
@@ -6648,6 +6672,8 @@ The following controls are not supported in the Mexico (Central) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -6656,7 +6682,6 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[DataSync.1] DataSync tasks should have logging enabled](datasync-controls.md#datasync-1 "datasync-controls.md#datasync-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
 - [[Detective.1] Detective behavior graphs should be tagged](detective-controls.md#detective-1 "detective-controls.md#detective-1")
-- [[DMS.1] Database Migration Service replication instances should not be public](dms-controls.md#dms-1 "dms-controls.md#dms-1")
 - [[DMS.2] DMS certificates should be tagged](dms-controls.md#dms-2 "dms-controls.md#dms-2")
 - [[DMS.3] DMS event subscriptions should be tagged](dms-controls.md#dms-3 "dms-controls.md#dms-3")
 - [[DMS.4] DMS replication instances should be tagged](dms-controls.md#dms-4 "dms-controls.md#dms-4")
@@ -6668,6 +6693,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
   rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
 - [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
@@ -6738,6 +6764,8 @@ The following controls are not supported in the Mexico (Central) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
@@ -6973,9 +7001,15 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[RDS.40] RDS for SQL Server DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-40 "rds-controls.md#rds-40")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 - [[Redshift.2] Connections to Amazon Redshift clusters should be encrypted in transit](redshift-controls.md#redshift-2 "redshift-controls.md#redshift-2")
 - [[Redshift.3] Amazon Redshift clusters should have automatic snapshots enabled](redshift-controls.md#redshift-3 "redshift-controls.md#redshift-3")
@@ -6985,9 +7019,7 @@ The following controls are not supported in the Mexico (Central) Region.
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
 - [[Redshift.11] Redshift clusters should be tagged](redshift-controls.md#redshift-11 "redshift-controls.md#redshift-11")
-- [[Redshift.12] Redshift event notification subscriptions should be tagged](redshift-controls.md#redshift-12 "redshift-controls.md#redshift-12")
 - [[Redshift.13] Redshift cluster snapshots should be tagged](redshift-controls.md#redshift-13 "redshift-controls.md#redshift-13")
-- [[Redshift.14] Redshift cluster subnet groups should be tagged](redshift-controls.md#redshift-14 "redshift-controls.md#redshift-14")
 - [[Redshift.15] Redshift security groups should allow ingress on the cluster port only from restricted origins](redshift-controls.md#redshift-15 "redshift-controls.md#redshift-15")
 - [[Redshift.16] Redshift cluster subnet groups should have subnets from multiple Availability Zones](redshift-controls.md#redshift-16 "redshift-controls.md#redshift-16")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -7190,6 +7222,8 @@ The following controls are not supported in the Middle East (Bahrain) Region.
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
 - [[RDS.41] RDS for SQL Server DB instances should be encrypted in transit](rds-controls.md#rds-41 "rds-controls.md#rds-41")
 - [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 - [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
@@ -7295,6 +7329,7 @@ The following controls are not supported in the Middle East (UAE) Region.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+- [[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 - [[DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest](dynamodb-controls.md#dynamodb-3 "dynamodb-controls.md#dynamodb-3")
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
 - [[EC2.4] Stopped EC2 instances should be removed
@@ -7324,6 +7359,8 @@ The following controls are not supported in the Middle East (UAE) Region.
   tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[EC2.180] EC2 network interfaces should have
   source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+- [[EC2.181] EC2 launch templates should enable encryption
+  for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[ECS.1] Amazon ECS task definitions should have secure networking modes and user
   definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
@@ -7627,6 +7664,8 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
 - [[Cognito.2] Cognito identity pools should not allow
   unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -7701,8 +7740,6 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
   Availability Zones](elb-controls.md#elb-13 "elb-controls.md#elb-13")
 - [[ELB.14] Classic Load Balancer should be configured with defensive or strictest
   desync mitigation mode](elb-controls.md#elb-14 "elb-controls.md#elb-14")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
 - [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
   automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
 - [[ElastiCache.2] ElastiCache clusters should have automatic minor
@@ -7827,7 +7864,13 @@ The following controls are not supported in the AWS GovCloud (US-East) Region.
 - [[RDS.31] RDS DB security groups should be tagged](rds-controls.md#rds-31 "rds-controls.md#rds-31")
 - [[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs](rds-controls.md#rds-34 "rds-controls.md#rds-34")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
 - [[Redshift.17] Redshift cluster parameter groups should be
@@ -7960,6 +8003,8 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
   tagged](codegurureviewer-controls.md#codegurureviewer-1 "codegurureviewer-controls.md#codegurureviewer-1")
 - [[Cognito.1] Cognito user pools should have threat protection
   activated with full function enforcement mode for standard authentication](cognito-controls.md#cognito-1 "cognito-controls.md#cognito-1")
+- [[Cognito.3] Password policies for Cognito user pools should
+  have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
 - [[Connect.1] Amazon Connect Customer Profiles object types
   should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
@@ -8031,8 +8076,6 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
   Availability Zones](elb-controls.md#elb-13 "elb-controls.md#elb-13")
 - [[ELB.14] Classic Load Balancer should be configured with defensive or strictest
   desync mitigation mode](elb-controls.md#elb-14 "elb-controls.md#elb-14")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
 - [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
   automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
 - [[ElastiCache.2] ElastiCache clusters should have automatic minor
@@ -8154,7 +8197,13 @@ The following controls are not supported in the AWS GovCloud (US-West) Region.
 - [[RDS.27] RDS DB clusters should be encrypted at rest](rds-controls.md#rds-27 "rds-controls.md#rds-27")
 - [[RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs](rds-controls.md#rds-34 "rds-controls.md#rds-34")
 - [[RDS.35] RDS DB clusters should have automatic minor version upgrade enabled](rds-controls.md#rds-35 "rds-controls.md#rds-35")
+- [[RDS.43] RDS DB proxies should require TLS encryption for
+  connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
 - [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
+- [[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+- [[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+  snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 - [[Redshift.7] Redshift clusters should use enhanced VPC routing](redshift-controls.md#redshift-7 "redshift-controls.md#redshift-7")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")

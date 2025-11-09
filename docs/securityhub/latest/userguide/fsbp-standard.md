@@ -134,6 +134,9 @@ Amazon CloudWatch Logs](cloudtrail-controls.md#cloudtrail-5 "cloudtrail-controls
 [[Cognito.2] Cognito identity pools should not allow
 unauthenticated identities](cognito-controls.md#cognito-2 "cognito-controls.md#cognito-2")
 
+[[Cognito.3] Password policies for Cognito user pools should
+have strong configurations](cognito-controls.md#cognito-3 "cognito-controls.md#cognito-3")
+
 [[Config.1] AWS Config should be enabled and use the service-linked role for resource recording](config-controls.md#config-1 "config-controls.md#config-1")
 
 [[Connect.2] Amazon Connect instances should have CloudWatch logging
@@ -158,6 +161,8 @@ enabled](connect-controls.md#connect-2 "connect-controls.md#connect-2")
 [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 
 [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
+
+[[DMS.13] DMS replication instances should be configured to use multiple Availability Zones](dms-controls.md#dms-13 "dms-controls.md#dms-13")
 
 [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
 rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
@@ -271,6 +276,9 @@ parameters should enable encryption for attached EBS volumes](ec2-controls.md#ec
 
 [[EC2.180] EC2 network interfaces should have
 source/destination checking enabled](ec2-controls.md#ec2-180 "ec2-controls.md#ec2-180")
+
+[[EC2.181] EC2 launch templates should enable encryption
+for attached EBS volumes](ec2-controls.md#ec2-181 "ec2-controls.md#ec2-181")
 
 [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 
@@ -646,11 +654,20 @@ snapshots](rds-controls.md#rds-16 "rds-controls.md#rds-16")
 
 [[RDS.42] RDS for MariaDB DB instances should publish logs to CloudWatch Logs](rds-controls.md#rds-42 "rds-controls.md#rds-42")
 
+[[RDS.43] RDS DB proxies should require TLS encryption for
+connections](rds-controls.md#rds-43 "rds-controls.md#rds-43")
+
 [[RDS.44] RDS for MariaDB DB instances should be encrypted in transit](rds-controls.md#rds-44 "rds-controls.md#rds-44")
 
 [[RDS.45] Aurora MySQL DB clusters should have audit logging enabled](rds-controls.md#rds-45 "rds-controls.md#rds-45")
 
 [[RDS.46] RDS DB instances should not be deployed in public subnets with routes to internet gateways](rds-controls.md#rds-46 "rds-controls.md#rds-46")
+
+[[RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
+snapshots](rds-controls.md#rds-47 "rds-controls.md#rds-47")
+
+[[RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
+snapshots](rds-controls.md#rds-48 "rds-controls.md#rds-48")
 
 [[Redshift.1] Amazon Redshift clusters should prohibit public access](redshift-controls.md#redshift-1 "redshift-controls.md#redshift-1")
 

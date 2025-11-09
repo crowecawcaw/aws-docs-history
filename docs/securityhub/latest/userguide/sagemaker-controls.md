@@ -206,8 +206,127 @@ tagged
 **Parameters:**
 
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an Amazon SageMaker AI app image configuration (`AppImageConfig`) has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the app image configuration doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the app image configuration doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation To add tags to an Amazon SageMaker AI app image configuration (`AppImageConfig`), you can use the [AddTags](../../../sagemaker/latest/APIReference/API_AddTags.md "../../../sagemaker/latest/APIReference/API_AddTags.md") operation of the SageMaker AI API or, if you're using the AWS CLI, run the [add-tags](../../../cli/latest/reference/sagemaker/add-tags.md "../../../cli/latest/reference/sagemaker/add-tags.md") command. ## [SageMaker.7] SageMaker images should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::SageMaker::Image` **AWS Config rule:** [sagemaker-image-tagged](../../../config/latest/developerguide/sagemaker-image-tagged.md "../../../config/latest/developerguide/sagemaker-image-tagged.md") **Schedule type:** Change triggered **Parameters:**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an Amazon SageMaker AI app image configuration
+(`AppImageConfig`) has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the app image
+configuration doesn't have any tag keys, or it doesn't have all the keys specified by
+the `requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the app image configuration doesn't have any tag
+keys. The control ignores system tags, which are applied automatically and have the
+`aws:` prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+To add tags to an Amazon SageMaker AI app image configuration (`AppImageConfig`),
+you can use the [AddTags](../../../sagemaker/latest/APIReference/API_AddTags.md "../../../sagemaker/latest/APIReference/API_AddTags.md") operation
+of the SageMaker AI API or, if you're using the AWS CLI, run the [add-tags](../../../cli/latest/reference/sagemaker/add-tags.md "../../../cli/latest/reference/sagemaker/add-tags.md")
+command.
+
+## [SageMaker.7] SageMaker images should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::SageMaker::Image`
+
+**AWS Config rule:** [sagemaker-image-tagged](../../../config/latest/developerguide/sagemaker-image-tagged.md "../../../config/latest/developerguide/sagemaker-image-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an Amazon SageMaker AI image has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the image doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the image doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation To add tags to an Amazon SageMaker AI image, you can use the [AddTags](../../../sagemaker/latest/APIReference/API_AddTags.md "../../../sagemaker/latest/APIReference/API_AddTags.md") operation of the SageMaker AI API or, if you're using the AWS CLI, run the [add-tags](../../../cli/latest/reference/sagemaker/add-tags.md "../../../cli/latest/reference/sagemaker/add-tags.md") command. ## [SageMaker.8] SageMaker notebook instances should run on supported platforms **Category:** Detect > Vulnerability, patch, and version management **Severity:** Medium **Resource type:** `AWS::SageMaker::NotebookInstance` **AWS Config rule:** [sagemaker-notebook-instance-platform-version](../../../config/latest/developerguide/sagemaker-notebook-instance-platform-version.md "../../../config/latest/developerguide/sagemaker-notebook-instance-platform-version.md") **Schedule type:** Periodic **Parameters:** <br>• `supportedPlatformIdentifierVersions`: `notebook-al2-v3` (not customizable) This control checks whether an Amazon SageMaker AI notebook instance is configured to run on a supported platform, based on the platform identifier specified for the notebook instance. The control fails if the notebook instance is configured to run on a platform that's no longer supported. If the platform for an Amazon SageMaker AI notebook instance is no longer supported, it might not receive security patches, bug fixes, or other types of updates. Notebook instances might continue to function, but they won't receive SageMaker AI security updates or critical bug fixes. You assume the risks associated with using an unsupported platform. For more information, see [JupyterLab versioning](../../../sagemaker/latest/dg/nbi-jl.md "../../../sagemaker/latest/dg/nbi-jl.md") in the _Amazon SageMaker AI Developer Guide_. ### Remediation For information about the platforms that Amazon SageMaker AI currently supports and how to migrate to them, see [Amazon Linux 2 notebook instances](../../../sagemaker/latest/dg/nbi-al2.md "../../../sagemaker/latest/dg/nbi-al2.md") in the _Amazon SageMaker AI Developer Guide_. |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an Amazon SageMaker AI image has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the image
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the image doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+To add tags to an Amazon SageMaker AI image, you can use the [AddTags](../../../sagemaker/latest/APIReference/API_AddTags.md "../../../sagemaker/latest/APIReference/API_AddTags.md") operation
+of the SageMaker AI API or, if you're using the AWS CLI, run the [add-tags](../../../cli/latest/reference/sagemaker/add-tags.md "../../../cli/latest/reference/sagemaker/add-tags.md")
+command.
+
+## [SageMaker.8] SageMaker notebook instances should run on supported platforms
+
+**Category:** Detect > Vulnerability, patch, and version
+management
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::NotebookInstance`
+
+**AWS Config rule:** [sagemaker-notebook-instance-platform-version](../../../config/latest/developerguide/sagemaker-notebook-instance-platform-version.md "../../../config/latest/developerguide/sagemaker-notebook-instance-platform-version.md")
+
+**Schedule type:** Periodic
+
+**Parameters:**
+
+- `supportedPlatformIdentifierVersions`: `notebook-al2-v3`
+  (not customizable)
+
+This control checks whether an Amazon SageMaker AI notebook instance is configured to run on a
+supported platform, based on the platform identifier specified for the notebook
+instance. The control fails if the notebook instance is configured to run on a platform
+that's no longer supported.
+
+If the platform for an Amazon SageMaker AI notebook instance is no longer supported, it might not
+receive security patches, bug fixes, or other types of updates. Notebook instances might
+continue to function, but they won't receive SageMaker AI security updates or critical bug
+fixes. You assume the risks associated with using an unsupported platform. For more
+information, see [JupyterLab
+versioning](../../../sagemaker/latest/dg/nbi-jl.md "../../../sagemaker/latest/dg/nbi-jl.md") in the _Amazon SageMaker AI Developer
+Guide_.
+
+### Remediation
+
+For information about the platforms that Amazon SageMaker AI currently supports and how to
+migrate to them, see [Amazon Linux 2 notebook
+instances](../../../sagemaker/latest/dg/nbi-al2.md "../../../sagemaker/latest/dg/nbi-al2.md") in the _Amazon SageMaker AI Developer
+Guide_.

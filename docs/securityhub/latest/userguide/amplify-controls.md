@@ -20,8 +20,86 @@ Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-
 **Parameters:**
 
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Amplify app has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the app doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the app doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Amplify app, see [Resource tagging support](../../../amplify/latest/userguide/resource-tagging-support-chapter.md "../../../amplify/latest/userguide/resource-tagging-support-chapter.md") in the _AWS Amplify Hosting User Guide_. ## [Amplify.2] Amplify branches should be tagged **Category:** Identify > Inventory > Tagging **Severity:** Low **Resource type:** `AWS::Amplify::Branch` **AWS Config rule:** [amplify-branch-tagged](../../../config/latest/developerguide/amplify-branch-tagged.md "../../../config/latest/developerguide/amplify-branch-tagged.md") **Schedule type:** Change triggered **Parameters:** |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Amplify app has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the app doesn't
+have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the app doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Amplify app, see [Resource
+tagging support](../../../amplify/latest/userguide/resource-tagging-support-chapter.md "../../../amplify/latest/userguide/resource-tagging-support-chapter.md") in the _AWS Amplify Hosting
+User Guide_.
+
+## [Amplify.2] Amplify branches should be tagged
+
+**Category:** Identify > Inventory > Tagging
+
+**Severity:** Low
+
+**Resource type:**
+`AWS::Amplify::Branch`
+
+**AWS Config rule:** [amplify-branch-tagged](../../../config/latest/developerguide/amplify-branch-tagged.md "../../../config/latest/developerguide/amplify-branch-tagged.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+
 | Parameter         | Description                                                                                                | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ---               | ---                                                                                                        | ---                             | ---                                                                                                                                                                           | ---                        |
-| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an AWS Amplify branch has the tag keys specified by the `requiredKeyTags` parameter. The control fails if the branch doesn't have any tag keys, or it doesn't have all the keys specified by the `requiredKeyTags` parameter. If you don't specify any values for the `requiredKeyTags` parameter, the control checks only for the existence of a tag key and fails if the branch doesn't have any tag keys. The control ignores system tags, which are applied automatically and have the `aws:` prefix. A tag is a label that you create and assign to an AWS resource. Each tag consists of a required tag key and an optional tag value. You can use tags to categorize resources by purpose, owner, environment, or other criteria. They can help you identify, organize, search for, and filter resources. They can also help you track resource owners for actions and notifications. You can also use tags to implement attribute-based access control (ABAC) as an authorization strategy. For more information about ABAC strategies, see [Define permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the [Tagging AWS Resources and Tag Editor User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md"). ###### Note Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible from many AWS services. They aren't intended to be used for private or sensitive data. ### Remediation For information about adding tags to an AWS Amplify branch, see [Resource tagging support](../../../amplify/latest/userguide/resource-tagging-support-chapter.md "../../../amplify/latest/userguide/resource-tagging-support-chapter.md") in the _AWS Amplify Hosting User Guide_.                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredKeyTags` | A list of non-system tag keys that must be assigned to an evaluated resource. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an AWS Amplify branch has the tag keys specified by the
+`requiredKeyTags` parameter. The control fails if the branch
+doesn't have any tag keys, or it doesn't have all the keys specified by the
+`requiredKeyTags` parameter. If you don't specify any values for
+the `requiredKeyTags` parameter, the control checks only for the
+existence of a tag key and fails if the branch doesn't have any tag keys. The control
+ignores system tags, which are applied automatically and have the `aws:`
+prefix.
+
+A tag is a label that you create and assign to an AWS resource. Each tag consists of
+a required tag key and an optional tag value. You can use tags to categorize resources
+by purpose, owner, environment, or other criteria. They can help you identify, organize,
+search for, and filter resources. They can also help you track resource owners for
+actions and notifications. You can also use tags to implement attribute-based access
+control (ABAC) as an authorization strategy. For more information about ABAC strategies,
+see [Define
+permissions based on attributes with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. For more information about tags, see the
+[Tagging AWS Resources and Tag Editor User
+Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
+
+###### Note
+
+Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are
+accessible from many AWS services. They aren't intended to be used for private or sensitive data.
+
+### Remediation
+
+For information about adding tags to an AWS Amplify branch, see [Resource
+tagging support](../../../amplify/latest/userguide/resource-tagging-support-chapter.md "../../../amplify/latest/userguide/resource-tagging-support-chapter.md") in the _AWS Amplify Hosting
+User Guide_.

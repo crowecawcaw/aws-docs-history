@@ -526,12 +526,9 @@ disabled.
   },
   "Resources": [
     {
-      "Type": "AwsCloudTrailTrail",
-
-      "Id": "arn:aws:cloudtrail:us-east-1:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
-
-      "Partition": "aws",
-
+      "Type": "AwsCloudTrailTrail", 
+      "Id": "arn:aws:cloudtrail:us-east-1:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT", 
+      "Partition": "aws", 
       "Region": "us-east-1"
     }
   ],

@@ -435,5 +435,117 @@ tagged
 **Parameters:**
 
 | Parameter         | Description                                                                                        | Type                            | Allowed custom values                                                                                                                                                         | Security Hub default value |
-| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           | This control checks whether an Amazon CloudFront distribution has tags with the specific keys defined in the parameter `requiredTagKeys`. The control fails if the distribution doesn’t have any tag keys or if it doesn’t have all the keys specified in the parameter `requiredTagKeys`. If the parameter `requiredTagKeys` isn't provided, the control only checks for the existence of a tag key and fails if the distribution isn't tagged with any key. System tags, which are automatically applied and begin with `aws:`, are ignored. A tag is a label that you assign to an AWS resource, and it consists of a key and an optional value. You can create tags to categorize resources by purpose, owner, environment, or other criteria. Tags can help you identify, organize, search for, and filter resources. Tagging also helps you track accountable resource owners for actions and notifications. When you use tagging, you can implement attribute-based access control (ABAC) as an authorization strategy, which defines permissions based on tags. You can attach tags to IAM entities (users or roles) and to AWS resources. You can create a single ABAC policy or a separate set of policies for your IAM principals. You can design these ABAC policies to allow operations when the principal's tag matches the resource tag. For more information, see [What is ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. ###### Note Don’t add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to many AWS services, including AWS Billing. For more tagging best practices, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_. ### Remediation To add tags to a CloudFront distribution, see [Tagging Amazon CloudFront distributions](../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md "../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md") in the _Amazon CloudFront Developer Guide_. ## [CloudFront.15] CloudFront distributions should use the recommended TLS security policy **Category:** Protect > Data Protection > Encryption of data-in-transit **Severity:** Medium **Resource type:** `AWS::CloudFront::Distribution` **AWS Config rule:** [cloudfront-ssl-policy-check](../../../config/latest/developerguide/cloudfront-ssl-policy-check.md "../../../config/latest/developerguide/cloudfront-ssl-policy-check.md") **Schedule type:** Change triggered **Parameters:** `securityPolicies`: `TLSv1.2_2021,TLSv1.2_2025,TLSv1.3_2025` (not customizable) This control checks whether an Amazon CloudFront distribution is configured to use a recommended TLS security policy. The control fails if the CloudFront distribution is not configured to use a recommended TLS security policy. If you configure an Amazon CloudFront distribution to require viewers to use HTTPS to access content, you have to choose a security policy and specify the minimum SSL/TLS protocol version to use. This determines which protocol version CloudFront uses to communicate with viewers, and the ciphers that CloudFront uses to encrypt the communications. We recommend using the latest security policy that CloudFront provides. This ensures that CloudFront uses the latest cipher suites to encrypt data in transit between a viewer and a CloudFront distribution. ###### Note This control generates findings only for CloudFront distributions that are configured to use custom SSL certificates and are not configured to support legacy clients. ### Remediation For information about configuring the security policy for a CloudFront distribution, see [Update a distribution](../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md "../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md") in the _Amazon CloudFront Developer Guide_. When you configure the security policy for a distribution, choose the latest security policy. ## [CloudFront.16] CloudFront distributions should use origin access control for Lambda function URL origins **Category:** Protect > Secure access management > Access control **Severity:** Medium **Resource type:** `AWS::CloudFront::Distribution` **AWS Config rule:** [cloudfront-origin-lambda-url-oac-enabled](../../../config/latest/developerguide/cloudfront-origin-lambda-url-oac-enabled.md "../../../config/latest/developerguide/cloudfront-origin-lambda-url-oac-enabled.md") **Schedule type:** Change triggered **Parameters:** None This control checks whether an Amazon CloudFront distribution with an AWS Lambda function URL as an origin has origin access control (OAC) enabled. The control fails if the CloudFront distribution has a Lambda function URL as an origin and OAC isn't enabled. An AWS Lambda function URL is a dedicated HTTPS endpoint for a Lambda function. If a Lambda function URL is the origin for a CloudFront distribution, the function URL must be publicly accessible. Therefore, as a security best practice, you should create an OAC and add it to the Lambda function URL in a distribution. OAC uses IAM service principals to authenticate requests between CloudFront and the function URL. It also supports the use of resource-based policies to allow invocation of a function only if a request is on behalf of a CloudFront distribution specified in the policy. ### Remediation For information about configuring OAC for an Amazon CloudFront distribution that uses a Lambda function URL as an origin, see [Restrict access to an AWS Lambda function URL origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md") in the _Amazon CloudFront Developer Guide_. |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `requiredTagKeys` | List of non-system tag keys that the evaluated resource must contain. Tag keys are case sensitive. | StringList (maximum of 6 items) | 1–6 tag keys that meet [AWS requirements](../../../tag-editor/latest/userguide/tagging.md#tag-conventions "../../../tag-editor/latest/userguide/tagging.md#tag-conventions"). | No default value           |
+
+This control checks whether an Amazon CloudFront distribution has tags with the specific keys
+defined in the parameter `requiredTagKeys`. The control fails if the
+distribution doesn’t have any tag keys or if it doesn’t have all the keys specified in
+the parameter `requiredTagKeys`. If the parameter
+`requiredTagKeys` isn't provided, the control only checks for the
+existence of a tag key and fails if the distribution isn't tagged with any key. System
+tags, which are automatically applied and begin with `aws:`, are
+ignored.
+
+A tag is a label that you assign to an AWS resource, and it consists of a key and an
+optional value. You can create tags to categorize resources by purpose, owner,
+environment, or other criteria. Tags can help you identify, organize, search for, and
+filter resources. Tagging also helps you track accountable resource owners for actions
+and notifications. When you use tagging, you can implement attribute-based access
+control (ABAC) as an authorization strategy, which defines permissions based on tags.
+You can attach tags to IAM entities (users or roles) and to AWS resources. You can
+create a single ABAC policy or a separate set of policies for your IAM principals. You
+can design these ABAC policies to allow operations when the principal's tag matches the
+resource tag. For more information, see [What is
+ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
+
+###### Note
+
+Don’t add personally identifiable information (PII) or other confidential or
+sensitive information in tags. Tags are accessible to many AWS services, including
+AWS Billing. For more tagging best practices, see [Tagging your
+AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practices "../../../tag-editor/latest/userguide/tagging.md#tag-best-practices") in the _AWS General Reference_.
+
+### Remediation
+
+To add tags to a CloudFront distribution, see [Tagging Amazon CloudFront
+distributions](../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md "../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md") in the _Amazon CloudFront Developer Guide_.
+
+## [CloudFront.15] CloudFront distributions should use the
+
+recommended TLS security policy
+
+**Category:** Protect > Data Protection > Encryption of data-in-transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::CloudFront::Distribution`
+
+**AWS Config rule:**
+[cloudfront-ssl-policy-check](../../../config/latest/developerguide/cloudfront-ssl-policy-check.md "../../../config/latest/developerguide/cloudfront-ssl-policy-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:**
+`securityPolicies`: `TLSv1.2_2021,TLSv1.2_2025,TLSv1.3_2025` (not customizable)
+
+This control checks whether an Amazon CloudFront distribution is configured to use a
+recommended TLS security policy. The control fails if the CloudFront distribution is not
+configured to use a recommended TLS security policy.
+
+If you configure an Amazon CloudFront distribution to require viewers to use HTTPS to access
+content, you have to choose a security policy and specify the minimum SSL/TLS protocol
+version to use. This determines which protocol version CloudFront uses to communicate with
+viewers, and the ciphers that CloudFront uses to encrypt the communications. We recommend
+using the latest security policy that CloudFront provides. This ensures that CloudFront uses the
+latest cipher suites to encrypt data in transit between a viewer and a CloudFront
+distribution.
+
+###### Note
+
+This control generates findings only for CloudFront distributions that are configured to
+use custom SSL certificates and are not configured to support legacy clients.
+
+### Remediation
+
+For information about configuring the security policy for a CloudFront distribution, see
+[Update
+a distribution](../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md "../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md") in the _Amazon CloudFront Developer
+Guide_. When you configure the security policy for a distribution,
+choose the latest security policy.
+
+## [CloudFront.16] CloudFront distributions should use origin
+
+access control for Lambda function URL origins
+
+**Category:** Protect > Secure access management > Access control
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::CloudFront::Distribution`
+
+**AWS Config rule:**
+[cloudfront-origin-lambda-url-oac-enabled](../../../config/latest/developerguide/cloudfront-origin-lambda-url-oac-enabled.md "../../../config/latest/developerguide/cloudfront-origin-lambda-url-oac-enabled.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon CloudFront distribution with an AWS Lambda function URL as
+an origin has origin access control (OAC) enabled. The control fails if the CloudFront
+distribution has a Lambda function URL as an origin and OAC isn't enabled.
+
+An AWS Lambda function URL is a dedicated HTTPS endpoint for a Lambda function. If a
+Lambda function URL is the origin for a CloudFront distribution, the function URL must be
+publicly accessible. Therefore, as a security best practice, you should create an OAC
+and add it to the Lambda function URL in a distribution. OAC uses IAM service
+principals to authenticate requests between CloudFront and the function URL. It also supports
+the use of resource-based policies to allow invocation of a function only if a request
+is on behalf of a CloudFront distribution specified in the policy.
+
+### Remediation
+
+For information about configuring OAC for an Amazon CloudFront distribution that uses a
+Lambda function URL as an origin, see [Restrict access to an AWS Lambda function URL origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-lambda.md") in the _Amazon CloudFront Developer Guide_.

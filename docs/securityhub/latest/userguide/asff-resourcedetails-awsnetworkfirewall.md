@@ -193,5 +193,19 @@ Valid values: `PASS` | `DROP` |
 
 Valid values: `IP` | `TCP` | `UDP` |
 `ICMP` | `HTTP` | `FTP` | `TLS`
-| `SMB` | `DNS` | `DCERPC` | `SSH` | `SMTP` | `IMAP` | `MSN` | `KRB5`
-| `IKEV2` | `TFTP` | `NTP` | `DHCP` <br>• `Flags` Valid values: `FIN` | `SYN` | `RST` | `PSH` | `ACK` | `URG` | `ECE` | `CWR` <br>• `Masks` Valid values: `FIN` | `SYN` | `RST` | `PSH` | `ACK` | `URG` | `ECE` | `CWR`
+| `SMB` | `DNS` | `DCERPC` | `SSH` |
+`SMTP` | `IMAP` | `MSN` | `KRB5`
+| `IKEV2` | `TFTP` | `NTP` |
+`DHCP`
+
+- `Flags`
+
+Valid values: `FIN` | `SYN` | `RST` |
+`PSH` | `ACK` | `URG` | `ECE` |
+`CWR`
+
+- `Masks`
+
+Valid values: `FIN` | `SYN` | `RST` |
+`PSH` | `ACK` | `URG` | `ECE` |
+`CWR`
