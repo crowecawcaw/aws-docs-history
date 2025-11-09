@@ -4,7 +4,7 @@ This topic provides an overview of the Amazon GameLift Servers FlexMatch service
 of a FlexMatch system and how they interact.
 
 You can use FlexMatch with games that use Amazon GameLift Servers managed hosting or with games that use
-another hosting solution. Games that are hosted on Amazon GameLift Servers servers, including Amazon GameLift Servers Realtime, use the
+another hosting solution. Games that are hosted on Amazon GameLift Servers, including Amazon GameLift Servers Realtime, use the
 integrated Amazon GameLift Servers service to automatically locate available game servers and start game
 sessions for the matches. Games that use FlexMatch as a standalone service, including Amazon GameLift Servers
 FleetIQ, must coordinate with the existing hosting system to assign hosting resources and

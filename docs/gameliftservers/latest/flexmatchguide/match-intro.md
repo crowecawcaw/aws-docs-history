@@ -98,7 +98,7 @@ implement FlexMatch as a standalone service.
 ## Pricing for Amazon GameLift Servers FlexMatch
 
 Amazon GameLift Servers charges for instances by duration of use and for bandwidth by quantity of data
-transferred. If you host your games on Amazon GameLift Servers servers, FlexMatch usage is included in the
+transferred. If you host your games on Amazon GameLift Servers, FlexMatch usage is included in the
 fees for Amazon GameLift Servers. If you host your games on another server solution, FlexMatch usage is
 charged separately. For a complete list of charges and prices for Amazon GameLift Servers, see [Amazon GameLift Servers Pricing](https://aws.amazon.com/gamelift/servers/pricing "https://aws.amazon.com/gamelift/servers/pricing").
 
