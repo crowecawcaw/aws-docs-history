@@ -14,5 +14,4 @@ Starting from 17 Jun, 2024, customers using the following runtimes are expected 
 - Python 3.8
 
 To maintain similar build times, we recommend that Node.js 12 and Node.js 14 users migrate to Node.js 18 and that Python 3.7 and Python 3.8 users
-migrate to Python 3.11. Otherwise, since builds are billed by time, expect an associated increase in cost. For more information about App Runner pricing, see
-[App Runner Pricing](https://aws.amazon.com/apprunner/pricing "https://aws.amazon.com/apprunner/pricing").
+migrate to Python 3.11. Otherwise, since builds are billed by time, expect an associated increase in cost. For more information about App Runner pricing, see  [App Runner Pricing](https://aws.amazon.com/apprunner/pricing "https://aws.amazon.com/apprunner/pricing").

@@ -16,12 +16,6 @@ _AWS App Runner Developer Guide_.
 
 The following table lists the changes included in this release.
 
-| **Category**                                                                                                                  | **Description**                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **Platform-specific updates**                                                                                                 | Made these platform-specific updates:                                             |
-| **Platform**                                                                                                                  | **Update**                                                                        |
-| ---                                                                                                                           | ---                                                                               |
-| **Python** [Supported runtimes](../dg/service-source-code-python-releases.md "../dg/service-source-code-python-releases.md")  | No updates to language versions. Package updates: <br>• Updated SQLite to 3.49.1. |
-| **Node.js** [Supported runtimes](../dg/service-source-code-nodejs-releases.md "../dg/service-source-code-nodejs-releases.md") | Updated Node.js 18 to version 18.20.7. No tools updates.                          |
-
-|
+| **Category**                  | **Description**                           |
+| ----------------------------- | ----------------------------------------- | ----------------- | --------------- | ---- | ------- | ------- | ---- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | --- |
+| **Platform-specific updates** | Made these platform-specific updates:<br> | \*_Platform_<br>• | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | **Python**<br>[Supported runtimes](../dg/service-source-code-python-releases.md "../dg/service-source-code-python-releases.md") | No updates to language versions.<br>Package updates:<br>• Updated SQLite to 3.49.1. | <br> | **Node.js**<br>[Supported runtimes](../dg/service-source-code-nodejs-releases.md "../dg/service-source-code-nodejs-releases.md") | Updated Node.js 18 to version 18.20.7.<br>No tools updates. |     |

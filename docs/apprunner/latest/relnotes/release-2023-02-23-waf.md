@@ -15,5 +15,4 @@ provides enhanced security to your web applications and APIs on App Runner, prot
 After you create a web ACL in AWS WAF, you can associate it with your App Runner service when creating or updating your service. For more information, see
 [Associating an AWS WAF web ACL with your service](../dg/waf.md "../dg/waf.md") in the _AWS App Runner Developer Guide_.
 
-App Runner doesn't charge you extra for using AWS WAF web ACLs. You pay standard AWS WAF pricing. For more information about pricing, see
-[AWS WAF Pricing](https://aws.amazon.com/waf/pricing "https://aws.amazon.com/waf/pricing").
+App Runner doesn't charge you extra for using AWS WAF web ACLs. You pay standard AWS WAF pricing. For more information about pricing, see  [AWS WAF Pricing](https://aws.amazon.com/waf/pricing "https://aws.amazon.com/waf/pricing").
