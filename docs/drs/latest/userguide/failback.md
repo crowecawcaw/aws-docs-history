@@ -26,9 +26,9 @@ During normal operations, we recommend periodically testing your ability to reco
 Failback allows you to restore your Recovery Instances back to your source infrastructure. Depending on the source infrasture,
 performing a failback uses differing mechanisms
 
-| Source Infrastructure | Failback Mechanism                                                                | More Information                                                                                  |
-| --------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| On-Premise            | Use the Failback Client ISO or the DRS Failback Automation.                       | [On-Premise Failback](failback-performing.md "failback-performing.md")                            |
-| AWS - Same Account    | Start Reverse Replication on the Protected Recovery Instance.                     | [Same Account Failback](failback-failover-region-region.md "failback-failover-region-region.md")  |
-| AWS - Cross Account   | Start Reverse Replication on the Protected Recovery Instance in Failover Account. | [Cross Account Failback](failback-failover-cross-account.md "failback-failover-cross-account.md") |
-| Other Cloud           | Configuration varies per provider.                                                | [Other Cloud Failback](failback-performing-main.md "failback-performing-main.md")                 |
+| Source Infrastructure  | Failback Mechanism                                                                | More Information                                                                                  |
+| ---------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| On-Premise             | Use the Failback Client ISO or the DRS Failback Automation.                       | [On-Premise Failback](failback-performing.md "failback-performing.md")                            |
+| AWS<br>• Same Account  | Start Reverse Replication on the Protected Recovery Instance.                     | [Same Account Failback](failback-failover-region-region.md "failback-failover-region-region.md")  |
+| AWS<br>• Cross Account | Start Reverse Replication on the Protected Recovery Instance in Failover Account. | [Cross Account Failback](failback-failover-cross-account.md "failback-failover-cross-account.md") |
+| Other Cloud            | Configuration varies per provider.                                                | [Other Cloud Failback](failback-performing-main.md "failback-performing-main.md")                 |

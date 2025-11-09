@@ -123,9 +123,63 @@ Each PIT Snapshot for a Source Server consists one or more EBS Snapshots;
 one EBS snapshot for each volume being replicated. See below for where the EBS snapshots are stored:
 
 | Replication Strategy | Replication Target | EBS Snapshot S3 Region            | EBS Snapshot Account |
-| -------------------- | ------------------ | --------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------- | ------------------ | --------------------------------- | -------------------- |
 | Single Account       | Any Region         | Same Region as Replication Target | Same AWS Account     |
 | Extended Account     | Any Region         | Same Region as Replication Target | Staging Account      |
 | Multi-Account        | Any Region         | Same Region as Replication Target | Target Account       |
 | Reverse Replication  | Any Region         | Same Region as Source             | Source Account       |
-| Any                  | Outpost            | Stored locally on Outpost         | Outpost Account      | ### What is the PIT Snapshot Retention Rate? Elastic Disaster Recovery has the following default PIT Snapshot frequency and retention schedule: <br>• **Minute** - 1 PIT Snapshot per 10 minutes for the prior 1 hour. <br>• **Hour** - 1 PIT Snapshot per 1 hour for the prior 24 hours. <br>• **Day** - 1 PIT Snapshot per 1 day for the prior 7 days. ### Can I adjust the PIT Snapshot Retention Rate? You can only adjust the **Day** PIT Snapshot retention limit from 1 day through 365 days in the replication settings. As each PIT Snapshot consists of one or more EBS snapshots, increasing the PIT Snapshot retention rate can result in additional EBS costs. The frequency (i.e. how often) that AWS Elastic Disaster Recovery creates snapshots are not configurable. [Learn more about managing Point in Time retention.](point-in-time.md "point-in-time.md") ### What is "Use most recent data"? "**Use most recent data**" is feature available when selecting a PIT Snapshot from the AWS Elastic Disaster Recovery console during a **Recovery Drill** or **Recovery**. It is implicitly used when a **Recovery Drill** or **Recovery** is started programmatically (e.g. AWS CLI) without specifying a PIT Snapshot. When used, AWS Elastic Disaster Recovery will attempt to create an on-demand PIT Snapshot of all Source Servers within the Recovery Job, representing a sub-second [RPO](#What-is-RPO "#What-is-RPO") of the Source Server. This PIT Snapshot will be consistent to the time the Recovery Job was submitted. DRS requires an active network connection to the Source Server to successfully create this new PIT Snapshot. AWS Elastic Disaster Recovery may be unable to create this PIT Snapshot for various reasons, and will wait for up to 10 minutes for this new PIT Snapshot to be created. If DRS is unable to create this PIT Snapshot, it will use a snapshot based on the last consistent state from data on the Replication Server. Reasons why "**Use most recent data**" may fail to successfuly create a PIT Snapshot include: <br>• Unable to communicate with the Source Server. <br>• Unable to transfer all changes present on the Source Server within the timeout window. As "**Use most recent data**" requires an active network connection to the Source Server to create a new PIT Snapshot, there may be circumstances (e.g Source Server is offline) where your RTO will be shortned by selecting an existing PIT Snapshot rather than waiting for "**Use most recent data**" to timeout. ### What is "Any" and "All" in Point in Time Snapshot selection? The **Any** and **All** selection criteria are available in the AWS Elastic Disaster Recovery Console when selecting a Point in Time Snapshot for a job that contains multiple Source Servers. <br>• **Any** - Displays all of the PIT Snapshots available for all of the selected source servers. AWS Elastic Disaster Recovery will launch a drill instance for each source server that has a PIT snapshot taken at the chosen time. For any Source Server that does not have a corresponding PIT snapshot taken at the chosen time, a previous PIT Snapshot will be used. <br>• **All** - Displays only PIT Snapshots that all selected Source Servers share. If there are no points in time that include all Source Servers, the list will be empty. |
+| Any                  | Outpost            | Stored locally on Outpost         | Outpost Account      |
+
+### What is the PIT Snapshot Retention Rate?
+
+Elastic Disaster Recovery has the following default PIT Snapshot frequency and retention schedule:
+
+- **Minute** - 1 PIT Snapshot per 10 minutes for the prior 1 hour.
+- **Hour** - 1 PIT Snapshot per 1 hour for the prior 24 hours.
+- **Day** - 1 PIT Snapshot per 1 day for the prior 7 days.
+
+### Can I adjust the PIT Snapshot Retention Rate?
+
+You can only adjust the **Day** PIT Snapshot retention limit from
+1 day through 365 days in the replication settings. As each PIT Snapshot consists of one or more EBS snapshots,
+increasing the PIT Snapshot retention rate can result in additional EBS costs.
+The frequency (i.e. how often) that AWS Elastic Disaster Recovery creates snapshots are not configurable.
+[Learn more about managing Point in Time retention.](point-in-time.md "point-in-time.md")
+
+### What is "Use most recent data"?
+
+"**Use most recent data**" is feature available when selecting a PIT Snapshot from the AWS Elastic Disaster Recovery console
+during a **Recovery Drill** or **Recovery**.
+It is implicitly used when a **Recovery Drill**
+or **Recovery** is started programmatically (e.g. AWS CLI) without specifying a PIT Snapshot.
+When used, AWS Elastic Disaster Recovery will attempt to create an on-demand PIT Snapshot of all Source Servers within the Recovery Job,
+representing a sub-second [RPO](#What-is-RPO "#What-is-RPO") of the Source Server. This PIT Snapshot will be consistent to the
+time the Recovery Job was submitted.
+
+DRS requires an active network connection to the Source Server to successfully create this new PIT Snapshot.
+AWS Elastic Disaster Recovery may be unable to create this PIT Snapshot for various reasons, and will wait for up to 10 minutes for this
+new PIT Snapshot to be created. If DRS is unable to create this PIT Snapshot, it will use a snapshot based on the
+last consistent state from data on the Replication Server.
+Reasons why "**Use most recent data**" may fail to successfuly create a PIT Snapshot include:
+
+- Unable to communicate with the Source Server.
+- Unable to transfer all changes present on the Source Server within the timeout window.
+
+As "**Use most recent data**" requires an active network connection to the Source Server to create a new PIT Snapshot,
+there may be circumstances (e.g Source Server is offline) where your RTO will be shortned by selecting an existing PIT Snapshot
+rather than waiting for "**Use most recent data**" to timeout.
+
+### What is "Any" and "All" in Point in Time Snapshot selection?
+
+The **Any** and **All** selection
+criteria are available in the AWS Elastic Disaster Recovery Console when selecting a Point in Time Snapshot for a job
+that contains multiple Source Servers.
+
+- **Any** - Displays all of the PIT Snapshots
+  available for all of the selected source servers. AWS Elastic Disaster Recovery will launch a drill
+  instance for each source server that has a PIT snapshot taken at the chosen time. For any Source
+  Server that does not have a corresponding PIT snapshot taken at the chosen time, a previous PIT Snapshot
+  will be used.
+- **All** - Displays only PIT Snapshots that
+  all selected Source Servers share. If there are no points in time that include all Source Servers,
+  the list will be empty.

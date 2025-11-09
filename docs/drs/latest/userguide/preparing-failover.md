@@ -12,8 +12,157 @@ After successful installation, we recommend validating your individual Source Se
 ensure they meet your recovery requirements. These settings can even be modified during the **Initial Sync**
 phase.
 
-| Launch Setting      | Example Settings                                                                                                                   | More Information                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| DRS Launch Settings | <br>• Automated Instance type right-sizing. <br>• Start instance on launch. <br>• Operating System Licensing.                      | [DRS Launch Settings](default-drs-launch-settings.md "default-drs-launch-settings.md")                   |
-| EC2 Launch Template | <br>• Instance profile (IAM role attached to the instance). <br>• Recovery Instance VPC, Subnet, and Security Group configuration. | [EC2 Launch Template](default-ec2-launch-template.md "default-ec2-launch-template.md")                   |
-| Post Launch Actions | <br>• Install CloudWatch agent Validate HTTP/HTTPS connectivity.                                                                   | [Post Launch Actions](post-launch-action-settings-overview.md "post-launch-action-settings-overview.md") | ## Recovery drill overview A Recovery Drill is a synthetic failover that performs all the same steps as an actual failover. Recovery Drills run with the same Source Server Launch Settings and Point in Time snapshots that a Recovery would. As a result, we recommend adjusting any Source Server Launch Settings to isolate Drill Instances when necessary to avoid production or business impact. You can use verification post-launch actions when performing a drill to ensure that Launch Settings are accurate. A Recovery Drill can be performed with an individual source server, or it can include as many source servers as necessary to simulate the recovery of an application. Recovery Drills will create EC2 resources in your Target AWS Account upon completion; these resources will be billed by the respective service until deleted. Recovery Drill EC2 resources will automatically be cleaned up if a Recovery Drill is performed again with the same Source Server. ## Recovery drill objectives Performing a Recovery Drill will assist in ensuring DRS can fulfill your Recovery Objectives during a failover event. Some Recovery Objectives can include: <br>• Ensuring Recovery Instances obtain Healthy System and Instance [Status Checks.](../../../AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.md "../../../AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.md") <br>• Ensuring all components in an application can communicate with one another. <br>• Ensuring users can interact successfully with the application. Frequent and successful Recovery Drills will ensure your team can meet RTO/RPO goals during a failover event. We recommend performing drill on at least a quarterly basis; individual compliance needs may necessitate more frequent drills. ## Performing recovery drills Once a Source Server has reached **Healthy**, a recovery drill can be performed. Recovery Drills should also be performed whenever the last recovery result was not Successful, or it has been a significant amount of time since a Successful Recovery Drill has been performed. As long as Initial Sync has completed, a Recovery Drill can be performed, even if a Source Server is in **Lag** or **Stall** status. DRS Console ###### Performing a Recovery Drill 1. Navigate to the AWS Elastic Disaster Recovery Console. In the left navigation pane, select **Source Servers** 2. Select one or more source servers, then select **Initiate Recovery Job**. 3. Select **Initiate recovery drill** 4. Select a Point in Time to recover to: <br>• Select "Use most recent data" to attempt to create a sub-second RPO snapshot from the source server(s). <br>• Select a specific time to use snapshots created at that timestamp, or slightly before if a snapshot was unavailable for a particular source server(s). 5. Select **Initiate drill**. 6. (Optional) Monitor Recovery Drill progress from the AWS Elastic Disaster Recovery Console **Recovery Job History**. Command Line ###### Performing a Recovery Drill Recovery Drills can be started via commandline 1. (optional) Obtain Recovery (PIT) Snapshot to recover to: <br>• [describe-recovery-snapshots](../../../cli/latest/reference/drs/describe-recovery-snapshots.md "../../../cli/latest/reference/drs/describe-recovery-snapshots.md") (AWS CLI) `` aws drs describe-recovery-snapshots --source-server-id `s-123456789abcdefgh` `` <br>• [Get-EDRSRecoverySnapshot](../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md "../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md") (DRS Tools for Windows PowerShell) `` Get-EDRSRecoverySnapshot -SourceServerID `s-123456789abcdefgh` `` 2. Perform a Recovery Drill, specifying IsDrill: <br>• [start-recovery](../../../cli/latest/reference/drs/start-recovery.md "../../../cli/latest/reference/drs/start-recovery.md") (AWS CLI) With Recovery Snapshot ``aws drs start-recovery --source-servers recoverySnapshotID=`pit-123456789abcdefgh`,sourceServerID=`s-123456789abcdefgh` --is-drill`` Attempt to Use Latest Snapshot ``aws drs start-recovery --source-servers sourceServerID=`s-123456789abcdefgh` --is-drill`` <br>• [Start-EDRSRecovery](../../../powershell/latest/reference/items/Start-EDRSRecovery.md "../../../powershell/latest/reference/items/Start-EDRSRecovery.md") (DRS Tools for Windows PowerShell) With Recovery Snapshot ``$sourceServer = new-object Amazon.Drs.Model.StartRecoveryRequestSourceServer $sourceServer.RecoverySnapshotID = `'pit-123456789abcdefgh'` $sourceServer.SourceServerID = `'s-123456789abcdefgh'` Start-EDRSRecovery -SourceServer $sourceServer`` Attempt to Use Latest Snapshot ``$sourceServer = new-object Amazon.Drs.Model.StartRecoveryRequestSourceServer; $sourceServer.SourceServerID = `'s-123456789abcdefgh'` Start-EDRSRecovery -SourceServer $sourceServer`` ## Post recovery drill actions Once a Recovery Drill has been successfully completed, we recommend cleaning up the recovery environment. Leaving Recovery Drill resources running may result in increased AWS charges. We recommend cleaning up your environment via AWS Elastic Disaster Recovery to ensure all resources created during the drill are removed. DRS Console ###### Performing a Recovery Drill 1. Navigate to the AWS Elastic Disaster Recovery Console. In the left navigation pane, select **Recovery instances**. 2. Select one or more source servers, then select **Actions**. 3. Select **Terminate recovery instances**. 4. Select **Terminate** on any dialog boxes. Command Line ###### Cleaning up Drill Recovery Drill Cleaning up Drills can be started via commandline 1. Identify any Recovery Instances. <br>• [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI) `aws drs describe-recovery-instances` <br>• [Get-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell) `Get-EDRSRecoveryInstance` 2. Terminate the Recovery Instances. <br>• [terminate-recovery-instances](../../../cli/latest/reference/drs/terminate-recovery-instances.md "../../../cli/latest/reference/drs/terminate-recovery-instances.md") (AWS CLI) `` aws drs terminate-recovery-instances --recovery-instance-ids `i-123456789abcdefgh` `` <br>• [Stop-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell) `` Stop-EDRSRecoveryInstance -RecoveryInstanceIDs `'i-123456789abcdefgh'` `` |
+| Launch Setting      | Example Settings                                                                                                              | More Information                                                                                         |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| DRS Launch Settings | • Automated Instance type right-sizing.<br>• Start instance on launch.<br>• Operating System Licensing.                       | [DRS Launch Settings](default-drs-launch-settings.md "default-drs-launch-settings.md")                   |
+| EC2 Launch Template | • Instance profile (IAM role attached to the instance).<br>• Recovery Instance VPC, Subnet, and Security Group configuration. | [EC2 Launch Template](default-ec2-launch-template.md "default-ec2-launch-template.md")                   |
+| Post Launch Actions | • Install CloudWatch agent Validate HTTP/HTTPS connectivity.                                                                  | [Post Launch Actions](post-launch-action-settings-overview.md "post-launch-action-settings-overview.md") |
+
+## Recovery drill overview
+
+A Recovery Drill is a synthetic failover that performs all the same steps as an actual failover. Recovery Drills
+run with the same Source Server Launch Settings and Point in Time snapshots that a Recovery would. As a result, we recommend
+adjusting any Source Server Launch Settings to isolate Drill Instances when necessary to avoid production or business impact.
+You can use verification post-launch actions when performing a drill to ensure that Launch Settings are accurate.
+A Recovery Drill can be performed with an individual source server, or it can include as many source servers as
+necessary to simulate the recovery of an application.
+
+Recovery Drills will create EC2 resources in your Target AWS Account upon completion; these resources will be billed by the
+respective service until deleted. Recovery Drill EC2 resources will automatically be cleaned up if a Recovery Drill is performed again
+with the same Source Server.
+
+## Recovery drill objectives
+
+Performing a Recovery Drill will assist in ensuring DRS can fulfill your
+Recovery Objectives during a failover event. Some Recovery Objectives can include:
+
+- Ensuring Recovery Instances obtain Healthy System and Instance [Status Checks.](../../../AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.md "../../../AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.md")
+- Ensuring all components in an application can communicate with one
+  another.
+- Ensuring users can interact successfully with the application.
+
+Frequent and successful Recovery Drills will ensure your team can meet RTO/RPO goals during a failover event. We recommend performing drill on at least a quarterly basis;
+individual compliance needs may necessitate more frequent drills.
+
+## Performing recovery drills
+
+Once a Source Server has reached **Healthy**, a recovery drill can be performed. Recovery Drills should also
+be performed whenever the last recovery result was not Successful, or it has been a significant amount of time since a Successful Recovery Drill has been performed.
+
+As long as Initial Sync has completed, a Recovery Drill can be performed, even if a Source Server is in **Lag** or
+**Stall** status.
+
+DRS Console
+
+###### Performing a Recovery Drill
+
+1. Navigate to the AWS Elastic Disaster Recovery Console. In the left navigation pane, select **Source Servers**
+2. Select one or more source servers, then select **Initiate Recovery Job**.
+3. Select **Initiate recovery drill**
+4. Select a Point in Time to recover to:
+   - Select "Use most recent data" to attempt to create a sub-second RPO snapshot from the source server(s).
+   - Select a specific time to use snapshots created at that timestamp, or slightly
+     before if a snapshot was unavailable for a particular source server(s).
+
+5. Select **Initiate drill**.
+6. (Optional) Monitor Recovery Drill progress from the AWS Elastic Disaster Recovery Console **Recovery Job History**.
+
+Command Line
+
+###### Performing a Recovery Drill
+
+Recovery Drills can be started via commandline
+
+1. (optional) Obtain Recovery (PIT) Snapshot to recover to:
+   - [describe-recovery-snapshots](../../../cli/latest/reference/drs/describe-recovery-snapshots.md "../../../cli/latest/reference/drs/describe-recovery-snapshots.md") (AWS CLI)
+
+   ```
+   aws drs describe-recovery-snapshots --source-server-id `s-123456789abcdefgh`
+   ```
+
+   - [Get-EDRSRecoverySnapshot](../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md "../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md") (DRS Tools for Windows PowerShell)
+
+   ```
+   Get-EDRSRecoverySnapshot -SourceServerID `s-123456789abcdefgh`
+   ```
+
+2. Perform a Recovery Drill, specifying IsDrill:
+   - [start-recovery](../../../cli/latest/reference/drs/start-recovery.md "../../../cli/latest/reference/drs/start-recovery.md") (AWS CLI)
+
+   With Recovery Snapshot
+
+   ```
+   aws drs start-recovery --source-servers recoverySnapshotID=`pit-123456789abcdefgh`,sourceServerID=`s-123456789abcdefgh` --is-drill
+   ```
+
+   Attempt to Use Latest Snapshot
+
+   ```
+   aws drs start-recovery --source-servers sourceServerID=`s-123456789abcdefgh` --is-drill
+   ```
+
+   - [Start-EDRSRecovery](../../../powershell/latest/reference/items/Start-EDRSRecovery.md "../../../powershell/latest/reference/items/Start-EDRSRecovery.md") (DRS Tools for Windows PowerShell)
+
+   With Recovery Snapshot
+
+   ```
+   $sourceServer = new-object Amazon.Drs.Model.StartRecoveryRequestSourceServer
+   $sourceServer.RecoverySnapshotID = `'pit-123456789abcdefgh'`
+   $sourceServer.SourceServerID = `'s-123456789abcdefgh'`
+   Start-EDRSRecovery -SourceServer $sourceServer
+   ```
+
+   Attempt to Use Latest Snapshot
+
+   ```
+   $sourceServer = new-object Amazon.Drs.Model.StartRecoveryRequestSourceServer;
+   $sourceServer.SourceServerID = `'s-123456789abcdefgh'`
+   Start-EDRSRecovery -SourceServer $sourceServer
+   ```
+
+## Post recovery drill actions
+
+Once a Recovery Drill has been successfully completed, we recommend cleaning up the recovery environment. Leaving Recovery Drill resources
+running may result in increased AWS charges. We recommend cleaning up your environment via AWS Elastic Disaster Recovery to ensure all
+resources created during the drill are removed.
+
+DRS Console
+
+###### Performing a Recovery Drill
+
+1. Navigate to the AWS Elastic Disaster Recovery Console. In the left navigation pane, select **Recovery instances**.
+2. Select one or more source servers, then select **Actions**.
+3. Select **Terminate recovery instances**.
+4. Select **Terminate** on any dialog boxes.
+
+Command Line
+
+###### Cleaning up Drill Recovery Drill
+
+Cleaning up Drills can be started via commandline
+
+1. Identify any Recovery Instances.
+   - [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI)
+
+   ```
+   aws drs describe-recovery-instances
+   ```
+
+   - [Get-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell)
+
+   ```
+   Get-EDRSRecoveryInstance
+   ```
+
+2. Terminate the Recovery Instances.
+   - [terminate-recovery-instances](../../../cli/latest/reference/drs/terminate-recovery-instances.md "../../../cli/latest/reference/drs/terminate-recovery-instances.md") (AWS CLI)
+
+   ```
+   aws drs terminate-recovery-instances --recovery-instance-ids `i-123456789abcdefgh`
+   ```
+
+   - [Stop-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell)
+
+   ```
+   Stop-EDRSRecoveryInstance -RecoveryInstanceIDs `'i-123456789abcdefgh'`
+   ```
