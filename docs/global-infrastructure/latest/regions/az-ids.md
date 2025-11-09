@@ -60,11 +60,33 @@ aws ec2 describe-availability-zones --query "AvailabilityZones[].{Name:ZoneName,
 
 The following is example output for US East (Ohio).
 
-````
+```
 ----------------------------
-| DescribeAvailabilityZones| +-----------+--------------+
-|    ID     |    Name      | +-----------+--------------+
+| DescribeAvailabilityZones|
++-----------+--------------+
+|    ID     |    Name      |
++-----------+--------------+
 |  use2-az1 |  us-east-2a  |
 |  use2-az2 |  us-east-2b  |
-|  use2-az3 |  us-east-2c  | +-----------+--------------+ ``` ###### To get the AZ ID using instance metadata You can use [instance metadata](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md") to get the AZ ID of the Availability Zone in which an instance is launched. IMDSv2 ``` `[ec2-user ~]$` TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \ && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/placement/availability-zone-id ``` IMDSv1 ``` `[ec2-user ~]$` curl http://169.254.169.254/latest/meta-data/placement/availability-zone-id ```
-````
+|  use2-az3 |  us-east-2c  |
++-----------+--------------+
+```
+
+###### To get the AZ ID using instance metadata
+
+You can use [instance metadata](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md") to get the AZ ID of the Availability Zone
+in which an instance is launched.
+
+IMDSv2
+
+```
+`[ec2-user ~]$` TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/placement/availability-zone-id
+
+```
+
+IMDSv1
+
+```
+`[ec2-user ~]$` curl http://169.254.169.254/latest/meta-data/placement/availability-zone-id
+```

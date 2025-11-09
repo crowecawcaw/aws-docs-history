@@ -35,7 +35,7 @@ requirements.
 The following table lists the Regions provided by an AWS account.
 
 | Code           | Name                       | AZs  | Geography                | Opt-in status |
-| -------------- | -------------------------- | ---- | ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------- | -------------------------- | ---- | ------------------------ | ------------- |
 | us-east-1      | US East (N. Virginia)      | 6    | United States of America | Not required  |
 | us-east-2      | US East (Ohio)             | 3    | United States of America | Not required  |
 | us-west-1      | US West (N. California)    | 3  † | United States of America | Not required  |
@@ -69,4 +69,157 @@ The following table lists the Regions provided by an AWS account.
 | mx-central-1   | Mexico (Central)           | 3    | Mexico                   | Required      |
 | me-south-1     | Middle East (Bahrain)      | 3    | Bahrain                  | Required      |
 | me-central-1   | Middle East (UAE)          | 3    | United Arab Emirates     | Required      |
-| sa-east-1      | South America (São Paulo)  | 3    | Brazil                   | Not required  | † Newer accounts can access two Availability Zones in US West (N. California). ## Opt-in status To use a Region introduced after March 20, 2019, you must enable the Region before you can access it. The earlier Regions are enabled by default, which means that you can begin creating resources immediately. You can enable a Region in one of the following ways: AWS Global View console ###### To enable a Region 1. Sign in to the [AWS Global View console](https://console.aws.amazon.com/ec2globalview/home#RegionsAndZones "https://console.aws.amazon.com/ec2globalview/home#RegionsAndZones"). 2. From the navigation pane, choose **Regions and Zones**. 3. From the **Regions** tab, find Region that you want to enable. You can scroll down the list or enter a term in the Search field. 4. Select the row for the Region. 5. Choose **Enable Region**. 6. On the **Enable Region** pop-up, choose **Enable Region**. AWS Billing and Cost Management console To enable a Region from the AWS Billing and Cost Management console, see [Enable or disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Reference Guide_. ###### Regions enabled by default <br>• US East (N. Virginia) <br>• US East (Ohio) <br>• US West (N. California) <br>• US West (Oregon) <br>• Asia Pacific (Mumbai) <br>• Asia Pacific (Osaka) <br>• Asia Pacific (Seoul) <br>• Asia Pacific (Singapore) <br>• Asia Pacific (Sydney) <br>• Asia Pacific (Tokyo) <br>• Canada (Central) <br>• Europe (Frankfurt) <br>• Europe (Ireland) <br>• Europe (London) <br>• Europe (Paris) <br>• Europe (Stockholm) <br>• South America (São Paulo) ###### Regions disabled by default <br>• Africa (Cape Town) <br>• Asia Pacific (Hong Kong) <br>• Asia Pacific (Hyderabad) <br>• Asia Pacific (Jakarta) <br>• Asia Pacific (Malaysia) <br>• Asia Pacific (Melbourne) <br>• Asia Pacific (New Zealand) <br>• Asia Pacific (Taipei) <br>• Asia Pacific (Thailand) <br>• Canada West (Calgary) <br>• Europe (Milan) <br>• Europe (Spain) <br>• Europe (Zurich) <br>• Israel (Tel Aviv) <br>• Mexico (Central) <br>• Middle East (Bahrain) <br>• Middle East (UAE) ## Example commands The following AWS CLI commands demonstrate how to get information about the Regions for your account. ###### To list the Regions enabled by default Use the following [list-regions](../../../cli/latest/reference/account/list-regions.md "../../../cli/latest/reference/account/list-regions.md") command. `aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT --query Regions[*].RegionName` The following is example output. `[ "ap-northeast-1", "ap-northeast-2", "ap-northeast-3", "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ca-central-1", "eu-central-1", "eu-north-1", "eu-west-1", "eu-west-2", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-1", "us-west-2" ]` ###### To list the Regions enabled for your account Use the following [list-regions](../../../cli/latest/reference/account/list-regions.md "../../../cli/latest/reference/account/list-regions.md") command to list both Regions enabled by default and Regions enabled for your account. `aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT ENABLED --query Regions[*].RegionName` ###### To list the opt-in status of a Region Use the following [get-region-opt-status](../../../cli/latest/reference/account/get-region-opt-status.md "../../../cli/latest/reference/account/get-region-opt-status.md") command. `aws account get-region-opt-status --region-name af-south-1` The following is example output. `{ "RegionName": "af-south-1", "RegionOptStatus": "DISABLED" }` ###### To get the long name of a Region Use the following [get-parameters-by-path](../../../cli/latest/reference/ssm/get-parameters-by-path.md "../../../cli/latest/reference/ssm/get-parameters-by-path.md") command. Replace `region-code` with the code for the Region. You might need to modify the quotes to get the example to work with your terminal. ``aws ssm get-parameters-by-path \ --path /aws/service/global-infrastructure/regions/`region-code` \ --query 'Parameters[?Name.contains(@,`longName`)].Value' \ --output text`` The following is example output where `region-code` is `af-south-1`. `Africa (Cape Town)` |
+| sa-east-1      | South America (São Paulo)  | 3    | Brazil                   | Not required  |
+
+† Newer accounts can access two Availability Zones in
+US West (N. California).
+
+## Opt-in status
+
+To use a Region introduced after March 20, 2019, you must enable the Region before you
+can access it. The earlier Regions are enabled by default, which means that you can
+begin creating resources immediately.
+
+You can enable a Region in one of the following ways:
+
+AWS Global View console
+
+###### To enable a Region
+
+1. Sign in to the [AWS Global View console](https://console.aws.amazon.com/ec2globalview/home#RegionsAndZones "https://console.aws.amazon.com/ec2globalview/home#RegionsAndZones").
+2. From the navigation pane, choose **Regions and Zones**.
+3. From the **Regions** tab, find Region that you
+   want to enable. You can scroll down the list or enter a term in the
+   Search field.
+4. Select the row for the Region.
+5. Choose **Enable Region**.
+6. On the **Enable Region** pop-up, choose
+   **Enable Region**.
+
+AWS Billing and Cost Management console
+To enable a Region from the AWS Billing and Cost Management console, see [Enable
+or disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management
+Reference Guide_.
+
+###### Regions enabled by default
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Osaka)
+- Asia Pacific (Seoul)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Europe (Stockholm)
+- South America (São Paulo)
+
+###### Regions disabled by default
+
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Malaysia)
+- Asia Pacific (Melbourne)
+- Asia Pacific (New Zealand)
+- Asia Pacific (Taipei)
+- Asia Pacific (Thailand)
+- Canada West (Calgary)
+- Europe (Milan)
+- Europe (Spain)
+- Europe (Zurich)
+- Israel (Tel Aviv)
+- Mexico (Central)
+- Middle East (Bahrain)
+- Middle East (UAE)
+
+## Example commands
+
+The following AWS CLI commands demonstrate how to get information about the Regions for
+your account.
+
+###### To list the Regions enabled by default
+
+Use the following [list-regions](../../../cli/latest/reference/account/list-regions.md "../../../cli/latest/reference/account/list-regions.md") command.
+
+```
+aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT --query Regions[*].RegionName
+```
+
+The following is example output.
+
+```
+[
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
+    "ap-south-1",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "ca-central-1",
+    "eu-central-1",
+    "eu-north-1",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3",
+    "sa-east-1",
+    "us-east-1",
+    "us-east-2",
+    "us-west-1",
+    "us-west-2"
+]
+```
+
+###### To list the Regions enabled for your account
+
+Use the following [list-regions](../../../cli/latest/reference/account/list-regions.md "../../../cli/latest/reference/account/list-regions.md") command to list both Regions enabled by default and
+Regions enabled for your account.
+
+```
+aws account list-regions --region-opt-status-contains ENABLED_BY_DEFAULT ENABLED --query Regions[*].RegionName
+```
+
+###### To list the opt-in status of a Region
+
+Use the following [get-region-opt-status](../../../cli/latest/reference/account/get-region-opt-status.md "../../../cli/latest/reference/account/get-region-opt-status.md") command.
+
+```
+aws account get-region-opt-status --region-name af-south-1
+```
+
+The following is example output.
+
+```
+{
+    "RegionName": "af-south-1",
+    "RegionOptStatus": "DISABLED"
+}
+```
+
+###### To get the long name of a Region
+
+Use the following [get-parameters-by-path](../../../cli/latest/reference/ssm/get-parameters-by-path.md "../../../cli/latest/reference/ssm/get-parameters-by-path.md") command. Replace
+`region-code` with the code for the Region. You might
+need to modify the quotes to get the example to work with your terminal.
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/regions/`region-code` \
+    --query 'Parameters[?Name.contains(@,`longName`)].Value' \
+    --output text
+```
+
+The following is example output where `region-code` is
+`af-south-1`.
+
+```
+Africa (Cape Town)
+```
