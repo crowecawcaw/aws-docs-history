@@ -82,12 +82,18 @@ Following are the hardware specifications of the standard plans available in
 Lightsail for Research.
 
 | Plan name    | vCPUs | Memory | Storage space | Monthly data transfer allowance |
-| ------------ | ----- | ------ | ------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ------------ | ----- | ------ | ------------- | ------------------------------- |
 | Standard XL  | 4     | 8 GB   | 50 GB         | 512 GB                          |
 | Standard 2XL | 8     | 16 GB  | 50 GB         | 512 GB                          |
-| Standard 4XL | 16    | 32 GB  | 50 GB         | 512 GB                          | ### GPU plans Following are the hardware specifications of the GPU plans available in Lightsail for Research. |
-| Plan name    | vCPUs | Memory | Storage space | Monthly data transfer allowance |
-| ---          | ---   | ---    | ---           | ---                             |
-| GPU XL       | 4     | 16 GB  | 50 GB         | 1 TB                            |
-| GPU 2XL      | 8     | 32 GB  | 50 GB         | 1 TB                            |
-| GPU 4XL      | 16    | 64 GB  | 50 GB         | 1 TB                            |
+| Standard 4XL | 16    | 32 GB  | 50 GB         | 512 GB                          |
+
+### GPU plans
+
+Following are the hardware specifications of the GPU plans available in
+Lightsail for Research.
+
+| Plan name | vCPUs | Memory | Storage space | Monthly data transfer allowance |
+| --------- | ----- | ------ | ------------- | ------------------------------- |
+| GPU XL    | 4     | 16 GB  | 50 GB         | 1 TB                            |
+| GPU 2XL   | 8     | 32 GB  | 50 GB         | 1 TB                            |
+| GPU 4XL   | 16    | 64 GB  | 50 GB         | 1 TB                            |
