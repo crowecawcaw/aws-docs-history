@@ -51,11 +51,141 @@ For more information, see [View connector details](../../../privateca/latest/use
 The following table shows the different statuses for domain controller certificate
 enrollment for AWS Managed Microsoft AD with AWS Private CA.
 
-| DC enrollment status | Description                                                                                      | Action required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enabled              | Domain controller certificates are successfully enrolled to your directory.                      | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Failed               | Domain controller certificate enrollment enablement or disablement failed for your directory.    | If your enablement action fails, retry by turning off domain controller certificates and then turning on again. If your disablement action fails, retry by turning on domain controller certificates and then turning off again. If retry fails, contact AWS Support.                                                                                                                                                                                                                                                                                |
-| Impaired             | Domain controllers have network connectivity issues communicating with AWS Private CA endpoints. | Check AWS Private CA VPC endpoint and S3 bucket policies to allow network connectivity with your directory. For more information, see [Troubleshoot AWS Private Certificate Authority exception messages](../../../privateca/latest/userguide/PCATsExceptions.md "../../../privateca/latest/userguide/PCATsExceptions.md") and [Troubleshoot AWS Private CA certificate revocation issues](../../../privateca/latest/userguide/troubleshoot-certificate-revocation.md "../../../privateca/latest/userguide/troubleshoot-certificate-revocation.md"). |
-| Disabled             | Domain controller certificate enrollment is successfully turned off for your directory.          | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Disabling            | Domain controller certificate enrollment disablement is in progress.                             | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Enabling             | Domain controller certificate enrollment enablement is in progress.                              | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | ## Configuring AD Policies AWS Private CA Connector for AD must be configured so AWS Managed Microsoft AD domain controllers and objects can request and receive certificates. Configure your group policy object ([GPO](https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects "https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects")) so AWS Private CA can issue certificates to AWS Managed Microsoft AD objects. ### Configuring Active Directory policies for domain controllers ###### Turn on Active Directory policies for domain controllers 1. Open the **Network & Security** tab. 2. Choose **AWS Private CA Connectors**. 3. Choose a connector linked to the AWS Private CA subject that issues domain controller certificates to your directory. 4. Choose **Actions**, **Enable domain controller certificates**. ###### Important Configure a valid domain controller template before you turn on domain controller certificates to avoid delayed updates. After you turn on domain controller certificate enrollment, your directory's domain controllers request and receive certificates from AWS Private CA Connector for AD. To change your issuing AWS Private CA for domain controller certificates, first connect the new AWS Private CA to your directory using a new AWS Private CA Connector for AD. Before you turn on certificate enrollment on the new AWS Private CA, turn off certificate enrollment on the existing one: ###### Turn off domain controller certificates 1. Open the **Network & Security** tab. 2. Choose **AWS Private CA Connectors**. 3. Choose a connector linked to the AWS Private CA subject that issues domain controller certificates to your directory. 4. Choose **Actions**, **Disable domain controller certificates**. ### Configuring Active Directory policies for domain joined users, computers and machines ###### Configure group policy objects 1. Connect to the AWS Managed Microsoft AD admin instance and open [Server Manager](https://learn.microsoft.com/windows-server/administration/server-manager/server-manager "https://learn.microsoft.com/windows-server/administration/server-manager/server-manager") from the **Start** menu. 2. Under **Tools**, choose **Group Policy Management**. 3. Under **Forest and Domains**, find your subdomain organizational unit (OU) (for example, `corp` is your subdomain organizational unit if you followed the procedures outlined in [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory")) and right-click on your subdomain OU. Choose **Create a GPO in this domain, and link it here** and enter PCA GPO for the name. Choose **OK**. 4. The newly created GPO appears following your subdomain name. Right-click on `PCA GPO` and choose **Edit**. If a dialog box opens with an alert message stating **`This is a link and that changes are globally propagated`**, acknowledge the message by choosing **OK** to continue. The **Group Policy Management Editor** window opens. 5. In the **Group Policy Management Editor** window, go to **Computer Configuration > Policies > Windows Settings > Security Settings > Public Key Policies** (choose the folder). 6. Under **Object Type**, choose **Certificate Services Client - Certificate Enrollment Policy**. 7. In the **Certificate Services Client - Certificate Enrollment Policy** window, change **Configuration Model** to **Enabled**. 8. Confirm that **Active Directory Enrollment Policy** is selected and **Enabled**. Choose **Add**. 9. The **Certificate Enrollment Policy Server** dialog box opens. Enter the certificate enrollment policy server endpoint that you generated when you created your connector in the **Enter enrollment server policy URI** field. Leave the **Authentication Type** as **Windows** integrated. 10. Choose **Validate**. After validation succeeds, choose **Add**. 11. Return to **Certificate Services Client - Certificate Enrollment Policy** dialog box and select the box beside the newly created connector to make sure that the connector is the default enrollment policy. 12. Choose **Active Directory Enrollment Policy** and choose **Remove**. 13. In the confirmation dialog box, choose **Yes** to delete the LDAP-based authentication. 14. Choose **Apply** and then **OK** in the **Certificate Services Client - Certificate Enrollment Policy** window. Then close the window. 15. Under **Object Type** for the **Public Key Policies folder, choose Certificate Services Client - Auto-Enrollment.** 16. Change the **Configuration Model** option to **Enabled**. 17. Confirm that **Renew expired certificates** and **Update Certificates** options are both selected. Leave the other settings as they are. 18. Choose **Apply**, then **OK**, and close the dialog box. Next, configure the Public Key Policies for user configuration by repeating steps 6-17 in the **User Configuration > Policies > Windows Settings > Security Settings > Public Key Policies** section. After you finish configuring GPOs and Public Key Policies, objects in the domain request certificates from AWS Private CA Connector for AD and receive certificates issued by AWS Private CA. ## Confirming AWS Private CA issued a certificate The process to update AWS Private CA to issue certificates for your AWS Managed Microsoft AD can take up to 8 hours. You can do one of the following: <br>• You can wait this period of time. <br>• You can restart the AWS Managed Microsoft AD domain joined machines that were configured to receive certificates from the AWS Private CA. Then you can confirm the AWS Private CA has issued certificates to members of your AWS Managed Microsoft AD domain by following the procedure in [Microsoft documentation](https://learn.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in "https://learn.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in"). <br>• You can use the following PowerShell command to update the certificates for your AWS Managed Microsoft AD: `certutil -pulse` |
+| DC enrollment status | Description                                                                                         | Action required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Enabled              | Domain controller certificates are successfully enrolled to your<br>directory.                      | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Failed               | Domain controller certificate enrollment enablement or disablement<br>failed for your directory.    | If your enablement action fails, retry by turning off domain<br>controller certificates and then turning on again. If your<br>disablement action fails, retry by turning on domain controller<br>certificates and then turning off again. If retry fails, contact<br>AWS Support.                                                                                                                                                                                                                                                                             |
+| Impaired             | Domain controllers have network connectivity issues communicating<br>with AWS Private CA endpoints. | Check AWS Private CA VPC endpoint and S3 bucket policies to allow network<br>connectivity with your directory. For more information, see [Troubleshoot AWS Private Certificate Authority exception<br>messages](../../../privateca/latest/userguide/PCATsExceptions.md "../../../privateca/latest/userguide/PCATsExceptions.md") and [Troubleshoot AWS Private CA certificate revocation<br>issues](../../../privateca/latest/userguide/troubleshoot-certificate-revocation.md "../../../privateca/latest/userguide/troubleshoot-certificate-revocation.md"). |
+| Disabled             | Domain controller certificate enrollment is successfully turned<br>off for your directory.          | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Disabling            | Domain controller certificate enrollment disablement is in<br>progress.                             | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Enabling             | Domain controller certificate enrollment enablement is in<br>progress.                              | No action required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+## Configuring AD Policies
+
+AWS Private CA Connector for AD must be configured so AWS Managed Microsoft AD domain controllers and
+objects can request and receive certificates. Configure your group policy object ([GPO](https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects "https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects")) so AWS Private CA can issue certificates to AWS Managed Microsoft AD objects.
+
+### Configuring Active Directory policies for
+
+domain controllers
+
+###### Turn on Active Directory policies for domain controllers
+
+1. Open the **Network & Security** tab.
+2. Choose **AWS Private CA Connectors**.
+3. Choose a connector linked to the AWS Private CA subject that issues domain
+   controller certificates to your directory.
+4. Choose **Actions**, **Enable domain controller
+   certificates**.
+
+###### Important
+
+Configure a valid domain controller template before you turn on domain
+controller certificates to avoid delayed updates.
+
+After you turn on domain controller certificate enrollment, your directory's
+domain controllers request and receive certificates from
+AWS Private CA Connector for AD.
+
+To change your issuing AWS Private CA for domain controller certificates, first connect the
+new AWS Private CA to your directory using a new AWS Private CA Connector for AD. Before you turn on
+certificate enrollment on the new AWS Private CA, turn off certificate enrollment on the
+existing one:
+
+###### Turn off domain controller certificates
+
+1. Open the **Network & Security** tab.
+2. Choose **AWS Private CA Connectors**.
+3. Choose a connector linked to the AWS Private CA subject that issues domain
+   controller certificates to your directory.
+4. Choose **Actions**, **Disable domain controller
+   certificates**.
+
+### Configuring Active Directory policies for
+
+domain joined users, computers and machines
+
+###### Configure group policy objects
+
+1. Connect to the AWS Managed Microsoft AD admin instance and open [Server Manager](https://learn.microsoft.com/windows-server/administration/server-manager/server-manager "https://learn.microsoft.com/windows-server/administration/server-manager/server-manager") from the **Start** menu.
+2. Under **Tools**, choose **Group Policy
+   Management**.
+3. Under **Forest and Domains**, find your subdomain
+   organizational unit (OU) (for example, `corp` is your subdomain
+   organizational unit if you followed the procedures outlined in [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory")) and
+   right-click on your subdomain OU. Choose **Create a GPO in this
+   domain, and link it here** and enter PCA GPO for the name.
+   Choose **OK**.
+4. The newly created GPO appears following your subdomain name. Right-click
+   on `PCA GPO` and choose **Edit**. If a dialog
+   box opens with an alert message stating **`This is a link and that
+changes are globally propagated`**, acknowledge the message by
+   choosing **OK** to continue. The **Group Policy
+   Management Editor** window opens.
+5. In the **Group Policy Management Editor** window, go to
+   \*\*Computer Configuration > Policies > Windows Settings
+   > Security Settings > Public Key Policies\*\* (choose the
+   > folder).
+6. Under **Object Type**, choose **Certificate
+   Services Client - Certificate Enrollment Policy**.
+7. In the **Certificate Services Client - Certificate Enrollment
+   Policy** window, change **Configuration
+   Model** to **Enabled**.
+8. Confirm that **Active Directory Enrollment Policy** is selected and
+   **Enabled**. Choose **Add**.
+9. The **Certificate Enrollment Policy Server** dialog box
+   opens. Enter the certificate enrollment policy server endpoint that you
+   generated when you created your connector in the **Enter enrollment
+   server policy URI** field. Leave the **Authentication
+   Type** as **Windows** integrated.
+10. Choose **Validate**. After validation succeeds, choose
+    **Add**.
+11. Return to **Certificate Services Client - Certificate Enrollment
+    Policy** dialog box and select the box beside the newly created
+    connector to make sure that the connector is the default enrollment policy.
+12. Choose **Active Directory Enrollment Policy** and choose
+    **Remove**.
+13. In the confirmation dialog box, choose **Yes** to delete
+    the LDAP-based authentication.
+14. Choose **Apply** and then **OK** in the
+    **Certificate Services Client - Certificate Enrollment
+    Policy** window. Then close the window.
+15. Under **Object Type** for the **Public Key
+    Policies folder, choose Certificate Services Client -
+    Auto-Enrollment.**
+16. Change the **Configuration Model** option to
+    **Enabled**.
+17. Confirm that **Renew expired certificates** and
+    **Update Certificates** options are both selected.
+    Leave the other settings as they are.
+18. Choose **Apply**, then **OK**, and close
+    the dialog box.
+
+Next, configure the Public Key Policies for user configuration by repeating steps
+6-17 in the **User Configuration > Policies > Windows Settings >
+Security Settings > Public Key Policies** section.
+
+After you finish configuring GPOs and Public Key Policies, objects in the domain
+request certificates from AWS Private CA Connector for AD and receive certificates issued by
+AWS Private CA.
+
+## Confirming AWS Private CA issued a
+
+certificate
+
+The process to update AWS Private CA to issue certificates for your AWS Managed Microsoft AD can take up to
+8 hours.
+
+You can do one of the following:
+
+- You can wait this period of time.
+- You can restart the AWS Managed Microsoft AD domain joined machines that were configured
+  to receive certificates from the AWS Private CA. Then you can confirm the AWS Private CA has
+  issued certificates to members of your AWS Managed Microsoft AD domain by following the
+  procedure in [Microsoft documentation](https://learn.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in "https://learn.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in").
+- You can use the following PowerShell command to update the
+  certificates for your AWS Managed Microsoft AD:
+
+```
+certutil -pulse
+```

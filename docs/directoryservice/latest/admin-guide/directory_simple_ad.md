@@ -28,7 +28,7 @@ Simple AD offers many advantages:
 - Daily automated snapshots enable point-in-time recovery.
   Simple AD does not support any of the following:
 
-- Amazon AppStream 2.0
+- Amazon WorkSpaces Applications
 - Amazon Chime
 - Amazon FSx
 - Amazon RDS for SQL Server

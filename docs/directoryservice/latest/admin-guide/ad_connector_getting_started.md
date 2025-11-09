@@ -259,7 +259,477 @@ installed. You must also be logged in as a domain administrator.
    following and click **OK**.
 
 | Field           | Value/Selection |
-| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------- | --------------- |
 | **Group name**  | `Connectors`    |
 | **Group scope** | **Global**      |
-| **Group type**  | **Security**    | 4. In the **Active Directory User and Computers** navigation tree, select identify the Organizational Unit (OU) where the computer accounts will be created. In the menu, select **Action**, and then **Delegate Control**. You may select a parent OU up to the domain as permissions propagate to the child OUs. If your AD Connector is connected to AWS Managed Microsoft AD, you will not have access to delegate control at the domain root level. In this case, to delegate control, select the OU under your directory OU where your computer objects will be created. 5. On the **Delegation of Control Wizard** page, click **Next**, then click **Add**. 6. In the **Select Users, Computers, or Groups** dialog box, enter `Connectors` and click **OK**. If more than one object is found, select the `Connectors` group created above. Click **Next**. 7. On the **Tasks to Delegate** page, select **Create a custom task to delegate**, and then choose **Next**. 8. Select **Only the following objects in the folder**, and then select **Computer objects** and **User objects**. 9. Select **Create selected objects in this folder** and **Delete selected objects in this folder**. Then choose **Next**. ![Delegation of Control Wizard - Only the following objects in the folder, user objects, create selected objects in this folder, and delete selected objects in this folder options are selected.](images/aduc_delegate_join_linux.png) 10. Select **Read**, and then choose **Next**. ###### Note If you will be using Seamless Domain Join or WorkSpaces, you must also enable **Write** permissions so that the Active Directory can create computer objects. ![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](images/aduc_delegate_join_permissions.png) 11. Verify the information on the **Completing the Delegation of Control Wizard** page, and click **Finish**. 12. Create a user account with a strong password and add that user to the `Connectors` group. This user will be known as your AD Connector service account and since it is now a member of the `Connectors` group it now has sufficient privileges to connect AWS Directory Service to the directory. ### Test your AD Connector For AD Connector to connect to your existing directory, the firewall for your existing network must have certain ports open to the CIDRs for both subnets in the VPC. To test if these conditions are met, perform the following steps: ###### To test the connection 1. Launch a Windows instance in the VPC and connect to it over RDP. The instance must be a member of your existing domain. The remaining steps are performed on this VPC instance. 2. Download and unzip the [DirectoryServicePortTest](samples/DirectoryServicePortTest.md "samples/DirectoryServicePortTest.md") test application. The source code and Visual Studio project files are included so you can modify the test application if desired. ###### Note This script is not supported on Windows Server 2003 or older operating systems. 3. From a Windows command prompt, run the **DirectoryServicePortTest** test application with the following options: ###### Note The DirectoryServicePortTest test application can only be used when the domain and forest functional levels are set to Windows Server 2012 R2 and below. ``DirectoryServicePortTest.exe -d `<domain_name>` -ip `<server_IP_address>` -tcp "53,88,389" -udp "53,88,389"`` `<domain_name>` The fully qualified domain name. This is used to test the forest and domain functional levels. If you exclude the domain name, the functional levels won't be tested. `<server_IP_address>` The IP address of a domain controller in your existing domain. The ports will be tested against this IP address. If you exclude the IP address, the ports won't be tested. This test app determines if the necessary ports are open from the VPC to your domain, and also verifies the minimum forest and domain functional levels. The output will be similar to the following: ``Testing forest functional level. Forest Functional Level = Windows2008R2Forest : PASSED Testing domain functional level. Domain Functional Level = Windows2008R2Domain : PASSED Testing required TCP ports to `<server_IP_address>`: Checking TCP port 53: PASSED Checking TCP port 88: PASSED Checking TCP port 389: PASSED Testing required UDP ports to `<server_IP_address>`: Checking UDP port 53: PASSED Checking UDP port 88: PASSED Checking UDP port 389: PASSED`` The following is the source code for the **DirectoryServicePortTest** application. ``` using System; using System.Collections.Generic; using System.IO; using System.Linq; using System.Net; using System.Net.Sockets; using System.Text; using System.Threading.Tasks; using System.DirectoryServices.ActiveDirectory; using System.Threading; using System.DirectoryServices.AccountManagement; using System.DirectoryServices; using System.Security.Authentication; using System.Security.AccessControl; using System.Security.Principal; namespace DirectoryServicePortTest { class Program { private static List<int> \_tcpPorts; private static List<int> \_udpPorts; private static string \_domain = ""; private static IPAddress \_ipAddr = null; static void Main(string[] args) { if (ParseArgs(args)) { try { if (\_domain.Length > 0) { try { TestForestFunctionalLevel(); TestDomainFunctionalLevel(); } catch (ActiveDirectoryObjectNotFoundException) { Console.WriteLine("The domain {0} could not be found.\n", \_domain); } } if (null != \_ipAddr) { if (\_tcpPorts.Count > 0) { TestTcpPorts(\_tcpPorts); } if (\_udpPorts.Count > 0) { TestUdpPorts(\_udpPorts); } } } catch (AuthenticationException ex) { Console.WriteLine(ex.Message); } } else { PrintUsage(); } Console.Write("Press <enter> to continue."); Console.ReadLine(); } static void PrintUsage() { string currentApp = Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location); Console.WriteLine("Usage: {0} \n-d <domain> \n-ip \"<server IP address>\" \n[-tcp \"<tcp_port1>,<tcp_port2>,etc\"] \n[-udp \"<udp_port1>,<udp_port2>,etc\"]", currentApp); } static bool ParseArgs(string[] args) { bool fReturn = false; string ipAddress = ""; try { \_tcpPorts = new List<int>(); \_udpPorts = new List<int>(); for (int i = 0; i < args.Length; i++) { string arg = args[i]; if ("-tcp" == arg | "/tcp" == arg) { i++; string portList = args[i]; \_tcpPorts = ParsePortList(portList); } if ("-udp" == arg | "/udp" == arg) { i++; string portList = args[i]; \_udpPorts = ParsePortList(portList); } if ("-d" == arg | "/d" == arg) { i++; \_domain = args[i]; } if ("-ip" == arg | "/ip" == arg) { i++; ipAddress = args[i]; } } } catch (ArgumentOutOfRangeException) { return false; } if (\_domain.Length > 0 |     | ipAddress.Length > 0) { fReturn = true; } if (ipAddress.Length > 0) { \_ipAddr = IPAddress.Parse(ipAddress); } return fReturn; } static List<int> ParsePortList(string portList) { List<int> ports = new List<int>(); char[] separators = {',', ';', ':'}; string[] portStrings = portList.Split(separators); foreach (string portString in portStrings) { try { ports.Add(Convert.ToInt32(portString)); } catch (FormatException) { } } return ports; } static void TestForestFunctionalLevel() { Console.WriteLine("Testing forest functional level."); DirectoryContext dirContext = new DirectoryContext(DirectoryContextType.Forest, \_domain, null, null); Forest forestContext = Forest.GetForest(dirContext); Console.Write("Forest Functional Level = {0} : ", forestContext.ForestMode); if (forestContext.ForestMode >= ForestMode.Windows2003Forest) { Console.WriteLine("PASSED"); } else { Console.WriteLine("FAILED"); } Console.WriteLine(); } static void TestDomainFunctionalLevel() { Console.WriteLine("Testing domain functional level."); DirectoryContext dirContext = new DirectoryContext(DirectoryContextType.Domain, \_domain, null, null); Domain domainObject = Domain.GetDomain(dirContext); Console.Write("Domain Functional Level = {0} : ", domainObject.DomainMode); if (domainObject.DomainMode >= DomainMode.Windows2003Domain) { Console.WriteLine("PASSED"); } else { Console.WriteLine("FAILED"); } Console.WriteLine(); } static List<int> TestTcpPorts(List<int> portList) { Console.WriteLine("Testing TCP ports to {0}:", \_ipAddr.ToString()); List<int> failedPorts = new List<int>(); foreach (int port in portList) { Console.Write("Checking TCP port {0}: ", port); TcpClient tcpClient = new TcpClient(); try { tcpClient.Connect(\_ipAddr, port); tcpClient.Close(); Console.WriteLine("PASSED"); } catch (SocketException) { failedPorts.Add(port); Console.WriteLine("FAILED"); } } Console.WriteLine(); return failedPorts; } static List<int> TestUdpPorts(List<int> portList) { Console.WriteLine("Testing UDP ports to {0}:", \_ipAddr.ToString()); List<int> failedPorts = new List<int>(); foreach (int port in portList) { Console.Write("Checking UDP port {0}: ", port); UdpClient udpClient = new UdpClient(); try { udpClient.Connect(\_ipAddr, port); udpClient.Close(); Console.WriteLine("PASSED"); } catch (SocketException) { failedPorts.Add(port); Console.WriteLine("FAILED"); } } Console.WriteLine(); return failedPorts; } } } ```## Create an AD Connector To connect to your existing directory with AD Connector, perform the following steps. Before starting this procedure, make sure you have completed the prerequisites identified in [AD Connector prerequisites](#prereq_connector "#prereq_connector"). ###### Note You cannot create an AD Connector with a Cloud Formation template. ###### To connect with AD Connector 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, choose **Directories** and then choose **Set up directory**. 2. On the **Select directory type** page, choose **AD Connector**, and then choose **Next**. 3. On the **Enter AD Connector information** page, provide the following information: **Directory size** Choose from either the **Small** or **Large** size option. For more information about sizes, see [AD Connector](directory_ad_connector.md "directory_ad_connector.md"). **Directory description** An optional description for the directory. 4. On the **Choose VPC and subnets** page, provide the following information, and then choose **Next**. **VPC** The VPC for the directory. **Subnets** Choose the subnets for the domain controllers. The two subnets must be in different Availability Zones. 5. On the **Connect to AD** page, provide the following information: **Directory DNS name** The fully qualified name of your existing directory, such as`corp.example.com`. **Directory NetBIOS name** The short name of your existing directory, such as `CORP`. **DNS IP addresses** The IP address of at least one DNS server in your existing directory. These servers must be accessible from each subnet specified in step 4. These servers can be located outside of AWS, as long as there is network connectivity between the specified subnets and the DNS server IP addresses. **Service account username** The user name of a user in the existing directory. For more information about this account, see the [AD Connector prerequisites](#prereq_connector "#prereq_connector"). **Service account password** The password for the existing user account. This password is case-sensitive and must be between 8 and 128 characters in length, inclusive. It must also contain at least one character from three of the following four categories: <br>• Lowercase letters (a-z) <br>• Uppercase letters (A-Z) <br>• Numbers (0-9) <br>• Non-alphanumeric characters (~!@#$%^&\*\_-+=` | \(){}[]:;"'<>,.?/) **Confirm password** Retype the password for the existing user account. 6. On the **Review & create** page, review the directory information and make any necessary changes. When the information is correct, choose **Create directory**. It takes several minutes for the directory to be created. Once created, the **Status** value changes to **Active**. For more information on what is created with your AD Connector, see [What gets created with your AD Connector](create_details_ad_connector.md "create_details_ad_connector.md"). |
+| **Group type**  | **Security**    |
+
+4. In the **Active Directory User and Computers** navigation
+   tree, select identify the Organizational Unit (OU) where the computer
+   accounts will be created. In the menu, select **Action**,
+   and then **Delegate Control**. You may select a parent OU
+   up to the domain as permissions propagate to the child OUs. If your
+   AD Connector is connected to AWS Managed Microsoft AD, you will not have access to
+   delegate control at the domain root level. In this case, to delegate
+   control, select the OU under your directory OU where your computer objects
+   will be created.
+5. On the **Delegation of Control Wizard** page, click
+   **Next**, then click
+   **Add**.
+6. In the **Select Users, Computers, or Groups** dialog box,
+   enter `Connectors` and click
+   **OK**. If more than one object is found, select the
+   `Connectors` group created above. Click
+   **Next**.
+7. On the **Tasks to Delegate** page, select
+   **Create a custom task to delegate**, and then choose
+   **Next**.
+8. Select **Only the following objects in the folder**, and
+   then select **Computer objects** and **User
+   objects**.
+9. Select **Create selected objects in this folder** and
+   **Delete selected objects in this folder**. Then choose
+   **Next**.
+
+![Delegation of Control Wizard - Only the following objects in the folder, user objects, create selected objects in this folder, and delete selected objects in this folder options are selected.](images/aduc_delegate_join_linux.png) 10. Select **Read**, and then choose
+**Next**.
+
+###### Note
+
+If you will be using Seamless Domain Join or WorkSpaces, you must also
+enable **Write** permissions so that the Active
+Directory can create computer objects.
+
+![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](images/aduc_delegate_join_permissions.png) 11. Verify the information on the **Completing the Delegation of
+Control Wizard** page, and click **Finish**. 12. Create a user account with a strong password and add that user to the
+`Connectors` group. This user will be
+known as your AD Connector service account and since it is now a member of
+the `Connectors` group it now has sufficient
+privileges to connect AWS Directory Service to the directory.
+
+### Test your AD Connector
+
+For AD Connector to connect to your existing directory, the firewall for your
+existing network must have certain ports open to the CIDRs for both subnets in the
+VPC. To test if these conditions are met, perform the following steps:
+
+###### To test the connection
+
+1. Launch a Windows instance in the VPC and connect to it over RDP. The
+   instance must be a member of your existing domain. The remaining steps are
+   performed on this VPC instance.
+2. Download and unzip the [DirectoryServicePortTest](samples/DirectoryServicePortTest.md "samples/DirectoryServicePortTest.md") test application. The source code and
+   Visual Studio project files are included so you can modify the test
+   application if desired.
+
+###### Note
+
+This script is not supported on Windows Server 2003 or older operating
+systems. 3. From a Windows command prompt, run the
+**DirectoryServicePortTest** test application with the
+following options:
+
+###### Note
+
+The DirectoryServicePortTest test application can only be used when
+the domain and forest functional levels are set to Windows Server 2012
+R2 and below.
+
+```
+DirectoryServicePortTest.exe -d `<domain_name>` -ip `<server_IP_address>` -tcp "53,88,389" -udp "53,88,389"
+```
+
+`<domain_name>`
+
+The fully qualified domain name. This is used to test the
+forest and domain functional levels. If you exclude the domain
+name, the functional levels won't be tested.
+
+`<server_IP_address>`
+
+The IP address of a domain controller in your existing domain.
+The ports will be tested against this IP address. If you exclude
+the IP address, the ports won't be tested.
+
+This test app determines if the necessary ports are open from the VPC to
+your domain, and also verifies the minimum forest and domain functional
+levels.
+
+The output will be similar to the following:
+
+```
+Testing forest functional level.
+Forest Functional Level = Windows2008R2Forest : PASSED
+
+Testing domain functional level.
+Domain Functional Level = Windows2008R2Domain : PASSED
+
+Testing required TCP ports to `<server_IP_address>`:
+Checking TCP port 53: PASSED
+Checking TCP port 88: PASSED
+Checking TCP port 389: PASSED
+
+Testing required UDP ports to `<server_IP_address>`:
+Checking UDP port 53: PASSED
+Checking UDP port 88: PASSED
+Checking UDP port 389: PASSED
+```
+
+The following is the source code for the
+**DirectoryServicePortTest** application.
+
+```
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.DirectoryServices.ActiveDirectory;
+using System.Threading;
+using System.DirectoryServices.AccountManagement;
+using System.DirectoryServices;
+using System.Security.Authentication;
+using System.Security.AccessControl;
+using System.Security.Principal;
+
+namespace DirectoryServicePortTest
+{
+    class Program
+    {
+        private static List<int> _tcpPorts;
+        private static List<int> _udpPorts;
+
+        private static string _domain = "";
+        private static IPAddress _ipAddr = null;
+
+        static void Main(string[] args)
+        {
+            if (ParseArgs(args))
+            {
+                try
+                {
+                    if (_domain.Length > 0)
+                    {
+                        try
+                        {
+                            TestForestFunctionalLevel();
+
+                            TestDomainFunctionalLevel();
+                        }
+                        catch (ActiveDirectoryObjectNotFoundException)
+                        {
+                            Console.WriteLine("The domain {0} could not be found.\n", _domain);
+                        }
+                    }
+
+                    if (null != _ipAddr)
+                    {
+                        if (_tcpPorts.Count > 0)
+                        {
+                            TestTcpPorts(_tcpPorts);
+                        }
+
+                        if (_udpPorts.Count > 0)
+                        {
+                            TestUdpPorts(_udpPorts);
+                        }
+                    }
+                }
+                catch (AuthenticationException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            else
+            {
+                PrintUsage();
+            }
+
+            Console.Write("Press <enter> to continue.");
+            Console.ReadLine();
+        }
+
+        static void PrintUsage()
+        {
+            string currentApp = Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            Console.WriteLine("Usage: {0} \n-d <domain> \n-ip \"<server IP address>\" \n[-tcp \"<tcp_port1>,<tcp_port2>,etc\"] \n[-udp \"<udp_port1>,<udp_port2>,etc\"]", currentApp);
+        }
+
+        static bool ParseArgs(string[] args)
+        {
+            bool fReturn = false;
+            string ipAddress = "";
+
+            try
+            {
+                _tcpPorts = new List<int>();
+                _udpPorts = new List<int>();
+
+                for (int i = 0; i < args.Length; i++)
+                {
+                    string arg = args[i];
+
+                    if ("-tcp" == arg | "/tcp" == arg)
+                    {
+                        i++;
+                        string portList = args[i];
+                        _tcpPorts = ParsePortList(portList);
+                    }
+
+                    if ("-udp" == arg | "/udp" == arg)
+                    {
+                        i++;
+                        string portList = args[i];
+                        _udpPorts = ParsePortList(portList);
+                    }
+
+                    if ("-d" == arg | "/d" == arg)
+                    {
+                        i++;
+                        _domain = args[i];
+                    }
+
+                    if ("-ip" == arg | "/ip" == arg)
+                    {
+                        i++;
+                        ipAddress = args[i];
+                    }
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+
+            if (_domain.Length > 0 || ipAddress.Length > 0)
+            {
+                fReturn = true;
+            }
+
+            if (ipAddress.Length > 0)
+            {
+                _ipAddr = IPAddress.Parse(ipAddress);
+            }
+
+            return fReturn;
+        }
+
+        static List<int> ParsePortList(string portList)
+        {
+            List<int> ports = new List<int>();
+
+            char[] separators = {',', ';', ':'};
+
+            string[] portStrings = portList.Split(separators);
+            foreach (string portString in portStrings)
+            {
+                try
+                {
+                    ports.Add(Convert.ToInt32(portString));
+                }
+                catch (FormatException)
+                {
+                }
+            }
+
+            return ports;
+        }
+
+        static void TestForestFunctionalLevel()
+        {
+            Console.WriteLine("Testing forest functional level.");
+
+            DirectoryContext dirContext = new DirectoryContext(DirectoryContextType.Forest, _domain, null, null);
+            Forest forestContext = Forest.GetForest(dirContext);
+
+            Console.Write("Forest Functional Level = {0} : ", forestContext.ForestMode);
+
+            if (forestContext.ForestMode >= ForestMode.Windows2003Forest)
+            {
+                Console.WriteLine("PASSED");
+            }
+            else
+            {
+                Console.WriteLine("FAILED");
+            }
+
+            Console.WriteLine();
+        }
+
+        static void TestDomainFunctionalLevel()
+        {
+            Console.WriteLine("Testing domain functional level.");
+
+            DirectoryContext dirContext = new DirectoryContext(DirectoryContextType.Domain, _domain, null, null);
+            Domain domainObject = Domain.GetDomain(dirContext);
+
+            Console.Write("Domain Functional Level = {0} : ", domainObject.DomainMode);
+
+            if (domainObject.DomainMode >= DomainMode.Windows2003Domain)
+            {
+                Console.WriteLine("PASSED");
+            }
+            else
+            {
+                Console.WriteLine("FAILED");
+            }
+
+            Console.WriteLine();
+        }
+
+        static List<int> TestTcpPorts(List<int> portList)
+        {
+            Console.WriteLine("Testing TCP ports to {0}:", _ipAddr.ToString());
+
+            List<int> failedPorts = new List<int>();
+
+            foreach (int port in portList)
+            {
+                Console.Write("Checking TCP port {0}: ", port);
+
+                TcpClient tcpClient = new TcpClient();
+
+                try
+                {
+                    tcpClient.Connect(_ipAddr, port);
+
+                    tcpClient.Close();
+                    Console.WriteLine("PASSED");
+                }
+                catch (SocketException)
+                {
+                    failedPorts.Add(port);
+                    Console.WriteLine("FAILED");
+                }
+            }
+
+            Console.WriteLine();
+
+            return failedPorts;
+        }
+
+        static List<int> TestUdpPorts(List<int> portList)
+        {
+            Console.WriteLine("Testing UDP ports to {0}:", _ipAddr.ToString());
+
+            List<int> failedPorts = new List<int>();
+
+            foreach (int port in portList)
+            {
+                Console.Write("Checking UDP port {0}: ", port);
+
+                UdpClient udpClient = new UdpClient();
+
+                try
+                {
+                    udpClient.Connect(_ipAddr, port);
+                    udpClient.Close();
+                    Console.WriteLine("PASSED");
+                }
+                catch (SocketException)
+                {
+                    failedPorts.Add(port);
+                    Console.WriteLine("FAILED");
+                }
+            }
+
+            Console.WriteLine();
+
+            return failedPorts;
+        }
+    }
+}
+
+```
+
+## Create an AD Connector
+
+To connect to your existing directory with AD Connector, perform the following
+steps. Before starting this procedure, make sure you have completed the prerequisites
+identified in [AD Connector prerequisites](#prereq_connector "#prereq_connector").
+
+###### Note
+
+You cannot create an AD Connector with a Cloud Formation template.
+
+###### To connect with AD Connector
+
+1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, choose
+   **Directories** and then choose **Set up
+   directory**.
+2. On the **Select directory type** page, choose
+   **AD Connector**, and then choose
+   **Next**.
+3. On the **Enter AD Connector information** page, provide the
+   following information:
+
+**Directory size**
+
+Choose from either the **Small** or
+**Large** size option. For more information
+about sizes, see [AD Connector](directory_ad_connector.md "directory_ad_connector.md").
+
+**Directory description**
+
+An optional description for the directory. 4. On the **Choose VPC and subnets** page, provide the following
+information, and then choose **Next**.
+
+**VPC**
+
+The VPC for the directory.
+
+**Subnets**
+
+Choose the subnets for the domain controllers. The two subnets
+must be in different Availability Zones. 5. On the **Connect to AD** page, provide the following
+information:
+
+**Directory DNS name**
+
+The fully qualified name of your existing directory, such as
+`corp.example.com`.
+
+**Directory NetBIOS name**
+
+The short name of your existing directory, such as
+`CORP`.
+
+**DNS IP addresses**
+
+The IP address of at least one DNS server in your existing
+directory. These servers must be accessible from each subnet
+specified in step 4. These servers can be located outside of AWS,
+as long as there is network connectivity between the specified
+subnets and the DNS server IP addresses.
+
+**Service account username**
+
+The user name of a user in the existing directory. For more
+information about this account, see the [AD Connector prerequisites](#prereq_connector "#prereq_connector").
+
+**Service account password**
+
+The password for the existing user account. This password is
+case-sensitive and must be between 8 and 128 characters in length,
+inclusive. It must also contain at least one character from three of
+the following four categories:
+
+    * Lowercase letters (a-z)
+    * Uppercase letters (A-Z)
+    * Numbers (0-9)
+    * Non-alphanumeric characters
+     (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
+
+**Confirm password**
+
+Retype the password for the existing user account. 6. On the **Review & create** page, review the directory
+information and make any necessary changes. When the information is correct,
+choose **Create directory**. It takes several minutes for the
+directory to be created. Once created, the **Status** value
+changes to **Active**.
+
+For more information on what is created with your AD Connector, see [What gets created with your
+AD Connector](create_details_ad_connector.md "create_details_ad_connector.md").

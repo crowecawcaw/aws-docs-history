@@ -8,7 +8,13 @@ Enterprise Edition) instead.
 The following are the default quotas for Simple AD. Each quota is per Region unless
 otherwise noted.
 
-| Simple AD quotas      | Resource        | Default quota                                                                                                                                  |
-| --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Simple AD quotas      | Resource        | Default quota |
+| --------------------- | --------------- | ------------- |
 | Simple AD directories | 10              |
-| Manual snapshots \*   | 5 per Simple AD | \* The manual snapshot quota cannot be changed. ###### Note You cannot attach a public IP address to your AWS elastic network interface (ENI). |
+| Manual snapshots \*   | 5 per Simple AD |
+
+\* The manual snapshot quota cannot be changed.
+
+###### Note
+
+You cannot attach a public IP address to your AWS elastic network interface (ENI).

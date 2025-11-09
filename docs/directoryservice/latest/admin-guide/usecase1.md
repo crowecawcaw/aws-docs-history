@@ -57,14 +57,14 @@ run with gMSA.
 - [Group Managed Service Accounts](ms_ad_key_concepts_gmsa.md "ms_ad_key_concepts_gmsa.md")
   [Amazon AppStream 2.0](../../../appstream2/latest/developerguide/what-is-appstream.md "../../../appstream2/latest/developerguide/what-is-appstream.md") is a fully managed application streaming service. It provides a
   range of solutions for users to save and access data through their applications. Amazon FSx
-  with AppStream 2.0 provides a personal persistent storage drive using Amazon FSx and can be
+  with WorkSpaces Applications provides a personal persistent storage drive using Amazon FSx and can be
   configured to provide a shared folder to access common files.
 
 **Related Items**
 
 - [Walkthrough 4: Using Amazon FSx with Amazon AppStream 2.0](../../../fsx/latest/WindowsGuide/walkthrough04-fsx-with-appstream2.md "../../../fsx/latest/WindowsGuide/walkthrough04-fsx-with-appstream2.md")
 - [Using Amazon FSx with Amazon AppStream 2.0](https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/using-amazon-fsx-with-amazon-appstream-2-0/")
-- [Using Active Directory with AppStream 2.0](../../../appstream2/latest/developerguide/active-directory.md "../../../appstream2/latest/developerguide/active-directory.md")
+- [Using Active Directory with WorkSpaces Applications](../../../appstream2/latest/developerguide/active-directory.md "../../../appstream2/latest/developerguide/active-directory.md")
   FSx for Windows File Server can be used as a storage option for Microsoft SQL Server 2012
   (starting with 2012 version 11.x) and newer system databases (including Master, Model,
   MSDB, and TempDB), and for Database Engine user databases.

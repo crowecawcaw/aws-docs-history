@@ -79,26 +79,34 @@ The following table lists all performance counters available in Amazon CloudWatc
 domain controller and directory performance in AWS Managed Microsoft AD.
 
 | Metric category                              | Metric name               |
-| -------------------------------------------- | ------------------------- | ---------------------------------------- |
+| -------------------------------------------- | ------------------------- |
 | Database ==> Instances (NTDSA)               | Database Cache % Hit      |
-| I/O Database Reads Average Latency           |                           | I/O Database Reads/sec                   |
+| I/O Database Reads Average Latency           |
+| I/O Database Reads/sec                       |
 | I/O Log Writes Average Latency               |
 | DirectoryServices (NTDS)                     | LDAP Bind Time            |
-| DRA Pending Replication Operations           |                           | DRA Pending Replication Synchronizations |
+| DRA Pending Replication Operations           |
+| DRA Pending Replication Synchronizations     |
 | DNS                                          | Recursive Queries/sec     |
-| Recursive Query Failure/sec                  |                           | TCP Query Received/sec                   |
-| Total Query Received/sec                     |                           | Total Response Sent/sec                  |
+| Recursive Query Failure/sec                  |
+| TCP Query Received/sec                       |
+| Total Query Received/sec                     |
+| Total Response Sent/sec                      |
 | UDP Query Received/sec                       |
 | LogicalDisk                                  | Avg. Disk Queue Length    |
 | % Free Space                                 |
 | Memory                                       | % Committed Bytes in Use  |
 | Long-Term Average Standby Cache Lifetime (s) |
 | Network Interface                            | Bytes Sent/sec            |
-| Bytes Received/sec                           |                           | Current Bandwidth                        |
+| Bytes Received/sec                           |
+| Current Bandwidth                            |
 | NTDS                                         | ATQ Estimated Queue Delay |
-| ATQ Request Latency                          |                           | DS Directory Reads/Sec                   |
-| DS Directory Searches/Sec                    |                           | DS Directory Writes/Sec                  |
-| LDAP Client Sessions                         |                           | LDAP Searches/sec                        |
+| ATQ Request Latency                          |
+| DS Directory Reads/Sec                       |
+| DS Directory Searches/Sec                    |
+| DS Directory Writes/Sec                      |
+| LDAP Client Sessions                         |
+| LDAP Searches/sec                            |
 | LDAP Successful Binds/sec                    |
 | Processor                                    | % Processor Time          |
 | Security System-Wide Statistics              | Kerberos Authentications  |

@@ -24,7 +24,7 @@ open the Active Directory Users and Computers tool box directly.
    For more information about the OU structure used by directories in AWS, see [What gets created with your
    AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
-![Active Directory Users and Computers tool showing example OU structure.](/images/directoryservice/latest/admin-guide/images/create-security-groups-OU.png) 4. On the **Action** menu, click **New**, and then
+![Active Directory Users and Computers tool showing example OU structure.](images/create-security-groups-OU.png) 4. On the **Action** menu, click **New**, and then
 click **Group** to open the new group wizard. 5. Type a name for the group in **Group name**, select a **Group
 scope** that meets your needs, and select **Security** for the **Group
 type**. For more information on Active Directory group scope and security groups, see [Active Directory security groups](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups") in Microsoft Windows Server documentation. 6. Click **OK**. The new security group will appear in the
