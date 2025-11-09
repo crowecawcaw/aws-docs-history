@@ -93,11 +93,42 @@ If your mobile device doesn't support AutoDiscover, or if automatic configuratio
 failed, you can manually configure the client by providing the following
 information.
 
-| Required Information                  | Description                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Type of account**                   | Exchange                                                                                                                                                                                                                                                                                                                                                   |
-| **Protocol**                          | ActiveSync                                                                                                                                                                                                                                                                                                                                                 |
-| **Domain**                            | Empty                                                                                                                                                                                                                                                                                                                                                      |
-| **User name** or **Domain/User name** | Email address associated with your Amazon WorkMail account                                                                                                                                                                                                                                                                                                 |
-| **Password**                          | Your password                                                                                                                                                                                                                                                                                                                                              |
-| **Server**                            | The endpoint matching the AWS Region where your mailbox is located: <br>• US West (Oregon) mobile.mail.us-west-2.awsapps.com <br>• US East (N. Virginia) mobile.mail.us-east-1.awsapps.com <br>• Europe (Ireland) mobile.mail.eu-west-1.awsapps.com NoteIf you don't know the AWS Region where your mailbox is located, contact your system administrator. | ## Setting up Microsoft Outlook for Android and iOS You can use your Amazon WorkMail account to setup and use Microsoft Outlook on your Android or iOS devices. ###### To use your Amazon WorkMail to configure Microsoft Outlook 1. Open the Microsoft Outlook app on your device. 2. Choose **Accounts**. Enter your Amazon WorkMail address and choose **Add Account**. ###### Note If you are asked to select a service or protocol, choose **Exchange**. 3. On the configuration screen, do the following: <br>• Password –Enter your Amazon WorkMailaccount password. <br>• Server – Enter the Exchange ActiveSync URL for your AWS Region. For a list of available Exchange ActiveSync URLs, see [Amazon WorkMail endpoints and quotas](../../../general/latest/gr/workmail.md "../../../general/latest/gr/workmail.md"). <br>• Domain – Enter your Amazon WorkMail address' domain. <br>• Username – Enter your Amazon WorkMail address 4. Choose **Sign-in**. |
+| Required Information                            | Description                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type of account**                             | Exchange                                                                                                                                                                                                                                                                                                                                                                  |
+| **Protocol**                                    | ActiveSync                                                                                                                                                                                                                                                                                                                                                                |
+| **Domain**                                      | Empty                                                                                                                                                                                                                                                                                                                                                                     |
+| **User name\*<br>• or **Domain/User<br>name\*\* | Email address associated with your Amazon WorkMail account                                                                                                                                                                                                                                                                                                                |
+| **Password**                                    | Your password                                                                                                                                                                                                                                                                                                                                                             |
+| **Server**                                      | The endpoint matching the AWS Region where your mailbox is<br>located:<br>• US West (Oregon)<br>mobile.mail.us-west-2.awsapps.com<br>• US East (N. Virginia)<br>mobile.mail.us-east-1.awsapps.com<br>• Europe (Ireland)<br>mobile.mail.eu-west-1.awsapps.com<br>NoteIf you don't know the AWS Region where your mailbox is<br>located, contact your system administrator. |
+
+## Setting up Microsoft Outlook for
+
+Android and iOS
+
+You can use your Amazon WorkMail account to setup and use Microsoft Outlook on your Android
+or iOS devices.
+
+###### To use your Amazon WorkMail to configure Microsoft Outlook
+
+1. Open the Microsoft Outlook app on your device.
+2. Choose **Accounts**. Enter your Amazon WorkMail address and choose
+   **Add Account**.
+
+###### Note
+
+If you are asked to select a service or protocol, choose
+**Exchange**. 3. On the configuration screen, do the following:
+
+    * Password –Enter your
+     Amazon WorkMailaccount password.
+    * Server – Enter the Exchange
+     ActiveSync URL for your AWS Region. For a list of available
+     Exchange ActiveSync URLs, see [Amazon WorkMail endpoints
+     and quotas](../../../general/latest/gr/workmail.md "../../../general/latest/gr/workmail.md").
+    * Domain – Enter your Amazon WorkMail
+     address' domain.
+    * Username – Enter your Amazon WorkMail
+     address
+
+4. Choose **Sign-in**.

@@ -78,7 +78,53 @@ Reading the email in your inbox.
    following keyboard shortcuts:
 
 | Action    | Windows      | Mac         |
-| --------- | ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | ------------ | ----------- |
 | Reply     | Ctrl+R       | Cmd+R       |
 | Reply all | Ctrl+Shift+Y | Cmd+Shift+Y |
-| Forward   | Ctrl+F       | Cmd+F       | 4. Type your reply in the message form. To send the message, use **Shift+Tab** until the screen reader reads _Send button_. Press **Enter** to send. ###### To delete email When you no longer need a message, you can delete it. This also helps free up space in your inbox. 1. In the Amazon WorkMail web application, press **Tab** to navigate to the message. Use the **Up/Down** arrows to scroll through the messages in the table. 2. Select the row of the message to read. Press **Enter** to open the message in a new tab. 3. To delete the message, press **Delete** on your keyboard. You can also navigate to the **Delete** button using **Shift+Tab**. ###### To copy and move email You can copy email or move it from one folder to another. 1. In the Amazon WorkMail web application, press **Tab** to navigate to the message. Use the **Up/Down** arrows to scroll through the messages in the table. 2. Press **Shift+Tab** until the screen reader reads _Copy/Move button_. 3. In the **Copy/move message** dialog, choose the destination folder. Then use **Tab** to select either **Copy** or **Move**. 4. Press **Enter** to complete the action. ###### To search for email You can search all the folders to find a specific message. 1. In the Amazon WorkMail web application, press **Tab** to navigate until the screen reader reads _Mail action toolbar, toolbar, search text, edit text_. 2. Type the keyword into the search bar, and press **Enter**. 3. To clear the search term, press **Tab** until the screen reader reads _Clear search button_ and the focus moves to the **X** button, then press **Enter**. To search again, repeat the process. |
+| Forward   | Ctrl+F       | Cmd+F       |
+
+4. Type your reply in the message form. To send the message, use
+   **Shift+Tab** until the screen reader reads _Send
+   button_. Press **Enter** to send.
+
+###### To delete email
+
+When you no longer need a message, you can delete it. This also helps free up
+space in your inbox.
+
+1. In the Amazon WorkMail web application, press **Tab** to navigate to
+   the message. Use the **Up/Down** arrows to scroll through the
+   messages in the table.
+2. Select the row of the message to read. Press **Enter** to
+   open the message in a new tab.
+3. To delete the message, press **Delete** on your keyboard. You
+   can also navigate to the **Delete** button using
+   **Shift+Tab**.
+
+###### To copy and move email
+
+You can copy email or move it from one folder to another.
+
+1. In the Amazon WorkMail web application, press **Tab** to navigate to
+   the message. Use the **Up/Down** arrows to scroll through the
+   messages in the table.
+2. Press **Shift+Tab** until the screen reader reads
+   _Copy/Move button_.
+3. In the **Copy/move message** dialog, choose the destination
+   folder. Then use **Tab** to select either
+   **Copy** or **Move**.
+4. Press **Enter** to complete the action.
+
+###### To search for email
+
+You can search all the folders to find a specific message.
+
+1. In the Amazon WorkMail web application, press **Tab** to navigate
+   until the screen reader reads _Mail action toolbar, toolbar, search
+   text, edit text_.
+2. Type the keyword into the search bar, and press
+   **Enter**.
+3. To clear the search term, press **Tab** until the screen
+   reader reads _Clear search button_ and the focus moves to the
+   **X** button, then press **Enter**. To
+   search again, repeat the process.
