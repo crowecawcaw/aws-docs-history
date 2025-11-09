@@ -78,22 +78,22 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "AWSLogDeliveryWrite20250319",
+ "Sid": "AWSLogDeliveryWrite",
  "Effect": "Allow",
- "Action": [
- "xray:PutTraceSegments"
- ],
+ "Principal": {
+ "Service": "delivery.logs.amazonaws.com"
+ },
+ "Action": "xray:PutTraceSegments",
  "Resource": "*",
  "Condition": {
  "StringEquals": {
- "aws:SourceAccount": [
- "`123456789012`"
- ]
+ "aws:SourceAccount": "123456789012"
+ },
+ "ForAllValues:ArnLike": {
+ "logs:LogGeneratingResourceArns": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/MemoryId"
  },
  "ArnLike": {
- "aws:SourceArn": [
- "arn:aws:logs:`us-east-1`:`111122223333`:delivery-source:my-delivery-source"
- ]
+ "aws:SourceArn": "arn:aws:logs:us-east-1:123456789012:delivery-source:xray-test"
  }
  }
  }

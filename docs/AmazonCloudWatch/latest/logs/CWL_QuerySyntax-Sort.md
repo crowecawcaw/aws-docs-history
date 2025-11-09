@@ -47,8 +47,8 @@ If you sort in descending order, the sort results are the reverse.
 For example, the following query for Amazon VPC flow logs finds the top 15
 packet transfers across hosts.
 
-````
+```
 stats sum(packets) as packetsTransferred by srcAddr, dstAddr
-| sort packetsTransferred  desc
-| limit 15 ```
-````
+    | sort packetsTransferred  desc
+    | limit 15
+```

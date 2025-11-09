@@ -29,7 +29,7 @@ CloudWatch Logs currently supports VPC endpoints in all AWS Regions, including t
 
 To start using CloudWatch Logs with your VPC, create an interface VPC endpoint for CloudWatch Logs.
 The
-service to choose is **com.amazonaws.`Region`.logs**.
+service to choose is **com.amazonaws.`Region`.logs**. To connect with a FIPS endpoint, the service to choose is `com.amazonaws.Region.logs-fips`.
 You do not need to change any settings for CloudWatch Logs. For
 more information, see [Creating an
 Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the _Amazon VPC User Guide_.

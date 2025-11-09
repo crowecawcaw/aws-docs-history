@@ -17,9 +17,16 @@ returns all log events where the values for `loggingType` are
 **ERROR**. `display` shows only the values
 for `loggingMessage` in the query results.
 
-````
+```
 fields @message
 | parse @message "[*] *" as loggingType, loggingMessage
 | filter loggingType = "ERROR"
-| display loggingMessage ``` ###### Tip Use `display` only once in a query. If you use `display` more than once in a query, the query results show the field specified in the last occurrence of `display` command being used.
-````
+| display loggingMessage
+```
+
+###### Tip
+
+Use `display` only once in a query. If you use
+`display` more than once in a query, the query results
+show the field specified in the last occurrence of `display`
+command being used.

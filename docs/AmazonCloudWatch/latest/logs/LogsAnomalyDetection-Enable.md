@@ -27,8 +27,7 @@ You can also create anomaly detectors programmatically. For more information, se
    patterns**.
 
 Then, enter a pattern in **Anomaly detection filter
-pattern**. For more information about pattern syntax, [Filter pattern syntax for metric filters,
-subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
+pattern**. For more information about pattern syntax, [Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 
 (Optional) To test your filter pattern, enter some log messages into
 **Log event messages** and then choose **Test

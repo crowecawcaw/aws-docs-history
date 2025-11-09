@@ -27,7 +27,14 @@ account label. 4. In the query editor, delete the current contents, enter the
 following `stats` function, and then choose **Run
 query**.
 
-````
+```
 stats count(*) by @logStream
-| limit 100 ``` The results show the number of log events in the log group for each log stream. The results are limited to only 100 rows. 5. Choose the **Visualization** tab. 6. Select the arrow next to **Line**, and then choose **Bar**. The bar chart appears, showing a bar for each log stream in the log group.
-````
+    | limit 100
+```
+
+The results show the number of log events in the log group for
+each log stream. The results are limited to only 100 rows. 5. Choose the **Visualization** tab. 6. Select the arrow next to **Line**, and then
+choose **Bar**.
+
+The bar chart appears, showing a bar for each log stream in the
+log group.

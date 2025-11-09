@@ -4,7 +4,7 @@ Use `parse` to extract data from a log field and create an
 extracted field that you can process in your query.
 **`parse`** supports both glob mode
 using wildcards, and regular expressions. For information about regular
-expression syntax, see [Supported regular expressions (regex) syntax](regex-expressions.md "regex-expressions.md").
+expression syntax, see [Supported regular expressions (regex) syntax](FilterAndPatternSyntax.md#regex-expressions "FilterAndPatternSyntax.md#regex-expressions").
 
 You can parse nested JSON fields with a regular expression.
 
@@ -84,9 +84,9 @@ filters down to log events that contain `ERROR` or
 for events that contain an `ERROR`
 string.**
 
-````
+```
 FIELDS @message
-| PARSE @message "* [*] *" as loggingTime, loggingType, loggingMessage
-| FILTER loggingType IN ["ERROR", "INFO"]
-| DISPLAY loggingMessage, loggingType = "ERROR" as isError ```
-````
+    | PARSE @message "* [*] *" as loggingTime, loggingType, loggingMessage
+    | FILTER loggingType IN ["ERROR", "INFO"]
+    | DISPLAY loggingMessage, loggingType = "ERROR" as isError
+```

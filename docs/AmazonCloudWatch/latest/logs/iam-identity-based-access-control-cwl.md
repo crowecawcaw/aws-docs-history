@@ -229,15 +229,193 @@ View details about updates to AWS managed policies for CloudWatch Logs since thi
 service began tracking these changes. For automatic alerts about changes to this
 page, subscribe to the RSS feed on the CloudWatch Logs Document history page.
 
-| Change                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                | Date              |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an existing policy.                                                | CloudWatch Logs added permissions to **CloudWatchLogsFullAccess**. Permissions for `cloudwatch:GenerateQueryResultsSummary` were added to allow for generation of a natural language summary of the query results.                                                                                                                                                                                                         | May 20, 2025      |
-| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to an existing policy.                                    | CloudWatch Logs added permissions to **CloudWatchLogsReadOnlyAccess**. Permissions for `cloudwatch:GenerateQueryResultsSummary` were added to allow for generation of a natural language summary of the query results.                                                                                                                                                                                                     | May 20, 2025      |
-| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an existing policy.                                                | CloudWatch Logs added permissions to **CloudWatchLogsFullAccess**. Permissions for Amazon OpenSearch Service and IAM were added, to enable CloudWatch Logs integration with OpenSearch Service for some features.                                                                                                                                                                                                          | December 1, 2024  |
-| [CloudWatchOpenSearchDashboardsFullAccess](#managed-policies-cwl-CloudWatchOpenSearchDashboardsFullAccess "#managed-policies-cwl-CloudWatchOpenSearchDashboardsFullAccess") – New IAM policy.              | CloudWatch Logs added a new IAM policy, **CloudWatchOpenSearchDashboardsFullAccess**.- This policy grants access to create, manage, and delete integrations with OpenSearch Service, and to create, manage, and delete vended log dashboards in those integrations. For more information, see [Analyze with Amazon OpenSearch Service](CloudWatchLogs-OpenSearch-Dashboards.md "CloudWatchLogs-OpenSearch-Dashboards.md"). | December 1, 2024  |
-| [CloudWatchOpenSearchDashboardAccess](#managed-policies-cwl-CloudWatchOpenSearchDashboardAccess "#managed-policies-cwl-CloudWatchOpenSearchDashboardAccess") – New IAM policy.                             | CloudWatch Logs added a new IAM policy, **CloudWatchOpenSearchDashboardAccess**.- This policy grants access to view vended logs dashboards powered by Amazon OpenSearch Service. For more information, see [Analyze with Amazon OpenSearch Service](CloudWatchLogs-OpenSearch-Dashboards.md "CloudWatchLogs-OpenSearch-Dashboards.md").                                                                                    | December 1, 2024  |
-| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an existing policy.                                                | CloudWatch Logs added a permission to **CloudWatchLogsFullAccess**. The `cloudwatch:GenerateQuery` permission was added, so that users with this policy can generate a [CloudWatch Logs Insights](AnalyzingLogData.md "AnalyzingLogData.md") query string from a natural language prompt.                                                                                                                                  | November 27, 2023 |
-| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to an existing policy.                                    | CloudWatch added a permission to **CloudWatchLogsReadOnlyAccess**. The `cloudwatch:GenerateQuery` permission was added, so that users with this policy can generate a [CloudWatch Logs Insights](AnalyzingLogData.md "AnalyzingLogData.md") query string from a natural language prompt.                                                                                                                                   | November 27, 2023 |
-| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to an existing policy                                     | CloudWatch Logs added permissions to **CloudWatchLogsReadOnlyAccess**. The `logs:StartLiveTail` and `logs:StopLiveTail` permissions were added so that users with this policy can use the console to start and stop CloudWatch Logs live tail sessions. For more information, see [Use live tail to view logs in near real time](CloudWatchLogs_LiveTail.md "CloudWatchLogs_LiveTail.md").                                 | June 6, 2023      |
-| [CloudWatchLogsCrossAccountSharingConfiguration](#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration "#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration") – New policy | CloudWatch Logs added a new policy to enable you to manage CloudWatch cross-account observability links that share CloudWatch Logs log groups. For more information, see [CloudWatch cross-account observability](../monitoring/CloudWatch-Unified-Cross-Account.md "../monitoring/CloudWatch-Unified-Cross-Account.md")                                                                                                   | November 27, 2022 |
-| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to an existing policy                                     | CloudWatch Logs added permissions to **CloudWatchLogsReadOnlyAccess**. The `oam:ListSinks` and `oam:ListAttachedLinks` permissions were added so that users with this policy can use the console to view data shared from source accounts in CloudWatch cross-account observability.                                                                                                                                       | November 27, 2022 | ### Customer managed policy examples You can create your own custom IAM policies to allow permissions for CloudWatch Logs actions and resources. You can attach these custom policies to the users or groups that require those permissions. In this section, you can find example user policies that grant permissions for various CloudWatch Logs actions. These policies work when you are using the CloudWatch Logs API, AWS SDKs, or the AWS CLI. ###### Examples <br>• [Example 1: Allow full access to CloudWatch Logs](#w326aac45c15c15c21c19b9 "#w326aac45c15c15c21c19b9") <br>• [Example 2: Allow read-only access to CloudWatch Logs](#w326aac45c15c15c21c19c11 "#w326aac45c15c15c21c19c11") <br>• [Example 3: Allow access to one log group](#w326aac45c15c15c21c19c13 "#w326aac45c15c15c21c19c13") #### Example 1: Allow full access to CloudWatch Logs The following policy allows a user to access all CloudWatch Logs actions. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "logs:*" ], "Effect": "Allow", "Resource": "*" } ] }` `` #### Example 2: Allow read-only access to CloudWatch Logs AWS provides a **CloudWatchLogsReadOnlyAccess** policy that enables read-only access to CloudWatch Logs data. This policy includes the following permissions. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "logs:Describe*", "logs:Get*", "logs:List*", "logs:StartQuery", "logs:StopQuery", "logs:TestMetricFilter", "logs:FilterLogEvents", "logs:StartLiveTail", "logs:StopLiveTail", "cloudwatch:GenerateQuery" ], "Effect": "Allow", "Resource": "*" } ] }` `` #### Example 3: Allow access to one log group The following policy allows a user to read and write log events in one specified log group. ###### Important The `:*` at the end of the log group name in the `Resource` line is required to indicate that the policy applies to all log streams in this log group. If you omit `:*`, the policy will not be enforced. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Action": [ "logs:CreateLogStream", "logs:DescribeLogStreams", "logs:PutLogEvents", "logs:GetLogEvents" ], "Effect": "Allow", "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName:*" } ] }` `` ### Use tagging and IAM policies for control at the log group level You can grant users access to certain log groups while preventing them from accessing other log groups. To do so, tag your log groups and use IAM policies that refer to those tags. To apply tags to a log group, you need to have either the `logs:TagResource` or `logs:TagLogGroup` permission. This applies both if you are assigning tags to the log group when you create it. or assigning them later. For more information about tagging log groups, see [Tag log groups in Amazon CloudWatch Logs](Working-with-log-groups-and-streams.md#log-group-tagging "Working-with-log-groups-and-streams.md#log-group-tagging"). When you tag log groups, you can then grant an IAM policy to a user to allow access to only the log groups with a particular tag. For example, the following policy statement grants access to only log groups with the value of `Green` for the tag key `Team`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "logs:*" ], "Effect": "Allow", "Resource": "*", "Condition": { "StringLike": { "aws:ResourceTag/Team": "Green" } } } ] }` `` The **StopQuery** and **StopLiveTail** API operations don't interact with AWS resources in the traditional sense. They don't return any data, put any data, or modify a resource in any way. Instead, they operate only on a given live tail session or a given CloudWatch Logs Insights query, which are not categorized as resources. As a result, when you specify the `Resource` field in IAM policies for these operations, you must set the value of the `Resource` field as `*`, as in the following example. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "logs:StopQuery", "logs:StopLiveTail" ], "Resource": "*" } ] }` `` For more information about using IAM policy statements, see [Controlling Access Using Policies](../../../IAM/latest/UserGuide/access_controlling.md "../../../IAM/latest/UserGuide/access_controlling.md") in the _IAM User Guide_. |
+| Change                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                               | Date              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an<br>existing policy.                                                | CloudWatch Logs added permissions to<br>**CloudWatchLogsFullAccess**.<br>Permissions for<br>`cloudwatch:GenerateQueryResultsSummary` were<br>added to allow for generation of a natural language summary<br>of the query results.                                                                                                                                                                                                         | May 20, 2025      |
+| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to<br>an existing policy.                                    | CloudWatch Logs added permissions to<br>**CloudWatchLogsReadOnlyAccess**.<br>Permissions for<br>`cloudwatch:GenerateQueryResultsSummary` were<br>added to allow for generation of a natural language summary<br>of the query results.                                                                                                                                                                                                     | May 20, 2025      |
+| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an<br>existing policy.                                                | CloudWatch Logs added permissions to<br>**CloudWatchLogsFullAccess**.<br>Permissions for Amazon OpenSearch Service and IAM<br>were added, to enable CloudWatch Logs integration with OpenSearch Service for some<br>features.                                                                                                                                                                                                             | December 1, 2024  |
+| [CloudWatchOpenSearchDashboardsFullAccess](#managed-policies-cwl-CloudWatchOpenSearchDashboardsFullAccess "#managed-policies-cwl-CloudWatchOpenSearchDashboardsFullAccess")<br>– New IAM policy.              | CloudWatch Logs added a new IAM policy,<br>**CloudWatchOpenSearchDashboardsFullAccess**.-<br>This policy grants access to create, manage, and delete<br>integrations with OpenSearch Service, and to create, manage, and delete<br>vended log dashboards in those integrations. For more<br>information, see [Analyze with Amazon OpenSearch Service](CloudWatchLogs-OpenSearch-Dashboards.md "CloudWatchLogs-OpenSearch-Dashboards.md"). | December 1, 2024  |
+| [CloudWatchOpenSearchDashboardAccess](#managed-policies-cwl-CloudWatchOpenSearchDashboardAccess "#managed-policies-cwl-CloudWatchOpenSearchDashboardAccess") – New<br>IAM policy.                             | CloudWatch Logs added a new IAM policy,<br>**CloudWatchOpenSearchDashboardAccess**.-<br>This policy grants access to view vended logs dashboards<br>powered by Amazon OpenSearch Service. For more<br>information, see [Analyze with Amazon OpenSearch Service](CloudWatchLogs-OpenSearch-Dashboards.md "CloudWatchLogs-OpenSearch-Dashboards.md").                                                                                       | December 1, 2024  |
+| [CloudWatchLogsFullAccess](#managed-policies-cwl-CloudWatchLogsFullAccess "#managed-policies-cwl-CloudWatchLogsFullAccess") – Update to an<br>existing policy.                                                | CloudWatch Logs added a permission to<br>**CloudWatchLogsFullAccess**.<br>The `cloudwatch:GenerateQuery` permission was<br>added, so that users with this policy can generate a [CloudWatch Logs Insights](AnalyzingLogData.md "AnalyzingLogData.md") query string from a natural<br>language prompt.                                                                                                                                     | November 27, 2023 |
+| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to<br>an existing policy.                                    | CloudWatch added a permission to<br>**CloudWatchLogsReadOnlyAccess**.<br>The `cloudwatch:GenerateQuery` permission was<br>added, so that users with this policy can generate a [CloudWatch Logs Insights](AnalyzingLogData.md "AnalyzingLogData.md") query string from a natural<br>language prompt.                                                                                                                                      | November 27, 2023 |
+| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to<br>an existing policy                                     | CloudWatch Logs added permissions to<br>**CloudWatchLogsReadOnlyAccess**.<br>The `logs:StartLiveTail` and<br>`logs:StopLiveTail` permissions were added so<br>that users with this policy can use the console to start and<br>stop CloudWatch Logs live tail sessions. For more information, see<br>[Use live tail to view logs in near real<br>time](CloudWatchLogs_LiveTail.md "CloudWatchLogs_LiveTail.md").                           | June 6, 2023      |
+| [CloudWatchLogsCrossAccountSharingConfiguration](#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration "#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration")<br>– New policy | CloudWatch Logs added a new policy to enable you to manage CloudWatch<br>cross-account observability links that share CloudWatch Logs log<br>groups.<br>For more information, see [CloudWatch cross-account observability](../monitoring/CloudWatch-Unified-Cross-Account.md "../monitoring/CloudWatch-Unified-Cross-Account.md")                                                                                                         | November 27, 2022 |
+| [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to<br>an existing policy                                     | CloudWatch Logs added permissions to<br>**CloudWatchLogsReadOnlyAccess**.<br>The `oam:ListSinks` and<br>`oam:ListAttachedLinks` permissions were<br>added so that users with this policy can use the console to<br>view data shared from source accounts in CloudWatch cross-account<br>observability.                                                                                                                                    | November 27, 2022 |
+
+### Customer managed policy
+
+examples
+
+You can create your own custom IAM policies to allow permissions for CloudWatch Logs
+actions and resources. You can attach these custom policies to the users or
+groups that require those permissions.
+
+In this section, you can find example user policies that grant permissions for
+various CloudWatch Logs actions. These policies work when you are using the CloudWatch Logs API,
+AWS SDKs, or the AWS CLI.
+
+###### Examples
+
+- [Example 1: Allow full access to CloudWatch Logs](#w329aac45c15c15c21c19b9 "#w329aac45c15c15c21c19b9")
+- [Example 2: Allow read-only access to CloudWatch Logs](#w329aac45c15c15c21c19c11 "#w329aac45c15c15c21c19c11")
+- [Example 3: Allow access to one log group](#w329aac45c15c15c21c19c13 "#w329aac45c15c15c21c19c13")
+
+#### Example 1: Allow full access to CloudWatch Logs
+
+The following policy allows a user to access all CloudWatch Logs actions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "logs:*"
+ ],
+ "Effect": "Allow",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+#### Example 2: Allow read-only access to CloudWatch Logs
+
+AWS provides a **CloudWatchLogsReadOnlyAccess** policy
+that enables read-only access to CloudWatch Logs data. This policy includes the
+following permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "logs:Describe*",
+ "logs:Get*",
+ "logs:List*",
+ "logs:StartQuery",
+ "logs:StopQuery",
+ "logs:TestMetricFilter",
+ "logs:FilterLogEvents",
+ "logs:StartLiveTail",
+ "logs:StopLiveTail",
+ "cloudwatch:GenerateQuery"
+ ],
+ "Effect": "Allow",
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+#### Example 3: Allow access to one log group
+
+The following policy allows a user to read and write log events in one
+specified log group.
+
+###### Important
+
+The `:*` at the end of the log group name in the
+`Resource` line is required to indicate that the policy
+applies to all log streams in this log group. If you omit
+`:*`, the policy will not be enforced.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:DescribeLogStreams",
+ "logs:PutLogEvents",
+ "logs:GetLogEvents"
+ ],
+ "Effect": "Allow",
+ "Resource": "arn:aws:logs:us-west-2:123456789012:log-group:SampleLogGroupName:*"
+ }
+ ]
+}`
+
+```
+
+### Use tagging and IAM policies for
+
+control at the log group level
+
+You can grant users access to certain log groups while preventing them from
+accessing other log groups. To do so, tag your log groups and use IAM policies
+that refer to those tags. To apply tags to a log group, you need to have either
+the `logs:TagResource` or `logs:TagLogGroup` permission.
+This applies both if you are assigning tags to the log group when you create it.
+or assigning them later.
+
+For more information about tagging log groups, see [Tag log groups in Amazon CloudWatch Logs](Working-with-log-groups-and-streams.md#log-group-tagging "Working-with-log-groups-and-streams.md#log-group-tagging").
+
+When you tag log groups, you can then grant an IAM policy to a user to allow
+access to only the log groups with a particular tag. For example, the following
+policy statement grants access to only log groups with the value of
+`Green` for the tag key `Team`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "logs:*"
+ ],
+ "Effect": "Allow",
+ "Resource": "*",
+ "Condition": {
+ "StringLike": {
+ "aws:ResourceTag/Team": "Green"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The **StopQuery** and **StopLiveTail** API
+operations don't interact with AWS resources in the traditional sense. They
+don't return any data, put any data, or modify a resource in any way. Instead,
+they operate only on a given live tail session or a given CloudWatch Logs Insights query,
+which are not categorized as resources. As a result, when you specify the
+`Resource` field in IAM policies for these operations, you must
+set the value of the `Resource` field as `*`, as in the
+following example.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":
+ [ {
+ "Effect": "Allow",
+ "Action": [
+ "logs:StopQuery",
+ "logs:StopLiveTail"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+For more information about using IAM policy statements, see [Controlling Access Using
+Policies](../../../IAM/latest/UserGuide/access_controlling.md "../../../IAM/latest/UserGuide/access_controlling.md") in the _IAM User Guide_.

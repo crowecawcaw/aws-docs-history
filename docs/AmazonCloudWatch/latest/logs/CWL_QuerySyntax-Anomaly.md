@@ -52,15 +52,29 @@ log data.
 The following command identifies patterns in your log data and then
 detects anomalies within those patterns:
 
-````
+```
 fields @timestamp, @message
 | pattern @message
-| anomaly ``` The `anomaly` command can be used with filtering to focus on specific log types: ``` fields @timestamp, @message
+| anomaly
+```
+
+The `anomaly` command can be used with filtering to focus on
+specific log types:
+
+```
+fields @timestamp, @message
 | filter @type = "REPORT"
 | pattern @message
-| anomaly ``` The `anomaly` command can be combined with sorting to organize results: ``` fields @timestamp, @message
+| anomaly
+```
+
+The `anomaly` command can be combined with sorting to organize
+results:
+
+```
+fields @timestamp, @message
 | filter @type = "ERROR"
 | pattern @message
 | anomaly
-| sort @timestamp desc ```
-````
+| sort @timestamp desc
+```

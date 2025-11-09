@@ -15,8 +15,7 @@ visible until there are some data points for it.
 4. Choose `Actions`, and then choose **Create metric
    filter**.
 5. For **Filter pattern**, enter a filter pattern. For more
-   information, see [Filter pattern syntax for metric filters,
-   subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
+   information, see [Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 6. (Optional) If you are using centralized log groups, under
    **Filter selection criteria**, you can specify filters
    based on source account (`@aws.account`), source region

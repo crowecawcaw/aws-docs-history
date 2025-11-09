@@ -81,10 +81,16 @@ pattern @message
 The `pattern` command can be used in combination with the `filter`
 command
 
-````
+```
 filter @message like /ERROR/
-| pattern @message ``` The `pattern` command can be use with the `parse` and `sort` commands ``` filter @message like /ERROR/
+| pattern @message
+```
+
+The `pattern` command can be use with the `parse` and `sort` commands
+
+```
+filter @message like /ERROR/
 | parse @message 'Failed to do: *' as cause
 | pattern cause
-| sort @sampleCount asc ```
-````
+| sort @sampleCount asc
+```

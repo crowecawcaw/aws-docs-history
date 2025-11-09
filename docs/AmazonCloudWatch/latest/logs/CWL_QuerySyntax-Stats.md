@@ -169,35 +169,138 @@ For example, the following query first find the total traffic volume
 in 5-minute bins, then calculates the highest, lowest, and average
 traffic volume among those 5-minute bins.
 
-````
+```
 FIELDS strlen(@message) AS message_length
 | STATS sum(message_length)/1024/1024 as logs_mb BY bin(5m)
-| STATS max(logs_mb) AS peak_ingest_mb, min(logs_mb) AS min_ingest_mb, avg(logs_mb) AS avg_ingest_mb ``` **Example: Combine multiple stats commands with other functions such as `filter`, `fields`, `bin`** You can combine two `stats` commands with other commands such as `filter` and `fields` in a single query. For example, the following query finds the number of distinct IP addresses in sessions and finds the number of sessions by client platform, filters those IP addresses, and then finally finds the average of session requests per client platform. ``` STATS count_distinct(client_ip) AS session_ips, count(*) AS requests BY session_id, client_platform
+| STATS max(logs_mb) AS peak_ingest_mb,
+        min(logs_mb) AS min_ingest_mb,
+        avg(logs_mb) AS avg_ingest_mb
+```
+
+**Example: Combine multiple stats commands with
+other functions such as `filter`, `fields`,
+`bin`**
+
+You can combine two `stats` commands with other commands
+such as `filter` and `fields` in a single query.
+For example, the following query finds the number of distinct IP
+addresses in sessions and finds the number of sessions by client
+platform, filters those IP addresses, and then finally finds the average
+of session requests per client platform.
+
+```
+STATS count_distinct(client_ip) AS session_ips,
+      count(*) AS requests BY session_id, client_platform
 | FILTER session_ips > 1
-| STATS count(*) AS multiple_ip_sessions, sum(requests) / count(*) AS avg_session_requests BY client_platform ``` You can use `bin` and `dateceil` functions in queries with multiple `stats` commands. For example, the following query first combines messages into 5-minute blocks, then aggregates those 5-minute blocks into 10-minute blocks and calculates the highest, lowest, and average traffic volumes within each 10-minute block. ``` FIELDS strlen(@message) AS message_length
+| STATS count(*) AS multiple_ip_sessions,
+        sum(requests) / count(*) AS avg_session_requests BY client_platform
+```
+
+You can use `bin` and `dateceil` functions in
+queries with multiple `stats` commands. For example, the
+following query first combines messages into 5-minute blocks, then
+aggregates those 5-minute blocks into 10-minute blocks and calculates
+the highest, lowest, and average traffic volumes within each 10-minute
+block.
+
+```
+FIELDS strlen(@message) AS message_length
 | STATS sum(message_length) / 1024 / 1024 AS logs_mb BY BIN(5m) as @t
-| STATS max(logs_mb) AS peak_ingest_mb, min(logs_mb) AS min_ingest_mb, avg(logs_mb) AS avg_ingest_mb BY dateceil(@t, 10m) ``` **Notes and limitations** A query can have a maximum of two `stats` commands. This quota can't be changed. If you use a `sort` or `limit` command, it must appear after the second `stats` command. If it is before the second `stats` command, the query is not valid. When a query has two `stats` commands, the partial results from the query do not begin displaying until the first `stats` aggregation is complete. In the second `stats` command in a single query, you can refer only to fields that are defined in the first `stats` command. For example, the following query is not valid because the `@message` field won't be available after the first `stats` aggregation. ``` FIELDS @message
-| STATS SUM(Fault) by Operation # You can only reference `SUM(Fault)` or Operation at this point
-| STATS MAX(strlen(@message)) AS MaxMessageSize # Invalid reference to @message ``` Any fields that you reference after the first `stats` command must be defined in that first `stats` command. ``` STATS sum(x) as sum_x by y, z
-| STATS max(sum_x) as max_x by z # You can only reference `max(sum_x)`, max_x or z at this point ``` ###### Important The `bin` function always implicitly uses the `@timestamp` field. This means that you can't use `bin` in the second `stats` command without using the first `stats` command to propagate the `timestamp` field. For example, the following query is not valid. ``` FIELDS strlen(@message) AS message_length
-| STATS sum(message_length) AS ingested_bytes BY @logStream
-| STATS avg(ingested_bytes) BY bin(5m) # Invalid reference to @timestamp field ``` Instead, define the `@timestamp` field in the first `stats` command, and then you can use it with `dateceil` in the second `stats` command as in the following example. ``` FIELDS strlen(@message) AS message_length
-| STATS sum(message_length) AS ingested_bytes, max(@timestamp) as @t BY @logStream
-| STATS avg(ingested_bytes) BY dateceil(@t, 5m) ``` ## Functions to use with stats CloudWatch Logs Insights supports both stats aggregation functions and stats non-aggregation functions. Use statsaggregation functions in the `stats` command and as arguments for other functions.
-| Function | Result type | Description |
-| --- | --- | --- |
-| `avg(fieldName: NumericLogField)` | number | The average of the values in the specified field. |
-| `count()` `count(fieldName: LogField)` | number | Counts the log events. `count()` (or `count(*)`) counts all events returned by the query, while `count(fieldName)` counts all records that include the specified field name. |
-| `count_distinct(fieldName: LogField)` | number | Returns the number of unique values for the field. If the field has very high cardinality (contains many unique values), the value returned by `count_distinct` is just an approximation. |
-| `max(fieldName: LogField)` | LogFieldValue | The maximum of the values for this log field in the queried logs. |
-| `min(fieldName: LogField)` | LogFieldValue | The minimum of the values for this log field in the queried logs. |
-| `pct(fieldName: LogFieldValue, percent: number)` | LogFieldValue | A percentile indicates the relative standing of a value in a dataset. For example, `pct(@duration, 95)` returns the `@duration` value at which 95 percent of the values of `@duration` are lower than this value, and 5 percent are higher than this value. |
-| `stddev(fieldName: NumericLogField)` | number | The standard deviation of the values in the specified field. |
-| `sum(fieldName: NumericLogField)` | number | The sum of the values in the specified field. | **Stats non-aggregation functions** Use non-aggregation functions in the `stats` command and as arguments for other functions.
-| Function | Result type | Description |
-| --- | --- | --- |
-| `earliest(fieldName: LogField)` | LogField | Returns the value of `fieldName` from the log event that has the earliest timestamp in the queried logs. |
-| `latest(fieldName: LogField)` | LogField | Returns the value of `fieldName` from the log event that has the latest timestamp in the queried logs. |
-| `sortsFirst(fieldName: LogField)` | LogField | Returns the value of `fieldName` that sorts first in the queried logs. |
-| `sortsLast(fieldName: LogField)` | LogField | Returns the value of `fieldName` that sorts last in the queried logs. |
-````
+| STATS max(logs_mb) AS peak_ingest_mb,
+        min(logs_mb) AS min_ingest_mb,
+        avg(logs_mb) AS avg_ingest_mb BY dateceil(@t, 10m)
+```
+
+**Notes and limitations**
+
+A query can have a maximum of two `stats` commands. This
+quota can't be changed.
+
+If you use a `sort` or `limit` command, it must
+appear after the second `stats` command. If it is before the
+second `stats` command, the query is not valid.
+
+When a query has two `stats` commands, the partial results
+from the query do not begin displaying until the first
+`stats` aggregation is complete.
+
+In the second `stats` command in a single query, you can
+refer only to fields that are defined in the first `stats`
+command. For example, the following query is not valid because the
+`@message` field won't be available after the first
+`stats` aggregation.
+
+```
+FIELDS @message
+| STATS SUM(Fault) by Operation
+# You can only reference `SUM(Fault)` or Operation at this point
+| STATS MAX(strlen(@message)) AS MaxMessageSize # Invalid reference to @message
+```
+
+Any fields that you reference after the first `stats`
+command must be defined in that first `stats` command.
+
+```
+STATS sum(x) as sum_x by y, z
+| STATS max(sum_x) as max_x by z
+# You can only reference `max(sum_x)`, max_x or z at this point
+```
+
+###### Important
+
+The `bin` function always implicitly uses the
+`@timestamp` field. This means that you can't use
+`bin` in the second `stats` command
+without using the first `stats` command to propagate the
+`timestamp` field. For example, the following query
+is not valid.
+
+```
+FIELDS strlen(@message) AS message_length
+ | STATS sum(message_length) AS ingested_bytes BY @logStream
+ | STATS avg(ingested_bytes) BY bin(5m) # Invalid reference to @timestamp field
+```
+
+Instead, define the `@timestamp` field in the first
+`stats` command, and then you can use it with
+`dateceil` in the second `stats` command
+as in the following example.
+
+```
+FIELDS strlen(@message) AS message_length
+ | STATS sum(message_length) AS ingested_bytes, max(@timestamp) as @t BY @logStream
+ | STATS avg(ingested_bytes) BY dateceil(@t, 5m)
+```
+
+## Functions to use with
+
+stats
+
+CloudWatch Logs Insights supports both stats aggregation functions and stats
+non-aggregation functions.
+
+Use statsaggregation functions in the `stats` command and
+as arguments for other functions.
+
+| Function                                            | Result type   | Description                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `avg(fieldName:<br>NumericLogField)`                | number        | The average of the values in the specified<br>field.                                                                                                                                                                                                                          |
+| `count()`<br>`count(fieldName:<br>LogField)`        | number        | Counts the log events. `count()` (or<br>`count(*)`) counts all events returned<br>by the query, while `count(fieldName)`<br>counts all records that include the specified field<br>name.                                                                                      |
+| `count_distinct(fieldName:<br>LogField)`            | number        | Returns the number of unique values for the field.<br>If the field has very high cardinality (contains<br>many unique values), the value returned by<br>`count_distinct` is just an<br>approximation.                                                                         |
+| `max(fieldName:<br>LogField)`                       | LogFieldValue | The maximum of the values for this log field in<br>the queried logs.                                                                                                                                                                                                          |
+| `min(fieldName:<br>LogField)`                       | LogFieldValue | The minimum of the values for this log field in<br>the queried logs.                                                                                                                                                                                                          |
+| `pct(fieldName: LogFieldValue, percent:<br>number)` | LogFieldValue | A percentile indicates the relative standing of a<br>value in a dataset. For example,<br>`pct(@duration, 95)` returns the<br>`@duration` value at which 95 percent<br>of the values of `@duration` are lower<br>than this value, and 5 percent are higher than this<br>value. |
+| `stddev(fieldName:<br>NumericLogField)`             | number        | The standard deviation of the values in the<br>specified field.                                                                                                                                                                                                               |
+| `sum(fieldName:<br>NumericLogField)`                | number        | The sum of the values in the specified<br>field.                                                                                                                                                                                                                              |
+
+**Stats non-aggregation functions**
+
+Use non-aggregation functions in the `stats` command and
+as arguments for other functions.
+
+| Function                             | Result type | Description                                                                                                    |
+| ------------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------- |
+| `earliest(fieldName:<br>LogField)`   | LogField    | Returns the value of `fieldName` from<br>the log event that has the earliest timestamp in the<br>queried logs. |
+| `latest(fieldName:<br>LogField)`     | LogField    | Returns the value of `fieldName` from<br>the log event that has the latest timestamp in the<br>queried logs.   |
+| `sortsFirst(fieldName:<br>LogField)` | LogField    | Returns the value of `fieldName` that<br>sorts first in the queried logs.                                      |
+| `sortsLast(fieldName:<br>LogField)`  | LogField    | Returns the value of `fieldName` that<br>sorts last in the queried logs.                                       |

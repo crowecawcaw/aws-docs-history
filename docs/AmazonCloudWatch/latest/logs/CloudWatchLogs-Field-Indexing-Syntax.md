@@ -124,8 +124,22 @@ To create this field, you refer to it using dot notation
 (`userIdentity.accessKeyId`) both when creating the field index and
 when specifying it in a query. The query could look like this:
 
-````
+```
 fields @timestamp, @message
-| filterIndex userIdentity.accessKeyId = "11112222" ``` In the previous example event, the `instanceId` field is in an array within `requestParameters.instancesSet.items` To represent this field both when creating the field index and when querying, refer to it as `requestParameters.instancesSet.items.0.instanceId` The 0 refers to that field's place in the array. Then a query for this field could be the following: ``` fields @timestamp, @message
-| filterIndex requestParameters.instancesSet.items.0.instanceId="i-abcde123" ```
-````
+| filterIndex userIdentity.accessKeyId = "11112222"
+
+```
+
+In the previous example event, the `instanceId` field is in an array
+within `requestParameters.instancesSet.items` To represent this field
+both when creating the field index and when querying, refer to it as
+`requestParameters.instancesSet.items.0.instanceId` The 0 refers to
+that field's place in the array.
+
+Then a query for this field could be the following:
+
+```
+fields @timestamp, @message
+| filterIndex requestParameters.instancesSet.items.0.instanceId="i-abcde123"
+
+```

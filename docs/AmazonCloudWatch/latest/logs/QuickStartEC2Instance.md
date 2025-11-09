@@ -249,14 +249,29 @@ Before you start, you need to know which log file to monitor and its
 time stamp format. You should also have the following information
 ready.
 
-| Item                        | Description                                                                                                                                                                                                    |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS access key ID           | Press Enter if using an IAM role. Otherwise, enter your AWS access key ID.                                                                                                                                     |
-| AWS secret access key       | Press Enter if using an IAM role. Otherwise, enter your AWS secret access key.                                                                                                                                 |
-| Default Region name         | Press Enter. The default is us-east-2. You can set this to us-east-1, us-west-1, us-west-2, ap-south-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-1, or sa-east-1. |
-| Default output format       | Leave blank and press Enter.                                                                                                                                                                                   |
-| Path of log file to upload  | The location of the file that contains the log data to send. The installer suggests a path for you.                                                                                                            |
-| Destination Log Group name  | The name for your log group. The installer suggests a log group name for you.                                                                                                                                  |
-| Destination Log Stream name | By default, this is the name of the host. The installer suggests a host name for you.                                                                                                                          |
-| Timestamp format            | Specify the format of the time stamp within the specified log file. Choose custom to specify your own format.                                                                                                  |
-| Initial position            | How data is uploaded. Set this to start_of_file to upload everything in the data file. Set to end_of_file to upload only newly appended data.                                                                  | After you have completed these steps, the installer asks about configuring another log file. You can run the process as many times as you like for each log file. If you have no more log files to monitor, choose **N** when prompted by the installer to set up another log. For more information about the settings in the agent configuration file, see [CloudWatch Logs agent reference](AgentReference.md "AgentReference.md"). ###### Note Configuring multiple log sources to send data to a single log stream is not supported. 3. You should see the newly created log group and log stream in the CloudWatch console after the agent has been running for a few moments. For more information, see [View log data sent to CloudWatch Logs](Working-with-log-groups-and-streams.md#ViewingLogData "Working-with-log-groups-and-streams.md#ViewingLogData"). |
+| Item                        | Description                                                                                                                                                                                                          |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS access key ID           | Press Enter if using an IAM role. Otherwise, enter<br>your AWS access key ID.                                                                                                                                        |
+| AWS secret access key       | Press Enter if using an IAM role. Otherwise, enter<br>your AWS secret access key.                                                                                                                                    |
+| Default Region name         | Press Enter. The default is us-east-2. You can set<br>this to us-east-1, us-west-1, us-west-2, ap-south-1, ap-northeast-2,<br>ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-1, or sa-east-1. |
+| Default output format       | Leave blank and press Enter.                                                                                                                                                                                         |
+| Path of log file to upload  | The location of the file that contains the log data to<br>send. The installer suggests a path for you.                                                                                                               |
+| Destination Log Group name  | The name for your log group. The installer suggests a<br>log group name for you.                                                                                                                                     |
+| Destination Log Stream name | By default, this is the name of the host. The<br>installer suggests a host name for you.                                                                                                                             |
+| Timestamp format            | Specify the format of the time stamp within the<br>specified log file. Choose custom to specify your<br>own format.                                                                                                  |
+| Initial position            | How data is uploaded. Set this to start_of_file to<br>upload everything in the data file. Set to<br>end_of_file to upload only newly appended<br>data.                                                               |
+
+After you have completed these steps, the installer asks about configuring
+another log file. You can run the process as many times as you like for
+each log file. If you have no more log files to monitor, choose
+**N** when prompted by the installer to set up
+another log. For more information about the settings in the agent
+configuration file, see [CloudWatch Logs agent reference](AgentReference.md "AgentReference.md").
+
+###### Note
+
+Configuring multiple log sources to send data to a single log stream
+is not supported. 3. You should see the newly created log group and log stream in the CloudWatch
+console after the agent has been running for a few moments.
+
+For more information, see [View log data sent to CloudWatch Logs](Working-with-log-groups-and-streams.md#ViewingLogData "Working-with-log-groups-and-streams.md#ViewingLogData").

@@ -7,8 +7,7 @@ Each subscription filter is made up of the following key elements:
 A symbolic description of how CloudWatch Logs should interpret the data in each log
 event, along with filtering expressions that restrict what gets delivered to
 the destination AWS resource. For more information about the filter
-pattern syntax, see [Filter pattern syntax for metric filters,
-subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
+pattern syntax, see [Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 
 **destination arn**
 

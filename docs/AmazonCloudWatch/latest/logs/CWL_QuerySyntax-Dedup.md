@@ -29,8 +29,10 @@ The following example displays the `timestamp`,
 fields for only the most recent event for each unique value of
 `server`.
 
-````
+```
 fields @timestamp, server, severity, message
 | sort @timestamp desc
-| dedup server ``` For more samples of CloudWatch Logs Insights queries, see [General queries](CWL_QuerySyntax-examples.md#CWL_QuerySyntax-examples-general "CWL_QuerySyntax-examples.md#CWL_QuerySyntax-examples-general").
-````
+| dedup server
+```
+
+For more samples of CloudWatch Logs Insights queries, see [General queries](CWL_QuerySyntax-examples.md#CWL_QuerySyntax-examples-general "CWL_QuerySyntax-examples.md#CWL_QuerySyntax-examples-general").

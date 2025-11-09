@@ -143,33 +143,214 @@ data from source accounts to your destination account.
 
 7.  Specify telemetry data by setting the following fields, then choose
     **Next**:
+    1.  **Log groups**: Choose one of the following
+        options:
+        - **All log groups**: Centralize logs from
+          all log groups in the source accounts.
+        - **Filter log group**: Centralize logs
+          from a subset of log groups in the source accounts, matching
+          a log group selection criteria. You can provide the
+          selection criteria in two modes:
 
-        1. **Log groups**: Choose one of the following
-         options:
+              + **Builder**: A click-based
+               experience to generate the log group selection
+               criteria
+              + **Editor**: A free-form text box
+               to provide the log group selection criteria
+
+          Supported syntax for log group selection criteria:
+
+              + *Supported Keys:* LogGroupName
+               | \*
+              + *Supported Operators:* = | != |
+               IN | NOT IN | AND | OR | LIKE | NOT LIKE
+
+    2.  **KMS Encrypted Log Group**
+
+    ###### Important
+
+    CloudWatch centralization rules will fail to deliver logs from the
+    source account to the destination log groups if the KMS Key
+    provided in the Centralization rule doesn't permit CloudWatch Logs to use
+    it. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
+
+    Choose one of the following options:
+
+        * **Do not centralize log groups encrypted with
+         Customer Managed KMS keys**: Skip
+         centralization of log events from source log groups
+         encrypted with Customer Managed KMS Keys.
+        * **Centralize log groups encrypted with Customer
+         Managed KMS keys in destination account with an AWS
+         Managed KMS key**: Centralize log events from
+         source log groups encrypted with Customer Managed KMS Keys
+         into destination log groups that are not associated with
+         Customer Managed KMS Keys but instead use an AWS Managed
+         KMS key.
+
+
+         When this setting is selected, you must also set the
+         following:
 
 
 
 
-        	* **All log groups**: Centralize logs from
-        	 all log groups in the source accounts.
-        	* **Filter log group**: Centralize logs
-        	 from a subset of log groups in the source accounts, matching
-        	 a log group selection criteria. You can provide the
-        	 selection criteria in two modes:
+        	+ **Destination encryption key
+        	 ARN**: ARN of the KMS Key belonging to
+        	 the destination account and the primary destination
+        	 region, to be associated with newly created
+        	 destination log groups.
+        	+ **Backup destination encryption key
+        	 ARN** (optional): ARN of the KMS Key
+        	 belonging to the destination account and the backup
+        	 destination region, to be associated with newly
+        	 created destination log groups.
+        ###### Note
 
+        Note that this setting only applies when the source
+         log group is encrypted using Customer Managed KMS Keys
+         and only applies to newly created log groups in the
+         destination account.
 
+8.  Review the centralization rule, optionally make any last-minute edits, and
+    choose **Create Centralization policy**.
 
+### Modifying a centralization rule
 
-        		+ **Builder**: A click-based
-        		 experience to generate the log group selection
-        		 criteria
-        		+ **Editor**: A free-form text box
-        		 to provide the log group selection criteria
-        	Supported syntax for log group selection criteria:
+Use the following procedure to modify an existing centralization rule.
 
+###### To modify a centralization rule
 
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Manage rules**.
+5. Select the rule to update and choose **Edit**.
+6. Update the rule configuration as needed, choosing
+   **Next** to proceed through each step.
+7. In Step 4, Review and configure, choose **Update centralization
+   policy**.
 
+### Viewing a centralization rule
 
-        		+ *Supported Keys:* LogGroupName
+Use the following procedure to view details of an existing centralization
+rule.
 
-    | \* + _Supported Operators:_ = | != | IN | NOT IN | AND | OR | LIKE | NOT LIKE 2. **KMS Encrypted Log Group** ###### Important CloudWatch centralization rules will fail to deliver logs from the source account to the destination log groups if the KMS Key provided in the Centralization rule doesn't permit CloudWatch Logs to use it. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions"). Choose one of the following options: <br>• **Do not centralize log groups encrypted with Customer Managed KMS keys**: Skip centralization of log events from source log groups encrypted with Customer Managed KMS Keys. <br>• **Centralize log groups encrypted with Customer Managed KMS keys in destination account with an AWS Managed KMS key**: Centralize log events from source log groups encrypted with Customer Managed KMS Keys into destination log groups that are not associated with Customer Managed KMS Keys but instead use an AWS Managed KMS key. When this setting is selected, you must also set the following: + **Destination encryption key ARN**: ARN of the KMS Key belonging to the destination account and the primary destination region, to be associated with newly created destination log groups. + **Backup destination encryption key ARN** (optional): ARN of the KMS Key belonging to the destination account and the backup destination region, to be associated with newly created destination log groups. ###### Note Note that this setting only applies when the source log group is encrypted using Customer Managed KMS Keys and only applies to newly created log groups in the destination account. 8. Review the centralization rule, optionally make any last-minute edits, and choose **Create Centralization policy**. ### Modifying a centralization rule Use the following procedure to modify an existing centralization rule. ###### To modify a centralization rule 1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization. 2. Choose **Settings**. 3. Navigate to the **Organization** tab. 4. Choose **Manage rules**. 5. Select the rule to update and choose **Edit**. 6. Update the rule configuration as needed, choosing **Next** to proceed through each step. 7. In Step 4, Review and configure, choose **Update centralization policy**. ### Viewing a centralization rule Use the following procedure to view details of an existing centralization rule. ###### To view a centralization rule 1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization. 2. Choose **Settings**. 3. Navigate to the **Organization** tab. 4. Choose **Manage rules**. 5. View a list of all existing centralization rules and choose a specific rule name to view its details. ### Deleting a centralization rule Use the following procedure to delete an existing centralization rule. ###### To delete a centralization rule 1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization. 2. Choose **Settings**. 3. Navigate to the **Organization** tab. 4. Choose **Manage rules**. 5. Select the rule to delete and choose **Delete**. 6. Confirm deletion and choose **Delete**. ## Monitoring centralization You can monitor the status and performance of your centralization rules using CloudWatch metrics, the CloudWatch Logs console, and AWS CloudTrail logs. This helps you ensure that log data is being replicated successfully and identify any issues with your centralization configuration. ### Monitoring centralization in the console Use the CloudWatch Logs console to view the status and activity of your centralization rules. ###### To monitor centralization rules in the console 1. Navigate to the CloudWatch console in the Management or Delegated Administrator account of the organization. 2. Choose **Settings**. 3. Navigate to the **Organization** tab. 4. Choose **Manage rules**. 5. Review the centralization rules list, which displays: <br>• **Rule name**: The name of each centralization rule <br>• **Rule status**: Current operational status (Active, Inactive, Error) <br>• **Creation date**: When the rule was created <br>• **Destination account ID**: The account ID of the destination account <br>• **Destination Region**: The Region of the destination account 6. Choose a specific rule name to view the rule configuration details ### Centralization monitoring You can monitor centralization rules using the console interface and API operations. Current monitoring capabilities include: <br>• _Rule health status_: Monitor the overall health of centralization rules through the console or `GetCentralizationRuleForOrganization` API <br>• _Rule configuration_: Review rule settings and last update timestamps <br>• _Failure reasons_: View detailed failure information when rules are marked as UNHEALTHY <br>• _API activity_: Track centralization API calls through CloudTrail logs ### Monitoring rule health Each centralization rule has a health status that indicates whether it's operating correctly. You can check rule health through the console or programmatically using the API. Rule health statuses include: <br>• `HEALTHY`: The rule is operating normally and replicating log data as configured <br>• `UNHEALTHY`: The rule has encountered issues and may not be replicating data correctly <br>• `PROVISIONING`: Centralization for the organization is in the process of being set up. When a rule is marked as UNHEALTHY, the `FailureReason` field provides details about the specific issue that needs to be addressed. ### Monitoring centralization API calls with AWS CloudTrail AWS CloudTrail logs API calls made to the centralization service, allowing you to track configuration changes and troubleshoot issues for accounts that are members of your AWS Organizations. Key CloudTrail events for centralization include: <br>• `CreateCentralizationRuleForOrganization`: When a new centralization rule is created <br>• `UpdateCentralizationRuleForOrganization`: When an existing rule is modified <br>• `DeleteCentralizationRuleForOrganization`: When a rule is deleted <br>• `GetCentralizationRuleForOrganization`: When rule details are retrieved <br>• `ListCentralizationRulesForOrganization`: When rules are listed You can use CloudTrail logs to audit centralization configuration changes and correlate them with performance issues or replication failures.
+###### To view a centralization rule
+
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Manage rules**.
+5. View a list of all existing centralization rules and choose a specific
+   rule name to view its details.
+
+### Deleting a centralization rule
+
+Use the following procedure to delete an existing centralization rule.
+
+###### To delete a centralization rule
+
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Manage rules**.
+5. Select the rule to delete and choose **Delete**.
+6. Confirm deletion and choose **Delete**.
+
+## Monitoring centralization
+
+You can monitor the status and performance of your centralization rules using CloudWatch
+metrics, the CloudWatch Logs console, and AWS CloudTrail logs. This helps you ensure that log data is
+being replicated successfully and identify any issues with your centralization
+configuration.
+
+### Monitoring centralization in the
+
+console
+
+Use the CloudWatch Logs console to view the status and activity of your centralization
+rules.
+
+###### To monitor centralization rules in the console
+
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Manage rules**.
+5. Review the centralization rules list, which displays:
+   - **Rule name**: The name of each centralization
+     rule
+   - **Rule status**: Current operational status
+     (Active, Inactive, Error)
+   - **Creation date**: When the rule was
+     created
+   - **Destination account ID**: The account ID of the
+     destination account
+   - **Destination Region**: The Region of the
+     destination account
+
+6. Choose a specific rule name to view the rule configuration details
+
+### Centralization monitoring
+
+You can monitor centralization rules using the console interface and API
+operations.
+
+Current monitoring capabilities include:
+
+- _Rule health status_: Monitor the overall health of
+  centralization rules through the console or
+  `GetCentralizationRuleForOrganization` API
+- _Rule configuration_: Review rule settings and last
+  update timestamps
+- _Failure reasons_: View detailed failure information
+  when rules are marked as UNHEALTHY
+- _API activity_: Track centralization API calls through
+  CloudTrail logs
+
+### Monitoring rule health
+
+Each centralization rule has a health status that indicates whether it's operating
+correctly. You can check rule health through the console or programmatically using
+the API.
+
+Rule health statuses include:
+
+- `HEALTHY`: The rule is operating normally and replicating log
+  data as configured
+- `UNHEALTHY`: The rule has encountered issues and may not be
+  replicating data correctly
+- `PROVISIONING`: Centralization for the organization is in the
+  process of being set up.
+
+When a rule is marked as UNHEALTHY, the `FailureReason` field provides
+details about the specific issue that needs to be addressed.
+
+### Monitoring centralization API calls with
+
+AWS CloudTrail
+
+AWS CloudTrail logs API calls made to the centralization service, allowing you to track
+configuration changes and troubleshoot issues for accounts that are members of your
+AWS Organizations.
+
+Key CloudTrail events for centralization include:
+
+- `CreateCentralizationRuleForOrganization`: When a new
+  centralization rule is created
+- `UpdateCentralizationRuleForOrganization`: When an existing
+  rule is modified
+- `DeleteCentralizationRuleForOrganization`: When a rule is
+  deleted
+- `GetCentralizationRuleForOrganization`: When rule details are
+  retrieved
+- `ListCentralizationRulesForOrganization`: When rules are
+  listed
+
+You can use CloudTrail logs to audit centralization configuration changes and correlate
+them with performance issues or replication failures.

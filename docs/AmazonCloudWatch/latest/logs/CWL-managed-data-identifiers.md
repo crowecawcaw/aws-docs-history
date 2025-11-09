@@ -22,52 +22,60 @@ personally identifiable information (PII).
 **Supported identifiers that are language and region
 independent**
 
-| Identifier                        | Category    |
-| --------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Address`                         | Personal    |
-| `AwsSecretKey`                    | Credentials |
-| `CreditCardExpiration`            | Financial   |
-| `CreditCardNumber`                | Financial   |
-| `CreditCardSecurityCode`          | Financial   |
-| `EmailAddress`                    | Personal    |
-| `IpAddress`                       | Personal    |
-| `LatLong`                         | Personal    |
-| `Name`                            | Personal    |
-| `OpenSshPrivateKey`               | Credentials |
-| `PgpPrivateKey`                   | Credentials |
-| `PkcsPrivateKey`                  | Credentials |
-| `PuttyPrivateKey`                 | Credentials |
-| `VehicleIdentificationNumber`     | Personal    | Region-dependent data identifiers must include the identifier name, then a hyphen, and then the two-letter (ISO 3166-1 alpha-2) codes. For example, `DriversLicense-US`. **Supported identifiers that must include a two-letter country or region code** |
-| Identifier                        | Category    | Countries and languages                                                                                                                                                                                                                                  |
-| ---                               | ---         | ---                                                                                                                                                                                                                                                      |
-| BankAccountNumber                 | Financial   | DE, ES, FR, GB, IT, US                                                                                                                                                                                                                                   |
-| CepCode                           | Personal    | BR                                                                                                                                                                                                                                                       |
-| Cnpj                              | Personal    | BR                                                                                                                                                                                                                                                       |
-| CpfCode                           | Personal    | BR                                                                                                                                                                                                                                                       |
-| DriversLicense                    | Personal    | AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US                                                                                                                               |
-| DrugEnforcementAgencyNumber       | Health      | US                                                                                                                                                                                                                                                       |
-| ElectoralRollNumber               | Personal    | GB                                                                                                                                                                                                                                                       |
-| HealthInsuranceCardNumber         | Health      | EU                                                                                                                                                                                                                                                       |
-| HealthInsuranceClaimNumber        | Health      | US                                                                                                                                                                                                                                                       |
-| HealthInsuranceNumber             | Health      | FR                                                                                                                                                                                                                                                       |
-| HealthcareProcedureCode           | Health      | US                                                                                                                                                                                                                                                       |
-| IndividualTaxIdentificationNumber | Personal    | US                                                                                                                                                                                                                                                       |
-| InseeCode                         | Personal    | FR                                                                                                                                                                                                                                                       |
-| MedicareBeneficiaryNumber         | Health      | US                                                                                                                                                                                                                                                       |
-| NationalDrugCode                  | Health      | US                                                                                                                                                                                                                                                       |
-| NationalIdentificationNumber      | Personal    | DE, ES, IT                                                                                                                                                                                                                                               |
-| NationalInsuranceNumber           | Personal    | GB                                                                                                                                                                                                                                                       |
-| NationalProviderId                | Health      | US                                                                                                                                                                                                                                                       |
-| NhsNumber                         | Health      | GB                                                                                                                                                                                                                                                       |
-| NieNumber                         | Personal    | ES                                                                                                                                                                                                                                                       |
-| NifNumber                         | Personal    | ES                                                                                                                                                                                                                                                       |
-| PassportNumber                    | Personal    | CA, DE, ES, FR, GB, IT, US                                                                                                                                                                                                                               |
-| PermanentResidenceNumber          | Personal    | CA                                                                                                                                                                                                                                                       |
-| PersonalHealthNumber              | Health      | CA                                                                                                                                                                                                                                                       |
-| PhoneNumber                       | Personal    | BR, DE, ES, FR, GB, IT, US                                                                                                                                                                                                                               |
-| PostalCode                        | Personal    | CA                                                                                                                                                                                                                                                       |
-| RgNumber                          | Personal    | BR                                                                                                                                                                                                                                                       |
-| SocialInsuranceNumber             | Personal    | CA                                                                                                                                                                                                                                                       |
-| Ssn                               | Personal    | ES, US                                                                                                                                                                                                                                                   |
-| TaxId                             | Personal    | DE, ES, FR, GB                                                                                                                                                                                                                                           |
-| ZipCode                           | Personal    | US                                                                                                                                                                                                                                                       |
+| Identifier                    | Category    |
+| ----------------------------- | ----------- |
+| `Address`                     | Personal    |
+| `AwsSecretKey`                | Credentials |
+| `CreditCardExpiration`        | Financial   |
+| `CreditCardNumber`            | Financial   |
+| `CreditCardSecurityCode`      | Financial   |
+| `EmailAddress`                | Personal    |
+| `IpAddress`                   | Personal    |
+| `LatLong`                     | Personal    |
+| `Name`                        | Personal    |
+| `OpenSshPrivateKey`           | Credentials |
+| `PgpPrivateKey`               | Credentials |
+| `PkcsPrivateKey`              | Credentials |
+| `PuttyPrivateKey`             | Credentials |
+| `VehicleIdentificationNumber` | Personal    |
+
+Region-dependent data identifiers must include the identifier name, then a hyphen, and then the
+two-letter (ISO 3166-1 alpha-2) codes. For example,
+`DriversLicense-US`.
+
+**Supported identifiers that must include a two-letter country
+or region code**
+
+| Identifier                        | Category  | Countries and languages                                                                                                       |
+| --------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| BankAccountNumber                 | Financial | DE, ES, FR, GB, IT, US                                                                                                        |
+| CepCode                           | Personal  | BR                                                                                                                            |
+| Cnpj                              | Personal  | BR                                                                                                                            |
+| CpfCode                           | Personal  | BR                                                                                                                            |
+| DriversLicense                    | Personal  | AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IT, LT,<br>LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US |
+| DrugEnforcementAgencyNumber       | Health    | US                                                                                                                            |
+| ElectoralRollNumber               | Personal  | GB                                                                                                                            |
+| HealthInsuranceCardNumber         | Health    | EU                                                                                                                            |
+| HealthInsuranceClaimNumber        | Health    | US                                                                                                                            |
+| HealthInsuranceNumber             | Health    | FR                                                                                                                            |
+| HealthcareProcedureCode           | Health    | US                                                                                                                            |
+| IndividualTaxIdentificationNumber | Personal  | US                                                                                                                            |
+| InseeCode                         | Personal  | FR                                                                                                                            |
+| MedicareBeneficiaryNumber         | Health    | US                                                                                                                            |
+| NationalDrugCode                  | Health    | US                                                                                                                            |
+| NationalIdentificationNumber      | Personal  | DE, ES, IT                                                                                                                    |
+| NationalInsuranceNumber           | Personal  | GB                                                                                                                            |
+| NationalProviderId                | Health    | US                                                                                                                            |
+| NhsNumber                         | Health    | GB                                                                                                                            |
+| NieNumber                         | Personal  | ES                                                                                                                            |
+| NifNumber                         | Personal  | ES                                                                                                                            |
+| PassportNumber                    | Personal  | CA, DE, ES, FR, GB, IT, US                                                                                                    |
+| PermanentResidenceNumber          | Personal  | CA                                                                                                                            |
+| PersonalHealthNumber              | Health    | CA                                                                                                                            |
+| PhoneNumber                       | Personal  | BR, DE, ES, FR, GB, IT, US                                                                                                    |
+| PostalCode                        | Personal  | CA                                                                                                                            |
+| RgNumber                          | Personal  | BR                                                                                                                            |
+| SocialInsuranceNumber             | Personal  | CA                                                                                                                            |
+| Ssn                               | Personal  | ES, US                                                                                                                        |
+| TaxId                             | Personal  | DE, ES, FR, GB                                                                                                                |
+| ZipCode                           | Personal  | US                                                                                                                            |
