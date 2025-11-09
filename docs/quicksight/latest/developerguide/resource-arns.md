@@ -7,7 +7,45 @@ condition context keys for use in IAM permission policies, see Actions, Resource
 Condition Keys for Quick Sight in the _IAM User Guide_.
 
 | Resource type | ARN format                                                               | Condition keys |
-| ------------- | ------------------------------------------------------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------------------------------------------------------------------ | -------------- |
 | user          | arn:${Partition}:quicksight:${Region}:${Account}:user/${ResourceId}      | N/A            |
 | group         | arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId}     | N/A            |
-| dashboard     | arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId} | N/A            | Resource ARNs are constructed from the segments that describe your resource. For example, a resource ARN for an analysis consists of the following segments. `` arn:`<partition>`:quicksight:`<aws-region>`:`<aws-account-id>`:`<resource-type>`/`<resource-id>` `` The segments are defined as follows: <br>• `partition` – for example, `aws` or `aws-cn`. <br>• `aws-region` – The AWS Region that contains the resource. <br>• `aws-account-id` – The AWS account that contains the resource. This ID excludes the hyphens. <br>• `resource-type` – The type of resource. For this example, this is `analyses`. For a dashboard, it's `dashboard`. <br>• `resource-id` – The unique identifier for a specific resource. The AWS Region, resource type, and resource ID are identified in the URL of the resource when you are using the Quick Sight console. For example, let's say this is the URL of the analysis that you want an ARN for. `` https://`us-east-2`.quicksight.`aws`.amazon.com/sn/`analysis`/`4036e682-7de6-4c05-8a76-be51b9ec9b29` `` The AWS Region is `us-east-2`. The resource-type is `analysis`. The resource ID in this URL is `4036e682-7de6-4c05-8a76-be51b9ec9b29`. If your account number is `111122223333`, then the ARN for this analysis is as follows. `arn:aws:quicksight:us-east-2:111122223333:analysis/4036e682-7de6-4c05-8a76-be51b9ec9b29` To get your AWS account number, contact your system administrator. |
+| dashboard     | arn:${Partition}:quicksight:${Region}:${Account}:dashboard/${ResourceId} | N/A            |
+
+Resource ARNs are constructed from the segments that describe your resource. For example, a
+resource ARN for an analysis consists of the following segments.
+
+```
+arn:`<partition>`:quicksight:`<aws-region>`:`<aws-account-id>`:`<resource-type>`/`<resource-id>`
+```
+
+The segments are defined as follows:
+
+- `partition` – for example,
+  `aws` or `aws-cn`.
+- `aws-region` – The AWS Region that contains the
+  resource.
+- `aws-account-id` – The
+  AWS account that contains the resource. This ID excludes the hyphens.
+- `resource-type` – The type of
+  resource. For this example, this is `analyses`. For a dashboard, it's
+  `dashboard`.
+- `resource-id` – The unique identifier for a
+  specific resource.
+  The AWS Region, resource type, and resource ID are identified in the URL of the
+  resource when you are using the Quick Sight console. For example, let's say this is the URL of
+  the analysis that you want an ARN for.
+
+```
+https://`us-east-2`.quicksight.`aws`.amazon.com/sn/`analysis`/`4036e682-7de6-4c05-8a76-be51b9ec9b29`
+```
+
+The AWS Region is `us-east-2`. The resource-type is `analysis`. The resource ID
+in this URL is `4036e682-7de6-4c05-8a76-be51b9ec9b29`. If your account number is
+`111122223333`, then the ARN for this analysis is as follows.
+
+```
+arn:aws:quicksight:us-east-2:111122223333:analysis/4036e682-7de6-4c05-8a76-be51b9ec9b29
+```
+
+To get your AWS account number, contact your system administrator.
