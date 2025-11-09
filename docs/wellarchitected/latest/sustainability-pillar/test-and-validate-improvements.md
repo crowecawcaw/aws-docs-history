@@ -28,9 +28,24 @@ change is evaluated as unsuccessful at this time, redirect your
 resources to test and validate your next target and continue your
 improvement cycle.
 
-| **% Reduction in provisioned resources per unit of work** | **Quantitative reduction in provisioned resources** | **Action**                     |
-| --------------------------------------------------------- | --------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Met expectations                                          | Met expectations                                    | Proceed with improvement       |
-| Did not meet expectations                                 | Met expectations                                    | Proceed with improvement       |
-| Met expectations                                          | Did not meet expectations                           | Pursue alternative improvement |
-| Did not meet expectations                                 | Did not meet expectations                           | Pursue alternative improvement | Applying this step to the [Example scenario](improvement-process.md#example-scenario "improvement-process.md#example-scenario"), you perform tests to validate success. After you perform the tests on the improved compression algorithm, the percentage reduction in resources provisioned per unit of work (the storage required for both the original image and the modified image) met expectations with an average 30% reduction in provisioned storage and negligible increased compute load. You determine that the additional compute resources required to apply the improved compression algorithm to existing files in production is insignificant compared to the reduction in storage achieved. You confirmed success with the quantitative reduction in resources required (TBs of storage), and the improvement is approved for production deployment. |
+| **% Reduction in provisioned<br>resources per unit of work** | **Quantitative reduction in<br>provisioned resources** | **Action**                     |
+| ------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------ |
+| Met expectations                                             | Met expectations                                       | Proceed with improvement       |
+| Did not meet expectations                                    | Met expectations                                       | Proceed with improvement       |
+| Met expectations                                             | Did not meet expectations                              | Pursue alternative improvement |
+| Did not meet expectations                                    | Did not meet expectations                              | Pursue alternative improvement |
+
+Applying this step to the
+[Example scenario](improvement-process.md#example-scenario "improvement-process.md#example-scenario"), you
+perform tests to validate success.
+
+After you perform the tests on the improved compression algorithm, the percentage reduction in
+resources provisioned per unit of work (the storage required for both the original image and
+the modified image) met expectations with an average 30% reduction in provisioned storage and
+negligible increased compute load.
+
+You determine that the additional compute resources required to apply the improved
+compression algorithm to existing files in production is insignificant compared to the
+reduction in storage achieved. You confirmed success with the quantitative reduction in
+resources required (TBs of storage), and the improvement is approved for production
+deployment.

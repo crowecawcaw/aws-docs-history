@@ -30,22 +30,93 @@ are consumed.
 Use your proxy metrics to measure the resources provisioned to
 achieve business outcomes.
 
-| **Resource**                                                             | **Example proxy metrics**                                                                          | **Improvement goals**                             |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Compute                                                                  | vCPU minutes                                                                                       | Maximize utilization of provisioned resources     |
-| Storage                                                                  | GB provisioned                                                                                     | Reduce total provisioned                          |
-| Network                                                                  | GB transferred or packets transferred                                                              | Reduce total transferred and transferred distance | ## Business metrics Select business metrics to quantify the achievement of business outcomes. Your business metrics should reflect the value provided by your workload, for example, the number of simultaneous active users, API calls served, or the number of transactions completed. These metrics may evolve over time. Be cautious when evaluating financial-based business metrics, since inconsistency in the value of transactions invalidates comparisons. ## Key performance indicators Using the following formula, divide the provisioned resources by the business outcomes achieved to determine the provisioned resources per unit of work. ![Diagram showing this formula: Resources provisioned per unit of work = proxy metric for provisioned resource / business metric for outcome](images/key-performance-indicators-formula.png) _KPI formula_ Use your resources per unit of work as your KPIs. Establish baselines based on provisioned resources as the basis for comparisons.                                                                                   |
-| **Resource**                                                             | **Example KPIs**                                                                                   | **Improvement goals**                             |
-| ---                                                                      | ---                                                                                                | ---                                               |
-| Compute                                                                  | vCPU minutes per transaction                                                                       | Maximize utilization of provisioned resources     |
-| Storage                                                                  | GB per transaction                                                                                 | Reduce total provisioned                          |
-| Network                                                                  | GB transferred per transaction or packets transferred per transaction                              | Reduce total transferred and transferred distance | ## Estimate improvement Estimate improvement as both the quantitative reduction in resources provisioned (as indicated by your proxy metrics) and the percentage change from your baseline resources provisioned per unit of work.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Resource**                                                             | **Example KPIs**                                                                                   | **Improvement goals**                             |
-| ---                                                                      | ---                                                                                                | ---                                               |
-| Compute                                                                  | % reduction of vCPUs minutes per transaction                                                       | Maximize utilization                              |
-| Storage                                                                  | % reduction GB per transaction                                                                     | Reduce total provisioned                          |
-| Network                                                                  | % reduction of GB transferred per transaction or packets transferred per transaction               | Reduce total transferred and transferred distance | ## Evaluate improvements Evaluate potential improvements against the anticipated net benefit. Evaluate the time, cost, and level of effort to implement and maintain, and business risks such as unanticipated impacts. Targeted improvements often represent trade-offs between the types of resources consumed. For example, to reduce compute consumption, you can store a result, or to limit data transferred, you can process data before sending the result to a client. These [trade-offs](sustainability-as-a-non-functional-requirement.md "sustainability-as-a-non-functional-requirement.md") are discussed in additional detail later. Include non-functional requirements when evaluating the risks for your workload, including security, reliability, performance efficiency, cost optimization, and the impact of improvements on your ability to operate your workload. Applying this step to the [Example scenario](improvement-process.md#example-scenario "improvement-process.md#example-scenario"), you evaluate the target improvements with the following results: |
-| **Best practice**                                                        | **Targeted improvement**                                                                           | **Potential**                                     | **Cost**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Risk** |
-| ---                                                                      | ---                                                                                                | ---                                               | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ---      |
-| Use the minimum amount of hardware to meet your needs                    | Implement predictive scaling to reduce low utilization periods                                     | Medium                                            | Low                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Low      |
-| Use technologies that best support your data access and storage patterns | Implement more effective compression mechanisms to reduce total storage and the time to achieve it | High                                              | Low                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Low      | Implementing predictive scaling reduces the vCPU hours consumed by under-utilized or unused instances providing moderate benefits over existing scaling mechanisms with an estimated 11% reduction in resources consumed. The costs involved are low and include the configuration of the cloud resources and the operation of predictive scaling for Amazon EC2 Auto Scaling. The risk is constrained performance when scale-out is performed reactively in response to demand exceeding predictions. Implementing more effective compression can have a significant impact with large reductions in file size across all of your original and manipulated images, with an estimated 25% reduction in storage requirements in production. Implementing the new algorithm is a low-effort substitution with little risk involved. |
+| **Resource** | **Example proxy metrics**                | **Improvement goals**                             |
+| ------------ | ---------------------------------------- | ------------------------------------------------- |
+| Compute      | vCPU minutes                             | Maximize utilization of provisioned resources     |
+| Storage      | GB provisioned                           | Reduce total provisioned                          |
+| Network      | GB transferred or<br>packets transferred | Reduce total transferred and transferred distance |
+
+## Business metrics
+
+Select business metrics to quantify the achievement of business
+outcomes. Your business metrics should reflect the value
+provided by your workload, for example, the number of
+simultaneous active users, API calls served, or the number of
+transactions completed. These metrics may evolve over time. Be
+cautious when evaluating financial-based business metrics, since
+inconsistency in the value of transactions invalidates
+comparisons.
+
+## Key performance indicators
+
+Using the following formula, divide the provisioned resources by the business outcomes
+achieved to determine the provisioned resources per unit of work.
+
+![Diagram showing this formula: Resources provisioned per unit of work = proxy metric for provisioned resource / business metric for outcome](images/key-performance-indicators-formula.png)
+
+_KPI formula_
+
+Use your resources per unit of work as your KPIs. Establish
+baselines based on provisioned resources as the basis for
+comparisons.
+
+| **Resource** | **Example KPIs**                                                         | **Improvement goals**                             |
+| ------------ | ------------------------------------------------------------------------ | ------------------------------------------------- |
+| Compute      | vCPU minutes per transaction                                             | Maximize utilization of provisioned resources     |
+| Storage      | GB per transaction                                                       | Reduce total provisioned                          |
+| Network      | GB transferred per transaction or<br>packets transferred per transaction | Reduce total transferred and transferred distance |
+
+## Estimate improvement
+
+Estimate improvement as both the quantitative reduction in
+resources provisioned (as indicated by your proxy metrics) and
+the percentage change from your baseline resources provisioned
+per unit of work.
+
+| **Resource** | **Example KPIs**                                                                           | **Improvement goals**                             |
+| ------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| Compute      | % reduction of vCPUs minutes per transaction                                               | Maximize utilization                              |
+| Storage      | % reduction GB per transaction                                                             | Reduce total provisioned                          |
+| Network      | % reduction of<br>GB transferred per transaction or<br>packets transferred per transaction | Reduce total transferred and transferred distance |
+
+## Evaluate improvements
+
+Evaluate potential improvements against the anticipated net
+benefit. Evaluate the time, cost, and level of effort to
+implement and maintain, and business risks such as unanticipated
+impacts.
+
+Targeted improvements often represent trade-offs between the
+types of resources consumed. For example, to reduce compute
+consumption, you can store a result, or to limit data
+transferred, you can process data before sending the result to a
+client. These
+[trade-offs](sustainability-as-a-non-functional-requirement.md "sustainability-as-a-non-functional-requirement.md")
+are discussed in additional detail later.
+
+Include non-functional requirements when evaluating the risks
+for your workload, including security, reliability, performance
+efficiency, cost optimization, and the impact of improvements on
+your ability to operate your workload.
+
+Applying this step to the [Example scenario](improvement-process.md#example-scenario "improvement-process.md#example-scenario"), you evaluate the target improvements with the following
+results:
+
+| **Best practice**                                                           | **Targeted improvement**                                                                              | **Potential** | **Cost** | **Risk** |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- | -------- | -------- |
+| Use the minimum amount of hardware to meet your needs                       | Implement predictive scaling to reduce low utilization<br>periods                                     | Medium        | Low      | Low      |
+| Use technologies that best support your data access and<br>storage patterns | Implement more effective compression mechanisms to<br>reduce total storage and the time to achieve it | High          | Low      | Low      |
+
+Implementing predictive scaling reduces the vCPU hours consumed by under-utilized or
+unused instances providing moderate benefits over existing scaling mechanisms with an
+estimated 11% reduction in resources consumed. The costs involved are low and include the
+configuration of the cloud resources and the operation of predictive scaling for Amazon EC2 Auto Scaling.
+The risk is constrained performance when scale-out is performed reactively in response to
+demand exceeding predictions.
+
+Implementing more effective compression can have a significant
+impact with large reductions in file size across all of your
+original and manipulated images, with an estimated 25% reduction
+in storage requirements in production. Implementing the new
+algorithm is a low-effort substitution with little risk
+involved.
