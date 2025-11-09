@@ -18,9 +18,116 @@ The following table describes the recommended server resources.
 Server Requirements
 
 | Resource   | Recommendation       |
-| ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | -------------------- |
 | OS         | Ubuntu or CentOS 7/8 |
 | CPU        | 2+ Cores             |
 | RAM        | 8GB+                 |
 | Disk Space | 100GB+               |
-| Ports      | TCP:443, Egress      | If you’re not rotating the collected information, we’d suggest 5-10GB per user to start. If you’re exporting the information to another source besides syslog, please use your best judgement after reviewing the usage on your external system. ## Compliance dependencies The only requirement for Compliance is Docker. The following commands will install the Docker repository and Docker, give the `ubuntu` user permissions to interact with those services, and create a local directory to save data. ```sudo apt install \ ca-certificates \ curl \ gnupg \ lsb-release curl`-fsSL` https://download.docker.com/linux/ubuntu/gpg | \ sudo gpg `—dearmor -o` /usr/share/keyrings/docker-archive-keyring.gpg sudo add-apt-repository \ `"deb [arch=amd64]` https://download.docker.com/linux/ubuntu \ $(lsb_release `-cs`) \ `stable"` sudo apt update sudo apt install docker-ce sudo systemctl enable docker sudo systemctl start docker sudo usermod `-aG` docker ubuntu 1 sudo mkdir /opt/WickrIO `Replace with your own username if different. ## Wickr IO docker image Wickr IO is publicly listed on a public Amazon Elastic Container Registry (Amazon ECR) named public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise. You can pull the latest image using the following command:` docker pull public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest ``The docker image is also available, for limited time, on a public DockerHub repository named `wickr/bot-enterprise`. You can pull the image from DockHub using the following command:`` docker pull wickr/bot-enterprise:local `## Starting Wickr IO The following command will start the Wickr IO container in the background with a persistent volume and will restart if the process dies. The first time Wickr IO is launched you will be presented with a license agreement for this bot. You will also be shown a quick start for the broadcast bot which can be ignored. If this is an upgrade to an existing Compliance install, please see the Compliance Container Upgrades section. Only follow the following procedure if this is a new compliance bot.` docker run -v /opt/WickrIO:/opt/WickrIO -d --name wickr-compliance --restart=always \ -ti public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest `The compliance service can be used with a proxy by adding flags to the run command above. Add the following environment variables to route appropriately:` docker run -v /opt/WickrIO:/opt/WickrIO -d --name wickr-compliance \ --restart=always -e http_proxy=http://proxy:port \ -e https_proxy=https://proxy:port \ -ti public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest ``###### Note Replace `public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest` with `wickr/bot-enterprise:local` if you must use the DockerHub version. Once this is running in the background you can attach to the container and begin:`` docker ps CONTAINER ID IMAGE COMMAND CREATED 11d5626f74b9 wickr/bot-enterprise:5.92.07.01 `"./start.sh"` 2 days ago docker attach wickr-compliance Enter command: ``` ###### Note Press the **Enter** key to see the **Enter command:** prompt after attaching to the running docker image. To exit the foreground mode use the following key combination: **Ctrl + P** and then **Ctrl + Q.** |
+| Ports      | TCP:443, Egress      |
+
+If you’re not rotating the collected information, we’d suggest 5-10GB per user to start. If
+you’re exporting the information to another source besides syslog, please use your best
+judgement after reviewing the usage on your external system.
+
+## Compliance dependencies
+
+The only requirement for Compliance is Docker. The following commands will install the
+Docker repository and Docker, give the `ubuntu` user permissions to
+interact with those services, and create a local directory to save data.
+
+```
+sudo apt install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl `-fsSL` https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg `—dearmor -o` /usr/share/keyrings/docker-archive-keyring.gpg
+
+sudo add-apt-repository \
+  `"deb [arch=amd64]` https://download.docker.com/linux/ubuntu \ $(lsb_release `-cs`) \
+  `stable"`
+
+sudo apt update
+sudo apt install docker-ce
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod `-aG` docker ubuntu 1
+sudo mkdir /opt/WickrIO
+
+
+```
+
+Replace with your own username if different.
+
+## Wickr IO docker image
+
+Wickr IO is publicly listed on a public Amazon Elastic Container Registry (Amazon ECR) named
+public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise. You can pull the latest image using the
+following command:
+
+```
+docker pull
+    public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest
+```
+
+The docker image is also available, for limited time, on a public DockerHub repository
+named `wickr/bot-enterprise`. You can pull the image from DockHub using the following
+command:
+
+```
+docker pull wickr/bot-enterprise:local
+```
+
+## Starting Wickr IO
+
+The following command will start the Wickr IO container in the background with a
+persistent volume and will restart if the process dies. The first time Wickr IO is launched
+you will be presented with a license agreement for this bot. You will also be shown a quick
+start for the broadcast bot which can be ignored.
+
+If this is an upgrade to an existing Compliance install, please see the Compliance
+Container Upgrades section. Only follow the following procedure if this is a new compliance bot.
+
+```
+docker run -v /opt/WickrIO:/opt/WickrIO -d --name wickr-compliance --restart=always \
+  -ti public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest
+
+```
+
+The compliance service can be used with a proxy by adding flags to the run command above.
+Add the following environment variables to route appropriately:
+
+```
+docker run -v /opt/WickrIO:/opt/WickrIO -d --name wickr-compliance \
+  --restart=always -e http_proxy=http://proxy:port \
+  -e https_proxy=https://proxy:port \
+  -ti public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest
+
+```
+
+###### Note
+
+Replace `public.ecr.aws/x3s2s6k3/wickrio/bot-enterprise:latest` with
+`wickr/bot-enterprise:local` if you must use the DockerHub version.
+
+Once this is running in the background you can attach to the container and begin:
+
+```
+docker ps
+CONTAINER ID   IMAGE                              COMMAND        CREATED
+11d5626f74b9   wickr/bot-enterprise:5.92.07.01   `"./start.sh"`   2 days ago
+
+docker attach wickr-compliance
+Enter command:
+
+
+```
+
+###### Note
+
+Press the **Enter** key to see the **Enter command:**
+prompt after attaching to the running docker image.
+
+To exit the foreground mode use the following key combination: **Ctrl + P** and then **Ctrl + Q.**

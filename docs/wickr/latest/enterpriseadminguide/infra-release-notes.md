@@ -25,3 +25,4 @@ supported by Wickr Enterprise.
 - [Infrastructure 6.54 release](infra-release-notes-6.md "infra-release-notes-6.md")
 - [Infrastructure 6.56 release](infra-release-notes-6.md "infra-release-notes-6.md")
 - [Infrastructure 6.58 release](infra-release-notes-6.md "infra-release-notes-6.md")
+- [Infrastructure 6.62 release](infra-release-notes-6.md "infra-release-notes-6.md")

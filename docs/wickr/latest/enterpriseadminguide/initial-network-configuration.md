@@ -202,9 +202,9 @@ Enter password for this client: ************** (`1` The generated password creat
 The following table describes the other commands besides **add** and
 **start**.
 
-| Command              | Description                                                                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| list                 | The list command will show all active or inactive bots.                                                                                                 |
-| delete (bot number)  | Delete removes a bot from your system. If you have more than one, use the number shown from the list command to specify which bot you’d like to delete. |
-| pause (bot number)   | Pause temporarily stops a running bot.                                                                                                                  |
-| restart (bot number) | Restart will restart a bot.                                                                                                                             |
+| Command              | Description                                                                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| list                 | The list command will show all active or inactive bots.                                                                                                    |
+| delete (bot number)  | Delete removes a bot from your system. If you have more than one, use the number shown<br>from the list command to specify which bot you’d like to delete. |
+| pause (bot number)   | Pause temporarily stops a running bot.                                                                                                                     |
+| restart (bot number) | Restart will restart a bot.                                                                                                                                |
