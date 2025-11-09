@@ -188,21 +188,75 @@ These operating system licensing options are available for SAP systems on AWS:
 
 The following table lists the licensing options available for each operating system and version. To learn more about each option, follow the link in the table.
 
-| Operating system | License/subscription options    |
-| ---------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| **SLES**         | On-demand                       | [BYOL](https://www.suse.com/promo/cloud/public/aws/ "https://www.suse.com/promo/cloud/public/aws/")                                                                                                          |
-|                  | **SLES for SAP**                | [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=SUSE+SAP+Applications "https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=SUSE+SAP+Applications") | [BYOL](https://www.suse.com/promo/cloud/public/aws/sap-hana/ "https://www.suse.com/promo/cloud/public/aws/sap-hana/") |
-|                  | **RHEL**                        | On-demand                                                                                                                                                                                                    | [BYOL](https://aws.amazon.com/partners/redhat "https://aws.amazon.com/partners/redhat")                               |
-|                  | **RHEL for SAP with HA and US** | [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-puvcki5kgypyy "https://aws.amazon.com/marketplace/pp/prodview-puvcki5kgypyy")                                                               | BYOL                                                                                                                  |
-| **Windows**      | On-demand                       | [BYOL](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing")                                                                                              |
-|                  | **Oracle Linux**                | [BYOL](https://aws.amazon.com/oracle "https://aws.amazon.com/oracle")                                                                                                                                        |
+| Operating system                | License/subscription options                                                                                                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| **SLES**                        | On-demand                                                                                                                                                                                                    | [BYOL](https://www.suse.com/promo/cloud/public/aws/ "https://www.suse.com/promo/cloud/public/aws/")                   |
+| **SLES for SAP**                | [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=SUSE+SAP+Applications "https://aws.amazon.com/marketplace/search/results?x=0&y=0&searchTerms=SUSE+SAP+Applications") | [BYOL](https://www.suse.com/promo/cloud/public/aws/sap-hana/ "https://www.suse.com/promo/cloud/public/aws/sap-hana/") |
+| **RHEL**                        | On-demand                                                                                                                                                                                                    | [BYOL](https://aws.amazon.com/partners/redhat "https://aws.amazon.com/partners/redhat")                               |
+| **RHEL for SAP with HA and US** | [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-puvcki5kgypyy "https://aws.amazon.com/marketplace/pp/prodview-puvcki5kgypyy")                                                               | BYOL                                                                                                                  |
+| **Windows**                     | On-demand                                                                                                                                                                                                    | [BYOL](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing")       |
+| **Oracle Linux**                | [BYOL](https://aws.amazon.com/oracle "https://aws.amazon.com/oracle")                                                                                                                                        |
 
-| ## Databases ### Supported Databases All the database platforms and versions supported by SAP for an on-premises infrastructure are also supported by SAP on AWS. For details about the databases supported with specific SAP solutions on AWS, see [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099"). ### Database Installation and Administration #### Customer-Managed Database on Amazon EC2 The majority of SAP solutions use a customer-managed model on Amazon EC2. Installation, configuration, administration, and backup and recovery of the database are done by either the customer or a partner. The following SAP solutions use a self-managed database model on Amazon EC2: <br>• SAP Business Suite and SAP NetWeaver-based applications <br>• SAP HANA <br>• SAP S/4HANA <br>• SAP BW/4HANA <br>• SAP BusinessObjects BI <br>• SAP Business One #### Amazon RDS [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds "https://aws.amazon.com/rds") is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity, while managing time-consuming database administration tasks, freeing you up to focus on your applications and business. Amazon RDS is currently supported for the following SAP solutions: <br>• SAP BusinessObjects BI <br>• SAP Commerce (previously known as SAP Hybris Commerce) #### Amazon Aurora [Amazon Aurora (Aurora)](https://aws.amazon.com/rds "https://aws.amazon.com/rds") is a MySQL and PostgreSQL-compatible relational database built for the cloud. It combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. Aurora MySQL is currently supported for the following SAP solution: <br>• SAP Commerce (previously known as SAP Hybris Commerce) ### Database Licenses These database licensing options are available for SAP systems on AWS: <br>• **On-demand** – The database software and license are bundled in an Amazon Machine Image (AMI). The fee for the database license is included in the On-Demand Instance hourly fee or Reserved Instance fee for the instance type. <br>• **Bring Your Own License (BYOL)** – Bring your existing database licenses to the AWS Cloud. <br>• **AWS Marketplace** – Purchase database software and licenses from AWS Marketplace. The following table lists the licensing options available on AWS for each database. For additional information, follow the links in the _Licensing options_ column.
-| Database | Licensing options |
-| --- | --- |
-| **SAP HANA** | [BYOL](https://aws.amazon.com/sap/solutions/saphana "https://aws.amazon.com/sap/solutions/saphana") |
+## Databases
+
+### Supported Databases
+
+All the database platforms and versions supported by SAP for an on-premises infrastructure are also supported by SAP on AWS. For details about the databases supported with specific SAP solutions on AWS, see [SAP Note 1656099](https://launchpad.support.sap.com/#/notes/1656099 "https://launchpad.support.sap.com/#/notes/1656099").
+
+### Database Installation and Administration
+
+#### Customer-Managed Database on Amazon EC2
+
+The majority of SAP solutions use a customer-managed model on Amazon EC2. Installation, configuration, administration, and backup and recovery of the database are done by either the customer or a partner.
+
+The following SAP solutions use a self-managed database model on Amazon EC2:
+
+- SAP Business Suite and SAP NetWeaver-based applications
+- SAP HANA
+- SAP S/4HANA
+- SAP BW/4HANA
+- SAP BusinessObjects BI
+- SAP Business One
+
+#### Amazon RDS
+
+[Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds "https://aws.amazon.com/rds") is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity, while managing time-consuming database administration tasks, freeing you up to focus on your applications and business. Amazon RDS is currently supported for the following SAP solutions:
+
+- SAP BusinessObjects BI
+- SAP Commerce (previously known as SAP Hybris Commerce)
+
+#### Amazon Aurora
+
+[Amazon Aurora (Aurora)](https://aws.amazon.com/rds "https://aws.amazon.com/rds") is a MySQL and PostgreSQL-compatible relational database built for the cloud. It combines the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of open source databases. Aurora MySQL is currently supported for the following SAP solution:
+
+- SAP Commerce (previously known as SAP Hybris Commerce)
+
+### Database Licenses
+
+These database licensing options are available for SAP systems on AWS:
+
+- **On-demand** – The database software and license are bundled in an Amazon Machine Image (AMI). The fee for the database license is included in the On-Demand Instance hourly fee or Reserved Instance fee for the instance type.
+- **Bring Your Own License (BYOL)** – Bring your existing database licenses to the AWS Cloud.
+- **AWS Marketplace** – Purchase database software and licenses from AWS Marketplace.
+
+The following table lists the licensing options available on AWS for each database. For additional information, follow the links in the _Licensing options_ column.
+
+| Database                                           | Licensing options                                                                                                                                                                             |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SAP HANA**                                       | [BYOL](https://aws.amazon.com/sap/solutions/saphana "https://aws.amazon.com/sap/solutions/saphana")                                                                                           |
 | **SAP Adaptive Server Enterprise (ASE) (SAP ASE)** | [BYOL](https://aws.amazon.com/marketplace/seller-profile?id=0454efec-e5ad-4b7b-a23f-766e9e910dbc "https://aws.amazon.com/marketplace/seller-profile?id=0454efec-e5ad-4b7b-a23f-766e9e910dbc") |
-| **Microsoft SQL Server** | [BYOL](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing")\* |
-| **IBM DB2** | [BYOL](https://aws.amazon.com/ibm "https://aws.amazon.com/ibm") |
-| **Oracle** | [BYOL](https://aws.amazon.com/oracle "https://aws.amazon.com/oracle") |
-| **Amazon Aurora** | [On-demand](https://aws.amazon.com/rds/aurora "https://aws.amazon.com/rds/aurora") | <br>• SQL Server runtime licenses purchased from SAP require either Microsoft Software Assurance or Amazon EC2 Dedicated Hosts to bring these licenses to AWS. For additional information, see: <br>• [SAP Note 2139358 - Effect of changes in licensing terms of SQL Server](https://launchpad.support.sap.com/services/pdf/notes/2139358/E "https://launchpad.support.sap.com/services/pdf/notes/2139358/E") <br>• [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing") ## SAP Installation Media The majority of SAP solutions on AWS use a bring-your-own-software model. There are two primary options for copying SAP installation media to AWS: <br>• **Download from the SAP Software Download Center to Amazon EC2.** From your EC2 instance, connect to the [SAP Software Download Center](https://support.sap.com/en/my-support/software-downloads.html "https://support.sap.com/en/my-support/software-downloads.html") and download the required installation media. This option will most likely be the fastest method for getting SAP installation media to AWS, because EC2 instances have very fast connections to the internet. You can create a dedicated Amazon EBS volume to store installation media, and then attach the volume to different instances as needed. You can also create a snapshot of the Amazon EBS volume and create multiple volumes that you can attach to multiple instances in parallel. <br>• **Copy from your network to Amazon EC2.** If you already have the required SAP installation media downloaded to a location on your network, you can copy the media from your network directly to an EC2 instance.
+| **Microsoft SQL Server**                           | [BYOL](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing")\*                                                                             |
+| **IBM DB2**                                        | [BYOL](https://aws.amazon.com/ibm "https://aws.amazon.com/ibm")                                                                                                                               |
+| **Oracle**                                         | [BYOL](https://aws.amazon.com/oracle "https://aws.amazon.com/oracle")                                                                                                                         |
+| **Amazon Aurora**                                  | [On-demand](https://aws.amazon.com/rds/aurora "https://aws.amazon.com/rds/aurora")                                                                                                            |
+
+- SQL Server runtime licenses purchased from SAP require either Microsoft Software Assurance or Amazon EC2 Dedicated Hosts to bring these licenses to AWS. For additional information, see:
+- [SAP Note 2139358 - Effect of changes in licensing terms of SQL Server](https://launchpad.support.sap.com/services/pdf/notes/2139358/E "https://launchpad.support.sap.com/services/pdf/notes/2139358/E")
+- [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing "https://aws.amazon.com/windows/resources/licensing")
+
+## SAP Installation Media
+
+The majority of SAP solutions on AWS use a bring-your-own-software model. There are two primary options for copying SAP installation media to AWS:
+
+- **Download from the SAP Software Download Center to Amazon EC2.** From your EC2 instance, connect to the [SAP Software Download Center](https://support.sap.com/en/my-support/software-downloads.html "https://support.sap.com/en/my-support/software-downloads.html") and download the required installation media. This option will most likely be the fastest method for getting SAP installation media to AWS, because EC2 instances have very fast connections to the internet. You can create a dedicated Amazon EBS volume to store installation media, and then attach the volume to different instances as needed. You can also create a snapshot of the Amazon EBS volume and create multiple volumes that you can attach to multiple instances in parallel.
+- **Copy from your network to Amazon EC2.** If you already have the required SAP installation media downloaded to a location on your network, you can copy the media from your network directly to an EC2 instance.

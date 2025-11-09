@@ -335,7 +335,23 @@ Amazon Simple Notification Service can notify you when new versions of AWS Data 
 4. Add a **Topic ARN** based on the AWS Region in which you are using AWS Data Provider Agent.
 
 | Region                                            | ARN                                                                         |
-| ------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------- | --------------------------------------------------------------------------- |
 | Default                                           | `arn:aws:sns:us-east-1:804845276281:AWS-DataProvider-SAP-Update`            |
 | AWS GovCloud (US-West) and AWS GovCloud (US-East) | `arn:aws-us-gov:sns:us-gov-west-1:140982767562:AWS-DataProvider-SAP-Update` |
-| China (Beijing) Region and China (Ningxia) Region | `arn:aws-cn:sns:cn-north-1:001645243879:AWS-DataProvider-SAP-Update`        | 5. **Protocol** – choose Email or SMS. <br>• **Email** – enter an email address where you would like to receive the notification in the **Endpoint** field. ###### Note To enable email notifications, you must confirm your email subscription by following the instructions you receive on the provided email address. <br>• **SMS** – enter a phone number where you would like to receive the notification in the **Endpoint** field. 6. Choose **Create subscription**. You can now receive notifications whenever a new version of AWS Data Provider Agent is released. To unsubscribe from notifications, use the following steps. 1. Open [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home"). 2. In the left navigation pane, select **Subscriptions**. 3. Select the subscription from your list of subscriptions and choose **Delete**. |
+| China (Beijing) Region and China (Ningxia) Region | `arn:aws-cn:sns:cn-north-1:001645243879:AWS-DataProvider-SAP-Update`        |
+
+5. **Protocol** – choose Email or SMS.
+   - **Email** – enter an email address where you would like to receive the notification in the **Endpoint** field.
+
+   ###### Note
+
+   To enable email notifications, you must confirm your email subscription by following the instructions you receive on the provided email address.
+   - **SMS** – enter a phone number where you would like to receive the notification in the **Endpoint** field.
+
+6. Choose **Create subscription**. You can now receive notifications whenever a new version of AWS Data Provider Agent is released.
+
+To unsubscribe from notifications, use the following steps.
+
+1. Open [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
+2. In the left navigation pane, select **Subscriptions**.
+3. Select the subscription from your list of subscriptions and choose **Delete**.
