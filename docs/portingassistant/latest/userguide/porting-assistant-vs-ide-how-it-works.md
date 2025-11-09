@@ -1,4 +1,4 @@
-AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
+AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # How Porting Assistant for .NET Visual Studio IDE
 
@@ -29,18 +29,18 @@ environment to port your application.
 The following table compares features of the standalone tool and the IDE
 extension.
 
-| Features                                                                        | Porting Assistant for .NET standalone tool            | Porting Assistant for .NET Visual Studio IDE extension |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
-| Run assessment on all applications in a portfolio                               | Run assessments on multiple applications concurrently | Run assessments only on currently opened applications  |
-| View list of assessed applications and compare assessments for all applications | Yes                                                   | No                                                     |
-| Load single solution to tool for assessment                                     | Yes                                                   | Yes                                                    |
-| View list of incompatibilities for a solution                                   | Yes                                                   | Yes                                                    |
-| View package dependency tree for a solution                                     | Yes                                                   | No                                                     |
-| View recommendations                                                            | Yes                                                   | Yes                                                    |
-| Run automated porting                                                           | Yes                                                   | Yes                                                    |
-| Open source file for direct editing                                             | No                                                    | Yes                                                    |
-| Contextual help with recommendations                                            | No                                                    | Yes                                                    |
-| Provide details about compatibility and steps to rectify incompatibilities      | No                                                    | Yes                                                    |
-| Continuous reassessment as code is modified                                     | No                                                    | Yes                                                    |
-| Test, debug, and run code                                                       | No                                                    | Yes                                                    |
-| Deploy the application in AS runtimes, using AWS toolkit downloaded separately  | No                                                    | Yes                                                    |
+| Features                                                                           | Porting Assistant for .NET standalone tool            | Porting Assistant for .NET Visual Studio IDE extension |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| Run assessment on all applications in a portfolio                                  | Run assessments on multiple applications concurrently | Run assessments only on currently opened applications  |
+| View list of assessed applications and compare assessments for all<br>applications | Yes                                                   | No                                                     |
+| Load single solution to tool for assessment                                        | Yes                                                   | Yes                                                    |
+| View list of incompatibilities for a solution                                      | Yes                                                   | Yes                                                    |
+| View package dependency tree for a solution                                        | Yes                                                   | No                                                     |
+| View recommendations                                                               | Yes                                                   | Yes                                                    |
+| Run automated porting                                                              | Yes                                                   | Yes                                                    |
+| Open source file for direct editing                                                | No                                                    | Yes                                                    |
+| Contextual help with recommendations                                               | No                                                    | Yes                                                    |
+| Provide details about compatibility and steps to rectify<br>incompatibilities      | No                                                    | Yes                                                    |
+| Continuous reassessment as code is modified                                        | No                                                    | Yes                                                    |
+| Test, debug, and run code                                                          | No                                                    | Yes                                                    |
+| Deploy the application in AS runtimes, using AWS toolkit<br>downloaded separately  | No                                                    | Yes                                                    |

@@ -1,4 +1,4 @@
-AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
+AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
 # Porting Assistant for .NET Visual Studio IDE extension
 
@@ -81,7 +81,18 @@ The following memory requirements must be met to use the Porting Assistant for .
 .NET IDE Extension.
 
 | Solution size                                      | Minimum memory requirements                     |
-| -------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------- | ----------------------------------------------- |
 | Small solutions (1,000 to 50,000 lines of code)    | 4 GB                                            |
 | Medium solutions (50,000 to 400,000 lines of code) | 8 GB                                            |
-| Large solutions (400,000 or more lines of code)    | 16 GB or more, depending on size of source code | ###### Note These requirements are provided as estimates. Individual solutions can vary for memory usage. ## Pricing for the Porting Assistant for .NET Visual Studio IDE extension The Porting Assistant for .NET Visual Studio IDE extension is available for use at no cost. |
+| Large solutions (400,000 or more lines of code)    | 16 GB or more, depending on size of source code |
+
+###### Note
+
+These requirements are provided as estimates. Individual solutions can vary for
+memory usage.
+
+## Pricing for the Porting Assistant for .NET Visual Studio
+
+IDE extension
+
+The Porting Assistant for .NET Visual Studio IDE extension is available for use at no cost.
