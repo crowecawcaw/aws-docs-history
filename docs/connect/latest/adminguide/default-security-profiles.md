@@ -7,9 +7,15 @@ the permissions they need.
 
 The following table lists the default security profiles.
 
-| Security profile      | Description                                                                                     |
-| --------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Admin**             | Grants administrators permission to perform a majority of actions.                              |
-| **Agent**             | Grants agents permission to access the CCP.                                                     |
-| **CallCenterManager** | Grants managers permission to perform actions related to user management, metrics, and routing. |
-| **QualityAnalyst**    | Grants analysts permission to perform actions related to metrics.                               | ###### Note New permissions are added on a regular basis. We recommend revisiting your permission configurations to ensure your users can access the latest Amazon Connect features. |
+| Security profile      | Description                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------- |
+| **Admin**             | Grants administrators permission to perform a majority of<br>actions.                              |
+| **Agent**             | Grants agents permission to access the CCP.                                                        |
+| **CallCenterManager** | Grants managers permission to perform actions related to user<br>management, metrics, and routing. |
+| **QualityAnalyst**    | Grants analysts permission to perform actions related to<br>metrics.                               |
+
+###### Note
+
+New permissions are added on a regular basis. We recommend revisiting your
+permission configurations to ensure your users can access the latest Amazon Connect
+features.

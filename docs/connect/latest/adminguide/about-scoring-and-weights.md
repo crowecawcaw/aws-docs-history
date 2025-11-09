@@ -76,15 +76,30 @@ respectively. Each question has three answer options (A1, A2, and A3) with score
 10, 5, and 0. An evaluation with answers Q1:A1, Q2:A2, Q3:A2, Q4:A3 would be scored
 as shown in the table.
 
-| Question | Question weight | Answer         | Answer score               | Weighted answer score         |
-| -------- | --------------- | -------------- | -------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Q1       | 40%             | A1             | 10                         | 40%                           |
-| Q2       | 20%             | A2             | 5                          | 10%                           |
-| Q3       | 20%             | A2             | 5                          | 10%                           |
-| Q4       | 20%             | A3             | 0                          | 0%                            | The form's evaluation score = 40% + 10% + 10% + 0% = 60%. However, if the answer to question Q4 is changed to **Not Applicable**, then the evaluation is scored as follows: |
-| Question | Question weight | Answer         | Additional question weight | Redistributed question weight | Answer score                                                                                                                                                                | Weighted answer score |
-| ---      | ---             | ---            | ---                        | ---                           | ---                                                                                                                                                                         | ---                   |
-| Q1       | 40%             | A1             | 10%                        | 50%                           | 10                                                                                                                                                                          | 50%                   |
-| Q2       | 20%             | A2             | 5%                         | 25%                           | 5                                                                                                                                                                           | 12.5%                 |
-| Q3       | 20%             | A2             | 5%                         | 25%                           | 5                                                                                                                                                                           | 12.5%                 |
-| Q4       | 20%             | Not Applicable | -                          | -                             | -                                                                                                                                                                           | -                     | Here's what's going on: <br>• Question Q4 is effectively removed from the calculation. Its weight (20%) is distributed among the remaining 3 questions in proportion to their weights. <br>• Question Q1 has double the weight of questions Q2 and Q3, so it receives double the amount of added weight. <br>• The form's evaluation score = 50% + 12.5% + 12.5% = 75%. |
+| Question | Question weight | Answer | Answer score | Weighted answer score |
+| -------- | --------------- | ------ | ------------ | --------------------- |
+| Q1       | 40%             | A1     | 10           | 40%                   |
+| Q2       | 20%             | A2     | 5            | 10%                   |
+| Q3       | 20%             | A2     | 5            | 10%                   |
+| Q4       | 20%             | A3     | 0            | 0%                    |
+
+The form's evaluation score = 40% + 10% + 10% + 0% = 60%.
+
+However, if the answer to question Q4 is changed to **Not
+Applicable**, then the evaluation is scored as follows:
+
+| Question | Question weight | Answer         | Additional question weight | Redistributed question weight | Answer score | Weighted answer score |
+| -------- | --------------- | -------------- | -------------------------- | ----------------------------- | ------------ | --------------------- |
+| Q1       | 40%             | A1             | 10%                        | 50%                           | 10           | 50%                   |
+| Q2       | 20%             | A2             | 5%                         | 25%                           | 5            | 12.5%                 |
+| Q3       | 20%             | A2             | 5%                         | 25%                           | 5            | 12.5%                 |
+| Q4       | 20%             | Not Applicable | -                          | -                             | -            | -                     |
+
+Here's what's going on:
+
+- Question Q4 is effectively removed from the calculation. Its weight (20%)
+  is distributed among the remaining 3 questions in proportion to their
+  weights.
+- Question Q1 has double the weight of questions Q2 and Q3, so it receives
+  double the amount of added weight.
+- The form's evaluation score = 50% + 12.5% + 12.5% = 75%.

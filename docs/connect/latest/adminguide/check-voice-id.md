@@ -86,9 +86,70 @@ and still have high fraud risk.
 The following table lists how this block routes a contact who is using the
 specified channel.
 
-| Channel | Supported?        |
-| ------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Voice   | Yes               |
-| Chat    | No - Error branch |
-| Task    | No - Error branch |
-| Email   | No - Error branch | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• Inbound flow <br>• Customer queue flow <br>• Customer whisper flow <br>• Outbound whisper flow <br>• Agent whisper flow <br>• Transfer to Agent flow <br>• Transfer to Queue flow ## Properties This block doesn't have any properties that you set. Rather, it creates branches for you to route contacts based on the result of the authentication threshold and voiceprint evaluation that [Set Voice ID](set-voice-id.md "set-voice-id.md") returns. The following image shows the **Properties** page for the **Check voice ID** block when it's configured to check for Enrollment status. Different status results are returned when it's configured for **Voice authentication** or **Fraud detection**. ![The properties page of the Check voice ID block, with the Enrollment status option selected.](images/check-voice-id-properties.png) ## Configuration tips When you create a flow that uses this block, add these blocks in the following order: 1. [Set Voice ID](set-voice-id.md "set-voice-id.md") block. 2. [Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block: For **Enrollment status** and **Voice authentication**, the [Customer ID](connect-attrib-list.md "connect-attrib-list.md") system attribute needs to be set in [Set contact attributes](set-contact-attributes.md "set-contact-attributes.md") block because it is acting on a specific customer. 3. **Check Voice ID** block. ## Configured block The following three images show what this block looks like when it's configured to check for: 1. Fraud detection 2. Voice authentication 3. Enrollment status ![Three configured Check voice ID blocks.](images/check-voice-id-configured.png) ## More information See the following topics for more information about this block: <br>• [Use real-time caller authentication with Voice ID in Amazon Connect](voice-id.md "voice-id.md") <br>• [Enroll callers in Voice ID in the Contact Control Panel (CCP)](use-voiceid.md "use-voiceid.md") |
+| Channel | Supported?           |
+| ------- | -------------------- |
+| Voice   | Yes                  |
+| Chat    | No<br>• Error branch |
+| Task    | No<br>• Error branch |
+| Email   | No<br>• Error branch |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- Inbound flow
+- Customer queue flow
+- Customer whisper flow
+- Outbound whisper flow
+- Agent whisper flow
+- Transfer to Agent flow
+- Transfer to Queue flow
+
+## Properties
+
+This block doesn't have any properties that you set. Rather, it creates branches
+for you to route contacts based on the result of the authentication threshold and
+voiceprint evaluation that [Set Voice ID](set-voice-id.md "set-voice-id.md") returns.
+
+The following image shows the **Properties** page for the
+**Check voice ID** block when it's configured to check for
+Enrollment status. Different status results are returned when it's configured for
+**Voice authentication** or **Fraud
+detection**.
+
+![The properties page of the Check voice ID block, with the Enrollment status option selected.](images/check-voice-id-properties.png)
+
+## Configuration tips
+
+When you create a flow that uses this block, add these blocks in the following
+order:
+
+1. [Set Voice ID](set-voice-id.md "set-voice-id.md") block.
+2. [Set contact
+   attributes](set-contact-attributes.md "set-contact-attributes.md") block: For
+   **Enrollment status** and **Voice
+   authentication**, the [Customer ID](connect-attrib-list.md "connect-attrib-list.md") system attribute needs to be set in [Set contact
+   attributes](set-contact-attributes.md "set-contact-attributes.md") block because it is
+   acting on a specific customer.
+3. **Check Voice ID** block.
+
+## Configured block
+
+The following three images show what this block looks like when it's configured to
+check for:
+
+1. Fraud detection
+2. Voice authentication
+3. Enrollment status
+
+![Three configured Check voice ID blocks.](images/check-voice-id-configured.png)
+
+## More information
+
+See the following topics for more information about this block:
+
+- [Use real-time caller authentication with Voice ID in
+  Amazon Connect](voice-id.md "voice-id.md")
+- [Enroll callers in Voice ID in the Contact Control Panel
+  (CCP)](use-voiceid.md "use-voiceid.md")

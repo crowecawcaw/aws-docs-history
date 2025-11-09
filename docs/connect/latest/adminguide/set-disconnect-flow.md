@@ -49,8 +49,48 @@ The following table lists how this block routes a contact who is using the
 specified channel.
 
 | Channel | Supported? |
-| ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ---------- |
 | Voice   | Yes        |
 | Chat    | Yes        |
 | Task    | Yes        |
-| Email   | Yes        | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• All flows ## Properties The following image shows the **Properties** page of the **Set disconnect flow** block. ![The properties page of the set disconnect flow block.](images/set-disconnect-flow-properties.png) ## Configured block The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. ![A configured set disconnect flow block.](images/set-disconnect-flow-configured.png) ## Sample flows Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see [Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics that describe the sample flows which include this block. <br>• [Sample inbound flow in Amazon Connect for the first contact experience](sample-inbound-flow.md "sample-inbound-flow.md") ## Scenarios See these topics for scenarios that use this block: <br>• [Example chat scenario](web-and-mobile-chat.md#example-chat-scenario "web-and-mobile-chat.md#example-chat-scenario") <br>• [Easily create and visualize post chat surveys with Amazon Connect and Amazon Lex](https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/ "https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/") <br>• [Building a contact survey solution for Amazon Connect](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US") |
+| Email   | Yes        |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- All flows
+
+## Properties
+
+The following image shows the **Properties** page of the
+**Set disconnect flow** block.
+
+![The properties page of the set disconnect flow block.](images/set-disconnect-flow-properties.png)
+
+## Configured block
+
+The following image shows an example of what this block looks like when it is
+configured. It has the following branches: **Success** and
+**Error**.
+
+![A configured set disconnect flow block.](images/set-disconnect-flow-configured.png)
+
+## Sample flows
+
+Amazon Connect includes a set of sample flows. For instructions that explain how to access the sample flows in the flow designer, see
+[Sample flows in Amazon Connect](contact-flow-samples.md "contact-flow-samples.md"). Following are topics
+that describe the sample flows which include this block.
+
+- [Sample inbound flow in Amazon Connect for the first contact
+  experience](sample-inbound-flow.md "sample-inbound-flow.md")
+
+## Scenarios
+
+See these topics for scenarios that use this block:
+
+- [Example chat scenario](web-and-mobile-chat.md#example-chat-scenario "web-and-mobile-chat.md#example-chat-scenario")
+- [Easily create and visualize post chat surveys with Amazon Connect and
+  Amazon Lex](https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/ "https://aws.amazon.com/blogs/contact-center/easily-create-and-visualize-post-chat-surveys-with-amazon-connect-and-amazon-lex/")
+- [Building a contact survey solution for Amazon Connect](https://catalog.workshops.aws/amazon-connect-contact-survey/en-US "https://catalog.workshops.aws/amazon-connect-contact-survey/en-US")

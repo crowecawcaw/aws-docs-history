@@ -46,18 +46,76 @@ system field.
 
 The following table lists the system case fields:
 
-| Field name        | Field ID (how you call the field in the API) | Field type    | Description                                                                                                                                                                                                                                           | Where the data comes from |
-| ----------------- | -------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Assigned queue    | assigned_queue                               | text          | The Amazon Connect queue that is assigned to a case                                                                                                                                                                                                   | Agent                     |
-| Assigned user     | assigned_user                                | text          | The Amazon Connect user who is assigned to a case                                                                                                                                                                                                     | Agent                     |
-| Case ID           | case_id                                      | text          | Unique Identifier of the case in UUID format (for example, 689b0bea-aa29-4340-896d-4ca3ce9b6226)                                                                                                                                                      | Amazon Connect            |
-| Case Reason       | case_reason                                  | single-select | The reason for opening the case                                                                                                                                                                                                                       | Agent                     |
-| Customer          | customer_id                                  | text          | The full ARN of the customer profile identified for the case is required when using the API. On the **Cases: Fields** page, the customer's name is displayed.                                                                                         | Amazon Connect            |
-| Date/Time Closed  | last_closed_datetime                         | date-time     | The date and time the case was last closed. It does not guarantee that a case is closed. If a case is reopened, this field contains the date/time stamp of the last time the status was changed to closed.                                            | Amazon Connect            |
-| Date/Time Opened  | created_datetime                             | date-time     | The date and time the case was opened.                                                                                                                                                                                                                | Amazon Connect            |
-| Date/Time Updated | last_updated_datetime                        | date-time     | The date and time the case was last updated.                                                                                                                                                                                                          | Amazon Connect            |
-| Last Updated User | last_updated_user                            | user          | The identity of the user who performed the last update on the case.                                                                                                                                                                                   | Amazon Connect            |
-| Reference number  | reference_number                             | text          | A friendly number for the case in 8-digit numeric format. Reference numbers (unlike the Case ID) are not guaranteed to be unique. We recommend that you identify the customer and then collect the reference number to correctly find the right case. | Amazon Connect            |
-| Status            | status                                       | single-select | Current status of the case                                                                                                                                                                                                                            | Agent                     |
-| Summary           | summary                                      | text          | Summary of the case                                                                                                                                                                                                                                   | Agent                     |
-| Title             | title                                        | text          | Title of the case                                                                                                                                                                                                                                     | Agent                     | ## Custom case fields You can create custom case fields that are specific for your business. You must name the case field, and optionally provide a description. Note that the description appears only in the Amazon Connect admin website. It doesn't appear to agents. You can create fields that are type: number, text, single-select, true/false, datetime, and URL. ### Single-select fields For single-select case fields, whether system or custom, you can add value options that the field can take. For example, you can add options to the single-select system field Case reason such as **General inquiry**, **Billing issue**, or **Product defect**, that reflect the types of issues in your contact center. #### About the Status field You can add options to the single-select **Status** field, such as **Investigating** or **Escalated to manager**. The field comes with two options, **Open** and **Closed**, which cannot be changed. #### Active/inactive field options Single-select case fields can be active or inactive. ![The Active and Inactive statuses.](images/cases-single-select-active-inactive.png) <br>• **Active**: If a field option is active, it means that the field can be given that option. For example, based on the following image, the Status field can be set to **Closed**, **Open**, or **Pending**, as these are the only active options. <br>• **Inactive**: If you make the **Pending** option inactive, then the field can no longer be given that option. Any existing cases remain unchanged and can still have the status as **Pending**. Single-select options have two parts: 1. Option name (shown to agents): The label that is displayed to agents in the agent application. 2. Option value (internal reference): The data that's collected. For example, for AWS Region, you may want to display **US West (Oregon)** but collect the data as **PDX**. Field options appear to the agent in alphabetical order. ![The Active and Inactive statuses.](images/cases-single-select-names.png) |
+| Field name        | Field ID (how you call the field in the API) | Field type    | Description                                                                                                                                                                                                                                                          | Where the data comes from |
+| ----------------- | -------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Assigned queue    | assigned_queue                               | text          | The Amazon Connect queue that is assigned to a case                                                                                                                                                                                                                  | Agent                     |
+| Assigned user     | assigned_user                                | text          | The Amazon Connect user who is assigned to a case                                                                                                                                                                                                                    | Agent                     |
+| Case ID           | case_id                                      | text          | Unique Identifier of the case in UUID format (for example,<br>689b0bea-aa29-4340-896d-4ca3ce9b6226)                                                                                                                                                                  | Amazon Connect            |
+| Case Reason       | case_reason                                  | single-select | The reason for opening the case                                                                                                                                                                                                                                      | Agent                     |
+| Customer          | customer_id                                  | text          | The full ARN of the customer profile identified for the case is<br>required when using the API. On the \*_Cases:<br>Fields_<br>• page, the customer's name is<br>displayed.                                                                                          | Amazon Connect            |
+| Date/Time Closed  | last_closed_datetime                         | date-time     | The date and time the case was last closed. It does not guarantee<br>that a case is closed. If a case is reopened, this field contains<br>the date/time stamp of the last time the status was changed to<br>closed.                                                  | Amazon Connect            |
+| Date/Time Opened  | created_datetime                             | date-time     | The date and time the case was opened.                                                                                                                                                                                                                               | Amazon Connect            |
+| Date/Time Updated | last_updated_datetime                        | date-time     | The date and time the case was last updated.                                                                                                                                                                                                                         | Amazon Connect            |
+| Last Updated User | last_updated_user                            | user          | The identity of the user who performed the last update on the<br>case.                                                                                                                                                                                               | Amazon Connect            |
+| Reference number  | reference_number                             | text          | A friendly number for the case in 8-digit numeric<br>format.<br>Reference numbers (unlike the Case ID) are not guaranteed to<br>be unique. We recommend that you identify the customer and then<br>collect the reference number to correctly find the right<br>case. | Amazon Connect            |
+| Status            | status                                       | single-select | Current status of the case                                                                                                                                                                                                                                           | Agent                     |
+| Summary           | summary                                      | text          | Summary of the case                                                                                                                                                                                                                                                  | Agent                     |
+| Title             | title                                        | text          | Title of the case                                                                                                                                                                                                                                                    | Agent                     |
+
+## Custom case fields
+
+You can create custom case fields that are specific for your business. You must
+name the case field, and optionally provide a description. Note that the description
+appears only in the Amazon Connect admin website. It doesn't appear to agents.
+
+You can create fields that are type: number, text, single-select, true/false,
+datetime, and URL.
+
+### Single-select fields
+
+For single-select case fields, whether system or custom, you can add value
+options that the field can take. For example, you can add options to the
+single-select system field Case reason such as **General
+inquiry**, **Billing issue**, or **Product
+defect**, that reflect the types of issues in your contact center.
+
+#### About the Status field
+
+You can add options to the single-select **Status**
+field, such as **Investigating** or **Escalated to
+manager**. The field comes with two options,
+**Open** and **Closed**, which cannot
+be changed.
+
+#### Active/inactive field
+
+options
+
+Single-select case fields can be active or inactive.
+
+![The Active and Inactive statuses.](images/cases-single-select-active-inactive.png)
+
+- **Active**: If a field option is active, it means
+  that the field can be given that option. For example, based on the
+  following image, the Status field can be set to
+  **Closed**, **Open**, or
+  **Pending**, as these are the only active
+  options.
+- **Inactive**: If you make the
+  **Pending** option inactive, then the field can
+  no longer be given that option. Any existing cases remain unchanged
+  and can still have the status as
+  **Pending**.
+
+Single-select options have two parts:
+
+1. Option name (shown to agents): The label that is displayed to
+   agents in the agent application.
+2. Option value (internal reference): The data that's collected. For
+   example, for AWS Region, you may want to display **US West
+   (Oregon)** but collect the data as
+   **PDX**.
+
+Field options appear to the agent in alphabetical order.
+
+![The Active and Inactive statuses.](images/cases-single-select-names.png)

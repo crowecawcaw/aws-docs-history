@@ -39,9 +39,32 @@ answering machine, and providing the appropriate branches to route the contact.
 The following table lists how this block routes a contact who is using the
 specified channel.
 
-| Channel | Supported?        |
-| ------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Voice   | Yes               |
-| Chat    | No - Error branch |
-| Task    | No - Error branch |
-| Email   | No - Error branch | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• All flow types ## Properties The following image shows the **Properties** page of the **Check call progress** block. ![The properties page of the Check call progress block.](images/check-call-progress-properties.png) ## Configured block The following image shows an example of what this block looks like when it is configured. It has branches for **Call answered**, **Voicemail (beep)**, **Voicemail (no beep)**, **Not detected**, and **Error**. ![A configured Check call progress block.](images/check-call-progress-configured.png) |
+| Channel | Supported?           |
+| ------- | -------------------- |
+| Voice   | Yes                  |
+| Chat    | No<br>• Error branch |
+| Task    | No<br>• Error branch |
+| Email   | No<br>• Error branch |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- All flow types
+
+## Properties
+
+The following image shows the **Properties** page of the
+**Check call progress** block.
+
+![The properties page of the Check call progress block.](images/check-call-progress-properties.png)
+
+## Configured block
+
+The following image shows an example of what this block looks like when it is
+configured. It has branches for **Call answered**,
+**Voicemail (beep)**, **Voicemail (no beep)**,
+**Not detected**, and **Error**.
+
+![A configured Check call progress block.](images/check-call-progress-configured.png)

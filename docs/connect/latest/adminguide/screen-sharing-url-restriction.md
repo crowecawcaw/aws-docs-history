@@ -41,8 +41,38 @@ the following steps.
    as `https://mycompany` or `/mytransactions`. The
    following table shows examples of valid formats.
 
-| Allowed URL           | website URL                                                                     |
-| --------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://mycompany.com | https://mycompany.com                                                           |
-| /mytransactions       | https://mycompany.com/mytransactions https://othercompany.com/mytrasactions.com |
-| mycompany.com         | https://mycompany.com https://internal.mycompany.com                            | 4. Save the list. The URLs appear on the **Predefined attributes** page, as shown in the following example. ![The Predefined attributes page.](images/screen-sharing-restricted-urls.png) ## Step 2: Add script to your website list You need to embed a script into your website so the URL of the page can be exposed to the capturing application. You get the capture handler from a file on the Amazon CloudFront endpoint that Amazon Connect hosts. Complete the following instructions. 1. In the Amazon Connect admin website, choose **Channels**, **Communicate widgets**. On your Communication widget summary page, look for the widget script. Get the endpoint from the `s.src` attribute, as shown in the following example. ![The Widget script.](images/screen-sharing-restricted-urls-step2.png) The endpoint can be in a different AWS Region than your Amazon Connect instance. For best performance, we recommend using the same Region as your Amazon Connect instance. 2. Replace the following placeholder `${endpoint}` with the value from previous step. Copy the entire code snippet and paste it on the top level of your website. `<script type="text/javascript" src='${endpoint}/amazon-connect-url-restriction.js'></script>` |
+| Allowed URL           | website URL                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| https://mycompany.com | https://mycompany.com                                                              |
+| /mytransactions       | https://mycompany.com/mytransactions<br>https://othercompany.com/mytrasactions.com |
+| mycompany.com         | https://mycompany.com<br>https://internal.mycompany.com                            |
+
+4. Save the list. The URLs appear on the **Predefined
+   attributes** page, as shown in the following example.
+
+![The Predefined attributes page.](images/screen-sharing-restricted-urls.png)
+
+## Step 2: Add script to your website
+
+list
+
+You need to embed a script into your website so the URL of the page can be exposed
+to the capturing application. You get the capture handler from a file on the
+Amazon CloudFront endpoint that Amazon Connect hosts. Complete the following instructions.
+
+1. In the Amazon Connect admin website, choose **Channels**, **Communicate
+   widgets**. On your Communication widget summary page, look for
+   the widget script. Get the endpoint from the `s.src` attribute,
+   as shown in the following example.
+
+![The Widget script.](images/screen-sharing-restricted-urls-step2.png)
+
+The endpoint can be in a different AWS Region than your Amazon Connect instance.
+For best performance, we recommend using the same Region as your Amazon Connect
+instance. 2. Replace the following placeholder `${endpoint}` with the value
+from previous step. Copy the entire code snippet and paste it on the top
+level of your website.
+
+```
+<script type="text/javascript" src='${endpoint}/amazon-connect-url-restriction.js'></script>
+```

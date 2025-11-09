@@ -32,8 +32,50 @@ route tasks and outbound emails accordingly. For instructions, see [Personalize 
 how they contact your contact center](use-channel-contact-attribute.md "use-channel-contact-attribute.md").
 
 | Channel | Supported? |
-| ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ---------- |
 | Voice   | Yes        |
 | Chat    | Yes        |
 | Task    | No         |
-| Email   | Yes        | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• Inbound flow <br>• Customer Queue flow <br>• Outbound whisper flow <br>• Transfer to Agent flow <br>• Transfer to Queue flow ## Properties The following image shows the **Properties** page of the **Amazon Q in Connect** block. It specifies the full Amazon Resource Name (ARN) of the Amazon Q in Connect domain to associate to the contact. ![The properties page of the Amazon Q in Connect block.](images/wisdom-block-properties.png) ## Configuration tips <br>• To use Amazon Q in Connect with calls, you must enable Amazon Connect Contact Lens in the flow by adding a [Set recording and analytics behavior](set-recording-behavior.md "set-recording-behavior.md") block that is configured for Contact Lens real-time. It doesn't matter where in the flow you add the [Set recording and analytics behavior](set-recording-behavior.md "set-recording-behavior.md") block. Amazon Q in Connect, along with Contact Lens real-time analytics, is used to recommend content that is related to customer issues detected during the current call. <br>• Contact Lens is not required to use Amazon Q in Connect with chats. ## Configured block The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. ![A configured Amazon Q in Connect block.](images/wisdom-block-configured.png) |
+| Email   | Yes        |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- Inbound flow
+- Customer Queue flow
+- Outbound whisper flow
+- Transfer to Agent flow
+- Transfer to Queue flow
+
+## Properties
+
+The following image shows the **Properties** page of the
+**Amazon Q in Connect** block. It specifies the full Amazon Resource Name
+(ARN) of the Amazon Q in Connect domain to associate to the contact.
+
+![The properties page of the Amazon Q in Connect block.](images/wisdom-block-properties.png)
+
+## Configuration tips
+
+- To use Amazon Q in Connect with calls, you must enable Amazon Connect Contact Lens in the
+  flow by adding a [Set recording and analytics
+  behavior](set-recording-behavior.md "set-recording-behavior.md") block that is configured
+  for Contact Lens real-time. It doesn't matter where in the flow you
+  add the [Set recording and analytics
+  behavior](set-recording-behavior.md "set-recording-behavior.md") block.
+
+Amazon Q in Connect, along with Contact Lens real-time analytics, is used
+to recommend content that is related to customer issues detected during the
+current call.
+
+- Contact Lens is not required to use Amazon Q in Connect with chats.
+
+## Configured block
+
+The following image shows an example of what this block looks like when it is
+configured. It has the following branches: **Success** and
+**Error**.
+
+![A configured Amazon Q in Connect block.](images/wisdom-block-configured.png)

@@ -120,43 +120,299 @@ The following table describes each event type. Note that different event types
 contain different fields. Refer to the [Field Definitions](#field-definitions "#field-definitions") section for detailed information about
 each field.
 
-| EventType                                     | Definition                                                                                                                                                 |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Amazon Q in Connect session is created. This marks the beginning of a conversation.                                                      |
-| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the conversation, which may trigger automated responses or workflows.                                |
-| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to generate responses or process conversation content. Records the inputs to and outputs from the LLM. |
-| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when a manual search or direct query is made to Amazon Q in Connect                                                                                 |
-| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent or customer, which may include knowledge articles, generated responses, or suggested actions. |
-| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query result's usefulness or relevance.                                                                 |
-| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with self-service components of Amazon Q in Connect                                                                       |
-| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a session (A session is polled when a GetRecommendations API call has been made)                   |
-| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to determine if a conversation has intents                                                              |
-| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the conversation, recording the actual conversation content.                                           | ### Field Definitions The following table describes each field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Field                                         | Definition                                                                                                                                                 |
-| ---                                           | ---                                                                                                                                                        |
-| ai_agent_id                                   | Unique identifier for the Amazon Q in Connect AI agent resource.                                                                                           |
-| assistant_id                                  | Unique identifier for the Amazon Q in Connect assistant resource.                                                                                          |
-| completion                                    | The raw completion text returned by the LLM or generated for the message.                                                                                  |
-| connect_user_arn                              | Amazon Resource Name (ARN) of the Connect user accessing the session.                                                                                      |
-| event_timestamp                               | Unix timestamp (in milliseconds) when the event occurred.                                                                                                  |
-| event_type                                    | Type of the event, indicating what action or process occurred in the system.                                                                               |
-| generation_id                                 | Unique identifier for a specific AI-generated response.                                                                                                    |
-| intent                                        | The intent text or description.                                                                                                                            |
-| intent_clicked                                | Boolean indicating if the recommendation was triggered by a clicked intent.                                                                                |
-| intent_id                                     | Unique identifier for the detected intent.                                                                                                                 |
-| issue_probability                             | Numerical probability (0.0–1.0) that an issue was detected in the conversation (A probability greater than 0.5 will invoke intent generation)              |
-| is_recommendation_useful                      | Boolean indicating whether the user found the result helpful.                                                                                              |
-| is_valid_trigger                              | Boolean indicating whether the detection model analysis resulted in a valid trigger.                                                                       |
-| model_id                                      | Identifier of the AI model used to invoke the LLM.                                                                                                         |
-| parsed_response                               | The processed/parsed version of the language model response, often in structured format.                                                                   |
-| prompt                                        | The input prompt used to invoke the LLM.                                                                                                                   |
-| prompt_type                                   | Type of Amazon Q in Connect prompt used for processing the message or query.                                                                               |
-| recommendation                                | The actual recommendation text content provided to the user                                                                                                |
-| recommendation_id                             | Unique identifier for the recommendation.                                                                                                                  |
-| response                                      | The final response text generated for the user after processing.                                                                                           |
-| session_event_id                              | Unique identifier for a specific event within the session.                                                                                                 |
-| session_event_ids                             | List of session event identifiers.                                                                                                                         |
-| session_id                                    | Unique identifier for the Amazon Q in Connect session.                                                                                                     |
-| session_message_id                            | Unique identifier for a self-service message within a session.                                                                                             |
-| session_name                                  | Name of the session.                                                                                                                                       |
-| utterance                                     | The actual message text exchanged in the conversation.                                                                                                     | ### Examples of assistant logs Below are examples of different event logs for each event type. Refer to the [Event Type Definitions](#event-type-definitions "#event-type-definitions") section for detailed explanations of each event type. #### CreateSession `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173612, "event_type": "TRANSCRIPT_CREATE_SESSION", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa", "session_name": "nabbccdd-9999-4b23-aaee-112233445566" }` #### IntentTriggeringReference `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173623, "event_type": "TRANSCRIPT_INTENT_TRIGGERING_REFERENCE", "intent": "To learn about how to autoscale DynamoDB.", "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` #### LargeLanguageModelInvocation Query Reformulation `{ "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab", "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "completion": "<query>The customer is asking for information on how to autoscale DynamoDB.</query>", "event_timestamp": 1729530173645, "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION", "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef", "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5" "model_id": "us.amazon.nova-lite-v1:0", "parsed_response": "The customer is asking for information on how to autoscale DynamoDB.", "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}", "prompt_type": "BEDROCK_KB_QUERY_REFORMULATION", "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` Intent Detection `{ "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab", "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>", "event_timestamp": 1729530173645, "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION", "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef", "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5" "model_id": "us.amazon.nova-lite-v1:0", "parsed_response": "To learn how to autoscale DynamoDB.", "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}", "prompt_type": "GENERATIVE_INTENT_DETECTION", "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` Intent Answer Generation `{ "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab", "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "completion": "{\"citations\":[{\"citation\":{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":1065,\"start\":0},\"text\":\"\\nDynamoDB auto s\"}}}}]}", "event_timestamp": 1729530173645, "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION", "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef", "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5", "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0", "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity. When the...", "prompt": "{\"input\":{\"text\":\"The customer is seeking information on how to autoscale DynamoDB. Key utterance: \\\"How can \"}}", "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER", "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` Manual Search Generation `{ "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab", "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>", "event_timestamp": 1729530173645, "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION", "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef", "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5", "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0", "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor...", "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}", "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER", "session_id": "******************-*****************" }` #### QueryAssistant `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173667, "event_type": "TRANSCRIPT_QUERY_ASSISTANT", "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` #### Recommendation `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173656, "event_type": "TRANSCRIPT_RECOMMENDATION", "intent_clicked": 1, "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5", "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` #### ResultFeedback `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173667, "event_type": "TRANSCRIPT_RESULT_FEEDBACK", "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef", "is_recommendation_useful": 1, "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff" }` #### SelfServiceMessage `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "completion": "{\"citations\":[{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":276,\"start\":0},\"text\":\"To autoscale Amazon DynamoDB...\"}}]}", "event_timestamp": 1729530173678, "event_type": "TRANSCRIPT_SELF_SERVICE_MESSAGE", "model_id": "us.amazon.nova-pro-v1:0", "parsed_response": "To autoscale Amazon DynamoDB, follow these steps:...", "prompt": "{\"input\":{\"text\":\"how to autoscale dynamodb\"},\"retrieveAndGenerateConfiguration\":...}", "prompt_type": "SELF_SERVICE_ANSWER_GENERATION", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa", "session_message_id": "mdee1234-5678-4eab-9333-ffeebb998877", "utterance": "[Customer] How can I autoscale DyanmoDB?" }` #### TranscriptSessionPolled `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "connect_user_arn": "arn:aws:connect:us-east-1:204585150770:instance/seaa9988-2233-4f44-8899-abcabcabcabc/agent/agbbccdd-9999-4b23-aaee-112233445566", "event_timestamp": 1729530173623, "event_type": "TRANSCRIPT_SESSION_POLLED", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa", "session_name": "nabbccdd-9999-4b23-aaee-112233445566" }` #### TriggerDetectionModelInvocation `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173634, "event_type": "TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION", "is_valid_trigger": 1, "issue_probability": "0.87", "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc", "session_event_ids": ["seaa9988-2233-4f44-8899-abcabcabcabc"], "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa" }` #### Utterance `{ "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678", "event_timestamp": 1729530173623, "event_type": "TRANSCRIPT_UTTERANCE", "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc", "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa", "utterance": "[Customer] My laptop won't connect to WiFi after the recent update" }` ## Examples of common queries to debug assistant logs You can interact with logs by using queries. For example, you can query for all events within a session by using `SESSION_NAME`. Following are two common queries to return all the logs generated for a specific session. <br>• `filter session_name = "`SessionName`"` <br>• `filter session_id = "`SessionId`"` |
+| EventType                                     | Definition                                                                                                                                                       |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TRANSCRIPT_CREATE_SESSION                     | Logged when a new Amazon Q in Connect session is created.<br>This marks the beginning of a conversation.                                                         |
+| TRANSCRIPT_INTENT_TRIGGERING_REFERENCE        | Logged when a specific customer intent is detected in the<br>conversation, which may trigger automated responses or<br>workflows.                                |
+| TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION    | Logged when a large language model (LLM) is invoked to<br>generate responses or process conversation content. Records the<br>inputs to and outputs from the LLM. |
+| TRANSCRIPT_QUERY_ASSISTANT                    | Logged when a manual search or direct query is made to Amazon<br>Q in Connect                                                                                    |
+| TRANSCRIPT_RECOMMENDATION                     | Logged when the system provides a recommendation to an agent<br>or customer, which may include knowledge articles, generated<br>responses, or suggested actions. |
+| TRANSCRIPT_RESULT_FEEDBACK                    | Logged when feedback is provided about a search or query<br>result's usefulness or relevance.                                                                    |
+| TRANSCRIPT_SELF_SERVICE_MESSAGE               | Logged when a customer interacts with self-service components<br>of Amazon Q in Connect                                                                          |
+| TRANSCRIPT_SESSION_POLLED                     | Logged when the system detects an agent is connected to a<br>session (A session is polled when a GetRecommendations API call<br>has been made)                   |
+| TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION | Logged when the trigger detection model is invoked to<br>determine if a conversation has intents                                                                 |
+| TRANSCRIPT_UTTERANCE                          | Logged when a message is sent by any participant in the<br>conversation, recording the actual conversation content.                                              |
+
+### Field Definitions
+
+The following table describes each field.
+
+| Field                    | Definition                                                                                                                                          |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ai_agent_id              | Unique identifier for the Amazon Q in Connect AI agent<br>resource.                                                                                 |
+| assistant_id             | Unique identifier for the Amazon Q in Connect assistant<br>resource.                                                                                |
+| completion               | The raw completion text returned by the LLM or generated for<br>the message.                                                                        |
+| connect_user_arn         | Amazon Resource Name (ARN) of the Connect user accessing the<br>session.                                                                            |
+| event_timestamp          | Unix timestamp (in milliseconds) when the event<br>occurred.                                                                                        |
+| event_type               | Type of the event, indicating what action or process occurred<br>in the system.                                                                     |
+| generation_id            | Unique identifier for a specific AI-generated<br>response.                                                                                          |
+| intent                   | The intent text or description.                                                                                                                     |
+| intent_clicked           | Boolean indicating if the recommendation was triggered by a<br>clicked intent.                                                                      |
+| intent_id                | Unique identifier for the detected intent.                                                                                                          |
+| issue_probability        | Numerical probability (0.0–1.0) that an issue was detected in<br>the conversation (A probability greater than 0.5 will invoke<br>intent generation) |
+| is_recommendation_useful | Boolean indicating whether the user found the result<br>helpful.                                                                                    |
+| is_valid_trigger         | Boolean indicating whether the detection model analysis<br>resulted in a valid trigger.                                                             |
+| model_id                 | Identifier of the AI model used to invoke the LLM.                                                                                                  |
+| parsed_response          | The processed/parsed version of the language model response,<br>often in structured format.                                                         |
+| prompt                   | The input prompt used to invoke the LLM.                                                                                                            |
+| prompt_type              | Type of Amazon Q in Connect prompt used for processing the<br>message or query.                                                                     |
+| recommendation           | The actual recommendation text content provided to the<br>user                                                                                      |
+| recommendation_id        | Unique identifier for the recommendation.                                                                                                           |
+| response                 | The final response text generated for the user after<br>processing.                                                                                 |
+| session_event_id         | Unique identifier for a specific event within the<br>session.                                                                                       |
+| session_event_ids        | List of session event identifiers.                                                                                                                  |
+| session_id               | Unique identifier for the Amazon Q in Connect<br>session.                                                                                           |
+| session_message_id       | Unique identifier for a self-service message within a<br>session.                                                                                   |
+| session_name             | Name of the session.                                                                                                                                |
+| utterance                | The actual message text exchanged in the<br>conversation.                                                                                           |
+
+### Examples of assistant logs
+
+Below are examples of different event logs for each event type. Refer to the
+[Event Type Definitions](#event-type-definitions "#event-type-definitions") section for detailed explanations
+of each event type.
+
+#### CreateSession
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173612,
+    "event_type": "TRANSCRIPT_CREATE_SESSION",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
+}
+
+```
+
+#### IntentTriggeringReference
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173623,
+    "event_type": "TRANSCRIPT_INTENT_TRIGGERING_REFERENCE",
+    "intent": "To learn about how to autoscale DynamoDB.",
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+#### LargeLanguageModelInvocation
+
+Query Reformulation
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "completion": "<query>The customer is asking for information on how to autoscale DynamoDB.</query>",
+    "event_timestamp": 1729530173645,
+    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
+    "model_id": "us.amazon.nova-lite-v1:0",
+    "parsed_response": "The customer is asking for information on how to autoscale DynamoDB.",
+    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+    "prompt_type": "BEDROCK_KB_QUERY_REFORMULATION",
+    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+Intent Detection
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
+    "event_timestamp": 1729530173645,
+    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
+    "model_id": "us.amazon.nova-lite-v1:0",
+    "parsed_response": "To learn how to autoscale DynamoDB.",
+    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+    "prompt_type": "GENERATIVE_INTENT_DETECTION",
+    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+Intent Answer Generation
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "completion": "{\"citations\":[{\"citation\":{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":1065,\"start\":0},\"text\":\"\\nDynamoDB auto s\"}}}}]}",
+    "event_timestamp": 1729530173645,
+    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+    "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+    "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity. When the...",
+    "prompt": "{\"input\":{\"text\":\"The customer is seeking information on how to autoscale DynamoDB. Key utterance: \\\"How can \"}}",
+    "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
+    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+Manual Search Generation
+
+```
+
+{
+    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
+    "event_timestamp": 1729530173645,
+    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+    "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+    "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor...",
+    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+    "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
+    "session_id": "******************-*****************"
+}
+
+```
+
+#### QueryAssistant
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173667,
+    "event_type": "TRANSCRIPT_QUERY_ASSISTANT",
+    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+#### Recommendation
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173656,
+    "event_type": "TRANSCRIPT_RECOMMENDATION",
+    "intent_clicked": 1,
+    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+#### ResultFeedback
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173667,
+    "event_type": "TRANSCRIPT_RESULT_FEEDBACK",
+    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+    "is_recommendation_useful": 1,
+    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff"
+}
+
+```
+
+#### SelfServiceMessage
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "completion": "{\"citations\":[{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":276,\"start\":0},\"text\":\"To autoscale Amazon DynamoDB...\"}}]}",
+    "event_timestamp": 1729530173678,
+    "event_type": "TRANSCRIPT_SELF_SERVICE_MESSAGE",
+    "model_id": "us.amazon.nova-pro-v1:0",
+    "parsed_response": "To autoscale Amazon DynamoDB, follow these steps:...",
+    "prompt": "{\"input\":{\"text\":\"how to autoscale dynamodb\"},\"retrieveAndGenerateConfiguration\":...}",
+    "prompt_type": "SELF_SERVICE_ANSWER_GENERATION",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_message_id": "mdee1234-5678-4eab-9333-ffeebb998877",
+    "utterance": "[Customer] How can I autoscale DyanmoDB?"
+}
+
+```
+
+#### TranscriptSessionPolled
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "connect_user_arn": "arn:aws:connect:us-east-1:204585150770:instance/seaa9988-2233-4f44-8899-abcabcabcabc/agent/agbbccdd-9999-4b23-aaee-112233445566",
+    "event_timestamp": 1729530173623,
+    "event_type": "TRANSCRIPT_SESSION_POLLED",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
+}
+
+```
+
+#### TriggerDetectionModelInvocation
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173634,
+    "event_type": "TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION",
+    "is_valid_trigger": 1,
+    "issue_probability": "0.87",
+    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+    "session_event_ids": ["seaa9988-2233-4f44-8899-abcabcabcabc"],
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+}
+
+```
+
+#### Utterance
+
+```
+
+{
+    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+    "event_timestamp": 1729530173623,
+    "event_type": "TRANSCRIPT_UTTERANCE",
+    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+    "utterance": "[Customer] My laptop won't connect to WiFi after the recent update"
+}
+
+```
+
+## Examples of common queries to debug
+
+assistant logs
+
+You can interact with logs by using queries. For example, you can query for all
+events within a session by using `SESSION_NAME`.
+
+Following are two common queries to return all the logs generated for a specific
+session.
+
+- `filter session_name =
+"`SessionName`"`
+- `filter session_id =
+"`SessionId`"`

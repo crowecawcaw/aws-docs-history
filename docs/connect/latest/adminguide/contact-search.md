@@ -182,9 +182,101 @@ The following table lists the typical permissions and what contacts can be
 views on **Contact search** and **Contact
 details** pages.
 
-| Contact search permission | View My Contacts permission | Restrict Contact Access permission | Which contacts can be viewed                                                                    |
-| ------------------------- | --------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enabled                   | Disabled                    | Disabled                           | All                                                                                             |
-| Enabled                   | Disabled                    | Enabled                            | All contacts within your agent hierarchy, handled by an agent at your hierarchy level or below. |
-| Disabled                  | Enabled                     | Disabled                           | Only contacts handled by the user (agent) to whom the permission is granted.                    |
-| Disabled                  | Disabled                    | Disabled                           | No contacts                                                                                     | ###### Important We do not recommend assigning permissions in any other combination than what is shown in the preceding table. <br>• **Contact Lens - conversational analytics**: On the **Contact details** page for a contact, you can view graphs that summarize conversational analytics: customer sentiment trend, sentiment, and non-talk time. <br>• **Call recordings (redacted) - Access**: If your organization uses Contact Lens, you can assign this permission so agents access only those agent call recordings in which sensitive data has been redacted. <br>• **Contact transcripts (redacted) - Access**: If your organization uses Contact Lens, you can assign this permission so agents access only those contact transcripts in which sensitive data has been redacted. <br>• **Call recordings (unredacted) - Access**: Use this permission to manage who can access recordings on the **Contact search** and **Contact details** pages. If desired, you can use **Restrict contact access** to ensure they only have access to detailed information for those contacts handled by their hierarchy group. <br>• **Contact transcripts (unredacted) - Access**: Use this permission to manage who can view unredacted chat and email conversations, and unredacted voice transcripts produced by Contact Lens on the **Contact search** and **Contact details** pages. If desired, you can use **Restrict contact access** to ensure they only have access to detailed information for those contacts handled by their hierarchy group. <br>• **Evaluation forms - perform evaluations**: Allows users to [search for](search-evaluations.md "search-evaluations.md") evaluations by evaluation form, score, last updated date/range, evaluator, and status. <br>• **Voice ID - attributes and search**: If your organization uses Voice ID, users with this permission can search for and view Voice ID results in the **Contact detail** page. <br>• **Users - View** permission: You must have this permission to use the **Agent** filter on the **Contact search** page. By default, the Amazon Connect **Admin** and **CallCenterManager** security profiles have these permissions. For information about how to add more permissions to an existing security profile, see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md"). ## How to search for a contact 1. Log in to Amazon Connect with a user account that has [permissions to access contact records](#required-permissions-search-contacts "#required-permissions-search-contacts"). 2. In Amazon Connect choose **Analytics and optimization**, **Contact search**. 3. Use the filters on the page to narrow your search. For date, you can search up to 8 weeks at a time. ###### Tip To see if a conversation was recorded, you need to be assigned to a profile that has **Manager monitor** permissions. If a conversation was recorded, by default the search result will indicate so with an icon in the **Recording** column. You won't see this icon if you don't have permission to review the recordings. ## Additional fields: Add columns to your search results Use the options under **Additional fields** to add columns in your search results. These options are not used to filter your search. For example, if you want to include columns for **Agent Name** and **Routing profile** in your search output, choose those columns here. ###### Tip The **Is transferred out** option indicates whether the contact was transferred to an external number. For the date and time (in UTC time) when the transfer was connected, see `TransferCompletedTimestamp` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord"). ## Download search results You can download up to 3,000 search results at a time. ## APIs to search contacts Use the following APIs to search contacts programmatically: <br>• [SearchContacts](../APIReference/API_SearchContacts.md "../APIReference/API_SearchContacts.md") <br>• [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") <br>• [DescribeContactEvaluation](../APIReference/API_DescribeContactEvaluation.md "../APIReference/API_DescribeContactEvaluation.md") |
+| Contact search permission | View My Contacts permission | Restrict Contact Access permission | Which contacts can be viewed                                                                       |
+| ------------------------- | --------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Enabled                   | Disabled                    | Disabled                           | All                                                                                                |
+| Enabled                   | Disabled                    | Enabled                            | All contacts within your agent hierarchy, handled by an agent<br>at your hierarchy level or below. |
+| Disabled                  | Enabled                     | Disabled                           | Only contacts handled by the user (agent) to whom the<br>permission is granted.                    |
+| Disabled                  | Disabled                    | Disabled                           | No contacts                                                                                        |
+
+###### Important
+
+We do not recommend assigning permissions in any other combination than
+what is shown in the preceding table.
+
+- **Contact Lens - conversational analytics**: On the
+  **Contact details** page for a contact, you can view
+  graphs that summarize conversational analytics: customer sentiment trend,
+  sentiment, and non-talk time.
+- **Call recordings (redacted) - Access**: If your organization
+  uses Contact Lens, you can assign this permission so agents access only
+  those agent call recordings in which sensitive data has been redacted.
+- **Contact transcripts (redacted) - Access**: If your
+  organization uses Contact Lens, you can assign this permission so agents
+  access only those contact transcripts in which sensitive data has been
+  redacted.
+- **Call recordings (unredacted) - Access**: Use this
+  permission to manage who can access recordings on the **Contact
+  search** and **Contact details** pages. If
+  desired, you can use **Restrict contact access** to ensure they
+  only have access to detailed information for those contacts handled by their
+  hierarchy group.
+- **Contact transcripts (unredacted) - Access**: Use this
+  permission to manage who can view unredacted chat and email conversations, and
+  unredacted voice transcripts produced by Contact Lens on the
+  **Contact search** and **Contact details**
+  pages. If desired, you can use **Restrict contact access** to
+  ensure they only have access to detailed information for those contacts handled
+  by their hierarchy group.
+- **Evaluation forms - perform evaluations**: Allows users to
+  [search for](search-evaluations.md "search-evaluations.md") evaluations by
+  evaluation form, score, last updated date/range, evaluator, and status.
+- **Voice ID - attributes and search**: If your organization
+  uses Voice ID, users with this permission can search for and view Voice ID
+  results in the **Contact detail** page.
+- **Users - View** permission: You must have this permission to
+  use the **Agent** filter on the **Contact
+  search** page.
+
+By default, the Amazon Connect **Admin** and
+**CallCenterManager** security profiles have these
+permissions.
+
+For information about how to add more permissions to an existing security profile,
+see [Update security profiles in Amazon Connect](update-security-profiles.md "update-security-profiles.md").
+
+## How to search for a contact
+
+1. Log in to Amazon Connect with a user account that has [permissions to access contact
+   records](#required-permissions-search-contacts "#required-permissions-search-contacts").
+2. In Amazon Connect choose **Analytics and optimization**,
+   **Contact search**.
+3. Use the filters on the page to narrow your search. For date, you can search up
+   to 8 weeks at a time.
+
+###### Tip
+
+To see if a conversation was recorded, you need to be assigned to a profile that
+has **Manager monitor** permissions. If a conversation was
+recorded, by default the search result will indicate so with an icon in the
+**Recording** column. You won't see this icon if you don't have
+permission to review the recordings.
+
+## Additional fields: Add columns to your search
+
+results
+
+Use the options under **Additional fields** to add columns in your
+search results. These options are not used to filter your search.
+
+For example, if you want to include columns for **Agent Name** and
+**Routing profile** in your search output, choose those columns
+here.
+
+###### Tip
+
+The **Is transferred out** option indicates whether the contact
+was transferred to an external number. For the date and time (in UTC time) when the
+transfer was connected, see `TransferCompletedTimestamp` in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
+
+## Download search results
+
+You can download up to 3,000 search results at a time.
+
+## APIs to search contacts
+
+Use the following APIs to search contacts programmatically:
+
+- [SearchContacts](../APIReference/API_SearchContacts.md "../APIReference/API_SearchContacts.md")
+- [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md")
+- [DescribeContactEvaluation](../APIReference/API_DescribeContactEvaluation.md "../APIReference/API_DescribeContactEvaluation.md")

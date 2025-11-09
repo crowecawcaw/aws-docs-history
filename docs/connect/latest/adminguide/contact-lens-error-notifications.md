@@ -54,13 +54,13 @@ The format of a notification looks like the following sample:
 The following table lists the event codes that may result when
 Contact Lens can't analyze a contact.
 
-| Event reason code                   | Description                                                                                                                                                                      |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| INVALID_ANALYSIS_CONFIGURATION      | Contact Lens received invalid values when the flow was initiated, such as an unsupported or invalid language code, or an unsupported value for redaction behavior.               |
-| RECORDING_FILE_CANNOT_BE_READ       | Contact Lens can't get the recording file. This might be because file isn't present in the S3 bucket, or there are problems with permissions.                                    |
-| RECORDING_FILE_TOO_SMALL            | The recording file is too small for analysis (less than 105 ms). If file doesn’t have expected format, an INVALID error occurs. Empty JSON is also an unexpected object.         |
-| RECORDING_FILE_TOO_LARGE            | The recording file exceeds the duration limit for analysis. <br>• Voice: More than 14,400 seconds, or 4 hours <br>• Chat: More than 20K messages in a transcript                 |
-| RECORDING_FILE_INVALID              | The recording file is invalid.                                                                                                                                                   |
-| RECORDING_FILE_CANNOT_BE_READ       | An error occurred when Contact Lens tried to read the recording file.                                                                                                            |
-| RECORDING_FILE_EMPTY                | The recording file is empty.                                                                                                                                                     |
-| RECORDING_SAMPLE_RATE_NOT_SUPPORTED | The sample rate of the audio file is not supported. Contact Lens currently supports audio files with an 8kHz sample rate. That is the sample rate for Amazon Connect recordings. |
+| Event reason code                   | Description                                                                                                                                                                               |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID_ANALYSIS_CONFIGURATION      | Contact Lens received invalid values when<br>the flow was initiated, such as an unsupported or<br>invalid language code, or an unsupported value for<br>redaction behavior.               |
+| RECORDING_FILE_CANNOT_BE_READ       | Contact Lens can't get the recording file.<br>This might be because file isn't present in the S3<br>bucket, or there are problems with permissions.                                       |
+| RECORDING_FILE_TOO_SMALL            | The recording file is too small for analysis (less<br>than 105 ms).<br>If file doesn’t have expected format, an<br>INVALID error occurs. Empty JSON is<br>also an unexpected object.      |
+| RECORDING_FILE_TOO_LARGE            | The recording file exceeds the duration limit for<br>analysis.<br>• Voice: More than 14,400 seconds, or 4<br>hours<br>• Chat: More than 20K messages in a<br>transcript                   |
+| RECORDING_FILE_INVALID              | The recording file is invalid.                                                                                                                                                            |
+| RECORDING_FILE_CANNOT_BE_READ       | An error occurred when Contact Lens tried to<br>read the recording file.                                                                                                                  |
+| RECORDING_FILE_EMPTY                | The recording file is empty.                                                                                                                                                              |
+| RECORDING_SAMPLE_RATE_NOT_SUPPORTED | The sample rate of the audio file is not supported.<br>Contact Lens currently supports audio files<br>with an 8kHz sample rate. That is the sample rate for<br>Amazon Connect recordings. |

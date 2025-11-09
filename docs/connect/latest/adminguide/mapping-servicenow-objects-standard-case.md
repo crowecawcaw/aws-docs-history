@@ -87,29 +87,95 @@ standard case in Customer Profiles.
 The following table lists which fields can be mapped from the
 Servicenow-task object to the standard case.
 
-| Servicenow-task source field     | Standard case target field        |
-| -------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sys_id                           | Attributes.ServiceNowTaskId       |
-| opened_by.link                   | Attributes.ServiceNowSystemUserId |
-| short_description                | Title                             |
-| description                      | Summary                           |
-| status                           | Status                            |
-| sys_created_by                   | CreatedBy                         |
-| sys_created_on                   | CreatedDate                       |
-| sys_updated_on                   | UpdatedDate                       | The Servicenow-task customer data from Servicenow is associated with an Amazon Connect standard case using the indexes in the following table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Standard Index Name              | Servicenow-task source field      |
-| ---                              | ---                               |
-| \_serviceNowTaskId               | sys_id                            |
-| \_serviceNowSystemId             | open_by.link                      | For example, you can use `_serviceNowTaskId` and `_serviceNowSystemId` as an `ObjectFilter.KeyName` with the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can find the Servicenow-task objects associated with a specific profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and `ObjectTypeName` set to `Servicenow-task`. ## Servicenow-incident object Following is a list of all the fields in a Servicenow-incident object. <br>• sys_id <br>• business_stc <br>• calendar_stc <br>• caller_id.link <br>• caller_id.value <br>• category <br>• caused_by <br>• child_incidents <br>• close_code <br>• hold_reason <br>• incident_state <br>• notify <br>• parent_incident <br>• problem_id <br>• reopened_by <br>• reopened_time <br>• reopen_count <br>• resolved_at <br>• resolved_by.link <br>• resolved_by.value <br>• rfc <br>• severity <br>• subcategory ## Mapping Servicenow-incident to a standard case A subset of the fields in the Servicenow-incident object map to the standard case in Customer Profiles. The following table lists which fields can be mapped from the Servicenow-incident object to the standard case. |
+| Servicenow-task source field | Standard case target field        |
+| ---------------------------- | --------------------------------- |
+| sys_id                       | Attributes.ServiceNowTaskId       |
+| opened_by.link               | Attributes.ServiceNowSystemUserId |
+| short_description            | Title                             |
+| description                  | Summary                           |
+| status                       | Status                            |
+| sys_created_by               | CreatedBy                         |
+| sys_created_on               | CreatedDate                       |
+| sys_updated_on               | UpdatedDate                       |
+
+The Servicenow-task customer data from Servicenow is associated with
+an Amazon Connect standard case using the indexes in the following table.
+
+| Standard Index Name  | Servicenow-task source field |
+| -------------------- | ---------------------------- |
+| \_serviceNowTaskId   | sys_id                       |
+| \_serviceNowSystemId | open_by.link                 |
+
+For example, you can use `_serviceNowTaskId` and
+`_serviceNowSystemId` as an
+`ObjectFilter.KeyName` with the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can
+find the Servicenow-task objects associated with a specific profile by
+using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
+`ObjectTypeName` set to
+`Servicenow-task`.
+
+## Servicenow-incident
+
+object
+
+Following is a list of all the fields in a Servicenow-incident object.
+
+- sys_id
+- business_stc
+- calendar_stc
+- caller_id.link
+- caller_id.value
+- category
+- caused_by
+- child_incidents
+- close_code
+- hold_reason
+- incident_state
+- notify
+- parent_incident
+- problem_id
+- reopened_by
+- reopened_time
+- reopen_count
+- resolved_at
+- resolved_by.link
+- resolved_by.value
+- rfc
+- severity
+- subcategory
+
+## Mapping Servicenow-incident to
+
+a standard case
+
+A subset of the fields in the Servicenow-incident object map to the
+standard case in Customer Profiles.
+
+The following table lists which fields can be mapped from the
+Servicenow-incident object to the standard case.
+
 | Servicenow-Incident source field | Standard case target field        |
-| ---                              | ---                               |
+| -------------------------------- | --------------------------------- |
 | sys_id                           | Attributes_ServiceNowIncidentId   |
 | caller_id.link                   | Attributes_ServiceNowSystemUserId |
 | incident_status                  | Status                            |
 | caller_id.link                   | CreatedBy                         |
 | resolved_at                      | ClosedDate                        |
-| category                         | Reason                            | The Servicenow-incident customer data from the Servicenow object is associated with an Amazon Connect standard case using the indexes in the following table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Standard Index Name              | Servicenow source field           |
-| ---                              | ---                               |
-| \_serviceNowIncidentId           | sys_id                            |
-| \_serviceNowSystemId             | caller_id.link                    | For example, you can use `_serviceNowIncidentId` and `_serviceNowSystemId` as a ObjectFilter.KeyName with the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can find the Servicenow-incident objects associated with a specific profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and `ObjectTypeName` set to `Servicenow-incident`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| category                         | Reason                            |
+
+The Servicenow-incident customer data from the Servicenow object is
+associated with an Amazon Connect standard case using the indexes in the
+following table.
+
+| Standard Index Name    | Servicenow source field |
+| ---------------------- | ----------------------- |
+| \_serviceNowIncidentId | sys_id                  |
+| \_serviceNowSystemId   | caller_id.link          |
+
+For example, you can use `_serviceNowIncidentId` and
+`_serviceNowSystemId` as a ObjectFilter.KeyName with the
+[ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can
+find the Servicenow-incident objects associated with a specific profile
+by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
+`ObjectTypeName` set to
+`Servicenow-incident`.

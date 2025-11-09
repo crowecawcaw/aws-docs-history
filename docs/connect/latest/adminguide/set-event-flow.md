@@ -30,8 +30,37 @@ The following table lists how this block routes a contact who is using the
 specified channel.
 
 | Channel | Supported? |
-| ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ---------- |
 | Voice   | Yes        |
 | Chat    | Yes        |
 | Task    | Yes        |
-| Email   | Yes        | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• All flows ## Properties The following image shows the **Properties** page of the **Set event flow** block. ![The properties page of the Set event flow block.](images/set-event-flow-properties.png) ## Configured block The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. ![A configured Set event flow block.](images/set-event-flow-configured.png) ## Scenarios See these topics for scenarios that use this block: <br>• [Invoke a guide at the start of a contact in Amazon Connect](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md") |
+| Email   | Yes        |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- All flows
+
+## Properties
+
+The following image shows the **Properties** page of the
+**Set event flow** block.
+
+![The properties page of the Set event flow block.](images/set-event-flow-properties.png)
+
+## Configured block
+
+The following image shows an example of what this block looks like when it is
+configured. It has the following branches: **Success** and
+**Error**.
+
+![A configured Set event flow block.](images/set-event-flow-configured.png)
+
+## Scenarios
+
+See these topics for scenarios that use this block:
+
+- [Invoke a guide at the start of a contact in
+  Amazon Connect](how-to-invoke-a-flow-sg.md "how-to-invoke-a-flow-sg.md")

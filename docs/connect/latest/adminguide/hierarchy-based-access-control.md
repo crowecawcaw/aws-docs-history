@@ -167,13 +167,18 @@ settings.
 - Disable access to the following functionality when you apply
   hierarchy-based access controls in the Amazon Connect admin website.
 
-| Functionality | Security profile permission that disables access
-|
-| --- | --- |
-| Contact search | Contact search - View |
-| Login/Login out report | Login/Login out report - View |
-| Rules | Rules - View |
-| Saved reports | Saved reports - View |
-| Agent Hierarchy | Agent Hierarchy - View |
-| Flow/Flow module | Flow modules - View |
-| Scheduling | Schedule manager - View | If you do not disable access to these resources, users with hierarchy-based access controls on a particular resource that view these pages in the Amazon Connect admin website may see an unrestricted list of users. For more information about how to manage permissions, see [List of security profile permissions](security-profile-list.md "security-profile-list.md").
+| Functionality          | Security profile permission that disables access |
+| ---------------------- | ------------------------------------------------ |
+| Contact search         | Contact search<br>• View                         |
+| Login/Login out report | Login/Login out report<br>• View                 |
+| Rules                  | Rules<br>• View                                  |
+| Saved reports          | Saved reports<br>• View                          |
+| Agent Hierarchy        | Agent Hierarchy<br>• View                        |
+| Flow/Flow module       | Flow modules<br>• View                           |
+| Scheduling             | Schedule manager<br>• View                       |
+
+If you do not disable access to these resources, users with
+hierarchy-based access controls on a particular resource that view these
+pages in the Amazon Connect admin website may see an unrestricted list of users. For more
+information about how to manage permissions, see [List of security profile
+permissions](security-profile-list.md "security-profile-list.md").

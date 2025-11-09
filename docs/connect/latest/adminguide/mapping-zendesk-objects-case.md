@@ -54,17 +54,28 @@ standard case in Customer Profiles. The following table lists which
 fields can be mapped from the Zendesk-tickets object to the standard
 case.
 
-| Zendesk-tickets source field | Standard case target field   |
-| ---------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| requester_id                 | Attributes.ZendeskUserId     |
-| id                           | Attributes.ZendeskTicketId   |
-| subject                      | Title                        |
-| description                  | Summary                      |
-| status                       | Status                       |
-| requester_id                 | CreatedBy                    |
-| created_at                   | CreatedDate                  |
-| updated_at                   | UpdatedDate                  | The Zendesk-tickets customer data from the Zendesk object is associated with a Amazon Connect standard case using the following indexes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Standard Index Name          | Zendesk-tickets source field |
-| ---                          | ---                          |
-| \_zendeskUserId              | requester_id                 |
-| \_zendeskTicketId            | id                           | For example, you can use `_zendeskUserId` and `_zendeskTicketId` as an `ObjectFilter.KeyName` with the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can find the Zendesk-tickets objects associated with a specific profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and `ObjectTypeName` set to `Zendesk-tickets`. |
+| Zendesk-tickets source field | Standard case target field |
+| ---------------------------- | -------------------------- |
+| requester_id                 | Attributes.ZendeskUserId   |
+| id                           | Attributes.ZendeskTicketId |
+| subject                      | Title                      |
+| description                  | Summary                    |
+| status                       | Status                     |
+| requester_id                 | CreatedBy                  |
+| created_at                   | CreatedDate                |
+| updated_at                   | UpdatedDate                |
+
+The Zendesk-tickets customer data from the Zendesk object is associated
+with a Amazon Connect standard case using the following indexes.
+
+| Standard Index Name | Zendesk-tickets source field |
+| ------------------- | ---------------------------- |
+| \_zendeskUserId     | requester_id                 |
+| \_zendeskTicketId   | id                           |
+
+For example, you can use `_zendeskUserId` and
+`_zendeskTicketId` as an `ObjectFilter.KeyName`
+with the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API to find a standard case. You can find
+the Zendesk-tickets objects associated with a specific profile by using the
+[ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
+`ObjectTypeName` set to `Zendesk-tickets`.

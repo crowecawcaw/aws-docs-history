@@ -18,9 +18,9 @@ image.
 
 ## Limits
 
-| Action                         | Limit                                                      |
-| ------------------------------ | ---------------------------------------------------------- |
-| History limit                  | Up to 100 actions can be undone.                           |
-| Dragging unconnected connector | This action cannot be undone.                              |
-| Folding of notes               | This action cannot be undone.                              |
-| Page reload                    | The undo history is not retained after a page is reloaded. |
+| Action                         | Limit                                                         |
+| ------------------------------ | ------------------------------------------------------------- |
+| History limit                  | Up to 100 actions can be undone.                              |
+| Dragging unconnected connector | This action cannot be undone.                                 |
+| Folding of notes               | This action cannot be undone.                                 |
+| Page reload                    | The undo history is not retained after a page is<br>reloaded. |

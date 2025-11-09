@@ -43,20 +43,114 @@ This flow block is designed to be used in the following scenarios:
 
 ## Contact types
 
-| Contact type           | Supported?            |
-| ---------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Voice                  | No - **Error** branch |
-| Chat                   | Yes                   |
-| Task                   | No - **Error** branch |
-| Email                  | No - **Error** branch | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Flow type              | Supported?            |
-| ---                    | ---                   |
-| Inbound flow           | Yes                   |
-| Customer queue flow    | No                    |
-| Customer hold flow     | No                    |
-| Customer whisper flow  | No                    |
-| Outbound whisper flow  | No                    |
-| Agent hold flow        | No                    |
-| Agent whisper flow     | No                    |
-| Transfer to agent flow | No                    |
-| Transfer to queue flow | No                    | ## How to configure this block You can configure the **Authenticate Customer** block by using the Amazon Connect admin website or by using the [AuthenticateParticipant](../APIReference/participant-actions-authenticateparticipant.md "../APIReference/participant-actions-authenticateparticipant.md") action in the Amazon Connect Flow language. The following image shows an example of the Properties page for the **Authenticate Customer** block. ![The properties page of the Authenticate Customer block.](images/authenticate-customer-properties.png) **Amazon Cognito** <br>• **Select an Amazon Cognito User Pool**: After you associate the user pool on the console page, choose the name of the user pool from the drop-down list. <br>• **Select an Amazon Cognito App Client**: After you select the user pool, choose the name of the app client from the drop-down list. **Amazon Connect Customer Profiles Configuration** <br>• **Store by default template**: By choosing the default template, Amazon Connect Customer Profile ingests [Amazon Cognito standard attributes](../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes "../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes") into a unified standard profile object based on the predefined Customer Profile object type. This template uses phone number and email to map the customer to a profile. <br>• **Enter a unique identifier**: You can customize how Customer Profiles ingests data by [creating an object type mapping](create-object-type-mapping.md "create-object-type-mapping.md"). If you want to customize the data mapping or key, create your own object type mapping in advance, select **Enter a unique identifier** and enter the mapping name. **Timeout**: Enter how long until inactive customers who haven't signed in are routed down the Timeout branch. <br>• Minimum (default): 3 minutes <br>• Maximum: 15 minutes ### Flow block branches This block supports the following output branches: ![A configured Authenticate Customer block.](images/authenticate-customer-configured.png) <br>• **Success**: The customer was authenticated. <br>• **Timeout**: The customer was inactive and did not sign in within the allocated amount of time. <br>• **Opted out**: The customer chose not to sign in. <br>• **Error**: One of the [error scenarios](#authenticate-customer-errorscenarios "#authenticate-customer-errorscenarios") occurred. ### Additional configuration tips <br>• We recommend that you enable flow logs in an Amazon CloudWatch log group provide you with real-time details about events in your flows as customers interact with them. You can also use flow logs to help debug your flows as you are creating them. For more information, see [Enable Amazon Connect flow logs in an Amazon CloudWatch log group](contact-flow-logs.md "contact-flow-logs.md"). <br>• For information about enabling customer authentication for Apple Messages for Business Chats, see [Enable authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md"). ### Data generated by this block This block does not generate any data. ## Error scenarios A contact is routed down the **Error** branch in the following situations: <br>• Customer Profiles has not been enabled in your Amazon Connect instance. The option to enable Customer Profiles is selected by default when you create an instance, but it's possible to unselect this option. For instructions about enabling Customer Profiles manually, see [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md"). <br>• The chat subtype is not supported. <br>• The provided authentication code is incorrect. <br>• Error from Amazon Cognito token endpoint because the client or request is not configured correctly (`invalid_request`, `invalid_client`, `unauthorized_client`) <br>• The Region is not supported. For a list of supported Regions, see [Customer authentication availability by Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region"). |
+| Contact type | Supported?                    |
+| ------------ | ----------------------------- |
+| Voice        | No<br>• \*_Error_<br>• branch |
+| Chat         | Yes                           |
+| Task         | No<br>• \*_Error_<br>• branch |
+| Email        | No<br>• \*_Error_<br>• branch |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+| Flow type              | Supported? |
+| ---------------------- | ---------- |
+| Inbound flow           | Yes        |
+| Customer queue flow    | No         |
+| Customer hold flow     | No         |
+| Customer whisper flow  | No         |
+| Outbound whisper flow  | No         |
+| Agent hold flow        | No         |
+| Agent whisper flow     | No         |
+| Transfer to agent flow | No         |
+| Transfer to queue flow | No         |
+
+## How to configure this
+
+block
+
+You can configure the **Authenticate Customer** block by using
+the Amazon Connect admin website or by using the [AuthenticateParticipant](../APIReference/participant-actions-authenticateparticipant.md "../APIReference/participant-actions-authenticateparticipant.md") action in the Amazon Connect Flow language.
+
+The following image shows an example of the Properties page for the
+**Authenticate Customer** block.
+
+![The properties page of the Authenticate Customer block.](images/authenticate-customer-properties.png)
+
+**Amazon Cognito**
+
+- **Select an Amazon Cognito User Pool**: After you associate the
+  user pool on the console page, choose the name of the user pool from the
+  drop-down list.
+- **Select an Amazon Cognito App Client**: After you select the user
+  pool, choose the name of the app client from the drop-down list.
+
+**Amazon Connect Customer Profiles Configuration**
+
+- **Store by default template**: By choosing the default
+  template, Amazon Connect Customer Profile ingests [Amazon Cognito standard attributes](../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes "../../../cognito/latest/developerguide/user-pool-settings-attributes.md#cognito-user-pools-standard-attributes") into a unified standard profile
+  object based on the predefined Customer Profile object type. This template
+  uses phone number and email to map the customer to a profile.
+- **Enter a unique identifier**: You can customize how Customer Profiles
+  ingests data by [creating an
+  object type mapping](create-object-type-mapping.md "create-object-type-mapping.md"). If you want to customize the data mapping or
+  key, create your own object type mapping in advance, select **Enter
+  a unique identifier** and enter the mapping name.
+
+**Timeout**: Enter how long until inactive customers who haven't
+signed in are routed down the Timeout branch.
+
+- Minimum (default): 3 minutes
+- Maximum: 15 minutes
+
+### Flow block branches
+
+This block supports the following output branches:
+
+![A configured Authenticate Customer block.](images/authenticate-customer-configured.png)
+
+- **Success**: The customer was authenticated.
+- **Timeout**: The customer was inactive and did not
+  sign in within the allocated amount of time.
+- **Opted out**: The customer chose not to sign
+  in.
+- **Error**: One of the [error
+  scenarios](#authenticate-customer-errorscenarios "#authenticate-customer-errorscenarios") occurred.
+
+### Additional configuration
+
+tips
+
+- We recommend that you enable flow logs in an Amazon CloudWatch log group
+  provide you with real-time details about events in your flows as
+  customers interact with them. You can also use flow logs to help debug
+  your flows as you are creating them. For more information, see [Enable Amazon Connect flow logs in an Amazon CloudWatch log
+  group](contact-flow-logs.md "contact-flow-logs.md").
+- For information about enabling customer authentication for Apple
+  Messages for Business Chats, see [Enable
+  authentication for Apple Messages for Business](enabling-authentication-for-apple-messages-for-business.md "enabling-authentication-for-apple-messages-for-business.md").
+
+### Data generated by this
+
+block
+
+This block does not generate any data.
+
+## Error scenarios
+
+A contact is routed down the **Error** branch in the following
+situations:
+
+- Customer Profiles has not been enabled in your Amazon Connect instance. The option to enable
+  Customer Profiles is selected by default when you create an instance, but it's possible
+  to unselect this option. For instructions about enabling Customer Profiles manually, see
+  [Enable Customer Profiles for your Amazon Connect instance](enable-customer-profiles.md "enable-customer-profiles.md").
+- The chat subtype is not supported.
+- The provided authentication code is incorrect.
+- Error from Amazon Cognito token endpoint because the client or request is not
+  configured correctly (`invalid_request`,
+  `invalid_client`, `unauthorized_client`)
+- The Region is not supported. For a list of supported Regions, see [Customer authentication availability by
+  Region](regions.md#customerauthentication_region "regions.md#customerauthentication_region").

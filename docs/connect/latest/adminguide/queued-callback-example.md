@@ -50,25 +50,26 @@ Assume we have set up the following flows:
     This scenario results in two contact records, which include the following
     metadata.
 
-| Contact record-1            | Data                       | Notes                                                                                                                                    |
-| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Initiation Method           | Inbound                    |                                                                                                                                          |
-| Initiation Timestamp        | 11:35                      | The inbound contact is initiated in Amazon Connect.                                                                                      |
-| ConnectedToSystem Timestamp | 11:35                      | Because this is an inbound contact, InitiationTimestamp = ConnectedToSystemTimestamp.                                                    |
-| Next Contact Id             | points to contact record-2 |                                                                                                                                          |
-| Queue                       | InboundQueue               |                                                                                                                                          |
-| Enqueued Timestamp          | 11:35                      | The inbound contact is put in queue.                                                                                                     |
-| Dequeued Timestamp          | 11:37                      | Because no agent picked up, this is the same as DisconnectedTimestamp.                                                                   |
-| ConnectedToAgent Timestamp  | N/A                        | John scheduled a callback before any agent could pick up.                                                                                |
-| Disconnected Timestamp      | 11:37:00                   | John was disconnected by flow.                                                                                                           |
-| contact record-2            | Data                       | Notes                                                                                                                                    |
-| ---                         | ---                        | ---                                                                                                                                      |
-| PreviousContactId           | points to contact record-1 |                                                                                                                                          |
-| Initiation Timestamp        | 11:37                      | The callback contact is created in Amazon Connect.                                                                                       |
-| Queue                       | CallbackQueue              |                                                                                                                                          |
-| Enqueued Timestamp          | 11:38:39                   | The contact was put into the CallbackQueue, after the 99-second initial delay completes.                                                 |
-| Dequeued Timestamp          | 11:39:00                   | After 21 seconds, an agent accepts the contact.                                                                                          |
-| Queue Duration              | 120 seconds                | This is the initial delay (99 seconds), plus any additional time sitting in queue waiting for an agent to become available (21 seconds). |
-| ConnectedToSystem Timestamp | 11:39:10                   | John is called after the 10 second agent whisper flow completes.                                                                         |
-| ConnectedToAgent Timestamp  | 11:39:25                   | John and the agent are connected, after the 15 second outbound whisper flow completes.                                                   |
-| Disconnected Timestamp      | 11:45                      | John hangs up.                                                                                                                           |
+| Contact record-1            | Data                       | Notes                                                                                    |
+| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------- |
+| Initiation Method           | Inbound                    |                                                                                          |
+| Initiation Timestamp        | 11:35                      | The inbound contact is initiated in Amazon Connect.                                      |
+| ConnectedToSystem Timestamp | 11:35                      | Because this is an inbound contact, InitiationTimestamp =<br>ConnectedToSystemTimestamp. |
+| Next Contact Id             | points to contact record-2 |                                                                                          |
+| Queue                       | InboundQueue               |                                                                                          |
+| Enqueued Timestamp          | 11:35                      | The inbound contact is put in queue.                                                     |
+| Dequeued Timestamp          | 11:37                      | Because no agent picked up, this is the same as<br>DisconnectedTimestamp.                |
+| ConnectedToAgent Timestamp  | N/A                        | John scheduled a callback before any agent could pick<br>up.                             |
+| Disconnected Timestamp      | 11:37:00                   | John was disconnected by flow.                                                           |
+
+| contact record-2            | Data                       | Notes                                                                                                                                          |
+| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| PreviousContactId           | points to contact record-1 |                                                                                                                                                |
+| Initiation Timestamp        | 11:37                      | The callback contact is created in Amazon Connect.                                                                                             |
+| Queue                       | CallbackQueue              |                                                                                                                                                |
+| Enqueued Timestamp          | 11:38:39                   | The contact was put into the CallbackQueue, after the<br>99-second initial delay completes.                                                    |
+| Dequeued Timestamp          | 11:39:00                   | After 21 seconds, an agent accepts the contact.                                                                                                |
+| Queue Duration              | 120 seconds                | This is the initial delay (99 seconds), plus any additional<br>time sitting in queue waiting for an agent to become available<br>(21 seconds). |
+| ConnectedToSystem Timestamp | 11:39:10                   | John is called after the 10 second agent whisper flow<br>completes.                                                                            |
+| ConnectedToAgent Timestamp  | 11:39:25                   | John and the agent are connected, after the 15 second<br>outbound whisper flow completes.                                                      |
+| Disconnected Timestamp      | 11:45                      | John hangs up.                                                                                                                                 |

@@ -72,7 +72,7 @@ The following table lists which fields can be mapped from the
 Shopify-Customer object to the standard profile.
 
 | Shopify-Customer source field | Standard profile target field |
-| ----------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------- | ----------------------------- |
 | id                            | Attributes.ShopifyCustomerId  |
 | email                         | EmailAddress                  |
 | first_name                    | FirstName                     |
@@ -84,7 +84,31 @@ Shopify-Customer object to the standard profile.
 | default_address.city          | Address.City                  |
 | default_address.province      | Address.Province              |
 | default_address.country       | Address.Country               |
-| default_address.zip           | Address.PostalCode            | ### Example The following example shows how to map a source field to a target field. `"shopifyCustomerId": { "Source": "_source.detail.event.detail.payload.id", "Target": "_profile.Attributes.ShopifyCustomerId" }` The Shopify-Customer customer data from the Shopify object is associated with an Amazon Connect customer profile using the following index.                                                                                                                                                                                                                                                           |
-| Standard Index Name           | Shopify-Customer source field |
-| ---                           | ---                           |
-| \_shopifyCustomerId           | id                            | For example, you can use `_shopifyCustomerId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You can find the Shopify-Customer objects associated with a specific profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and `ObjectTypeName` set to `Shopify-Customer`. |
+| default_address.zip           | Address.PostalCode            |
+
+### Example
+
+The following example shows how to map a source field to a target
+field.
+
+```
+"shopifyCustomerId": {
+    "Source": "_source.detail.event.detail.payload.id",
+    "Target": "_profile.Attributes.ShopifyCustomerId"
+}
+```
+
+The Shopify-Customer customer data from the Shopify object is
+associated with an Amazon Connect customer profile using the following
+index.
+
+| Standard Index Name | Shopify-Customer source<br>field |
+| ------------------- | -------------------------------- |
+| \_shopifyCustomerId | id                               |
+
+For example, you can use `_shopifyCustomerId` as a key
+name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile.
+You can find the Shopify-Customer objects associated with a specific
+profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId`
+and `ObjectTypeName` set to
+`Shopify-Customer`.

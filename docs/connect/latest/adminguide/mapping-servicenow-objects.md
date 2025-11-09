@@ -83,22 +83,34 @@ standard profile object in Customer Profiles.
 The following table lists which fields can be mapped from the
 Servicenow-sys_users object to the standard profile.
 
-| Servicenow-sys_users source field | Customer profiles target field   |
-| --------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sys_id                            | Attributes.ServiceNowSystemId    |
-| first_name                        | FirstName                        |
-| last_name                         | LastName                         |
-| middle_name                       | MiddleName                       |
-| gender                            | Gender                           |
-| email                             | EmailAddress                     |
-| phone                             | PhoneNumber                      |
-| home_phone                        | HomePhoneNumber                  |
-| mobile_phone                      | MobilePhoneNumber                |
-| street                            | Address.Address1                 |
-| city                              | Address.City                     |
-| state                             | Address.State                    |
-| country                           | Address.Country                  |
-| zip                               | Address.PostalCode               | The Servicenow-sys_user customer data from Servicenow object is associated with an Amazon Connect customer profile using the indexes in the following table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Standard Index Name               | Servicenow-sys_user source field |
-| ---                               | ---                              |
-| \_serviceNowSystemId              | sys_id                           | For example, you can use `_serviceNowSystemId` and `_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You can find the Servicenow-sys_user objects associated with a specific profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and `ObjectTypeName` set to `Servicenow-sys_user`. |
+| Servicenow-sys_users source field | Customer profiles target field |
+| --------------------------------- | ------------------------------ |
+| sys_id                            | Attributes.ServiceNowSystemId  |
+| first_name                        | FirstName                      |
+| last_name                         | LastName                       |
+| middle_name                       | MiddleName                     |
+| gender                            | Gender                         |
+| email                             | EmailAddress                   |
+| phone                             | PhoneNumber                    |
+| home_phone                        | HomePhoneNumber                |
+| mobile_phone                      | MobilePhoneNumber              |
+| street                            | Address.Address1               |
+| city                              | Address.City                   |
+| state                             | Address.State                  |
+| country                           | Address.Country                |
+| zip                               | Address.PostalCode             |
+
+The Servicenow-sys_user customer data from Servicenow object is
+associated with an Amazon Connect customer profile using the indexes in the
+following table.
+
+| Standard Index Name  | Servicenow-sys_user source field |
+| -------------------- | -------------------------------- |
+| \_serviceNowSystemId | sys_id                           |
+
+For example, you can use `_serviceNowSystemId` and
+`_serviceNowIncidentId` as a key name with the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to find an Amazon Connect customer profile. You
+can find the Servicenow-sys_user objects associated with a specific
+profile by using the [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md") API with the `ProfileId` and
+`ObjectTypeName` set to
+`Servicenow-sys_user`.

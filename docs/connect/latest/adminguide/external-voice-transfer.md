@@ -53,9 +53,42 @@ across PSTN.
 Following table lists the differences between using transfer to phone number or
 external voice transfer.
 
-|              | Transfer to phone number                 | Transfer to external voice systems                                                                                                                                                                                                                            |
-| ------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Destination  | A phone number                           | A pre-configured connector                                                                                                                                                                                                                                    |
-| Metadata     | Cannot be transferred                    | Can be transferred                                                                                                                                                                                                                                            |
-| Connectivity | Uses the public telephone network (PSTN) | Does not use the public telephone network (PSTN)                                                                                                                                                                                                              |
-| Billing      | Voice usage costs apply during transfer  | Voice usage costs do not apply after the call is transferred if: 1. The call is not being recorded. 2. The [Transfer to phone number](transfer-to-phone-number.md "transfer-to-phone-number.md") block is NOT configured to **Resume flow after disconnect**. | ## Requirements Before you start setting up external voice transfer, check that your Amazon Connect and on-premise systems meet the following requirements: <br>• Verify your Amazon Connect instance is created in a [supported AWS Region](regions.md#external-voice-transfer-region "regions.md#external-voice-transfer-region") for external voice integration. <br>• Make sure your on-premise voice system can connect to the Region. ## Set up steps Following is a summary of the steps you'll take to set up external voice transfer for Amazon Connect The linked topics provide more detail. 1. [Create an Amazon Connect instance](amazon-connect-instances.md "amazon-connect-instances.md") if you don't already have one. <br>• Claim a phone number from Amazon Connect or port an existing number. 2. [Request service quota increases](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for **External voice transfer connectors per account**. ###### Important After your service quotas are requested and approved, **External voice connectors** is displayed in the Amazon Connect console and the Amazon Connect admin website. 3. [Create external voice transfer connectors](setup-external-voice-transfer.md "setup-external-voice-transfer.md") in the Amazon Connect console. 4. [Configure your external on-premise voice system](configure-external-voice-system1.md "configure-external-voice-system1.md"). 5. [Configure a Transfer flow block to route calls from Amazon Connect to your external enterprise voice system](configure-external-voice-system-flow1.md "configure-external-voice-system-flow1.md"). 6. Optionally, [Set up Amazon Connect Global Resiliency for external voice transfer](acgr-external-voice-transfer.md "acgr-external-voice-transfer.md"). |
+|              | Transfer to phone number                 | Transfer to external voice systems                                                                                                                                                                                                                                              |
+| ------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Destination  | A phone number                           | A pre-configured connector                                                                                                                                                                                                                                                      |
+| Metadata     | Cannot be transferred                    | Can be transferred                                                                                                                                                                                                                                                              |
+| Connectivity | Uses the public telephone network (PSTN) | Does not use the public telephone network (PSTN)                                                                                                                                                                                                                                |
+| Billing      | Voice usage costs apply during transfer  | Voice usage costs do not apply after the call is transferred<br>if:<br>1. The call is not being recorded.<br>2. The [Transfer to phone<br>number](transfer-to-phone-number.md "transfer-to-phone-number.md") block is NOT<br>configured to **Resume flow after<br>disconnect**. |
+
+## Requirements
+
+Before you start setting up external voice transfer, check that your Amazon Connect and
+on-premise systems meet the following requirements:
+
+- Verify your Amazon Connect instance is created in a [supported AWS Region](regions.md#external-voice-transfer-region "regions.md#external-voice-transfer-region") for
+  external voice integration.
+- Make sure your on-premise voice system can connect to the Region.
+
+## Set up steps
+
+Following is a summary of the steps you'll take to set up external voice transfer for
+Amazon Connect The linked topics provide more detail.
+
+1. [Create an Amazon Connect instance](amazon-connect-instances.md "amazon-connect-instances.md") if
+   you don't already have one.
+   - Claim a phone number from Amazon Connect or port an existing number.
+
+2. [Request
+   service quota increases](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for **External voice transfer
+   connectors per account**.
+
+###### Important
+
+After your service quotas are requested and approved, **External
+voice connectors** is displayed in the Amazon Connect console and the
+Amazon Connect admin website. 3. [Create external voice transfer
+connectors](setup-external-voice-transfer.md "setup-external-voice-transfer.md") in the Amazon Connect console. 4. [Configure your external on-premise
+voice system](configure-external-voice-system1.md "configure-external-voice-system1.md"). 5. [Configure a Transfer
+flow block to route calls from Amazon Connect to your external enterprise voice
+system](configure-external-voice-system-flow1.md "configure-external-voice-system-flow1.md"). 6. Optionally, [Set up Amazon Connect Global Resiliency for
+external voice transfer](acgr-external-voice-transfer.md "acgr-external-voice-transfer.md").

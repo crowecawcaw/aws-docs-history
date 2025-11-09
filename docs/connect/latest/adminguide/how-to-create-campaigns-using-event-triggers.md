@@ -76,7 +76,7 @@ triggers using APIs
 values:**
 
 | ComparisonOperator        | Comment                                                             | Supported type |
-| ------------------------- | ------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ------------------------------------------------------------------- | -------------- |
 | **INCLUSIVE**             | Checks if the target includes all the specified values.             | String         |
 | **EXCLUSIVE**             | Checks if the target does not contain all the specified values.     | String         |
 | **CONTAINS**              | Checks if the target contain any of the specified values.           | String         |
@@ -91,4 +91,81 @@ values:**
 | **NOT_BETWEEN**           | True if the target is not within specific value range or timestamp. | Number/Date\*  |
 | **BEFORE**                | True if the target is before the specified timestamp.               | Date           |
 | **AFTER**                 | True if the target is after the specified timestamp.                | Date           |
-| **ON**                    | True if the target is on the specified timestamp.                   | Date           | <br>• **Source**: Used to define an attribute in the object. + Only one attribute is allowed in a single `ObjectAttribute` entry. <br>• **FieldName**: Used to point to the mapped attribute in Data Mapping. + Only one attribute is allowed in a single `ObjectAttribute` entry. <br>• **ObjectTypeName**: Supports all default and custom object type names, but not standard object types, such as `_profile`, `_asset`, `_order`, and others. <br>• **EventTriggerLimits**: + Allow max of concurrent 20 event triggers per customer domain by default. + Default limit of 10 invocations per day, per profile, per trigger. You can override this by specifying `UNLIMITED` in `MaxInvocationPerProfile`. + **MaxInvocationPerProfile**: <br>• Valid Range: Minimum value of 1. Maximum value of 1000. (or `UNLIMITED`) + Unit: <br>• Valid Values: HOURS, DAYS, WEEKS, MONTHS + Value: <br>• Valid Range: Minimum value of 1. Maximum value of 24 <br>• Time range comparison + Customer Profiles uses standard libraries to parse time values. For global services, it is important to account for timezone conversions to ensure accurate processing. <br>• The `EventExpiration` value is specified in milliseconds. When used to trigger a campaign, the maximum expiration time is capped at 15 minutes. **Outbound campaigns event trigger APIs** <br>• **CreateCampaignV2** The only changes needed for creating an event triggered campaign are the highlighted fields. The rest of the fields are the same as Scheduled Campaigns. ``{ "name": "string", "connectInstanceId": "string", "channelSubtypeConfig": { // or other channel parameters "email": { "outboundMode": { "agentless":{ } }, "defaultOutboundConfig":{ "connectSourceEmailAddress":"example@example.com", "wisdomTemplateArn":"arn:aws:wisdom:us-west-2:123456789012:message-template/dXXXXX0Pc8-195a-776f-0000-EXAMPLE/51219d5c-b1f4-4bad-b8d3-000673332", "sourceEmailAddressDisplayName": "testEmailDisplayName" } } }, "connectCampaignFlowArn": `<Flow ARN>`, "schedule": { "endTime": "2024-12-11T21:22:00Z", "startTime": "2024-10-31T20:14:49Z", "timeZone": "America/Los_Angeles" }, "source": { "eventTrigger": { "customerProfilesDomainArn": `<Domain ARN>` }`` <br>• **PutProfileOutboundRequestBatch** You are not able to directly invoke this API, but it will be logged within your Cloudtrail logs. This API is used to trigger a campaign after receiving an event, and is the mechanism that initiates a voice call, email, or SMS. |
+| **ON**                    | True if the target is on the specified timestamp.                   | Date           |
+
+- **Source**: Used to define an attribute in the
+  object.
+  - Only one attribute is allowed in a single `ObjectAttribute` entry.
+
+- **FieldName**: Used to point to the mapped attribute in Data
+  Mapping.
+  - Only one attribute is allowed in a single `ObjectAttribute` entry.
+
+- **ObjectTypeName**: Supports all default and custom object
+  type names, but not standard object types, such as `_profile`, `_asset`,
+  `_order`, and others.
+- **EventTriggerLimits**:
+  - Allow max of concurrent 20 event triggers per customer domain by default.
+  - Default limit of 10 invocations per day, per profile, per trigger. You can override
+    this by specifying `UNLIMITED` in `MaxInvocationPerProfile`.
+  - **MaxInvocationPerProfile**:
+    - Valid Range: Minimum value of 1. Maximum value of 1000. (or
+      `UNLIMITED`)
+
+  - Unit:
+    - Valid Values: HOURS, DAYS, WEEKS, MONTHS
+
+  - Value:
+    - Valid Range: Minimum value of 1. Maximum value of 24
+
+- Time range comparison
+  - Customer Profiles uses standard libraries to parse time values. For global services,
+    it is important to account for timezone conversions to ensure accurate processing.
+
+- The `EventExpiration` value is specified in milliseconds. When used to trigger
+  a campaign, the maximum expiration time is capped at 15 minutes.
+
+**Outbound campaigns event trigger APIs**
+
+- **CreateCampaignV2**
+
+The only changes needed for creating an event triggered campaign are the highlighted
+fields. The rest of the fields are the same as Scheduled Campaigns.
+
+```
+{
+    "name": "string",
+    "connectInstanceId": "string",
+    "channelSubtypeConfig": {
+    // or other channel parameters
+        "email": {
+            "outboundMode": {
+                "agentless":{
+                }
+            },
+            "defaultOutboundConfig":{
+                "connectSourceEmailAddress":"example@example.com",
+                "wisdomTemplateArn":"arn:aws:wisdom:us-west-2:123456789012:message-template/dXXXXX0Pc8-195a-776f-0000-EXAMPLE/51219d5c-b1f4-4bad-b8d3-000673332",
+                "sourceEmailAddressDisplayName": "testEmailDisplayName"
+            }
+        }
+    },
+    "connectCampaignFlowArn": `<Flow ARN>`,
+    "schedule": {
+            "endTime": "2024-12-11T21:22:00Z",
+            "startTime": "2024-10-31T20:14:49Z",
+            "timeZone": "America/Los_Angeles"
+    },
+    "source": {
+        "eventTrigger": {
+            "customerProfilesDomainArn": `<Domain ARN>`
+}
+
+
+```
+
+- **PutProfileOutboundRequestBatch**
+
+You are not able to directly invoke this API, but it will be logged within your
+Cloudtrail logs. This API is used to trigger a campaign after receiving an event, and is the
+mechanism that initiates a voice call, email, or SMS.

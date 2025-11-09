@@ -115,20 +115,20 @@ security profiles, routing profiles, queues, flows, or flow modules. For more
 information on how to manage permissions, see [List of security profile permissions in
 Amazon Connect](security-profile-list.md "security-profile-list.md").
 
-| Modules                         | Permission to disable access |
-| ------------------------------- | ---------------------------- |
-| Contact search                  | Contact Search               |
-| Dashboard                       | Access metrics               |
-| Flows                           | Flows - View                 |
-| Flow modules                    | Flow modules - View          |
-| Forecasting                     | Forecasting                  |
-| Historical changes/Audit portal | Access metrics               |
-| Hours of operation              | Hours of operation - View    |
-| Login/Login out report          | Login/Logout report - View   |
-| Outbound Campaign               | Campaigns - View             |
-| Prompts                         | Prompts - View               |
-| Quick connect                   | Quick connects - View        |
-| Rules                           | Rules - View                 |
-| Saved reports                   | Saved reports - View         |
-| Scheduling                      | Schedule manager             |
-| Scheduling                      | Published schedule calendar  |
+| Modules                         | Permission to disable access  |
+| ------------------------------- | ----------------------------- |
+| Contact search                  | Contact Search                |
+| Dashboard                       | Access metrics                |
+| Flows                           | Flows<br>• View               |
+| Flow modules                    | Flow modules<br>• View        |
+| Forecasting                     | Forecasting                   |
+| Historical changes/Audit portal | Access metrics                |
+| Hours of operation              | Hours of operation<br>• View  |
+| Login/Login out report          | Login/Logout report<br>• View |
+| Outbound Campaign               | Campaigns<br>• View           |
+| Prompts                         | Prompts<br>• View             |
+| Quick connect                   | Quick connects<br>• View      |
+| Rules                           | Rules<br>• View               |
+| Saved reports                   | Saved reports<br>• View       |
+| Scheduling                      | Schedule manager              |
+| Scheduling                      | Published schedule calendar   |

@@ -94,8 +94,59 @@ The following table lists how this block routes a contact who is using the
 specified channel.
 
 | Channel | Supported? |
-| ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ---------- |
 | Voice   | Yes        |
 | Chat    | Yes        |
 | Task    | Yes        |
-| Email   | Yes        | ## Flow types You can use this block in the following [flow types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"): <br>• Inbound flow <br>• Customer Queue flow <br>• Transfer to Agent flow <br>• Transfer to Queue flow ## Properties The following image shows the **Properties** page of the **Set whisper flow** block. It shows the whisper to the agent is set manually to **Default agent whisper**. Use the dropdown box to choose a different whisper flow. ![The properties page of the Set whisper flow block.](images/set-whisper-flow-properties4.png) If you choose to set a flow manually, in the **Search for flow** box, you can only select from flows that are type **Agent Whisper** or **Customer Whisper**. For information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md"). To disable a previously set agent or customer whisper, choose the **Disable agent whisper** or **Disable customer whisper** option. ## Configuration tips <br>• In a single block, you can set either a customer whisper or an agent whisper, but not both. Instead, use multiple **Set whisper flow** blocks in your flow. <br>• A maximum of one agent whisper and one customer whisper can be played. If you use multiple **Set whisper flow** blocks, the most recently specified one for each type (agent and customer) is played. <br>• Make sure your whispers are able to complete within two minutes. Otherwise, calls will be disconnected before being established. <br>• If agents appear to be stuck in the "Connecting..." state before being forcefully disconnected from calls, make sure that your configured whisper flows meet the two minute maximum. ## Configured block The following image shows an example of what this block looks like when it is configured. It has the following branches: **Success** and **Error**. ![A configured Set whisper flow block.](images/set-whisper-flow-configured.png) |
+| Email   | Yes        |
+
+## Flow types
+
+You can use this block in the following [flow
+types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
+
+- Inbound flow
+- Customer Queue flow
+- Transfer to Agent flow
+- Transfer to Queue flow
+
+## Properties
+
+The following image shows the **Properties** page of the
+**Set whisper flow** block. It shows the whisper to the agent
+is set manually to **Default agent whisper**. Use the dropdown box
+to choose a different whisper flow.
+
+![The properties page of the Set whisper flow block.](images/set-whisper-flow-properties4.png)
+
+If you choose to set a flow manually, in the **Search for flow**
+box, you can only select from flows that are type **Agent Whisper**
+or **Customer Whisper**.
+
+For information about using attributes, see [Use Amazon Connect contact attributes](connect-contact-attributes.md "connect-contact-attributes.md").
+
+To disable a previously set agent or customer whisper, choose the
+**Disable agent whisper** or **Disable customer
+whisper** option.
+
+## Configuration tips
+
+- In a single block, you can set either a customer whisper or an agent
+  whisper, but not both. Instead, use multiple **Set whisper
+  flow** blocks in your flow.
+- A maximum of one agent whisper and one customer whisper can be played. If
+  you use multiple **Set whisper flow** blocks, the most
+  recently specified one for each type (agent and customer) is played.
+- Make sure your whispers are able to complete within two minutes.
+  Otherwise, calls will be disconnected before being established.
+- If agents appear to be stuck in the "Connecting..." state before being
+  forcefully disconnected from calls, make sure that your configured whisper
+  flows meet the two minute maximum.
+
+## Configured block
+
+The following image shows an example of what this block looks like when it is
+configured. It has the following branches: **Success** and
+**Error**.
+
+![A configured Set whisper flow block.](images/set-whisper-flow-configured.png)

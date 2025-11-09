@@ -137,5 +137,27 @@ JSON
    using the following attribute and value strings.
 
 | Attribute                                   | Value                                   |
-| ------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| https://aws.amazon.com/SAML/Attributes/Role | `saml-role-arn`,`identity-provider-arn` | 5. Configure the Assertion Consumer Service (ACS) URL of your identity provider to point to your personalized SAML sign-in URL. Use the following example for the ACS URL: `` https://`instance-id`.`source-region`.sign-in.connect.aws/saml?&instanceId=`instance-id`&accountId=`your AWS account ID`&role=`saml-federation-role`&idp=`your SAML IDP`&destination=`optional-destination` `` 6. Set following fields in the URL parameters: <br>• `instanceId`: The identifier of your Amazon Connect instance. For instructions about how to find your instance ID, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md"). <br>• `accountId`: The AWS account ID where the Amazon Connect instances are located. <br>• `role`: Set to the name or Amazon Resource Name (ARN) of the SAML role used for Amazon Connect federation. <br>• `idp`: Set to the name or Amazon Resource Name (ARN) of the SAML identity provider in IAM. <br>• `destination`: Set to the optional path where agents will land in the instance after signing in (for example: `/agent-app-v2`). |
+| ------------------------------------------- | --------------------------------------- |
+| https://aws.amazon.com/SAML/Attributes/Role | `saml-role-arn`,`identity-provider-arn` |
+
+5. Configure the Assertion Consumer Service (ACS) URL of your
+   identity provider to point to your personalized SAML sign-in URL.
+   Use the following example for the ACS URL:
+
+```
+https://`instance-id`.`source-region`.sign-in.connect.aws/saml?&instanceId=`instance-id`&accountId=`your AWS account ID`&role=`saml-federation-role`&idp=`your SAML IDP`&destination=`optional-destination`
+```
+
+6. Set following fields in the URL parameters:
+   - `instanceId`: The identifier of your Amazon Connect
+     instance. For instructions about how to find your instance
+     ID, see [Find your Amazon Connect instance ID or ARN](find-instance-arn.md "find-instance-arn.md").
+   - `accountId`: The AWS account ID where the
+     Amazon Connect instances are located.
+   - `role`: Set to the name or Amazon Resource Name
+     (ARN) of the SAML role used for Amazon Connect federation.
+   - `idp`: Set to the name or Amazon Resource Name
+     (ARN) of the SAML identity provider in IAM.
+   - `destination`: Set to the optional path where
+     agents will land in the instance after signing in (for
+     example: `/agent-app-v2`).

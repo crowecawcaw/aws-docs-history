@@ -162,25 +162,61 @@ records
 The following events are captured in the [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord") section of the contact records data model. You can
 use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API to return task events.
 
-| Name in contact record                                                                                                                                                      | Name returned by DescribeContact API                                                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TotalPauseDurationInSeconds                                                                                                                                                 | TOTAL_PAUSED_TIME                                                                                                                                                                                                |
-| TotalPauseCount                                                                                                                                                             | TOTAL_NUMBER_OF_PAUSES                                                                                                                                                                                           |
-| LastPausedTimestamp                                                                                                                                                         | LAST_PAUSED_TIMESTAMP                                                                                                                                                                                            |
-| LastResumedTimestamp                                                                                                                                                        | LAST_RESUMED_TIMESTAMP                                                                                                                                                                                           | The following values are available in near real time when you use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API or view the **Contact details** page for an in progress contact. <br>• TotalPauseCount <br>• LastPausedTimestamp <br>• LastResumedTimestamp A completed contact has TotalPauseDurationInSeconds. ## Metrics The following metrics display active, paused, and resumed time.                                                                                                                                                                                                                                |
-| Real-time metrics                                                                                                                                                           | Description                                                                                                                                                                                                      |
-| ---                                                                                                                                                                         | ---                                                                                                                                                                                                              |
-| **[UI]** Agent/Routing Profiles/Queue → Performance → **Average Active Time**                                                                                               | SUM(active_time)/Number of contacts                                                                                                                                                                              |
-| **[UI]** Agent/Routing Profiles/Queue → Performance → **Average Agent Pause Time**                                                                                          | SUM(agent_pause_time)/Number of contacts that were paused                                                                                                                                                        |
-| **[UI]** Agent → Contacts → **Contact State**                                                                                                                               | Paused state of a task contact                                                                                                                                                                                   |
-| Historical Metrics                                                                                                                                                          | Description                                                                                                                                                                                                      |
-| ---                                                                                                                                                                         | ---                                                                                                                                                                                                              |
-| **[UI]** Agent → Agent activity audit → Support "PAUSED" state                                                                                                              | Display paused state when the contact for an agent is in Paused state                                                                                                                                            |
-| **[[GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")]** Query Average of AGENT_PAUSE_TIME for a queue/routing profile/task | SUM(total_agent_pause_time) for all contacts that were paused from queue/routing profile/TaskAVG = SUM(total_agent_pause_time)/number of paused contacts for queue/RP/Tasks                                      |
-| **[[GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")]** Query Average of ACTIVE_TIME for a queue/routing profile           | SUM(total_handle_time - total_agent_pause_time) for all contacts of queue/routing profile/tasks AVG = SUM(total_handle_time - total_agent_pause_time) / total number of contacts for queue/routing profile/tasks |
-| Contact details page                                                                                                                                                        | Description                                                                                                                                                                                                      |
-| ---                                                                                                                                                                         | ---                                                                                                                                                                                                              |
-| **[UI]** Contact Search → Contact Details → Contact Summary → Last Paused Time                                                                                              | Last Paused Time                                                                                                                                                                                                 |
-| **[UI]** Contact Search → Contact Details → Contact Summary → Last Resumed Time                                                                                             | Last Resumed Time                                                                                                                                                                                                |
-| **[UI]** Contact Search → Contact Details → Contact Summary → Number of Pauses                                                                                              | Total number of Pauses including when the contact was not connected.                                                                                                                                             |
-| **[UI]** Contact Search → Contact Details → Contact Summary → Total Pause Duration                                                                                          | Total Pause duration includes before and after the agent was connected.                                                                                                                                          | ### Real-time Metrics page The following image of the **Real-time Metrics** page shows the task contact state as **Paused**. ![The real-time metrics page, task in paused contact state.](images/tasks-paused-rtm.png) The following image of the **Real-time Metrics** page shows **Avg Active Time**, **AHT** and **Avg Agent Pause Time**. ![The real-time metrics page, task in paused contact state.](images/tasks-rtm-2.png) ### Agent Activity Audit report The following image of the **Agent Activity Audit report** shows the Paused status when a contact is paused by the agent. ![The agent activity audit report, paused status.](images/tasks-agent-activity-report.png) |
+| Name in contact record      | Name returned by DescribeContact API |
+| --------------------------- | ------------------------------------ |
+| TotalPauseDurationInSeconds | TOTAL_PAUSED_TIME                    |
+| TotalPauseCount             | TOTAL_NUMBER_OF_PAUSES               |
+| LastPausedTimestamp         | LAST_PAUSED_TIMESTAMP                |
+| LastResumedTimestamp        | LAST_RESUMED_TIMESTAMP               |
+
+The following values are available in near real time when you use the [DescribeContact](../APIReference/API_DescribeContact.md "../APIReference/API_DescribeContact.md") API or view the **Contact details**
+page for an in progress contact.
+
+- TotalPauseCount
+- LastPausedTimestamp
+- LastResumedTimestamp
+
+A completed contact has TotalPauseDurationInSeconds.
+
+## Metrics
+
+The following metrics display active, paused, and resumed time.
+
+| Real-time metrics                                                                               | Description                                                  |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| **[UI]\*<br>• Agent/Routing<br>Profiles/Queue → Performance → **Average Active<br>Time\*\*      | SUM(active_time)/Number of contacts                          |
+| **[UI]\*<br>• Agent/Routing<br>Profiles/Queue → Performance → **Average Agent Pause<br>Time\*\* | SUM(agent_pause_time)/Number of contacts that were<br>paused |
+| **[UI]\*<br>• Agent → Contacts →<br>**Contact State\*\*                                         | Paused state of a task contact                               |
+
+| Historical Metrics                                                                                                                                                                  | Description                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \*_[UI]_<br>• Agent → Agent activity<br>audit → Support "PAUSED" state                                                                                                              | Display paused state when the contact for an agent is in<br>Paused state                                                                                                                                                        |
+| \*_[[GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")]_<br>• Query Average of<br>AGENT_PAUSE_TIME for a queue/routing profile/task | SUM(total_agent_pause_time) for all contacts that were paused<br>from queue/routing profile/TaskAVG =<br>SUM(total_agent_pause_time)/number of paused contacts for<br>queue/RP/Tasks                                            |
+| \*_[[GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md")]_<br>• Query Average of<br>ACTIVE_TIME for a queue/routing profile           | SUM(total_handle_time<br>• total_agent_pause_time) for all<br>contacts of queue/routing profile/tasks<br>AVG = SUM(total_handle_time<br>• total_agent_pause_time) / total<br>number of contacts for queue/routing profile/tasks |
+
+| Contact details page                                                                       | Description                                                                |
+| ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| \*_[UI]_<br>• Contact Search → Contact<br>Details → Contact Summary → Last Paused Time     | Last Paused Time                                                           |
+| \*_[UI]_<br>• Contact Search → Contact<br>Details → Contact Summary → Last Resumed Time    | Last Resumed Time                                                          |
+| \*_[UI]_<br>• Contact Search → Contact<br>Details → Contact Summary → Number of Pauses     | Total number of Pauses including when the contact was not<br>connected.    |
+| \*_[UI]_<br>• Contact Search → Contact<br>Details → Contact Summary → Total Pause Duration | Total Pause duration includes before and after the agent was<br>connected. |
+
+### Real-time Metrics page
+
+The following image of the **Real-time Metrics** page shows
+the task contact state as **Paused**.
+
+![The real-time metrics page, task in paused contact state.](images/tasks-paused-rtm.png)
+
+The following image of the **Real-time Metrics** page shows
+**Avg Active Time**, **AHT** and
+**Avg Agent Pause Time**.
+
+![The real-time metrics page, task in paused contact state.](images/tasks-rtm-2.png)
+
+### Agent Activity Audit report
+
+The following image of the **Agent Activity Audit report**
+shows the Paused status when a contact is paused by the agent.
+
+![The agent activity audit report, paused status.](images/tasks-agent-activity-report.png)

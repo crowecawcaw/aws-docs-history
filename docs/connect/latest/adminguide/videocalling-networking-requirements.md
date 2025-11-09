@@ -14,6 +14,11 @@ Video calling does not support VDI environments.
 The following table shows the additional networking requirements for your agents'
 workstation.
 
-| Domain       | Subnet         | Ports                |
-| ------------ | -------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*.chime.aws | 99.77.128.0/18 | 443 (TCP) 3478 (UDP) | The following diagram shows the networking requirements for the customers who are using the communications widgets to contact you. ![The networking requirements for customers using web calling or video.](images/networking-customer.png) |
+| Domain       | Subnet         | Ports                   |
+| ------------ | -------------- | ----------------------- |
+| \*.chime.aws | 99.77.128.0/18 | 443 (TCP)<br>3478 (UDP) |
+
+The following diagram shows the networking requirements for the customers who are
+using the communications widgets to contact you.
+
+![The networking requirements for customers using web calling or video.](images/networking-customer.png)
