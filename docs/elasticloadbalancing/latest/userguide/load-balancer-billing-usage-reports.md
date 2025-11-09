@@ -16,24 +16,33 @@ billing codes](../../../global-infrastructure/latest/regions/aws-region-billing-
 ## Application Load Balancers
 
 | Code                                  | Description                                        | Units |
-| ------------------------------------- | -------------------------------------------------- | ----- | ------------------------- |
+| ------------------------------------- | -------------------------------------------------- | ----- |
 | ``region`-LoadBalancerUsage`          | The running time.                                  | Hours |
 | ``region`-LCUUsage`                   | The LCUs used.                                     | LCU   |
 | ``region`-IdleProvisionedLBCapacity`  | The LCUs reserved but not used.                    | LCU   |
 | ``region`-TS-LoadBalancerUsage`       | The time that a trust store is used by Mutual TLS. | Hours |
 | ``region`-Outposts-LoadBalancerUsage` | The running time on Outposts.                      | Hours |
 | ``region`-Outposts-LCUUsage`          | The LCUs used on Outposts.                         | LCU   |
-| ``region`-ReservedLCUUsage`           | The LCUs reserved.                                 | LCU   | ## Network Load Balancers |
-| Code                                  | Description                                        | Units |
-| ---                                   | ---                                                | ---   |
-| ``region`-LoadBalancerUsage`          | The running time.                                  | Hours |
-| ``region`-LCUUsage`                   | The LCUs used.                                     | LCU   | ## Gateway Load Balancers |
-| Code                                  | Description                                        | Units |
-| ---                                   | ---                                                | ---   |
-| ``region`-LoadBalancerUsage`          | The running time.                                  | Hours |
-| ``region`-LCUUsage`                   | The LCUs used.                                     | LCU   | ## Classic Load Balancers |
-| Code                                  | Description                                        | Units |
-| ---                                   | ---                                                | ---   |
-| ``region`-LoadBalancerUsage`          | The running time.                                  | Hours |
-| ``region`-DataProcessing-Bytes`       | The data processed.                                | GB    |
-| ``region`-IdleProvisionedLBCapacity`  | The LCUs reserved but not used.                    | LCU   |
+| ``region`-ReservedLCUUsage`           | The LCUs reserved.                                 | LCU   |
+
+## Network Load Balancers
+
+| Code                         | Description       | Units |
+| ---------------------------- | ----------------- | ----- |
+| ``region`-LoadBalancerUsage` | The running time. | Hours |
+| ``region`-LCUUsage`          | The LCUs used.    | LCU   |
+
+## Gateway Load Balancers
+
+| Code                         | Description       | Units |
+| ---------------------------- | ----------------- | ----- |
+| ``region`-LoadBalancerUsage` | The running time. | Hours |
+| ``region`-LCUUsage`          | The LCUs used.    | LCU   |
+
+## Classic Load Balancers
+
+| Code                                 | Description                     | Units |
+| ------------------------------------ | ------------------------------- | ----- |
+| ``region`-LoadBalancerUsage`         | The running time.               | Hours |
+| ``region`-DataProcessing-Bytes`      | The data processed.             | GB    |
+| ``region`-IdleProvisionedLBCapacity` | The LCUs reserved but not used. | LCU   |
