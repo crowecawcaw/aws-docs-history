@@ -19,6 +19,7 @@ Benefits of the Custom Mode as opposed to the Standard Mode include:
 
 In contrast, Custom Mode enables you to make your Device Farm test execution environment consistently in
 line with with your local test environment.
+
 Custom environments are configured using a YAML-formatted test specification (test spec) file. Device Farm
 provides a default test spec file for each supported test type that can be used as is or customized;
 customizations like test filters or config files can be added to the test spec. Edited test specs can be saved
@@ -29,10 +30,12 @@ and [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-creat
 
 ###### Topics
 
-- [Test spec syntax in Device Farm](custom-test-environment-yaml-file-structure.md "custom-test-environment-yaml-file-structure.md")
-- [Example of the Device Farm test spec file](custom-test-environment-example.md "custom-test-environment-example.md")
-- [Amazon Linux 2 test environment for Android tests](amazon-linux-2.md "amazon-linux-2.md")
-- [Environment variables in Device Farm](custom-test-environment-variables.md "custom-test-environment-variables.md")
+- [Test spec reference and syntax](custom-test-environment-test-spec.md "custom-test-environment-test-spec.md")
+- [Hosts for custom test environments](custom-test-environments-hosts.md "custom-test-environments-hosts.md")
+- [Environment variables for custom test
+  environments](custom-test-environment-variables.md "custom-test-environment-variables.md")
+- [Best practices for custom test
+  environment execution](custom-test-environments-best-practices.md "custom-test-environments-best-practices.md")
 - [Migrating tests from a standard to custom
   test environment](custom-test-environment-migration.md "custom-test-environment-migration.md")
 - [Extending custom test environments in Device Farm](custom-test-environments-extending.md "custom-test-environments-extending.md")

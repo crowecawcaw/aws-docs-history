@@ -53,10 +53,97 @@ You can list your artifacts by run, job, test suite, or test. You need the
 corresponding ARN. This table shows the input ARN for each of the AWS CLI list
 commands:
 
-| AWS CLI List Command | Required ARN                                                   |
-| -------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **list-projects**    | This command returns all projects and does not require an ARN. |
-| **list-runs**        | `project`                                                      |
-| **list-jobs**        | `run`                                                          |
-| **list-suites**      | `job`                                                          |
-| **list-tests**       | `suite`                                                        | For example, to find a test ARN, run **list-tests** using your test suite ARN as an input parameter. Example: `` aws devicefarm list-tests –-arn `arn:MyTestSuiteARN` `` The response includes a test ARN for each test in the test suite. `` `{ "tests": [ { "status": "COMPLETED", "name": "Tests.FixturesTest.testExample", "created": 1537563725.116, "deviceMinutes": { "unmetered": 0.0, "total": 1.89, "metered": 1.89 }, "result": "PASSED", "message": "testExample passed", "arn": "arn:aws:devicefarm:us-west-2:123456789101:test:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE", "counters": { "skipped": 0, "warned": 0, "failed": 0, "stopped": 0, "passed": 1, "errored": 0, "total": 1 } } ] }` `` ### Step 2: List your artifacts The AWS CLI [list-artifacts](../../../cli/latest/reference/devicefarm/list-artifacts.md "../../../cli/latest/reference/devicefarm/list-artifacts.md") command returns a list of artifacts, such as files, screenshots, and logs. Each artifact has a URL so you can download the file. <br>• Call **list-artifacts** specifying a run, job, test suite, or test ARN. Specify a type of FILE, LOG, or SCREENSHOT. This example returns a download URL for each artifact available for an individual test: ``aws devicefarm list-artifacts --arn `arn:MyTestARN` --type "FILE"`` The response contains a download URL for each artifact. `` `{ "artifacts": [ { "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL", "extension": "txt", "type": "APPIUM_JAVA_OUTPUT", "name": "Appium Java Output", "arn": "arn:aws:devicefarm:us-west-2:123456789101:artifact:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE", } ] }` `` ### Step 3: Download your artifacts <br>• Download your artifact using the URL from the previous step. This example uses **curl** to download an Android Appium Java output file: `` curl "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL" > `MyArtifactName.txt` `` ## Download artifacts (API) The Device Farm API [ListArtifacts](../APIReference/API_ListArtifacts.md "../APIReference/API_ListArtifacts.md") method returns a list of artifacts, such as files, screenshots, and logs. Each artifact has a URL so you can download the file. |
+| AWS CLI List Command | Required ARN                                                      |
+| -------------------- | ----------------------------------------------------------------- |
+| **list-projects**    | This command returns all projects and does not require an<br>ARN. |
+| **list-runs**        | `project`                                                         |
+| **list-jobs**        | `run`                                                             |
+| **list-suites**      | `job`                                                             |
+| **list-tests**       | `suite`                                                           |
+
+For example, to find a test ARN, run **list-tests** using your
+test suite ARN as an input parameter.
+
+Example:
+
+```
+aws devicefarm list-tests –-arn `arn:MyTestSuiteARN`
+```
+
+The response includes a test ARN for each test in the test suite.
+
+```
+`{
+ "tests": [
+ {
+ "status": "COMPLETED",
+ "name": "Tests.FixturesTest.testExample",
+ "created": 1537563725.116,
+ "deviceMinutes": {
+ "unmetered": 0.0,
+ "total": 1.89,
+ "metered": 1.89
+ },
+ "result": "PASSED",
+ "message": "testExample passed",
+ "arn": "arn:aws:devicefarm:us-west-2:123456789101:test:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+ "counters": {
+ "skipped": 0,
+ "warned": 0,
+ "failed": 0,
+ "stopped": 0,
+ "passed": 1,
+ "errored": 0,
+ "total": 1
+ }
+ }
+ ]
+}`
+```
+
+### Step 2: List your artifacts
+
+The AWS CLI [list-artifacts](../../../cli/latest/reference/devicefarm/list-artifacts.md "../../../cli/latest/reference/devicefarm/list-artifacts.md") command returns a list of artifacts, such as files,
+screenshots, and logs. Each artifact has a URL so you can download the
+file.
+
+- Call **list-artifacts** specifying a run, job, test
+  suite, or test ARN. Specify a type of FILE, LOG, or SCREENSHOT.
+
+This example returns a download URL for each artifact available for an
+individual test:
+
+```
+aws devicefarm list-artifacts --arn `arn:MyTestARN` --type "FILE"
+```
+
+The response contains a download URL for each artifact.
+
+```
+`{
+ "artifacts": [
+ {
+ "url": "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL",
+ "extension": "txt",
+ "type": "APPIUM_JAVA_OUTPUT",
+ "name": "Appium Java Output",
+ "arn": "arn:aws:devicefarm:us-west-2:123456789101:artifact:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
+ }
+ ]
+}`
+```
+
+### Step 3: Download your artifacts
+
+- Download your artifact using the URL from the previous step. This
+  example uses **curl** to download an Android Appium Java
+  output file:
+
+```
+curl "https://prod-us-west-2-uploads.s3-us-west-2.amazonaws.com/ExampleURL" > `MyArtifactName.txt`
+```
+
+## Download artifacts (API)
+
+The Device Farm API [ListArtifacts](../APIReference/API_ListArtifacts.md "../APIReference/API_ListArtifacts.md") method returns a list of artifacts, such as files,
+screenshots, and logs. Each artifact has a URL so you can download the file.

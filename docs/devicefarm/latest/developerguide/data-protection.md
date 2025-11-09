@@ -52,8 +52,63 @@ Data in Device Farm is retained for a limited time. After the retention period e
 is removed from Device Farm's backing storage.
 
 | Content type                         | Retention period (days) | Metadata Retention period (days) |
-| ------------------------------------ | ----------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------ | ----------------------- | -------------------------------- |
 | Uploaded applications                | 30                      | 30                               |
 | Uploaded test packages               | 30                      | 30                               |
 | Logs                                 | 400                     | 400                              |
-| Video recordings and other artifacts | 400                     | 400                              | It is your responsibility to archive any content that you want to retain for longer periods. ## Data management Data in Device Farm is managed differently depending on which features are used. This section explains how data is managed while and after you use Device Farm. ### Desktop browser testing Instances used during Selenium sessions are not saved. All data generated as a result of browser interactions is discarded when the session ends. This feature currently supports encryption at rest for artifacts generated during the test. ### Physical device testing The following sections provide information about the steps AWS takes to clean up or destroy devices after you have used Device Farm. Device Farm's physical mobile device testing data is not encrypted at rest. #### Public device fleets After test execution is complete, Device Farm performs a series of cleanup tasks on each device in the public device fleet, including uninstallation of your app. If we cannot verify uninstallation of your app or any of the other cleanup steps, the device receives a factory reset before it is put back into use. ###### Note It is possible for data to persist between sessions in some cases, especially if you make use of the device system outside the context of your app. For this reason, and because Device Farm captures video and logs of activity taking place during your use of each device, we recommend that you do not enter sensitive information (for example, Google account or Apple ID), personal information, and other security-sensitive details during your automated test and remote access sessions. #### Private devices After expiration or termination of your private device contract, the device is removed from use and securely destroyed in accordance with AWS destruction policies. For more information, see [Private devices in AWS Device Farm](working-with-private-devices.md "working-with-private-devices.md"). ## Key management Currently, Device Farm does not offer any external key management for encryption of data, at rest or in transit. ## Internetwork traffic privacy Device Farm can be configured, for private devices only, to use Amazon VPC endpoints to connect to your resources in AWS. Access to any non-public AWS infrastructure associated with your account (for example, Amazon EC2 instances without a public IP address) must use an Amazon VPC endpoint. Regardless of VPC endpoint configuration, Device Farm isolates your traffic from other users throughout the Device Farm network. Your connections outside the AWS network are not guaranteed to be secured or safe, and it is your responsibility to secure any internet connections your applications make. |
+| Video recordings and other artifacts | 400                     | 400                              |
+
+It is your responsibility to archive any content that you want to retain for longer periods.
+
+## Data management
+
+Data in Device Farm is managed differently depending on which features are used. This section explains how data is
+managed while and after you use Device Farm.
+
+### Desktop browser testing
+
+Instances used during Selenium sessions are not saved. All data generated as a result of browser
+interactions is discarded when the session ends.
+
+This feature currently supports encryption at rest for artifacts generated during the test.
+
+### Physical device testing
+
+The following sections provide information about the steps AWS takes to clean up or destroy devices after
+you have used Device Farm.
+
+Device Farm's physical mobile device testing data is not encrypted at rest.
+
+#### Public device fleets
+
+After test execution is complete, Device Farm performs a series of cleanup tasks on each device in the public
+device fleet, including uninstallation of your app. If we cannot verify uninstallation of your app or any of
+the other cleanup steps, the device receives a factory reset before it is put back into use.
+
+###### Note
+
+It is possible for data to persist between sessions in some cases, especially if you make use of the
+device
+system outside the context of your app. For this reason, and
+because Device Farm captures video and logs of activity taking place during your use of each device, we recommend
+that you do not enter sensitive information (for example, Google account or Apple ID), personal information,
+and other security-sensitive details during your automated test and remote access sessions.
+
+#### Private devices
+
+After expiration or termination of your private device contract, the device is removed from use and
+securely destroyed in accordance with AWS destruction policies. For more information, see [Private devices in AWS Device Farm](working-with-private-devices.md "working-with-private-devices.md").
+
+## Key management
+
+Currently, Device Farm does not offer any external key management for encryption of data, at rest or in transit.
+
+## Internetwork traffic privacy
+
+Device Farm can be configured, for private devices only, to use Amazon VPC endpoints to connect to your resources in
+AWS. Access to any non-public AWS infrastructure associated with your account (for example, Amazon EC2 instances
+without a public IP address) must use an Amazon VPC endpoint. Regardless of VPC endpoint configuration, Device Farm isolates
+your traffic from other users throughout the Device Farm network.
+
+Your connections outside the AWS network are not guaranteed to be secured or safe, and it is your
+responsibility to secure any internet connections your applications make.

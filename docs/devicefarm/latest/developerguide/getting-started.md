@@ -131,7 +131,7 @@ To
 view the run status, on the **Automated tests** page of your project, choose the name of
 your run. One the run page, under **Devices**, each device starts with
 the pending icon
-![Device Farm scheduled a job.](/images/devicefarm/latest/developerguide/images/df-run-calendar.png)
+![Device Farm scheduled a job.](images/df-run-calendar.png)
 in the device table, then switches to the running icon
 ![Device Farm progress indicator.](images/df-run-progress.png)
 when

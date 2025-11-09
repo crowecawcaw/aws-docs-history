@@ -78,7 +78,7 @@ Here is a sample zip using a `.xcodeproj` file:
 
 Here is a sample zip using a `.xcworkspace` file:
 
-````
+```
 
 .
 └──swift-sample-UI.zip (directory)
@@ -87,5 +87,37 @@ Here is a sample zip using a `.xcworkspace` file:
    │   ├── SampleXcodeProject.xcodeproj
    │   ├── Testplan_1.xctestplan
    │   ├── Testplan_2.xctestplan
-|   └── (any other source code files created by xcode with .xcodeproj) └── `SampleWorkspace.xcworkspace` └── contents.xcworkspacedata ``` ###### Note Please ensure that you do not have a directory named "Payload" inside your XCTest UI .zip package. ## Upload your iOS XCTest UI tests Use the Device Farm console to upload your tests. 1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm"). 2. On the Device Farm navigation panel, choose **Mobile Device Testing**, then choose **Projects**. 3. In the list of projects, choose the project that you want to upload your tests to. ###### Tip You can use the search bar to filter the project list by name. To create a project, follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md") 4. Choose **Create run**. 5. Under **Run settings**, in the **Run type** section, choose **iOS app**. 6. Under **Select app**, in the **App selection options** section, select **Upload own app**. Then, select **Choose file** under **Upload app**. 7. Browse to and choose your iOS app file. The file must be an .ipa file. ###### Note Make sure that your .ipa file is built for an iOS device and not for a simulator. 8. Under **Configure test**, in the **Select test framework** section, choose **XCTest UI**. Then, select **Choose file** under **Upload app**. 9. Browse to and choose the .ipa or .zip file that contains your iOS XCTest UI test runner. 10. Complete the remaining steps in the run creation process. You will select the devices that you want to test on and optionally specify additional configuration. 11. Choose **Create run**. Device Farm runs your test and shows the results in the console.
-````
+   |   └── (any other source code files created by xcode with .xcodeproj)
+   └── `SampleWorkspace.xcworkspace`
+       └── contents.xcworkspacedata
+
+```
+
+###### Note
+
+Please ensure that you do not have a directory named "Payload" inside your XCTest UI .zip package.
+
+## Upload your iOS XCTest UI tests
+
+Use the Device Farm console to upload your tests.
+
+1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
+2. On the Device Farm navigation panel, choose **Mobile Device Testing**, then choose
+   **Projects**.
+3. In the list of projects, choose the project that you want to upload your tests to.
+
+###### Tip
+
+You can use the search bar to filter the project list by name.
+
+To create a project, follow the instructions in [Creating a project in AWS Device Farm](how-to-create-project.md "how-to-create-project.md") 4. Choose **Create run**. 5. Under **Run settings**, in the **Run type** section,
+choose **iOS app**. 6. Under **Select app**, in the **App selection options** section,
+select **Upload own app**. Then, select **Choose file** under
+**Upload app**. 7. Browse to and choose your iOS app file. The file must be an .ipa file.
+
+###### Note
+
+Make sure that your .ipa file is built for an iOS device and not for a simulator. 8. Under **Configure test**, in the **Select test framework**
+section, choose **XCTest UI**. Then, select **Choose
+file** under **Upload app**. 9. Browse to and choose the .ipa or .zip file that contains your iOS XCTest UI test runner. 10. Complete the remaining steps in the run creation process. You will select the devices that you
+want to test on and optionally specify additional configuration. 11. Choose **Create run**. Device Farm runs your test and shows the results in the console.
