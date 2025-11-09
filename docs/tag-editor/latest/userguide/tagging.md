@@ -58,8 +58,22 @@ services, AWS recommends newer alternative AWS services that support tagging to
 better meet customer use cases.
 
 |                                       |                           |                         |
-| ------------------------------------- | ------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ------------------------- | ----------------------- |
 | Amazon Cloud Directory                | Amazon CloudSearch        | Amazon Cognito Sync     |
 | AWS Data Pipeline                     | Amazon Elastic Transcoder | Amazon Machine Learning |
 | AWS OpsWorks Stacks                   | Amazon Glacier Direct     | Amazon SimpleDB         |
-| Amazon WorkSpaces Application Manager | AWS DeepLens              |                         | ### Learn more This page provides general information on tagging AWS resources. For more information about tagging resources in a particular AWS service, see its documentation. The following are also good sources of information about tagging: <br>• For information about the AWS Resource Groups Tagging API, see the [_Resource Groups Tagging API Reference Guide_](../../../resourcegroupstagging/latest/APIReference/Welcome.md "../../../resourcegroupstagging/latest/APIReference/Welcome.md"). <br>• For information about the tagging functionality each AWS service provides, see the service's documentation in the [AWS documentation index](../../../index.md "../../../index.md"). <br>• For information about using tags in IAM policies to help control who can view and interact with your AWS resources, see [Controlling access to and for IAM users and roles using tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") in the _IAM User Guide_. |
+| Amazon WorkSpaces Application Manager | AWS DeepLens              |                         |
+
+### Learn more
+
+This page provides general information on tagging AWS resources. For more
+information about tagging resources in a particular AWS service, see its
+documentation. The following are also good sources of information about tagging:
+
+- For information about the AWS Resource Groups Tagging API, see the [_Resource Groups Tagging API Reference Guide_](../../../resourcegroupstagging/latest/APIReference/Welcome.md "../../../resourcegroupstagging/latest/APIReference/Welcome.md").
+- For information about the tagging functionality each AWS service provides,
+  see the service's documentation in the [AWS documentation index](../../../index.md "../../../index.md").
+- For information about using tags in IAM policies to help control who can
+  view and interact with your AWS resources, see [Controlling access to and
+  for IAM users and roles using tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") in the
+  _IAM User Guide_.

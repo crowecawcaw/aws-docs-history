@@ -47,9 +47,90 @@ following:
 For complete details about a condition key and how to use it, see the page linked in
 the **Condition key name** column.
 
-| Condition key name                                                                                                                                                                                                  | Description                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [aws:PrincipalTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") | Compares the tag attached to the principal (IAM role or user) making the request with the tag that you specify in the policy.             |
-| [aws:RequestTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")       | Compares the tag key-value pair that was passed to the request as a parameter with the tag key-value pair that you specify in the policy. |
-| [aws:ResourceTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")    | Compares the key-value pair that is attached to the resource with the tag key-value pair that you specify in the policy.                  |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                | Compares only the tag _keys_ in the request with the keys that you specify in the policy.                                                 | ## Example IAM policies that use tags ###### Example 1: Force users to attach a specific tag when they create a resource The following example IAM permissions policy shows how to force the user who creates or modifies an IAM policy's tags to include a tag with the key `Owner`. Also, the policy requires that the value of the tag is set to the same value as the `Owner` tag currently attached to the calling principal. For this strategy to work, all principals must have an `Owner` tag attached, and users must be prevented from modifying that tag. If an attempt to create or modify a policy occurs without including the `Owner` tag, the policy doesn't match and the operation isn't allowed. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "TagCustomerManagedPolicies", "Effect": "Allow", "Action": [ "iam:CreatePolicy", "iam:TagPolicy" ], "Resource": "arn:aws:iam::123456789012:policy/*", "Condition": { "StringEquals": {"aws:RequestTag/Owner": "${aws:PrincipalTag/Owner}"} } } ] }` `` ###### Example 2: Use tags to limit access to a resource to its "owner" The following example IAM permissions policy lets the user stop a running Amazon EC2 instance only if the calling principal is tagged with the same `project` tag value as the instance. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor1", "Effect": "Allow", "Action": [ "ec2:StopInstances" ], "Resource": [ "arn:aws:iam::123456789012:instance/*" ], "Condition": { "StringEquals": {"aws:ResourceTag/project": "${aws:PrincipalTag/project}"} } } ] }` `` This example is an example of [attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md"). For more information and additional examples of using IAM policies to implement a tag-based access control strategy, see the following topics in the _AWS Identity and Access Management User Guide_: <br>• [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") <br>• [Controlling access to and for IAM users and roles using tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") <br>• [IAM tutorial: Define permissions to access AWS resources based on tags](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") – Shows how to grant access to different projects and groups using multiple tags. |
+| Condition key name                                                                                                                                                                                                  | Description                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [aws:PrincipalTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") | Compares the tag attached to the principal (IAM role or user)<br>making the request with the tag that you specify in the<br>policy.             |
+| [aws:RequestTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")       | Compares the tag key-value pair that was passed to the request as a<br>parameter with the tag key-value pair that you specify in the<br>policy. |
+| [aws:ResourceTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")    | Compares the key-value pair that is attached to the resource with<br>the tag key-value pair that you specify in the policy.                     |
+| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                | Compares only the tag \*keys<br>• in the<br>request with the keys that you specify in the policy.                                               |
+
+## Example IAM policies that use tags
+
+###### Example 1: Force users to attach a specific tag when they create a
+
+resource
+
+The following example IAM permissions policy shows how to force the user who
+creates or modifies an IAM policy's tags to include a tag with the key
+`Owner`. Also, the policy requires that the value of the tag is set
+to the same value as the `Owner` tag currently attached to the calling
+principal. For this strategy to work, all principals must have an `Owner`
+tag attached, and users must be prevented from modifying that tag. If an attempt to
+create or modify a policy occurs without including the `Owner` tag, the
+policy doesn't match and the operation isn't allowed.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "TagCustomerManagedPolicies",
+ "Effect": "Allow",
+ "Action": [
+ "iam:CreatePolicy",
+ "iam:TagPolicy"
+ ],
+ "Resource": "arn:aws:iam::123456789012:policy/*",
+ "Condition": {
+ "StringEquals": {"aws:RequestTag/Owner": "${aws:PrincipalTag/Owner}"}
+ }
+ }
+ ]
+}`
+
+```
+
+###### Example 2: Use tags to limit access to a resource to its "owner"
+
+The following example IAM permissions policy lets the user stop a running Amazon EC2
+instance only if the calling principal is tagged with the same `project`
+tag value as the instance.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor1",
+ "Effect": "Allow",
+ "Action": [
+ "ec2:StopInstances"
+ ],
+ "Resource": [
+ "arn:aws:iam::123456789012:instance/*"
+ ],
+ "Condition": {
+ "StringEquals": {"aws:ResourceTag/project": "${aws:PrincipalTag/project}"}
+ }
+ }
+ ]
+}`
+
+```
+
+This example is an example of [attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md"). For more information and
+additional examples of using IAM policies to implement a tag-based access control
+strategy, see the following topics in the _AWS Identity and Access Management User
+Guide_:
+
+- [Controlling access to AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md")
+- [Controlling access to and for IAM users and roles using
+  tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md")
+- [IAM
+  tutorial: Define permissions to access AWS resources based on
+  tags](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") – Shows how to grant access to different projects
+  and groups using multiple tags.
