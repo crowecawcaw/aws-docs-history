@@ -38,5 +38,38 @@ For more information, see [EventBridge events](../../../eventbridge/latest/userg
 in the _Amazon EventBridge User Guide._
 
 | Event detail type                                                                                                                                                                                  | Description                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWS Supply Chain Data Integration Status Change](events-detail-reference.md#event-detail-event-name-1-no-caps-or-spaces "events-detail-reference.md#event-detail-event-name-1-no-caps-or-spaces") | Displays the status for each ingested file into AWS Supply Chain. | ## Delivering AWS Supply Chain events using EventBridge rules To have the EventBridge default event bus send AWS Supply Chain events to a target, you must create a rule. Each rule contains an event pattern, which EventBridge matches against each event received on the event bus. If the event data matches the specified event pattern, EventBridge delivers that event to the rule's target(s). For comprehensive instructions on creating event bus rules, see [Creating rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User Guide_. ### Creating event pattern that match AWS Supply Chain events Each event pattern is a JSON object that contains: <br>• A `source` attribute that identifies the service sending the event. For AWS Supply Chain events, the source is `aws.supplychain`. <br>• (Optional): A `detail-type` attribute that contains an array of the event types to match. <br>• (Optional): A `detail` attribute containing any other event data on which to match. For example, the following event pattern matches against all `AWS Supply Chain Data Integration Status Change` events from AWS Supply Chain: ``{ "source": ["`aws.supplychain`"], "detail-type": ["AWS Supply Chain Data Integration Status Change"] }`` For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _EventBridge User Guide_. |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [AWS Supply Chain Data Integration Status Change](events-detail-reference.md#event-detail-event-name-1-no-caps-or-spaces "events-detail-reference.md#event-detail-event-name-1-no-caps-or-spaces") | Displays the status for each ingested file into AWS Supply Chain. |
+
+## Delivering AWS Supply Chain events using EventBridge rules
+
+To have the EventBridge default event bus send AWS Supply Chain events to a target, you must create
+a rule. Each rule contains an event pattern, which EventBridge matches against each event received on the event bus. If the event data matches the specified event pattern, EventBridge delivers that event to the rule's target(s).
+
+For comprehensive instructions on creating event bus rules, see [Creating rules that
+react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User Guide_.
+
+### Creating event pattern
+
+that match AWS Supply Chain events
+
+Each event pattern is a JSON object that contains:
+
+- A `source` attribute that identifies the service sending the event.
+  For AWS Supply Chain events, the source is `aws.supplychain`.
+- (Optional): A `detail-type` attribute that contains an array of the
+  event types to match.
+- (Optional): A `detail` attribute containing any other event data on
+  which to match.
+
+For example, the following event pattern matches against all `AWS Supply Chain Data Integration Status Change` events from AWS Supply Chain:
+
+```
+{
+  "source": ["`aws.supplychain`"],
+  "detail-type": ["AWS Supply Chain Data Integration Status Change"]
+}
+```
+
+For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
+in the _EventBridge User Guide_.

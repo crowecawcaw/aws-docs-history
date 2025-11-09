@@ -15,10 +15,26 @@ chain risk management without replatforming, upfront licensing fees, or long-ter
 
 Before you work with AWS Supply Chain, verify that your browser is supported using the following table.
 
-| Browser                          | Supported Versions                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Google Chrome                    | Latest three versions.                                                                                                                                                                                                                                                                                                                                            |
-| Mozilla Firefox ESR              | Versions are supported until their Firefox [end-of-life date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). |
-| Mozilla Firefox                  | Latest three versions.                                                                                                                                                                                                                                                                                                                                            |
-| Microsoft Edge and Edge Chromium | Version 84 and later.                                                                                                                                                                                                                                                                                                                                             |
-| Safari                           | Safari 10 or later on macOS.                                                                                                                                                                                                                                                                                                                                      | ## Languages supported by AWS Supply Chain AWS Supply Chain supports the following languages: <br>• English (US) <br>• English (UK) <br>• German <br>• Spanish <br>• French <br>• Italian <br>• Portuguese <br>• Chinese (Simplified) <br>• Chinese (Traditional) <br>• Japanese <br>• Korean |
+| Browser                          | Supported Versions                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google Chrome                    | Latest three versions.                                                                                                                                                                                                                                                                                                                                                  |
+| Mozilla Firefox ESR              | Versions are supported until their Firefox [end-of-life<br>date](https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle "https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle"). For details, see the [Firefox ESR release<br>calendar](https://wiki.mozilla.org/Release_Management/Calendar "https://wiki.mozilla.org/Release_Management/Calendar"). |
+| Mozilla Firefox                  | Latest three versions.                                                                                                                                                                                                                                                                                                                                                  |
+| Microsoft Edge and Edge Chromium | Version 84 and later.                                                                                                                                                                                                                                                                                                                                                   |
+| Safari                           | Safari 10 or later on macOS.                                                                                                                                                                                                                                                                                                                                            |
+
+## Languages supported by AWS Supply Chain
+
+AWS Supply Chain supports the following languages:
+
+- English (US)
+- English (UK)
+- German
+- Spanish
+- French
+- Italian
+- Portuguese
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Japanese
+- Korean

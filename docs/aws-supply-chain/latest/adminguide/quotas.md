@@ -14,16 +14,16 @@ form](https://console.aws.amazon.com/support/home#/case/create?issueType=service
 
 Your AWS account has the following quotas related to AWS Supply Chain.
 
-| Resource                                                                        | Default | Adjustable |
-| ------------------------------------------------------------------------------- | ------- | ---------- |
-| Number of instances NoteYou can create upto 10 instances within an AWS account. | 10      | No         |
-| Number of Amazon S3 buckets                                                     | 100     | No         |
-| Active and pending invitations within an AWS account                            | 30      | Yes        |
-| Data requests within an AWS account                                             | 4,000   | Yes        |
-| Insights line items per watchlist                                               | 1,000   | No         |
-| Insights watchlists per instance within an AWS account                          | 1,000   | Yes        |
-| Insights watchlists per user within an AWS account                              | 100     | Yes        |
-| Data integration flows per instance within an AWS account                       | 100     | No         |
-| Custom dataset namespaces per instance within an AWS account                    | 20      | Yes        |
-| Datasets per custom dataset namespace per instance within an AWS account        | 250     | Yes        |
-| Datasets in default dataset namespace per instance within an AWS account        | 1,000   | No         |
+| Resource                                                                           | Default | Adjustable |
+| ---------------------------------------------------------------------------------- | ------- | ---------- |
+| Number of instances<br>NoteYou can create upto 10 instances within an AWS account. | 10      | No         |
+| Number of Amazon S3 buckets                                                        | 100     | No         |
+| Active and pending invitations within an AWS account                               | 30      | Yes        |
+| Data requests within an AWS account                                                | 4,000   | Yes        |
+| Insights line items per watchlist                                                  | 1,000   | No         |
+| Insights watchlists per instance within an AWS account                             | 1,000   | Yes        |
+| Insights watchlists per user within an AWS account                                 | 100     | Yes        |
+| Data integration flows per instance within an AWS account                          | 100     | No         |
+| Custom dataset namespaces per instance within an AWS account                       | 20      | Yes        |
+| Datasets per custom dataset namespace per instance within an AWS account           | 250     | Yes        |
+| Datasets in default dataset namespace per instance within an AWS account           | 1,000   | No         |
