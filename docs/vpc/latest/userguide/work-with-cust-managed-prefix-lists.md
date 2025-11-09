@@ -139,11 +139,12 @@ a new version of the prefix list.
    **Modify prefix list**.
 4. For **Prefix list name**, enter a new name for the prefix
    list.
-5. For **Prefix list entries**, choose
-   **Remove** to remove an existing entry. To add a new
-   entry, choose **Add new entry** and enter the CIDR block
-   and a description for the entry.
-6. Choose **Save prefix list**.
+5. If the managed prefix list has been configured as an IPAM prefix list resolver target, you'll see an **IPAM prefix list resolver sync** option.
+
+Choose whether to enable or disable synchronization with the IPAM prefix list resolver. When enabled, the prefix list CIDRs are automatically updated based on the associated resolver's CIDR selection rules. When disabled, the prefix list CIDRs are not automatically updated. For more information about this feature, see [Automate prefix list updates with IPAM](../ipam/automate-prefix-list-updates.md "../ipam/automate-prefix-list-updates.md") in the _Amazon VPC IPAM User Guide_. 6. For **Prefix list entries**, choose
+**Remove** to remove an existing entry. To add a new
+entry, choose **Add new entry** and enter the CIDR block
+and a description for the entry. 7. Choose **Save prefix list**.
 
 ###### To modify a prefix list using the AWS CLI
 

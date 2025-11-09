@@ -35,13 +35,41 @@ route tables to the subnets and internet gateway.
 The route table for subnet A has the following routes.
 
 | Destination     | Target          | Purpose                                              |
-| --------------- | --------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | --------------- | ---------------------------------------------------- |
 | `VPC CIDR`      | Local           | Local route                                          |
-| `Subnet B CIDR` | `appliance-eni` | Route traffic destined for subnet B to the middlebox | When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Custom route table for subnet B The route table for subnet B has the following routes.             |
+| `Subnet B CIDR` | `appliance-eni` | Route traffic destined for subnet B to the middlebox |
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Custom route table for subnet B
+
+The route table for subnet B has the following routes.
+
 | Destination     | Target          | Purpose                                              |
-| ---             | ---             | ---                                                  |
+| --------------- | --------------- | ---------------------------------------------------- |
 | `VPC CIDR`      | Local           | Local route                                          |
-| `Subnet A CIDR` | `appliance-eni` | Route traffic destined for subnet A to the middlebox | When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Main route table Subnet C uses the main route table. The main route table has the following route. |
-| Destination     | Target          | Purpose                                              |
-| ---             | ---             | ---                                                  |
-| `VPC CIDR`      | Local           | Local route                                          | When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z")                                                                                                       |
+| `Subnet A CIDR` | `appliance-eni` | Route traffic destined for subnet A to the middlebox |
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Main route table
+
+Subnet C uses the main route table. The main route table has the following route.
+
+| Destination | Target | Purpose     |
+| ----------- | ------ | ----------- |
+| `VPC CIDR`  | Local  | Local route |
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")

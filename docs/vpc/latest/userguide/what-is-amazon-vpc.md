@@ -145,7 +145,7 @@ Public IPv4 addresses have the following types:
 The following list shows the most common AWS services that can use public IPv4
 addresses.
 
-- Amazon AppStream 2.0
+- Amazon WorkSpaces Applications
 - [AWS Client VPN](../../../vpn/latest/clientvpn-admin/what-is.md#what-is-pricing "../../../vpn/latest/clientvpn-admin/what-is.md#what-is-pricing")
 - AWS Database Migration Service
 - Amazon EC2

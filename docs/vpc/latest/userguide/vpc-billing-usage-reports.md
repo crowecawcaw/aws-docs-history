@@ -26,37 +26,55 @@ For a list of the Region codes used in the billing and usage reports, see [AWS R
 
 ## IP address management
 
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------- | ----- | -------------- | --------------------------------- |
-| ``region`-PublicIPv4:InUseAddress`                   | The time that public IPv4 addresses are in use by a resource.                 | Hours | Per-second     |
-| ``region`-PublicIPv4:IdleAddress`                    | The time that public IPv4 addresses are not in use by a resource.             | Hours | Per-second     |
-| ``region`-PublicIPv4:ContiguousBlock`                | The use of public IPv4 addresses in an Amazon-provided contiguous IPv4 block. | Hours | Hourly         |
-| ``region`-IPAddressManager-IP-Hours`                 | The time that IP addresses are managed by IPAM Advanced Tier.                 | Hours | Hourly         | ## VPC endpoints                  |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-VpcEndpoint-Hours`                         | The time that interface VPC endpoints are provisioned.                        | Hours | Hourly         |
-| ``region`-VpcEndpoint-Bytes`                         | The data processed by interface VPC endpoints.                                | GB    | Hourly         |
-| ``region`-VpcEndpoint-GWLBE-Hours`                   | The time that Gateway Load Balancer endpoints are provisioned.                | Hours | Hourly         |
-| ``region`-VpcEndpoint-GWLBE-Bytes`                   | The data processed by Gateway Load Balancer endpoints.                        | GB    | Hourly         | ## Transit gateways               |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-TransitGateway-Hours`                      | The use of transit gateway attachments.                                       | Hours | Hourly         |
-| ``region`-TransitGateway-Bytes`                      | The data processed by transit gateways.                                       | GB    | Hourly         |
-| ``region`-TGW-Multicast-Consumer-Bytes`              | The data processed by multicast receiver instances.                           | GB    | Hourly         | ## Network analysis               |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-Analysis-Runs`                             | The number of network paths analyzed by Reachability Analyzer.                | Count | Per analysis   |
-| ``region`-NetworkInterface-Assessment`               | The number of network interfaces analyzed by Network Access Analyzer.         | Count | Per assessment | ## Traffic mirroring              |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-ENI-Mirror`                                | The time that a network interface is configured for traffic mirroring.        | Hours | Hourly         | ## VPC Lattice                    |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-VPCLattice-Service-Hourly`                 | The running time for VPC Lattice services.                                    | Hours | Hourly         |
-| ``region`-VPCLattice-DataProcessing-Bytes`           | The data processed by VPC Lattice services.                                   | GB    | Hourly         |
-| ``region`-VPCLattice-RequestCount-Free`              | The free HTTP requests and TCP connections.                                   | Count | Hourly         |
-| ``region`-VpcLattice-Service-Network-Resource-Hours` | The running time for VPC Lattice service networks.                            | Hours | Hourly         | ## Cross-account/Region resources |
-| Code                                                 | Description                                                                   | Units | Granularity    |
-| ---                                                  | ---                                                                           | ---   | ---            |
-| ``region`-VpcResource-Provider-Bytes`                | The data transferred from provider resources across accounts or Regions.      | GB    | Hourly         |
-| ``region`-VpcResource-Consumer-Bytes`                | The data transferred by consumer resources across accounts or Regions.        | GB    | Hourly         |
+| Code                                  | Description                                                                   | Units | Granularity |
+| ------------------------------------- | ----------------------------------------------------------------------------- | ----- | ----------- |
+| ``region`-PublicIPv4:InUseAddress`    | The time that public IPv4 addresses are in use by a resource.                 | Hours | Per-second  |
+| ``region`-PublicIPv4:IdleAddress`     | The time that public IPv4 addresses are not in use by a resource.             | Hours | Per-second  |
+| ``region`-PublicIPv4:ContiguousBlock` | The use of public IPv4 addresses in an Amazon-provided contiguous IPv4 block. | Hours | Hourly      |
+| ``region`-IPAddressManager-IP-Hours`  | The time that IP addresses are managed by IPAM Advanced Tier.                 | Hours | Hourly      |
+
+## VPC endpoints
+
+| Code                               | Description                                                    | Units | Granularity |
+| ---------------------------------- | -------------------------------------------------------------- | ----- | ----------- |
+| ``region`-VpcEndpoint-Hours`       | The time that interface VPC endpoints are provisioned.         | Hours | Hourly      |
+| ``region`-VpcEndpoint-Bytes`       | The data processed by interface VPC endpoints.                 | GB    | Hourly      |
+| ``region`-VpcEndpoint-GWLBE-Hours` | The time that Gateway Load Balancer endpoints are provisioned. | Hours | Hourly      |
+| ``region`-VpcEndpoint-GWLBE-Bytes` | The data processed by Gateway Load Balancer endpoints.         | GB    | Hourly      |
+
+## Transit gateways
+
+| Code                                    | Description                                         | Units | Granularity |
+| --------------------------------------- | --------------------------------------------------- | ----- | ----------- |
+| ``region`-TransitGateway-Hours`         | The use of transit gateway attachments.             | Hours | Hourly      |
+| ``region`-TransitGateway-Bytes`         | The data processed by transit gateways.             | GB    | Hourly      |
+| ``region`-TGW-Multicast-Consumer-Bytes` | The data processed by multicast receiver instances. | GB    | Hourly      |
+
+## Network analysis
+
+| Code                                   | Description                                                           | Units | Granularity    |
+| -------------------------------------- | --------------------------------------------------------------------- | ----- | -------------- |
+| ``region`-Analysis-Runs`               | The number of network paths analyzed by Reachability Analyzer.        | Count | Per analysis   |
+| ``region`-NetworkInterface-Assessment` | The number of network interfaces analyzed by Network Access Analyzer. | Count | Per assessment |
+
+## Traffic mirroring
+
+| Code                  | Description                                                            | Units | Granularity |
+| --------------------- | ---------------------------------------------------------------------- | ----- | ----------- |
+| ``region`-ENI-Mirror` | The time that a network interface is configured for traffic mirroring. | Hours | Hourly      |
+
+## VPC Lattice
+
+| Code                                                 | Description                                        | Units | Granularity |
+| ---------------------------------------------------- | -------------------------------------------------- | ----- | ----------- |
+| ``region`-VPCLattice-Service-Hourly`                 | The running time for VPC Lattice services.         | Hours | Hourly      |
+| ``region`-VPCLattice-DataProcessing-Bytes`           | The data processed by VPC Lattice services.        | GB    | Hourly      |
+| ``region`-VPCLattice-RequestCount-Free`              | The free HTTP requests and TCP connections.        | Count | Hourly      |
+| ``region`-VpcLattice-Service-Network-Resource-Hours` | The running time for VPC Lattice service networks. | Hours | Hourly      |
+
+## Cross-account/Region resources
+
+| Code                                  | Description                                                              | Units | Granularity |
+| ------------------------------------- | ------------------------------------------------------------------------ | ----- | ----------- |
+| ``region`-VpcResource-Provider-Bytes` | The data transferred from provider resources across accounts or Regions. | GB    | Hourly      |
+| ``region`-VpcResource-Consumer-Bytes` | The data transferred by consumer resources across accounts or Regions.   | GB    | Hourly      |

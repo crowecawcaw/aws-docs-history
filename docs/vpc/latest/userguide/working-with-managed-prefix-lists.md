@@ -6,6 +6,10 @@ One of the standout features of customer-managed prefix lists is the ability to 
 
 In the sections that follow, we'll dive deeper into the practical aspects of working with customer-managed prefix lists, including step-by-step guidance on creating, managing, and sharing your IP address ranges.
 
+###### Note
+
+You can automate prefix list management using Amazon VPC IPAM to automatically sync CIDRs based on rules you define. This eliminates manual updates when your infrastructure changes. For more information, see [Automate prefix list updates with IPAM](../ipam/automate-prefix-list-updates.md "../ipam/automate-prefix-list-updates.md") in the _Amazon VPC IPAM User Guide_.
+
 ###### Tasks
 
 - [Work with customer-managed prefix lists](work-with-cust-managed-prefix-lists.md "work-with-cust-managed-prefix-lists.md")

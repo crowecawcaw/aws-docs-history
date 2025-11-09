@@ -179,9 +179,19 @@ Sample queries to check for SKIPDATA:
 
 CW Insights:
 
-````
+```
 fields @timestamp, @message, @logStream, @log
 | filter interfaceId = 'eni-123'
 | stats count(*) by interfaceId, logStatus
-| sort by interfaceId, logStatus ``` Athena: ``` SELECT log_status, interface_id, count(1) FROM vpc_flow_logs WHERE interface_id IN ('eni-1', 'eni-2', 'eni-3') GROUP BY log_status, interface_id ```
-````
+| sort by interfaceId, logStatus
+
+```
+
+Athena:
+
+```
+SELECT log_status, interface_id, count(1)
+FROM vpc_flow_logs
+WHERE interface_id IN ('eni-1', 'eni-2', 'eni-3')
+GROUP BY log_status, interface_id
+```

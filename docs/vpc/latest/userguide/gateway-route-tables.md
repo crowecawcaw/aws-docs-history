@@ -48,9 +48,56 @@ In the following gateway route table, traffic destined for a subnet with the
 Traffic destined for all other subnets in the VPC uses the local route.
 
 | Destination   | Target   |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | -------- |
 | 172.31.0.0/16 | Local    |
-| 172.31.0.0/20 | `eni-id` | ###### Example In the following gateway route table, the target for the local route is replaced with a network interface ID. Traffic destined for all subnets within the VPC is routed to the network interface.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 172.31.0.0/20 | `eni-id` |
+
+###### Example
+
+In the following gateway route table, the target for the local route is replaced
+with a network interface ID. Traffic destined for all subnets within the VPC is
+routed to the network interface.
+
 | Destination   | Target   |
-| ---           | ---      |
-| 172.31.0.0/16 | `eni-id` | ## Rules and considerations You cannot associate a route table with a gateway if any of the following applies: <br>• The route table contains existing routes with targets other than a network interface, Gateway Load Balancer endpoint, or the default local route. <br>• The route table contains existing routes to CIDR blocks outside of the ranges in your VPC. <br>• Route propagation is enabled for the route table. In addition, the following rules and considerations apply: <br>• You cannot add routes to any CIDR blocks outside of the ranges in your VPC, including ranges larger than the individual VPC CIDR blocks. <br>• You can only specify `local`, a Gateway Load Balancer endpoint, or a network interface as a target. You cannot specify any other types of targets, including individual host IP addresses. For more information, see [Example routing options](route-table-options.md "route-table-options.md"). <br>• You cannot specify a prefix list as a destination. <br>• You cannot use a gateway route table to control or intercept traffic outside of your VPC, for example, traffic through an attached transit gateway. You can intercept traffic that enters your VPC and redirect it to another target in the same VPC only. <br>• To ensure that traffic reaches your middlebox appliance, the target network interface must be attached to a running instance. For traffic that flows through an internet gateway, the target network interface must also have a public IP address. <br>• When configuring your middlebox appliance, take note of the [appliance considerations](route-table-options.md#appliance-considerations "route-table-options.md#appliance-considerations"). <br>• When you route traffic through a middlebox appliance, the return traffic from the destination subnet must be routed through the same appliance. Asymmetric routing is not supported. <br>• Route table rules apply to all traffic that leaves a subnet. Traffic that leaves a subnet is defined as traffic destined to that subnet's gateway router's MAC address. Traffic that is destined for the MAC address of another network interface in the subnet makes use of data link (layer 2) routing instead of network (layer 3) so the rules do not apply to this traffic. <br>• Not all Local Zones support edge association with virtual private gateways. For more information on available zones, see [Considerations](../../../local-zones/latest/ug/how-local-zones-work.md#considerations "../../../local-zones/latest/ug/how-local-zones-work.md#considerations") in the _AWS Local Zones User Guide_. |
+| ------------- | -------- |
+| 172.31.0.0/16 | `eni-id` |
+
+## Rules and considerations
+
+You cannot associate a route table with a gateway if any of the following
+applies:
+
+- The route table contains existing routes with targets other than a network
+  interface, Gateway Load Balancer endpoint, or the default local route.
+- The route table contains existing routes to CIDR blocks outside of the
+  ranges in your VPC.
+- Route propagation is enabled for the route table.
+
+In addition, the following rules and considerations apply:
+
+- You cannot add routes to any CIDR blocks outside of the ranges in your
+  VPC, including ranges larger than the individual VPC CIDR blocks.
+- You can only specify `local`, a Gateway Load Balancer endpoint, or a network
+  interface as a target. You cannot specify any other types of targets,
+  including individual host IP addresses. For more information, see [Example routing options](route-table-options.md "route-table-options.md").
+- You cannot specify a prefix list as a destination.
+- You cannot use a gateway route table to control or intercept traffic
+  outside of your VPC, for example, traffic through an attached transit
+  gateway. You can intercept traffic that enters your VPC and redirect it
+  to another target in the same VPC only.
+- To ensure that traffic reaches your middlebox appliance, the target
+  network interface must be attached to a running instance. For traffic
+  that flows through an internet gateway, the target network interface
+  must also have a public IP address.
+- When configuring your middlebox appliance, take note of the [appliance
+  considerations](route-table-options.md#appliance-considerations "route-table-options.md#appliance-considerations").
+- When you route traffic through a middlebox appliance, the return
+  traffic from the destination subnet must be routed through the same
+  appliance. Asymmetric routing is not supported.
+- Route table rules apply to all traffic that leaves a subnet. Traffic
+  that leaves a subnet is defined as traffic destined to that subnet's
+  gateway router's MAC address. Traffic that is destined for the MAC
+  address of another network interface in the subnet makes use of data
+  link (layer 2) routing instead of network (layer 3) so the rules do not
+  apply to this traffic.
+- Not all Local Zones support edge association with virtual private gateways. For more information on available zones, see [Considerations](../../../local-zones/latest/ug/how-local-zones-work.md#considerations "../../../local-zones/latest/ug/how-local-zones-work.md#considerations") in the _AWS Local Zones User Guide_.

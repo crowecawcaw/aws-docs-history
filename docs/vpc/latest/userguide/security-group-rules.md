@@ -94,5 +94,100 @@ references security group sg-0abcdef1234567890. This rule allows inbound SSH tra
 from the instances associated with sg-0abcdef1234567890.
 
 | Source                 | Protocol | Port range |
-| ---------------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sg-0abcdef1234567890` | TCP      | 22         | When referencing a security group in a security group rule, note the following: <br>• You can reference a security group in the inbound rule of another security group if any of the following is true: + The security groups are associated with the same VPC. + There is a peering connection between the VPCs that the security groups are associated with. + There is a transit gateway between the VPCs that the security groups are associated with. <br>• You can reference a security group in the outbound rule if any of the following is true: + The security groups are associated with the same VPC. + There is a peering connection between the VPCs that the security groups are associated with. <br>• No rules from the referenced security group are added to the security group that references it. <br>• For inbound rules, the EC2 instances associated with a security group can receive inbound traffic from the private IP addresses from the network interfaces for the EC2 instances associated with the referenced security group. <br>• For outbound rules, the EC2 instances associated with a security group can send outbound traffic to the private IP addresses from the network interfaces for the EC2 instances associated with the referenced security group. <br>• We do not authorize against referenced security groups in the following actions: `AuthorizeSecurityGroupIngress`, `AuthorizeSecurityGroupEgress`, `RevokeSecurityGroupIngress`, and `RevokeSecurityGroupEgress`. We only check whether the security group exists. This results in the following: + Specifying the referenced security group in IAM policies for these actions has no effect. + When a referenced security group is owned by another account, the owner account does not receive CloudTrail events for these actions. **Limitation** If you configure routes to forward the traffic between two instances in different subnets through a middlebox appliance, you must ensure that the security groups for both instances allow traffic to flow between the instances. The security group for each instance must reference the private IP address of the other instance or the CIDR range of the subnet that contains the other instance as the source. If you reference the security group of the other instance as the source, this does not allow traffic to flow between the instances. **Example** The following diagram shows a VPC with subnets in two Availability Zones, an internet gateway, and an Application Load Balancer. Each Availability Zone has a public subnet for web servers and a private subnet for database servers. There are separate security groups for the load balancer, the web servers, and the database servers. Create the following security group rules to allow traffic. <br>• Add rules to the load balancer security group to allow HTTP and HTTPS traffic from the internet. The source is 0.0.0.0/0. <br>• Add rules to the security group for the web servers to allow HTTP and HTTPS traffic only from the load balancer. The source is the security group for the load balancer. <br>• Add rules to the security group for the database servers to allow database requests from the web servers. The source is the security group for the web servers. ![Architecture with web and db servers, security groups, internet gateway, and load balancer](images/security-group-referencing.png) ## Security group size The type of source or destination determines how each rule counts toward the maximum number of rules that you can have per security group. <br>• A rule that references a CIDR block counts as one rule. <br>• A rule that references another security group counts as one rule, no matter the size of the referenced security group. <br>• A rule that references a customer-managed prefix list counts as the maximum size of the prefix list. For example, if the maximum size of your prefix list is 20, a rule that references this prefix list counts as 20 rules. <br>• A rule that references an AWS-managed prefix list counts as the weight of the prefix list. For example, if the weight of the prefix list is 10, a rule that references this prefix list counts as 10 rules. For more information, see [Available AWS-managed prefix lists](working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists "working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists"). ## Stale security group rules If your VPC has a VPC peering connection with another VPC, or if it uses a VPC shared by another account, a security group rule in your VPC can reference a security group in that peer VPC or shared VPC. This allows resources that are associated with the referenced security group and those that are associated with the referencing security group to communicate with each other. For more information, see [Update your security groups to reference peer security groups](../peering/vpc-peering-security-groups.md "../peering/vpc-peering-security-groups.md") in the _Amazon VPC Peering Guide_. If you have a security group rule that references a security group in a peer VPC or shared VPC and the security group in the shared VPC is deleted or the VPC peering connection is deleted, the security group rule is marked as stale. You can delete stale security group rules as you would any other security group rule. |
+| ---------------------- | -------- | ---------- |
+| `sg-0abcdef1234567890` | TCP      | 22         |
+
+When referencing a security group in a security group rule, note the following:
+
+- You can reference a security group in the inbound rule of another security group if any
+  of the following is true:
+  - The security groups are associated with the same VPC.
+  - There is a peering connection between the VPCs that the security groups are associated
+    with.
+  - There is a transit gateway between the VPCs that the security groups are associated
+    with.
+
+- You can reference a security group in the outbound rule if any of the following is
+  true:
+  - The security groups are associated with the same VPC.
+  - There is a peering connection between the VPCs that the security groups are associated
+    with.
+
+- No rules from the referenced security group are added to the security
+  group that references it.
+- For inbound rules, the EC2 instances associated with a security group can
+  receive inbound traffic from the private IP addresses from the network interfaces
+  for the EC2 instances associated with the referenced security group.
+- For outbound rules, the EC2 instances associated with a security group can
+  send outbound traffic to the private IP addresses from the network interfaces
+  for the EC2 instances associated with the referenced security group.
+- We do not authorize against referenced security groups in the following
+  actions: `AuthorizeSecurityGroupIngress`,
+  `AuthorizeSecurityGroupEgress`,
+  `RevokeSecurityGroupIngress`, and
+  `RevokeSecurityGroupEgress`. We only check whether
+  the security group exists. This results in the following:
+  - Specifying the referenced security group in IAM policies for
+    these actions has no effect.
+  - When a referenced security group is owned by another account, the
+    owner account does not receive CloudTrail events for these actions.
+
+**Limitation**
+
+If you configure routes to forward the traffic between two instances in
+different subnets through a middlebox appliance, you must ensure that the
+security groups for both instances allow traffic to flow between the
+instances. The security group for each instance must reference the private
+IP address of the other instance or the CIDR range of the subnet that
+contains the other instance as the source. If you reference the security
+group of the other instance as the source, this does not allow traffic to
+flow between the instances.
+
+**Example**
+
+The following diagram shows a VPC with subnets in two Availability Zones, an internet
+gateway, and an Application Load Balancer. Each Availability Zone has a public subnet for web servers and a
+private subnet for database servers. There are separate security groups for the load
+balancer, the web servers, and the database servers. Create the following security
+group rules to allow traffic.
+
+- Add rules to the load balancer security group to allow HTTP and HTTPS traffic
+  from the internet. The source is 0.0.0.0/0.
+- Add rules to the security group for the web servers to allow HTTP and HTTPS
+  traffic only from the load balancer. The source is the security group for the
+  load balancer.
+- Add rules to the security group for the database servers to allow database
+  requests from the web servers. The source is the security group for the web
+  servers.
+
+![Architecture with web and db servers, security groups, internet gateway, and load balancer](images/security-group-referencing.png)
+
+## Security group size
+
+The type of source or destination determines how each rule counts toward the
+maximum number of rules that you can have per security group.
+
+- A rule that references a CIDR block counts as one rule.
+- A rule that references another security group counts as one rule, no matter
+  the size of the referenced security group.
+- A rule that references a customer-managed prefix list counts as the maximum size
+  of the prefix list. For example, if the maximum size of your prefix list is 20,
+  a rule that references this prefix list counts as 20 rules.
+- A rule that references an AWS-managed prefix list counts as the weight of the
+  prefix list. For example, if the weight of the prefix list is 10, a rule
+  that references this prefix list counts as 10 rules. For more information,
+  see [Available AWS-managed prefix lists](working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists "working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists").
+
+## Stale security group rules
+
+If your VPC has a VPC peering connection with another VPC, or if it uses a VPC shared by
+another account, a security group rule in your VPC can reference a security group in that
+peer VPC or shared VPC. This allows resources that are associated with the referenced security
+group and those that are associated with the referencing security group to communicate with
+each other. For more information, see [Update your security groups to reference peer security groups](../peering/vpc-peering-security-groups.md "../peering/vpc-peering-security-groups.md") in the
+_Amazon VPC Peering Guide_.
+
+If you have a security group rule that references a security group in a peer VPC or shared VPC
+and the security group in the shared VPC is deleted or the VPC peering connection is deleted,
+the security group rule is marked as stale. You can delete stale security group rules as you
+would any other security group rule.

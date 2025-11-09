@@ -134,14 +134,21 @@ Create the following resources for this scenario:
 The following is an example route table for VPC 1.
 
 | Destination  | Target                                 |
-| ------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------ | -------------------------------------- |
 | `VPC 1 CIDR` | `local`                                |
-| `VPC 2 CIDR` | `vpc1-attachment-network-interface-id` | The following is an example route table for VPC 2.                                                                                         |
+| `VPC 2 CIDR` | `vpc1-attachment-network-interface-id` |
+
+The following is an example route table for VPC 2.
+
 | Destination  | Target                                 |
-| ---          | ---                                    |
+| ------------ | -------------------------------------- |
 | `VPC 2 CIDR` | `local`                                |
-| `VPC 1 CIDR` | `vpc2-attachment-network-interface-id` | The following is an example of the transit gateway route table. The CIDR blocks for each VPC propagate to the transit gateway route table. |
-| CIDR         | Attachment                             | Route type                                                                                                                                 |
-| ---          | ---                                    | ---                                                                                                                                        |
-| `VPC 1 CIDR` | `Attachment for VPC 1`                 | propagated                                                                                                                                 |
-| `VPC 2 CIDR` | `Attachment for VPC 2`                 | propagated                                                                                                                                 |
+| `VPC 1 CIDR` | `vpc2-attachment-network-interface-id` |
+
+The following is an example of the transit gateway route table.
+The CIDR blocks for each VPC propagate to the transit gateway route table.
+
+| CIDR         | Attachment             | Route type |
+| ------------ | ---------------------- | ---------- |
+| `VPC 1 CIDR` | `Attachment for VPC 1` | propagated |
+| `VPC 2 CIDR` | `Attachment for VPC 2` | propagated |

@@ -40,21 +40,58 @@ route tables to the subnets and internet gateway.
 
 Add the following routes to the route table for the internet gateway.
 
+| Destination               | Target          | Purpose                                                   |
+| ------------------------- | --------------- | --------------------------------------------------------- |
+| `10.0.0.0/16`             | Local           | Local route for IPv4                                      |
+| `10.0.1.0/24`             | `appliance-eni` | Route IPv4 traffic destined for subnet B to the middlebox |
+| `2001:db8:1234:1a00::/56` | Local           | Local route for IPv6                                      |
+| `2001:db8:1234:1a00::/64` | `appliance-eni` | Route IPv6 traffic destined for subnet B to the middlebox |
+
+There is an edge association between the internet gateway and the VPC.
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Destination subnet route table
+
+Add the following routes to the route table for the destination subnet (subnet B
+in the example diagram).
+
 | Destination               | Target          | Purpose                                                       |
-| ------------------------- | --------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `10.0.0.0/16`             | Local           | Local route for IPv4                                          |
-| `10.0.1.0/24`             | `appliance-eni` | Route IPv4 traffic destined for subnet B to the middlebox     |
-| `2001:db8:1234:1a00::/56` | Local           | Local route for IPv6                                          |
-| `2001:db8:1234:1a00::/64` | `appliance-eni` | Route IPv6 traffic destined for subnet B to the middlebox     | There is an edge association between the internet gateway and the VPC. When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Destination subnet route table Add the following routes to the route table for the destination subnet (subnet B in the example diagram). |
-| Destination               | Target          | Purpose                                                       |
-| ---                       | ---             | ---                                                           |
+| ------------------------- | --------------- | ------------------------------------------------------------- |
 | `10.0.0.0/16`             | Local           | Local route for IPv4                                          |
 | 0.0.0.0/0                 | `appliance-eni` | Route IPv4 traffic destined for the internet to the middlebox |
 | `2001:db8:1234:1a00::/56` | Local           | Local route for IPv6                                          |
-| ::/0                      | `appliance-eni` | Route IPv6 traffic destined for the internet to the middlebox | There is a subnet association with the middlebox subnet. When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Middlebox subnet route table Add the following routes to the route table for the middlebox subnet (subnet C in the example diagram).                   |
-| Destination               | Target          | Purpose                                                       |
-| ---                       | ---             | ---                                                           |
-| `10.0.0.0/16`             | Local           | Local route for IPv4                                          |
-| 0.0.0.0/0                 | `igw-id`        | Route IPv4 traffic to the internet gateway                    |
-| `2001:db8:1234:1a00::/56` | Local           | Local route for IPv6                                          |
-| ::/0                      | `eigw-id`       | Route IPv6 traffic to the egress-only internet gateway        | There is a subnet association with the destination subnet. When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z")                                                                                                                                                         |
+| ::/0                      | `appliance-eni` | Route IPv6 traffic destined for the internet to the middlebox |
+
+There is a subnet association with the middlebox subnet.
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Middlebox subnet route table
+
+Add the following routes to the route table for the middlebox subnet (subnet C in the
+example diagram).
+
+| Destination               | Target    | Purpose                                                |
+| ------------------------- | --------- | ------------------------------------------------------ |
+| `10.0.0.0/16`             | Local     | Local route for IPv4                                   |
+| 0.0.0.0/0                 | `igw-id`  | Route IPv4 traffic to the internet gateway             |
+| `2001:db8:1234:1a00::/56` | Local     | Local route for IPv6                                   |
+| ::/0                      | `eigw-id` | Route IPv6 traffic to the egress-only internet gateway |
+
+There is a subnet association with the destination subnet.
+
+When you use the middlebox routing wizard, it associates the following tags with the route
+table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")

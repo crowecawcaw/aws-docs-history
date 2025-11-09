@@ -44,7 +44,20 @@ The following characteristics and rules apply to NAT gateways:
 - You can use a network ACL to control the traffic to and from the subnet for
   your NAT gateway. NAT gateways use ports 1024–65535. For more information, see
   [Network ACLs](vpc-network-acls.md "vpc-network-acls.md").
-- You can't route traffic to a NAT gateway through a VPC peering connection.
+- You can't route traffic to a NAT gateway through a VPC peering connection. However, traffic from a NAT gateway through VPC peering to destinations in peered VPCs supports "Return to Sender" behavior - return traffic is automatically routed back to the originating NAT gateway even without return routes configured in the destination VPC. This behavior is specific to NAT gateways and does not apply to standard EC2 instances. To prevent this, use NACLs to block the return traffic.
+
+Not supported:
+
+```
+Client → Peering → NAT → Internet
+```
+
+Supported:
+
+```
+Client → NAT → Peering → Destination
+```
+
 - You can't route traffic to a NAT gateway from Site-to-Site VPN or Direct Connect using a virtual
   private gateway. You can route traffic to a NAT gateway from Site-to-Site VPN or Direct Connect if
   you use a transit gateway instead of a virtual private gateway.

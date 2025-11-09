@@ -33,15 +33,45 @@ route tables to the subnets and internet gateway.
 
 The route table for the internet gateway has the following routes.
 
-| Destination               | Target        | Purpose                                                                                                              |
-| ------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Consumer VPC CIDR`       | Local         | Local route                                                                                                          |
-| `Application subnet CIDR` | `endpoint-id` | Routes traffic destined for the application subnet to the Gateway Load Balancer endpoint                             | There is an edge association with the gateway. When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Application subnet route table The route table for the application subnet has the following routes. |
-| Destination               | Target        | Purpose                                                                                                              |
-| ---                       | ---           | ---                                                                                                                  |
-| `Consumer VPC CIDR`       | Local         | Local route                                                                                                          |
-| 0.0.0.0/0                 | `endpoint-id` | Route traffic from the application servers to the Gateway Load Balancer endpoint before it is routed to the internet | When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z") ## Provider subnet route table The route table for the provider subnet has the following routes.                                                      |
-| Destination               | Target        | Purpose                                                                                                              |
-| ---                       | ---           | ---                                                                                                                  |
-| `Provider VPC CIDR`       | Local         | Local route. Ensures that traffic originating from the internet is routed to the application servers                 |
-| 0.0.0.0/0                 | `igw-id`      | Routes all traffic to the internet gateway                                                                           | When you use the middlebox routing wizard, it associates the following tags with the route table: <br>• The key is "Origin" and the value is "Middlebox wizard" <br>• The key is "date_created" and the value is the creation time (for example, "2021-02-18T22:25:49.137Z")                                                                                                                                                       |
+| Destination               | Target        | Purpose                                                                                     |
+| ------------------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| `Consumer VPC CIDR`       | Local         | Local route                                                                                 |
+| `Application subnet CIDR` | `endpoint-id` | Routes traffic destined for the application subnet to the<br>Gateway Load Balancer endpoint |
+
+There is an edge association with the gateway.
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Application subnet route table
+
+The route table for the application subnet has the following routes.
+
+| Destination         | Target        | Purpose                                                                                                                 |
+| ------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Consumer VPC CIDR` | Local         | Local route                                                                                                             |
+| 0.0.0.0/0           | `endpoint-id` | Route traffic from the application servers to the Gateway Load Balancer endpoint before<br>it is routed to the internet |
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")
+
+## Provider subnet route table
+
+The route table for the provider subnet has the following routes.
+
+| Destination         | Target   | Purpose                                                                                                 |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `Provider VPC CIDR` | Local    | Local route. Ensures that traffic originating from the internet<br>is routed to the application servers |
+| 0.0.0.0/0           | `igw-id` | Routes all traffic to the internet gateway                                                              |
+
+When you use the middlebox routing wizard, it associates the following tags with the route table:
+
+- The key is "Origin" and the value is "Middlebox wizard"
+- The key is "date_created" and the value is the creation time (for example,
+  "2021-02-18T22:25:49.137Z")

@@ -51,8 +51,339 @@ The following table lists the possible causes of the failure as indicated in the
 console. After you've applied any of the remedial steps indicated, you can try to create a
 NAT gateway again.
 
-| Displayed error                                                   | Cause                                                                                                                                                                                | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Subnet has insufficient free addresses to create this NAT gateway | The subnet that you specified does not have any free private IP addresses. The NAT gateway requires a network interface with a private IP address allocated from the subnet's range. | Check how many IP addresses are available in your subnet by going to the **Subnets** page in the Amazon VPC console. You can view the **Available IPs** in the details pane for your subnet. To create free IP addresses in your subnet, you can delete unused network interfaces, or terminate instances that you do not require.                                                                                                                               |
-| Network _vpc-xxxxxxxx_ has no internet gateway attached           | A NAT gateway must be created in a VPC with an internet gateway.                                                                                                                     | Create and attach an internet gateway to your VPC. For more information, see [Add internet access to a subnet](working-with-igw.md "working-with-igw.md").                                                                                                                                                                                                                                                                                                       |
-| Elastic IP address _eipalloc-xxxxxxxx_ is already associated      | The Elastic IP address that you specified is already associated with another resource, and cannot be associated with the NAT gateway.                                                | Check which resource is associated with the Elastic IP address. Go to the **Elastic IPs** page in the Amazon VPC console, and view the values specified for the instance ID or network interface ID. If you do not require the Elastic IP address for that resource, you can disassociate it. Alternatively, allocate a new Elastic IP address to your account. For more information, see [Start using Elastic IP addresses](WorkWithEIPs.md "WorkWithEIPs.md"). | ## NAT gateway quota When you try to create a NAT gateway, you get the following error. `Performing this operation would exceed the limit of 5 NAT gateways` ###### Cause You've reached the quota for the number of NAT gateways for that Availability Zone. ###### Solution If you've reached this NAT gateway quota for your account, you can do one of the following: <br>• Request an increase in the [NAT gateways per Availability Zone quota](https://console.aws.amazon.com/servicequotas/home/services/vpc/quotas/L-FE5A380F "https://console.aws.amazon.com/servicequotas/home/services/vpc/quotas/L-FE5A380F") using the Service Quotas console. <br>• Check the status of your NAT gateway. A status of `Pending`, `Available`, or `Deleting` counts against your quota. If you've recently deleted a NAT gateway, wait a few minutes for the status to go from `Deleting` to `Deleted`. Then try creating a new NAT gateway. <br>• If you do not need your NAT gateway in a specific Availability Zone, try creating a NAT gateway in an Availability Zone where you haven't reached your quota. For more information, see [Amazon VPC quotas](amazon-vpc-limits.md "amazon-vpc-limits.md"). ## Elastic IP address quota ###### Problem When you try to allocate an Elastic IP address for your public NAT gateway, you get the following error. `The maximum number of addresses has been reached.` ###### Cause You've reached the quota for the number of Elastic IP addresses for your account for that Region. ###### Solution If you've reached your Elastic IP address quota, you can disassociate an Elastic IP address from another resource. Alternatively, you can request an increase in the [Elastic IPs quota](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3") using the Service Quotas console. ## Availability Zone is unsupported ###### Problem When you try to create a NAT gateway, you get the following error: `NotAvailableInZone`. ###### Cause You might be trying to create the NAT gateway in a constrained Availability Zone — a zone in which our ability to expand is constrained. ###### Solution We cannot support NAT gateways in these Availability Zones. You can create a NAT gateway in a different Availability Zone and use it for private subnets in the constrained zone. You can also move your resources to an unconstrained Availability Zone so that your resources and your NAT gateway are in the same zone. ## NAT gateway is no longer visible ###### Problem You created a NAT gateway but it's no longer visible in the Amazon VPC console. ###### Cause There might have been an error during the creation of your NAT gateway, and creation failed. A NAT gateway with a status of `Failed` is visible in the Amazon VPC console for about an hour). After an hour, it's automatically deleted. ###### Solution Review the information in [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed"), and try creating a new NAT gateway. ## NAT gateway doesn't respond to a ping command ###### Problem When you try to ping a NAT gateway's Elastic IP address or private IP address from the internet (for example, from your home computer) or from an instance in your VPC, you do not get a response. ###### Cause A NAT gateway only passes traffic from an instance in a private subnet to the internet. ###### Solution To test that your NAT gateway is working, see [Test the public NAT gateway](nat-gateway-scenarios.md#public-nat-gateway-testing "nat-gateway-scenarios.md#public-nat-gateway-testing"). ## Instances cannot access the internet ###### Problem You created a public NAT gateway and followed the steps to test it, but the `ping` command fails, or your instances in the private subnet cannot access the internet. ###### Causes The cause of this problem might be one of the following: <br>• The NAT gateway is not ready to serve traffic. <br>• Your route tables are not configured correctly. <br>• Your security groups or network ACLs are blocking inbound or outbound traffic. <br>• You're using an unsupported protocol. ###### Solution Check the following information: <br>• Check that the NAT gateway is in the `Available` state. In the Amazon VPC console, go to the **NAT gateways** page and view the status information in the details pane. If the NAT gateway is in a failed state, there may have been an error when it was created. For more information, see [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed"). <br>• Check that you've configured your route tables correctly: + The NAT gateway must be in a public subnet with a route table that routes internet traffic to an internet gateway. + Your instance must be in a private subnet with a route table that routes internet traffic to the NAT gateway. + Check that there are no other route table entries that route all or part of the internet traffic to another device instead of the NAT gateway. <br>• Ensure that your security group rules for your private instance allow outbound internet traffic. For the `ping` command to work, the rules must also allow outbound ICMP traffic. The NAT gateway itself allows all outbound traffic and traffic received in response to an outbound request (it is therefore stateful). <br>• Ensure that the network ACLs that are associated with the private subnet and public subnets do not have rules that block inbound or outbound internet traffic. For the `ping` command to work, the rules must also allow inbound and outbound ICMP traffic. You can enable flow logs to help you diagnose dropped connections because of network ACL or security group rules. For more information, see [Logging IP traffic using VPC Flow Logs](flow-logs.md "flow-logs.md"). <br>• If you are using the `ping` command, ensure that you are pinging a host that has ICMP enabled. If ICMP is not enabled, you will not receive reply packets. To test this, perform the same `ping` command from the command line terminal on your own computer. <br>• Check that your instance is able to ping other resources, for example, other instances in the private subnet (assuming that security group rules allow this). <br>• Ensure that your connection is using a TCP, UDP, or ICMP protocol only. ## TCP connection to a destination fails ###### Problem Some of your TCP connections from instances in a private subnet to a specific destination through a NAT gateway are successful, but some are failing or timing out. ###### Causes The cause of this problem might be one of the following: <br>• The destination endpoint is responding with fragmented TCP packets. NAT gateways do not support IP fragmentation for TCP or ICMP. For more information, see [Compare NAT gateways and NAT instances](vpc-nat-comparison.md "vpc-nat-comparison.md"). <br>• The `tcp_tw_recycle` option is enabled on the remote server, which is known to cause issues when there are multiple connections from behind a NAT device. ###### Solutions Verify whether the endpoint to which you're trying to connect is responding with fragmented TCP packets by doing the following: 1. Use an instance in a public subnet with a public IP address to trigger a response large enough to cause fragmentation from the specific endpoint. 2. Use the `tcpdump` utility to verify that the endpoint is sending fragmented packets. ###### Important You must use an instance in a public subnet to perform these checks. You cannot use the instance from which the original connection was failing, or an instance in a private subnet behind a NAT gateway or a NAT instance. Diagnostic tools that send or receive large ICMP packets will report packet loss. For example, the command `ping -s 10000 example.com` does not work behind a NAT gateway. 3. If the endpoint is sending fragmented TCP packets, you can use a NAT instance instead of a NAT gateway. If you have access to the remote server, you can verify whether the `tcp_tw_recycle` option is enabled by doing the following: 1. From the server, run the following command. `cat /proc/sys/net/ipv4/tcp_tw_recycle` If the output is `1`, then the `tcp_tw_recycle` option is enabled. 2. If `tcp_tw_recycle` is enabled, we recommend disabling it. If you need to reuse connections, `tcp_tw_reuse` is a safer option. If you don't have access to the remote server, you can test by temporarily disabling the `tcp_timestamps` option on an instance in the private subnet. Then connect to the remote server again. If the connection is successful, the cause of the previous failure is likely because `tcp_tw_recycle` is enabled on the remote server. If possible, contact the owner of the remote server to verify if this option is enabled and request for it to be disabled. ## Traceroute output does not display NAT gateway private IP address ###### Problem Your instance can access the internet, but when you perform the `traceroute` command, the output does not display the private IP address of the NAT gateway. ###### Cause Your instance is accessing the internet using a different gateway, such as an internet gateway. ###### Solution In the route table of the subnet in which your instance is located, check the following information: <br>• Ensure that there is a route that sends internet traffic to the NAT gateway. <br>• Ensure that there isn't a more specific route that's sending internet traffic to other devices, such as a virtual private gateway or an internet gateway. ## Internet connection drops after 350 seconds ###### Problem Your instances can access the internet, but the connection drops after 350 seconds. ###### Cause If a connection that's using a NAT gateway is idle for 350 seconds or more, the connection times out. When a connection times out, a NAT gateway returns an RST packet to any resources behind the NAT gateway that attempt to continue the connection (it does not send a FIN packet). ###### Solution To prevent the connection from being dropped, you can initiate more traffic over the connection. Alternatively, you can enable TCP keepalive on the instance with a value less than 350 seconds. ## IPsec connection cannot be established ###### Problem You cannot establish an IPsec connection to a destination. ###### Cause NAT gateways currently do not support the IPsec protocol. ###### Solution You can use NAT-Traversal (NAT-T) to encapsulate IPsec traffic in UDP, which is a supported protocol for NAT gateways. Ensure that you test your NAT-T and IPsec configuration to verify that your IPsec traffic is not dropped. ## Cannot initiate more connections ###### Problem You have existing connections to a destination through a NAT gateway, but you cannot establish more connections. ###### Cause You might have reached the limit for simultaneous connections for a single NAT gateway. For more information, see [NAT gateway basics](nat-gateway-basics.md "nat-gateway-basics.md"). If your instances in the private subnet create a large number of connections, you might reach this limit. ###### Solution Do one of the following: <br>• Create a NAT gateway per Availability Zone and spread your clients across those zones. <br>• Create additional NAT gateways in the public subnet and split your clients into multiple private subnets, each with a route to a different NAT gateway. <br>• Limit the number of connections your clients can create to the destination. <br>• Use the [IdleTimeoutCount](vpc-nat-gateway-cloudwatch.md "vpc-nat-gateway-cloudwatch.md") metric in CloudWatch to monitor for increases in idle connections. Close idle connections to release capacity. <br>• Create a NAT gateway with multiple IP addresses or add secondary IP addresses to an existing NAT gateway. Each new IPv4 address can support up to 55,000 concurrent connections. For more information, see [Create a NAT gateway](nat-gateway-working-with.md#nat-gateway-creating "nat-gateway-working-with.md#nat-gateway-creating") or [Edit secondary IP address associations](nat-gateway-working-with.md#nat-gateway-edit-secondary "nat-gateway-working-with.md#nat-gateway-edit-secondary"). |
+| Displayed error                                                      | Cause                                                                                                                                                                                      | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Subnet has insufficient free addresses to create this NAT gateway    | The subnet that you specified does not have any free private IP addresses.<br>The NAT gateway requires a network interface with a private IP address<br>allocated from the subnet's range. | Check how many IP addresses are available in your subnet by going to the<br>**Subnets\*<br>• page in the Amazon VPC console. You can view<br>the **Available IPs\*<br>• in the details pane for your<br>subnet. To create free IP addresses in your subnet, you can delete<br>unused network interfaces, or terminate instances that you do not<br>require.                                                                                                                          |
+| Network \*vpc-xxxxxxxx<br>• has no internet gateway<br>attached      | A NAT gateway must be created in a VPC with an internet gateway.                                                                                                                           | Create and attach an internet gateway to your VPC. For more information, see<br>[Add internet access to a subnet](working-with-igw.md "working-with-igw.md").                                                                                                                                                                                                                                                                                                                        |
+| Elastic IP address \*eipalloc-xxxxxxxx<br>• is already<br>associated | The Elastic IP address that you specified is already associated with<br>another resource, and cannot be associated with the NAT gateway.                                                   | Check which resource is associated with the Elastic IP address. Go to the<br>\*_Elastic IPs_<br>• page in the Amazon VPC console, and view<br>the values specified for the instance ID or network interface ID. If you<br>do not require the Elastic IP address for that resource, you can<br>disassociate it. Alternatively, allocate a new Elastic IP address to<br>your account. For more information, see [Start using Elastic IP addresses](WorkWithEIPs.md "WorkWithEIPs.md"). |
+
+## NAT gateway quota
+
+When you try to create a NAT gateway, you get the following error.
+
+```
+Performing this operation would exceed the limit of 5 NAT gateways
+```
+
+###### Cause
+
+You've reached the quota for the number of NAT gateways for that Availability
+Zone.
+
+###### Solution
+
+If you've reached this NAT gateway quota for your account, you can do one of
+the following:
+
+- Request an increase in the [NAT gateways per
+  Availability Zone quota](https://console.aws.amazon.com/servicequotas/home/services/vpc/quotas/L-FE5A380F "https://console.aws.amazon.com/servicequotas/home/services/vpc/quotas/L-FE5A380F") using the Service Quotas console.
+- Check the status of your NAT gateway. A status of `Pending`,
+  `Available`, or `Deleting` counts against your quota.
+  If you've recently deleted a NAT gateway, wait a few minutes for the status to
+  go from `Deleting` to `Deleted`. Then try creating a new
+  NAT gateway.
+- If you do not need your NAT gateway in a specific Availability Zone, try
+  creating a NAT gateway in an Availability Zone where you haven't reached your
+  quota.
+
+For more information, see [Amazon VPC quotas](amazon-vpc-limits.md "amazon-vpc-limits.md").
+
+## Elastic IP address quota
+
+###### Problem
+
+When you try to allocate an Elastic IP address for your public NAT gateway, you
+get the following error.
+
+```
+The maximum number of addresses has been reached.
+```
+
+###### Cause
+
+You've reached the quota for the number of Elastic IP addresses for your
+account for that Region.
+
+###### Solution
+
+If you've reached your Elastic IP address quota, you can disassociate an Elastic
+IP address from another resource. Alternatively, you can request an increase in
+the [Elastic IPs quota](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3") using the Service Quotas console.
+
+## Availability Zone is
+
+unsupported
+
+###### Problem
+
+When you try to create a NAT gateway, you get the following error:
+`NotAvailableInZone`.
+
+###### Cause
+
+You might be trying to create the NAT gateway in a constrained Availability Zone
+— a zone in which our ability to expand is constrained.
+
+###### Solution
+
+We cannot support NAT gateways in these Availability Zones. You can create a NAT
+gateway in a different Availability Zone and use it for private subnets in the
+constrained zone. You can also move your resources to an unconstrained Availability
+Zone so that your resources and your NAT gateway are in the same zone.
+
+## NAT gateway is no longer
+
+visible
+
+###### Problem
+
+You created a NAT gateway but it's no longer visible in the Amazon VPC console.
+
+###### Cause
+
+There might have been an error during the creation of your NAT gateway, and creation
+failed. A NAT gateway with a status of `Failed` is visible in the Amazon VPC
+console for about an hour). After an hour, it's automatically
+deleted.
+
+###### Solution
+
+Review the information in [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed"), and try creating a new
+NAT gateway.
+
+## NAT gateway doesn't respond to a ping
+
+command
+
+###### Problem
+
+When you try to ping a NAT gateway's Elastic IP address or private IP address
+from the internet (for example, from your home computer) or from an instance in
+your VPC, you do not get a response.
+
+###### Cause
+
+A NAT gateway only passes traffic from an instance in a private subnet to the
+internet.
+
+###### Solution
+
+To test that your NAT gateway is working, see [Test the public NAT gateway](nat-gateway-scenarios.md#public-nat-gateway-testing "nat-gateway-scenarios.md#public-nat-gateway-testing").
+
+## Instances cannot access the
+
+internet
+
+###### Problem
+
+You created a public NAT gateway and followed the steps to test it, but the
+`ping` command fails, or your instances in the private subnet
+cannot access the internet.
+
+###### Causes
+
+The cause of this problem might be one of the following:
+
+- The NAT gateway is not ready to serve traffic.
+- Your route tables are not configured correctly.
+- Your security groups or network ACLs are blocking inbound or outbound
+  traffic.
+- You're using an unsupported protocol.
+
+###### Solution
+
+Check the following information:
+
+- Check that the NAT gateway is in the `Available` state. In the Amazon VPC
+  console, go to the **NAT gateways** page and view the status
+  information in the details pane. If the NAT gateway is in a failed state, there may
+  have been an error when it was created. For more information, see [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed").
+- Check that you've configured your route tables correctly:
+  - The NAT gateway must be in a public subnet with a route table that routes
+    internet traffic to an internet gateway.
+  - Your instance must be in a private subnet with a route table that routes
+    internet traffic to the NAT gateway.
+  - Check that there are no other route table entries that route all or part of
+    the internet traffic to another device instead of the NAT
+    gateway.
+
+- Ensure that your security group rules for your private instance allow outbound
+  internet traffic. For the `ping` command to work, the rules must
+  also allow outbound ICMP traffic.
+
+The NAT gateway itself allows all outbound traffic and traffic received in response to an
+outbound request (it is therefore stateful).
+
+- Ensure that the network ACLs that are associated with the private subnet and
+  public subnets do not have rules that block inbound or outbound internet
+  traffic. For the `ping` command to work, the rules must also
+  allow inbound and outbound ICMP traffic.
+
+You can enable flow logs to help you diagnose dropped connections because of network ACL or security group rules. For more information, see [Logging IP traffic using VPC Flow Logs](flow-logs.md "flow-logs.md").
+
+- If you are using the `ping` command, ensure that you are pinging a host
+  that has ICMP enabled. If ICMP is not enabled, you will not receive reply
+  packets. To test this, perform the same `ping` command from the
+  command line terminal on your own computer.
+- Check that your instance is able to ping other resources, for example, other
+  instances in the private subnet (assuming that security group rules allow this).
+- Ensure that your connection is using a TCP, UDP, or ICMP protocol only.
+
+## TCP connection to a destination
+
+fails
+
+###### Problem
+
+Some of your TCP connections from instances in a private subnet to a specific
+destination through a NAT gateway are successful, but some are failing or timing
+out.
+
+###### Causes
+
+The cause of this problem might be one of the following:
+
+- The destination endpoint is responding with fragmented TCP packets.
+  NAT gateways do not support IP fragmentation for TCP or ICMP. For more
+  information, see [Compare NAT gateways and NAT instances](vpc-nat-comparison.md "vpc-nat-comparison.md").
+- The `tcp_tw_recycle` option is enabled on the remote server,
+  which is known to cause issues when there are multiple connections from behind a
+  NAT device.
+
+###### Solutions
+
+Verify whether the endpoint to which you're trying to connect is responding with
+fragmented TCP packets by doing the following:
+
+1. Use an instance in a public subnet with a public IP address to trigger a response
+   large enough to cause fragmentation from the specific endpoint.
+2. Use the `tcpdump` utility to verify that the endpoint is sending
+   fragmented packets.
+
+###### Important
+
+You must use an instance in a public subnet to perform these checks. You cannot use the
+instance from which the original connection was failing, or an instance in a
+private subnet behind a NAT gateway or a NAT instance.
+
+Diagnostic tools that send or receive large ICMP packets will report packet loss. For example,
+the command `ping -s 10000 example.com` does not work behind a NAT
+gateway. 3. If the endpoint is sending fragmented TCP packets, you can use a NAT instance instead of
+a NAT gateway.
+
+If you have access to the remote server, you can verify whether the
+`tcp_tw_recycle` option is enabled by doing the following:
+
+1. From the server, run the following command.
+
+```
+cat /proc/sys/net/ipv4/tcp_tw_recycle
+```
+
+If the output is `1`, then the `tcp_tw_recycle`
+option is enabled. 2. If `tcp_tw_recycle` is enabled, we recommend disabling it. If
+you need to reuse connections, `tcp_tw_reuse` is a safer
+option.
+
+If you don't have access to the remote server, you can test by temporarily disabling
+the `tcp_timestamps` option on an instance in the private subnet. Then
+connect to the remote server again. If the connection is successful, the cause of the
+previous failure is likely because `tcp_tw_recycle` is enabled on the remote
+server. If possible, contact the owner of the remote server to verify if this option is
+enabled and request for it to be disabled.
+
+## Traceroute output does not display NAT
+
+gateway private IP address
+
+###### Problem
+
+Your instance can access the internet, but when you perform the
+`traceroute` command, the output does not display the private IP
+address of the NAT gateway.
+
+###### Cause
+
+Your instance is accessing the internet using a different gateway, such as an
+internet gateway.
+
+###### Solution
+
+In the route table of the subnet in which your instance is located, check the
+following information:
+
+- Ensure that there is a route that sends internet traffic to the NAT gateway.
+- Ensure that there isn't a more specific route that's sending internet traffic to
+  other devices, such as a virtual private gateway or an internet gateway.
+
+## Internet connection drops after 350
+
+seconds
+
+###### Problem
+
+Your instances can access the internet, but the connection drops after 350
+seconds.
+
+###### Cause
+
+If a connection that's using a NAT gateway is idle for 350 seconds or more, the
+connection times out.
+
+When a connection times out, a NAT gateway returns an RST packet to any resources
+behind the NAT gateway that attempt to continue the connection (it does not send a
+FIN packet).
+
+###### Solution
+
+To prevent the connection from being dropped, you can initiate more traffic over
+the connection. Alternatively, you can enable TCP keepalive on the instance with a
+value less than 350 seconds.
+
+## IPsec connection cannot be established
+
+###### Problem
+
+You cannot establish an IPsec connection to a destination.
+
+###### Cause
+
+NAT gateways currently do not support the IPsec protocol.
+
+###### Solution
+
+You can use NAT-Traversal (NAT-T) to encapsulate IPsec traffic in UDP, which is a
+supported protocol for NAT gateways. Ensure that you test your NAT-T and IPsec
+configuration to verify that your IPsec traffic is not dropped.
+
+## Cannot initiate more
+
+connections
+
+###### Problem
+
+You have existing connections to a destination through a NAT gateway, but you
+cannot establish more connections.
+
+###### Cause
+
+You might have reached the limit for simultaneous connections for a single NAT
+gateway. For more information, see [NAT gateway basics](nat-gateway-basics.md "nat-gateway-basics.md"). If your instances in the private
+subnet create a large number of connections, you might reach this limit.
+
+###### Solution
+
+Do one of the following:
+
+- Create a NAT gateway per Availability Zone and spread your clients across those
+  zones.
+- Create additional NAT gateways in the public subnet and split your clients into
+  multiple private subnets, each with a route to a different NAT gateway.
+- Limit the number of connections your clients can create to the destination.
+- Use the [IdleTimeoutCount](vpc-nat-gateway-cloudwatch.md "vpc-nat-gateway-cloudwatch.md") metric in CloudWatch to monitor for
+  increases in idle connections. Close idle connections to release
+  capacity.
+- Create a NAT gateway with multiple IP addresses or add secondary IP addresses
+  to an existing NAT gateway. Each new IPv4 address can support up to 55,000
+  concurrent connections. For more information, see [Create a NAT gateway](nat-gateway-working-with.md#nat-gateway-creating "nat-gateway-working-with.md#nat-gateway-creating") or
+  [Edit secondary IP address associations](nat-gateway-working-with.md#nat-gateway-edit-secondary "nat-gateway-working-with.md#nat-gateway-edit-secondary").

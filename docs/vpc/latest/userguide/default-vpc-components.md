@@ -31,6 +31,23 @@ When we create a default VPC, we do the following to set it up for you:
 The following table shows the routes in the main route table for the default VPC.
 
 | Destination   | Target                |
-| ------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | --------------------- |
 | 172.31.0.0/16 | local                 |
-| 0.0.0.0/0     | `internet_gateway_id` | You can use a default VPC as you would use any other VPC: <br>• Add additional nondefault subnets. <br>• Modify the main route table. <br>• Add additional route tables. <br>• Associate additional security groups. <br>• Update the rules of the default security group. <br>• Add AWS Site-to-Site VPN connections. <br>• Add more IPv4 CIDR blocks. <br>• Access VPCs in a remote Region by using a Direct Connect gateway. For information about Direct Connect gateway options, see [Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md") in the _AWS Direct Connect User Guide_. You can use a default subnet as you would use any other subnet; add custom route tables and set network ACLs. You can also specify a specific default subnet when you launch an EC2 instance. You can optionally associate an IPv6 CIDR block with your default VPC. |
+| 0.0.0.0/0     | `internet_gateway_id` |
+
+You can use a default VPC as you would use any other VPC:
+
+- Add additional nondefault subnets.
+- Modify the main route table.
+- Add additional route tables.
+- Associate additional security groups.
+- Update the rules of the default security group.
+- Add AWS Site-to-Site VPN connections.
+- Add more IPv4 CIDR blocks.
+- Access VPCs in a remote Region by using a Direct Connect gateway. For
+  information about Direct Connect gateway options, see [Direct Connect gateways](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md") in the _AWS Direct Connect User Guide_.
+  You can use a default subnet as you would use any other subnet; add custom route tables and
+  set network ACLs. You can also specify a specific default subnet when you launch an EC2
+  instance.
+
+You can optionally associate an IPv6 CIDR block with your default VPC.

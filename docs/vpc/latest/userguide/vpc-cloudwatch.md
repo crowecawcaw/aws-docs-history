@@ -29,13 +29,72 @@ your VPC will reach its size limit, or create alarms when size thresholds are cr
 
 The `AWS/EC2`namespace includes the following metrics for monitoring NAU.
 
-| Metric                      | Description                                                                                                                                                                                                                                                                                            |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NetworkAddressUsage`       | The NAU count per VPC. **Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Per-VPC Metrics`, Value: The VPC ID.                                                                                                                                                                   |
-| `NetworkAddressUsagePeered` | The NAU count for the VPC and all VPCs that it's peered with.**Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Per-VPC Metrics`, Value: The VPC ID.                                                                                                                             | The `AWS/Usage`namespace includes the following metrics for monitoring NAU.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Metric                      | Description                                                                                                                                                                                                                                                                                            |
-| ---                         | ---                                                                                                                                                                                                                                                                                                    |
-| `ResourceCount`             | The NAU count per VPC. **Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Service`, Value: `EC2` <br>• Name: `Type`, Value: `Resource` <br>• Name: `Resource`, Value: The VPC ID. <br>• Name: `Class`, Value: `NetworkAddressUsage`                                              |
-| `ResourceCount`             | The NAU count for the VPC and all VPCs that it's peered with. **Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Service`, Value: `EC2` <br>• Name: `Type`, Value: `Resource` <br>• Name: `Resource`, Value: The VPC ID. <br>• Name: `Class`, Value: `NetworkAddressUsagePeered` |
-| `ResourceCount`             | A combined view of NAU usage across VPCs. **Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Service`, Value: `EC2` <br>• Name: `Type`, Value: `Resource` <br>• Name: `Resource`, Value: `VPC` <br>• Name: `Class`, Value: `NetworkAddressUsage`                                 |
-| `ResourceCount`             | A combined view of NAU usage across peered VPCs. **Reporting criteria** <br>• Every 24 hours. **Dimensions** <br>• Name: `Service`, Value: `EC2` <br>• Name: `Type`, Value: `Resource` <br>• Name: `Resource`, Value: `VPC` <br>• Name: `Class`, Value: `NetworkAddressUsagePeered`                    | ## Enable or disable NAU monitoring To view NAU metrics in CloudWatch, you must first enable monitoring on each VPC to monitor. ###### To enable or disable monitoring NAU 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, choose **Your VPCs**. 3. Select the check box for the VPC. 4. Select **Actions**, **Edit VPC settings**. 5. Do one of the following: <br>• To enable monitoring, select **Network mapping units metrics settings**, **Enable network address usage metrics**. <br>• To disable monitoring, clear **Network mapping units metrics settings**, **Enable network address usage metrics**. ###### To enable or disable monitoring using the command line <br>• [modify-vpc-attribute](../../../cli/latest/reference/ec2/modify-vpc-attribute.md "../../../cli/latest/reference/ec2/modify-vpc-attribute.md") (AWS CLI) <br>• [Edit-EC2VpcAttribute](../../../powershell/latest/reference/items/Edit-EC2VpcAttribute.md "../../../powershell/latest/reference/items/Edit-EC2VpcAttribute.md") (AWS Tools for Windows PowerShell) ## NAU CloudWatch alarm example You can use the following AWS CLI command and example `.json` to create an Amazon CloudWatch alarm and SNS notification that tracks NAU utilization of the VPC with 50,000 NAUs as the threshold. This sample requires you to first create an Amazon SNS topic. For more information, see [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the _Amazon Simple Notification Service Developer Guide_. `` aws cloudwatch put-metric-alarm --cli-input-json file://`nau-alarm.json` `` The following is an example of `nau-alarm.json`. ``{ "Namespace": "AWS/EC2", "MetricName": "NetworkAddressUsage", "Dimensions": [{ "Name": "Per-VPC Metrics", "Value": "`vpc-0123456798`" }], "AlarmActions": ["arn:aws:sns:`us-west-1`:`123456789012`:`my_sns_topic`"], "ComparisonOperator": "GreaterThanThreshold", "Period": 86400, "EvaluationPeriods": 1, "Threshold": 50000, "AlarmDescription": "Tracks NAU utilization of the VPC with 50k NAUs as the threshold", "AlarmName": "VPC NAU Utilization", "Statistic": "Maximum" }`` |
+| Metric                      | Description                                                                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NetworkAddressUsage`       | The NAU count per VPC.<br>**Reporting criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Per-VPC Metrics`, Value: The VPC<br>ID.                                          |
+| `NetworkAddressUsagePeered` | The NAU count for the VPC and all VPCs that it's peered<br>with.**Reporting<br>criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Per-VPC Metrics`, Value: The VPC<br>ID. |
+
+The `AWS/Usage`namespace includes the following metrics for monitoring NAU.
+
+| Metric          | Description                                                                                                                                                                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ResourceCount` | The NAU count per VPC.<br>**Reporting criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Service`, Value: `EC2`<br>• Name: `Type`, Value: `Resource`<br>• Name: `Resource`, Value: The VPC ID.<br>• Name: `Class`, Value: `NetworkAddressUsage`                                              |
+| `ResourceCount` | The NAU count for the VPC and all VPCs that it's peered with.<br>**Reporting criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Service`, Value: `EC2`<br>• Name: `Type`, Value: `Resource`<br>• Name: `Resource`, Value: The VPC ID.<br>• Name: `Class`, Value: `NetworkAddressUsagePeered` |
+| `ResourceCount` | A combined view of NAU usage across VPCs.<br>**Reporting criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Service`, Value: `EC2`<br>• Name: `Type`, Value: `Resource`<br>• Name: `Resource`, Value: `VPC`<br>• Name: `Class`, Value: `NetworkAddressUsage`                                 |
+| `ResourceCount` | A combined view of NAU usage across peered VPCs.<br>**Reporting criteria**<br>• Every 24 hours.<br>**Dimensions**<br>• Name: `Service`, Value: `EC2`<br>• Name: `Type`, Value: `Resource`<br>• Name: `Resource`, Value: `VPC`<br>• Name: `Class`, Value: `NetworkAddressUsagePeered`                    |
+
+## Enable or disable NAU monitoring
+
+To view NAU metrics in CloudWatch, you must first enable monitoring on each VPC to monitor.
+
+###### To enable or disable monitoring NAU
+
+1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Your VPCs**.
+3. Select the check box for the VPC.
+4. Select **Actions**, **Edit VPC settings**.
+5. Do one of the following:
+   - To enable monitoring, select **Network mapping units metrics settings**,
+     **Enable network address usage metrics**.
+   - To disable monitoring, clear **Network mapping units metrics settings**,
+     **Enable network address usage metrics**.
+
+###### To enable or disable monitoring using the command line
+
+- [modify-vpc-attribute](../../../cli/latest/reference/ec2/modify-vpc-attribute.md "../../../cli/latest/reference/ec2/modify-vpc-attribute.md")
+  (AWS CLI)
+- [Edit-EC2VpcAttribute](../../../powershell/latest/reference/items/Edit-EC2VpcAttribute.md "../../../powershell/latest/reference/items/Edit-EC2VpcAttribute.md")
+  (AWS Tools for Windows PowerShell)
+
+## NAU CloudWatch alarm example
+
+You can use the following AWS CLI command and example `.json` to create an
+Amazon CloudWatch alarm and SNS notification that tracks NAU utilization of the VPC with 50,000
+NAUs as the threshold. This sample requires you to first create an Amazon SNS topic. For more
+information, see [Getting started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in
+the _Amazon Simple Notification Service Developer Guide_.
+
+```
+aws cloudwatch put-metric-alarm --cli-input-json file://`nau-alarm.json`
+```
+
+The following is an example of `nau-alarm.json`.
+
+```
+{
+    "Namespace": "AWS/EC2",
+    "MetricName": "NetworkAddressUsage",
+    "Dimensions": [{
+        "Name": "Per-VPC Metrics",
+        "Value": "`vpc-0123456798`"
+    }],
+    "AlarmActions": ["arn:aws:sns:`us-west-1`:`123456789012`:`my_sns_topic`"],
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Period": 86400,
+    "EvaluationPeriods": 1,
+    "Threshold": 50000,
+    "AlarmDescription": "Tracks NAU utilization of the VPC with 50k NAUs as the threshold",
+    "AlarmName": "VPC NAU Utilization",
+    "Statistic": "Maximum"
+}
+```

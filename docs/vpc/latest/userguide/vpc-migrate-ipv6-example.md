@@ -19,14 +19,21 @@ local routes. The third entry sends all IPv4 traffic to the internet gateway. No
 the fourth entry is necessary only if you plan to launch EC2 instances with IPv6 addresses
 in the public subnet.
 
+| Destination     | Target                |
+| --------------- | --------------------- |
+| `VPC IPv4 CIDR` | local                 |
+| `VPC IPv6 CIDR` | local                 |
+| 0.0.0.0/0       | `internet-gateway-id` |
+| ::/0            | `internet-gateway-id` |
+
+###### Route table for the private subnet
+
+The following is the route table for the private subnet. The first two entries are
+the local routes. The third entry sends all IPv4 traffic to the NAT gateway. The last
+entry sends all IPv6 traffic to the egress-only internet gateway.
+
 | Destination     | Target                   |
-| --------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `VPC IPv4 CIDR` | local                    |
-| `VPC IPv6 CIDR` | local                    |
-| 0.0.0.0/0       | `internet-gateway-id`    |
-| ::/0            | `internet-gateway-id`    | ###### Route table for the private subnet The following is the route table for the private subnet. The first two entries are the local routes. The third entry sends all IPv4 traffic to the NAT gateway. The last entry sends all IPv6 traffic to the egress-only internet gateway. |
-| Destination     | Target                   |
-| ---             | ---                      |
+| --------------- | ------------------------ |
 | `VPC IPv4 CIDR` | local                    |
 | `VPC IPv6 CIDR` | local                    |
 | 0.0.0.0/0       | `nat-gateway-id`         |

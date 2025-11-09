@@ -75,8 +75,13 @@ resources to enable communication:
 In the example, the route table for VPC 1 has the following entry:
 
 | Destination | Target                |
-| ----------- | --------------------- | -------------------------------------------------------------- |
-| 10.1.0.0/24 | tgw-22222222222222222 | The route table for VPC 2 has the following entry:             |
+| ----------- | --------------------- |
+| 10.1.0.0/24 | tgw-22222222222222222 |
+
+The route table for VPC 2 has the following entry:
+
 | Destination | Target                |
-| ---         | ---                   |
-| 10.0.0.0/24 | tgw-22222222222222222 | ![Multiple Wavelength Zones](images/mult-wavelength-zones.png) |
+| ----------- | --------------------- |
+| 10.0.0.0/24 | tgw-22222222222222222 |
+
+![Multiple Wavelength Zones](images/mult-wavelength-zones.png)

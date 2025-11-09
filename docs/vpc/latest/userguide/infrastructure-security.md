@@ -71,9 +71,21 @@ The following table summarizes the basic differences between security groups and
 ACLs.
 
 | Characteristic     | Security group                                               | Network ACL                                                               |
-| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------- |
 | Level of operation | Instance level                                               | Subnet level                                                              |
 | Scope              | Applies to all instances associated with the security group  | Applies to all instances in the associated subnets                        |
 | Rule type          | Allow rules only                                             | Allow and deny rules                                                      |
 | Rule evaluation    | Evaluates all rules before deciding whether to allow traffic | Evaluates rules in ascending order until a match for the traffic is found |
-| Return traffic     | Automatically allowed (stateful)                             | Must be explicitly allowed (stateless)                                    | The following diagram illustrates the layers of security provided by security groups and network ACLs. For example, traffic from an internet gateway is routed to the appropriate subnet using the routes in the routing table. The rules of the network ACL that is associated with the subnet control which traffic is allowed to the subnet. The rules of the security group that is associated with an instance control which traffic is allowed to the instance. ![Traffic is controlled using security groups and network ACLs](images/security-comparison.png) You can secure your instances using only security groups. However, you can add network ACLs as an additional layer of defense. For more information, see [Example: Control access to instances in a subnet](nacl-examples.md "nacl-examples.md"). |
+| Return traffic     | Automatically allowed (stateful)                             | Must be explicitly allowed (stateless)                                    |
+
+The following diagram illustrates the layers of security provided by security groups and
+network ACLs. For example, traffic from an internet gateway is routed to the appropriate
+subnet using the routes in the routing table. The rules of the network ACL that is associated
+with the subnet control which traffic is allowed to the subnet. The rules of the security
+group that is associated with an instance control which traffic is allowed to the
+instance.
+
+![Traffic is controlled using security groups and network ACLs](images/security-comparison.png)
+
+You can secure your instances using only security groups. However, you can add network
+ACLs as an additional layer of defense. For more information, see [Example: Control access to instances in a subnet](nacl-examples.md "nacl-examples.md").

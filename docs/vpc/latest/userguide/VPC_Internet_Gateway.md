@@ -80,10 +80,10 @@ default.
 The following table provides an overview of whether your VPC automatically comes with the
 components required for internet access over IPv4 or IPv6.
 
-| Component                                                                   | Default VPC          | Nondefault VPC         |
-| --------------------------------------------------------------------------- | -------------------- | ---------------------- |
-| Internet gateway                                                            | Yes                  | No                     |
-| Route table with route to internet gateway for IPv4 traffic (0.0.0.0/0)     | Yes                  | No                     |
-| Route table with route to internet gateway for IPv6 traffic (::/0)          | No                   | No                     |
-| Public IPv4 address automatically assigned to instance launched into subnet | Yes (default subnet) | No (nondefault subnet) |
-| IPv6 address automatically assigned to instance launched into subnet        | No (default subnet)  | No (nondefault subnet) |
+| Component                                                                      | Default VPC          | Nondefault VPC         |
+| ------------------------------------------------------------------------------ | -------------------- | ---------------------- |
+| Internet gateway                                                               | Yes                  | No                     |
+| Route table with route to internet gateway for IPv4 traffic (0.0.0.0/0)        | Yes                  | No                     |
+| Route table with route to internet gateway for IPv6 traffic (::/0)             | No                   | No                     |
+| Public IPv4 address automatically assigned to instance launched into<br>subnet | Yes (default subnet) | No (nondefault subnet) |
+| IPv6 address automatically assigned to instance launched into subnet           | No (default subnet)  | No (nondefault subnet) |
