@@ -23,7 +23,7 @@ hours of usage on one db.r6g.large. The following table shows the number
 of normalized units for each node size:
 
 | Node size | Normalized units (Redis OSS) | Normalized units (Valkey) |
-| --------- | ---------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | ---------------------------- | ------------------------- |
 | small     | 1                            | .7                        |
 | medium    | 2                            | 1.4                       |
 | large     | 4                            | 2.8                       |
@@ -35,4 +35,15 @@ of normalized units for each node size:
 | 10xlarge  | 80                           | 56                        |
 | 12xlarge  | 96                           | 67.2                      |
 | 16xlarge  | 128                          | 89.6                      |
-| 24xlarge  | 192                          | 134.4                     | For example, you purchase a db.r6gd.xlarge reserved node, and you have two running db.r6gd.large reserved nodes in your account in the same AWS Region. In this case, the billing benefit is applied in full to both nodes. ![Diagram showing two running reserved nodes with billing benefit applied to both nodes.](images/ri1.png) Alternatively, if you have one db.r6gd.2xlarge instance running in your account in the same AWS Region, the billing benefit is applied to 50 percent of the usage of the reserved node. ![Diagram showing one instance with billing benefit applied to 50 percent of the usage of the reserved node.](images/ri2.png) |
+| 24xlarge  | 192                          | 134.4                     |
+
+For example, you purchase a db.r6gd.xlarge reserved node, and you have two running
+db.r6gd.large reserved nodes in your account in the same AWS Region. In this case,
+the billing benefit is applied in full to both nodes.
+
+![Diagram showing two running reserved nodes with billing benefit applied to both nodes.](images/ri1.png)
+Alternatively, if you have one db.r6gd.2xlarge instance running in your account in
+the same AWS Region, the billing benefit is applied to 50 percent of the usage of
+the reserved node.
+
+![Diagram showing one instance with billing benefit applied to 50 percent of the usage of the reserved node.](images/ri2.png)

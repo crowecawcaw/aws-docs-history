@@ -46,26 +46,31 @@ Within each region are multiple Availability Zones (AZ).
 By launching your nodes in different AZs you achieve the greatest possible fault tolerance.
 For more information on regions and Availability Zones, see [Choosing Regions and Availability Zones](regionsandazs.md "regionsandazs.md") at the beginning of this topic.
 
-| Regions where MemoryDB is supported              | Region Name/Region                          | Endpoint | Protocol                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------ | ------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio) Region `us-east-2`                | `memory-db.us-east-2.amazonaws.com`         | HTTPS    |
-| US East (N. Virginia) Region `us-east-1`         | `memory-db.us-east-1.amazonaws.com`         | HTTPS    |
-| US West (N. California) Region `us-west-1`       | `memory-db.us-west-1.amazonaws.com`         | HTTPS    |
-| US West (Oregon) Region `us-west-2`              | `memory-db.us-west-2.amazonaws.com`         | HTTPS    |
-| Canada (Central) Region `ca-central-1`           | `memory-db.ca-central-1.amazonaws.com`      | HTTPS    |
-| Asia Pacific (Hong Kong) Region `ap-east-1`      | `memory-db.ap-eastl-1.amazonaws.com`        | HTTPS    |
-| Asia Pacific (Mumbai) Region `ap-south-1`        | `memory-db.ap-south-1.amazonaws.com`        | HTTPS    |
-| Asia Pacific (Tokyo) Region `ap-northeast-1`     | `memory-db.ap-northeast-1.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Seoul) Region `ap-northeast-2`     | `memory-db.ap-northeast-2.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Singapore) Region `ap-southeast-1` | `memory-db.ap-southeast-1.amazonaws.com`    | HTTPS    |
-| Asia Pacific (Sydney) Region `ap-southeast-2`    | `memory-db.ap-southeast-2.amazonaws.com`    | HTTPS    |
-| Europe (Frankfurt) Region `eu-central-1`         | `memory-db.eu-central-1.amazonaws.com`      | HTTPS    |
-| Europe (Ireland) Region `eu-west-1`              | `memory-db.eu-west-1.amazonaws.com`         | HTTPS    |
-| Europe (London) Region `eu-west-2`               | `memory-db.eu-west-2.amazonaws.com`         | HTTPS    |
-| EU (Paris) Region `eu-west-3`                    | `memory-db.eu-west-3.amazonaws.com`         | HTTPS    |
-| Europe (Stockholm) Region `eu-north-1`           | `memory-db.eu-north-1.amazonaws.com`        | HTTPS    |
-| Europe (Milan) Region `eu-south-1`               | `memory-db.eu-south-1.amazonaws.com`        | HTTPS    |
-| Europe (Spain) Region `eu-south-2`               | `memory-db.eu-south-2.amazonaws.com`        | HTTPS    |
-| South America (São Paulo) Region `sa-east-1`     | `memory-db.sa-east-1.amazonaws.com`         | HTTPS    |
-| China (Beijing) Region `cn-north-1`              | `memory-db.cn-north-1.amazonaws.com.cn`     | HTTPS    |
-| China (Ningxia) Region `cn-northwest-1`          | `memory-db.cn-northwest-1.amazonaws.com.cn` | HTTPS    | For a table of AWS products and services by region, see [Products and services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"). For a table of supported Availability Zones within Regions, see [Subnets and subnet groups](subnetgroups.md "subnetgroups.md"). |
+| Regions where MemoryDB is supported                 | Region Name/Region                          | Endpoint | Protocol |
+| --------------------------------------------------- | ------------------------------------------- | -------- | -------- |
+| US East (Ohio) Region<br>`us-east-2`                | `memory-db.us-east-2.amazonaws.com`         | HTTPS    |
+| US East (N. Virginia) Region<br>`us-east-1`         | `memory-db.us-east-1.amazonaws.com`         | HTTPS    |
+| US West (N. California) Region<br>`us-west-1`       | `memory-db.us-west-1.amazonaws.com`         | HTTPS    |
+| US West (Oregon) Region<br>`us-west-2`              | `memory-db.us-west-2.amazonaws.com`         | HTTPS    |
+| Canada (Central) Region<br>`ca-central-1`           | `memory-db.ca-central-1.amazonaws.com`      | HTTPS    |
+| Asia Pacific (Hong Kong) Region<br>`ap-east-1`      | `memory-db.ap-eastl-1.amazonaws.com`        | HTTPS    |
+| Asia Pacific (Mumbai) Region<br>`ap-south-1`        | `memory-db.ap-south-1.amazonaws.com`        | HTTPS    |
+| Asia Pacific (Tokyo) Region<br>`ap-northeast-1`     | `memory-db.ap-northeast-1.amazonaws.com`    | HTTPS    |
+| Asia Pacific (Seoul) Region<br>`ap-northeast-2`     | `memory-db.ap-northeast-2.amazonaws.com`    | HTTPS    |
+| Asia Pacific (Singapore) Region<br>`ap-southeast-1` | `memory-db.ap-southeast-1.amazonaws.com`    | HTTPS    |
+| Asia Pacific (Sydney) Region<br>`ap-southeast-2`    | `memory-db.ap-southeast-2.amazonaws.com`    | HTTPS    |
+| Europe (Frankfurt) Region<br>`eu-central-1`         | `memory-db.eu-central-1.amazonaws.com`      | HTTPS    |
+| Europe (Ireland) Region<br>`eu-west-1`              | `memory-db.eu-west-1.amazonaws.com`         | HTTPS    |
+| Europe (London) Region<br>`eu-west-2`               | `memory-db.eu-west-2.amazonaws.com`         | HTTPS    |
+| EU (Paris) Region<br>`eu-west-3`                    | `memory-db.eu-west-3.amazonaws.com`         | HTTPS    |
+| Europe (Stockholm) Region<br>`eu-north-1`           | `memory-db.eu-north-1.amazonaws.com`        | HTTPS    |
+| Europe (Milan) Region<br>`eu-south-1`               | `memory-db.eu-south-1.amazonaws.com`        | HTTPS    |
+| Europe (Spain) Region<br>`eu-south-2`               | `memory-db.eu-south-2.amazonaws.com`        | HTTPS    |
+| South America (São Paulo) Region<br>`sa-east-1`     | `memory-db.sa-east-1.amazonaws.com`         | HTTPS    |
+| China (Beijing) Region<br>`cn-north-1`              | `memory-db.cn-north-1.amazonaws.com.cn`     | HTTPS    |
+| China (Ningxia) Region<br>`cn-northwest-1`          | `memory-db.cn-northwest-1.amazonaws.com.cn` | HTTPS    |
+
+For a table of AWS products and services by region,
+see [Products and services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+
+For a table of supported Availability Zones within Regions, see [Subnets and subnet groups](subnetgroups.md "subnetgroups.md").

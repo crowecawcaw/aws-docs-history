@@ -11,7 +11,7 @@ default maintenance windows are assigned.
 You may choose a preferred maintenance window outside the region's maintenance window block.
 
 | Region Code      | Region Name                      | Region Maintenance Window |
-| ---------------- | -------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | -------------------------------- | ------------------------- |
 | `ap-northeast-1` | Asia Pacific (Tokyo) Region      | 13:00–21:00 UTC           |
 | `ap-northeast-2` | Asia Pacific (Seoul) Region      | 12:00–20:00 UTC           |
 | `ap-south-1`     | Asia Pacific (Mumbai) Region     | 17:30–1:30 UTC            |
@@ -29,4 +29,19 @@ You may choose a preferred maintenance window outside the region's maintenance w
 | `us-east-1`      | US East (N. Virginia) Region     | 03:00–11:00 UTC           |
 | `us-east-1`      | US East (Ohio) Region            | 04:00–12:00 UTC           |
 | `us-west-1`      | US West (N. California) Region   | 06:00–14:00 UTC           |
-| `us-west-2`      | US West (Oregon) Region          | 06:00–14:00 UTC           | ###### Changing your Cluster's Maintenance Window The maintenance window should fall at the time of lowest usage and thus might need modification from time to time. You can modify your cluster to specify a time range of up to 24 hours in duration during which any maintenance activities you have requested should occur. Any deferred or pending cluster modifications you requested occur during this time. ###### More information For information on your maintenance window and node replacement, see the following: <br>• [Replacing nodes](nodes.md "nodes.md")—Managing node replacement <br>• [Modifying a MemoryDB cluster](clusters.md "clusters.md")—Changing a cluster's maintenance window |
+| `us-west-2`      | US West (Oregon) Region          | 06:00–14:00 UTC           |
+
+###### Changing your Cluster's Maintenance Window
+
+The maintenance window should fall at the time of lowest usage and thus might need
+modification from time to time. You can modify your cluster
+to specify a time range of up to 24 hours in duration during which any maintenance
+activities you have requested should occur. Any deferred or pending cluster modifications
+you requested occur during this time.
+
+###### More information
+
+For information on your maintenance window and node replacement, see the following:
+
+- [Replacing nodes](nodes.md "nodes.md")—Managing node replacement
+- [Modifying a MemoryDB cluster](clusters.md "clusters.md")—Changing a cluster's maintenance window

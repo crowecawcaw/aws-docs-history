@@ -42,12 +42,102 @@ If you're using the Amazon MemoryDB API, the AWS CLI, or an AWS SDK, you can use
 - `CreateMultiRegionCluster`
   The following table describes the MemoryDB resources that can be tagged, and the resources that can be tagged on creation using the MemoryDB API, the AWS CLI, or an AWS SDK.
 
-| Tagging support for MemoryDB resources | Resource | Supports tags | Supports tagging on creation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tagging support for MemoryDB resources | Resource | Supports tags | Supports tagging on creation |
+| -------------------------------------- | -------- | ------------- | ---------------------------- |
 | parametergroup                         | Yes      | Yes           |
 | subnetgroup                            | Yes      | Yes           |
 | cluster                                | Yes      | Yes           |
 | snapshot                               | Yes      | Yes           |
 | user                                   | Yes      | Yes           |
 | acl                                    | Yes      | Yes           |
-| multiregioncluster                     | Yes      | Yes           | You can apply tag-based resource-level permissions in your IAM policies to the MemoryDB API actions that support tagging on creation to implement granular control over the users and groups that can tag resources on creation. Your resources are properly secured from creation—tags that are applied immediately to your resources. Therefore any tag-based resource-level permissions controlling the use of resources are immediately effective. Your resources can be tracked and reported on more accurately. You can enforce the use of tagging on new resources, and control which tag keys and values are set on your resources. For more information, see [Tagging resources examples](#tagging-your-resources-example "#tagging-your-resources-example"). For more information about tagging your resources for billing, see [Monitoring costs with cost allocation tags](tagging.md "tagging.md"). The following rules apply to tagging as part of request operations: <br>• **CreateCluster** : + If the `--cluster-name` is supplied: If tags are included in the request, the cluster will be tagged. + If the `--snapshot-name` is supplied: If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request, the snapshot tags will be added to the cluster. <br>• **CreateSnapshot** : + If the `--cluster-name` is supplied: If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request, the cluster tags will be added to the snapshot. + For automatic snapshots: Tags will propagate from the cluster tags. <br>• **CopySnapshot** : If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request, the source snapshot tags will be added to the copied snapshot. <br>• **TagResource** and **UntagResource** : Tags will be added/removed from the resource. MemoryDB multi megion clusters are a global resource. As such, tags can be specified, modified or listed on multi region clusters by invoking the relevant APIs in any given region where MemoryDB Multi-Region is supported. For more information on region support, see [Prerequisites and limitations](multi-region.md "multi-region.md"). Tags on multi region clusters are independent from tags on regional clusters. You can specify different sets of tags on a multi region cluster and it’s contained regional clusters. There is no hierarchical connection between these tags and they are not copied through the hierarchy between these resource types. When you add or remove tags through the `TagResource` and `UntagResource` APIs, you might not immediately see the latest effective tags in the ListTags API response, due to the tags being eventually consistent specifically for Multi Region clusters. The following basic restrictions apply to tags: <br>• Maximum number of tags per resource – 50 <br>• For each resource, each tag key must be unique, and each tag key can have only one value. <br>• Maximum key length – 128 Unicode characters in UTF-8. <br>• Maximum value length – 256 Unicode characters in UTF-8. <br>• Although MemoryDB allows for any character in its tags, other services can be restrictive. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @ <br>• Tag keys and values are case-sensitive. <br>• The `aws:` prefix is reserved for AWS use. If a tag has a tag key with this prefix, then you can't edit or delete the tag's key or value. Tags with the `aws:` prefix do not count against your tags per resource limit. You can't terminate, stop, or delete a resource based solely on its tags; you must specify the resource identifier. For example, to delete snapshots that you tagged with a tag key called `DeleteMe`, you must use the `DeleteSnapshot` action with the resource identifiers of the snapshots, such as `snap-1234567890abcdef0`. For more information on MemoryDB resources you can tag, see [Resources you can tag](#tagging-your-resources "#tagging-your-resources"). <br>• Adding tags to a cluster. ``aws memorydb tag-resource \ --resource-arn arn:aws:memorydb:us-east-1:`111111222233`:cluster/my-cluster \ --tags Key="project",Value="XYZ" Key="memorydb",Value="Service"`` <br>• Creating a cluster using tags. `aws memorydb create-cluster \ --cluster-name testing-tags \ --description cluster-test \ --subnet-group-name test \ --node-type db.r6g.large \ --acl-name open-access \ --tags Key="project",Value="XYZ" Key="memorydb",Value="Service"` <br>• Creating a Snapshot with tags. For this case, if you add tags on request, even if the cluster contains tags, the snapshot will receive only the request tags. `aws memorydb create-snapshot \ --cluster-name testing-tags \ --snapshot-name bkp-testing-tags-mycluster \ --tags Key="work",Value="foo"` |
+| multiregioncluster                     | Yes      | Yes           |
+
+You can apply tag-based resource-level permissions in your IAM policies to the MemoryDB API actions that support tagging on creation to implement granular control over the users and groups that can tag resources on creation.
+Your resources are properly secured from creation—tags that are applied immediately to your resources. Therefore any tag-based resource-level permissions controlling the use of resources are immediately effective.
+Your resources can be tracked and reported on more accurately. You can enforce the use of tagging on new resources, and control which tag keys and values are set on your resources.
+
+For more information, see [Tagging resources examples](#tagging-your-resources-example "#tagging-your-resources-example").
+
+For more information about tagging your resources for billing, see [Monitoring costs with cost allocation tags](tagging.md "tagging.md").
+
+The following rules apply to tagging as part of request operations:
+
+- **CreateCluster** :
+  - If the `--cluster-name` is supplied:
+
+  If tags are included in the request, the cluster will be tagged.
+  - If the `--snapshot-name` is supplied:
+
+  If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request,
+  the snapshot tags will be added to the cluster.
+
+- **CreateSnapshot** :
+  - If the `--cluster-name` is supplied:
+
+  If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request,
+  the cluster tags will be added to the snapshot.
+  - For automatic snapshots:
+
+  Tags will propagate from the cluster tags.
+
+- **CopySnapshot** :
+
+If tags are included in the request, only the request tags will be added to the snapshot.
+If no tags are included in the request,
+the source snapshot tags will be added to the copied snapshot.
+
+- **TagResource** and **UntagResource** :
+
+Tags will be added/removed from the resource.
+MemoryDB multi megion clusters are a global resource. As such, tags can be specified, modified or listed on multi region clusters by invoking the relevant APIs in any given region where MemoryDB Multi-Region is supported. For more information on region support, see [Prerequisites and limitations](multi-region.md "multi-region.md").
+
+Tags on multi region clusters are independent from tags on regional clusters. You can specify different sets of tags on a multi region cluster and it’s contained regional clusters. There is no hierarchical connection between these tags and they are not copied through the hierarchy between these resource types.
+
+When you add or remove tags through the `TagResource` and `UntagResource` APIs, you might not immediately see the latest effective tags in the ListTags API response, due to the tags being eventually consistent specifically for Multi Region clusters.
+
+The following basic restrictions apply to tags:
+
+- Maximum number of tags per resource – 50
+- For each resource, each tag key must be unique, and each tag key can have only one value.
+- Maximum key length – 128 Unicode characters in UTF-8.
+- Maximum value length – 256 Unicode characters in UTF-8.
+- Although MemoryDB allows for any character in its tags, other services can be restrictive. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . \_ : / @
+- Tag keys and values are case-sensitive.
+- The `aws:` prefix is reserved for AWS use. If a tag has a tag key with this prefix, then you can't edit or delete the tag's key or value. Tags with the `aws:` prefix do not count against your tags per resource limit.
+  You can't terminate, stop, or delete a resource based solely on its tags; you must specify the resource identifier. For example, to delete snapshots that you tagged with a tag key called `DeleteMe`,
+  you must use the `DeleteSnapshot` action with the resource identifiers of the snapshots, such as `snap-1234567890abcdef0`.
+
+For more information on MemoryDB resources you can tag, see [Resources you can tag](#tagging-your-resources "#tagging-your-resources").
+
+- Adding tags to a cluster.
+
+```
+aws memorydb tag-resource \
+--resource-arn arn:aws:memorydb:us-east-1:`111111222233`:cluster/my-cluster \
+--tags Key="project",Value="XYZ" Key="memorydb",Value="Service"
+```
+
+- Creating a cluster using tags.
+
+```
+aws memorydb create-cluster \
+--cluster-name testing-tags \
+--description cluster-test \
+--subnet-group-name test \
+--node-type db.r6g.large \
+--acl-name open-access \
+--tags Key="project",Value="XYZ" Key="memorydb",Value="Service"
+
+
+```
+
+- Creating a Snapshot with tags.
+
+For this case, if you add tags on request, even if the cluster contains tags, the snapshot will receive only the request tags.
+
+```
+aws memorydb create-snapshot \
+--cluster-name testing-tags \
+--snapshot-name bkp-testing-tags-mycluster \
+--tags Key="work",Value="foo"
+```
