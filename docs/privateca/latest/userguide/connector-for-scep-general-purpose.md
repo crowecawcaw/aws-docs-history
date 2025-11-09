@@ -206,10 +206,117 @@ CLI
     CERTIFICATE=$(aws acm request-certificate \
         --certificate-authority-arn $PCA \
         --domain-name <`any valid domain name, such as test.name`> \
+        | jq -r '.CertificateArn')
 
-| jq -r '.CertificateArn') while [[$(aws acm describe-certificate \ --certificate-arn $CERTIFICATE \
-| jq -r '.Certificate.Status') != "ISSUED"]] do sleep 1; done aws acm export-certificate \ --certificate-arn $CERTIFICATE \ --passphrase password | jq -r '.Certificate' > Certificate.pem aws acm export-certificate \ --certificate-arn $CERTIFICATE \ --passphrase password | jq -r '.CertificateChain' > CertificateChain.pem aws acm export-certificate \ --certificate-arn $CERTIFICATE \ --passphrase password | jq -r '.PrivateKey' > PrivateKey.pem openssl pkcs12 -export \ -in "Certificate.pem" \ -certfile "CertificateChain.pem" \ -inkey "PrivateKey.pem" \ -name `example` \ -out output.p12 \ -passin pass:`passphrase` \ -passout pass:`passphrase` `OpenSSL CLI ###### To create a profile signing certificate using OpenSSL CLI 1. Using OpenSSL, generate a private key by running the following command.` openssl genrsa -out local.key 2048 `2. Generate a certificate signing request (CSR):` openssl req -new -key local.key -sha512 -out local.csr -subj "/CN=MySigningCertificate/O=MyOrganization" -addext keyUsage=critical,digitalSignature,nonRepudiation `3. Using the AWS CLI, issue the signing certificate using the CSR you generated in the previous step. Run the following command, and note the certificate ARN in the response.` aws acm-pca issue-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> --csr fileb://local.csr --signing-algorithm SHA512WITHRSA --validity Value=365,Type=DAYS `4. Get the signing certificate by running the following command. Specify the certificate ARN from the previous step.` aws acm-pca get-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> --certificate-arn <ARN OF NEW CERTIFICATE> | jq -r '.Certificate' >local.crt `5. Get the CA certificate by running the following command.` aws acm-pca get-certificate-authority-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> | jq -r '.Certificate' > ca.crt `6. Using OpenSSL, output the signing certificate keystore in p12 format. Use the CRT files that you generated in steps four and five.` openssl pkcs12 -export -in local.crt -inkey local.key -certfile ca.crt -name "CA Chain" -out local.p12 ```7. When prompted, enter an export password. This password is your keystore password to provide to Jamf Pro. 2. In Jamf Pro, navigate to the **Management Certificate Template** and go to the **External CA** pane. 3. At the bottom of the **External CA** pane, select **Change Signing and CA Certificates**. 4. Follow the onscreen instructions to upload the signing and CA certificates for the external CA. ### Step 4: (Optional) Install certificate during user-initiated enrollment To establish trust between your client devices and your private CA, you must ensure your devices trust the certificates issued by Jamf Pro. You can use Jamf Pro's [User-Initiated Enrollment Settings](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/User-Initiated_Enrollment_Settings.html#:~:text=In%20Jamf%20Pro%2C%20click%20Settings,to%20be%20used%20during%20enrollment. "https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/User-Initiated_Enrollment_Settings.html#:~:text=In%20Jamf%20Pro%2C%20click%20Settings,to%20be%20used%20during%20enrollment.") to automatically install your AWS Private CA's CA certificate on the client devices when they request a certificate during the enrolllment process. ### Troubleshoot profile installation failures If you're experiencing profile installation failures after enabling **Use Jamf Pro as SCEP Proxy for computer and mobile device enrollment**, consult your device logs and try the following.
-| Device log error message | Mitigation |
-| --- | --- |
-|`Profile installation failed. Unable to obtain certificate from SCEP server at "<your-jamf-endpoint>.jamfcloud.com". <MDM-SCEP:15001>`| If you receive this error message while trying to enroll, retry the enrollment. It can take several tries before enrollment succeeds. |
-|`Profile installation failed. Unable to obtain certificate from SCEP server at "<your-jamf-endpoint>.jamfcloud.com". <MDM-SCEP:14006>` | Your challenge password might be misconfigured. Verify that the challenge password in Jamf Pro matches your connector’s challenge password. |
+    while [[ $(aws acm describe-certificate \
+      --certificate-arn $CERTIFICATE \
+      | jq -r '.Certificate.Status') != "ISSUED" ]] do sleep 1; done
+
+    aws acm export-certificate \
+      --certificate-arn $CERTIFICATE \
+      --passphrase password | jq -r '.Certificate' > Certificate.pem
+    aws acm export-certificate \
+      --certificate-arn $CERTIFICATE \
+      --passphrase password | jq -r '.CertificateChain' > CertificateChain.pem
+    aws acm export-certificate \
+      --certificate-arn $CERTIFICATE \
+      --passphrase password | jq -r '.PrivateKey' > PrivateKey.pem
+
+    openssl pkcs12 -export \
+      -in "Certificate.pem" \
+      -certfile "CertificateChain.pem" \
+      -inkey "PrivateKey.pem" \
+      -name `example` \
+      -out output.p12 \
+      -passin pass:`passphrase` \
+      -passout pass:`passphrase`
+    ```
+
+OpenSSL CLI
+
+###### To create a profile signing certificate using OpenSSL
+
+CLI
+
+    1. Using OpenSSL, generate a private key by running the
+     following command.
+
+
+
+    ```
+    openssl genrsa -out local.key 2048
+    ```
+    2. Generate a certificate signing request (CSR):
+
+
+
+    ```
+    openssl req -new -key local.key -sha512 -out local.csr -subj "/CN=MySigningCertificate/O=MyOrganization" -addext keyUsage=critical,digitalSignature,nonRepudiation
+    ```
+    3. Using the AWS CLI, issue the signing certificate using
+     the CSR you generated in the previous step. Run the
+     following command, and note the certificate ARN in the
+     response.
+
+
+
+    ```
+    aws acm-pca issue-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> --csr fileb://local.csr --signing-algorithm SHA512WITHRSA --validity Value=365,Type=DAYS
+    ```
+    4. Get the signing certificate by running the following
+     command. Specify the certificate ARN from the previous
+     step.
+
+
+
+    ```
+    aws acm-pca get-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> --certificate-arn <ARN OF NEW CERTIFICATE> | jq -r '.Certificate' >local.crt
+    ```
+    5. Get the CA certificate by running the following
+     command.
+
+
+
+    ```
+    aws acm-pca get-certificate-authority-certificate --certificate-authority-arn <SAME CA AS USED ABOVE, SO IT’S TRUSTED> | jq -r '.Certificate' > ca.crt
+    ```
+    6. Using OpenSSL, output the signing certificate keystore
+     in p12 format. Use the CRT files that you generated in
+     steps four and five.
+
+
+
+    ```
+    openssl pkcs12 -export -in local.crt -inkey local.key -certfile ca.crt -name "CA Chain" -out local.p12
+    ```
+    7. When prompted, enter an export password. This password
+     is your keystore password to provide to Jamf Pro.
+
+2. In Jamf Pro, navigate to the **Management Certificate
+   Template** and go to the **External CA**
+   pane.
+3. At the bottom of the **External CA** pane, select
+   **Change Signing and CA Certificates**.
+4. Follow the onscreen instructions to upload the signing and CA certificates
+   for the external CA.
+
+### Step 4:
+
+(Optional) Install certificate during user-initiated enrollment
+
+To establish trust between your client devices and your private CA, you must
+ensure your devices trust the certificates issued by Jamf Pro. You can use Jamf
+Pro's [User-Initiated Enrollment Settings](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/User-Initiated_Enrollment_Settings.html#:~:text=In%20Jamf%20Pro%2C%20click%20Settings,to%20be%20used%20during%20enrollment. "https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/User-Initiated_Enrollment_Settings.html#:~:text=In%20Jamf%20Pro%2C%20click%20Settings,to%20be%20used%20during%20enrollment.") to automatically install your
+AWS Private CA's CA certificate on the client devices when they request a certificate during
+the enrolllment process.
+
+### Troubleshoot profile installation failures
+
+If you're experiencing profile installation failures after enabling **Use
+Jamf Pro as SCEP Proxy for computer and mobile device enrollment**,
+consult your device logs and try the following.
+
+| Device log error message                                                                                                                     | Mitigation                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Profile installation failed. Unable to obtain certificate from<br>SCEP server at "<your-jamf-endpoint>.jamfcloud.com".<br><MDM-SCEP:15001>` | If you receive this error message while trying to enroll, retry the<br>enrollment. It can take several tries before enrollment<br>succeeds.       |
+| `Profile installation failed. Unable to obtain certificate from<br>SCEP server at "<your-jamf-endpoint>.jamfcloud.com".<br><MDM-SCEP:14006>` | Your challenge password might be misconfigured. Verify that the<br>challenge password in Jamf Pro matches your connector’s challenge<br>password. |

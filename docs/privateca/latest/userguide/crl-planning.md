@@ -134,8 +134,143 @@ bucket. The name of the service principal varies according to the Regions
 used, and not all possibilities are supported.
 
 | PCA                 | S3                      | Service principal                |
-| ------------------- | ----------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------- | -------------------------------- |
 | Both in same Region | `acm-pca.amazonaws.com` |
 | Enabled             | Enabled                 | `acm-pca.amazonaws.com`          |
 | Disabled            | Enabled                 | `acm-pca.`Region`.amazonaws.com` |
-| Enabled             | Disabled                | Not supported                    | The default policy applies no `SourceArn` restriction on the CA. We recommend that you apply a less permissive policy such as the following, which restricts access to both a specific AWS account and a specific private CA. Alternatively, you can use the [aws:SourceOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceorgid") condition key to constrain access to a specific organization in AWS Organizations. For more information about bucket policies, see [Bucket policies for Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md"). If you choose to allow the default policy, you can always [modify](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") it later. ## Enable S3 Block Public Access (BPA) with CloudFront New Amazon S3 buckets are configured by default with the Block Public Access (BPA) feature activated. Included in the Amazon S3 [security best practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md"), BPA is a set of access controls that customers can use to fine-tune access to objects in their S3 buckets and to the buckets as a whole. When BPA is active and correctly configured, only authorized and authenticated AWS users have access to a bucket and its contents. AWS recommends the use of BPA on all S3 buckets to avoid exposure of sensitive information to potential adversaries. However, additional planning is required if your PKI clients retrieve CRLs across the public internet (that is, while not logged into an AWS account). This section describes how to configure a private PKI solution using Amazon CloudFront, a content delivery network (CDN), to serve CRLs without requiring authenticated client access to an S3 bucket. ###### Note Using CloudFront incurs additional costs on your AWS account. For more information, see [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). If you choose to store your CRL in an S3 bucket with BPA enabled, and you do not use CloudFront, you must build another CDN solution to ensure that your PKI client has access to your CRL. ### Set up CloudFront for BPA Create a CloudFront distribution that will have access to your private S3 bucket, and can serve CRLs to unauthenticated clients. ###### To configure a CloudFront distribution for the CRL 1. Create a new CloudFront distribution using the procedure in [Creating a Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md") in the _Amazon CloudFront Developer Guide_. While completing the procedure, apply the following settings: <br>• In **Origin Domain Name**, choose your S3 bucket. <br>• Choose **Yes** for **Restrict Bucket Access**. <br>• Choose **Create a New Identity** for **Origin Access Identity**. <br>• Choose **Yes, Update Bucket Policy** under **Grant Read Permissions on Bucket**. ###### Note In this procedure, CloudFront modifies your bucket policy to allow it to access bucket objects. Consider [editing](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") this policy to allow access only to objects under the `crl` folder. 2. After the distribution has initialized, locate its domain name in the CloudFront console and save it for the next procedure. ###### Note If your S3 bucket was newly created in a Region other than us-east-1, you might get an HTTP 307 temporary redirect error when you access your published application through CloudFront. It might take several hours for the address of the bucket to propagate. ### Set up your CA for BPA While configuring your new CA, include the alias to your CloudFront distribution. ###### To configure your CA with a CNAME for CloudFront <br>• Create your CA using [Create a private CA in AWS Private CA](create-CA.md "create-CA.md"). When you perform the procedure, the revocation file `revoke_config.txt` should include the following lines to specify a non-public CRL object and to provide a URL to the distribution endpoint in CloudFront: ``"S3ObjectAcl":"BUCKET_OWNER_FULL_CONTROL", "CustomCname":"`abcdef012345.cloudfront.net`"`` Afterward, when you issue certificates with this CA, they will contain a block like the following: `X509v3 CRL Distribution Points: Full Name: URI:http://abcdef012345.cloudfront.net/crl/01234567-89ab-cdef-0123-456789abcdef.crl` ###### Note If you have older certificates that were issued by this CA, they will be unable to access the CRL. ## Determining the CRL Distribution Point (CDP) URI If you need to use the CRL Distribution Point (CDP) URI in your workﬂow, you can either issue a certiﬁcate use the CRL URI on that certificate or use the following method. This only works for complete CRLs. Partitioned CRLs have a random GUID appended to them. If you use the S3 bucket as the CRL Distribution Point (CDP) for your CA, the CDP URI can be in one of the following formats. <br>• `http://`amzn-s3-demo-bucket`.s3.`region-code`.amazonaws.com/crl/`CA-ID`.crl` <br>• `http://s3.`region-code`.amazonaws.com/`amzn-s3-demo-bucket`/crl/`CA-ID`.crl` If you have configured your CA with a custom CNAME, the CDP URI will include the CNAME, for example, `http://`alternative.example.com`/crl/`CA-ID`.crl` ## By default, AWS Private CA writes CDP extensions using regional, IPv4-only `amazonaws.com` endpoints. To use CRLs over IPv6, do one of the following steps so that CDPs are written with URLs that point to [S3's dualstack endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md "../../../AmazonS3/latest/API/dual-stack-endpoints.md"): <br>• Set your [CRL custom name](create-CA.md#PcaCreateRevocation "create-CA.md#PcaCreateRevocation") to the S3 dualstack endpoint domain. For example, ``bucketname`.s3.dualstack.`region-code`.amazonaws.com` <br>• Set up your own CNAME DNS record pointing at the relevant S3 dualstack endpoint, then use it as your CRL custom name |
+| Enabled             | Disabled                | Not supported                    |
+
+The default policy applies no `SourceArn` restriction on the CA. We
+recommend that you apply a less permissive policy such as the following, which
+restricts access to both a specific AWS account and a specific private CA.
+Alternatively, you can use the [aws:SourceOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceorgid") condition key to constrain access to a specific
+organization in AWS Organizations. For more information about bucket policies, see [Bucket policies for
+Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md").
+
+If you choose to allow the default policy, you can always [modify](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") it later.
+
+## Enable S3 Block Public Access (BPA) with CloudFront
+
+New Amazon S3 buckets are configured by default with the Block Public Access (BPA)
+feature activated. Included in the Amazon S3 [security best practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md"), BPA is a set of access controls that
+customers can use to fine-tune access to objects in their S3 buckets and to the
+buckets as a whole. When BPA is active and correctly configured, only authorized
+and authenticated AWS users have access to a bucket and its contents.
+
+AWS recommends the use of BPA on all S3 buckets to avoid exposure of
+sensitive information to potential adversaries. However, additional planning is
+required if your PKI clients retrieve CRLs across the public internet (that is,
+while not logged into an AWS account). This section describes how to configure
+a private PKI solution using Amazon CloudFront, a content delivery network (CDN), to
+serve CRLs without requiring authenticated client access to an S3 bucket.
+
+###### Note
+
+Using CloudFront incurs additional costs on your AWS account. For more
+information, see [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
+
+If you choose to store your CRL in an S3 bucket with BPA enabled, and you
+do not use CloudFront, you must build another CDN solution to ensure that your PKI
+client has access to your CRL.
+
+### Set up CloudFront for BPA
+
+Create a CloudFront distribution that will have access to your private S3
+bucket, and can serve CRLs to unauthenticated clients.
+
+###### To configure a CloudFront distribution for the CRL
+
+1. Create a new CloudFront distribution using the procedure in [Creating a Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md") in the _Amazon CloudFront Developer Guide_.
+
+While completing the procedure, apply the following
+settings:
+
+    * In **Origin Domain Name**, choose your S3
+     bucket.
+    * Choose **Yes** for **Restrict
+     Bucket Access**.
+    * Choose **Create a New Identity** for
+     **Origin Access Identity**.
+    * Choose **Yes, Update Bucket Policy**
+     under **Grant Read Permissions on
+     Bucket**.
+
+
+    ###### Note
+
+    In this procedure, CloudFront modifies your bucket policy to
+     allow it to access bucket objects. Consider [editing](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") this policy to allow access only to
+     objects under the `crl` folder.
+
+2. After the distribution has initialized, locate its domain name in
+   the CloudFront console and save it for the next procedure.
+
+###### Note
+
+If your S3 bucket was newly created in a Region other than
+us-east-1, you might get an HTTP 307 temporary redirect error
+when you access your published application through CloudFront. It
+might take several hours for the address of the bucket to
+propagate.
+
+### Set up your CA for BPA
+
+While configuring your new CA, include the alias to your CloudFront
+distribution.
+
+###### To configure your CA with a CNAME for CloudFront
+
+- Create your CA using [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
+
+When you perform the procedure, the revocation file
+`revoke_config.txt` should include the following
+lines to specify a non-public CRL object and to provide a URL to the
+distribution endpoint in CloudFront:
+
+```
+"S3ObjectAcl":"BUCKET_OWNER_FULL_CONTROL",
+	"CustomCname":"`abcdef012345.cloudfront.net`"
+```
+
+Afterward, when you issue certificates with this CA, they will
+contain a block like the following:
+
+```
+X509v3 CRL Distribution Points:
+	Full Name:
+	URI:http://abcdef012345.cloudfront.net/crl/01234567-89ab-cdef-0123-456789abcdef.crl
+```
+
+###### Note
+
+If you have older certificates that were issued by this CA, they will be
+unable to access the CRL.
+
+## Determining the CRL Distribution Point (CDP) URI
+
+If you need to use the CRL Distribution Point (CDP) URI in your workﬂow, you
+can either issue a certiﬁcate use the CRL URI on that certificate or use the
+following method. This only works for complete CRLs. Partitioned CRLs have a
+random GUID appended to them.
+
+If you use the S3 bucket as the CRL Distribution Point (CDP) for your CA, the
+CDP URI can be in one of the following formats.
+
+- `http://`amzn-s3-demo-bucket`.s3.`region-code`.amazonaws.com/crl/`CA-ID`.crl`
+- `http://s3.`region-code`.amazonaws.com/`amzn-s3-demo-bucket`/crl/`CA-ID`.crl`
+
+If you have configured your CA with a custom CNAME, the CDP URI will include
+the CNAME, for example,
+`http://`alternative.example.com`/crl/`CA-ID`.crl`
+
+##
+
+By default, AWS Private CA writes CDP extensions using regional, IPv4-only
+`amazonaws.com` endpoints. To use CRLs over IPv6, do one of the
+following steps so that CDPs are written with URLs that point to [S3's dualstack endpoints](../../../AmazonS3/latest/API/dual-stack-endpoints.md "../../../AmazonS3/latest/API/dual-stack-endpoints.md"):
+
+- Set your [CRL custom name](create-CA.md#PcaCreateRevocation "create-CA.md#PcaCreateRevocation")
+  to the S3 dualstack endpoint domain. For example,
+  ``bucketname`.s3.dualstack.`region-code`.amazonaws.com`
+- Set up your own CNAME DNS record pointing at the relevant S3 dualstack
+  endpoint, then use it as your CRL custom name

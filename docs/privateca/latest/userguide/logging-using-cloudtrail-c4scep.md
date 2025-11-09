@@ -85,6 +85,245 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console) | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Connector**             | `AWS::PCAConnectorSCEP::Connector` | <br>• `PKIOperationGet` - Generated if an HTTP GET SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`. <br>• `PKIOperationPost` - Generated if an HTTP POST SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`. <br>• `GetCACaps` - Generated if a SCEP request containing a `GetCACaps` message is made to the dataplane endpoint of a connector. <br>• `GetCACert` - Generated if a SCEP request containing a `GetCACert` message is made to the dataplane endpoint of a connector. | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. The following example is the JSON view of a data event configuration that logs events for a specific function only. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ``[ { "name": "connector-scep-events", "fieldSelectors": [ { "field": "eventCategory", "equals": [ "Data" ] }, { "field": "resources.type", "equals": [ "AWS::PCAConnectorSCEP::Connector" ] }, { "field": "resources.ARN", "equals": [ "`arn:aws:pca-connector-scep:US West (N. California):111122223333:connector/11223344-1122-2233-3344-cae95a00d2a7`" ] } ] } ]`` ## Example entries A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. ###### Example 1: Management event, `CreateConnector` The following example shows a CloudTrail log entry that demonstrates the `CreateConnector` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111", "arn": "arn:aws:sts::111122223333:assumed-role/Admin", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AABB1122CCDD4455HHJJ1", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "my-user-name" }, "attributes": { "creationDate": "2024-08-16T17:46:41Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-08-16T17:48:07Z", "eventSource": "pca-connector-scep.amazonaws.com", "eventName": "CreateConnector", "awsRegion": "us-east-1", "sourceIPAddress": "10.0.0.0", "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64", "requestParameters": { "ClientToken": "11223344-2222-3333-4444-666555444555", "CertificateAuthorityArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }, "responseElements": { "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` ###### Example 2: Management event, `CreateChallenge` The following example shows a CloudTrail log entry that demonstrates the `CreateChallenge` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111", "arn": "arn:aws:sts::111122223333:assumed-role/Admin", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AABB1122CCDD4455HHJJ1", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "user-name" }, "attributes": { "creationDate": "2024-08-16T17:46:41Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-08-16T17:47:52Z", "eventSource": "pca-connector-scep.amazonaws.com", "eventName": "CreateChallenge", "awsRegion": "us-east-1", "sourceIPAddress": "10.0.0.0", "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64", "requestParameters": { "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "ClientToken": "11223344-2222-3333-4444-666555444555" }, "responseElements": { "Challenge": { "Arn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/9cac40bc-acba-412e-9a24-f255ef2fe79a/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "CreatedAt": 1723830472.942, "Password": "***", "UpdatedAt": 1723830472.942 } }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` ###### Example 3: Management event, `GetChallengePassword` The following example shows a CloudTrail log entry that demonstrates the `GetChallengePassword` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111", "arn": "arn:aws:sts::111122223333:assumed-role/Admin", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AABB1122CCDD4455HHJJ1", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "905418114790", "userName": "111122223333" }, "attributes": { "creationDate": "2024-08-16T17:55:01Z", "mfaAuthenticated": "false" } }, "invokedBy": "signin.amazonaws.com" }, "eventTime": "2024-08-16T17:55:54Z", "eventSource": "pca-connector-scep.amazonaws.com", "eventName": "GetChallengePassword", "awsRegion": "us-east-1", "sourceIPAddress": "10.0.0.0", "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64", "requestParameters": { "ChallengeArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:challenge/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333" }, "responseElements": null, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": true, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` ###### Example 4: Data event, `PkiOperationPost` The following example shows a CloudTrail log entry that demonstrates a failed `PkiOperationPost` call. The log includes an error code and error message with an explanation of the failure. `{ "eventVersion": "1.10", "userIdentity": { "type": "FederatedUser", "principalId": "111122223333", "accountId": "111122223333" }, "eventTime": "2024-08-16T17:40:09Z", "eventSource": "pca-connector-scep.amazonaws.com", "eventName": "PkiOperationPost", "awsRegion": "us-east-1", "sourceIPAddress": "10.0.0.0", "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64", "errorCode": "BadRequestException", "errorMessage": "The certificate authority is not in a valid state for issuing certificates (Service: AcmPca, Status Code: 400, Request ID: a1b2c3d4-5678-90ab-cdef-EXAMPLE55555)", "requestParameters": null, "responseElements": null, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "readOnly": false, "resources": [ { "accountId": "111122223333", "type": "AWS::PCAConnectorSCEP::Connector", "ARN": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "905418114790", "eventCategory": "Data", "tlsDetails": { "clientProvidedHostHeader": "111122223333-a1b2c3d4-5678-90ab-cdef-EXAMPLE33333.enroll.pca-connector-scep.us-east-1.api.aws" } }` |
+| Data event type (console) | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Connector**             | `AWS::PCAConnectorSCEP::Connector` | • `PKIOperationGet` - Generated if an HTTP GET SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br>• `PKIOperationPost` - Generated if an HTTP POST SCEP request containing a `PKCSReq` message is made to the dataplane endpoint of a connector, and the operation of that message is set to `PKIOperation`.<br>• `GetCACaps` - Generated if a SCEP request containing a `GetCACaps` message is made to the dataplane endpoint of a connector.<br>• `GetCACert` - Generated if a SCEP request containing a `GetCACert` message is made to the dataplane endpoint of a connector. |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. The following example is the JSON view of a data event configuration
+that logs events for a specific function only. For more information about these fields, see
+[AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+```
+[
+  {
+    "name": "connector-scep-events",
+    "fieldSelectors": [
+      {
+        "field": "eventCategory",
+        "equals": [
+          "Data"
+        ]
+      },
+      {
+        "field": "resources.type",
+        "equals": [
+          "AWS::PCAConnectorSCEP::Connector"
+        ]
+      },
+      {
+        "field": "resources.ARN",
+        "equals": [
+          "`arn:aws:pca-connector-scep:US West (N. California):111122223333:connector/11223344-1122-2233-3344-cae95a00d2a7`"
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Example entries
+
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
+that you specify. CloudTrail log files contain one or more log entries. An event represents a single
+request from any source and includes information about the requested action, the date and time
+of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
+the public API calls, so they don't appear in any specific order.
+
+###### Example 1: Management event, `CreateConnector`
+
+The following example shows a CloudTrail log entry that demonstrates the `CreateConnector` action.
+
+```
+{
+        "eventVersion": "1.09",
+        "userIdentity": {
+          "type": "AssumedRole",
+          "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111",
+          "arn": "arn:aws:sts::111122223333:assumed-role/Admin",
+          "accountId": "111122223333",
+          "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+          "sessionContext": {
+              "sessionIssuer": {
+                  "type": "Role",
+                  "principalId": "AABB1122CCDD4455HHJJ1",
+                  "arn": "arn:aws:iam::111122223333:role/Admin",
+                  "accountId": "111122223333",
+                  "userName": "my-user-name"
+              },
+              "attributes": {
+                  "creationDate": "2024-08-16T17:46:41Z",
+                  "mfaAuthenticated": "false"
+              }
+          }
+        },
+        "eventTime": "2024-08-16T17:48:07Z",
+        "eventSource": "pca-connector-scep.amazonaws.com",
+        "eventName": "CreateConnector",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "10.0.0.0",
+        "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64",
+        "requestParameters": {
+          "ClientToken": "11223344-2222-3333-4444-666555444555",
+          "CertificateAuthorityArn": "arn:aws:acm-pca:us-east-1:111122223333:certificate-authority/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+        },
+        "responseElements": {
+          "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+        },
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+        "readOnly": false,
+        "eventType": "AwsApiCall",
+        "managementEvent": true,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Management"
+        }
+```
+
+###### Example 2: Management event, `CreateChallenge`
+
+The following example shows a CloudTrail log entry that demonstrates the `CreateChallenge` action.
+
+```
+{
+        "eventVersion": "1.09",
+        "userIdentity": {
+          "type": "AssumedRole",
+          "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111",
+          "arn": "arn:aws:sts::111122223333:assumed-role/Admin",
+          "accountId": "111122223333",
+          "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+          "sessionContext": {
+              "sessionIssuer": {
+                  "type": "Role",
+                  "principalId": "AABB1122CCDD4455HHJJ1",
+                  "arn": "arn:aws:iam::111122223333:role/Admin",
+                  "accountId": "111122223333",
+                  "userName": "user-name"
+              },
+              "attributes": {
+                  "creationDate": "2024-08-16T17:46:41Z",
+                  "mfaAuthenticated": "false"
+              }
+          }
+        },
+        "eventTime": "2024-08-16T17:47:52Z",
+        "eventSource": "pca-connector-scep.amazonaws.com",
+        "eventName": "CreateChallenge",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "10.0.0.0",
+        "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64",
+        "requestParameters": {
+          "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+          "ClientToken": "11223344-2222-3333-4444-666555444555"
+        },
+        "responseElements": {
+          "Challenge": {
+              "Arn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/9cac40bc-acba-412e-9a24-f255ef2fe79a/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+              "ConnectorArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+              "CreatedAt": 1723830472.942,
+              "Password": "***",
+              "UpdatedAt": 1723830472.942
+          }
+        },
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+        "readOnly": false,
+        "eventType": "AwsApiCall",
+        "managementEvent": true,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Management"
+        }
+```
+
+###### Example 3: Management event, `GetChallengePassword`
+
+The following example shows a CloudTrail log entry that demonstrates the `GetChallengePassword` action.
+
+```
+{
+        "eventVersion": "1.09",
+        "userIdentity": {
+          "type": "AssumedRole",
+          "principalId": "AABB1122CCDD4455HHJJ1:11cc33nn2a97724dc48a89071111111111",
+          "arn": "arn:aws:sts::111122223333:assumed-role/Admin",
+          "accountId": "111122223333",
+          "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+          "sessionContext": {
+              "sessionIssuer": {
+                  "type": "Role",
+                  "principalId": "AABB1122CCDD4455HHJJ1",
+                  "arn": "arn:aws:iam::111122223333:role/Admin",
+                  "accountId": "905418114790",
+                  "userName": "111122223333"
+              },
+              "attributes": {
+                  "creationDate": "2024-08-16T17:55:01Z",
+                  "mfaAuthenticated": "false"
+              }
+          },
+          "invokedBy": "signin.amazonaws.com"
+        },
+        "eventTime": "2024-08-16T17:55:54Z",
+        "eventSource": "pca-connector-scep.amazonaws.com",
+        "eventName": "GetChallengePassword",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "10.0.0.0",
+        "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64",
+        "requestParameters": {
+          "ChallengeArn": "arn:aws:pca-connector-scep:us-east-1:111122223333:challenge/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
+        },
+        "responseElements": null,
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+        "readOnly": true,
+        "eventType": "AwsApiCall",
+        "managementEvent": true,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Management"
+        }
+```
+
+###### Example 4: Data event, `PkiOperationPost`
+
+The following example shows a CloudTrail log entry that demonstrates a failed `PkiOperationPost` call. The log includes an error code and error message with an explanation of the failure.
+
+```
+{
+        "eventVersion": "1.10",
+        "userIdentity": {
+          "type": "FederatedUser",
+          "principalId": "111122223333",
+          "accountId": "111122223333"
+        },
+        "eventTime": "2024-08-16T17:40:09Z",
+        "eventSource": "pca-connector-scep.amazonaws.com",
+        "eventName": "PkiOperationPost",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "10.0.0.0",
+        "userAgent": "Python/3.11.8 Darwin/22.6.0 exe/x86_64",
+        "errorCode": "BadRequestException",
+        "errorMessage": "The certificate authority is not in a valid state for issuing certificates (Service: AcmPca, Status Code: 400, Request ID: a1b2c3d4-5678-90ab-cdef-EXAMPLE55555)",
+        "requestParameters": null,
+        "responseElements": null,
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+        "readOnly": false,
+        "resources": [
+          {
+              "accountId": "111122223333",
+              "type": "AWS::PCAConnectorSCEP::Connector",
+              "ARN": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
+          }
+        ],
+        "eventType": "AwsApiCall",
+        "managementEvent": false,
+        "recipientAccountId": "905418114790",
+        "eventCategory": "Data",
+        "tlsDetails": {
+          "clientProvidedHostHeader": "111122223333-a1b2c3d4-5678-90ab-cdef-EXAMPLE33333.enroll.pca-connector-scep.us-east-1.api.aws"
+        }
+        }
+```

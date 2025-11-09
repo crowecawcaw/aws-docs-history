@@ -48,8 +48,16 @@ the [GetCertificateAuthorityCertificate](../APIReference/API_GetCertificateAutho
 formatting the output with [jq](https://stedolan.github.io/jq/ "https://stedolan.github.io/jq/"), a
 sed-like parser.
 
-````
+```
 `$` `aws acm-pca get-certificate-authority-certificate \
  --certificate-authority-arn arn:`aws`:acm-pca:`us-east-1`:`111122223333`:certificate-authority/`11223344-1234-1122-2233-112233445566` \
-| jq -r '.Certificate'` ``` This command outputs the CA certificate in the following standard format. ``` -----BEGIN CERTIFICATE----- `...base64-encoded certificate...` -----END CERTIFICATE---- ```
-````
+ | jq -r '.Certificate'`
+```
+
+This command outputs the CA certificate in the following standard format.
+
+```
+-----BEGIN CERTIFICATE-----
+`...base64-encoded certificate...`
+-----END CERTIFICATE----
+```
