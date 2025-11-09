@@ -108,17 +108,24 @@ and functions.
 
 The following table describes the parameters of a `PropertyDefinitionRequest`.
 
-| Parameter            | Description                                                                                                                                                                                               |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `isExternalId`       | A Boolean that specifies whether the property is a unique identifier (such as an AWS IoT SiteWise asset Id) of a property value that is stored externally. The default value of this property is `false`. |
-| `isStoredExternally` | A Boolean that specifies whether the property value is stored externally. The default value of this property is `false`.                                                                                  |
-| `isTimeSeries`       | A Boolean that specifies whether the property stores time-series data. The default value of this property is `false`                                                                                      |
-| `isRequiredInEntity` | A Boolean that specifies whether the property must have a value in an entity that uses the component type.                                                                                                |
-| `dataType`           | A [DataType](../apireference/API_DataType.md "../apireference/API_DataType.md") object that specifies the data type (such as string, map, list, and unit of measure) of the property.                     |
-| `defaultValue`       | A [DataValue](../apireference/API_DataValue.md "../apireference/API_DataValue.md") object that specifies the default value of the property.                                                               |
-| `configuration`      | A string-to-string map that specifies additional information that you need to connect to an external data source.                                                                                         | ## Creating functions The following table describes the parameters of a `FunctionRequest`.                                                                                     |
-| Parameter            | Description                                                                                                                                                                                               |
-| ---                  | ---                                                                                                                                                                                                       |
-| `implementedBy`      | A [DataConnector](../apireference/API_DataConnector.md "../apireference/API_DataConnector.md") object that specifies the Lambda function that connects to the external data source.                       |
-| `requiredProperties` | A list of properties that the function needs in order to read from and write to an external data source.                                                                                                  |
-| `scope`              | The scope of the function. Use `Workspace` for functions with a scope that spans an entire workspace. Use `Entity` for functions with a scope that is limited to the entity that contains the component.  | For examples that show how to create and extend component types, see [Example component types](twinmaker-component-types-examples.md "twinmaker-component-types-examples.md"). |
+| Parameter            | Description                                                                                                                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isExternalId`       | A Boolean that specifies whether the property is a unique identifier (such as an AWS IoT SiteWise asset Id) of a<br>property value that is stored externally.<br>The default value of this property is `false`. |
+| `isStoredExternally` | A Boolean that specifies whether the property value is stored<br>externally.<br>The default value of this property is `false`.                                                                                  |
+| `isTimeSeries`       | A Boolean that specifies whether the property stores time-series data.<br>The default value of this property is `false`                                                                                         |
+| `isRequiredInEntity` | A Boolean that specifies whether the property must have a value<br>in an entity that uses the component type.                                                                                                   |
+| `dataType`           | A [DataType](../apireference/API_DataType.md "../apireference/API_DataType.md") object that specifies the<br>data type (such as string, map, list, and unit of measure) of the<br>property.                     |
+| `defaultValue`       | A [DataValue](../apireference/API_DataValue.md "../apireference/API_DataValue.md") object that<br>specifies the default value of the property.                                                                  |
+| `configuration`      | A string-to-string map that specifies additional information that you need to connect to an<br>external data source.                                                                                            |
+
+## Creating functions
+
+The following table describes the parameters of a `FunctionRequest`.
+
+| Parameter            | Description                                                                                                                                                                                                    |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `implementedBy`      | A [DataConnector](../apireference/API_DataConnector.md "../apireference/API_DataConnector.md") object that specifies the Lambda function<br>that connects to the external data source.                         |
+| `requiredProperties` | A list of properties that the function needs in order to read from and write to an external data source.                                                                                                       |
+| `scope`              | The scope of the function. Use `Workspace` for functions with a scope that spans an<br>entire workspace. Use `Entity` for functions with a scope<br>that is limited to the entity that contains the component. |
+
+For examples that show how to create and extend component types, see [Example component types](twinmaker-component-types-examples.md "twinmaker-component-types-examples.md").

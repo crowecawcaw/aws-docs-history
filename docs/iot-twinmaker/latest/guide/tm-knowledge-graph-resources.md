@@ -586,15 +586,15 @@ aws iottwinmaker execute-query \
 
 AWS IoT TwinMaker knowledge graph query has the following limits:
 
-| Limit Name                                                                      | Quota      | Adjustable |
-| ------------------------------------------------------------------------------- | ---------- | ---------- |
-| Query execution timeout                                                         | 10 seconds | No         |
-| Maximum number of hops                                                          | 10         | Yes        |
-| Maximum number of self `JOIN`s                                                  | 20         | Yes        |
-| Maximum number of projected fields                                              | 20         | Yes        |
-| Maximum number of conditional expressions (`AND`, `OR`, `NOT`)                  | 10         | Yes        |
-| Maximum length of a `LIKE` expression pattern (including wildcards and escapes) | 20         | Yes        |
-| Maximum number of items that can be specified in an `IN` clause                 | 10         | Yes        |
-| Maximum value for `OFFSET`                                                      | 3000       | Yes        |
-| Maximum value for `LIMIT`                                                       | 3000       | Yes        |
-| Maximum value for traversals (`OFFSET` + `LIMIT`)                               | 3000       | Yes        |
+| Limit Name                                                                         | Quota      | Adjustable |
+| ---------------------------------------------------------------------------------- | ---------- | ---------- |
+| Query execution timeout                                                            | 10 seconds | No         |
+| Maximum number of hops                                                             | 10         | Yes        |
+| Maximum number of self `JOIN`s                                                     | 20         | Yes        |
+| Maximum number of projected fields                                                 | 20         | Yes        |
+| Maximum number of conditional expressions (`AND`,<br>`OR`, `NOT`)                  | 10         | Yes        |
+| Maximum length of a `LIKE` expression pattern (including<br>wildcards and escapes) | 20         | Yes        |
+| Maximum number of items that can be specified in an `IN` clause                    | 10         | Yes        |
+| Maximum value for `OFFSET`                                                         | 3000       | Yes        |
+| Maximum value for `LIMIT`                                                          | 3000       | Yes        |
+| Maximum value for traversals (`OFFSET` + `LIMIT`)                                  | 3000       | Yes        |
