@@ -1,5 +1,4 @@
-Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector,
-sign up prior to that date. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
+Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Event data storage
 
@@ -14,7 +13,10 @@ where to store your dataset based on the model you use for generating fraud pred
   The following table provides details about the model type and the data source it supports.
 
 | Model type                 | Compatible training data source    |
-| -------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------------- |
 | Online Fraud Insights      | External storage, Internal storage |
 | Transaction Fraud Insights | Internal storage                   |
-| Account Takeover Insights  | Internal storage                   | For information on storing your dataset externally with Amazon Simple Storage Service, see [Store your event data externally with Amazon S3](uploading-event-data-to-an-s3-bucket.md "uploading-event-data-to-an-s3-bucket.md") . For information on storing your dataset internally with Amazon Fraud Detector see [Store your event data internally with Amazon Fraud Detector](storing-event-data-afd.md "storing-event-data-afd.md"). |
+| Account Takeover Insights  | Internal storage                   |
+
+For information on storing your dataset externally with Amazon Simple Storage Service, see [Store your event data externally with Amazon S3](uploading-event-data-to-an-s3-bucket.md "uploading-event-data-to-an-s3-bucket.md") .
+For information on storing your dataset internally with Amazon Fraud Detector see [Store your event data internally with Amazon Fraud Detector](storing-event-data-afd.md "storing-event-data-afd.md").

@@ -1,5 +1,4 @@
-Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector,
-sign up prior to that date. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
+Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Manage Amazon Fraud Detector resources using AWS CloudFormation
 
@@ -49,7 +48,70 @@ ensure that all of your fraud team’s products are working together.
 In addition to the standard parameters that are available in all CloudFormation templates, Amazon Fraud Detector introduces two additional parameters that will help
 you manage deployment behavior. If you do not include one or both of these parameters, CloudFormation will use the default value shown below.
 
-| Parameter             | Values                                                                                                                                                                                                                    | Default Value |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DetectorVersionStatus | **ACTIVE:** Set the new/updated detector version to Active status **DRAFT:** Set the new/updated detector version to Draft status                                                                                         | DRAFT         |
-| Inline                | **TRUE:** Allow CloudFormation to create/update/delete the resource when creating/updating/deleting the stack. **FALSE:** Allow CloudFormation to validate that the object exists but not make any changes to the object. | TRUE          | ## Sample AWS CloudFormation template for Amazon Fraud Detector resources The following is a sample AWS CloudFormation YAML template for managing a detector and associated detector versions. `# Simple Detector resource containing inline Rule, EventType, Variable, EntityType and Label resource definitions Resources: TestDetectorLogicalId: Type: AWS::FraudDetector::Detector Properties: DetectorId: "sample_cfn_created_detector" DetectorVersionStatus: "DRAFT" Description: "A detector defined and created in a CloudFormation stack!" Rules: <br>• RuleId: "over_threshold_investigate" Description: "Automatically sends transactions of $10000 or more to an investigation queue" DetectorId: "sample_cfn_created_detector" Expression: "$amount >= 10000" Language: "DETECTORPL" Outcomes: <br>• Name: "investigate" Inline: true <br>• RuleId: "under_threshold_approve" Description: "Automatically approves transactions of less than $10000" DetectorId: "sample_cfn_created_detector" Expression: "$amount <10000" Language: "DETECTORPL" Outcomes: <br>• Name: "approve" Inline: true EventType: Inline: "true" Name: "online_transaction" EventVariables: <br>• Name: "amount" DataSource: 'EVENT' DataType: 'FLOAT' DefaultValue: '0' VariableType: "PRICE" Inline: 'true' EntityTypes: <br>• Name: "customer" Inline: 'true' Labels: <br>• Name: "legitimate" Inline: 'true' <br>• Name: "fraudulent" Inline: 'true'` ## Learn more about AWS CloudFormation To learn more about AWS CloudFormation, see the following resources: <br>• [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") <br>• [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") <br>• [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md") <br>• [AWS CloudFormation Command Line Interface User Guide](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md") |
+| Parameter             | Values                                                                                                                                                                                                                                       | Default Value |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| DetectorVersionStatus | **ACTIVE:\*<br>• Set the new/updated detector version to Active status<br>**DRAFT:\*<br>• Set the new/updated detector version to Draft status                                                                                               | DRAFT         |
+| Inline                | **TRUE:\*<br>• Allow CloudFormation to create/update/delete<br>the resource when creating/updating/deleting the stack.<br>**FALSE:\*<br>• Allow CloudFormation to validate that the<br>object exists but not make any changes to the object. | TRUE          |
+
+## Sample AWS CloudFormation template for Amazon Fraud Detector resources
+
+The following is a sample AWS CloudFormation YAML template for managing a detector and associated detector versions.
+
+```
+# Simple Detector resource containing inline Rule, EventType, Variable, EntityType and Label resource definitions
+Resources:
+  TestDetectorLogicalId:
+    Type: AWS::FraudDetector::Detector
+    Properties:
+      DetectorId: "sample_cfn_created_detector"
+      DetectorVersionStatus: "DRAFT"
+      Description: "A detector defined and created in a CloudFormation stack!"
+
+      Rules:
+        - RuleId: "over_threshold_investigate"
+          Description: "Automatically sends transactions of $10000 or more to an investigation queue"
+          DetectorId: "sample_cfn_created_detector"
+          Expression: "$amount >= 10000"
+          Language: "DETECTORPL"
+          Outcomes:
+            - Name: "investigate"
+              Inline: true
+        - RuleId: "under_threshold_approve"
+          Description: "Automatically approves transactions of less than $10000"
+          DetectorId: "sample_cfn_created_detector"
+          Expression: "$amount <10000"
+          Language: "DETECTORPL"
+          Outcomes:
+            - Name: "approve"
+              Inline: true
+      EventType:
+        Inline: "true"
+        Name: "online_transaction"
+        EventVariables:
+          - Name: "amount"
+            DataSource: 'EVENT'
+            DataType: 'FLOAT'
+            DefaultValue: '0'
+            VariableType: "PRICE"
+            Inline: 'true'
+        EntityTypes:
+          - Name: "customer"
+            Inline: 'true'
+        Labels:
+          - Name: "legitimate"
+            Inline: 'true'
+          - Name: "fraudulent"
+            Inline: 'true'
+
+
+```
+
+## Learn more about AWS CloudFormation
+
+To learn more about AWS CloudFormation, see the following resources:
+
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
+- [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+- [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
+- [AWS CloudFormation Command
+  Line Interface User Guide](../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md "../../../cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md")

@@ -1,5 +1,4 @@
-Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector,
-sign up prior to that date. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
+Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Rule language reference
 
@@ -57,39 +56,140 @@ $variable == 1000
 
 **Operator Tables**
 
-| Operator                                                        | Amazon Fraud Detector Operator                                                                                                                                  |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | -------------------- | --------- |
-| Equal to                                                        | ==                                                                                                                                                              |
-| Not equal to                                                    | !=                                                                                                                                                              |
-| Greater than                                                    | >                                                                                                                                                               |
-| Less than                                                       | <                                                                                                                                                               |
-| Great than or equal to                                          | >=                                                                                                                                                              |
-| Less than or equal to                                           | <=                                                                                                                                                              |
-| In                                                              | in                                                                                                                                                              |
-| And                                                             | and                                                                                                                                                             |
-| Or                                                              | or                                                                                                                                                              |
-| Not                                                             | !                                                                                                                                                               | ## Basic math You can use basic math operators in your expression (for example, +, -, \* ,/). A typical use case is when you need to combine variables during your evaluation. In the rule below, we are adding the variable `$variable_1` with `$variable_2`, and checking whether the total is less than 10. `$variable_1 + $variable_2 < 10` **Basic Math Table Data**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Operator                                                        | Amazon Fraud Detector Operator                                                                                                                                  |
-| ---                                                             | ---                                                                                                                                                             |
-| Plus                                                            | +                                                                                                                                                               |
-| Minus                                                           | -                                                                                                                                                               |
-| Multiply                                                        | \*                                                                                                                                                              |
-| Divide                                                          | /                                                                                                                                                               |
-| Modulo                                                          | %                                                                                                                                                               | ## Regular Expression (regex) You can use regex to search for specific patterns as part of your expression. This is particularly useful if you are looking to match a specific string or numerical value for one of your variables. Amazon Fraud Detector only supports match when working with regular expressions (for example, it returns True/False depending on whether the provided string is matched by the regular expression). Amazon Fraud Detector’s regular expression support is based on .matches() in java (using the RE2J Regular Expression library). There are several helpful websites on the internet that are useful for testing different regular expression patterns. In the first example below, we first transform the variable `email` to lowercase. We then check whether the pattern `@gmail.com` is in the `email` variable. Notice the second period is escaped so that we can explicitly check for the string `.com`. `regex_match(".*@gmail\.com", lowercase($email))` In the second example, we check whether the variable `phone_number` contains the country code `+1` to determine if the phone number is from the US. The plus symbol is escaped so that we can explicitly check for the string `+1`. `regex_match(".*\+1", $phone_number)` **Regex Table** |
-| Operator                                                        | Amazon Fraud Detector Example                                                                                                                                   |
-| ---                                                             | ---                                                                                                                                                             |
-| Match any string that starts with                               | regex_match("^mystring", $variable)                                                                                                                             |
-| Match entire string exactly                                     | regex_match("mystring", $variable)                                                                                                                              |
-| Match any character except new line                             | regex_match(".", $variable)                                                                                                                                     |
-| Match any number of characters except new line prior ‘mystring’ | regex_match(".\*mystring", $variable)                                                                                                                           |
-| Escape special characters                                       | \                                                                                                                                                               | ## Checking for missing values Sometimes it is beneficial to check whether the value is missing. In Amazon Fraud Detector this is represented by null. You can do this by using the following syntax: `$variable != null` Similarly, if you wanted to check whether a value is not present, you could do the following: `$variable == null` ## Multiple conditions You can combine multiple expressions together using `and` and `or`. Amazon Fraud Detector stops in an `OR` expression when a single true value is found, and it stops in an `AND` when a single false value is found. In the example below, we are checking for two conditions using the `and` condition. In the first statement, we are checking whether variable 1 is less than 100. In the second we check whether variable 2 is not the US. Given the rule uses an `and`, both must be TRUE for the entire condition to evaluate to TRUE. `$variable_1 < 100 and $variable_2 != "US"` You can use parenthesis to group Boolean operations, as shown following: `$variable_1 < 100 and $variable_2 != "US" or ($variable_1 * 100.0 > $variable_3)` ## Other expression types ### DateTime functions                                                                                                                        |
-| Function                                                        | Description                                                                                                                                                     | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---                                                             | ---                                                                                                                                                             | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| getcurrentdatetime()                                            | Gives the current time of the rule execution in ISO8601 UTC format. You can use **getepochmilliseconds(getcurrentdatetime())** to perform additional operations | getcurrentdatetime() == "2023-03-28T18:34:02Z"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| isbefore(DateTime1, DateTime2)                                  | Returns a boolean(True/False) if the caller DateTime1 is before DateTime2                                                                                       | isbefore(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "False" isbefore(getcurrentdatetime(), "2050-11-30T01:05:01Z") == "True"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| isafter(DateTime1,DateTime2)                                    | Returns a boolean(True/False) if the caller DateTime1 is after DateTime2                                                                                        | isafter(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "True" isafter(getcurrentdatetime(), "2050-11-30T01:05:01Z") == "False"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| getepochmilliseconds(DateTime)                                  | Takes a DateTime and returns that DateTime in epoch milliseconds. Useful for performing mathematical operations on the date                                     | getepochmilliseconds("2019-11-30T01:01:01Z") == 1575032461                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | ### String Operators          |
-| Operator                                                        | Example                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | ---                           | ---                  |
-| Transform string to uppercase                                   | uppercase($variable)                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Transform string to lowercase | lowercase($variable) | ### Other |
-| Operator                                                        | Comment                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | ---                           | ---                  |
-| Add a comment                                                   | # my comment                                                                                                                                                    |
+| Operator               | Amazon Fraud Detector Operator |
+| ---------------------- | ------------------------------ |
+| Equal to               | ==                             |
+| Not equal to           | !=                             |
+| Greater than           | >                              |
+| Less than              | <                              |
+| Great than or equal to | >=                             |
+| Less than or equal to  | <=                             |
+| In                     | in                             |
+| And                    | and                            |
+| Or                     | or                             |
+| Not                    | !                              |
+
+## Basic math
+
+You can use basic math operators in your expression (for example, +, -, \* ,/). A
+typical use case is when you need to combine variables during your
+evaluation.
+
+In the rule below, we are adding the variable `$variable_1` with
+`$variable_2`, and checking whether the total is less than 10.
+
+```
+$variable_1 + $variable_2 < 10
+```
+
+**Basic Math Table Data**
+
+| Operator | Amazon Fraud Detector Operator |
+| -------- | ------------------------------ |
+| Plus     | +                              |
+| Minus    | -                              |
+| Multiply | \*                             |
+| Divide   | /                              |
+| Modulo   | %                              |
+
+## Regular Expression (regex)
+
+You can use regex to search for specific patterns as part of your expression. This
+is particularly useful if you are looking to match a specific string or numerical
+value for one of your variables. Amazon Fraud Detector only supports match when working with
+regular expressions (for example, it returns True/False depending on whether the
+provided string is matched by the regular expression). Amazon Fraud Detector’s regular
+expression support is based on .matches() in java (using the RE2J Regular Expression
+library). There are several helpful websites on the internet that are useful for
+testing different regular expression patterns.
+
+In the first example below, we first transform the variable `email` to
+lowercase. We then check whether the pattern `@gmail.com` is in the
+`email` variable. Notice the second period is escaped so that we can
+explicitly check for the string `.com`.
+
+```
+regex_match(".*@gmail\.com", lowercase($email))
+```
+
+In the second example, we check whether the variable `phone_number`
+contains the country code `+1` to determine if the phone number is from
+the US. The plus symbol is escaped so that we can explicitly check for the string
+`+1`.
+
+```
+regex_match(".*\+1", $phone_number)
+```
+
+**Regex Table**
+
+| Operator                                                           | Amazon Fraud Detector Example         |
+| ------------------------------------------------------------------ | ------------------------------------- |
+| Match any string that starts with                                  | regex_match("^mystring", $variable)   |
+| Match entire string exactly                                        | regex_match("mystring", $variable)    |
+| Match any character except new line                                | regex_match(".", $variable)           |
+| Match any number of characters except new line prior<br>‘mystring’ | regex_match(".\*mystring", $variable) |
+| Escape special characters                                          | \                                     |
+
+## Checking for missing values
+
+Sometimes it is beneficial to check whether the value is missing. In Amazon Fraud Detector
+this is represented by null. You can do this by using the following syntax:
+
+```
+$variable != null
+```
+
+Similarly, if you wanted to check whether a value is not present, you could do the
+following:
+
+```
+$variable == null
+```
+
+## Multiple conditions
+
+You can combine multiple expressions together using `and` and
+`or`. Amazon Fraud Detector stops in an `OR` expression when a
+single true value is found, and it stops in an `AND` when a single false
+value is found.
+
+In the example below, we are checking for two conditions using the
+`and` condition. In the first statement, we are checking whether variable 1 is less than 100. In the second we check whether variable 2 is not the US.
+
+Given the rule uses an `and`, both must be TRUE for the entire
+condition to evaluate to TRUE.
+
+```
+$variable_1 < 100 and $variable_2 != "US"
+```
+
+You can use parenthesis to group Boolean operations, as shown following:
+
+```
+$variable_1 < 100 and $variable_2 != "US" or ($variable_1 * 100.0 > $variable_3)
+```
+
+## Other expression types
+
+### DateTime functions
+
+| Function                       | Description                                                                                                                                                                | Example                                                                                                                                  |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| getcurrentdatetime()           | Gives the current time of the rule execution in ISO8601 UTC<br>format. You can use \*_getepochmilliseconds(getcurrentdatetime())_<br>• to<br>perform additional operations | getcurrentdatetime() == "2023-03-28T18:34:02Z"                                                                                           |
+| isbefore(DateTime1, DateTime2) | Returns a boolean(True/False) if the caller DateTime1 is before DateTime2                                                                                                  | isbefore(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "False"<br>isbefore(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"True" |
+| isafter(DateTime1,DateTime2)   | Returns a boolean(True/False) if the caller DateTime1 is after DateTime2                                                                                                   | isafter(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "True"<br>isafter(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"False"   |
+| getepochmilliseconds(DateTime) | Takes a DateTime and returns that DateTime in epoch milliseconds. Useful for performing mathematical operations on the date                                                | getepochmilliseconds("2019-11-30T01:01:01Z") ==<br>1575032461                                                                            |
+
+### String Operators
+
+| Operator                      | Example              |
+| ----------------------------- | -------------------- |
+| Transform string to uppercase | uppercase($variable) |
+| Transform string to lowercase | lowercase($variable) |
+
+### Other
+
+| Operator      | Comment      |
+| ------------- | ------------ |
+| Add a comment | # my comment |

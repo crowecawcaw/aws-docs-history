@@ -1,5 +1,4 @@
-Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector,
-sign up prior to that date. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
+Amazon Fraud Detector is no longer open to new customers as of November 7, 2025. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
 
 # Account takeover insights
 
@@ -86,14 +85,66 @@ Event variable names must be in lowercase letters. They’re case sensitive.
 
 The following variables are required for training an Accounts Takeover Insights model.
 
-| Category           | Variable type   | Description                                                                                                                   |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IP address         | IP_ADDRESS      | The IP address used in the login event                                                                                        |
-| Browser and device | USERAGENT       | The browser, device, and OS used in the login event                                                                           |
-| Valid credentials  | VALIDCRED       | Indicates if the credentials that were used for login are valid                                                               | **Optional variables** The following variables are optional for training an Accounts Takeover Insights model.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Category           | Variable type | Description                                                     |
+| ------------------ | ------------- | --------------------------------------------------------------- |
+| IP address         | IP_ADDRESS    | The IP address used in the login event                          |
+| Browser and device | USERAGENT     | The browser, device, and OS used in the login event             |
+| Valid credentials  | VALIDCRED     | Indicates if the credentials that were used for login are valid |
+
+**Optional variables**
+
+The following variables are optional for training an Accounts Takeover Insights model.
+
 | Category           | Type            | Description                                                                                                                   |
-| ---                | ---             | ---                                                                                                                           |
+| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Browser and device | FINGERPRINT     | The unique identifier for a browser or device fingerprint                                                                     |
 | Session Id         | SESSION_ID      | The identifier for an authentication session                                                                                  |
 | Label              | EVENT_LABEL     | A label that classifies the event as fraudulent or legitimate. You can use any labels, such as "fraud", "legit", "1", or "0". |
-| Timestamp          | LABEL_TIMESTAMP | The timestamp when the label was last updated. This is required if EVENT_LABEL is provided.                                   | ###### Note <br>• You can provide any variable names for both mandatory variables optional variables. It’s important that each mandatory and optional variable is assigned to the right variable type. <br>• You can provide additional variables. However, Amazon Fraud Detector won’t include these variables for training an Accounts Takeover Insights model. ## Selecting data Gathering data is an important step to creating your Account Takeover Insights model. As you start to gather your login data, consider the following requirements and recommendations: **Required** <br>• Provide at least 1,500 user account examples, each with at least two associated login events. <br>• Your dataset must cover at least 30 days of login events. You can later specify the specific time range of the events to use to train the model. **Recommended** <br>• Your dataset includes examples of unsuccessful login events. You can optionally label these unsuccessful logins as “fraudulent” or “legitimate.” <br>• Prepare historic data with login events spanning more than six months and include 100K entities. If you don’t have a dataset that already meets the minimum requirements, consider streaming event data to Amazon Fraud Detector by calling the [SendEvent](../api/API_SendEvent.md "../api/API_SendEvent.md") API operation. ## Validating data Before creating your Account Takeover Insights model, Amazon Fraud Detector checks if the metadata and variables you included in your dataset for training the model meet size and format requirements. For more information, see [Dataset validation](create-event-dataset.md#dataset-validation "create-event-dataset.md#dataset-validation"). It also checks for other requirements. If the dataset doesn’t pass validation, model isn’t created. For the model to be successfully created, make sure to fix the data that didn’t pass the validation before you train again. **Common dataset errors** When validating a dataset for training an Account Takeover Insights model, Amazon Fraud Detector scans for these and other issues and throws an error if it encounters one or more of the issues. <br>• CSV file isn’t in the UTF-8 format. <br>• The CSV file header doesn’t contain at least one of the following metadata: `EVENT_ID`, `ENTITY_ID`, or `EVENT_TIMESTAMP`. <br>• The CSV file header doesn’t contain at least one variable of the following variable types: `IP_ADDRESS`, `USERAGENT`, or `VALIDCRED`. <br>• There’s more than one variable that’s associated with the same variable type. <br>• More than 0.1% of values in `EVENT_TIMESTAMP` contains nulls or values other than the supported date and timestamp formats. <br>• The number of days between the first and last event is fewer than 30 days. <br>• More than 10% of variables of the `IP_ADDRESS` variable type are either invalid or null. <br>• More than 50% of variables of the `USERAGENT` variable type contain nulls. <br>• All of the variables of the `VALIDCRED` variable type are set to `false`. |
+| Timestamp          | LABEL_TIMESTAMP | The timestamp when the label was last updated. This is required if EVENT_LABEL is provided.                                   |
+
+###### Note
+
+- You can provide any variable names for both mandatory variables optional variables.
+  It’s important that each mandatory and optional variable is assigned to the right variable type.
+- You can provide additional variables. However, Amazon Fraud Detector won’t include these variables for training an
+  Accounts Takeover Insights model.
+
+## Selecting data
+
+Gathering data is an important step to creating your Account Takeover Insights model. As you start to gather your login data,
+consider the following requirements and recommendations:
+
+**Required**
+
+- Provide at least 1,500 user account examples, each with at least two associated login events.
+- Your dataset must cover at least 30 days of login events. You can later specify the specific time range of the events to use to train the model.
+
+**Recommended**
+
+- Your dataset includes examples of unsuccessful login events. You can optionally label these unsuccessful logins as “fraudulent” or “legitimate.”
+- Prepare historic data with login events spanning more than six months and include 100K entities.
+
+If you don’t have a dataset that already meets the minimum requirements, consider streaming event data to Amazon Fraud Detector by calling the [SendEvent](../api/API_SendEvent.md "../api/API_SendEvent.md")
+API operation.
+
+## Validating data
+
+Before creating your Account Takeover Insights model, Amazon Fraud Detector checks if the metadata and variables you included in your
+dataset for training the model meet size and format requirements. For more information, see [Dataset validation](create-event-dataset.md#dataset-validation "create-event-dataset.md#dataset-validation"). It also checks for other requirements. If the
+dataset doesn’t pass validation, model isn’t created. For the model to be successfully created, make sure to fix the
+data that didn’t pass the validation before you train again.
+
+**Common dataset errors**
+
+When validating a dataset for training an Account Takeover Insights model, Amazon Fraud Detector scans for these and other issues and throws an error if it encounters one or more of the issues.
+
+- CSV file isn’t in the UTF-8 format.
+- The CSV file header doesn’t contain at least one of the following metadata:
+  `EVENT_ID`, `ENTITY_ID`, or `EVENT_TIMESTAMP`.
+- The CSV file header doesn’t contain at least one variable of the following variable types: `IP_ADDRESS`, `USERAGENT`, or `VALIDCRED`.
+- There’s more than one variable that’s associated with the same variable type.
+- More than 0.1% of values in `EVENT_TIMESTAMP` contains nulls or values other than the supported date and timestamp formats.
+- The number of days between the first and last event is fewer than 30 days.
+- More than 10% of variables of the `IP_ADDRESS` variable type are either invalid or null.
+- More than 50% of variables of the `USERAGENT` variable type contain nulls.
+- All of the variables of the `VALIDCRED` variable type are set to `false`.
