@@ -14,11 +14,11 @@ this document. The following operations are supported:
 - Manage a composition session.
 - Receive events.
 - Receive errors.
-  **Latest version of Android broadcast SDK:** 1.35.0 ([Release Notes](release-notes.md#oct02-25-broadcast-android-ll "release-notes.md#oct02-25-broadcast-android-ll"))
+  **Latest version of Android broadcast SDK:** 1.36.0 ([Release Notes](release-notes.md#oct30-25-broadcast-android-ll "release-notes.md#oct30-25-broadcast-android-ll"))
 
 **Reference documentation:** For information on the most
 important methods available in the Amazon IVS Android broadcast SDK, see the reference
-documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.35.0/android/").
+documentation at [https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.36.0/android/").
 
 **Sample code:** See the Android sample repository on GitHub:
 [https://github.com/aws-samples/amazon-ivs-broadcast-android-sample](https://github.com/aws-samples/amazon-ivs-broadcast-android-sample "https://github.com/aws-samples/amazon-ivs-broadcast-android-sample").

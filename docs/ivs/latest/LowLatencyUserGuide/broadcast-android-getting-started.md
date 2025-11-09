@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.35.0'
+     implementation 'com.amazonaws:ivs-broadcast:1.36.0'
 }
 ```
 

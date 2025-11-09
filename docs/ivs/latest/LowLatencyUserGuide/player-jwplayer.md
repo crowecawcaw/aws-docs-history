@@ -125,13 +125,50 @@ Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https:/
 The `'providerPlayer'` event is emitted by JW Player, and the callback you
 register with it will receive an object with the following fields:
 
-| Field       | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ivsPlayer` | Returns the underlying Amazon IVS player instance. The full Amazon IVS Player Web API is available through this instance. We recommend using the basic JW Player playback API as much as possible, and using this function only to access Amazon IVS-specific features. The most common functions you are likely to need to access on the Amazon IVS player instance are `addEventListener()` and `removeEventListener()`. |
-| `ivsEvents` | Returns an object with `PlayerEventType`, `PlayerState`, and `ErrorType` fields, which map to their associated Amazon IVS-specific enums. For more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/").                                                                                           | ## Errors For general JW Player errors, use the [on](https://developer.jwplayer.com/jwplayer/docs/jw8-javascript-api-reference "https://developer.jwplayer.com/jwplayer/docs/jw8-javascript-api-reference") function of the JW Player to listen to error events. For errors specific to Amazon IVS, listen on the Amazon IVS player for its own errors: `// set default values for ivsPlayer and ivsEvents var ivsPlayer = {}; var ivsEvents = {}; // store references to the Amazon IVS Player and Amazon IVS Events jwplayer(JW_PLAYER_DIV).on('providerPlayer', function (player) { ivsPlayer = player.ivsPlayer; ivsEvents = player.ivsEvents; }); // set up event listening: let playerEvent = ivsEvents.PlayerEventType; ivsPlayer.addEventListener(playerEvent.ERROR, callback);` The callback will receive an object with the following fields: |
-| Field       | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---         | ---                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `type`      | The error type. Corresponds to `ErrorType` events. For more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/").                                                                                                                                                                                  |
-| `code`      | The error code.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `source`    | Source of the error.                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `message`   | Human readable error message.                                                                                                                                                                                                                                                                                                                                                                                              | ## Content Security Policy The Amazon IVS Provider API is configured to work on pages that use Content Security Policy (CSP). See the section on “Working with Content Security Policy” in the [IVS Player SDK: Web Guide](web-content-security-policy.md "web-content-security-policy.md"). ## Limitations The Provider does not support casting. If you enabled casting in the JW Player dashboard, you can disable it by setting `cast` to `null` when calling `setup()`. This hides the casting button.                                                                                                                                                                                                                                                                                                                                             |
+| Field       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ivsPlayer` | Returns the underlying Amazon IVS player instance. The full Amazon<br>IVS Player Web API is available through this instance. We recommend<br>using the basic JW Player playback API as much as possible, and<br>using this function only to access Amazon IVS-specific features. The<br>most common functions you are likely to need to access on the Amazon<br>IVS player instance are `addEventListener()` and<br>`removeEventListener()`. |
+| `ivsEvents` | Returns an object with `PlayerEventType`,<br>`PlayerState`, and `ErrorType` fields,<br>which map to their associated Amazon IVS-specific enums. For more<br>information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/").                                                                                                    |
+
+## Errors
+
+For general JW Player errors, use the [on](https://developer.jwplayer.com/jwplayer/docs/jw8-javascript-api-reference "https://developer.jwplayer.com/jwplayer/docs/jw8-javascript-api-reference") function of the JW Player to listen to error events.
+
+For errors specific to Amazon IVS, listen on the Amazon IVS player for its own
+errors:
+
+```
+// set default values for ivsPlayer and ivsEvents
+var ivsPlayer = {};
+var ivsEvents = {};
+
+// store references to the Amazon IVS Player and Amazon IVS Events
+jwplayer(JW_PLAYER_DIV).on('providerPlayer', function (player) {
+   ivsPlayer = player.ivsPlayer;
+   ivsEvents = player.ivsEvents;
+});
+
+// set up event listening:
+let playerEvent = ivsEvents.PlayerEventType;
+ivsPlayer.addEventListener(playerEvent.ERROR, callback);
+```
+
+The callback will receive an object with the following fields:
+
+| Field     | Description                                                                                                                                                                                                                                  |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`    | The error type. Corresponds to `ErrorType` events. For<br>more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.46.0/web/"). |
+| `code`    | The error code.                                                                                                                                                                                                                              |
+| `source`  | Source of the error.                                                                                                                                                                                                                         |
+| `message` | Human readable error message.                                                                                                                                                                                                                |
+
+## Content Security Policy
+
+The Amazon IVS Provider API is configured to work on pages that use Content Security
+Policy (CSP). See the section on “Working with Content Security Policy” in the [IVS Player SDK: Web Guide](web-content-security-policy.md "web-content-security-policy.md").
+
+## Limitations
+
+The Provider does not support casting. If you enabled casting in the JW Player
+dashboard, you can disable it by setting `cast` to `null` when
+calling `setup()`. This hides the casting button.

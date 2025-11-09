@@ -56,12 +56,10 @@ Broadcast clients that support IVS multitrack video are required to implement th
 
 The following table provides our recommendations in terms of hardware, software, and environmental configuration:
 
-| Use Case
-| FULL_HD Streaming
-|
-| --- | --- |
-| GPU and driver version | NVIDIA GeForce 900-series or newer with NVIDIA driver 545.92 or newer AMD Radeon RX 6000/7000 Series or newer with AMD Adrenalin 24.4.1 minimum |
-| Display | 1920x1080 at 60fps |
-| Sustained upstream bandwidth | 12 Mbps |
-| Operating system | Windows 10 or Windows 11 |
-| Broadcast software | OBS Studio v30.2 (or newer) |
+| Use Case                     | FULL_HD Streaming                                                                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GPU and driver version       | NVIDIA GeForce 900-series or newer with NVIDIA driver 545.92 or newer<br>AMD Radeon RX 6000/7000 Series or newer with AMD Adrenalin 24.4.1 minimum |
+| Display                      | 1920x1080 at 60fps                                                                                                                                 |
+| Sustained upstream bandwidth | 12 Mbps                                                                                                                                            |
+| Operating system             | Windows 10 or Windows 11                                                                                                                           |
+| Broadcast software           | OBS Studio v30.2 (or newer)                                                                                                                        |

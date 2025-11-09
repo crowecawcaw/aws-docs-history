@@ -205,10 +205,88 @@ Broadcast SDK for Android provides the convenience method
 `createServiceNotificationBuilder`. Alternately, you may provide your
 own notification.
 
-````
+```
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if(requestCode != SCREEN_CAPTURE_REQUEST_ID
-|| Activity.RESULT_OK != resultCode) { return; } Notification notification = null; if(Build.VERSION.SDK_INT >= 26) { Intent intent = new Intent(getApplicationContext(), NotificationActivity.class); notification = session .createServiceNotificationBuilder("example", "example channel", intent) .build(); } session.createSystemCaptureSources(data, ExampleSystemCaptureService.class, Notification, devices -> { // This step is optional if the mixer slots have been given preferred // input device types SCREEN and SYSTEM_AUDIO for (Device device : devices) { session.getMixer().bind(device, "game"); } }); } ``` ## Get Recommended Broadcast Settings To evaluate your user’s connection before starting a broadcast, use the `recommendedVideoSettings` method to run a brief test. As the test runs, you will receive several recommendations, ordered from most to least recommended. In this version of the SDK, it is not possible to reconfigure the current `BroadcastSession`, so you will need to `release()` it and then create a new one with the recommended settings. You will continue to receive `BroadcastSessionTest.Results` until the `Result.status` is `SUCCESS` or `ERROR`. You can check progress with `Result.progress`. Amazon IVS supports a maximum bitrate of 8.5 Mbps (for channels whose `type` is `STANDARD` or `ADVANCED`), so the `maximumBitrate` returned by this method never exceeds 8.5 Mbps. To account for small fluctuations in network performance, the recommended `initialBitrate` returned by this method is slightly less than the true bitrate measured in the test. (Using 100% of the available bandwidth usually is inadvisable.) ``` void runBroadcastTest() { this.test = session.recommendedVideoSettings(RTMPS_ENDPOINT, RTMPS_STREAMKEY, result -> { if (result.status == BroadcastSessionTest.Status.SUCCESS) { this.recommendation = result.recommendations[0]; } }); } ``` ## Using Auto-Reconnect IVS supports automatic reconnection to a broadcast if the broadcast stops unexpectedly without calling the `stop` API; e.g., a temporary loss in network connectivity. To enable auto-reconnect, call `setEnabled(true)` on `BroadcastConfiguration.autoReconnect`. When something causes the stream to unexpectedly stop, the SDK retries up to 5 times, following a linear backoff strategy. It notifies your application about the retry state through the `BroadcastSession.Listener.onRetryStateChanged` method. Behind the scenes, auto-reconnect uses IVS [stream-takeover](streaming-config.md#streaming-config-stream-takeover "streaming-config.md#streaming-config-stream-takeover") functionality by appending a priority number, starting with 1, to the end of the provided stream key. For the duration of the `BroadcastSession` instance, that number is incremented by 1 each time a reconnect is attempted. This means if the device’s connection is lost 4 times during a broadcast, and each loss requires 1-4 retry attempts, the priority of the last stream up could be anywhere between 5 and 17. Because of this, *we recommend you do not use IVS stream takeover from another device while auto-reconnect is enabled in the SDK for the same channel*. There are no guarantees what priority the SDK is using at the time, and the SDK will try to reconnect with a higher priority if another device takes over. ## Using Bluetooth Microphones To broadcast using Bluetooth microphone devices, you must start a Bluetooth SCO connection: ``` Bluetooth.startBluetoothSco(context); // Now bluetooth microphones can be used … // Must also stop bluetooth SCO Bluetooth.stopBluetoothSco(context); ```
-````
+       || Activity.RESULT_OK != resultCode) {
+        return;
+    }
+    Notification notification = null;
+    if(Build.VERSION.SDK_INT >= 26) {
+        Intent intent = new Intent(getApplicationContext(),
+                                   NotificationActivity.class);
+        notification = session
+                         .createServiceNotificationBuilder("example",
+                                            "example channel", intent)
+                         .build();
+    }
+    session.createSystemCaptureSources(data,
+                  ExampleSystemCaptureService.class,
+                  Notification,
+                  devices -> {
+        // This step is optional if the mixer slots have been given preferred
+        // input device types SCREEN and SYSTEM_AUDIO
+        for (Device device : devices) {
+            session.getMixer().bind(device, "game");
+        }
+    });
+}
+```
+
+## Get Recommended Broadcast
+
+Settings
+
+To evaluate your user’s connection before starting a broadcast, use the
+`recommendedVideoSettings` method to run a brief test. As the test
+runs, you will receive several recommendations, ordered from most to least
+recommended. In this version of the SDK, it is not possible to reconfigure the
+current `BroadcastSession`, so you will need to `release()` it
+and then create a new one with the recommended settings. You will continue to
+receive `BroadcastSessionTest.Results` until the
+`Result.status` is `SUCCESS` or `ERROR`. You
+can check progress with `Result.progress`.
+
+Amazon IVS supports a maximum bitrate of 8.5 Mbps (for channels whose
+`type` is `STANDARD` or `ADVANCED`), so the
+`maximumBitrate` returned by this method never exceeds 8.5 Mbps. To
+account for small fluctuations in network performance, the recommended
+`initialBitrate` returned by this method is slightly less than the
+true bitrate measured in the test. (Using 100% of the available bandwidth usually is
+inadvisable.)
+
+```
+void runBroadcastTest() {
+    this.test = session.recommendedVideoSettings(RTMPS_ENDPOINT, RTMPS_STREAMKEY,
+        result -> {
+            if (result.status == BroadcastSessionTest.Status.SUCCESS) {
+                this.recommendation = result.recommendations[0];
+            }
+        });
+}
+```
+
+## Using Auto-Reconnect
+
+IVS supports automatic reconnection to a broadcast if the broadcast stops unexpectedly without calling the `stop` API; e.g., a temporary loss in network connectivity. To enable auto-reconnect, call `setEnabled(true)` on `BroadcastConfiguration.autoReconnect`.
+
+When something causes the stream to unexpectedly stop, the SDK retries up to 5 times, following a linear backoff strategy. It notifies your application about the retry state through the `BroadcastSession.Listener.onRetryStateChanged` method.
+
+Behind the scenes, auto-reconnect uses IVS [stream-takeover](streaming-config.md#streaming-config-stream-takeover "streaming-config.md#streaming-config-stream-takeover") functionality by appending a priority number, starting with 1, to the end of the provided stream key. For the duration of the `BroadcastSession` instance, that number is incremented by 1 each time a reconnect is attempted. This means if the device’s connection is lost 4 times during a broadcast, and each loss requires 1-4 retry attempts, the priority of the last stream up could be anywhere between 5 and 17. Because of this, _we recommend you do not use IVS stream takeover from another device while auto-reconnect is enabled in the SDK for the same channel_. There are no guarantees what priority the SDK is using at the time, and the SDK will try to reconnect with a higher priority if another device takes over.
+
+## Using Bluetooth
+
+Microphones
+
+To broadcast using Bluetooth microphone devices, you must start a Bluetooth SCO
+connection:
+
+```
+Bluetooth.startBluetoothSco(context);
+// Now bluetooth microphones can be used
+…
+// Must also stop bluetooth SCO
+Bluetooth.stopBluetoothSco(context);
+```
