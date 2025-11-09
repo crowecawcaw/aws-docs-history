@@ -5,33 +5,244 @@
 The AWS Ground Station Agent requires dedicated CPU cores to operate due to the compute intensive data delivery workflows.
 We support the following instance types. See [CPU core planning](#cpu-core-planning "#cpu-core-planning") to decide which instance type best suits your use case.
 
-| Instance family                 | Instance type                             | Default vCPUs                  | Default CPU cores |
-| ------------------------------- | ----------------------------------------- | ------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| c5                              | c5.12xlarge                               | 48                             | 24                |
-| c5.18xlarge                     | 72                                        | 36                             |                   | c5.24xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 96  | 48  |
-| c5n                             | c5n.18xlarge                              | 72                             | 36                |
-| c5n.metal                       | 72                                        | 36                             |
-| c6i                             | c6i.24xlarge                              | 96                             | 48                |
-| c6i.32xlarge                    | 128                                       | 64                             |
-| p3dn                            | p3dn.24xlarge                             | 96                             | 48                |
-| g4dn                            | g4dn.12xlarge                             | 48                             | 24                |
-| g4dn.16xlarge                   | 64                                        | 32                             |                   | g4dn.metal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 96  | 48  |
-| p4d                             | p4d.24xlarge                              | 96                             | 48                |
-| m5                              | m5.8xlarge                                | 32                             | 16                |
-| m5.12xlarge                     | 48                                        | 24                             |                   | m5.24xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 96  | 48  |
-| m6i                             | m6i.32xlarge                              | 128                            | 64                |
-| r5                              | r5.24xlarge                               | 96                             | 48                |
-| r5.metal                        | 96                                        | 48                             |
-| r5n                             | r5n.24xlarge                              | 96                             | 48                |
-| r5n.metal                       | 96                                        | 48                             |
-| r6i                             | r6i.32xlarge                              | 128                            | 64                | ## CPU core planning The AWS Ground Station Agent requires dedicated processor cores that share L3 cache for each dataflow. The agent is designed to leverage Hyper-threaded (HT) CPU pairs and requires HT pairs to be reserved for its use. A hyper-threaded pair is a pair of virtual CPUs (vCPU) that are contained within a single core. The following table provides a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow. This table assumes Cascade Lake or newer CPUs and is valid for any supported instance type. If your bandwidth is between entries in the table, select the next highest. The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed (from the below chart) for each dataflow plus **a single additional core (2 vCPUs)**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU        |
-| ---                             | ---                                       | ---                            | ---               |
-| 50                              | 1000                                      | 3                              | 6                 |
-| 100                             | 2000                                      | 4                              | 8                 |
-| 150                             | 3000                                      | 5                              | 10                |
-| 200                             | 4000                                      | 6                              | 12                |
-| 250                             | 5000                                      | 6                              | 12                |
-| 300                             | 6000                                      | 7                              | 14                |
-| 350                             | 7000                                      | 8                              | 16                |
-| 400                             | 8000                                      | 9                              | 18                | ## Gathering architecture information `lscpu` provides information about the architecture of your system. The basic output shows which vCPUs (labeled as "CPU") belong to which NUMA nodes (and each NUMA node shares an L3 cache). Below we examine a `c5.24xlarge` instance in order to gather the necessary information to configure the AWS Ground Station Agent. This includes useful information like number of vCPUs, cores, and vCPU-to-node association. `> lscpu Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit Byte Order: Little Endian CPU(s): 96 On-line CPU(s) list: 0-95 Thread(s) per core: 2             <------ Core(s) per socket: 24 Socket(s): 2 NUMA node(s): 2 Vendor ID: GenuineIntel CPU family: 6 Model: 85 Model name: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz Stepping: 7 CPU MHz: 3601.704 BogoMIPS: 6000.01 Hypervisor vendor: KVM Virtualization type: full L1d cache: 32K L1i cache: 32K L2 cache: 1024K L3 cache: 36608K NUMA node0 CPU(s): 0-23,48-71     <------ NUMA node1 CPU(s): 24-47,72-95    <------` Cores dedicated to the AWS Ground Station Agent should include both vCPUs for each assigned core. All cores for a dataflow must exist on the same NUMA node. The `-p` option for the `lscpu` command provides us with the core to CPU associations needed to configure the agent. The relevant fields are CPU (which is what we refer to as the vCPU), Core, and L3 (which indicates which L3 cache is shared by that core). Note that on most Intel processors the NUMA Node is equal to the L3 cache. Consider the following subset of the `lscpu -p` output for a `c5.24xlarge` (abbreviated and formatted for clarity). `CPU,Core,Socket,Node,,L1d,L1i,L2,L3 0   0    0      0     0   0   0  0 1   1    0      0     1   1   1  0 2   2    0      0     2   2   2  0 3   3    0      0     3   3   3  0 ... 16  0    0      0     0   0   0  0 17  1    0      0     1   1   1  0 18  2    0      0     2   2   2  0 19  3    0      0     3   3   3  0` From the output we can see that Core 0 includes vCPUs 0 and 16, Core 1 includes vCPUs 1 and 17, Core 2 includes vCPUs 2 and 18. In other words the hyper-threaded pairs are: 0 and 16, 1 and 17, 2 and 18. ## CPU assignment example As an example, we will use a `c5.24xlarge` instance for a Dual Polarity Wideband downlink at 350MHz. From the table in [CPU core planning](#cpu-core-planning "#cpu-core-planning") we know that a 350 MHz downlink requires 8 cores (16 vCPUs) for the single data flow. This means that this dual polarity setup using two dataflows requires a total of 16 cores (32 vCPUs) plus one core (2 vCPUs) for the Agent. We know the `lscpu` output for `c5.24xlarge` includes `NUMA node0 CPU(s): 0-23,48-71` and `NUMA node1 CPU(s): 24-47,72-95`. Since NUMA node0 has more than we need, we will only assign from cores: 0-23 and 48-71. First, we will select 8 cores for each dataflow that share an L3 cache or NUMA Node. Then we will look up the corresponding vCPUs (labeled “CPU”) in the `lscpu -p` output in [Appendix: lscpu -p output (full) for c5.24xlarge](#agent-cpu-planning-appendix-lscpu-full "#agent-cpu-planning-appendix-lscpu-full"). An example core selection process might look like the following: <br>• Reserve cores 0-1 for the OS. <br>• Flow 1: select cores 2-9 which map to vCPUs 2-9 and 50-57. <br>• Flow 2: select cores 10-17 which map to vCPUs 10-17 and 58-65. <br>• Agent core: select core 18 which maps to vCPUs 18 and 66. This results in vCPUs 2-18 and 50-66 so the list to provide the agent is `[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]`. You should ensure your own processes are not running on these CPUs as described in [Running services and processes alongside the AWS Ground Station Agent](best-practices.md#avoiding-contested-cores "best-practices.md#avoiding-contested-cores"). Note that the specific cores selected in this example are somewhat arbitrary. Other sets of cores would work as long as they satisfy the requirement of all sharing an L3 cache for each dataflow. ## Appendix: `lscpu -p` output (full) for c5.24xlarge `> lscpu -p # The following is the parsable format, which can be fed to other # programs. Each different item in every column has an unique ID # starting from zero. # CPU,Core,Socket,Node,,L1d,L1i,L2,L3 0,0,0,0,,0,0,0,0 1,1,0,0,,1,1,1,0 2,2,0,0,,2,2,2,0 3,3,0,0,,3,3,3,0 4,4,0,0,,4,4,4,0 5,5,0,0,,5,5,5,0 6,6,0,0,,6,6,6,0 7,7,0,0,,7,7,7,0 8,8,0,0,,8,8,8,0 9,9,0,0,,9,9,9,0 10,10,0,0,,10,10,10,0 11,11,0,0,,11,11,11,0 12,12,0,0,,12,12,12,0 13,13,0,0,,13,13,13,0 14,14,0,0,,14,14,14,0 15,15,0,0,,15,15,15,0 16,16,0,0,,16,16,16,0 17,17,0,0,,17,17,17,0 18,18,0,0,,18,18,18,0 19,19,0,0,,19,19,19,0 20,20,0,0,,20,20,20,0 21,21,0,0,,21,21,21,0 22,22,0,0,,22,22,22,0 23,23,0,0,,23,23,23,0 24,24,1,1,,24,24,24,1 25,25,1,1,,25,25,25,1 26,26,1,1,,26,26,26,1 27,27,1,1,,27,27,27,1 28,28,1,1,,28,28,28,1 29,29,1,1,,29,29,29,1 30,30,1,1,,30,30,30,1 31,31,1,1,,31,31,31,1 32,32,1,1,,32,32,32,1 33,33,1,1,,33,33,33,1 34,34,1,1,,34,34,34,1 35,35,1,1,,35,35,35,1 36,36,1,1,,36,36,36,1 37,37,1,1,,37,37,37,1 38,38,1,1,,38,38,38,1 39,39,1,1,,39,39,39,1 40,40,1,1,,40,40,40,1 41,41,1,1,,41,41,41,1 42,42,1,1,,42,42,42,1 43,43,1,1,,43,43,43,1 44,44,1,1,,44,44,44,1 45,45,1,1,,45,45,45,1 46,46,1,1,,46,46,46,1 47,47,1,1,,47,47,47,1 48,0,0,0,,0,0,0,0 49,1,0,0,,1,1,1,0 50,2,0,0,,2,2,2,0 51,3,0,0,,3,3,3,0 52,4,0,0,,4,4,4,0 53,5,0,0,,5,5,5,0 54,6,0,0,,6,6,6,0 55,7,0,0,,7,7,7,0 56,8,0,0,,8,8,8,0 57,9,0,0,,9,9,9,0 58,10,0,0,,10,10,10,0 59,11,0,0,,11,11,11,0 60,12,0,0,,12,12,12,0 61,13,0,0,,13,13,13,0 62,14,0,0,,14,14,14,0 63,15,0,0,,15,15,15,0 64,16,0,0,,16,16,16,0 65,17,0,0,,17,17,17,0 66,18,0,0,,18,18,18,0 67,19,0,0,,19,19,19,0 68,20,0,0,,20,20,20,0 69,21,0,0,,21,21,21,0 70,22,0,0,,22,22,22,0 71,23,0,0,,23,23,23,0 72,24,1,1,,24,24,24,1 73,25,1,1,,25,25,25,1 74,26,1,1,,26,26,26,1 75,27,1,1,,27,27,27,1 76,28,1,1,,28,28,28,1 77,29,1,1,,29,29,29,1 78,30,1,1,,30,30,30,1 79,31,1,1,,31,31,31,1 80,32,1,1,,32,32,32,1 81,33,1,1,,33,33,33,1 82,34,1,1,,34,34,34,1 83,35,1,1,,35,35,35,1 84,36,1,1,,36,36,36,1 85,37,1,1,,37,37,37,1 86,38,1,1,,38,38,38,1 87,39,1,1,,39,39,39,1 88,40,1,1,,40,40,40,1 89,41,1,1,,41,41,41,1 90,42,1,1,,42,42,42,1 91,43,1,1,,43,43,43,1 92,44,1,1,,44,44,44,1 93,45,1,1,,45,45,45,1 94,46,1,1,,46,46,46,1 95,47,1,1,,47,47,47,1` |
+| Instance family | Instance type | Default vCPUs | Default CPU cores |
+| --------------- | ------------- | ------------- | ----------------- |
+| c5              | c5.12xlarge   | 48            | 24                |
+| c5.18xlarge     | 72            | 36            |
+| c5.24xlarge     | 96            | 48            |
+| c5n             | c5n.18xlarge  | 72            | 36                |
+| c5n.metal       | 72            | 36            |
+| c6i             | c6i.24xlarge  | 96            | 48                |
+| c6i.32xlarge    | 128           | 64            |
+| p3dn            | p3dn.24xlarge | 96            | 48                |
+| g4dn            | g4dn.12xlarge | 48            | 24                |
+| g4dn.16xlarge   | 64            | 32            |
+| g4dn.metal      | 96            | 48            |
+| p4d             | p4d.24xlarge  | 96            | 48                |
+| m5              | m5.8xlarge    | 32            | 16                |
+| m5.12xlarge     | 48            | 24            |
+| m5.24xlarge     | 96            | 48            |
+| m6i             | m6i.32xlarge  | 128           | 64                |
+| r5              | r5.24xlarge   | 96            | 48                |
+| r5.metal        | 96            | 48            |
+| r5n             | r5n.24xlarge  | 96            | 48                |
+| r5n.metal       | 96            | 48            |
+| r6i             | r6i.32xlarge  | 128           | 64                |
+
+## CPU core planning
+
+The AWS Ground Station Agent requires dedicated processor cores that share L3 cache for each dataflow.
+The agent is designed to leverage Hyper-threaded (HT) CPU pairs and requires HT pairs to be reserved for its use.
+A hyper-threaded pair is a pair of virtual CPUs (vCPU) that are contained within a single core.
+The following table provides a mapping of dataflow data rate to the required number of cores reserved for the agent for a single dataflow.
+This table assumes Cascade Lake or newer CPUs and is valid for any supported instance type.
+If your bandwidth is between entries in the table, select the next highest.
+
+The agent needs an additional reserved core for management and coordination, so the total cores required will be the sum of the cores needed (from the below chart) for each dataflow plus **a single additional core (2 vCPUs)**.
+
+| AntennaDownlink Bandwidth (MHz) | Expected VITA-49.2 DigIF Data Rate (Mb/s) | Number of Cores (HT CPU Pairs) | Total vCPU |
+| ------------------------------- | ----------------------------------------- | ------------------------------ | ---------- |
+| 50                              | 1000                                      | 3                              | 6          |
+| 100                             | 2000                                      | 4                              | 8          |
+| 150                             | 3000                                      | 5                              | 10         |
+| 200                             | 4000                                      | 6                              | 12         |
+| 250                             | 5000                                      | 6                              | 12         |
+| 300                             | 6000                                      | 7                              | 14         |
+| 350                             | 7000                                      | 8                              | 16         |
+| 400                             | 8000                                      | 9                              | 18         |
+
+## Gathering architecture information
+
+`lscpu` provides information about the architecture of your system.
+The basic output shows which vCPUs (labeled as "CPU") belong to which NUMA nodes (and each NUMA node shares an L3 cache).
+Below we examine a `c5.24xlarge` instance in order to gather the necessary information to configure the AWS Ground Station Agent.
+This includes useful information like number of vCPUs, cores, and vCPU-to-node association.
+
+```
+
+> lscpu
+Architecture: x86_64
+CPU op-mode(s): 32-bit, 64-bit
+Byte Order: Little Endian
+CPU(s): 96
+On-line CPU(s) list: 0-95
+Thread(s) per core: 2             <------
+Core(s) per socket: 24
+Socket(s): 2
+NUMA node(s): 2
+Vendor ID: GenuineIntel
+CPU family: 6
+Model: 85
+Model name: Intel(R) Xeon(R) Platinum 8275CL CPU @ 3.00GHz
+Stepping: 7
+CPU MHz: 3601.704
+BogoMIPS: 6000.01
+Hypervisor vendor: KVM
+Virtualization type: full
+L1d cache: 32K
+L1i cache: 32K
+L2 cache: 1024K
+L3 cache: 36608K
+NUMA node0 CPU(s): 0-23,48-71     <------
+NUMA node1 CPU(s): 24-47,72-95    <------
+
+```
+
+Cores dedicated to the AWS Ground Station Agent should include both vCPUs for each assigned core.
+All cores for a dataflow must exist on the same NUMA node.
+The `-p` option for the `lscpu` command provides us with the core to CPU associations needed to configure the agent.
+The relevant fields are CPU (which is what we refer to as the vCPU), Core, and L3 (which indicates which L3 cache is shared by that core).
+Note that on most Intel processors the NUMA Node is equal to the L3 cache.
+
+Consider the following subset of the `lscpu -p` output for a `c5.24xlarge` (abbreviated and formatted for clarity).
+
+```
+
+CPU,Core,Socket,Node,,L1d,L1i,L2,L3
+0   0    0      0     0   0   0  0
+1   1    0      0     1   1   1  0
+2   2    0      0     2   2   2  0
+3   3    0      0     3   3   3  0
+...
+16  0    0      0     0   0   0  0
+17  1    0      0     1   1   1  0
+18  2    0      0     2   2   2  0
+19  3    0      0     3   3   3  0
+
+```
+
+From the output we can see that Core 0 includes vCPUs 0 and 16, Core 1 includes vCPUs 1 and 17, Core 2 includes vCPUs 2 and 18.
+In other words the hyper-threaded pairs are: 0 and 16, 1 and 17, 2 and 18.
+
+## CPU assignment example
+
+As an example, we will use a `c5.24xlarge` instance for a Dual Polarity Wideband downlink at 350MHz.
+From the table in [CPU core planning](#cpu-core-planning "#cpu-core-planning") we know that a 350 MHz downlink requires 8 cores (16 vCPUs) for the single data flow.
+This means that this dual polarity setup using two dataflows requires a total of 16 cores (32 vCPUs) plus one core (2 vCPUs) for the Agent.
+
+We know the `lscpu` output for `c5.24xlarge` includes
+`NUMA node0 CPU(s): 0-23,48-71` and `NUMA node1 CPU(s): 24-47,72-95`.
+Since NUMA node0 has more than we need, we will only assign from cores: 0-23 and 48-71.
+
+First, we will select 8 cores for each dataflow that share an L3 cache or NUMA Node.
+Then we will look up the corresponding vCPUs (labeled “CPU”) in the `lscpu -p` output in [Appendix: lscpu -p output (full) for c5.24xlarge](#agent-cpu-planning-appendix-lscpu-full "#agent-cpu-planning-appendix-lscpu-full").
+An example core selection process might look like the following:
+
+- Reserve cores 0-1 for the OS.
+- Flow 1: select cores 2-9 which map to vCPUs 2-9 and 50-57.
+- Flow 2: select cores 10-17 which map to vCPUs 10-17 and 58-65.
+- Agent core: select core 18 which maps to vCPUs 18 and 66.
+
+This results in vCPUs 2-18 and 50-66 so the list to provide the agent is `[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66]`.
+You should ensure your own processes are not running on these CPUs as described in [Running services and processes alongside the AWS Ground Station Agent](best-practices.md#avoiding-contested-cores "best-practices.md#avoiding-contested-cores").
+
+Note that the specific cores selected in this example are somewhat arbitrary.
+Other sets of cores would work as long as they satisfy the requirement of all sharing an L3 cache for each dataflow.
+
+## Appendix: `lscpu -p` output (full) for c5.24xlarge
+
+```
+
+> lscpu -p
+# The following is the parsable format, which can be fed to other
+# programs. Each different item in every column has an unique ID
+# starting from zero.
+# CPU,Core,Socket,Node,,L1d,L1i,L2,L3
+0,0,0,0,,0,0,0,0
+1,1,0,0,,1,1,1,0
+2,2,0,0,,2,2,2,0
+3,3,0,0,,3,3,3,0
+4,4,0,0,,4,4,4,0
+5,5,0,0,,5,5,5,0
+6,6,0,0,,6,6,6,0
+7,7,0,0,,7,7,7,0
+8,8,0,0,,8,8,8,0
+9,9,0,0,,9,9,9,0
+10,10,0,0,,10,10,10,0
+11,11,0,0,,11,11,11,0
+12,12,0,0,,12,12,12,0
+13,13,0,0,,13,13,13,0
+14,14,0,0,,14,14,14,0
+15,15,0,0,,15,15,15,0
+16,16,0,0,,16,16,16,0
+17,17,0,0,,17,17,17,0
+18,18,0,0,,18,18,18,0
+19,19,0,0,,19,19,19,0
+20,20,0,0,,20,20,20,0
+21,21,0,0,,21,21,21,0
+22,22,0,0,,22,22,22,0
+23,23,0,0,,23,23,23,0
+24,24,1,1,,24,24,24,1
+25,25,1,1,,25,25,25,1
+26,26,1,1,,26,26,26,1
+27,27,1,1,,27,27,27,1
+28,28,1,1,,28,28,28,1
+29,29,1,1,,29,29,29,1
+30,30,1,1,,30,30,30,1
+31,31,1,1,,31,31,31,1
+32,32,1,1,,32,32,32,1
+33,33,1,1,,33,33,33,1
+34,34,1,1,,34,34,34,1
+35,35,1,1,,35,35,35,1
+36,36,1,1,,36,36,36,1
+37,37,1,1,,37,37,37,1
+38,38,1,1,,38,38,38,1
+39,39,1,1,,39,39,39,1
+40,40,1,1,,40,40,40,1
+41,41,1,1,,41,41,41,1
+42,42,1,1,,42,42,42,1
+43,43,1,1,,43,43,43,1
+44,44,1,1,,44,44,44,1
+45,45,1,1,,45,45,45,1
+46,46,1,1,,46,46,46,1
+47,47,1,1,,47,47,47,1
+48,0,0,0,,0,0,0,0
+49,1,0,0,,1,1,1,0
+50,2,0,0,,2,2,2,0
+51,3,0,0,,3,3,3,0
+52,4,0,0,,4,4,4,0
+53,5,0,0,,5,5,5,0
+54,6,0,0,,6,6,6,0
+55,7,0,0,,7,7,7,0
+56,8,0,0,,8,8,8,0
+57,9,0,0,,9,9,9,0
+58,10,0,0,,10,10,10,0
+59,11,0,0,,11,11,11,0
+60,12,0,0,,12,12,12,0
+61,13,0,0,,13,13,13,0
+62,14,0,0,,14,14,14,0
+63,15,0,0,,15,15,15,0
+64,16,0,0,,16,16,16,0
+65,17,0,0,,17,17,17,0
+66,18,0,0,,18,18,18,0
+67,19,0,0,,19,19,19,0
+68,20,0,0,,20,20,20,0
+69,21,0,0,,21,21,21,0
+70,22,0,0,,22,22,22,0
+71,23,0,0,,23,23,23,0
+72,24,1,1,,24,24,24,1
+73,25,1,1,,25,25,25,1
+74,26,1,1,,26,26,26,1
+75,27,1,1,,27,27,27,1
+76,28,1,1,,28,28,28,1
+77,29,1,1,,29,29,29,1
+78,30,1,1,,30,30,30,1
+79,31,1,1,,31,31,31,1
+80,32,1,1,,32,32,32,1
+81,33,1,1,,33,33,33,1
+82,34,1,1,,34,34,34,1
+83,35,1,1,,35,35,35,1
+84,36,1,1,,36,36,36,1
+85,37,1,1,,37,37,37,1
+86,38,1,1,,38,38,38,1
+87,39,1,1,,39,39,39,1
+88,40,1,1,,40,40,40,1
+89,41,1,1,,41,41,41,1
+90,42,1,1,,42,42,42,1
+91,43,1,1,,43,43,43,1
+92,44,1,1,,44,44,44,1
+93,45,1,1,,45,45,45,1
+94,46,1,1,,46,46,46,1
+95,47,1,1,,47,47,47,1
+
+```

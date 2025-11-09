@@ -118,14 +118,14 @@ sudo reboot
 
 This section determines the recommended parameter values for use in tuning section Tune Hardware Interrupts and Receive Queues - Impacts CPU and Network.
 
-| Family | Instance Type                                            | ${interrupt_core_list}                          | ${rps_core_mask}                                                                |
-| ------ | -------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------- |
-| c6i    | <br>• c6i.32xlarge                                       | <br>• 0,1,64,65                                 | <br>• ffffffff,ffffffff,ffffffff,ffffffff                                       |
-| c5     | <br>• c5.24xlarge <br>• c5.18xlarge <br>• c5.12xlarge    | <br>• 0,1,48,49 <br>• 0,1,36,37 <br>• 0,1,24,25 | <br>• ffffffff,ffffffff,ffffffff <br>• ff,ffffffff,ffffffff <br>• ffff,ffffffff |
-| c5n    | <br>• c5n.metal <br>• c5n.18xlarge                       | <br>• 0,1,36,37 <br>• 0,1,36,37                 | <br>• ff,ffffffff,ffffffff <br>• ff,ffffffff,ffffffff                           |
-| m5     | <br>• m5.24xlarge <br>• m5.12xlarge                      | <br>• 0,1,48,49 <br>• 0,1,24,25                 | <br>• ffffffff,ffffffff,ffffffff <br>• ffff,ffffffff                            |
-| r5     | <br>• r5.metal <br>• r5.24xlarge                         | <br>• 0,1,48,49 <br>• 0,1,48,49                 | <br>• ffffffff,ffffffff,ffffffff <br>• ffffffff,ffffffff,ffffffff               |
-| r5n    | <br>• r5n.metal <br>• r5n.24xlarge                       | <br>• 0,1,48,49 <br>• 0,1,48,49                 | <br>• ffffffff,ffffffff,ffffffff <br>• ffffffff,ffffffff,ffffffff               |
-| g4dn   | <br>• g4dn.metal <br>• g4dn.16xlarge <br>• g4dn.12xlarge | <br>• 0,1,48,49 <br>• 0,1,32,33 <br>• 0,1,24,25 | <br>• ffffffff,ffffffff,ffffffff <br>• ffffffff,ffffffff <br>• ffff,ffffffff    |
-| p4d    | <br>• p4d.24xlarge                                       | <br>• 0,1,48,49                                 | <br>• ffffffff,ffffffff,ffffffff                                                |
-| p3dn   | <br>• p3dn.24xlarge                                      | <br>• 0,1,48,49                                 | <br>• ffffffff,ffffffff,ffffffff                                                |
+| Family | Instance Type                                      | ${interrupt_core_list}                    | ${rps_core_mask}                                                          |
+| ------ | -------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------- |
+| c6i    | • c6i.32xlarge                                     | • 0,1,64,65                               | • ffffffff,ffffffff,ffffffff,ffffffff                                     |
+| c5     | • c5.24xlarge<br>• c5.18xlarge<br>• c5.12xlarge    | • 0,1,48,49<br>• 0,1,36,37<br>• 0,1,24,25 | • ffffffff,ffffffff,ffffffff<br>• ff,ffffffff,ffffffff<br>• ffff,ffffffff |
+| c5n    | • c5n.metal<br>• c5n.18xlarge                      | • 0,1,36,37<br>• 0,1,36,37                | • ff,ffffffff,ffffffff<br>• ff,ffffffff,ffffffff                          |
+| m5     | • m5.24xlarge<br>• m5.12xlarge                     | • 0,1,48,49<br>• 0,1,24,25                | • ffffffff,ffffffff,ffffffff<br>• ffff,ffffffff                           |
+| r5     | • r5.metal<br>• r5.24xlarge                        | • 0,1,48,49<br>• 0,1,48,49                | • ffffffff,ffffffff,ffffffff<br>• ffffffff,ffffffff,ffffffff              |
+| r5n    | • r5n.metal<br>• r5n.24xlarge                      | • 0,1,48,49<br>• 0,1,48,49                | • ffffffff,ffffffff,ffffffff<br>• ffffffff,ffffffff,ffffffff              |
+| g4dn   | • g4dn.metal<br>• g4dn.16xlarge<br>• g4dn.12xlarge | • 0,1,48,49<br>• 0,1,32,33<br>• 0,1,24,25 | • ffffffff,ffffffff,ffffffff<br>• ffffffff,ffffffff<br>• ffff,ffffffff    |
+| p4d    | • p4d.24xlarge                                     | • 0,1,48,49                               | • ffffffff,ffffffff,ffffffff                                              |
+| p3dn   | • p3dn.24xlarge                                    | • 0,1,48,49                               | • ffffffff,ffffffff,ffffffff                                              |
