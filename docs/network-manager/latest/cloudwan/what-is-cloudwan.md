@@ -239,7 +239,7 @@ with encryption at rest.
 AWS Cloud WAN is available in the following AWS Regions:
 
 | AWS Region     | Description              |
-| -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------------ |
 | us-east-1      | US East (N. Virginia)    |
 | us-east-2      | US East (Ohio)           |
 | us-west-1      | US West (N. California)  |
@@ -267,4 +267,8 @@ AWS Cloud WAN is available in the following AWS Regions:
 | eu-south-2     | Europe (Spain)           |
 | il-central-1   | Israel (Tel Aviv)        |
 | me-central-1   | Middle East (UAE)        |
-| me-south-1     | Middle East (Bahrain)    | ## Cloud WAN pricing For information about Cloud WAN pricing, see [AWS Cloud WAN Pricing](https://aws.amazon.com/cloud-wan/pricing/ "https://aws.amazon.com/cloud-wan/pricing/"). |
+| me-south-1     | Middle East (Bahrain)    |
+
+## Cloud WAN pricing
+
+For information about Cloud WAN pricing, see [AWS Cloud WAN Pricing](https://aws.amazon.com/cloud-wan/pricing/ "https://aws.amazon.com/cloud-wan/pricing/").
