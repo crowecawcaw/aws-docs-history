@@ -1,5 +1,301 @@
 # Manage AppFabric for productivity AppClients
 
 |                                                                                    |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The AWS AppFabric for productivity feature is in preview and is subject to change. | You can manage your AppFabric for productivity AppClients to ensure smooth operation and maintenance of authentication and authorization processes. ## Get details of an AppClient Use the AppFabric `GetAppClient` API operation to view details about your AppClient, including checking the AppClient status. For more information, see [GetAppClient](API_GetAppClient.md "API_GetAppClient.md"). To get details of an AppClient, you must have, at minimum, the `"appfabric:GetAppClient"` IAM policy permissions. For more information, see [Allow access to get details of AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-get-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-get-appclient"). **Request Fields** <br>• `appClientId` - The AppClient Id. **Response Fields** <br>• `appName` - The name of the application that will be displayed to the users on the consent page of the AppFabric user portal. <br>• `customerManagedKeyIdentifier` (optional) - The ARN of the Customer Managed Key (generated by KMS) to be used to encrypt the data. If not specified, then AWS AppFabric Managed Key will be used. <br>• `description` - A description for the application. <br>• `redirectUrls` - The URI to redirect end users to after authorization. You can add up to 5 redirectUrls. For example, `https://localhost:8080`. <br>• `starterUserEmails` - A user email address that will be allowed access to receive the insights until the application is verified. Only one email address is allowed. For example, `anyuser@example.com`. <br>• `verificationStatus` - The AppClient verification status. + `pending_verification` - The verification of the AppClient is still in progress with AppFabric. Until the AppClient is verified, only one user (specified in `starterUserEmails`) can use the AppClient. + `verified` - The verification process has been successfully completed by AppFabric and the AppClient is now fully verified. + `rejected` - The verification process for the AppClient was rejected by AppFabric. The AppClient cannot be used by additional users until the verification process is re-initiated and completed successfully. ``curl --request GET \ --header "Content-Type: application/json" \ --header "X-Amz-Content-Sha256: <sha256_payload>" \ --header "X-Amz-Security-Token: `<security_token>`" \ --header "X-Amz-Date: 20230922T172215Z" \ --header "Authorization: AWS4-HMAC-SHA256 ..." \ --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`` If the action is successful, the service sends back an HTTP 200 response. ``200 OK { "appClient": { "appName": "Test App", "arn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "customerManagedKeyArn": "arn:aws:kms:`<region>`:111122223333:key/`<key>`", "description": "This is a test app", "redirectUrls": [ "https://localhost:8080" ], "starterUserEmails": [ "anyuser@example.com" ], "verificationDetails": { "verificationStatus": "pending_verification" } } }`` ## List AppClients Use the AppFabric `ListAppClients` API operation to view a list of your AppClients. AppFabric only allows one AppClient per AWS account. This is subject to change in the future. For more information, see [ListAppClients](API_ListAppClients.md "API_ListAppClients.md"). To list AppClients, you must have, at minimum, the `"appfabric:ListAppClients"` IAM policy permissions. For more information, see [Allow access to list AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-list-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-list-appclient"). **Request Fields** <br>• There are no required fields. **Response Fields** <br>• `appClientARN` - The Amazon Resource Name (ARN) that includes the AppClient ID. For example, the AppClient ID is `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`. <br>• `verificationStatus` - The AppClient verification status. + `pending_verification` - The verification of the AppClient is still in progress with AppFabric. Until the AppClient is verified, only one user (specified in `starterUserEmails`) can use the AppClient. + `verified` - The verification process has been successfully completed by AppFabric and the AppClient is now fully verified. + `rejected` - The verification process for the AppClient was rejected by AppFabric. The AppClient cannot be used by additional users until the verification process is re-initiated and completed successfully. ``curl --request GET \ --header "Content-Type: application/json" \ --header "X-Amz-Content-Sha256: <sha256_payload>" \ --header "X-Amz-Security-Token: `<security_token>`" \ --header "X-Amz-Date: 20230922T172215Z" \ --header "Authorization: AWS4-HMAC-SHA256 ..." \ --url https://appfabric.`<region>`.amazonaws.com/appclients`` If the action is successful, the service sends back an HTTP 200 response. ``200 OK { "appClientList": [ { "appClientArn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "verificationStatus": "pending_verification" } ] }`` ## Update an AppClient Use the AppFabric `UpdateAppClient` API operation to update the redirectUrls mapped to your AppClient. If you need to change any other parameters, such as AppName, starterUserEmails, or other, you must delete the AppClient and create a new one. For more information, see [UpdateAppClient](API_UpdateAppClient.md "API_UpdateAppClient.md"). To update an AppClient, you must have, at minimum, the `"appfabric:UpdateAppClient"` IAM policy permissions. For more information, see [Allow access to update AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient"). **Request Fields** <br>• `appClientId` (required) - The AppClient ID that you're updating the redirectUrls. <br>• `redirectUrls` (required) - The updated list of the redirectUrls. You can add up to 5 redirectUrls. **Response Fields** <br>• `appName` - The name of the application that will be displayed to the users on the consent page of the AppFabric user portal. <br>• `customerManagedKeyIdentifier` (optional) - The ARN of the Customer Managed Key (generated by KMS) to be used to encrypt the data. If not specified, then AWS AppFabric Managed Key will be used. <br>• `description` - A description for the application. <br>• `redirectUrls` - The URI to redirect end users to after authorization. For example, `https://localhost:8080`. <br>• `starterUserEmails` - A user email address that will be allowed access to receive the insights until the application is verified. Only one email address is allowed. For example, `anyuser@example.com`. <br>• `verificationStatus` - The AppClient verification status. + `pending_verification` - The verification of the AppClient is still in progress with AppFabric. Until the AppClient is verified, only one user (specified in `starterUserEmails`) can use the AppClient. + `verified` - The verification process has been successfully completed by AppFabric and the AppClient is now fully verified. + `rejected` - The verification process for the AppClient was rejected by AppFabric. The AppClient cannot be used by additional users until the verification process is re-initiated and completed successfully. ``curl --request PATCH \ --header "Content-Type: application/json" \ --header "X-Amz-Content-Sha256: <sha256_payload>" \ --header "X-Amz-Security-Token: `<security_token>`" \ --header "X-Amz-Date: 20230922T172215Z" \ --header "Authorization: AWS4-HMAC-SHA256 ..." \ --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \ --data '{ "redirectUrls": ["https://localhost:8081"] }'`` If the action is successful, the service sends back an HTTP 200 response. ``200 OK { "appClient": { "appName": "Test App", "arn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "customerManagedKeyArn": "arn:aws:kms:`<region>`:111122223333:key/`<key>`", "description": "This is a test app", "redirectUrls": [ "https://localhost:8081" ], "starterUserEmails": [ "anyuser@example.com" ], "verificationDetails": { "verificationStatus": "pending_verification" } } }`` ## Delete an AppClient Use the AppFabric `DeleteAppClient` API operation to delete any AppClients you no longer need. For more information, see [DeleteAppClient](API_DeleteAppClient.md "API_DeleteAppClient.md"). To delete an AppClient, you must have, at minimum, the `"appfabric:DeleteAppClient"` IAM policy permissions. For more information, see [Allow access to delete AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-delete-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-delete-appclient"). **Request fields** <br>• `appClientId` - The AppClient Id. **Response fields** <br>• There are no response fields. ``curl --request DELETE \ --header "Content-Type: application/json" \ --header "X-Amz-Content-Sha256: <sha256_payload>" \ --header "X-Amz-Security-Token: `<security_token>`" \ --header "X-Amz-Date: 20230922T172215Z" \ --header "Authorization: AWS4-HMAC-SHA256 ..." \ --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`` If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body. ## Refresh tokens for end users The tokens your AppClient acquires for end users can be refreshed on expiry. This can be done using the [Token](API_Token.md "API_Token.md") API with the grant_type `refresh_token`. The `refresh_token` to be used is returned as part of the token API response when the grant_type is `authorization_code`. The default expirations is 12 hours. To call the refresh API, you must have the `"appfabric:Token"` IAM policy permission. For more information, see [Token](API_Token.md "API_Token.md") and [Allow access to update AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient"). **Request Fields** <br>• `refresh_token` (required) - The refresh token received from the initial `/token` request. <br>• `app_client_id` (required) - The ID of the AppClient resource created for the AWS account. <br>• `grant_type` (required) - This must be `refresh_token`. **Response Fields** <br>• `expires_in` - How soon before the token expires. The default expiration time is 12 hours. <br>• `refresh_token` - The refresh token received from the initial /token request. <br>• `token` - The token received from the initial /token request. <br>• `token_type` - The value will be `Bearer`. <br>• `appfabric_user_id` - The AppFabric user id. This is returned only for requests that use the `authorization_code` grant type. ``curl --location \ "https://appfabric.`<region>`.amazonaws.com/oauth2/token" \ --header "Content-Type: application/json" \ --header "X-Amz-Content-Sha256: <sha256_payload>" \ --header "X-Amz-Security-Token: `<security_token>`" \ --header "X-Amz-Date: 20230922T172215Z" \ --header "Authorization: AWS4-HMAC-SHA256 ..." \ --data "{ \"refresh_token\": \"`<refresh_token>`", \"app_client_id\": \"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111\", \"grant_type\": \"refresh_token\" }"`` If the action is successful, the service sends back an HTTP 200 response. `200 OK { "expires_in": 43200, "token": "apkaeibaerjr2example", "token_type": "Bearer", "appfabric_user_id" : "${UserID}" }` |
+| ---------------------------------------------------------------------------------- |
+| The AWS AppFabric for productivity feature is in preview and is subject to change. |
+
+You can manage your AppFabric for productivity AppClients to ensure smooth operation and maintenance of
+authentication and authorization processes.
+
+## Get details of an AppClient
+
+Use the AppFabric `GetAppClient` API operation to view details about your
+AppClient, including checking the AppClient status. For more information, see [GetAppClient](API_GetAppClient.md "API_GetAppClient.md").
+
+To get details of an AppClient, you must have, at minimum, the
+`"appfabric:GetAppClient"` IAM policy permissions. For more information, see [Allow access to get details of AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-get-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-get-appclient").
+
+**Request Fields**
+
+- `appClientId` - The AppClient Id.
+
+**Response Fields**
+
+- `appName` - The name of the application that will be displayed to
+  the users on the consent page of the AppFabric user portal.
+- `customerManagedKeyIdentifier` (optional) - The ARN of the Customer
+  Managed Key (generated by KMS) to be used to encrypt the data. If not specified,
+  then AWS AppFabric Managed Key will be used.
+- `description` - A description for the application.
+- `redirectUrls` - The URI to redirect end users to after
+  authorization. You can add up to 5 redirectUrls. For example,
+  `https://localhost:8080`.
+- `starterUserEmails` - A user email address that will be allowed
+  access to receive the insights until the application is verified. Only one email
+  address is allowed. For example, `anyuser@example.com`.
+- `verificationStatus` - The AppClient verification status.
+  - `pending_verification` - The verification of the AppClient
+    is still in progress with AppFabric. Until the AppClient is verified, only
+    one user (specified in `starterUserEmails`) can use the
+    AppClient.
+  - `verified` - The verification process has been successfully
+    completed by AppFabric and the AppClient is now fully verified.
+  - `rejected` - The verification process for the AppClient was
+    rejected by AppFabric. The AppClient cannot be used by additional users
+    until the verification process is re-initiated and completed
+    successfully.
+
+```
+curl --request GET \
+  --header "Content-Type: application/json" \
+  --header "X-Amz-Content-Sha256: <sha256_payload>" \
+  --header "X-Amz-Security-Token: `<security_token>`" \
+  --header "X-Amz-Date: 20230922T172215Z" \
+  --header "Authorization: AWS4-HMAC-SHA256 ..." \
+  --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
+```
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```
+200 OK
+
+{
+    "appClient": {
+        "appName": "Test App",
+        "arn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "customerManagedKeyArn": "arn:aws:kms:`<region>`:111122223333:key/`<key>`",
+        "description": "This is a test app",
+        "redirectUrls": [
+            "https://localhost:8080"
+        ],
+        "starterUserEmails": [
+            "anyuser@example.com"
+        ],
+        "verificationDetails": {
+            "verificationStatus": "pending_verification"
+        }
+    }
+}
+```
+
+## List AppClients
+
+Use the AppFabric `ListAppClients` API operation to view a list of your
+AppClients. AppFabric only allows one AppClient per AWS account. This is subject to change
+in the future. For more information, see [ListAppClients](API_ListAppClients.md "API_ListAppClients.md").
+
+To list AppClients, you must have, at minimum, the `"appfabric:ListAppClients"` IAM
+policy permissions. For more information, see [Allow access to list AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-list-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-list-appclient").
+
+**Request Fields**
+
+- There are no required fields.
+
+**Response Fields**
+
+- `appClientARN` - The Amazon Resource Name (ARN) that includes the
+  AppClient ID. For example, the AppClient ID is
+  `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
+- `verificationStatus` - The AppClient verification status.
+  - `pending_verification` - The verification of the AppClient
+    is still in progress with AppFabric. Until the AppClient is verified, only
+    one user (specified in `starterUserEmails`) can use the
+    AppClient.
+  - `verified` - The verification process has been successfully
+    completed by AppFabric and the AppClient is now fully verified.
+  - `rejected` - The verification process for the AppClient was
+    rejected by AppFabric. The AppClient cannot be used by additional users
+    until the verification process is re-initiated and completed
+    successfully.
+
+```
+curl --request GET \
+  --header "Content-Type: application/json" \
+  --header "X-Amz-Content-Sha256: <sha256_payload>" \
+  --header "X-Amz-Security-Token: `<security_token>`" \
+  --header "X-Amz-Date: 20230922T172215Z" \
+  --header "Authorization: AWS4-HMAC-SHA256 ..." \
+  --url https://appfabric.`<region>`.amazonaws.com/appclients
+```
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```
+200 OK
+
+{
+    "appClientList": [
+        {
+            "appClientArn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+            "verificationStatus": "pending_verification"
+        }
+    ]
+}
+```
+
+## Update an AppClient
+
+Use the AppFabric `UpdateAppClient` API operation to update the redirectUrls
+mapped to your AppClient. If you need to change any other parameters, such as AppName,
+starterUserEmails, or other, you must delete the AppClient and create a new one. For
+more information, see [UpdateAppClient](API_UpdateAppClient.md "API_UpdateAppClient.md").
+
+To update an AppClient, you must have, at minimum, the `"appfabric:UpdateAppClient"`
+IAM policy permissions. For more information, see [Allow access to update AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient").
+
+**Request Fields**
+
+- `appClientId` (required) - The AppClient ID that you're updating
+  the redirectUrls.
+- `redirectUrls` (required) - The updated list of the redirectUrls.
+  You can add up to 5 redirectUrls.
+
+**Response Fields**
+
+- `appName` - The name of the application that will be displayed to
+  the users on the consent page of the AppFabric user portal.
+- `customerManagedKeyIdentifier` (optional) - The ARN of the Customer
+  Managed Key (generated by KMS) to be used to encrypt the data. If not specified,
+  then AWS AppFabric Managed Key will be used.
+- `description` - A description for the application.
+- `redirectUrls` - The URI to redirect end users to after
+  authorization. For example, `https://localhost:8080`.
+- `starterUserEmails` - A user email address that will be allowed
+  access to receive the insights until the application is verified. Only one email
+  address is allowed. For example, `anyuser@example.com`.
+- `verificationStatus` - The AppClient verification status.
+  - `pending_verification` - The verification of the AppClient
+    is still in progress with AppFabric. Until the AppClient is verified, only
+    one user (specified in `starterUserEmails`) can use the
+    AppClient.
+  - `verified` - The verification process has been successfully
+    completed by AppFabric and the AppClient is now fully verified.
+  - `rejected` - The verification process for the AppClient was
+    rejected by AppFabric. The AppClient cannot be used by additional users
+    until the verification process is re-initiated and completed
+    successfully.
+
+```
+curl --request PATCH \
+  --header "Content-Type: application/json" \
+  --header "X-Amz-Content-Sha256: <sha256_payload>" \
+  --header "X-Amz-Security-Token: `<security_token>`" \
+  --header "X-Amz-Date: 20230922T172215Z" \
+  --header "Authorization: AWS4-HMAC-SHA256 ..." \
+  --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
+  --data '{
+    "redirectUrls": ["https://localhost:8081"]
+}'
+```
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```
+200 OK
+
+{
+    "appClient": {
+        "appName": "Test App",
+        "arn": "arn:aws:appfabric:`<region>`:111122223333:appclient/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "customerManagedKeyArn": "arn:aws:kms:`<region>`:111122223333:key/`<key>`",
+        "description": "This is a test app",
+        "redirectUrls": [
+            "https://localhost:8081"
+        ],
+        "starterUserEmails": [
+            "anyuser@example.com"
+        ],
+        "verificationDetails": {
+            "verificationStatus": "pending_verification"
+        }
+    }
+}
+```
+
+## Delete an AppClient
+
+Use the AppFabric `DeleteAppClient` API operation to delete any AppClients you
+no longer need. For more information, see [DeleteAppClient](API_DeleteAppClient.md "API_DeleteAppClient.md").
+
+To delete an AppClient, you must have, at minimum, the `"appfabric:DeleteAppClient"`
+IAM policy permissions. For more information, see [Allow access to delete AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-delete-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-delete-appclient").
+
+**Request fields**
+
+- `appClientId` - The AppClient Id.
+
+**Response fields**
+
+- There are no response fields.
+
+```
+curl --request DELETE \
+  --header "Content-Type: application/json" \
+  --header "X-Amz-Content-Sha256: <sha256_payload>" \
+  --header "X-Amz-Security-Token: `<security_token>`" \
+  --header "X-Amz-Date: 20230922T172215Z" \
+  --header "Authorization: AWS4-HMAC-SHA256 ..." \
+  --url https://appfabric.`<region>`.amazonaws.com/appclients/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111
+```
+
+If the action is successful, the service sends back an HTTP 204 response with an empty
+HTTP body.
+
+## Refresh tokens for end users
+
+The tokens your AppClient acquires for end users can be refreshed on expiry. This can be
+done using the [Token](API_Token.md "API_Token.md") API with the grant_type
+`refresh_token`. The `refresh_token` to be used is returned as part of
+the token API response when the grant_type is `authorization_code`. The default expirations
+is 12 hours. To call the refresh API, you must have the `"appfabric:Token"` IAM policy
+permission. For more information, see [Token](API_Token.md "API_Token.md") and [Allow access to update AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient").
+
+**Request Fields**
+
+- `refresh_token` (required) - The refresh token received from the
+  initial `/token` request.
+- `app_client_id` (required) - The ID of the AppClient resource
+  created for the AWS account.
+- `grant_type` (required) - This must be
+  `refresh_token`.
+
+**Response Fields**
+
+- `expires_in` - How soon before the token expires. The default
+  expiration time is 12 hours.
+- `refresh_token` - The refresh token received from the initial
+  /token request.
+- `token` - The token received from the initial /token
+  request.
+- `token_type` - The value will be `Bearer`.
+- `appfabric_user_id` - The AppFabric user id. This is returned only for
+  requests that use the `authorization_code` grant type.
+
+```
+curl --location \
+"https://appfabric.`<region>`.amazonaws.com/oauth2/token" \
+--header "Content-Type: application/json" \
+--header "X-Amz-Content-Sha256: <sha256_payload>" \
+--header "X-Amz-Security-Token: `<security_token>`" \
+--header "X-Amz-Date: 20230922T172215Z" \
+--header "Authorization: AWS4-HMAC-SHA256 ..." \
+--data "{
+    \"refresh_token\": \"`<refresh_token>`",
+    \"app_client_id\": \"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111\",
+    \"grant_type\": \"refresh_token\"
+}"
+```
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```
+200 OK
+
+{
+    "expires_in": 43200,
+    "token": "apkaeibaerjr2example",
+    "token_type": "Bearer",
+    "appfabric_user_id" : "${UserID}"
+}
+```

@@ -186,5 +186,153 @@ JSON
 examples
 
 |                                                                                    |
-| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The AWS AppFabric for productivity feature is in preview and is subject to change. | The following policy examples apply to the AppFabric for productivity features. ### Allow access read-only access to productivity features The following policy example grants read-only access to the AppFabric for productivity features. ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow full access to productivity features The following policy example grants full access to the AppFabric for productivity features. ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to create AppClients The following policy example grants access to create AppClients. For more information, see [Create an AppFabric for productivity AppClient](getting-started-appdeveloper-productivity.md#create_appclient "getting-started-appdeveloper-productivity.md#create_appclient"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to get details of AppClients The following policy example grants access to get details of AppClients. For more information, see [Get details of an AppClient](manage-appclients.md#get_appclient_details "manage-appclients.md#get_appclient_details"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to list AppClients The following policy example grants access to list AppClients. For more information, see [Get details of an AppClient](manage-appclients.md#list_appclients "manage-appclients.md#list_appclients"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to update AppClients The following policy example grants access to update AppClients. For more information, see [Update an AppClient](manage-appclients.md#update_appclient "manage-appclients.md#update_appclient"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to delete AppClients The following policy example grants access to delete AppClients. For more information, see [Update an AppClient](manage-appclients.md#delete_appclient "manage-appclients.md#delete_appclient"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ### Allow access to authorize applications The following policy example grants access to authorize applications using the Token API. For more information, see [Authenticate and authorize your application](getting-started-appdeveloper-productivity.md#authorize_data_access "getting-started-appdeveloper-productivity.md#authorize_data_access"). ###### Important You might see an invalid action error when adding this policy in the JSON policy editor of the IAM console. This is because the AppFabric for productivity features are currently in preview. You should ignore the error and proceed to create the policy. ## Other IAM policy examples ### Allow users to view their own permissions This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ViewOwnUserInfo", "Effect": "Allow", "Action": [ "iam:GetUserPolicy", "iam:ListGroupsForUser", "iam:ListAttachedUserPolicies", "iam:ListUserPolicies", "iam:GetUser" ], "Resource": ["arn:aws:iam::*:user/${aws:username}"] }, { "Sid": "NavigateInConsole", "Effect": "Allow", "Action": [ "iam:GetGroupPolicy", "iam:GetPolicyVersion", "iam:GetPolicy", "iam:ListAttachedGroupPolicies", "iam:ListGroupPolicies", "iam:ListPolicyVersions", "iam:ListPolicies", "iam:ListUsers" ], "Resource": "*" } ] }` |
+| ---------------------------------------------------------------------------------- |
+| The AWS AppFabric for productivity feature is in preview and is subject to change. |
+
+The following policy examples apply to the AppFabric for productivity features.
+
+### Allow
+
+access read-only access to productivity features
+
+The following policy example grants read-only access to the AppFabric for productivity
+features.
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow full access to productivity features
+
+The following policy example grants full access to the AppFabric for productivity features.
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow access to create AppClients
+
+The following policy example grants access to create AppClients. For more
+information, see [Create an AppFabric for productivity
+AppClient](getting-started-appdeveloper-productivity.md#create_appclient "getting-started-appdeveloper-productivity.md#create_appclient").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow access to get details of AppClients
+
+The following policy example grants access to get details of AppClients. For more
+information, see [Get details of an
+AppClient](manage-appclients.md#get_appclient_details "manage-appclients.md#get_appclient_details").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow access to list AppClients
+
+The following policy example grants access to list AppClients. For more
+information, see [Get details of an
+AppClient](manage-appclients.md#list_appclients "manage-appclients.md#list_appclients").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow access to update AppClients
+
+The following policy example grants access to update AppClients. For more
+information, see [Update an AppClient](manage-appclients.md#update_appclient "manage-appclients.md#update_appclient").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow access to delete AppClients
+
+The following policy example grants access to delete AppClients. For more
+information, see [Update an AppClient](manage-appclients.md#delete_appclient "manage-appclients.md#delete_appclient").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+### Allow
+
+access to authorize applications
+
+The following policy example grants access to authorize applications using the
+Token API. For more information, see [Authenticate and authorize your application](getting-started-appdeveloper-productivity.md#authorize_data_access "getting-started-appdeveloper-productivity.md#authorize_data_access").
+
+###### Important
+
+You might see an invalid action error when adding this policy in the JSON
+policy editor of the IAM console. This is because the AppFabric for productivity features are
+currently in preview. You should ignore the error and proceed to create the
+policy.
+
+## Other IAM policy examples
+
+### Allow
+
+users to view their own permissions
+
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
+identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
