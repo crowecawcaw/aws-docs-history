@@ -13,7 +13,7 @@ These are release notes for Amazon Linux 2.
 Amazon Linux 2 includes the following packages.
 
 | Packages                                       |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------- |
 | aws-cfn-bootstrap-1.4-32.amzn2.0.1             |
 | awscli-1.16.300-1.amzn2.0.2                    |
 | bind-export-libs-9.11.4-9.P2.amzn2.0.3         |
@@ -63,4 +63,25 @@ Amazon Linux 2 includes the following packages.
 | sudo-1.8.23-4.amzn2.2                          |
 | xorg-x11-server-Xorg-1.20.4-7.amzn2.0.2        |
 | xorg-x11-server-common-1.20.4-7.amzn2.0.2      |
-| yum-3.4.3-158.amzn2.0.4                        | ## Kernel updates Rebase kernel to upstream stable 4.14.177. CVEs fixed: <br>• CVE-2020-10711 [netlabel: cope with NULL catmap] <br>• CVE-2020-12826 [Extend exec\_id to 64bits] <br>• CVE-2020-12657 [block, bfq: fix use-after-free in bfq\_idle\_slice\_timer\_body] <br>• CVE-2020-11565 [mm: mempolicy: require at least one nodeid for MPOL\_PREFERRED] <br>• CVE-2020-8648 [vt: selection, close sel\_buffer race] <br>• CVE-2020-1094 [vhost: Check docket sk\_family instead of call getname] <br>• CVE-2020-8649 [vgacon: Fix a UAF in vgacon\_invert\_region] <br>• CVE-2020-8647 [vgacon: Fix a UAF in vgacon\_invert\_region] <br>• CVE-2020-8648 [vt: selection, close sel\_buffer race] Other Fixes: <br>• Divide by zero scheduler fix <br>• Enabled L2TP in the configuration |
+| yum-3.4.3-158.amzn2.0.4                        |
+
+## Kernel updates
+
+Rebase kernel to upstream stable 4.14.177.
+
+CVEs fixed:
+
+- CVE-2020-10711 [netlabel: cope with NULL catmap]
+- CVE-2020-12826 [Extend exec\_id to 64bits]
+- CVE-2020-12657 [block, bfq: fix use-after-free in bfq\_idle\_slice\_timer\_body]
+- CVE-2020-11565 [mm: mempolicy: require at least one nodeid for MPOL\_PREFERRED]
+- CVE-2020-8648 [vt: selection, close sel\_buffer race]
+- CVE-2020-1094 [vhost: Check docket sk\_family instead of call getname]
+- CVE-2020-8649 [vgacon: Fix a UAF in vgacon\_invert\_region]
+- CVE-2020-8647 [vgacon: Fix a UAF in vgacon\_invert\_region]
+- CVE-2020-8648 [vt: selection, close sel\_buffer race]
+
+Other Fixes:
+
+- Divide by zero scheduler fix
+- Enabled L2TP in the configuration
