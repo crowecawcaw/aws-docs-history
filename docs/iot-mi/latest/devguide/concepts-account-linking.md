@@ -48,8 +48,10 @@ server for managed integrations for AWS IoT Device Management to perform [accoun
 
 OAuth Server Parameters| **Field** | **Required** | **Comment** |
 | `clientId` | Yes | A public identifier for your application. It's used to initiate authentication flows and can be shared publicly. |
-| `clientSecret` | Yes | A secret key used to authenticate the application with the authorization server, especially when exchanging an authorization code for an access token. It should be kept confidential and not shared publicly. |
-| `authorizationType` | Yes | The type of authorization supported by this authorization configuration. Currently, "OAuth 2.0" is the only value supported. |
+| `clientSecret` | Yes | A secret key used to authenticate the application with the authorization server, especially when exchanging an authorization code<br>for an access token. It should be kept confidential and not shared publicly. |
+| `authorizationType` | Yes | The type of authorization supported by this authorization configuration.<br>Currently, "OAuth 2.0" is the only value supported. |
 | `authUrl` | Yes | The authorization URL for the third-party cloud provider. |
 | `tokenUrl` | Yes | The token URL for the third-party cloud provider. |
-| `tokenEndpointAuthenticationScheme` | Yes | Authentication scheme of either “HTTP_BASIC” or “REQUEST_BODY_CREDENTIALS”. HTTP_BASIC signals that the client credentials are included in the authorization header, while the ladder signals they are included in the request body. | The OAuth server that you use must be configured so that access token string values must be Base64 encoded with the UTF-8 character set.
+| `tokenEndpointAuthenticationScheme` | Yes | Authentication scheme of either “HTTP_BASIC” or “REQUEST_BODY_CREDENTIALS”.<br>HTTP_BASIC signals that the client credentials are included in the authorization<br>header, while the ladder signals they are included in the request body. |
+
+The OAuth server that you use must be configured so that access token string values must be Base64 encoded with the UTF-8 character set.

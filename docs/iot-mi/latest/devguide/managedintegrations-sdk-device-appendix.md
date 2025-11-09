@@ -14,11 +14,61 @@ platforms
 
 The following table displays the supported platforms for the SDK.
 
-| Supported platforms              | Platform                      | Architecture | Operating system                                                                                                                                                                                                                              |
-| -------------------------------- | ----------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Linux x86_64                     | x86_64                        | Linux        |
-| Ambarella                        | Armv8 (AArch64)               | Linux        |
-| AmebaD                           | Armv8-M 32 bit                | FreeRTOS     |
-| ESP32S3                          | Xtensa LX7 32 bit             | FreeRTOS     | ## Reference: Technical requirements The following table shows the technical requirements for the SDK, including the RAM space. The End device SDK itself requires about 5 to 10 MB of ROM space when using the same configuration. RAM space | SDK and components            | Space requirements (bytes used)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---                              | ---                           |              | End device SDK itself                                                                                                                                                                                                                         | 180 KB                        |
-| Default MQTT Agent command queue | 480 bytes (can be configured) |              | Default MQTT Agent incoming queue                                                                                                                                                                                                             | 320 bytes (can be configured) | ## Reference: Common API This section is a list of API operations that are not specific to a cluster. `/* return code for data model related API */ enum iotmiDev_DMStatus { /* The operation succeeded */ iotmiDev_DMStatusOk = 0, /* The operation failed without additional information */ iotmiDev_DMStatusFail = 1, /* The operation has not been implemented yet. */ iotmiDev_DMStatusNotImplement = 2, /* The operation is to create a resource, but the resource already exists. */ iotmiDev_DMStatusExist = 3, } /* The opaque type to represent a instance of device agent. */ struct iotmiDev_Agent; /* The opaque type to represent an endpoint. */ struct iotmiDev_Endpoint; /* A device agent should be created before calling other API */ struct iotmiDev_Agent* iotmiDev_create_agent(); /* Destroy the agent and free all occupied resources */ void iotmiDev_destroy_agent(struct iotmiDev_Agent *agent); /* Add an endpoint, which starts with empty capabilities */ struct iotmiDev_Endpoint* iotmiDev_addEndpoint(struct iotmiDev_Agent *handle, uint16 id, const char *name); /* Test all clusters registered within an endpoint. Note: this API might exist only for early drop. */ void iotmiDev_testEndpoint(struct iotmiDev_Endpoint *endpoint);` |
+| Supported platforms | Platform          | Architecture | Operating system |
+| ------------------- | ----------------- | ------------ | ---------------- |
+| Linux x86_64        | x86_64            | Linux        |
+| Ambarella           | Armv8 (AArch64)   | Linux        |
+| AmebaD              | Armv8-M 32 bit    | FreeRTOS     |
+| ESP32S3             | Xtensa LX7 32 bit | FreeRTOS     |
+
+## Reference: Technical
+
+requirements
+
+The following table shows the technical requirements for the SDK, including the RAM
+space. The End device SDK itself requires about 5 to 10 MB of ROM space when using the same
+configuration.
+
+| RAM space                         | SDK and components            | Space requirements (bytes used) |
+| --------------------------------- | ----------------------------- | ------------------------------- |
+| End device SDK itself             | 180 KB                        |
+| Default MQTT Agent command queue  | 480 bytes (can be configured) |
+| Default MQTT Agent incoming queue | 320 bytes (can be configured) |
+
+## Reference: Common API
+
+This section is a list of API operations that are not specific to a cluster.
+
+```
+/* return code for data model related API */
+enum iotmiDev_DMStatus
+{
+  /* The operation succeeded */
+  iotmiDev_DMStatusOk = 0,
+  /* The operation failed without additional information */
+  iotmiDev_DMStatusFail = 1,
+  /* The operation has not been implemented yet. */
+  iotmiDev_DMStatusNotImplement = 2,
+  /* The operation is to create a resource, but the resource already exists. */
+  iotmiDev_DMStatusExist = 3,
+}
+
+/* The opaque type to represent a instance of device agent. */
+struct iotmiDev_Agent;
+
+/* The opaque type to represent an endpoint. */
+struct iotmiDev_Endpoint;
+
+/* A device agent should be created before calling other API */
+struct iotmiDev_Agent* iotmiDev_create_agent();
+
+/* Destroy the agent and free all occupied resources */
+void iotmiDev_destroy_agent(struct iotmiDev_Agent *agent);
+
+/* Add an endpoint, which starts with empty capabilities */
+struct iotmiDev_Endpoint* iotmiDev_addEndpoint(struct iotmiDev_Agent *handle, uint16 id, const char *name);
+
+/* Test all clusters registered within an endpoint.
+   Note: this API might exist only for early drop. */
+void iotmiDev_testEndpoint(struct iotmiDev_Endpoint *endpoint);
+```

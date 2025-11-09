@@ -7,7 +7,7 @@ This page lists the hub-connected device types that have been tested with manage
 This table lists the supported Zigbee devices.
 
 | Zigbee device type                      | Supported capabilities                                           |
-| --------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------- |
+| --------------------------------------- | ---------------------------------------------------------------- |
 | Smart bulb / Dimmable light / RGB light | OnOff, LevelControl, ColorControl                                |
 | Smart plug                              | OnOff                                                            |
 | Smart switch                            | OnOff                                                            |
@@ -22,18 +22,21 @@ This table lists the supported Zigbee devices.
 | Door and window sensor                  | BooleanState                                                     |
 | Water leak sensor                       | BooleanState                                                     |
 | Vibration sensor                        | BooleanState                                                     |
-| Temperature and humidity sensor         | TemperatureMeasurement, RelativeHumidityMeasurement              | This table lists the supported Z-Wave devices. |
-| Z-Wave device type                      | Supported capabilities                                           |
-| ---                                     | ---                                                              |
-| Smart bulb / Dimmable light             | OnOff, LevelControl                                              |
-| Smart plug                              | OnOff                                                            |
-| Garage door controller                  | OnOff, LevelControl                                              |
-| Energy meter                            | ElectricalEnergyMeasurement, ElectricalPowerMeasurement          |
-| Battery                                 | LevelControl                                                     |
-| Siren                                   | LevelControl                                                     |
-| Motion sensor                           | BooleanState                                                     |
-| Door and window sensor                  | BooleanState                                                     |
-| Water leak sensor                       | BooleanState                                                     |
-| Temperature sensor                      | TemperatureMeasurement                                           |
-| CO sensor                               | SmokeCOAlarm                                                     |
-| Smoke sensor                            | SmokeCOAlarm                                                     |
+| Temperature and humidity sensor         | TemperatureMeasurement, RelativeHumidityMeasurement              |
+
+This table lists the supported Z-Wave devices.
+
+| Z-Wave device type          | Supported capabilities                                  |
+| --------------------------- | ------------------------------------------------------- |
+| Smart bulb / Dimmable light | OnOff, LevelControl                                     |
+| Smart plug                  | OnOff                                                   |
+| Garage door controller      | OnOff, LevelControl                                     |
+| Energy meter                | ElectricalEnergyMeasurement, ElectricalPowerMeasurement |
+| Battery                     | LevelControl                                            |
+| Siren                       | LevelControl                                            |
+| Motion sensor               | BooleanState                                            |
+| Door and window sensor      | BooleanState                                            |
+| Water leak sensor           | BooleanState                                            |
+| Temperature sensor          | TemperatureMeasurement                                  |
+| CO sensor                   | SmokeCOAlarm                                            |
+| Smoke sensor                | SmokeCOAlarm                                            |

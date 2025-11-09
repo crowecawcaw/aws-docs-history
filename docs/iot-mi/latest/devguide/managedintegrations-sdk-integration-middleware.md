@@ -32,7 +32,7 @@ new hub.
 DPK (Device porting kit) APIs for Zigbee can be found in `acehal_zigbee.c`, and the reference
 implementation of the DPK APIs is present inside the `zigbee` folder.
 
-````
+```
 IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/zigbee/
 |— CMakeLists.txt
 |— include
@@ -54,10 +54,21 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/a
 |—   |—   |— zbd_common.h
 |—   |—   |— zbd_network_creator.h
 |—   |—   |— zbd_power_settings.h
-|—   |—   |— zbd_zts.h ``` DPK APIs for Z-Wave can be found in the `acehal_zwave.c` and reference implementation of the DPK APIs is present inside the `zwaved` folder. ``` IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/zwave/
-|— CMakeLists.txt |— include |—   |— zwave_log.h
-|— src |—   |— acehal_zwave.c
-|— zwaved |—   |— CMakeLists.txt
+|—   |—   |— zbd_zts.h
+```
+
+DPK APIs for Z-Wave can be found in the `acehal_zwave.c` and reference
+implementation of the DPK APIs is present inside the `zwaved` folder.
+
+```
+IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/ace_hal/zwave/
+|— CMakeLists.txt
+|— include
+|—   |— zwave_log.h
+|— src
+|—   |— acehal_zwave.c
+|— zwaved
+|—   |— CMakeLists.txt
 |—   |— fxnZwaveClient
 |—   |—   |— zwave_client.c
 |—   |—   |— zwave_client.h
@@ -71,5 +82,13 @@ IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-dpk/`example`/dpk/a
 |—   |—   |— ace_zware_ctrl.c
 |—   |—   |— ace_zware_debug.c
 |—   |—   |— ace_zware_debug.h
-|—   |—   |— ace_zware_internal.h ``` As a starting point to implement the DPK layer for a different vendor SDK, the reference implementation can be used and modified. Following two modifications will be needed to support a different vendor SDK: 1. Replace the current vendor SDK with the new vendor SDK in the repository. 2. Implement the middleware DPK (Device porting kit) APIs according to the new vendor SDK.
-````
+|—   |—   |— ace_zware_internal.h
+```
+
+As a starting point to implement the DPK layer for a different vendor SDK, the reference
+implementation can be used and modified. Following two modifications will be needed to support
+a different vendor SDK:
+
+1. Replace the current vendor SDK with the new vendor SDK in the repository.
+2. Implement the middleware DPK (Device porting kit) APIs according to the new vendor
+   SDK.
