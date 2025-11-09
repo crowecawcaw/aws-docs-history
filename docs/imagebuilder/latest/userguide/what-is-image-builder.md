@@ -94,7 +94,7 @@ For more information, see [Share Image Builder resources with AWS RAM](manage-sh
 Image Builder supports the following operating system versions:
 
 | Operating system/distribution       | Supported versions                                             |
-| ----------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | -------------------------------------------------------------- |
 | Amazon Linux                        | 2 and 2023                                                     |
 | CentOS                              | 7 and 8                                                        |
 | CentOS Stream                       | 8                                                              |
@@ -102,4 +102,191 @@ Image Builder supports the following operating system versions:
 | Red Hat Enterprise Linux (RHEL)     | 7, 8, 9, and 10                                                |
 | SUSE Linux Enterprise Server (SUSE) | 12 and 15                                                      |
 | Ubuntu                              | 18.04 LTS, 20.04 LTS, 22.04 LTS, and 24.04 LTS                 |
-| Windows Server                      | 2012 R2, 2016, 2019, 2022, and 2025                            | ## Supported image formats For your custom images that create an Amazon Machine Image (AMI), you can choose an existing AMI as a starting point. For Docker container images, you can choose from public images hosted on DockerHub, existing container images in Amazon ECR, or Amazon-managed container images as your starting point. ## Default quotas To view the default quotas for Image Builder, see [Image Builder Endpoints and Quotas](../../../general/latest/gr/imagebuilder.md "../../../general/latest/gr/imagebuilder.md"). ## AWS Regions and Endpoints To view the service endpoints for Image Builder, see [Image Builder Endpoints and Quotas](../../../general/latest/gr/imagebuilder.md "../../../general/latest/gr/imagebuilder.md"). ## Concepts The following terms and concepts are central to your understanding and use of EC2 Image Builder. ###### AMI An Amazon Machine Image (AMI) is the basic unit of deployment in Amazon EC2, and is one of the types of images you can create with Image Builder. An AMI is a pre-configured virtual machine image that contains the operating system (OS) and preinstalled software to deploy EC2 instances. For more information, see [Amazon Machine Images (AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md"). ###### Image pipeline An image pipeline provides an automation framework for building secure AMIs and container images on AWS. The Image Builder image pipeline is associated with an image recipe or container recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image. ###### Managed image A managed image is a resource in Image Builder that consists of an AMI or container image, plus metadata, such as version and platform. The managed image is used by Image Builder pipelines to determine which base image to use for the build. In this guide, managed images are sometimes referred to as "images," however, an image is not the same as an AMI. ###### Image recipe An Image Builder image recipe is a document that defines the base image and the components that are applied to the base image to produce the desired configuration for the output AMI image. You can use an image recipe to duplicate builds. Image Builder image recipes can be shared, branched, and edited using the console wizard, the AWS CLI, or the API. You can use image recipes with your version control software to maintain shareable, versioned image recipes. ###### Container recipe An Image Builder container recipe is a document that defines the base image and the components that are applied to the base image to produce the desired configuration for the output container image. You can use a container recipe to duplicate builds. You can share, branch, and edit Image Builder image recipes by using the console wizard, the AWS CLI, or the API. You can use container recipes with your version control software to maintain shareable, versioned container recipes. ###### Base image The base image is the selected image and operating system used in your image or container recipe document, along with the components. The base image and the component definitions combined produce the desired configuration for the output image. ###### Components A component defines the sequence of steps required to either customize an instance prior to image creation (a **build component**), or to test an instance that was launched from the created image (a **test component**). A component is created from a declarative, plain-text YAML or JSON document that describes the runtime configuration for building and validating, or testing an instance that is produced by your pipeline. Components run on the instance using a component management application. The component management application parses the documents and runs the desired steps. After they are created, one or more components are grouped together using an image recipe or container recipe to define the plan for building and testing a virtual machine or container image. You can use public components that are owned and managed by AWS, or you can create your own. For more information about components, see [How Image Builder uses the AWS Task Orchestrator and Executor application to manage components](toe-component-manager.md "toe-component-manager.md"). ###### Component document A declarative, plain-text YAML or JSON document that describes configuration for a customization you can apply to your image. The document is used to create a build or test component. ###### Runtime stages EC2 Image Builder has two runtime stages: **build** and **test**. Each runtime stage has one or more phases with configuration defined by the component document. ###### Configuration phases The following list shows the phases that run during the **build** and **test** stages: ###### _Build stage:_ Build phase An image pipeline begins with the build phase of the build stage when it runs. The base image is downloaded, and configuration that is specified for the build phase of the component is applied to build and launch an instance. Validate phase After Image Builder launches the instance and applies all of the build phase customizations, the validation phase begins. During this phase, Image Builder ensures that all of the customizations work as expected, based on the configuration that the component specifies for the validate phase. If the instance validation succeeds, Image Builder stops the instance, creates an image, and then continues to the test stage. ###### _Test stage:_ Test phase During this phase, Image Builder launches an instance from the image that it created after the validation phase completed successfully. Image Builder runs test components during this phase to verify that the instance is healthy and functions as expected. Container host test phase After Image Builder runs the test phase for all of the components that you selected in the container recipe, Image Builder runs this phase for container workflows. The container host test phase can run additional tests that validate container management and custom runtime configurations. ###### Workflow Workflows define the sequence of steps that Image Builder performs when it creates a new image. All images have build and test workflows. Containers have an additional workflow for distribution. ###### _Workflow types_ `BUILD` Covers build stage configuration for every image created. `TEST` Covers test stage configuration for every image created. `DISTRIBUTION` Covers distribution workflow for container images. ## Pricing There is no cost to use EC2 Image Builder to create custom AMI or container images. However, standard pricing applies for other services that are used in the process. The following list includes the usage of some AWS services that can incur costs when you create, build, store, and distribute your custom AMI or container images, depending on your configuration. <br>• Launching an EC2 instance <br>• Storing logs on Amazon S3 <br>• Validating images with Amazon Inspector <br>• Storing Amazon EBS Snapshots for your AMIs <br>• Storing container images in Amazon ECR <br>• Pushing and pulling container images into and out of Amazon ECR <br>• If Systems Manager Advanced Tier is turned on, and Amazon EC2 instances run with on-premises activation, you might be charged for resources through Systems Manager ## Related AWS services EC2 Image Builder uses other AWS services to build images, depending on your Image Builder recipe configuration. For more information about product and service integration for your custom images, see [Integrate products and services in Image Builder](integrate-products-services.md "integrate-products-services.md"). |
+| Windows Server                      | 2012 R2, 2016, 2019, 2022, and 2025                            |
+
+## Supported image formats
+
+For your custom images that create an Amazon Machine Image (AMI), you can choose an existing
+AMI as a starting point. For Docker container images, you can choose from public images hosted
+on DockerHub, existing container images in Amazon ECR, or Amazon-managed container images as your
+starting point.
+
+## Default quotas
+
+To view the default quotas for Image Builder, see [Image Builder Endpoints and
+Quotas](../../../general/latest/gr/imagebuilder.md "../../../general/latest/gr/imagebuilder.md").
+
+## AWS Regions and Endpoints
+
+To view the service endpoints for Image Builder, see [Image Builder Endpoints and
+Quotas](../../../general/latest/gr/imagebuilder.md "../../../general/latest/gr/imagebuilder.md").
+
+## Concepts
+
+The following terms and concepts are central to your understanding and use of
+EC2 Image Builder.
+
+###### AMI
+
+An Amazon Machine Image (AMI) is the basic unit of deployment in Amazon EC2, and is one
+of the types of images you can create with Image Builder. An AMI is a pre-configured virtual
+machine image that contains the operating system (OS) and preinstalled software to
+deploy EC2 instances. For more information, see [Amazon Machine Images
+(AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md").
+
+###### Image pipeline
+
+An image pipeline provides an automation framework for building secure AMIs and
+container images on AWS. The Image Builder image pipeline is associated with an image
+recipe or container recipe that defines the build, validation, and test phases for
+an image build lifecycle.
+
+An image pipeline can be associated with an infrastructure configuration that defines
+where your image is built. You can define attributes, such as instance type, subnets,
+security groups, logging, and other infrastructure-related configurations. You can also
+associate your image pipeline with a distribution configuration to define how you would
+like to deploy your image.
+
+###### Managed image
+
+A managed image is a resource in Image Builder that consists of an AMI or container image,
+plus metadata, such as version and platform. The managed image is used by Image Builder
+pipelines to determine which base image to use for the build. In this guide, managed
+images are sometimes referred to as "images," however, an image is not the same as
+an AMI.
+
+###### Image recipe
+
+An Image Builder image recipe is a document that defines the base image and the components
+that are applied to the base image to produce the desired configuration for the
+output AMI image. You can use an image recipe to duplicate builds. Image Builder image
+recipes can be shared, branched, and edited using the console wizard, the AWS CLI, or
+the API. You can use image recipes with your version control software to maintain
+shareable, versioned image recipes.
+
+###### Container recipe
+
+An Image Builder container recipe is a document that defines the base image and the
+components that are applied to the base image to produce the desired configuration
+for the output container image. You can use a container recipe to duplicate builds.
+You can share, branch, and edit Image Builder image recipes by using the console wizard, the
+AWS CLI, or the API. You can use container recipes with your version control software
+to maintain shareable, versioned container recipes.
+
+###### Base image
+
+The base image is the selected image and operating system used in your image or
+container recipe document, along with the components. The base image and the
+component definitions combined produce the desired configuration for the output
+image.
+
+###### Components
+
+A component defines the sequence of steps required to either customize an instance
+prior to image creation (a **build component**), or to
+test an instance that was launched from the created image (a **test component**).
+
+A component is created from a declarative, plain-text YAML or JSON document that
+describes the runtime configuration for building and validating, or testing an instance
+that is produced by your pipeline. Components run on the instance using a component
+management application. The component management application parses the documents and
+runs the desired steps.
+
+After they are created, one or more components are grouped together using an image
+recipe or container recipe to define the plan for building and testing a virtual machine
+or container image. You can use public components that are owned and managed by AWS,
+or you can create your own. For more information about components, see [How Image Builder uses the AWS Task Orchestrator and Executor application to manage components](toe-component-manager.md "toe-component-manager.md").
+
+###### Component document
+
+A declarative, plain-text YAML or JSON document that describes configuration for a
+customization you can apply to your image. The document is used to create a build or
+test component.
+
+###### Runtime stages
+
+EC2 Image Builder has two runtime stages: **build** and
+**test**. Each runtime stage has one or more phases
+with configuration defined by the component document.
+
+###### Configuration phases
+
+The following list shows the phases that run during the **build** and **test** stages:
+
+###### _Build stage:_
+
+Build phase
+
+An image pipeline begins with the build phase of the build stage when it
+runs. The base image is downloaded, and configuration that is specified for
+the build phase of the component is applied to build and launch an
+instance.
+
+Validate phase
+
+After Image Builder launches the instance and applies all of the build phase
+customizations, the validation phase begins. During this phase, Image Builder ensures
+that all of the customizations work as expected, based on the configuration that
+the component specifies for the validate phase. If the instance validation
+succeeds, Image Builder stops the instance, creates an image, and then continues
+to the test stage.
+
+###### _Test stage:_
+
+Test phase
+
+During this phase, Image Builder launches an instance from the image that it created
+after the validation phase completed successfully. Image Builder runs test components
+during this phase to verify that the instance is healthy and functions as
+expected.
+
+Container host test phase
+
+After Image Builder runs the test phase for all of the components that you selected in the
+container recipe, Image Builder runs this phase for container workflows. The container host
+test phase can run additional tests that validate container management and
+custom runtime configurations.
+
+###### Workflow
+
+Workflows define the sequence of steps that Image Builder performs
+when it creates a new image. All images have build and test workflows. Containers
+have an additional workflow for distribution.
+
+###### _Workflow types_
+
+`BUILD`
+
+Covers build stage configuration for every image created.
+
+`TEST`
+
+Covers test stage configuration for every image created.
+
+`DISTRIBUTION`
+
+Covers distribution workflow for container images.
+
+## Pricing
+
+There is no cost to use EC2 Image Builder to create custom AMI or container images. However,
+standard pricing applies for other services that are used in the process. The following
+list includes the usage of some AWS services that can incur costs when you create,
+build, store, and distribute your custom AMI or container images, depending on your
+configuration.
+
+- Launching an EC2 instance
+- Storing logs on Amazon S3
+- Validating images with Amazon Inspector
+- Storing Amazon EBS Snapshots for your AMIs
+- Storing container images in Amazon ECR
+- Pushing and pulling container images into and out of Amazon ECR
+- If Systems Manager Advanced Tier is turned on, and Amazon EC2 instances run with
+  on-premises activation, you might be charged for resources through Systems
+  Manager
+
+## Related AWS services
+
+EC2 Image Builder uses other AWS services to build images, depending on your Image Builder
+recipe configuration. For more information about product and service integration
+for your custom images, see [Integrate products and services in Image Builder](integrate-products-services.md "integrate-products-services.md").

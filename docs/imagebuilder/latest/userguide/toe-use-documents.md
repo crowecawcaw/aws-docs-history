@@ -242,21 +242,266 @@ phases:
 
 The schema definitions for a document are as follows.
 
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Type    | Required |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| name           | Name of the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | String  | No       |
-| description    | Description of the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | String  | No       |
-| schemaVersion  | Schema version of the document, currently 1.0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | String  | Yes      |
-| phases         | A list of phases with their steps.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List    | Yes      | The schema definitions for a phase are as follows. |
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Type    | Required |
-| ---            | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ---     | ---      |
-| name           | Name of the phase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | String  | Yes      |
-| steps          | List of the steps in the phase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | List    | Yes      | The schema definitions for a step are as follows.  |
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Type    | Required | Default value                                      |
-| ---            | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ---     | ---      | ---                                                |
-| name           | User-defined name for the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | String  |          |                                                    |
-| action         | Keyword pertaining to the module that runs the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | String  |          |                                                    |
-| timeoutSeconds | Number of seconds that the step runs before failing or retrying. Also, supports -1 value, which indicates infinite timeout. 0 and other negative values are not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                    | Integer | No       | 7,200 sec (120 mins)                               |
-| onFailure      | Specifies what the step should do in case of failure. Valid values are as follows: <br>• **Abort** – Fails the step after the maximum number of attempts, and stops running. Sets status for phase and document to `Failed`. <br>• **Continue** – Fails the step after the maximum number of attempts, and continues to run remaining steps. Sets status for phase and document to `Failed`. <br>• **Ignore** – Sets the step to `IgnoredFailure` after the the maximum number of failed attempts, and continues to run remaining steps. Sets status for phase and document to `SuccessWithIgnoredFailure`. | String  | No       | Abort                                              |
-| maxAttempts    | Maximum number of attempts allowed before failing the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Integer | No       | 1                                                  |
-| inputs         | Contains parameters required by the action module to run the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Dict    | Yes      |                                                    | ## Document examples The following examples show AWSTOE component documents that perform tasks for the target operating system. Linux ###### Example 1: Run a custom binary file The following is an example document that downloads and runs a custom binary file on a Linux instance. `name: LinuxBin description: Download and run a custom Linux binary file. schemaVersion: 1.0 phases: <br>• name: build steps: <br>• name: Download action: S3Download inputs: <br>• source: s3://<replaceable>amzn-s3-demo-source-bucket</replaceable>/<replaceable>myapplication</replaceable> destination: /tmp/<replaceable>myapplication</replaceable> <br>• name: Enable action: ExecuteBash onFailure: Continue inputs: commands: <br>• 'chmod u+x {{ build.Download.inputs[0].destination }}' <br>• name: Install action: ExecuteBinary onFailure: Continue inputs: path: '{{ build.Download.inputs[0].destination }}' arguments: <br>• '--install' <br>• name: Delete action: DeleteFile inputs: <br>• path: '{{ build.Download.inputs[0].destination }}'` Windows ###### Example 1: Install Windows updates The following is an example document that installs all available Windows updates, runs a configuration script, validates the changes before the AMI is created, and tests the changes after the AMI is created. `name: RunConfig_UpdateWindows description: 'This document will install all available Windows updates and run a config script. It will then validate the changes before an AMI is created. Then after AMI creation, it will test all the changes.' schemaVersion: 1.0 phases: <br>• name: build steps: <br>• name: DownloadConfigScript action: S3Download timeoutSeconds: 60 onFailure: Abort maxAttempts: 3 inputs: <br>• source: 's3://customer-bucket/config.ps1' destination: 'C:\config.ps1' <br>• name: RunConfigScript action: ExecutePowerShell timeoutSeconds: 120 onFailure: Abort maxAttempts: 3 inputs: file: '{{build.DownloadConfigScript.inputs[0].destination}}' <br>• name: Cleanup action: DeleteFile onFailure: Abort maxAttempts: 3 inputs: <br>• path: '{{build.DownloadConfigScript.inputs[0].destination}}' <br>• name: RebootAfterConfigApplied action: Reboot inputs: delaySeconds: 60 <br>• name: InstallWindowsUpdates action: UpdateOS <br>• name: validate steps: <br>• name: DownloadTestConfigScript action: S3Download timeoutSeconds: 60 onFailure: Abort maxAttempts: 3 inputs: <br>• source: 's3://customer-bucket/testConfig.ps1' destination: 'C:\testConfig.ps1' <br>• name: ValidateConfigScript action: ExecutePowerShell timeoutSeconds: 120 onFailure: Abort maxAttempts: 3 inputs: file: '{{validate.DownloadTestConfigScript.inputs[0].destination}}' <br>• name: Cleanup action: DeleteFile onFailure: Abort maxAttempts: 3 inputs: <br>• path: '{{validate.DownloadTestConfigScript.inputs[0].destination}}' <br>• name: test steps: <br>• name: DownloadTestConfigScript action: S3Download timeoutSeconds: 60 onFailure: Abort maxAttempts: 3 inputs: <br>• source: 's3://customer-bucket/testConfig.ps1' destination: 'C:\testConfig.ps1' <br>• name: ValidateConfigScript action: ExecutePowerShell timeoutSeconds: 120 onFailure: Abort maxAttempts: 3 inputs: file: '{{test.DownloadTestConfigScript.inputs[0].destination}}'` ###### Example 2: Install the AWS CLI on a Windows instance The following is an example document that installs the AWS CLI on a Windows instance, using the setup file. `name: InstallCLISetUp description: Install &CLI; using the setup file schemaVersion: 1.0 phases: <br>• name: build steps: <br>• name: Download action: S3Download inputs: <br>• source: s3://aws-cli/AWSCLISetup.exe destination: C:\Windows\temp\AWSCLISetup.exe <br>• name: Install action: ExecuteBinary onFailure: Continue inputs: path: '{{ build.Download.inputs[0].destination }}' arguments: <br>• '/install' <br>• '/quiet' <br>• '/norestart' <br>• name: Delete action: DeleteFile inputs: <br>• path: '{{ build.Download.inputs[0].destination }}'` ###### Example 3: Install the AWS CLI with the MSI installer The following is an example document that installs the AWS CLI with the MSI installer. `name: InstallCLIMSI description: Install &CLI; using the MSI installer schemaVersion: 1.0 phases: <br>• name: build steps: <br>• name: Download action: S3Download inputs: <br>• source: s3://aws-cli/AWSCLI64PY3.msi destination: C:\Windows\temp\AWSCLI64PY3.msi <br>• name: Install action: ExecuteBinary onFailure: Continue inputs: path: 'C:\Windows\System32\msiexec.exe' arguments: <br>• '/i' <br>• '{{ build.Download.inputs[0].destination }}' <br>• '/quiet' <br>• '/norestart' <br>• name: Delete action: DeleteFile inputs: <br>• path: '{{ build.Download.inputs[0].destination }}'` macOS ###### Example 1: Run a custom macOS binary file The following is an example document that downloads and runs a custom binary file on a macOS instance. `name: macOSBin description: Download and run a binary file on macOS. schemaVersion: 1.0 phases: <br>• name: build steps: <br>• name: Download action: S3Download inputs: <br>• source: s3://<replaceable>amzn-s3-demo-source-bucket</replaceable>/<replaceable>myapplication</replaceable> destination: /tmp/<replaceable>myapplication</replaceable> <br>• name: Enable action: ExecuteBash onFailure: Continue inputs: commands: <br>• 'chmod u+x {{ build.Download.inputs[0].destination }}' <br>• name: Install action: ExecuteBinary onFailure: Continue inputs: path: '{{ build.Download.inputs[0].destination }}' arguments: <br>• '--install' <br>• name: Delete action: DeleteFile inputs: <br>• path: '{{ build.Download.inputs[0].destination }}'` |
+| Field         | Description                                    | Type   | Required |
+| ------------- | ---------------------------------------------- | ------ | -------- |
+| name          | Name of the document.                          | String | No       |
+| description   | Description of the document.                   | String | No       |
+| schemaVersion | Schema version of the document, currently 1.0. | String | Yes      |
+| phases        | A list of phases with their steps.             | List   | Yes      |
+
+The schema definitions for a phase are as follows.
+
+| Field | Description                     | Type   | Required |
+| ----- | ------------------------------- | ------ | -------- |
+| name  | Name of the phase.              | String | Yes      |
+| steps | List of the steps in the phase. | List   | Yes      |
+
+The schema definitions for a step are as follows.
+
+| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Type    | Required | Default value        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------------------- |
+| name           | User-defined name for the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String  |          |                      |
+| action         | Keyword pertaining to the module that runs the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | String  |          |                      |
+| timeoutSeconds | Number of seconds that the step runs before failing or<br>retrying.<br>Also, supports -1 value, which indicates infinite timeout. 0<br>and other negative values are not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Integer | No       | 7,200 sec (120 mins) |
+| onFailure      | Specifies what the step should do in case of failure.<br>Valid values are as follows:<br>• **Abort** – Fails the step<br>after the maximum number of attempts, and stops running.<br>Sets status for phase and document to<br>`Failed`.<br>• **Continue** – Fails the<br>step after the maximum number of attempts, and continues<br>to run remaining steps. Sets status for phase and<br>document to `Failed`.<br>• **Ignore** – Sets the step<br>to `IgnoredFailure` after the the maximum number<br>of failed attempts, and continues to run remaining steps.<br>Sets status for phase and document to<br>`SuccessWithIgnoredFailure`. | String  | No       | Abort                |
+| maxAttempts    | Maximum number of attempts allowed before failing the<br>step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Integer | No       | 1                    |
+| inputs         | Contains parameters required by the action module to run the<br>step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Dict    | Yes      |                      |
+
+## Document examples
+
+The following examples show AWSTOE component documents that perform tasks
+for the target operating system.
+
+Linux
+
+###### Example 1: Run a custom binary file
+
+The following is an example document that downloads and runs
+a custom binary file on a Linux instance.
+
+```
+name: LinuxBin
+description: Download and run a custom Linux binary file.
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: Download
+        action: S3Download
+        inputs:
+          - source: s3://<replaceable>amzn-s3-demo-source-bucket</replaceable>/<replaceable>myapplication</replaceable>
+            destination: /tmp/<replaceable>myapplication</replaceable>
+      - name: Enable
+        action: ExecuteBash
+        onFailure: Continue
+        inputs:
+          commands:
+            - 'chmod u+x {{ build.Download.inputs[0].destination }}'
+      - name: Install
+        action: ExecuteBinary
+        onFailure: Continue
+        inputs:
+          path: '{{ build.Download.inputs[0].destination }}'
+          arguments:
+            - '--install'
+      - name: Delete
+        action: DeleteFile
+        inputs:
+          - path: '{{ build.Download.inputs[0].destination }}'
+```
+
+Windows
+
+###### Example 1: Install Windows updates
+
+The following is an example document that installs all available Windows
+updates, runs a configuration script, validates the changes before the AMI
+is created, and tests the changes after the AMI is created.
+
+```
+name: RunConfig_UpdateWindows
+description: 'This document will install all available Windows updates and run a config script. It will then validate the changes before an AMI is created. Then after AMI creation, it will test all the changes.'
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: DownloadConfigScript
+        action: S3Download
+        timeoutSeconds: 60
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          - source: 's3://customer-bucket/config.ps1'
+            destination: 'C:\config.ps1'
+
+      - name: RunConfigScript
+        action: ExecutePowerShell
+        timeoutSeconds: 120
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          file: '{{build.DownloadConfigScript.inputs[0].destination}}'
+
+      - name: Cleanup
+        action: DeleteFile
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          - path: '{{build.DownloadConfigScript.inputs[0].destination}}'
+
+      - name: RebootAfterConfigApplied
+        action: Reboot
+        inputs:
+          delaySeconds: 60
+
+      - name: InstallWindowsUpdates
+        action: UpdateOS
+
+  - name: validate
+    steps:
+      - name: DownloadTestConfigScript
+        action: S3Download
+        timeoutSeconds: 60
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          - source: 's3://customer-bucket/testConfig.ps1'
+            destination: 'C:\testConfig.ps1'
+
+      - name: ValidateConfigScript
+        action: ExecutePowerShell
+        timeoutSeconds: 120
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          file: '{{validate.DownloadTestConfigScript.inputs[0].destination}}'
+
+      - name: Cleanup
+        action: DeleteFile
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          - path: '{{validate.DownloadTestConfigScript.inputs[0].destination}}'
+
+  - name: test
+    steps:
+      - name: DownloadTestConfigScript
+        action: S3Download
+        timeoutSeconds: 60
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          - source: 's3://customer-bucket/testConfig.ps1'
+            destination: 'C:\testConfig.ps1'
+
+      - name: ValidateConfigScript
+        action: ExecutePowerShell
+        timeoutSeconds: 120
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          file: '{{test.DownloadTestConfigScript.inputs[0].destination}}'
+```
+
+###### Example 2: Install the AWS CLI on a Windows instance
+
+The following is an example document that installs the AWS CLI on
+a Windows instance, using the setup file.
+
+```
+name: InstallCLISetUp
+description: Install &CLI; using the setup file
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: Download
+        action: S3Download
+        inputs:
+          - source: s3://aws-cli/AWSCLISetup.exe
+            destination: C:\Windows\temp\AWSCLISetup.exe
+      - name: Install
+        action: ExecuteBinary
+        onFailure: Continue
+        inputs:
+          path: '{{ build.Download.inputs[0].destination }}'
+          arguments:
+            - '/install'
+            - '/quiet'
+            - '/norestart'
+      - name: Delete
+        action: DeleteFile
+        inputs:
+          - path: '{{ build.Download.inputs[0].destination }}'
+```
+
+###### Example 3: Install the AWS CLI with the MSI installer
+
+The following is an example document that installs the AWS CLI with
+the MSI installer.
+
+```
+name: InstallCLIMSI
+description: Install &CLI; using the MSI installer
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: Download
+        action: S3Download
+        inputs:
+          - source: s3://aws-cli/AWSCLI64PY3.msi
+            destination: C:\Windows\temp\AWSCLI64PY3.msi
+      - name: Install
+        action: ExecuteBinary
+        onFailure: Continue
+        inputs:
+          path: 'C:\Windows\System32\msiexec.exe'
+          arguments:
+            - '/i'
+            - '{{ build.Download.inputs[0].destination }}'
+            - '/quiet'
+            - '/norestart'
+      - name: Delete
+        action: DeleteFile
+        inputs:
+          - path: '{{ build.Download.inputs[0].destination }}'
+```
+
+macOS
+
+###### Example 1: Run a custom macOS binary file
+
+The following is an example document that downloads and runs a custom
+binary file on a macOS instance.
+
+```
+name: macOSBin
+description: Download and run a binary file on macOS.
+schemaVersion: 1.0
+phases:
+  - name: build
+    steps:
+      - name: Download
+        action: S3Download
+        inputs:
+          - source: s3://<replaceable>amzn-s3-demo-source-bucket</replaceable>/<replaceable>myapplication</replaceable>
+            destination: /tmp/<replaceable>myapplication</replaceable>
+      - name: Enable
+        action: ExecuteBash
+        onFailure: Continue
+        inputs:
+          commands:
+            - 'chmod u+x {{ build.Download.inputs[0].destination }}'
+      - name: Install
+        action: ExecuteBinary
+        onFailure: Continue
+        inputs:
+          path: '{{ build.Download.inputs[0].destination }}'
+          arguments:
+            - '--install'
+      - name: Delete
+        action: DeleteFile
+        inputs:
+          - path: '{{ build.Download.inputs[0].destination }}'
+```

@@ -106,16 +106,278 @@ inputs:
   ...
 ```
 
-| `for` loop input                  | Field                                                                                                                                                                                                                                                                                                                                                                          | Description     | Type | Required     | Default                                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | ---- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------- | -------- | -------- | ------- |
-| `name`                            | Unique name of the loop. It must be unique compared to other loop names in the same phase.                                                                                                                                                                                                                                                                                     | String          | No   | ""           |
-| `start`                           | Starting value of iteration. Does not accept chaining expressions.                                                                                                                                                                                                                                                                                                             | Integer         | Yes  | n/a          |
-| `end`                             | Ending value of iteration. Does not accept chaining expressions.                                                                                                                                                                                                                                                                                                               | Integer         | Yes  | n/a          |
-| `updateBy`                        | Difference by which an iterating value is updated through addition. It must be a negative or positive non-zero value. Does not accept chaining expressions.                                                                                                                                                                                                                    | Integer         | Yes  | n/a          | `for` loop input example ``` <br>• name: "CalculateFileUploadLatencies" action: "ExecutePowerShell" loop: for: start: 100000 end: 1000000 updateBy: 100000 inputs: commands: <br>•                                                                                                                                                           | $f = new-object System.IO.FileStream c:\temp\test{{ loop.index }}.txt, Create, ReadWrite $f.SetLength({{ loop.value }}MB) $f.Close() <br>• c:\users\administrator\downloads\latencyTest.exe --file c:\temp\test{{ loop.index }}.txt <br>• AWS s3 cp c:\users\administrator\downloads\latencyMetrics.json s3://bucket/latencyMetrics.json <br>•                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Remove-Item -Path c:\temp\test{{ loop.index }}.txt Remove-Item -Path c:\users\administrator\downloads\latencyMetrics.json ``### `forEach` loop with input list The `forEach` loop iterates on an explicit list of values, which can be strings and chained expressions. `forEach` loop with input list schema`` <br>• name: "StepName" action: "ActionModule" loop: name: "string" forEach: <br>• "string" inputs: ... ``` `forEach` loop with input list input | Field       | Description | Type     | Required | Default |
-| ---                               | ---                                                                                                                                                                                                                                                                                                                                                                            | ---             | ---  | ---          |
-| `name`                            | Unique name of the loop. It must be unique compared to other loop names in the same phase.                                                                                                                                                                                                                                                                                     | String          | No   | ""           |
-| List of strings of `forEach` loop | List of strings for iteration. Accepts chained expressions as strings in the list. Chained expressions must be enclosed by double quotes for the YAML compiler to correctly interpret them.                                                                                                                                                                                    | List of strings | Yes  | n/a          | `forEach` loop with input list example 1 ``` <br>• name: "ExecuteCustomScripts" action: "ExecuteBash" loop: name: BatchExecLoop forEach: <br>• /tmp/script1.sh <br>• /tmp/script2.sh <br>• /tmp/script3.sh inputs: commands: <br>• echo "Count {{ BatchExecLoop.index }}" <br>• sh "{{ loop.value }}" <br>•                                  | retVal=$? if [ $retVal -ne 0 ]; then echo "Failed" else echo "Passed" fi `` `forEach` loop with input list example 2 `` <br>• name: "RunMSIWithDifferentArgs" action: "ExecuteBinary" loop: name: MultiArgLoop forEach: <br>• "ARG1=C:\Users ARG2=1" <br>• "ARG1=C:\Users" <br>• "ARG1=C:\Users ARG3=C:\Users\Administrator\Documents\f1.txt" inputs: commands: path: "c:\users\administrator\downloads\runner.exe" args: <br>• "{{ MultiArgLoop.value }}" `` `forEach` loop with input list example 3 `` <br>• name: "DownloadAllBinaries" action: "S3Download" loop: name: MultiArgLoop forEach: <br>• "bin1.exe" <br>• "bin10.exe" <br>• "bin5.exe" inputs: <br>• source: "s3://bucket/{{ loop.value }}" destination: "c:\temp\{{ loop.value }}" ``### `forEach` loop with delimited list The loop iterates over a string containing values separated by a delimiter. To iterate over the string’s constituents, AWSTOE uses the delimiter to split the string into an array suitable for iteration. `forEach` loop with delimited list schema`` <br>• name: "StepName" action: "ActionModule" loop: name: "string" forEach: list: "string" delimiter: ".,;:\n\t -\_" inputs: ... ``` `forEach` loop with delimited list input                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Field                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Description | Type        | Required | Default  |
-| ---                               | ---                                                                                                                                                                                                                                                                                                                                                                            | ---             | ---  | ---          |
-| `name`                            | Unique name given to the loop. It should be unique when compared to other loop names in the same phase.                                                                                                                                                                                                                                                                        | String          | No   | ""           |
-| `list`                            | A string that is composed of constituent strings joined by a common delimiter character. Also accepts chained expressions. In case of chained expressions, ensure that those are enclosed by double quotes for correct interpretation by the YAML compiler.                                                                                                                    | String          | Yes  | n/a          |
-| `delimiter`                       | Character used to separate out strings within a block. Default is the comma character. Only one delimiter character is allowed from the given list: <br>• Dot: `"."` <br>• Comma: `","` <br>• Semicolon: `";"` <br>• Colon: `":"` <br>• New line: `"\n"` <br>• Tab: `"\t"` <br>• Space: `" "` <br>• Hyphen: `"-"` <br>• Underscore: `"_"` Chaining expressions cannot be used. | String          | No   | Comma: `","` | ###### Note The value of `list` is treated as an immutable string. If the source of `list` is changed during runtime, it will not be reflected during the run. `forEach` loop with delimited list example 1 This example uses the following chaining expression pattern to refer to another step's output: `<phase_name>.<step_name>.[inputs | outputs].<var_name>`. ``` <br>• name: "RunMSIs" action: "ExecuteBinary" loop: forEach: list: "{{ build.GetAllMSIPathsForInstallation.outputs.stdout }}" delimiter: "\n" inputs: commands: path: "{{ loop.value }}" ``` `forEach`loop with delimited list example 2 ``` <br>• name: "UploadMetricFiles" action: "S3Upload" loop: forEach: list: "/tmp/m1.txt,/tmp/m2.txt,/tmp/m3.txt,..." inputs: commands: <br>• source: "{{ loop.value }}" destination: "s3://bucket/key/{{ loop.value }}" ``` ## Step fields Loops are part of a step. Any field related to the running of a step is not applied to individual iterations. Step fields apply only at the step level, as follows: <br>• *timeoutSeconds* – All iterations of the loop must be run within the time period specified by this field. If the loop run times out, then AWSTOE runs the retry policy of the step and resets the timeout parameter for each new attempt. If the loop run exceeds the timeout value after reaching the maximum number of retries, the failure message of the step states that the loop run had timed out. <br>• *onFailure* – Failure handling is applied to the step as follows: + If *onFailure* is set to`Abort`, AWSTOE exits the loop and retries the step according to the retry policy. After the maximum number of retry attempts, AWSTOE marks the current step as failed, and stops running the process. AWSTOE sets the status code for the parent phase and document to `Failed`. ###### Note No further steps run after the failed step. + If *onFailure* is set to `Continue`, AWSTOE exits the loop and retries the step according to the retry policy. After the maximum number of retry attempts, AWSTOE marks the current step as failed, and continues on to run the next step. AWSTOE sets the status code for the parent phase and document to `Failed`. + If *onFailure* is set to `Ignore`, AWSTOE exits the loop and retries the step according to the retry policy. After the maximum number of retry attempts, AWSTOE marks the current step as `IgnoredFailure`, and continues on to run the next step. AWSTOE sets the status code for the parent phase and document to `SuccessWithIgnoredFailure`. ###### Note This is still considered a successful run, but includes information to let you know that one or more steps failed and were ignored. <br>• *maxAttempts*  – For every retry, the entire step and all iterations are run from the beginning. <br>• *status* – The overall status of the running of a step.`status`does not represent the status of individual iterations. The status of a step with loops is determined as follows: + If a single iteration fails to run, the status of a step points to a failure. + If all iterations succeed, the status of a step points to a success. <br>• *startTime*  – The overall start time of the running of a step. Does not represent the start time of individual iterations. <br>• *endTime*  – The overall end time of the running of a step. Does not represent the end time of individual iterations. <br>• *failureMessage*  – Includes the iteration indices that failed in case of non-timeout errors. In case of timeout errors, the message states that the loop run has failed. Individual error messages for each iteration are not provided to minimize the size of failure messages. ## Step and iteration outputs Every iteration contains an output. At the end of a loop run, AWSTOE consolidates all successful iteration outputs in`detailedOutput.json`. The consolidated outputs are a collation of values that belong to the corresponding output keys as defined in the output schema of the action module. The following example shows how the outputs are consolidated: **Output of `ExecuteBash` for Iteration 1** ``` `{ "stdout":"Hello" }` ``` **Output of `ExecuteBash` for Iteration 2** ``` `{ "stdout":"World" }` ``` **Output of `ExecuteBash` for Step** ``` `{ "stdout":"Hello\nWorld" }` ``` For example, `ExecuteBash`, `ExecutePowerShell`, and `ExecuteBinary`are action modules which return`STDOUT`as the action module output.`STDOUT`messages are joined with the new line character to produce the overall output of the step in`detailedOutput.json`. AWSTOE will not consolidate the outputs of unsuccessful iterations. |
+| `for` loop input | Field                                                                                                                                                             | Description | Type | Required | Default |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---- | -------- | ------- |
+| `name`           | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase.                                                                     | String      | No   | ""       |
+| `start`          | Starting value of iteration. Does not accept chaining<br>expressions.                                                                                             | Integer     | Yes  | n/a      |
+| `end`            | Ending value of iteration. Does not accept chaining expressions.                                                                                                  | Integer     | Yes  | n/a      |
+| `updateBy`       | Difference by which an iterating value is updated through<br>addition. It must be a negative or positive non-zero value. Does not<br>accept chaining expressions. | Integer     | Yes  | n/a      |
+
+`for` loop input example
+
+```
+  - name: "CalculateFileUploadLatencies"
+    action: "ExecutePowerShell"
+    loop:
+      for:
+        start: 100000
+        end: 1000000
+        updateBy: 100000
+    inputs:
+      commands:
+        - |
+          $f = new-object System.IO.FileStream c:\temp\test{{ loop.index }}.txt, Create, ReadWrite
+          $f.SetLength({{ loop.value }}MB)
+          $f.Close()
+        - c:\users\administrator\downloads\latencyTest.exe --file c:\temp\test{{ loop.index }}.txt
+        - AWS s3 cp c:\users\administrator\downloads\latencyMetrics.json s3://bucket/latencyMetrics.json
+        - |
+          Remove-Item -Path c:\temp\test{{ loop.index }}.txt
+          Remove-Item -Path c:\users\administrator\downloads\latencyMetrics.json
+```
+
+### `forEach` loop with input list
+
+The `forEach` loop iterates on an explicit list of values, which can be strings and
+chained expressions.
+
+`forEach` loop with input list schema
+
+```
+  - name: "StepName"
+    action: "ActionModule"
+    loop:
+      name: "string"
+      forEach:
+        - "string"
+    inputs:
+  ...
+```
+
+| `forEach` loop with input list input | Field                                                                                                                                                                                                | Description     | Type | Required | Default |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---- | -------- | ------- |
+| `name`                               | Unique name of the loop. It must be unique compared to other loop<br>names in the same phase.                                                                                                        | String          | No   | ""       |
+| List of strings of `forEach` loop    | List of strings for iteration. Accepts chained expressions as<br>strings in the list. Chained expressions must be enclosed by<br>double quotes for the YAML compiler to correctly interpret<br>them. | List of strings | Yes  | n/a      |
+
+`forEach` loop with input list example 1
+
+```
+  - name: "ExecuteCustomScripts"
+    action: "ExecuteBash"
+    loop:
+      name: BatchExecLoop
+      forEach:
+        - /tmp/script1.sh
+        - /tmp/script2.sh
+        - /tmp/script3.sh
+    inputs:
+      commands:
+        - echo "Count {{ BatchExecLoop.index }}"
+        - sh "{{ loop.value }}"
+        - |
+          retVal=$?
+          if [ $retVal -ne 0 ]; then
+            echo "Failed"
+          else
+            echo "Passed"
+         fi
+```
+
+`forEach` loop with input list example 2
+
+```
+  - name: "RunMSIWithDifferentArgs"
+    action: "ExecuteBinary"
+    loop:
+      name: MultiArgLoop
+      forEach:
+        - "ARG1=C:\Users ARG2=1"
+        - "ARG1=C:\Users"
+        - "ARG1=C:\Users ARG3=C:\Users\Administrator\Documents\f1.txt"
+    inputs:
+      commands:
+        path: "c:\users\administrator\downloads\runner.exe"
+        args:
+          - "{{ MultiArgLoop.value }}"
+```
+
+`forEach` loop with input list example 3
+
+```
+  - name: "DownloadAllBinaries"
+    action: "S3Download"
+    loop:
+      name: MultiArgLoop
+      forEach:
+        - "bin1.exe"
+        - "bin10.exe"
+        - "bin5.exe"
+    inputs:
+      - source: "s3://bucket/{{ loop.value }}"
+        destination: "c:\temp\{{ loop.value }}"
+```
+
+### `forEach` loop with delimited list
+
+The loop iterates over a string containing values separated by a delimiter. To
+iterate over the string’s constituents, AWSTOE uses the delimiter to split the string
+into an array suitable for iteration.
+
+`forEach` loop with delimited list schema
+
+```
+  - name: "StepName"
+    action: "ActionModule"
+    loop:
+      name: "string"
+      forEach:
+        list: "string"
+        delimiter: ".,;:\n\t -_"
+    inputs:
+  ...
+```
+
+| `forEach` loop with delimited list input | Field                                                                                                                                                                                                                                                                                                                                                                          | Description | Type | Required     | Default |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ---- | ------------ | ------- |
+| `name`                                   | Unique name given to the loop. It should be unique when compared<br>to other loop names in the same phase.                                                                                                                                                                                                                                                                     | String      | No   | ""           |
+| `list`                                   | A string that is composed of constituent strings joined by a<br>common delimiter character. Also accepts chained expressions. In<br>case of chained expressions, ensure that those are enclosed by<br>double quotes for correct interpretation by the YAML<br>compiler.                                                                                                        | String      | Yes  | n/a          |
+| `delimiter`                              | Character used to separate out strings within a block. Default is<br>the comma character. Only one delimiter character is allowed from<br>the given list:<br>• Dot: `"."`<br>• Comma: `","`<br>• Semicolon: `";"`<br>• Colon: `":"`<br>• New line: `"\n"`<br>• Tab: `"\t"`<br>• Space: `" "`<br>• Hyphen: `"-"`<br>• Underscore: `"_"`<br>Chaining expressions cannot be used. | String      | No   | Comma: `","` |
+
+###### Note
+
+The value of `list` is treated as an immutable string. If the source of
+`list` is changed during runtime, it will not be reflected during
+the run.
+
+`forEach` loop with delimited list example 1
+
+This example uses the following chaining expression pattern to refer
+to another step's output:
+`<phase_name>.<step_name>.[inputs | outputs].<var_name>`.
+
+```
+  - name: "RunMSIs"
+    action: "ExecuteBinary"
+    loop:
+      forEach:
+        list: "{{ build.GetAllMSIPathsForInstallation.outputs.stdout }}"
+        delimiter: "\n"
+    inputs:
+      commands:
+        path: "{{ loop.value }}"
+```
+
+`forEach` loop with delimited list example 2
+
+```
+  - name: "UploadMetricFiles"
+    action: "S3Upload"
+    loop:
+      forEach:
+        list: "/tmp/m1.txt,/tmp/m2.txt,/tmp/m3.txt,..."
+    inputs:
+      commands:
+        - source: "{{ loop.value }}"
+          destination: "s3://bucket/key/{{ loop.value }}"
+```
+
+## Step fields
+
+Loops are part of a step. Any field related to the running of a step is not applied to
+individual iterations. Step fields apply only at the step level, as follows:
+
+- _timeoutSeconds_ – All iterations of the loop must be run within the
+  time period specified by this field. If the loop run times out, then AWSTOE runs
+  the retry policy of the step and resets the timeout parameter for each new
+  attempt. If the loop run exceeds the timeout value after reaching the maximum
+  number of retries, the failure message of the step states that the loop run had
+  timed out.
+- _onFailure_ – Failure handling is applied to the
+  step as follows:
+  - If _onFailure_ is set to `Abort`, AWSTOE exits
+    the loop and retries the step according to the retry policy. After the
+    maximum number of retry attempts, AWSTOE marks the current step as
+    failed, and stops running the process.
+
+  AWSTOE sets the status code for the parent phase and document to
+  `Failed`.
+
+  ###### Note
+
+  No further steps run after the failed step.
+  - If _onFailure_ is set to `Continue`, AWSTOE
+    exits the loop and retries the step according to the retry policy. After
+    the maximum number of retry attempts, AWSTOE marks the current step as
+    failed, and continues on to run the next step.
+
+  AWSTOE sets the status code for the parent phase and document to
+  `Failed`.
+  - If _onFailure_ is set to `Ignore`, AWSTOE
+    exits the loop and retries the step according to the retry policy. After
+    the maximum number of retry attempts, AWSTOE marks the current step as
+    `IgnoredFailure`, and continues on to run the next step.
+
+  AWSTOE sets the status code for the parent phase and document to
+  `SuccessWithIgnoredFailure`.
+
+  ###### Note
+
+  This is still considered a successful run, but includes information to let
+  you know that one or more steps failed and were ignored.
+
+- _maxAttempts_ – For every retry, the entire step and all iterations
+  are run from the beginning.
+- _status_ – The overall status of the running of a
+  step.`status` does not represent the status of individual
+  iterations. The status of a step with loops is determined as follows:
+  - If a single iteration fails to run, the status of a step points to a failure.
+  - If all iterations succeed, the status of a step points to a success.
+
+- _startTime_ – The overall start time of the running of a step. Does
+  not represent the start time of individual iterations.
+- _endTime_ – The overall end time of the running of a step. Does not
+  represent the end time of individual iterations.
+- _failureMessage_ – Includes the iteration indices that failed in
+  case of non-timeout errors. In case of timeout errors, the message states that
+  the loop run has failed. Individual error messages for each iteration are not
+  provided to minimize the size of failure messages.
+
+## Step and iteration outputs
+
+Every iteration contains an output. At the end of a loop run, AWSTOE consolidates all
+successful iteration outputs in `detailedOutput.json`. The consolidated
+outputs are a collation of values that belong to the corresponding output keys as
+defined in the output schema of the action module. The following example shows how the
+outputs are consolidated:
+
+**Output of `ExecuteBash` for Iteration 1**
+
+```
+`{
+ "stdout":"Hello"
+}`
+```
+
+**Output of `ExecuteBash` for Iteration 2**
+
+```
+`{
+ "stdout":"World"
+}`
+```
+
+**Output of `ExecuteBash` for Step**
+
+```
+`{
+ "stdout":"Hello\nWorld"
+}`
+```
+
+For example, `ExecuteBash`, `ExecutePowerShell`, and
+`ExecuteBinary` are action modules which return `STDOUT` as
+the action module output. `STDOUT` messages are joined with the new line
+character to produce the overall output of the step in
+`detailedOutput.json`.
+
+AWSTOE will not consolidate the outputs of unsuccessful iterations.

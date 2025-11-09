@@ -30,9 +30,81 @@ if:
       [else: <step action>]
 ```
 
-| Key name               | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| conditional expression | Yes         | The conditional expression can contain exactly one of the following types of operators at the top level. <br>• **Comparison operator** – For a list of comparison operators, and information about how they work in AWSTOE component documents, see [Comparison operators](toe-comparison-operators.md "toe-comparison-operators.md"). <br>• **Logical operator** – Logical operators include `and`, `or`, and `not`, and operate on one or more comparison operators. For more information about how logical operators work in AWSTOE component documents, see [Logical operators](toe-logical-operators.md "toe-logical-operators.md"). If your expression must satisfy multiple conditions, use a logical operator to specify your conditions. |
-| then                   | No          | Defines the action to take if the conditional expression evaluates to `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| else                   | No          | Defines the action to take if the conditional expression evaluates to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| step action            | Conditional | When you use `then` or `else`, you must specify one of the following step actions: <br>• **Abort** – AWSTOE marks the step as failed. <br>• **Execute** – AWSTOE runs the step. <br>• **Skip** – AWSTOE skips the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | ###### Example 1: Install package The following example steps from an AWSTOE component document use logical operators to test a parameter value and run the appropriate package manager commands to install an application if the package is unzipped. `<br>• name: InstallUnzipAptGet action: ExecuteBash if: and: <br>• binaryExists: 'apt-get' <br>• not: binaryExists: 'unzip' inputs: commands: <br>• sudo apt-get update <br>• sudo apt-get install -y unzip <br>• name: InstallUnzipYum action: ExecuteBash if: and: <br>• binaryExists: 'yum' <br>• not: binaryExists: 'unzip' inputs: commands: <br>• sudo yum install -y unzip <br>• name: InstallUnzipZypper action: ExecuteBash if: and: <br>• binaryExists: 'zypper' <br>• not: binaryExists: 'unzip' inputs: commands: <br>• sudo zypper refresh <br>• sudo zypper install -y unzip` ###### Example 2: Skip a step The following example shows two ways to skip a step. One uses a logical operator, and one uses a comparison operator with the `Skip` step action. `# Creates a file if it does not exist using not <br>• name: CreateMyConfigFile-1 action: ExecuteBash if: not: fileExists: '/etc/my_config' inputs: commands: <br>• echo "Hello world" > '/etc/my_config' # Creates a file if it does not exist using then and else <br>• name: CreateMyConfigFile-2 action: ExecuteBash if: fileExists: '/etc/my_config' then: Skip else: Execute inputs: commands: <br>• echo "Hello world" > '/etc/my_config'` |
+| Key name               | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| conditional expression | Yes         | The conditional expression can contain exactly one of the<br>following types of operators at the top level.<br>• **Comparison operator** –<br>For a list of comparison operators, and information about how<br>they work in AWSTOE component documents, see<br>[Comparison<br>operators](toe-comparison-operators.md "toe-comparison-operators.md").<br>• **Logical operator** –<br>Logical operators include `and`, `or`, and<br>`not`, and operate on one or more comparison operators.<br>For more information about how logical operators work in AWSTOE<br>component documents, see [Logical<br>operators](toe-logical-operators.md "toe-logical-operators.md").<br>If your expression must satisfy multiple conditions, use a<br>logical operator to specify your conditions. |
+| then                   | No          | Defines the action to take if the conditional expression<br>evaluates to `true`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| else                   | No          | Defines the action to take if the conditional expression<br>evaluates to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| step action            | Conditional | When you use `then` or `else`,<br>you must specify one of the following step actions:<br>• **Abort** – AWSTOE<br>marks the step as failed.<br>• **Execute** – AWSTOE<br>runs the step.<br>• **Skip** – AWSTOE<br>skips the step.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+###### Example 1: Install package
+
+The following example steps from an AWSTOE component document use logical operators
+to test a parameter value and run the appropriate package manager commands to install
+an application if the package is unzipped.
+
+```
+
+    - name: InstallUnzipAptGet
+      action: ExecuteBash
+      if:
+        and:
+            - binaryExists: 'apt-get'
+            - not:
+                binaryExists: 'unzip'
+      inputs:
+        commands:
+            - sudo apt-get update
+            - sudo apt-get install -y unzip
+
+    - name: InstallUnzipYum
+      action: ExecuteBash
+      if:
+        and:
+            - binaryExists: 'yum'
+            - not:
+                binaryExists: 'unzip'
+      inputs:
+        commands:
+            - sudo yum install -y unzip
+
+    - name: InstallUnzipZypper
+      action: ExecuteBash
+      if:
+        and:
+            - binaryExists: 'zypper'
+            - not:
+                binaryExists: 'unzip'
+      inputs:
+        commands:
+            - sudo zypper refresh
+            - sudo zypper install -y unzip
+```
+
+###### Example 2: Skip a step
+
+The following example shows two ways to skip a step. One uses a logical operator,
+and one uses a comparison operator with the `Skip` step action.
+
+```
+# Creates a file if it does not exist using not
+- name: CreateMyConfigFile-1
+  action: ExecuteBash
+  if:
+    not:
+      fileExists: '/etc/my_config'
+  inputs:
+    commands:
+      - echo "Hello world" > '/etc/my_config'
+
+# Creates a file if it does not exist using then and else
+- name: CreateMyConfigFile-2
+  action: ExecuteBash
+  if:
+    fileExists: '/etc/my_config'
+    then: Skip
+    else: Execute
+  inputs:
+    commands:
+      - echo "Hello world" > '/etc/my_config'
+```

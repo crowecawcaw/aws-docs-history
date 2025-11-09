@@ -56,7 +56,10 @@ with the custom role that applies for your use case.
 - logs:PutLogEvents
 
 | Log type           | Custom role           |
-| ------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | --------------------- |
 | Image build        | Execution role        |
 | Pipeline execution | Execution role        |
-| Component logs     | Instance profile role | For advanced troubleshooting, you can run predefined commands and scripts using [AWS Systems Manager Run Command](../../../systems-manager/latest/userguide/run-command.md "../../../systems-manager/latest/userguide/run-command.md"). For more information, see [Troubleshoot Image Builder issues](troubleshooting.md "troubleshooting.md"). |
+| Component logs     | Instance profile role |
+
+For advanced troubleshooting, you can run predefined commands and scripts using [AWS Systems Manager Run
+Command](../../../systems-manager/latest/userguide/run-command.md "../../../systems-manager/latest/userguide/run-command.md"). For more information, see [Troubleshoot Image Builder issues](troubleshooting.md "troubleshooting.md").
