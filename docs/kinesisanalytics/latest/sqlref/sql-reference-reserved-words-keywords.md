@@ -7,7 +7,7 @@ applications
 as of version 5.0.1.
 
 |                 |
-| --------------- | ----------------- | -------------------------------- | ----- |
+| --------------- | ----------------- | -------------------------------- |
 | **A**           |
 | ABS             | ALL               | ALLOCATE                         |
 | ALLOW           | ALTER             | ANALYZE                          |
@@ -49,14 +49,17 @@ as of version 5.0.1.
 | EVERY           | EXCEPT            | EXEC                             |
 | EXECUTE         | EXISTS            | EXP                              |
 | EXPLAIN         | EXP_AVG           | EXTERNAL                         |
-| EXTRACT         |                   | **F**                            |
+| EXTRACT         |
+| **F**           |
 | FALSE           | FETCH             | FILTER                           |
 | FIRST_VALUE     | FLOAT             | FLOOR                            |
 | FOR             | FOREIGN           | FREE                             |
 | FROM            | FULL              | FUNCTION                         |
-| FUSION          |                   | **G**                            |
+| FUSION          |
+| **G**           |
 | GET             | GLOBAL            | GRANT                            |
-| GROUP           | GROUPING          |                                  | **H** |
+| GROUP           | GROUPING          |
+| **H**           |
 | HAVING          | HOLD              | HOUR                             |
 | **I**           |
 | IDENTITY        | IGNORE            | IMPORT                           |
@@ -64,13 +67,16 @@ as of version 5.0.1.
 | INNER           | INOUT             | INSENSITIVE                      |
 | INSERT          | INT               | INTEGER                          |
 | INTERSECT       | INTERSECTION      | INTERVAL                         |
-| INTO            | IS                |                                  | **J** |
-| JOIN            |                   | **L**                            |
+| INTO            | IS                |
+| **J**           |
+| JOIN            |
+| **L**           |
 | LANGUAGE        | LARGE             | LAST_VALUE                       |
 | LATERAL         | LEADING           | LEFT                             |
 | LIKE            | LIMIT             | LN                               |
 | LOCAL           | LOCALTIME         | LOCALTIMESTAMP                   |
-| LOWER           |                   | **M**                            |
+| LOWER           |
+| **M**           |
 | MATCH           | MAX               | MEMBER                           |
 | MERGE           | METHOD            | MIN                              |
 | MINUTE          | MOD               | MODIFIES                         |
@@ -80,17 +86,20 @@ as of version 5.0.1.
 | NCLOB           | NEW               | NO                               |
 | NODE            | NONE              | NORMALIZE                        |
 | NOT             | NTH_VALUE         | NULL                             |
-| NULLIF          | NUMERIC           |                                  | **O** |
+| NULLIF          | NUMERIC           |
+| **O**           |
 | OCTET_LENGTH    | OF                | OLD                              |
 | ON              | ONLY              | OPEN                             |
 | OR              | ORDER             | OUT                              |
 | OUTER           | OVER              | OVERLAPS                         |
-| OVERLAY         |                   | **P**                            |
+| OVERLAY         |
+| **P**           |
 | PARAMETER       | PARTITION         | PARTITION_ID                     |
 | PARTITION_KEY   | PERCENTILE_CONT   | PERCENTILE_DISC                  |
 | PERCENT_RANK    | POSITION          | POWER                            |
 | PRECISION       | PREPARE           | PRIMARY                          |
-| PROCEDURE       |                   | **R**                            |
+| PROCEDURE       |
+| **R**           |
 | RANGE           | RANK              | READS                            |
 | REAL            | RECURSIVE         | REF                              |
 | REFERENCES      | REFERENCING       | REGR_AVGX                        |
@@ -100,7 +109,8 @@ as of version 5.0.1.
 | RESULT          | RETURN            | RETURNS                          |
 | REVOKE          | RIGHT             | ROLLBACK                         |
 | ROLLUP          | ROW               | ROWS                             |
-| ROWTIME         | ROW_NUMBER        |                                  | **S** |
+| ROWTIME         | ROW_NUMBER        |
+| **S**           |
 | SAVEPOINT       | SCOPE             | SCROLL                           |
 | SEARCH          | SECOND            | SELECT                           |
 | SENSITIVE       | SEQUENCE_NUMBER   | SESSION_USER                     |
@@ -112,21 +122,25 @@ as of version 5.0.1.
 | STDDEV_POP      | STDDEV_SAMP       | STOP                             |
 | STREAM          | SUBMULTISET       | SUBSTRING                        |
 | SUM             | SYMMETRIC         | SYSTEM                           |
-| SYSTEM_USER     |                   | **T**                            |
+| SYSTEM_USER     |
+| **T**           |
 | TABLE           | TABLESAMPLE       | THEN                             |
 | TIME            | TIMESTAMP         | TIMEZONE_HOUR                    |
 | TIMEZONE_MINUTE | TINYINT           | TO                               |
 | TRAILING        | TRANSLATE         | TRANSLATION                      |
 | TREAT           | TRIGGER           | TRIM                             |
-| TRUE            | TRUNCATE          |                                  | **U** |
+| TRUE            | TRUNCATE          |
+| **U**           |
 | UESCAPE         | UNION             | UNIQUE                           |
 | UNKNOWN         | UNNEST            | UPDATE                           |
 | UPPER           | USER              | USING                            |
 | **V**           |
 | VALUE           | VALUES            | VARBINARY                        |
 | VARCHAR         | VARYING           | VAR_POP                          |
-| VAR_SAMP        |                   | **W**                            |
+| VAR_SAMP        |
+| **W**           |
 | WHEN            | WHENEVER          | WHERE                            |
 | WIDTH_BUCKET    | WINDOW            | WITH                             |
 | WITHIN          | WITHOUT           |                                  |
-| **Y**           |                   | YEAR                             |
+| **Y**           |
+| YEAR            |

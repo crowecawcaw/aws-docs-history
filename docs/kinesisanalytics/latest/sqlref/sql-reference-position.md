@@ -19,9 +19,13 @@ If either the search string or the source string is null, POSITION returns null.
 ## Examples
 
 | Function                                 | Result |
-| ---------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------- | ------ |
 | POSITION ('findme' IN '1234findmeXXX')   | 5      |
 | POSITION ('findme' IN '1234not-hereXXX') | 0      |
 | POSITION ('1' IN '1234567')              | 1      |
 | POSITION ('7' IN '1234567')              | 7      |
-| POSITION ('' IN '1234567')               | 1      | ## Limitations Amazon Kinesis Data Analytics streaming SQL does not support the optional USING CHARACTERS | OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. This is a departure from the standard. |
+| POSITION ('' IN '1234567')               | 1      |
+
+## Limitations
+
+Amazon Kinesis Data Analytics streaming SQL does not support the optional USING CHARACTERS | OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. This is a departure from the standard.

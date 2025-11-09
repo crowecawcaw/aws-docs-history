@@ -9,8 +9,10 @@ For more information, see [CURRENT_TIME](sql-reference-current-time.md "sql-refe
 
 ## Example
 
-````
+```
 +---------------+
-| CURRENT_DATE  | +---------------+
-| 2008-08-27    | +---------------+ ```
-````
+| CURRENT_DATE  |
++---------------+
+| 2008-08-27    |
++---------------+
+```

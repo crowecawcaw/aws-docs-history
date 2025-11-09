@@ -60,24 +60,41 @@ For more information, see [Similar...Escape](#sql-reference-substring-examples-s
 
 ### FROM/ FOR
 
-| Function                                                    | Result         |
-| ----------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SUBSTRING('123456789' FROM 3 FOR 4)                         | 3456           |
-| SUBSTRING('123456789' FROM 17 FOR 4)                        | <empty string> |
-| SUBSTRING('123456789' FROM -1 FOR 4)                        | 12             |
-| SUBSTRING('123456789' FROM 6 FOR 0)                         | <empty string> |
-| SUBSTRING('123456789' FROM 8 FOR 4)                         | 89             | ### FROM Regex                                                                                            |
-| Function                                                    | Result         |
-| ---                                                         | ---            |
-| SUBSTRING('TECHNOLOGY' FROM 'L[A-Z]\*')                     | LOGY           |
-| SUBSTRING('TECHNOLOGY' FROM 'FOO')                          | null           |
-| SUBSTRING('TECHNOLOGY' FROM 'O[A-Z]')                       | OL             | ### Numeric                                                                                               |
-| Function                                                    | Result         |
-| ---                                                         | ---            |
-| SUBSTRING('123456789', 3, 4)                                | 3456           |
-| SUBSTRING('123456789', 7, 4)                                | 789            |
-| SUBSTRING('123456789', 10, 4)                               | null           | ### Similar...Escape                                                                                      |
-| Function                                                    | Result         |
-| ---                                                         | ---            |
-| SUBSTRING('123456789' SIMILAR '23#"456#"78' ESCAPE '#')     | 456            |
-| SUBSTRING('TECHNOLOGY' SIMILAR 'TECH%"NOLO%"GY' ESCAPE '%') | NOLO           | ## Notes <br>• Amazon Kinesis Data Analytics streaming SQL doesn't support the optional 'USING CHARACTERS | OCTETS' clause defined in SQL:2008. USING CHARACTERS is simply assumed. <br>• The second and third forms of the SUBSTRING function listed preceding (using a regular expression, and using commas rather than FROM...FOR) are not part of the SQL:2008 standard. They are part of the streaming SQL extension to Amazon Kinesis Data Analytics. |
+| Function                             | Result         |
+| ------------------------------------ | -------------- |
+| SUBSTRING('123456789' FROM 3 FOR 4)  | 3456           |
+| SUBSTRING('123456789' FROM 17 FOR 4) | <empty string> |
+| SUBSTRING('123456789' FROM -1 FOR 4) | 12             |
+| SUBSTRING('123456789' FROM 6 FOR 0)  | <empty string> |
+| SUBSTRING('123456789' FROM 8 FOR 4)  | 89             |
+
+### FROM Regex
+
+| Function                                | Result |
+| --------------------------------------- | ------ |
+| SUBSTRING('TECHNOLOGY' FROM 'L[A-Z]\*') | LOGY   |
+| SUBSTRING('TECHNOLOGY' FROM 'FOO')      | null   |
+| SUBSTRING('TECHNOLOGY' FROM 'O[A-Z]')   | OL     |
+
+### Numeric
+
+| Function                      | Result |
+| ----------------------------- | ------ |
+| SUBSTRING('123456789', 3, 4)  | 3456   |
+| SUBSTRING('123456789', 7, 4)  | 789    |
+| SUBSTRING('123456789', 10, 4) | null   |
+
+### Similar...Escape
+
+| Function                                                    | Result |
+| ----------------------------------------------------------- | ------ |
+| SUBSTRING('123456789' SIMILAR '23#"456#"78' ESCAPE '#')     | 456    |
+| SUBSTRING('TECHNOLOGY' SIMILAR 'TECH%"NOLO%"GY' ESCAPE '%') | NOLO   |
+
+## Notes
+
+- Amazon Kinesis Data Analytics streaming SQL doesn't support the optional 'USING CHARACTERS | OCTETS' clause
+  defined in SQL:2008. USING CHARACTERS is simply assumed.
+- The second and third forms of the SUBSTRING function listed preceding (using a regular
+  expression, and using commas rather than FROM...FOR) are not part of the SQL:2008
+  standard. They are part of the streaming SQL extension to Amazon Kinesis Data Analytics.

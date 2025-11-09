@@ -7,9 +7,17 @@ For more information, see [CURRENT_TIME](sql-reference-current-time.md "sql-refe
 
 ## Example
 
-````
+```
 values localtimestamp;
 +--------------------------+
-|      LOCALTIMESTAMP      | +--------------------------+
-| 2008-08-27 01:13:42.206  | +--------------------------+ 1 row selected (1.133 seconds) ``` ## Limitations Amazon Kinesis Data Analytics does not support the optional <timestamp precision> parameter specified in SQL:2008. This is a departure from the SQL:2008 standard.
-````
+|      LOCALTIMESTAMP      |
++--------------------------+
+| 2008-08-27 01:13:42.206  |
++--------------------------+
+1 row selected (1.133 seconds)
+```
+
+## Limitations
+
+Amazon Kinesis Data Analytics does not support the optional <timestamp precision> parameter
+specified in SQL:2008. This is a departure from the SQL:2008 standard.

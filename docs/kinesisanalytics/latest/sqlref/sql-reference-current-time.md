@@ -8,9 +8,10 @@ For more information, see [CURRENT_TIMESTAMP](sql-reference-current-timestamp.md
 
 ## Example
 
-````
+```
 
 +---------------+
-| CURRENT_TIME  | +---------------+
-| 20:52:05      | ```
-````
+| CURRENT_TIME  |
++---------------+
+| 20:52:05      |
+```

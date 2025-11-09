@@ -94,15 +94,31 @@ instance 5/2 = 2, not 2.5, as 5 and 2 are both integers.
 
 ## Arithmetic Operators
 
-| Operator  | Unary/Binary   | Description    |
-| --------- | -------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| +         | U              | Identity       |
-| -         | U              | Negation       |
-| +         | B              | Addition       |
-| -         | B              | Subtraction    |
-| \*        | B              | Multiplication |
-| /         | B              | Division       | Each of these operators works according to normal arithmetic behavior, with the following caveats: 1. If one of the operands is NULL, the result is also NULL 2. If the operands are of different but comparable types, the result will be of the type with the greatest precision. 3. If the operands are of the same type, the result will be of the same type as the operands. For instance 5/2 = 2, not 2.5, as 5 and 2 are both integers. ### Examples |
-| Operation | Result         |                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                         | --- |
-| 1 + 1     | 2              |                | 2.0 + 2.0                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 4.0 |
-| 3.0 + 2   | 5.0            |                | 5 / 2                                                                                                                                                                                                                                                                                                                                                                                                                                                       | 2   |
-| 5.0 / 2   | 2.500000000000 |                | 5\*2+2                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 12  |
+| Operator | Unary/Binary | Description    |
+| -------- | ------------ | -------------- |
+| +        | U            | Identity       |
+| -        | U            | Negation       |
+| +        | B            | Addition       |
+| -        | B            | Subtraction    |
+| \*       | B            | Multiplication |
+| /        | B            | Division       |
+
+Each of these operators works according to normal arithmetic behavior, with the following
+caveats:
+
+1. If one of the operands is NULL, the result is also NULL
+2. If the operands are of different but comparable types, the result will be of the type
+   with the greatest precision.
+3. If the operands are of the same type, the result will be of the same type as the
+   operands. For instance 5/2 = 2, not 2.5, as 5 and 2 are both integers.
+
+### Examples
+
+| Operation | Result         |
+| --------- | -------------- |
+| 1 + 1     | 2              |
+| 2.0 + 2.0 | 4.0            |
+| 3.0 + 2   | 5.0            |
+| 5 / 2     | 2              |
+| 5.0 / 2   | 2.500000000000 |
+| 5\*2+2    | 12             |

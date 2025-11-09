@@ -9,9 +9,17 @@ For more information, see [CURRENT_TIME](sql-reference-current-time.md "sql-refe
 
 ## Example
 
-````
+```
  VALUES localtime;
 +------------+
-| LOCALTIME  | +------------+
-| 01:11:15   | +------------+ 1 row selected (1.558 seconds) ``` ## Limitations Amazon Kinesis Data Analytics does not support the optional <time precision> parameter specified in SQL:2008. This is a departure from the SQL:2008 standard.
-````
+| LOCALTIME  |
++------------+
+| 01:11:15   |
++------------+
+1 row selected (1.558 seconds)
+```
+
+## Limitations
+
+Amazon Kinesis Data Analytics does not support the optional <time precision> parameter specified in
+SQL:2008. This is a departure from the SQL:2008 standard.

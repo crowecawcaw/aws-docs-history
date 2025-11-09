@@ -10,10 +10,15 @@ input argument is null.
 
 ## Examples
 
-|                                                 |        |
-| ----------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| `CHAR_LENGTH('one')`                            | `3`    |
-| `CHAR_LENGTH('')`                               | `0`    |
-| `CHARACTER_LENGTH('fred')`                      | `4`    |
-| `CHARACTER_LENGTH( cast (null as varchar(16) )` | `null` |
-| `CHARACTER_LENGTH( cast ('fred' as char(16) )`  | `16`   | ## Limitations Amazon Kinesis Data Analytics streaming SQL does not support the optional USING CHARACTERS | OCTETS clause. This is a departure from the SQL:2008 standard. |
+|                                                         |        |
+| ------------------------------------------------------- | ------ |
+| `<br>CHAR_LENGTH('one')<br>`                            | `3`    |
+| `<br>CHAR_LENGTH('')<br>`                               | `0`    |
+| `<br>CHARACTER_LENGTH('fred')<br>`                      | `4`    |
+| `<br>CHARACTER_LENGTH( cast (null as varchar(16) )<br>` | `null` |
+| `<br>CHARACTER_LENGTH( cast ('fred' as char(16) )<br>`  | `16`   |
+
+## Limitations
+
+Amazon Kinesis Data Analytics streaming SQL does not support the optional USING CHARACTERS | OCTETS clause.
+This is a departure from the SQL:2008 standard.

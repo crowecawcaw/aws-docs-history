@@ -7,8 +7,10 @@ For more information, see [CURRENT_TIME](sql-reference-current-time.md "sql-refe
 
 ## Example
 
-````
+```
 +--------------------+
-| CURRENT_TIMESTAMP  | +--------------------+
-| 20:52:05           | +--------------------+ ```
-````
+| CURRENT_TIMESTAMP  |
++--------------------+
+| 20:52:05           |
++--------------------+
+```

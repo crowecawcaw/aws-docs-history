@@ -4,17 +4,336 @@ Operators
 
 The arithmetic operators +, -, \*, and / are binary operators.
 
-| Operator | Description                                      | Notes                                                                                                                                                             |
-| -------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| +        | Addition                                         | interval + interval = interval interval + datetime = datetime datetime + interval = datetime                                                                      |
-| -        | Subtraction                                      | interval - interval = interval datetime - interval = datetime ( <datetime> - <datetime> ) Date, Timestamp, and Interval Operators <interval qualifier> = interval |
-| \*       | Multiplication                                   | interval \* numeric = interval numeric \* interval = interval                                                                                                     |
-| /        | Division                                         | interval / numeric = interval                                                                                                                                     | ## Examples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Example  | Operation                                        | Result                                                                                                                                                            |
-| ---      | ---                                              | ---                                                                                                                                                               |
-| 1        | INTERVAL '1' DAY + INTERVAL '3' DAY              | INTERVAL '4' DAY                                                                                                                                                  |
-| 2        | INTERVAL '1' DAY + INTERVAL '3 4' DAY TO HOUR    | INTERVAL '+4 04' DAY TO HOUR                                                                                                                                      |
-| 3        | INTERVAL '1' DAY - INTERVAL '3 4' DAY TO HOUR    | INTERVAL '-2 04' DAY TO HOUR                                                                                                                                      |
-| 4        | INTERVAL '1' YEAR + INTERVAL '3-4' YEAR TO MONTH | INTERVAL '+4-04' YEAR TO MONTH                                                                                                                                    |
-| 5        | 2 \* INTERVAL '3 4' DAY TO HOUR                  | INTERVAL '6 8' DAY TO HOUR                                                                                                                                        |
-| 6        | INTERVAL '3 4' DAY TO HOUR / 2                   | INTERVAL ' 1 14' DAY TO HOUR                                                                                                                                      | In the example 3, '3 4 DAY means 3 days and 4 hours, so the result in that row means 24 hours minus 76 hours, resulting in minus 52 hours, which is a negative 2 days and 4 hours. Example 4 uses TO MONTH rather than TO HOUR, so the INTERVAL specified as '3-4' means 3 years and 4 months, or 40 months. In example 6, the "/2" applies to the INTERVAL '3 4', which is 76 hours, half of which is 38, or 1 day and 14 hours. ### Further Examples of Interval Operations Streaming SQL also supports subtracting two datetimes, giving an interval. You specify what kind of interval you want for the result, as shown following: `(<datetime> - <datetime>) <interval qualifier>` The following examples show operations that can be useful in Amazon Kinesis Data Analytics applications. ###### Example 1 – Time Difference (as minutes to the nearest second or as seconds) `values cast ((time  '12:03:34' - time '11:57:23') minute to second as varchar(8)); +---------+ EXPR$0 +---------+ +6:11 +---------+ 1 row selected ............... 6 minutes, 11 seconds or values cast ((time  '12:03:34' - time '11:57:23') second as varchar(8)); +---------+ EXPR$0 +---------+ +371 +---------+ 1 row selected` ###### Example 2 – Time Difference (as minutes only) `values cast ((time  '12:03:34' - time '11:57:23') minute as varchar(8)); +---------+ EXPR$0 +---------+ +6 +---------+ 1 row selected ............... 6 minutes; seconds ignored. values cast ((time  '12:03:23' - time '11:57:23') minute as varchar(8)); +---------+ EXPR$0 +---------+ +6 +---------+ 1 row selected ............... 6 minutes` ###### Example 3 – Time-to-Timestamp Difference (as days to the nearest second) Invalid `values cast ((time '12:03:34'-timestamp '2004-04-29 11:57:23') day to second as varchar(8)); Error: From line 1, column 14 to line 1, column 79: Parameters must be of the same type` ###### Example 4 – Timestamp difference (as days to the nearest second) `values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day to second as varchar(8)); +-----------+ EXPR$0 +-----------+ +2 00:06 +-----------+ 1 row selected ............... 2 days, 6 minutes ............... Although "second" was specified above, the varchar(8) happens to allow only room enough to show only the minutes, not the seconds. The example below expands to varchar(11), showing the full result: values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day to second as varchar(11)); +--------------+ EXPR$0 +--------------+ +2 00:06:11 +--------------+ 1 row selected ............... 2 days, 6 minutes, 11 seconds` ###### Example 5 – Timestamp Difference (as days to the nearest second) `values cast ((timestamp  '2004-05-01 1:03:34' - timestamp '2004-04-29 11:57:23') day to second as varchar(11)); +--------------+ EXPR$0 +--------------+ +1 13:06:11 +--------------+ 1 row selected ............... 1 day, 13 hours, 6 minutes, 11 seconds values cast ((timestamp  '2004-05-01 13:03:34' - timestamp '2004-04-29 11:57:23') day to second as varchar(11)); +--------------+ EXPR$0 +--------------+ +2 01:06:11 +--------------+ 1 row selected ............... 2 days, 1 hour, 6 minutes, 11 seconds` ###### Example 6 – Timestamp Difference (as days) `values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day as varchar(8)); +---------+ EXPR$0 +---------+ +2 +---------+ 1 row selected ............... 2 days` ###### Example 7 – Time Difference (as days) `values cast ((date '2004-12-02 ' - date '2003-12-01 ') day  as varchar(8)); Error: Illegal DATE literal '2004-12-02 ': not in format 'yyyy-MM-dd' .............. Both date literals end with a space;  disallowed. values cast ((date '2004-12-02' - date '2003-12-01 ') day  as varchar(8)); Error: Illegal DATE literal '2003-12-01 ': not in format 'yyyy-MM-dd' .............. Second date literal still ends with a space;  disallowed. values cast ((date '2004-12-02' - date '2003-12-01') day  as varchar(8)); +---------+ EXPR$0 +---------+ +367 +---------+ 1 row selected ............... 367 days` ###### Example 8 – Not Supported (Simple Difference of Dates) If you don't specify "day" as the intended unit, as shown following, the subtraction is not supported. `values cast ((date '2004-12-02' - date '2003-12-01') as varchar(8)); Error: From line 1, column 15 to line 1, column 51: Cannot apply '-' to arguments of type '<DATE> - <DATE>'. Supported form(s): '<NUMERIC> - <NUMERIC>' '<DATETIME_INTERVAL> - <DATETIME_INTERVAL>' '<DATETIME> - <DATETIME_INTERVAL>'` ### Why Use "as varchar" in Conversion Examples? The reason for using the "values cast (<expression> AS varchar(N))" syntax in the examples above is that while the SQLline client used above (with Amazon Kinesis Data Analytics running) does return an interval, JDBC does not support returning that result so as to display it. Therefore, that "values" syntax is used to see/show it. If you close the Amazon Kinesis Data Analytics (with a !kill command) or if you don't start it before running SQLline, then you can run the sqllineEngine (rather than the sqllineClient) from the bin subdirectory of your Amazon Kinesis Data Analytics home, which can show your results without the Amazon Kinesis Data Analytics application or JDBC: ### Rules for Specifying Intervals A Day-Time Interval Literal is a string that denotes a single interval value: for example '10' SECONDS. Note it has two parts: the value (which must always be in single-quotes) and the qualifier (here, SECONDS), which give the units for the value. The qualifier takes the following form: `DAY  HOUR  MINUTE  SECOND [TO HOUR  MINUTE  SECOND]` ###### Note YEAR TO MONTH intervals require a dash separating the values, whereas DAY TO HOUR intervals use a space to separate the values, as seen in the 2nd, 3rd, 5th, and 6th examples in that topic. In addition, the leading term has to be of greater significance than the optional trailing term, so this means you can only specify: `DAY HOUR MINUTE SECOND DAY TO HOUR DAY TO MINUTE DAY TO SECOND HOUR TO MINUTE HOUR TO SECOND MINUTE TO SECOND` The easiest way to understand these may be to translate X TO Y as "Xs to the nearest Y". Hence, DAY TO HOUR is "days to the nearest hour". When DAY, HOUR, or MINUTE is the leading term, you can specify a precision, e.g., DAY(3) TO HOUR, indicating the number of digits the associated field in the value can have. The maximum precision is 10, and the default is 2. You can't specify precision for HOUR, OR MINUTE in the trailing term - they are always of precision 2. So for example, HOUR(3) TO MINUTE is legal, HOUR TO MINUTE(3) is not. SECOND can also take a precision, but the way it is specified differs depending on whether it is the leading or trailing field. <br>• If SECOND is the leading field, you can specify the digits before and after the decimal point. For example, SECOND(3,3) would allow you to specify up to 999.999 seconds. The default is (2,3), which is actually a deviation from the SQL:2008 spec (it should be (2,6), but we only have millisecond precision). <br>• If SECOND is the trailing field, you can only specify precision for the fractional seconds, that is, the part shown after the seconds' decimal point below. For example, SECOND(3) would indicate milliseconds. The default is 3 digits after the decimal point, but as above this is a deviation from the standard of 6. As for the value, it takes the general form of: `[+-]'[+-]DD HH:MM:SS.SSS'` Where DD are digits indicating days, HH hours, MM minutes, and SS.SSS is seconds (adjust the number of digits appropriately if precision is explicitly specified). Not all values have to include all fields—you can trim from both front or back, but not from in the middle. So you could make it 'DD HH' or 'MM:SS.SSS', but not 'DD MM'. However you write it, though, the value must match the qualifier, as shown following: `INTERVAL '25 3' DAY to HOUR ------> legal INTERVAL '3:45:04.0' DAY TO HOUR --> illegal` As stated in the SQL spec, if the precision is not explicitly specified, it is implied to be 2. Thus: <br>• INTERVAL '120' MINUTE is an illegal interval. The legal form for the desired interval is INTERVAL '120' MINUTE(2) and <br>• INTERVAL '120' SECOND is not legal. The legal form for the desired interval is INTERVAL '120' SECOND(3). `values INTERVAL '120' MINUTE(2); Error: From line 1, column 8 to line 1, column 31: Interval field value 120 exceeds precision of MINUTE(2) field values INTERVAL '120' MINUTE(3); Conversion not supported` Also, if HOUR, MINUTE, or SECOND are not the leading field, they must fall in the following ranges (taken from Table 6 in topic 4.6.3 of the SQL:2008 foundation spec), as shown following: `HOUR: 0-23 MINUTE: 0-59 SECOND: 0-59.999` Year-month intervals are similar, except that the qualifiers are as shown following: `YEAR MONTH YEAR TO MONTH` Precision can be specified just as with DAY and HOUR, and the max of 10 and default of 2 is the same. The value format for year-month is: 'YY-MM'. If MONTH is the trailing field, it must fall in the range 0-11. `<interval qualifier> := <start field> TO <end field>  <single datetime field> <start field> := <non-second primary datetime field> [ <left paren> <interval leading field precision> <right paren> ] <end field> := <non-second primary datetime field>  SECOND [ <left paren> <interval fractional seconds precision> <right paren> ] <single datetime field> := <non-second primary datetime field> [ <left paren> <interval leading field precision> <right paren> ] SECOND [ <left paren> <interval leading field precision> [ <comma> <interval fractional seconds precision> ] <right paren> ] <primary datetime field> := <non-second primary datetime field>       SECOND <non-second primary datetime field> := YEAR  MONTH  DAY  HOUR      MINUTE <interval fractional seconds precision> := <unsigned integer> <interval leading field precision> := <unsigned integer>` |
+| Operator | Description    | Notes                                                                                                                                                                                  |
+| -------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| +        | Addition       | interval + interval = interval<br>interval + datetime = datetime<br>datetime + interval = datetime                                                                                     |
+| -        | Subtraction    | interval<br>• interval = interval<br>datetime<br>• interval = datetime<br>( <datetime><br>• <datetime> ) Date, Timestamp, and Interval<br>Operators <interval qualifier> =<br>interval |
+| \*       | Multiplication | interval \<br>• numeric = interval<br>numeric \<br>• interval = interval                                                                                                               |
+| /        | Division       | interval / numeric = interval                                                                                                                                                          |
+
+## Examples
+
+| Example | Operation                                        | Result                         |
+| ------- | ------------------------------------------------ | ------------------------------ |
+| 1       | INTERVAL '1' DAY + INTERVAL '3' DAY              | INTERVAL '4' DAY               |
+| 2       | INTERVAL '1' DAY + INTERVAL '3 4' DAY TO HOUR    | INTERVAL '+4 04' DAY TO HOUR   |
+| 3       | INTERVAL '1' DAY<br>• INTERVAL '3 4' DAY TO HOUR | INTERVAL '-2 04' DAY TO HOUR   |
+| 4       | INTERVAL '1' YEAR + INTERVAL '3-4' YEAR TO MONTH | INTERVAL '+4-04' YEAR TO MONTH |
+| 5       | 2 \<br>• INTERVAL '3 4' DAY TO HOUR              | INTERVAL '6 8' DAY TO HOUR     |
+| 6       | INTERVAL '3 4' DAY TO HOUR / 2                   | INTERVAL ' 1 14' DAY TO HOUR   |
+
+In the example 3, '3 4 DAY means 3 days and 4 hours, so the result in that row means 24
+hours minus 76 hours, resulting in minus 52 hours, which is a negative 2 days and 4
+hours.
+
+Example 4 uses TO MONTH rather than TO HOUR, so the INTERVAL specified as '3-4' means 3
+years and 4 months, or 40 months.
+
+In example 6, the "/2" applies to the INTERVAL '3 4', which is 76 hours, half of which is
+38, or 1 day and 14 hours.
+
+### Further Examples of Interval Operations
+
+Streaming SQL also supports subtracting two datetimes, giving an interval. You specify
+what kind of interval you want for the result, as shown following:
+
+```
+(<datetime> - <datetime>) <interval qualifier>
+```
+
+The following examples show operations that can be useful in Amazon Kinesis Data Analytics
+applications.
+
+###### Example 1 – Time Difference (as minutes to the nearest second or as seconds)
+
+```
+ values cast ((time  '12:03:34' - time '11:57:23') minute to second as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +6:11  
++---------+
+1 row selected
+............... 6 minutes, 11 seconds
+or
+ values cast ((time  '12:03:34' - time '11:57:23') second as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +371    
++---------+
+1 row selected
+```
+
+###### Example 2 – Time Difference (as minutes only)
+
+```
+values cast ((time  '12:03:34' - time '11:57:23') minute as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +6      
++---------+
+1 row selected
+............... 6 minutes; seconds ignored.
+values cast ((time  '12:03:23' - time '11:57:23') minute as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +6      
++---------+
+1 row selected
+............... 6 minutes
+```
+
+###### Example 3 – Time-to-Timestamp Difference (as days to the nearest second) Invalid
+
+```
+values cast ((time '12:03:34'-timestamp '2004-04-29 11:57:23') day to second as varchar(8));
+Error: From line 1, column 14 to line 1, column 79: Parameters must be of the same type
+```
+
+###### Example 4 – Timestamp difference (as days to the nearest second)
+
+```
+values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day to
+                second as varchar(8));
++-----------+
+  EXPR$0  
++-----------+
+ +2 00:06  
++-----------+
+1 row selected
+............... 2 days, 6 minutes
+............... Although "second" was specified above, the varchar(8) happens to allow
+only room enough to show only the minutes, not the seconds.
+The example below expands to varchar(11), showing the full result:
+values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day to
+                second as varchar(11));
++--------------+
+    EXPR$0    
++--------------+
+ +2 00:06:11  
++--------------+
+1 row selected
+............... 2 days, 6 minutes, 11 seconds
+```
+
+###### Example 5 – Timestamp Difference (as days to the nearest second)
+
+```
+values cast ((timestamp  '2004-05-01 1:03:34' - timestamp '2004-04-29 11:57:23') day to
+                second as varchar(11));
++--------------+
+    EXPR$0    
++--------------+
+ +1 13:06:11  
++--------------+
+1 row selected
+............... 1 day, 13 hours, 6 minutes, 11 seconds
+values cast ((timestamp  '2004-05-01 13:03:34' - timestamp '2004-04-29 11:57:23') day to
+                second as varchar(11));
++--------------+
+    EXPR$0    
++--------------+
+ +2 01:06:11  
++--------------+
+1 row selected
+............... 2 days, 1 hour, 6 minutes, 11 seconds
+```
+
+###### Example 6 – Timestamp Difference (as days)
+
+```
+values cast ((timestamp  '2004-05-01 12:03:34' - timestamp '2004-04-29 11:57:23') day
+                as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +2      
++---------+
+1 row selected
+............... 2 days
+```
+
+###### Example 7 – Time Difference (as days)
+
+```
+values cast ((date '2004-12-02 ' - date '2003-12-01 ') day  as varchar(8));
+Error: Illegal DATE literal '2004-12-02 ': not in format 'yyyy-MM-dd'
+.............. Both date literals end with a space;  disallowed.
+values cast ((date '2004-12-02' - date '2003-12-01 ') day  as varchar(8));
+Error: Illegal DATE literal '2003-12-01 ': not in format 'yyyy-MM-dd'
+.............. Second date literal still ends with a space;  disallowed.
+values cast ((date '2004-12-02' - date '2003-12-01') day  as varchar(8));
++---------+
+ EXPR$0  
++---------+
+ +367    
++---------+
+1 row selected
+............... 367 days
+```
+
+###### Example 8 – Not Supported (Simple Difference of Dates)
+
+If you don't specify "day" as the intended unit, as shown following, the subtraction is
+not supported.
+
+```
+     values cast ((date '2004-12-02' - date '2003-12-01') as varchar(8));
+     Error: From line 1, column 15 to line 1, column 51:
+            Cannot apply '-' to arguments of type '<DATE> - <DATE>'.
+     Supported form(s): '<NUMERIC> - <NUMERIC>'
+                        '<DATETIME_INTERVAL> - <DATETIME_INTERVAL>'
+                        '<DATETIME> - <DATETIME_INTERVAL>'
+```
+
+### Why Use "as varchar" in Conversion Examples?
+
+The reason for using the "values cast (<expression> AS varchar(N))" syntax in the
+examples above is that while the SQLline client used above (with Amazon Kinesis Data Analytics running) does
+return an interval, JDBC does not support returning that result so as to display it.
+Therefore, that "values" syntax is used to see/show it.
+
+If you close the Amazon Kinesis Data Analytics (with a !kill command) or if you don't start it before running
+SQLline, then you can run the sqllineEngine (rather than the sqllineClient) from the bin
+subdirectory of your Amazon Kinesis Data Analytics home, which can show your results without the Amazon Kinesis Data Analytics
+application or JDBC:
+
+### Rules for Specifying Intervals
+
+A Day-Time Interval Literal is a string that denotes a single interval value: for example
+'10' SECONDS. Note it has two parts: the value (which must always be in single-quotes) and the
+qualifier (here, SECONDS), which give the units for the value.
+
+The qualifier takes the following form:
+
+```
+DAY  HOUR  MINUTE  SECOND [TO HOUR  MINUTE  SECOND]
+```
+
+###### Note
+
+YEAR TO MONTH intervals require a dash separating the values, whereas DAY TO HOUR
+intervals use a space to separate the values, as seen in the 2nd, 3rd, 5th, and 6th examples
+in that topic.
+
+In addition, the leading term has to be of greater significance than the optional trailing
+term, so this means you can only specify:
+
+```
+  DAY
+  HOUR
+  MINUTE
+  SECOND
+  DAY TO HOUR
+  DAY TO MINUTE
+  DAY TO SECOND
+  HOUR TO MINUTE
+  HOUR TO SECOND
+  MINUTE TO SECOND
+
+```
+
+The easiest way to understand these may be to translate X TO Y as "Xs to the nearest Y".
+Hence, DAY TO HOUR is "days to the nearest hour".
+
+When DAY, HOUR, or MINUTE is the leading term, you can specify a precision, e.g., DAY(3)
+TO HOUR, indicating the number of digits the associated field in the value can have. The
+maximum precision is 10, and the default is 2. You can't specify precision for HOUR, OR MINUTE
+in the trailing term - they are always of precision 2. So for example, HOUR(3) TO MINUTE is
+legal, HOUR TO MINUTE(3) is not.
+
+SECOND can also take a precision, but the way it is specified differs depending on whether
+it is the leading or trailing field.
+
+- If SECOND is the leading field, you can specify the digits before and after the
+  decimal point. For example, SECOND(3,3) would allow you to specify up to 999.999 seconds.
+  The default is (2,3), which is actually a deviation from the SQL:2008 spec (it should be
+  (2,6), but we only have millisecond precision).
+- If SECOND is the trailing field, you can only specify precision for the fractional
+  seconds, that is, the part shown after the seconds' decimal point below. For example,
+  SECOND(3) would indicate milliseconds. The default is 3 digits after the decimal point,
+  but as above this is a deviation from the standard of 6.
+
+As for the value, it takes the general form of:
+
+```
+  [+-]'[+-]DD HH:MM:SS.SSS'
+
+```
+
+Where DD are digits indicating days, HH hours, MM minutes, and SS.SSS is seconds (adjust
+the number of digits appropriately if precision is explicitly specified).
+
+Not all values have to include all fields—you can trim from both front or back, but not
+from in the middle. So you could make it 'DD HH' or 'MM:SS.SSS', but not 'DD MM'.
+
+However you write it, though, the value must match the qualifier, as shown following:
+
+```
+INTERVAL '25 3' DAY to HOUR ------> legal
+INTERVAL '3:45:04.0' DAY TO HOUR --> illegal
+
+```
+
+As stated in the SQL spec, if the precision is not explicitly specified, it is implied to
+be 2. Thus:
+
+- INTERVAL '120' MINUTE is an illegal interval. The legal form for the desired interval
+  is INTERVAL '120' MINUTE(2)
+
+and
+
+- INTERVAL '120' SECOND is not legal. The legal form for the desired interval is
+  INTERVAL '120' SECOND(3).
+
+```
+   values INTERVAL '120' MINUTE(2);
+   Error: From line 1, column 8 to line 1, column 31:
+                       Interval field value 120 exceeds precision of MINUTE(2) field
+   values INTERVAL '120' MINUTE(3);
+   Conversion not supported
+
+```
+
+Also, if HOUR, MINUTE, or SECOND are not the leading field, they must fall in the
+following ranges (taken from Table 6 in topic 4.6.3 of the SQL:2008 foundation spec), as shown following:
+
+```
+  HOUR: 0-23
+  MINUTE: 0-59
+  SECOND: 0-59.999
+
+```
+
+Year-month intervals are similar, except that the qualifiers are as shown following:
+
+```
+  YEAR
+  MONTH
+  YEAR TO MONTH
+```
+
+Precision can be specified just as with DAY and HOUR, and the max of 10 and default of 2
+is the same.
+
+The value format for year-month is: 'YY-MM'. If MONTH is the trailing field, it must fall
+in the range 0-11.
+
+```
+<interval qualifier> := <start field> TO <end field>  <single datetime field>
+
+<start field> := <non-second primary datetime field> [ <left paren> <interval leading field precision> <right paren> ]
+
+<end field> := <non-second primary datetime field>  SECOND [ <left paren> <interval fractional seconds precision> <right paren> ]
+
+<single datetime field> := <non-second primary datetime field> [ <left paren> <interval leading field precision> <right paren> ]
+   SECOND [ <left paren> <interval leading field precision>
+           [ <comma> <interval fractional seconds precision> ] <right paren> ]
+<primary datetime field> := <non-second primary datetime field>       SECOND
+<non-second primary datetime field> := YEAR  MONTH  DAY  HOUR      MINUTE
+<interval fractional seconds precision> := <unsigned integer>
+<interval leading field precision> := <unsigned integer>
+```

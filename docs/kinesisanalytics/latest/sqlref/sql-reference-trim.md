@@ -15,11 +15,11 @@ If either input is null, null is returned.
 
 ## Examples
 
-| Function                                       | Result                  |
-| ---------------------------------------------- | ----------------------- |
-| `TRIM(' Trim front and back ')`                | `'Trim front and back'` |
-| `TRIM (BOTH FROM ' Trim front and back ')`     | `'Trim front and back'` |
-| `TRIM (BOTH ' ' FROM ' Trim front and back ')` | `'Trim front and back'` |
-| `TRIM (LEADING 'x' FROM 'xxxTrim frontxxx')`   | `'Trim frontxxx'`       |
-| `TRIM (TRAILING 'x' FROM 'xxxTrimxBackxxx')`   | `'xxxTrimxBack'`        |
-| `TRIM (BOTH 'y' FROM 'xxxNo y to trimxxx')`    | `'xxxNo y to trimxxx'`  |
+| Function                                               | Result                  |
+| ------------------------------------------------------ | ----------------------- |
+| `<br>TRIM(' Trim front and back ')<br>`                | `'Trim front and back'` |
+| `<br>TRIM (BOTH FROM ' Trim front and back ')<br>`     | `'Trim front and back'` |
+| `<br>TRIM (BOTH ' ' FROM ' Trim front and back ')<br>` | `'Trim front and back'` |
+| `<br>TRIM (LEADING 'x' FROM 'xxxTrim frontxxx')<br>`   | `'Trim frontxxx'`       |
+| `<br>TRIM (TRAILING 'x' FROM 'xxxTrimxBackxxx')<br>`   | `'xxxTrimxBack'`        |
+| `<br>TRIM (BOTH 'y' FROM 'xxxNo y to trimxxx')<br>`    | `'xxxNo y to trimxxx'`  |

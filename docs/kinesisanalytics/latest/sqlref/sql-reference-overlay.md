@@ -26,7 +26,7 @@ If any of the input arguments are null, the result is null.
 ## Examples
 
 | Function                                     | Result   |
-| -------------------------------------------- | -------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------- | -------- |
 | OVERLAY ('12345' PLACING 'foo' FROM 1)       | foo45    |
 | OVERLAY ('12345' PLACING 'foo' FROM 0)       | foo345   |
 | OVERLAY ('12345' PLACING 'foo' FROM -2)      | foo12345 |
@@ -34,4 +34,8 @@ If any of the input arguments are null, the result is null.
 | OVERLAY ('12345' PLACING 'foo' FROM 17)      | 12345foo |
 | OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 0) | 1foo2345 |
 | OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 2) | 1foo45   |
-| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 9) | 1foo     | ## Limitations Amazon Kinesis Data Analytics does not support the optional USING CHARACTERS | OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. Strict SQL:2008 also requires that a start position less than 1 return a null result, rather than the behavior described above. These are departures from the standard. |
+| OVERLAY ('12345' PLACING 'foo' FROM 2 FOR 9) | 1foo     |
+
+## Limitations
+
+Amazon Kinesis Data Analytics does not support the optional USING CHARACTERS | OCTETS clause defined in SQL:2008; USING CHARACTERS is simply assumed. Strict SQL:2008 also requires that a start position less than 1 return a null result, rather than the behavior described above. These are departures from the standard.
