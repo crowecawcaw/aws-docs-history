@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Assigning parameter policies in
 
 Parameter Store
@@ -33,8 +36,331 @@ assign a policy when you create a new advanced parameter, or you can apply a pol
 by updating a parameter. Parameter Store supports the following types of parameter
 policies.
 
-| Policy                     | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Examples                                                                                                   |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Expiration**             | This policy deletes the parameter. You can specify a specific date and time by using either the `ISO_INSTANT` format or the `ISO_OFFSET_DATE_TIME` format. To change when you want the parameter to be deleted, update the policy. Updating a _parameter_ doesn't affect the expiration date or time of the policy attached to it. When the expiration date and time is reached, Parameter Store deletes the parameter. NoteThis example uses the `ISO_INSTANT` format. You can also specify a date and time by using the `ISO_OFFSET_DATE_TIME` format. Here is an example: `2019-11-01T22:13:48.87+10:30:00` . | `{ "Type": "Expiration", "Version": "1.0", "Attributes": { "Timestamp": "2018-12-02T21:34:33.000Z" } }`    |
-| **ExpirationNotification** | This policy initiates an event in Amazon EventBridge (EventBridge) that notifies you about the expiration. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours.                                                                                                                                                                                                                                                                                                                                                                                 | `{ "Type": "ExpirationNotification", "Version": "1.0", "Attributes": { "Before": "15", "Unit": "Days" } }` |
-| **NoChangeNotification**   | This policy initiates an event in EventBridge if a parameter has _not_ been modified for a specified period of time. This policy type is useful when, for example, a password needs to be changed within a period of time. This policy determines when to send a notification by reading the `LastModifiedTime` attribute of the parameter. If you change or edit a parameter, the system resets the notification time period based on the new value of `LastModifiedTime`.                                                                                                                                      | `{ "Type": "NoChangeNotification", "Version": "1.0", "Attributes": { "After": "20", "Unit": "Days" } }`    | You can assign multiple policies to a parameter. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system initiates an EventBridge event to notify you about the impending deletion of a parameter. You can assign a maximum of ten (10) policies to a parameter. The following example shows the request syntax for a [PutParameter](../APIReference/API_PutParameter.md "../APIReference/API_PutParameter.md") API request that assigns four policies to a new `SecureString` parameter named `ProdDB3`. `{ "Name": "ProdDB3", "Description": "Parameter with policies", "Value": "P@ssW*rd21", "Type": "SecureString", "Overwrite": "True", "Policies": [ { "Type": "Expiration", "Version": "1.0", "Attributes": { "Timestamp": "2018-12-02T21:34:33.000Z" } }, { "Type": "ExpirationNotification", "Version": "1.0", "Attributes": { "Before": "30", "Unit": "Days" } }, { "Type": "ExpirationNotification", "Version": "1.0", "Attributes": { "Before": "15", "Unit": "Days" } }, { "Type": "NoChangeNotification", "Version": "1.0", "Attributes": { "After": "20", "Unit": "Days" } } ] }` ## Adding policies to an existing parameter This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS Tools for Windows PowerShell . For information about how to create a new parameter that includes policies, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md"). ###### Topics <br>• [Adding policies to an existing parameter using the console](#sysman-paramstore-policy-create-console "#sysman-paramstore-policy-create-console") <br>• [Adding policies to an existing parameter using the AWS CLI](#sysman-paramstore-policy-create-cli "#sysman-paramstore-policy-create-cli") <br>• [Adding policies to an existing parameter (Tools for Windows PowerShell)](#sysman-paramstore-policy-create-ps "#sysman-paramstore-policy-create-ps") ### Adding policies to an existing parameter using the console Use the following procedure to add policies to an existing parameter by using the Systems Manager console. ###### To add policies to an existing parameter 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/"). 2. In the navigation pane, choose **Parameter Store**. 3. Choose the option next to the parameter that you want to update to include policies, and then choose **Edit**. 4. Choose **Advanced**. 5. (Optional) In the **Parameter policies** section, choose **Enabled**. You can specify an expiration date and one or more notification policies for this parameter. 6. Choose **Save changes**. ###### Important <br>• Parameter Store preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies. <br>• To remove all policies from an existing parameter, edit the parameter and apply an empty policy by using brackets and curly braces, as follows: `[{}]` <br>• If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter. The existing policies are deleted. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes. ### Adding policies to an existing parameter using the AWS CLI Use the following procedure to add policies to an existing parameter by using the AWS CLI. ###### To add policies to an existing parameter 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already. For information, see [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to add policies to an existing parameter. Replace each `example resource placeholder` with your own information. Linux & macOS ``aws ssm put-parameter --name "`parameter name`" \ --value '`parameter value`' \ --type `parameter type` \ --overwrite \ --policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]"`` Windows ``aws ssm put-parameter --name "`parameter name`" ^ --value '`parameter value`' ^ --type `parameter type` ^ --overwrite ^ --policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]"`` Here is an example that includes an expiration policy that deletes the parameter after 15 days. The example also includes a notification policy that generates an EventBridge event five (5) days before the parameter is deleted. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days. The example uses an obfuscated name (`3l3vat3131`) for a password and an AWS Key Management Service AWS KMS key. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") in the _AWS Key Management Service Developer Guide_. Linux & macOS `aws ssm put-parameter \ --name "/Finance/Payroll/3l3vat3131" \ --value "P@sSwW)rd" \ --type "SecureString" \ --overwrite \ --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"` Windows `aws ssm put-parameter ^ --name "/Finance/Payroll/3l3vat3131" ^ --value "P@sSwW)rd" ^ --type "SecureString" ^ --overwrite ^ --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"` 3. Run the following command to verify the details of the parameter. Replace `parameter name` with your own information. Linux & macOS ``aws ssm describe-parameters  \ --parameter-filters "Key=Name,Values=`parameter name`"`` Windows ``aws ssm describe-parameters  ^ --parameter-filters "Key=Name,Values=`parameter name`"`` ###### Important <br>• Parameter Store retains policies for a parameter until you either overwrite the policies with new policies or remove the policies. <br>• To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces. Replace each `example resource placeholder` with your own information. For example: Linux & macOS ``aws ssm put-parameter \ --name `parameter name` \ --type `parameter type`  \ --value '`parameter value`' \ --policies "[{}]"`` Windows ``aws ssm put-parameter ^ --name `parameter name` ^ --type `parameter type`  ^ --value '`parameter value`' ^ --policies "[{}]"`` <br>• If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter. The existing policies are deleted. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes. ### Adding policies to an existing parameter (Tools for Windows PowerShell) Use the following procedure to add policies to an existing parameter by using Tools for Windows PowerShell. Replace each `example resource placeholder` with your own information. ###### To add policies to an existing parameter 1. Open Tools for Windows PowerShell and run the following command to specify your credentials. You must either have administrator permissions in Amazon Elastic Compute Cloud (Amazon EC2), or you must have been granted the appropriate permission in AWS Identity and Access Management (IAM). `` Set-AWSCredentials ` –AccessKey `access-key-name` ` –SecretKey `secret-key-name` `` 2. Run the following command to set the Region for your PowerShell session. The example uses the US East (Ohio) Region (us-east-2). ``Set-DefaultAWSRegion ` -Region us-east-2`` 3. Run the following command to add policies to an existing parameter. Replace each `example resource placeholder` with your own information. ``Write-SSMParameter ` -Name "`parameter name`" ` -Value "`parameter value`" ` -Type "`parameter type`" ` -Policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]" ` -Overwrite`` Here is an example that includes an expiration policy that deletes the parameter at midnight (GMT) on May 13, 2020. The example also includes a notification policy that generates an EventBridge event five (5) days before the parameter is deleted. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days. The example uses an obfuscated name (`3l3vat3131`) for a password and an AWS managed key. ``Write-SSMParameter ` -Name "/Finance/Payroll/3l3vat3131" ` -Value "P@sSwW)rd" ` -Type "SecureString" ` -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" ` -Overwrite`` 4. Run the following command to verify the details of the parameter. Replace `parameter name` with your own information. ``(Get-SSMParameterValue -Name "`parameter name`").Parameters`` ###### Important <br>• Parameter Store preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies. <br>• To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces. For example: ``Write-SSMParameter ` -Name "`parameter name`" ` -Value "`parameter value`" ` -Type "`parameter type`" ` -Policies "[{}]"`` <br>• If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter. The existing policies are deleted. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes. |
+| Policy                     | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Examples                                                                                                                                |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Expiration**             | This policy deletes the parameter. You can specify a specific<br>date and time by using either the `ISO_INSTANT`<br>format or the `ISO_OFFSET_DATE_TIME` format. To<br>change when you want the parameter to be deleted, update the<br>policy. Updating a \*parameter<br>• doesn't affect<br>the expiration date or time of the policy attached to it. When<br>the expiration date and time is reached, Parameter Store deletes the<br>parameter.<br>NoteThis example uses the `ISO_INSTANT` format. You<br>can also specify a date and time by using the<br>`ISO_OFFSET_DATE_TIME` format. Here is an<br>example: `2019-11-01T22:13:48.87+10:30:00`<br>. | `<br>{<br>"Type": "Expiration",<br>"Version": "1.0",<br>"Attributes": {<br>"Timestamp": "2018-12-02T21:34:33.000Z"<br>}<br>}<br>`       |
+| **ExpirationNotification** | This policy initiates an event in Amazon EventBridge (EventBridge) that<br>notifies you about the expiration. By using this policy, you can<br>receive notifications before the expiration time is reached, in<br>units of days or hours.                                                                                                                                                                                                                                                                                                                                                                                                                 | `<br>{<br>"Type": "ExpirationNotification",<br>"Version": "1.0",<br>"Attributes": {<br>"Before": "15",<br>"Unit": "Days"<br>}<br>}<br>` |
+| **NoChangeNotification**   | This policy initiates an event in EventBridge if a parameter has<br>\*not<br>• been modified for a specified<br>period of time. This policy type is useful when, for example, a<br>password needs to be changed within a period of time.<br>This policy determines when to send a notification by reading<br>the `LastModifiedTime` attribute of the parameter. If<br>you change or edit a parameter, the system resets the<br>notification time period based on the new value of<br>`LastModifiedTime`.                                                                                                                                                  | `<br>{<br>"Type": "NoChangeNotification",<br>"Version": "1.0",<br>"Attributes": {<br>"After": "20",<br>"Unit": "Days"<br>}<br>}<br>`    |
+
+You can assign multiple policies to a parameter. For example, you can assign
+`Expiration` and `ExpirationNotification` policies so that
+the system initiates an EventBridge event to notify you about the impending deletion of a
+parameter. You can assign a maximum of ten (10) policies to a parameter.
+
+The following example shows the request syntax for a [PutParameter](../APIReference/API_PutParameter.md "../APIReference/API_PutParameter.md") API request that
+assigns four policies to a new `SecureString` parameter named
+`ProdDB3`.
+
+```
+{
+    "Name": "ProdDB3",
+    "Description": "Parameter with policies",
+    "Value": "P@ssW*rd21",
+    "Type": "SecureString",
+    "Overwrite": "True",
+    "Policies": [
+        {
+            "Type": "Expiration",
+            "Version": "1.0",
+            "Attributes": {
+                "Timestamp": "2018-12-02T21:34:33.000Z"
+            }
+        },
+        {
+            "Type": "ExpirationNotification",
+            "Version": "1.0",
+            "Attributes": {
+                "Before": "30",
+                "Unit": "Days"
+            }
+        },
+        {
+            "Type": "ExpirationNotification",
+            "Version": "1.0",
+            "Attributes": {
+                "Before": "15",
+                "Unit": "Days"
+            }
+        },
+        {
+            "Type": "NoChangeNotification",
+            "Version": "1.0",
+            "Attributes": {
+                "After": "20",
+                "Unit": "Days"
+            }
+        }
+    ]
+}
+```
+
+## Adding policies to an
+
+existing parameter
+
+This section includes information about how to add policies to an existing
+parameter by using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS Tools for Windows PowerShell .
+For information about how to create a new parameter that includes policies, see
+[Creating Parameter Store parameters in
+Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+
+###### Topics
+
+- [Adding policies to
+  an existing parameter using the console](#sysman-paramstore-policy-create-console "#sysman-paramstore-policy-create-console")
+- [Adding policies to an
+  existing parameter using the AWS CLI](#sysman-paramstore-policy-create-cli "#sysman-paramstore-policy-create-cli")
+- [Adding policies to an
+  existing parameter (Tools for Windows PowerShell)](#sysman-paramstore-policy-create-ps "#sysman-paramstore-policy-create-ps")
+
+### Adding policies to
+
+an existing parameter using the console
+
+Use the following procedure to add policies to an existing parameter by
+using the Systems Manager console.
+
+###### To add policies to an existing parameter
+
+1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
+2. In the navigation pane, choose **Parameter Store**.
+3. Choose the option next to the parameter that you want to update to
+   include policies, and then choose **Edit**.
+4. Choose **Advanced**.
+5. (Optional) In the **Parameter policies** section,
+   choose **Enabled**. You can specify an expiration
+   date and one or more notification policies for this
+   parameter.
+6. Choose **Save changes**.
+
+###### Important
+
+- Parameter Store preserves policies on a parameter until you either
+  overwrite the policies with new policies or remove the policies.
+- To remove all policies from an existing parameter, edit the
+  parameter and apply an empty policy by using brackets and curly
+  braces, as follows: `[{}]`
+- If you add a new policy to a parameter that already has
+  policies, then Systems Manager overwrites the policies attached to the
+  parameter. The existing policies are deleted. If you want to add
+  a new policy to a parameter that already has one or more
+  policies, copy and paste the original policies, type the new
+  policy, and then save your changes.
+
+### Adding policies to an
+
+existing parameter using the AWS CLI
+
+Use the following procedure to add policies to an existing parameter by
+using the AWS CLI.
+
+###### To add policies to an existing parameter
+
+1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
+
+For information, see [Installing or updating the
+latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). 2. Run the following command to add policies to an existing
+parameter. Replace each `example resource
+ placeholder` with your own information.
+
+Linux & macOS
+
+```
+aws ssm put-parameter
+    --name "`parameter name`" \
+    --value '`parameter value`' \
+    --type `parameter type` \
+    --overwrite \
+    --policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]"
+```
+
+Windows
+
+```
+aws ssm put-parameter
+    --name "`parameter name`" ^
+    --value '`parameter value`' ^
+    --type `parameter type` ^
+    --overwrite ^
+    --policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]"
+
+```
+
+Here is an example that includes an expiration policy that deletes
+the parameter after 15 days. The example also includes a
+notification policy that generates an EventBridge event five (5) days
+before the parameter is deleted. Last, it includes a
+`NoChangeNotification` policy if no changes are made
+to this parameter after 60 days. The example uses an obfuscated name
+(`3l3vat3131`) for a password and an AWS Key Management Service
+AWS KMS key. For more information about AWS KMS keys, see
+[AWS Key Management Service Concepts](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") in the
+_AWS Key Management Service Developer Guide_.
+
+Linux & macOS
+
+```
+aws ssm put-parameter \
+    --name "/Finance/Payroll/3l3vat3131" \
+    --value "P@sSwW)rd" \
+    --type "SecureString" \
+    --overwrite \
+    --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
+```
+
+Windows
+
+```
+aws ssm put-parameter ^
+    --name "/Finance/Payroll/3l3vat3131" ^
+    --value "P@sSwW)rd" ^
+    --type "SecureString" ^
+    --overwrite ^
+    --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
+```
+
+3. Run the following command to verify the details of the parameter.
+   Replace `parameter name` with your own
+   information.
+
+Linux & macOS
+
+```
+aws ssm describe-parameters  \
+    --parameter-filters "Key=Name,Values=`parameter name`"
+```
+
+Windows
+
+```
+aws ssm describe-parameters  ^
+    --parameter-filters "Key=Name,Values=`parameter name`"
+```
+
+###### Important
+
+- Parameter Store retains policies for a parameter until you either
+  overwrite the policies with new policies or remove the policies.
+- To remove all policies from an existing parameter, edit the
+  parameter and apply an empty policy of brackets and curly
+  braces. Replace each `example resource
+placeholder` with your own information. For
+  example:
+
+Linux & macOS
+
+```
+aws ssm put-parameter \
+    --name `parameter name` \
+    --type `parameter type`  \
+    --value '`parameter value`' \
+    --policies "[{}]"
+```
+
+Windows
+
+```
+aws ssm put-parameter ^
+    --name `parameter name` ^
+    --type `parameter type`  ^
+    --value '`parameter value`' ^
+    --policies "[{}]"
+```
+
+- If you add a new policy to a parameter that already has
+  policies, then Systems Manager overwrites the policies attached to the
+  parameter. The existing policies are deleted. If you want to add
+  a new policy to a parameter that already has one or more
+  policies, copy and paste the original policies, type the new
+  policy, and then save your changes.
+
+### Adding policies to an
+
+existing parameter (Tools for Windows PowerShell)
+
+Use the following procedure to add policies to an existing parameter by
+using Tools for Windows PowerShell. Replace each `example resource
+ placeholder` with your own information.
+
+###### To add policies to an existing parameter
+
+1. Open Tools for Windows PowerShell and run the following command to specify your
+   credentials. You must either have administrator permissions in
+   Amazon Elastic Compute Cloud (Amazon EC2), or you must have been granted the appropriate
+   permission in AWS Identity and Access Management (IAM).
+
+```
+Set-AWSCredentials `
+    –AccessKey `access-key-name` `
+    –SecretKey `secret-key-name`
+```
+
+2. Run the following command to set the Region for your PowerShell
+   session. The example uses the US East (Ohio) Region (us-east-2).
+
+```
+Set-DefaultAWSRegion `
+    -Region us-east-2
+```
+
+3. Run the following command to add policies to an existing
+   parameter. Replace each `example resource
+placeholder` with your own information.
+
+```
+Write-SSMParameter `
+    -Name "`parameter name`" `
+    -Value "`parameter value`" `
+    -Type "`parameter type`" `
+    -Policies "[{`policies-enclosed-in-brackets-and-curly-braces`}]" `
+    -Overwrite
+```
+
+Here is an example that includes an expiration policy that deletes
+the parameter at midnight (GMT) on May 13, 2020. The example also
+includes a notification policy that generates an EventBridge event five (5)
+days before the parameter is deleted. Last, it includes a
+`NoChangeNotification` policy if no changes are made
+to this parameter after 60 days. The example uses an obfuscated name
+(`3l3vat3131`) for a password and an
+AWS managed key.
+
+```
+Write-SSMParameter `
+    -Name "/Finance/Payroll/3l3vat3131" `
+    -Value "P@sSwW)rd" `
+    -Type "SecureString" `
+    -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" `
+    -Overwrite
+```
+
+4. Run the following command to verify the details of the parameter.
+   Replace `parameter name` with your own
+   information.
+
+```
+(Get-SSMParameterValue -Name "`parameter name`").Parameters
+```
+
+###### Important
+
+- Parameter Store preserves policies on a parameter until you either
+  overwrite the policies with new policies or remove the policies.
+- To remove all policies from an existing parameter, edit the
+  parameter and apply an empty policy of brackets and curly
+  braces. For example:
+
+```
+Write-SSMParameter `
+    -Name "`parameter name`" `
+    -Value "`parameter value`" `
+    -Type "`parameter type`" `
+    -Policies "[{}]"
+```
+
+- If you add a new policy to a parameter that already has
+  policies, then Systems Manager overwrites the policies attached to the
+  parameter. The existing policies are deleted. If you want to add
+  a new policy to a parameter that already has one or more
+  policies, copy and paste the original policies, type the new
+  policy, and then save your changes.

@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Getting started with Systems Manager Explorer and OpsCenter
 
 AWS Systems Manager uses an integrated setup experience to help you get started with Systems Manager

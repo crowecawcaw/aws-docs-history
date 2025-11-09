@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Diagnosing and remediating
 
 Using the unified Systems Manager console, you can identify problems across your fleet in a single

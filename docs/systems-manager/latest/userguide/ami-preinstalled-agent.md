@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Find AMIs with the SSM Agent
 
 preinstalled
@@ -58,19 +61,110 @@ on [Linux,](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linu
 3. Check the status of SSM Agent by running the command for your instance's
    operating system type.
 
-| Operating system                     | Command                                                                                                                                                                    |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Linux 2 and Amazon Linux 2023 | `sudo systemctl status amazon-ssm-agent`                                                                                                                                   |
-| macOS                                | There is no command to check SSM Agent status on macOS. You can check the status by locating and evaluating the agent log file `/var/log/amazon/ssm/amazon-ssm-agent.log`. |
-| SUSE Linux Enterprise Server         | `sudo systemctl status amazon-ssm-agent`                                                                                                                                   |
-| Ubuntu Server (64-bit - Deb)         | `sudo systemctl status amazon-ssm-agent`                                                                                                                                   |
-| Ubuntu Server (64-bit - Snap)        | `sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service`                                                                                                     |
-| Windows Server                       | `Get-Service AmazonSSMAgent`                                                                                                                                               | ###### Tip To view the commands for checking SSM Agent status on all operating system types supported by Systems Manager, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md"). 4. Evaluate the command output to learn the status of the SSM Agent. ###### Status: _Installed and running_ In most cases, the command output indicates that the agent is installed and running. The following example shows that SSM Agent is installed and running on an Amazon Linux 2 instance. `amazon-ssm-agent.service - amazon-ssm-agent Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: enabled) Active: active (running) since Wed 2021-10-20 19:09:29 UTC; 4min 6s ago --truncated--` The following example shows that SSM Agent is installed and running on a Windows Server instance. `Status   Name               DisplayName ------   ----               ----------- Running  AmazonSSMAgent     Amazon SSM Agent` ###### Status: _Installed but not running_ In some cases, the command output indicates that the agent is installed but not running. The following example shows that SSM Agent is installed but not running on an Amazon Linux 2 instance. `amazon-ssm-agent.service - amazon-ssm-agent Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: enabled) Active: inactive (dead) since Wed 2021-10-20 22:16:41 UTC; 18s ago --truncated--` The following example shows that SSM Agent is installed but not running on a Windows Server instance. `Status   Name               DisplayName ------   ----               ----------- Stopped  AmazonSSMAgent     Amazon SSM Agent` If the agent is installed but not running, you can activate it manually using the commands for your instance's operating system type. |
-| Operating system                     | Command                                                                                                                                                                    |
-| ---                                  | ---                                                                                                                                                                        |
-| Amazon Linux 2 and Amazon Linux 2023 | `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`                                                                                           |
-| macOS                                | `sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist` `sudo launchctl start com.amazon.aws.ssm`                                                         |
-| SUSE Linux Enterprise Server         | `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`                                                                                           |
-| Ubuntu Server (64-bit - Deb)         | `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`                                                                                           |
-| Ubuntu Server (64-bit - Snap)        | `sudo snap start amazon-ssm-agent`                                                                                                                                         |
-| Windows Server                       | Run the following command in PowerShell. `Start-Service AmazonSSMAgent`                                                                                                    | ###### Status: _Not installed_ In some cases, the command output indicates that the agent is not installed. The following example shows that SSM Agent is not installed on an Amazon Linux 2 instance. `Unit amazon-ssm-agent.service could not be found.` The following example shows that SSM Agent is not installed on a Windows Server instance. `Get-Service : Cannot find any service with service name 'AmazonSSMAgent'. --truncated--` If the agent isn't installed, you can install it manually using the procedure for your operating system type: <br>• [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md") <br>• [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md") <br>• [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Operating system                     | Command                                                                                                                                                                             |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Linux 2 and Amazon Linux 2023 | `sudo systemctl status<br>amazon-ssm-agent`                                                                                                                                         |
+| macOS                                | There is no command to check SSM Agent status on macOS.<br>You can check the status by locating and evaluating the<br>agent log file<br>`/var/log/amazon/ssm/amazon-ssm-agent.log`. |
+| SUSE Linux Enterprise Server         | `sudo systemctl status<br>amazon-ssm-agent`                                                                                                                                         |
+| Ubuntu Server (64-bit<br>• Deb)      | `sudo systemctl status<br>amazon-ssm-agent`                                                                                                                                         |
+| Ubuntu Server (64-bit<br>• Snap)     | `sudo systemctl status<br>snap.amazon-ssm-agent.amazon-ssm-agent.service`                                                                                                           |
+| Windows Server                       | `Get-Service AmazonSSMAgent`                                                                                                                                                        |
+
+###### Tip
+
+To view the commands for checking SSM Agent status on all operating
+system types supported by Systems Manager, see [Checking SSM Agent status and starting the
+agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md"). 4. Evaluate the command output to learn the status of the SSM Agent.
+
+###### Status: _Installed and running_
+
+In most cases, the command output indicates that the agent is
+installed and running.
+
+The following example shows that SSM Agent is installed and running on an
+Amazon Linux 2 instance.
+
+```
+amazon-ssm-agent.service - amazon-ssm-agent
+Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: enabled)
+Active: active (running) since Wed 2021-10-20 19:09:29 UTC; 4min 6s ago
+--truncated--
+
+```
+
+The following example shows that SSM Agent is installed and running on a
+Windows Server instance.
+
+```
+Status   Name               DisplayName
+------   ----               -----------
+Running  AmazonSSMAgent     Amazon SSM Agent
+```
+
+###### Status: _Installed but not running_
+
+In some cases, the command output indicates that the agent is
+installed but not running.
+
+The following example shows that SSM Agent is installed but not running on
+an Amazon Linux 2 instance.
+
+```
+amazon-ssm-agent.service - amazon-ssm-agent
+Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor preset: enabled)
+Active: inactive (dead) since Wed 2021-10-20 22:16:41 UTC; 18s ago
+--truncated--
+
+```
+
+The following example shows that SSM Agent is installed but not running on
+a Windows Server instance.
+
+```
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  AmazonSSMAgent     Amazon SSM Agent
+
+```
+
+If the agent is installed but not running, you can activate it manually
+using the commands for your instance's operating system type.
+
+| Operating system                     | Command                                                                                                                     |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Linux 2 and Amazon Linux 2023 | `sudo systemctl enable<br>amazon-ssm-agent`<br>`sudo systemctl start<br>amazon-ssm-agent`                                   |
+| macOS                                | `sudo launchctl load -w<br>/Library/LaunchDaemons/com.amazon.aws.ssm.plist`<br>`sudo launchctl start<br>com.amazon.aws.ssm` |
+| SUSE Linux Enterprise Server         | `sudo systemctl enable<br>amazon-ssm-agent`<br>`sudo systemctl start<br>amazon-ssm-agent`                                   |
+| Ubuntu Server (64-bit<br>• Deb)      | `sudo systemctl enable<br>amazon-ssm-agent`<br>`sudo systemctl start<br>amazon-ssm-agent`                                   |
+| Ubuntu Server (64-bit<br>• Snap)     | `sudo snap start amazon-ssm-agent`                                                                                          |
+| Windows Server                       | Run the following command in PowerShell.<br>`Start-Service AmazonSSMAgent`                                                  |
+
+###### Status: _Not installed_
+
+In some cases, the command output indicates that the agent is not
+installed.
+
+The following example shows that SSM Agent is not installed on an Amazon Linux 2
+instance.
+
+```
+Unit amazon-ssm-agent.service could not be found.
+```
+
+The following example shows that SSM Agent is not installed on a Windows Server
+instance.
+
+```
+Get-Service : Cannot find any service with service name 'AmazonSSMAgent'.
+--truncated--
+```
+
+If the agent isn't installed, you can install it manually using the
+procedure for your operating system type:
+
+    * [Manually installing and
+     uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+    * [Manually installing and
+     uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
+    * [Manually installing and
+     uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")

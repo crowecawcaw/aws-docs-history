@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Tutorial: View information about
 
 tasks and task executions using the AWS CLI

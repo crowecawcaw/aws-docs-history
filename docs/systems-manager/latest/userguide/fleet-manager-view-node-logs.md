@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Viewing logs on managed nodes
 
 You can use Fleet Manager, a tool in AWS Systems Manager, to view log data stored on your managed

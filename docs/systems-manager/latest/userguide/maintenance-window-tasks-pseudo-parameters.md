@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using pseudo parameters
 
 when registering maintenance window tasks
@@ -163,7 +166,7 @@ particular resource types in a resource group.
 `TARGET_ID` isn't supported for Run Command tasks.
 
 | Resource type               | Example TARGET_ID                                                                        |
-| --------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
 | `AWS::CloudWatch::Alarm`    | `arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyCloudWatchAlarm`i-078a280217EXAMPLE`` |
 | `AWS::DynamoDB::Table`      | `arn:aws:dynamodb:us-east-1:123456789012:table/MyTable`                                  |
 | `AWS::EC2::Instance`        | `arn:aws:ec2:us-east-1:123456789012:instance/`i-078a280217EXAMPLE``                      |
@@ -175,18 +178,37 @@ particular resource types in a resource group.
 | `AWS::RDS::DBCluster`       | `arn:aws:rds:us-east-2:123456789012:cluster:My-Cluster`                                  |
 | `AWS::RDS::DBInstance`      | `arn:aws:rds:us-east-1:123456789012:db:My-SQL-Instance`                                  |
 | `AWS::S3::Bucket`           | `arn:aws:s3:::amzn-s3-demo-bucket`                                                       |
-| `AWS::SSM::ManagedInstance` | `arn:aws:ssm:us-east-1:123456789012:managed-instance/mi-0feadcf2d9EXAMPLE`               | <br>• **`RESOURCE_ID`**: The short ID of a resource type contained in a resource group. The following table provides sample `RESOURCE_ID` values for particular resource types in a resource group. ###### Note `RESOURCE_ID` isn't supported for Run Command tasks.                                                                                                                              |
-| Resource type               | Example RESOURCE_ID                                                                      |
-| ---                         | ---                                                                                      |
-| `AWS::CloudWatch::Alarm`    | `MyCloudWatchAlarm`                                                                      |
-| `AWS::DynamoDB::Table`      | `MyTable`                                                                                |
-| `AWS::EC2::Instance`        | `i-078a280217EXAMPLE`                                                                    |
-| `AWS::EC2::Image`           | `ami-02250b3732EXAMPLE`                                                                  |
-| `AWS::EC2::SecurityGroup`   | `sg-cEXAMPLE`                                                                            |
-| `AWS::EC2::Snapshot`        | `snap-03866bf003EXAMPLE`                                                                 |
-| `AWS::EC2::Volume`          | `vol-0912e04d78EXAMPLE`                                                                  |
-| `AWS::ECS::Service`         | `my-ecs-service`                                                                         |
-| `AWS::RDS::DBCluster`       | `My-Cluster`                                                                             |
-| `AWS::RDS::DBInstance`      | `My-SQL-Instance`                                                                        |
-| `AWS::S3::Bucket`           | `amzn-s3-demo-bucket`                                                                    |
-| `AWS::SSM::ManagedInstance` | `mi-0feadcf2d9EXAMPLE`                                                                   | ###### Note If the AWS resource group you specify includes resource types that don't yield a `RESOURCE_ID` value, and aren't listed in the preceding table, then the `RESOURCE_ID` parameter isn't populated. An execution invocation will still occur for that resource. In these cases, use the `TARGET_ID` pseudo parameter instead, which will be replaced with the full ARN of the resource. |
+| `AWS::SSM::ManagedInstance` | `arn:aws:ssm:us-east-1:123456789012:managed-instance/mi-0feadcf2d9EXAMPLE`               |
+
+- **`RESOURCE_ID`**: The short ID of
+  a resource type contained in a resource group. The following table provides
+  sample `RESOURCE_ID` values for particular resource types in a
+  resource group.
+
+###### Note
+
+`RESOURCE_ID` isn't supported for Run Command tasks.
+
+| Resource type               | Example RESOURCE_ID      |
+| --------------------------- | ------------------------ |
+| `AWS::CloudWatch::Alarm`    | `MyCloudWatchAlarm`      |
+| `AWS::DynamoDB::Table`      | `MyTable`                |
+| `AWS::EC2::Instance`        | `i-078a280217EXAMPLE`    |
+| `AWS::EC2::Image`           | `ami-02250b3732EXAMPLE`  |
+| `AWS::EC2::SecurityGroup`   | `sg-cEXAMPLE`            |
+| `AWS::EC2::Snapshot`        | `snap-03866bf003EXAMPLE` |
+| `AWS::EC2::Volume`          | `vol-0912e04d78EXAMPLE`  |
+| `AWS::ECS::Service`         | `my-ecs-service`         |
+| `AWS::RDS::DBCluster`       | `My-Cluster`             |
+| `AWS::RDS::DBInstance`      | `My-SQL-Instance`        |
+| `AWS::S3::Bucket`           | `amzn-s3-demo-bucket`    |
+| `AWS::SSM::ManagedInstance` | `mi-0feadcf2d9EXAMPLE`   |
+
+###### Note
+
+If the AWS resource group you specify includes resource types that
+don't yield a `RESOURCE_ID` value, and aren't listed in the
+preceding table, then the `RESOURCE_ID` parameter isn't
+populated. An execution invocation will still occur for that resource.
+In these cases, use the `TARGET_ID` pseudo parameter instead,
+which will be replaced with the full ARN of the resource.

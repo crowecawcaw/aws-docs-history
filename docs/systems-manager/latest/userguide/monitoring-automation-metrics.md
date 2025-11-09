@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Monitoring your automations
 
 _Metrics_ are the fundamental concept in Amazon CloudWatch. A
@@ -32,7 +35,16 @@ aws cloudwatch list-metrics \
 
 Systems Manager sends the following Automation metrics to CloudWatch.
 
-| Metric                      | Description                                                                                      |
-| --------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ConcurrentAutomationUsage` | The number of automations running at the same time in the current AWS account and AWS Region.    |
-| `QueuedAutomationUsage`     | The number of automations currently queued that have not started and have a status of `Pending`. | For more information about working with CloudWatch metrics, see the following topics in the _Amazon CloudWatch User Guide_: <br>• [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric") <br>• [Using Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") <br>• [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") |
+| Metric                      | Description                                                                                         |
+| --------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ConcurrentAutomationUsage` | The number of automations running at the same time in the current<br>AWS account and AWS Region.    |
+| `QueuedAutomationUsage`     | The number of automations currently queued that have not started<br>and have a status of `Pending`. |
+
+For more information about working with CloudWatch metrics, see the following topics in
+the _Amazon CloudWatch User Guide_:
+
+- [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric")
+- [Using
+  Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
+- [Using
+  Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")

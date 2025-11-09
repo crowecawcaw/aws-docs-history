@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Running scripts from Amazon S3
 
 This section describes how to download and run scripts from Amazon Simple Storage Service (Amazon S3). The

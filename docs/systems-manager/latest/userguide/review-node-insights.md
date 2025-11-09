@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Reviewing node insights
 
 You can gain insights into the overall status of managed nodes and unmanaged EC2 instances
@@ -21,7 +24,7 @@ Manager console](https://console.aws.amazon.com/systems-manager/explorer "https:
 The following image shows the individual report boxes, called _widgets_, which are available on the **Review node
 insights** page.
 
-![Node data displayed on Systems Manager Review node insights page](images/SYS2-Dashboard-Nodes.png)
+![Node data displayed on Systems Manager Review node insights page](/images/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
 The display supports widgets that provide you with the following information.
 
 **Node summary**

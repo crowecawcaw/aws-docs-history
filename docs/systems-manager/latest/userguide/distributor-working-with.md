@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Working with Distributor packages
 
 You can use the AWS Systems Manager console, AWS command line tools (AWS CLI and AWS Tools for PowerShell),

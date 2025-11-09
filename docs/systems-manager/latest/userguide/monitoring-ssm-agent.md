@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Sending SSM Agent logs to CloudWatch Logs
 
 AWS Systems Manager Agent (SSM Agent) is Amazon software that runs on your EC2 instances, edge

@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # AWS Systems Manager Distributor
 
 Distributor, a tool in AWS Systems Manager, helps you package and publish software to AWS Systems Manager managed
@@ -168,16 +171,25 @@ Systems Manager doesn't support all of the following operating systems for AWS I
 devices. For more information, see [Setting up AWS IoT Greengrass core
 devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
-| Platform                             | Code value in manifest file | Supported architectures                                             |
-| ------------------------------------ | --------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AlmaLinux                            | `almalinux`                 | x86_64 ARM64                                                        |
-| Amazon Linux 2 and Amazon Linux 2023 | `amazon`                    | x86_64 or x86 ARM64 (Amazon Linux 2 and AL2023, A1 instance types)  |
-| Debian Server                        | `debian`                    | x86_64 or x86                                                       |
-| openSUSE                             | `opensuse`                  | x86_64                                                              |
-| openSUSE Leap                        | `opensuseleap`              | x86_64                                                              |
-| Oracle Linux                         | `oracle`                    | x86_64                                                              |
-| Red Hat Enterprise Linux (RHEL)      | `redhat`                    | x86_64 ARM64 (RHEL 7.6 and later, A1 instance types)                |
-| Rocky Linux                          | `rocky`                     | x86_64 ARM64                                                        |
-| SUSE Linux Enterprise Server (SLES)  | `suse`                      | x86_64                                                              |
-| Ubuntu Server                        | `ubuntu`                    | x86_64 or x86 ARM64 (Ubuntu Server 16 and later, A1 instance types) |
-| Windows Server                       | `windows`                   | x86_64                                                              | ###### Topics <br>• [Setting up Distributor](distributor-getting-started.md "distributor-getting-started.md") <br>• [Working with Distributor packages](distributor-working-with.md "distributor-working-with.md") <br>• [Auditing and logging Distributor activity](distributor-logging-auditing.md "distributor-logging-auditing.md") <br>• [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md") |
+| Platform                             | Code value in manifest file | Supported architectures                                                |
+| ------------------------------------ | --------------------------- | ---------------------------------------------------------------------- |
+| AlmaLinux                            | `almalinux`                 | x86_64<br>ARM64                                                        |
+| Amazon Linux 2 and Amazon Linux 2023 | `amazon`                    | x86_64 or x86<br>ARM64 (Amazon Linux 2 and AL2023, A1 instance types)  |
+| Debian Server                        | `debian`                    | x86_64 or x86                                                          |
+| openSUSE                             | `opensuse`                  | x86_64                                                                 |
+| openSUSE Leap                        | `opensuseleap`              | x86_64                                                                 |
+| Oracle Linux                         | `oracle`                    | x86_64                                                                 |
+| Red Hat Enterprise Linux (RHEL)      | `redhat`                    | x86_64<br>ARM64 (RHEL 7.6 and later, A1 instance types)                |
+| Rocky Linux                          | `rocky`                     | x86_64<br>ARM64                                                        |
+| SUSE Linux Enterprise Server (SLES)  | `suse`                      | x86_64                                                                 |
+| Ubuntu Server                        | `ubuntu`                    | x86_64 or x86<br>ARM64 (Ubuntu Server 16 and later, A1 instance types) |
+| Windows Server                       | `windows`                   | x86_64                                                                 |
+
+###### Topics
+
+- [Setting up Distributor](distributor-getting-started.md "distributor-getting-started.md")
+- [Working with Distributor packages](distributor-working-with.md "distributor-working-with.md")
+- [Auditing and logging Distributor
+  activity](distributor-logging-auditing.md "distributor-logging-auditing.md")
+- [Troubleshooting
+  AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md")

@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Use `DescribeAutomationStepExecutions` with a CLI
 
 The following code examples show how to use `DescribeAutomationStepExecutions`.

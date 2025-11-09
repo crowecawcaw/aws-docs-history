@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Remediation impact types of runbook
 
 actions
@@ -49,7 +52,7 @@ Undetermined—of various actions that can be included in a remediation
 runbook.
 
 | Action¹                        | Impact type                                 |
-| ------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ------------------------------------------- |
 | aws:approve                    | Non-mutating                                |
 | aws:assertAwsResourceProperty  | Non-mutating                                |
 | aws:branch                     | Non-mutating                                |
@@ -72,4 +75,6 @@ runbook.
 | aws:runInstances               | Mutating                                    |
 | aws:sleep                      | Non-mutating                                |
 | aws:updateVariable             | Mutating                                    |
-| aws:waitForAwsResourceProperty | Non-mutating                                | ¹ For more information about Automation actions, see [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md"). |
+| aws:waitForAwsResourceProperty | Non-mutating                                |
+
+¹ For more information about Automation actions, see [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md").

@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Working with shared parameters
 
 in Parameter Store
@@ -287,8 +290,19 @@ The charges in the following table are for illustration only. To verify
 current pricing, see [AWS Systems Manager Pricing for
 Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store").
 
-| Account                       | Number of calls | Charges                                                                                                                              |
-| ----------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account A (owning account)    | 10,000 calls    | <br>• One month advanced parameter storage: USD 0.05 <br>• 10,000 calls to `MyAdvancedParameter`: USD 0.05 <br>• **Total: USD 0.10** |
-| Account B (consuming account) | 20,000 calls    | <br>• 20,000 calls to `MyAdvancedParameter`: USD 0.10 <br>• **Total: USD 0.10**                                                      |
-| Account C (consuming account) | 30,000 calls    | <br>• 30,000 calls to `MyAdvancedParameter`: USD 0.15 <br>• **Total: USD 0.15**                                                      | ## Cross-account access for closed AWS accounts If the AWS account that owns a shared parameter is closed, all consuming accounts lose access to the shared parameter. If the owning account is reopened within 90 days after the account is closed, consuming accounts regain access to the previously shared parameters. For more information about reopening an account during the Post-Closure Period, see [Accessing your AWS account after you close it](../../../accounts/latest/reference/manage-acct-closing.md#accessing-after-closure "../../../accounts/latest/reference/manage-acct-closing.md#accessing-after-closure") in the _AWS Account Management Reference Guide_. |
+| Account                       | Number of calls | Charges                                                                                                                                    |
+| ----------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Account A (owning account)    | 10,000 calls    | • One month advanced parameter storage: USD<br>0.05<br>• 10,000 calls to<br>`MyAdvancedParameter`: USD<br>0.05<br>• **Total: USD<br>0.10** |
+| Account B (consuming account) | 20,000 calls    | • 20,000 calls to<br>`MyAdvancedParameter`: USD<br>0.10<br>• **Total: USD<br>0.10**                                                        |
+| Account C (consuming account) | 30,000 calls    | • 30,000 calls to<br>`MyAdvancedParameter`: USD<br>0.15<br>• **Total: USD<br>0.15**                                                        |
+
+## Cross-account access for closed
+
+AWS accounts
+
+If the AWS account that owns a shared parameter is closed, all consuming
+accounts lose access to the shared parameter. If the owning account is reopened
+within 90 days after the account is closed, consuming accounts regain access to
+the previously shared parameters. For more information about reopening an
+account during the Post-Closure Period, see [Accessing your AWS account after you close it](../../../accounts/latest/reference/manage-acct-closing.md#accessing-after-closure "../../../accounts/latest/reference/manage-acct-closing.md#accessing-after-closure") in the
+_AWS Account Management Reference Guide_.

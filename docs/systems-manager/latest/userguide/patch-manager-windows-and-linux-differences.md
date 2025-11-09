@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Patching operation
 
 differences between Linux and Windows Server
@@ -105,6 +108,13 @@ Refer to the following table for details about rejected patch options on
 Windows Server.
 
 | Installation status            | Option: "Allow as dependency"      | Option: "Block"                       |
-| ------------------------------ | ---------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ---------------------------------- | ------------------------------------- |
 | Patch is already installed     | Reported status: `INSTALLED_OTHER` | Reported status: `INSTALLED_REJECTED` |
-| Patch is not already installed | Patch skipped                      | Patch skipped                         | Each patch for Windows Server that Microsoft releases typically contains all the information needed for the installation to succeed. Occasionally, however, a prerequisite package might be required, which you must install manually. Patch Manager doesn't report information about these prerequisites. For related information, see [Windows Update issues troubleshooting](https://learn.microsoft.com/en-us/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting "https://learn.microsoft.com/en-us/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting") on the Microsoft website. |
+| Patch is not already installed | Patch skipped                      | Patch skipped                         |
+
+Each patch for Windows Server that Microsoft releases typically contains all the
+information needed for the installation to succeed. Occasionally, however, a
+prerequisite package might be required, which you must install manually.
+Patch Manager doesn't report information about these prerequisites. For related
+information, see [Windows Update issues troubleshooting](https://learn.microsoft.com/en-us/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting "https://learn.microsoft.com/en-us/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting") on the Microsoft
+website.

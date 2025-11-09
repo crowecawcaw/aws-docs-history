@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using roles to enable just-in-time node access
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSystemsManagerJustInTimeAccess`**. AWS Systems Manager uses this IAM service role to enable just-in-time node access.

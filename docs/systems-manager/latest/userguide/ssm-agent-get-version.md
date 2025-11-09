@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Checking the SSM Agent version number
 
 Certain AWS Systems Manager functionalities have prerequisites that include a minimum Systems Manager

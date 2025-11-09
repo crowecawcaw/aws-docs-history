@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using roles to maintain Quick Setup-provisioned resource health and consistency
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSSMQuickSetup`**.

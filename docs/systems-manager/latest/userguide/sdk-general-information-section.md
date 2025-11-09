@@ -1,10 +1,13 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using this service with an AWS SDK
 
 AWS software development kits (SDKs) are available for many popular programming languages. Each SDK provides an API, code examples, and documentation that
 make it easier for developers to build applications in their preferred language.
 
 | SDK documentation                                                                         | Code examples                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [AWS SDK for C++](../../../sdk-for-cpp.md "../../../sdk-for-cpp.md")                      | [AWS SDK for C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp")                          |
 | [AWS CLI](../../../cli.md "../../../cli.md")                                              | [AWS CLI code examples](../../../code-library/latest/ug/cli_2_code_examples.md "../../../code-library/latest/ug/cli_2_code_examples.md")                                                |
 | [AWS SDK for Go](../../../sdk-for-go.md "../../../sdk-for-go.md")                         | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2")                         |
@@ -18,4 +21,8 @@ make it easier for developers to build applications in their preferred language.
 | [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       |
 | [AWS SDK for Rust](../../../sdk-for-rust.md "../../../sdk-for-rust.md")                   | [AWS SDK for Rust code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1")                   |
 | [AWS SDK for SAP ABAP](../../../sdk-for-sapabap.md "../../../sdk-for-sapabap.md")         | [AWS SDK for SAP ABAP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap")           |
-| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    | ###### Example availability Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page. |
+| [AWS SDK for Swift](../../../sdk-for-swift.md "../../../sdk-for-swift.md")                | [AWS SDK for Swift code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift")                    |
+
+###### Example availability
+
+Can't find what you need? Request a code example by using the **Provide feedback** link at the bottom of this page.

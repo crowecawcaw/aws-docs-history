@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Predefined and
 
 custom patch baselines
@@ -40,19 +43,214 @@ Patch Manager.
 For information about which versions of each operating system Patch Manager
 supports, see [Patch Manager prerequisites](patch-manager-prerequisites.md "patch-manager-prerequisites.md").
 
-| Name                                                 | Supported operating system          | Details                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWS-AlmaLinuxDefaultPatchBaseline`                  | AlmaLinux                           | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important". Also approves all patches that are classified as "Bugfix". Patches are auto-approved 7 days after they are released or updated.¹                                                                                     |
-| `AWS-AmazonLinux2DefaultPatchBaseline`               | Amazon Linux 2                      | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important". Also approves all patches with a classification of "Bugfix". Patches are auto-approved 7 days after release.¹                                                                                                        |
-| `AWS-AmazonLinux2023DefaultPatchBaseline`            | Amazon Linux 2023                   | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important". Patches are auto-approved seven days after release. Also approves all patches with a classification of "Bugfix" seven days after release.                                                                            |
-| `AWS-CentOSDefaultPatchBaseline`                     | CentOS Stream                       | Approves all updates 7 days after they become available, including nonsecurity updates.                                                                                                                                                                                                                                                                   |
-| `AWS-DebianDefaultPatchBaseline`                     | Debian Server                       | Immediately approves all operating system security-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra." There is no wait before approval because reliable release dates aren't available in the repositories.                                                                                             |
-| `AWS-MacOSDefaultPatchBaseline`                      | macOS                               | Approves all operating system patches that are classified as "Security". Also approves all packages with a current update.                                                                                                                                                                                                                                |
-| `AWS-OracleLinuxDefaultPatchBaseline`                | Oracle Linux                        | Approves all operating system patches that are classified as "Security" and that have a severity level of "Important" or "Moderate". Also approves all patches that are classified as "Bugfix" 7 days after release. Patches are auto-approved 7 days after they are released or updated.¹                                                                |
-| `AWS-RedHatDefaultPatchBaseline`                     | Red Hat Enterprise Linux (RHEL)     | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important". Also approves all patches that are classified as "Bugfix". Patches are auto-approved 7 days after they are released or updated.¹                                                                                     |
-| `AWS-RockyLinuxDefaultPatchBaseline`                 | Rocky Linux                         | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important". Also approves all patches that are classified as "Bugfix". Patches are auto-approved 7 days after they are released or updated.¹                                                                                     |
-| `AWS-SuseDefaultPatchBaseline`                       | SUSE Linux Enterprise Server (SLES) | Approves all operating system patches that are classified as "Security" and with a severity of "Critical" or "Important". Patches are auto-approved 7 days after they are released or updated.¹                                                                                                                                                           |
-| `AWS-UbuntuDefaultPatchBaseline`                     | Ubuntu Server                       | Immediately approves all operating system security-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra." There is no wait before approval because reliable release dates aren't available in the repositories.                                                                                             |
-| `AWS-DefaultPatchBaseline`                           | Windows Server                      | Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important". Patches are auto-approved 7 days after they are released or updated.²                                                                                                     |
-| `AWS-WindowsPredefinedPatchBaseline-OS`              | Windows Server                      | Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important". Patches are auto-approved 7 days after they are released or updated.²                                                                                                     |
-| `AWS-WindowsPredefinedPatchBaseline-OS-Applications` | Windows Server                      | For the Windows Server operating system, approves all patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important". For applications released by Microsoft, approves all patches. Patches for both OS and applications are auto-approved 7 days after they are released or updated.² | ¹ For Amazon Linux 2, the 7-day wait before patches are auto-approved is calculated from an `Updated Date` value in `updateinfo.xml`, not a `Release Date` value. Various factors can affect the `Updated Date` value. Other operating systems handle release and update dates differently. For information to help you avoid unexpected results with auto-approval delays, see [How package release dates and update dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md"). ² For Windows Server, default baselines include a 7-day auto-approval delay. To install a patch within 7 days after release, you must create a custom baseline. ## Custom baselines Use the following information to help you create custom patch baselines to meet your patching goals. ###### Topics <br>• [Using auto-approvals in custom baselines](#baselines-auto-approvals "#baselines-auto-approvals") <br>• [Additional information for creating patch baselines](#baseline-additional-info "#baseline-additional-info") ### Using auto-approvals in custom baselines If you create your own patch baseline, you can choose which patches to auto-approve by using the following categories. <br>• **Operating system**: Supported versions of Windows Server, Amazon Linux, Ubuntu Server, and so on. <br>• **Product name** (for operating systems): For example, RHEL 7.5, Amazon Linux 2023 2023.8.20250808, Windows Server 2012, Windows Server 2012 R2, and so on. <br>• **Product name** (for applications released by Microsoft on Windows Server only): For example, Word 2016, BizTalk Server, and so on. <br>• **Classification**: For example, Critical updates, Security updates, and so on. <br>• **Severity**: For example, Critical, Important, and so on. For each approval rule that you create, you can choose to specify an auto-approval delay or specify a patch approval cutoff date. ###### Note Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto-approval options aren't supported for this operating system. An auto-approval delay is the number of days to wait after the patch was released or last updated, before the patch is automatically approved for patching. For example, if you create a rule using the `CriticalUpdates` classification and configure it for 7 days auto-approval delay, then a new critical patch released on July 7 is automatically approved on July 14. If a Linux repository does not provide release date information for packages, Patch Manager uses the build time of the package as the date for auto-approval date specifications for Amazon Linux 2, Amazon Linux 2023, and Red Hat Enterprise Linux (RHEL). If the build time of the package can't be determined, Patch Manager uses a default date of January 1st, 1970. This results in Patch Manager bypassing any auto-approval date specifications in patch baselines that are configured to approve patches for any date after January 1st, 1970. When you specify an auto-approval cutoff date, Patch Manager automatically applies all patches released or last updated on or before that date. For example, if you specify July 7, 2023 as the cutoff date, no patches released or last updated on or after July 8, 2023 are installed automatically. When you create a custom patch baseline, you can specify a compliance severity level for patches approved by that patch baseline, such as `Critical` or `High`. If the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified. ### Additional information for creating patch baselines Keep the following in mind when you create a patch baseline: <br>• Patch Manager provides one predefined patch baseline for each supported operating system. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type. ###### Note For Windows Server, three predefined patch baselines are provided. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server managed nodes unless you specify a different patch baseline. The configuration settings in these two patch baselines are the same. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported applications released by Microsoft. <br>• By default, Windows Server 2019 and Windows Server 2022 remove updates that are replaced by later updates. As a result, if you use the `ApproveUntilDate` parameter in a Windows Server patch baseline, but the date selected in the `ApproveUntilDate` parameter is before the date of the latest patch, then the new patch isn't installed when the patching operation runs. For more information about Windows Server patching rules, see the Windows Server tab in [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md"). This means that the managed node is compliant in terms of Systems Manager operations, even though a critical patch from the previous month might not be installed. This same scenario can occur when using the `ApproveAfterDays` parameter. Because of the Microsoft superseded patch behavior, it is possible to set a number (generally greater than 30 days) so that patches for Windows Server are never installed if the latest available patch from Microsoft is released before the number of days in `ApproveAfterDays` has elapsed. <br>• For Windows Server only, an available security update patch that is not approved by the patch baseline can have a compliance value of `Compliant` or `Non-Compliant`, as defined in a custom patch baseline. When you create or update a patch baseline, you choose the status you want to assign to security patches that are available but not approved because they don't meet the installation criteria specified in the patch baseline. For example, security patches that you might want installed can be skipped if you have specified a long period to wait after a patch is released before installation. If an update to the patch is released during your specified waiting period, the waiting period for installing the patch starts over. If the waiting period is too long, multiple versions of the patch could be released but never installed. Using the console to create or update a patch baseline, you specify this option in the **Available security updates compliance status** field. Using the AWS CLI to run the [create-patch-baseline](../../../cli/latest/reference/ssm/create-patch-baseline.md "../../../cli/latest/reference/ssm/create-patch-baseline.md") or [update-patch-baseline](../../../cli/latest/reference/ssm/update-patch-baseline.md "../../../cli/latest/reference/ssm/update-patch-baseline.md") command, you specify this option in the `available-security-updates-compliance-status` parameter. <br>• For on-premises servers and virtual machines (VMs), Patch Manager attempts to use your custom default patch baseline. If no custom default patch baseline exists, the system uses the predefined patch baseline for the corresponding operating system. <br>• If a patch is listed as both approved and rejected in the same patch baseline, the patch is rejected. <br>• A managed node can have only one patch baseline defined for it. <br>• The formats of package names you can add to lists of approved patches and rejected patches for a patch baseline depend on the type of operating system you're patching. For information about accepted formats for lists of approved patches and rejected patches, see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). <br>• If you are using a [patch policy configuration](patch-manager-policies.md "patch-manager-policies.md") in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour. If a custom patch baseline that was referenced in a patch policy is deleted, a banner displays on the Quick Setup **Configuration details** page for your patch policy. The banner informs you that the patch policy references a patch baseline that no longer exists, and that subsequent patching operations will fail. In this case, return to the Quick Setup **Configurations** page, select the Patch Manager configuration , and choose **Actions**, **Edit configuration**. The deleted patch baseline name is highlighted, and you must select a new patch baseline for the affected operating system. <br>• When you create an approval rule with multiple `Classification` and `Severity` values, patches are approved based on their available attributes. Packages with both `Classification` and `Severity` attributes will match the selected baseline values for both fields. Packages with only `Classification` attributes are matched only against the selected baseline `Classification` values. Severity requirements in the same rule are ignored for packages that don't have `Severity` attributes. For information about creating a patch baseline, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md") and [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md"). |
+| Name                                                 | Supported operating system          | Details                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `AWS-AlmaLinuxDefaultPatchBaseline`                  | AlmaLinux                           | Approves all operating system patches that are classified<br>as "Security" and that have a severity level of "Critical"<br>or "Important". Also approves all patches that are<br>classified as "Bugfix". Patches are auto-approved 7 days<br>after they are released or updated.¹                                                                                        |
+| `AWS-AmazonLinux2DefaultPatchBaseline`               | Amazon Linux 2                      | Approves all operating system patches that are classified as<br>"Security" and that have a severity level of "Critical" or<br>"Important". Also approves all patches with a classification of<br>"Bugfix". Patches are auto-approved 7 days after<br>release.¹                                                                                                           |
+| `AWS-AmazonLinux2023DefaultPatchBaseline`            | Amazon Linux 2023                   | Approves all operating system patches that are classified<br>as "Security" and that have a severity level of "Critical"<br>or "Important". Patches are auto-approved seven days after<br>release. Also approves all patches with a classification of<br>"Bugfix" seven days after release.                                                                               |
+| `AWS-CentOSDefaultPatchBaseline`                     | CentOS Stream                       | Approves all updates 7 days after they become available,<br>including nonsecurity updates.                                                                                                                                                                                                                                                                               |
+| `AWS-DebianDefaultPatchBaseline`                     | Debian Server                       | Immediately approves all operating system security-related<br>patches that have a priority of "Required", "Important",<br>"Standard," "Optional," or "Extra." There is no wait before<br>approval because reliable release dates aren't available in the<br>repositories.                                                                                                |
+| `AWS-MacOSDefaultPatchBaseline`                      | macOS                               | Approves all operating system patches that are classified as<br>"Security". Also approves all packages with a current<br>update.                                                                                                                                                                                                                                         |
+| `AWS-OracleLinuxDefaultPatchBaseline`                | Oracle Linux                        | Approves all operating system patches that are classified as<br>"Security" and that have a severity level of "Important" or<br>"Moderate". Also approves all patches that are classified as<br>"Bugfix" 7 days after release. Patches are auto-approved 7 days<br>after they are released or updated.¹                                                                   |
+| `AWS-RedHatDefaultPatchBaseline`                     | Red Hat Enterprise Linux (RHEL)     | Approves all operating system patches that are classified<br>as "Security" and that have a severity level of "Critical"<br>or "Important". Also approves all patches that are<br>classified as "Bugfix". Patches are auto-approved 7 days<br>after they are released or updated.¹                                                                                        |
+| `AWS-RockyLinuxDefaultPatchBaseline`                 | Rocky Linux                         | Approves all operating system patches that are classified<br>as "Security" and that have a severity level of "Critical"<br>or "Important". Also approves all patches that are<br>classified as "Bugfix". Patches are auto-approved 7 days<br>after they are released or updated.¹                                                                                        |
+| `AWS-SuseDefaultPatchBaseline`                       | SUSE Linux Enterprise Server (SLES) | Approves all operating system patches that are classified as<br>"Security" and with a severity of "Critical" or "Important".<br>Patches are auto-approved 7 days after they are released or<br>updated.¹                                                                                                                                                                 |
+| `AWS-UbuntuDefaultPatchBaseline`                     | Ubuntu Server                       | Immediately approves all operating system security-related<br>patches that have a priority of "Required", "Important",<br>"Standard," "Optional," or "Extra." There is no wait before<br>approval because reliable release dates aren't available in<br>the repositories.                                                                                                |
+| `AWS-DefaultPatchBaseline`                           | Windows Server                      | Approves all Windows Server operating system patches that are<br>classified as "CriticalUpdates" or "SecurityUpdates" and<br>that have an MSRC severity of "Critical" or "Important".<br>Patches are auto-approved 7 days after they are released or<br>updated.²                                                                                                        |
+| `AWS-WindowsPredefinedPatchBaseline-OS`              | Windows Server                      | Approves all Windows Server operating system patches that are<br>classified as "CriticalUpdates" or "SecurityUpdates" and<br>that have an MSRC severity of "Critical" or "Important".<br>Patches are auto-approved 7 days after they are released or<br>updated.²                                                                                                        |
+| `AWS-WindowsPredefinedPatchBaseline-OS-Applications` | Windows Server                      | For the Windows Server operating system, approves all patches that<br>are classified as "CriticalUpdates" or "SecurityUpdates" and<br>that have an MSRC severity of "Critical" or "Important". For<br>applications released by Microsoft, approves all patches.<br>Patches for both OS and applications are auto-approved 7 days<br>after they are released or updated.² |
+
+¹ For Amazon Linux 2, the 7-day wait before patches are auto-approved is
+calculated from an `Updated Date` value in
+`updateinfo.xml`, not a `Release Date` value.
+Various factors can affect the `Updated Date` value. Other operating
+systems handle release and update dates differently. For information to help you
+avoid unexpected results with auto-approval delays, see [How package release dates and update
+dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md").
+
+² For Windows Server, default baselines include a 7-day auto-approval delay. To
+install a patch within 7 days after release, you must create a custom
+baseline.
+
+## Custom baselines
+
+Use the following information to help you create custom patch baselines to
+meet your patching goals.
+
+###### Topics
+
+- [Using auto-approvals in
+  custom baselines](#baselines-auto-approvals "#baselines-auto-approvals")
+- [Additional information for
+  creating patch baselines](#baseline-additional-info "#baseline-additional-info")
+
+### Using auto-approvals in
+
+custom baselines
+
+If you create your own patch baseline, you can choose which patches to
+auto-approve by using the following categories.
+
+- **Operating system**: Supported
+  versions of Windows Server, Amazon Linux, Ubuntu Server, and so on.
+- **Product name** (for operating
+  systems): For example, RHEL 7.5, Amazon Linux 2023 2023.8.20250808,
+  Windows Server 2012, Windows Server 2012 R2, and so on.
+- **Product name** (for applications
+  released by Microsoft on Windows Server only): For example, Word 2016,
+  BizTalk Server, and so on.
+- **Classification**: For example,
+  Critical updates, Security updates, and so on.
+- **Severity**: For example, Critical,
+  Important, and so on.
+
+For each approval rule that you create, you can choose to specify an
+auto-approval delay or specify a patch approval cutoff date.
+
+###### Note
+
+Because it's not possible to reliably determine the release dates of update
+packages for Ubuntu Server, the auto-approval options aren't supported for this
+operating system.
+
+An auto-approval delay is the number of days to wait after the patch was
+released or last updated, before the patch is automatically approved for
+patching. For example, if you create a rule using the
+`CriticalUpdates` classification and configure it for 7 days
+auto-approval delay, then a new critical patch released on July 7 is
+automatically approved on July 14.
+
+If a Linux repository does not provide release date information for
+packages, Patch Manager uses the build time of the package as the date for
+auto-approval date specifications for Amazon Linux 2, Amazon Linux 2023, and Red Hat Enterprise Linux
+(RHEL). If the build time of the package can't be determined, Patch Manager
+uses a default date of January 1st, 1970. This results in Patch Manager bypassing
+any auto-approval date specifications in patch baselines that are configured
+to approve patches for any date after January 1st, 1970.
+
+When you specify an auto-approval cutoff date, Patch Manager automatically
+applies all patches released or last updated on or before that date. For
+example, if you specify July 7, 2023 as the cutoff date, no patches released
+or last updated on or after July 8, 2023 are installed automatically.
+
+When you create a custom patch baseline, you can specify a compliance
+severity level for patches approved by that patch baseline, such as
+`Critical` or `High`. If the patch state of any
+approved patch is reported as `Missing`, then the patch
+baseline's overall reported compliance severity is the severity level you
+specified.
+
+### Additional information for
+
+creating patch baselines
+
+Keep the following in mind when you create a patch baseline:
+
+- Patch Manager provides one predefined patch baseline for each supported
+  operating system. These predefined patch baselines are used as the
+  default patch baselines for each operating system type unless you
+  create your own patch baseline and designate it as the default for
+  the corresponding operating system type.
+
+###### Note
+
+For Windows Server, three predefined patch baselines are provided. The patch baselines
+`AWS-DefaultPatchBaseline` and
+`AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates
+on the Windows operating system itself. `AWS-DefaultPatchBaseline` is used as the
+default patch baseline for Windows Server managed nodes unless you specify a different patch
+baseline. The configuration settings in these two patch baselines are the same. The newer of
+the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it
+from the third predefined patch baseline for Windows Server. That patch baseline,
+`AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply
+patches to both the Windows Server operating system and supported applications released by
+Microsoft.
+
+- By default, Windows Server 2019 and Windows Server 2022 remove updates that
+  are replaced by later updates. As a result, if you use the
+  `ApproveUntilDate` parameter in a Windows Server patch
+  baseline, but the date selected in the `ApproveUntilDate`
+  parameter is before the date of the latest patch, then the new patch
+  isn't installed when the patching operation runs. For more
+  information about Windows Server patching rules, see the Windows Server tab in
+  [How security patches are
+  selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
+
+This means that the managed node is compliant in terms of Systems Manager
+operations, even though a critical patch from the previous month
+might not be installed. This same scenario can occur when using the
+`ApproveAfterDays` parameter. Because of the
+Microsoft superseded patch behavior, it is possible to set a number
+(generally greater than 30 days) so that patches for Windows Server are
+never installed if the latest available patch from Microsoft is
+released before the number of days in `ApproveAfterDays`
+has elapsed.
+
+- For Windows Server only, an available security update patch that is not
+  approved by the patch baseline can have a compliance value of
+  `Compliant` or `Non-Compliant`, as defined
+  in a custom patch baseline.
+
+When you create or update a patch baseline, you choose the status
+you want to assign to security patches that are available but not
+approved because they don't meet the installation criteria specified
+in the patch baseline. For example, security patches that you might
+want installed can be skipped if you have specified a long period to
+wait after a patch is released before installation. If an update to
+the patch is released during your specified waiting period, the
+waiting period for installing the patch starts over. If the waiting
+period is too long, multiple versions of the patch could be released
+but never installed.
+
+Using the console to create or update a patch baseline, you
+specify this option in the **Available security updates
+compliance status** field. Using the AWS CLI to run the
+[create-patch-baseline](../../../cli/latest/reference/ssm/create-patch-baseline.md "../../../cli/latest/reference/ssm/create-patch-baseline.md") or
+[update-patch-baseline](../../../cli/latest/reference/ssm/update-patch-baseline.md "../../../cli/latest/reference/ssm/update-patch-baseline.md") command, you specify this
+option in the
+`available-security-updates-compliance-status`
+parameter.
+
+- For on-premises servers and virtual machines (VMs), Patch Manager
+  attempts to use your custom default patch baseline. If no custom
+  default patch baseline exists, the system uses the predefined patch
+  baseline for the corresponding operating system.
+- If a patch is listed as both approved and rejected in the same
+  patch baseline, the patch is rejected.
+- A managed node can have only one patch baseline defined for
+  it.
+- The formats of package names you can add to lists of approved
+  patches and rejected patches for a patch baseline depend on the type
+  of operating system you're patching.
+
+For information about accepted formats for lists of approved patches and rejected patches,
+see [Package name
+formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+
+- If you are using a [patch policy
+  configuration](patch-manager-policies.md "patch-manager-policies.md") in Quick Setup, updates you make to custom patch baselines are
+  synchronized with Quick Setup once an hour.
+
+If a custom patch baseline that was referenced in a patch policy is deleted, a banner
+displays on the Quick Setup **Configuration details** page for your patch
+policy. The banner informs you that the patch policy references a patch baseline that no
+longer exists, and that subsequent patching operations will fail. In this case, return to
+the Quick Setup **Configurations** page, select the Patch Manager configuration ,
+and choose **Actions**, **Edit configuration**. The
+deleted patch baseline name is highlighted, and you must select a new patch baseline for the
+affected operating system.
+
+- When you create an approval rule with multiple
+  `Classification` and `Severity` values,
+  patches are approved based on their available attributes. Packages
+  with both `Classification` and `Severity`
+  attributes will match the selected baseline values for both fields.
+  Packages with only `Classification` attributes are
+  matched only against the selected baseline
+  `Classification` values. Severity requirements in the
+  same rule are ignored for packages that don't have
+  `Severity` attributes.
+
+For information about creating a patch baseline, see [Working with custom patch
+baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md") and [Tutorial: Patch a
+server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").

@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Supported operating systems and
 
 machine types
@@ -50,49 +53,118 @@ Select an OS platform to see the supported major and minor versions.
 
 ### Linux
 
-| AlmaLinux                                | Versions | x86    | x86_64                 | ARM64                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------- | -------- | ------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ | ------------- | -------- | --- | ------ | ----- |
-| 8.3–8.10                                 |          | ✓      | ✓                      |
-| 9*.x*                                    |          | ✓      | ✓                      | Amazon Linux 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 2.0 and all later versions               |          | ✓      | ✓                      | Amazon Linux 2023                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 2023.0.20230315.0 and all later versions |          | ✓      | ✓                      | Bottlerocket                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Versions | x86_64 | ARM64         |
-| ---                                      | ---      | ---    |                        | 1.0.0 and all later versions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | ✓        | ✓      | CentOS Stream | Versions | x86 | x86_64 | ARM64 |
-| ---                                      | ---      | ---    | ---                    |
-| 9                                        |          | ✓      | ✓                      | Debian Server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| Bullseye (11)                            |          | ✓      | ✓                      |
-| Bookworm (12)                            |          | ✓      | ✓                      | Oracle Linux                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 7.5–7.8                                  |          | ✓      |                        |
-| 8*.x*                                    |          | ✓      |                        |
-| 9*.x*                                    |          | ✓      |                        | Red Hat Enterprise Linux (RHEL)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 7.0–7.5                                  |          | ✓      |                        |
-| 7.6–8*.x*                                |          | ✓      | ✓                      |
-| 9*.x*                                    |          | ✓      | ✓                      |
-| 10._x_                                   |          | ✓      | ✓                      | Rocky Linux                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 8*.x*                                    |          | ✓      | ✓                      |
-| 9*.x*                                    |          | ✓      | ✓                      | SUSE Linux Enterprise Server (SLES)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 15.3 and later versionsx                 |          | ✓      | ✓                      | Ubuntu Server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Versions | x86    | x86_64        | ARM64    |
-| ---                                      | ---      | ---    | ---                    |
-| 16.04 LTS and 18.04 LTS                  |          | ✓      | ✓                      |
-| 20.04 LTS                                |          | ✓      | ✓                      |
-| 22.04 LTS                                |          | ✓      | ✓                      |
-| 24.04 LTS                                |          | ✓      | ✓                      |
-| 25.04                                    |          | ✓      | ✓                      | ### macOS (Amazon EC2 instances only)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Version                                  | x86      | x86_64 | Mac with Apple silicon |
-| ---                                      | ---      | ---    | ---                    |
-| 13*.x* (Ventura)                         |          | ✓      | ✓                      |
-| 14*.x* (Sonoma)                          |          | ✓      | ✓                      |
-| 15*.x* (Sequoia)                         |          | ✓      | ✓                      | ###### Note macOS is not supported in all AWS Regions. For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac instances](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md") in the _Amazon EC2 User Guide_. ### Windows Server SSM Agent requires Windows PowerShell 3.0 or later to run certain AWS Systems Manager documents (SSM documents) on Windows Server instances (for example, the legacy `AWS-ApplyPatchBaseline` document). Verify that your Windows Server instances are running Windows Management Framework 3.0 or later. This framework includes Windows PowerShell. For more information, see [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True "https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True").                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Version                                  | x86      | x86_64 | ARM64                  |
-| ---                                      | ---      | ---    | ---                    |
-| 2012 and 2012 R2**²**                    |          | ✓      |                        |
-| 2016                                     |          | ✓      |                        |
-| 2019                                     |          | ✓      |                        |
-| 2022                                     |          | ✓      |                        |
-| 2025                                     |          | ✓      |                        | **¹** **Windows Server 2012 and 2012 R2 support**: Windows Server 2012 and 2012 R2 reached end of support on October 10, 2023. To use SSM Agent with these versions, we recommend using Extended Security Updates (ESUs) from Microsoft. For more information, see [Windows Server 2012 and 2012 R2 reaching end of support](https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support "https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support") on the Microsoft website. ## Supported machine types in hybrid and multicloud environments Systems Manager supports a number of machine types as _managed nodes_. A managed node is any machine configured to work with Systems Manager. This user guide uses the term _hybrid and multicloud_ to refer to an environment that contains any combination of the following machine types: <br>• Amazon Elastic Compute Cloud (Amazon EC2) instances <br>• Servers on your own premises (on-premises servers) <br>• AWS IoT Greengrass core devices <br>• AWS IoT and non-AWS edge devices <br>• Virtual machines (VMs), including VMs in other cloud environments For information about AWS support for hybrid and multicloud environments, see [AWS Solutions for Hybrid and Multicloud](https://aws.amazon.com/hybrid-multicloud/ "https://aws.amazon.com/hybrid-multicloud/"). |
+| AlmaLinux | Versions | x86 | x86_64 | ARM64 |
+| --------- | -------- | --- | ------ | ----- |
+| 8.3–8.10  |          | ✓   | ✓      |
+| 9*.x*     |          | ✓   | ✓      |
+
+| Amazon Linux 2             | Versions | x86 | x86_64 | ARM64 |
+| -------------------------- | -------- | --- | ------ | ----- |
+| 2.0 and all later versions |          | ✓   | ✓      |
+
+| Amazon Linux 2023                        | Versions | x86 | x86_64 | ARM64 |
+| ---------------------------------------- | -------- | --- | ------ | ----- |
+| 2023.0.20230315.0 and all later versions |          | ✓   | ✓      |
+
+| Bottlerocket                 | Versions | x86_64 | ARM64 |
+| ---------------------------- | -------- | ------ | ----- |
+| 1.0.0 and all later versions | ✓        | ✓      |
+
+| CentOS Stream | Versions | x86 | x86_64 | ARM64 |
+| ------------- | -------- | --- | ------ | ----- |
+| 9             |          | ✓   | ✓      |
+
+| Debian Server | Versions | x86 | x86_64 | ARM64 |
+| ------------- | -------- | --- | ------ | ----- |
+| Bullseye (11) |          | ✓   | ✓      |
+| Bookworm (12) |          | ✓   | ✓      |
+
+| Oracle Linux | Versions | x86 | x86_64 | ARM64 |
+| ------------ | -------- | --- | ------ | ----- |
+| 7.5–7.8      |          | ✓   |        |
+| 8*.x*        |          | ✓   |        |
+| 9*.x*        |          | ✓   |        |
+
+| Red Hat Enterprise Linux (RHEL) | Versions | x86 | x86_64 | ARM64 |
+| ------------------------------- | -------- | --- | ------ | ----- |
+| 7.0–7.5                         |          | ✓   |        |
+| 7.6–8*.x*                       |          | ✓   | ✓      |
+| 9*.x*                           |          | ✓   | ✓      |
+| 10._x_                          |          | ✓   | ✓      |
+
+| Rocky Linux | Versions | x86 | x86_64 | ARM64 |
+| ----------- | -------- | --- | ------ | ----- |
+| 8*.x*       |          | ✓   | ✓      |
+| 9*.x*       |          | ✓   | ✓      |
+
+| SUSE Linux Enterprise Server (SLES) | Versions | x86 | x86_64 | ARM64 |
+| ----------------------------------- | -------- | --- | ------ | ----- |
+| 15.3 and later versionsx            |          | ✓   | ✓      |
+
+| Ubuntu Server           | Versions | x86 | x86_64 | ARM64 |
+| ----------------------- | -------- | --- | ------ | ----- |
+| 16.04 LTS and 18.04 LTS |          | ✓   | ✓      |
+| 20.04 LTS               |          | ✓   | ✓      |
+| 22.04 LTS               |          | ✓   | ✓      |
+| 24.04 LTS               |          | ✓   | ✓      |
+| 25.04                   |          | ✓   | ✓      |
+
+### macOS (Amazon EC2 instances only)
+
+| Version               | x86 | x86_64 | Mac with Apple silicon |
+| --------------------- | --- | ------ | ---------------------- |
+| 13\*.x<br>• (Ventura) |     | ✓      | ✓                      |
+| 14\*.x<br>• (Sonoma)  |     | ✓      | ✓                      |
+| 15\*.x<br>• (Sequoia) |     | ✓      | ✓                      |
+
+###### Note
+
+macOS is not supported in all AWS Regions. For more information about
+Amazon EC2 support for macOS, see [Amazon EC2 Mac
+instances](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md") in the _Amazon EC2 User Guide_.
+
+### Windows Server
+
+SSM Agent requires Windows PowerShell 3.0 or later to run
+certain AWS Systems Manager documents (SSM documents) on Windows Server instances (for
+example, the legacy `AWS-ApplyPatchBaseline` document). Verify that
+your Windows Server instances are running Windows Management Framework
+3.0 or later. This framework includes Windows
+PowerShell. For more information, see [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True "https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True").
+
+| Version               | x86 | x86_64 | ARM64 |
+| --------------------- | --- | ------ | ----- |
+| 2012 and 2012 R2**²** |     | ✓      |       |
+| 2016                  |     | ✓      |       |
+| 2019                  |     | ✓      |       |
+| 2022                  |     | ✓      |       |
+| 2025                  |     | ✓      |       |
+
+**¹**
+**Windows Server 2012 and 2012 R2 support**: Windows Server
+2012 and 2012 R2 reached end of support on October 10, 2023. To use SSM Agent
+with these versions, we recommend using Extended Security Updates (ESUs) from
+Microsoft. For more information, see [Windows Server 2012 and 2012 R2 reaching end of support](https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support "https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support") on the Microsoft
+website.
+
+## Supported machine types in hybrid and
+
+multicloud environments
+
+Systems Manager supports a number of machine types as _managed
+nodes_. A managed node is any machine configured to work with
+Systems Manager.
+
+This user guide uses the term _hybrid and
+multicloud_ to refer to an environment that contains any combination
+of the following machine types:
+
+- Amazon Elastic Compute Cloud (Amazon EC2) instances
+- Servers on your own premises (on-premises servers)
+- AWS IoT Greengrass core devices
+- AWS IoT and non-AWS edge devices
+- Virtual machines (VMs), including VMs in other cloud environments
+
+For information about AWS support for hybrid and multicloud environments, see
+[AWS Solutions for Hybrid and
+Multicloud](https://aws.amazon.com/hybrid-multicloud/ "https://aws.amazon.com/hybrid-multicloud/").

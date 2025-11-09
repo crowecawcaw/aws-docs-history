@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Use Parameter Store parameters in Amazon Elastic Kubernetes Service
 
 To show parameters from Parameter Store, a tool of AWS Systems Manager, as files mounted in Amazon EKS

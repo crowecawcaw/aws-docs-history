@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Create an SSM document
 
 After you create the content for your custom SSM document, as described in [Writing SSM document content](documents-creating-content.md#writing-ssm-doc-content "documents-creating-content.md#writing-ssm-doc-content"), you

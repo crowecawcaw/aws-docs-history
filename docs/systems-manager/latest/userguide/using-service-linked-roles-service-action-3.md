@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using roles to create OpsData and OpsItems for Explorer
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSystemsManagerOpsDataSync`**. AWS Systems Manager uses this IAM service role for Explorer to create OpsData and OpsItems.

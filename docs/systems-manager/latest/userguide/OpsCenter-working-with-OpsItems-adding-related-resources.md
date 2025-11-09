@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Adding
 
 related resources to an OpsItem
@@ -47,52 +50,52 @@ list a maximum of 100 related resource ARNs.
 The following table lists the resource types that automatically create deep links
 to related resources.
 
-| Supported resource types                                           | Resource name                                                                                                       | ARN format |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ---------- |
-| AWS Certificate Manager certificate                                | `` arn:aws:acm:`region`:`account-id`:certificate/`certificate-id` ``                                                |
-| Amazon EC2 Auto Scaling group                                      | `` arn:aws:autoscaling:`region`:`account-id`:autoScalingGroup:`groupid`:autoScalingGroupName/`groupfriendlyname` `` |
-| Amazon CloudFront distribution                                     | ``arn:aws:cloudfront::`account-id`:*``                                                                              |
-| AWS CloudFormation stack                                           | `` arn:aws:cloudformation:`region`:`account-id`:stack/`stackname`/`additionalidentifier` ``                         |
-| Amazon CloudWatch alarm                                            | `` arn:aws:cloudwatch:`region`:`account-id`:alarm:`alarm-name` ``                                                   |
-| AWS CloudTrail trail                                               | `` arn:aws:cloudtrail:`region`:`account-id`:trail/`trailname` ``                                                    |
-| AWS CodeBuild project                                              | `` arn:aws:codebuild:`region`:`account-id`:`resourcetype`/`resource` ``                                             |
-| AWS CodePipeline                                                   | `` arn:aws:codepipeline:`region`:`account-id`:`resource-specifier` ``                                               |
-| Amazon DevOps Guru insight                                         | `` arn:aws:devops-guru:`region`:`account-id`:insight/`proactive or reactive`/`resource-id` ``                       |
-| Amazon DynamoDB table                                              | `` arn:aws:dynamodb:`region`:`account-id`:table/`tablename` ``                                                      |
-| Amazon Elastic Compute Cloud (Amazon EC2) customer gateway         | `` arn:aws:ec2:`region`:`account-id`:customer-gateway/`cgw-id` ``                                                   |
-| Amazon EC2 elastic IP                                              | `` arn:aws:ec2:`region`:`account-id`:eip/`eipalloc-id` ``                                                           |
-| Amazon EC2 Dedicated Host                                          | `` arn:aws:ec2:`region`:`account-id`:dedicated-host/`host-id` ``                                                    |
-| Amazon EC2 instance                                                | `` arn:aws:ec2:`region`:`account-id`:instance/`instance-id` ``                                                      |
-| Amazon EC2 internet gateway                                        | `` arn:aws:ec2:`region`:`account-id`:internet-gateway/`igw-id` ``                                                   |
-| Amazon EC2 network access control list (network ACL)               | `` arn:aws:ec2:`region`:`account-id`:network-acl/`nacl-id` ``                                                       |
-| Amazon EC2 network interface                                       | `` arn:aws:ec2:`region`:`account-id`:network-interface/`eni-id` ``                                                  |
-| Amazon EC2 route table                                             | `` arn:aws:ec2:`region`:`account-id`:route-table/`route-table-id` ``                                                |
-| Amazon EC2 security group                                          | `` arn:aws:ec2:`region`:`account-id`:security-group/`security-group-id` ``                                          |
-| Amazon EC2 subnet                                                  | `` arn:aws:ec2:`region`:`account-id`:subnet/`subnet-id` ``                                                          |
-| Amazon EC2 volume                                                  | `` arn:aws:ec2:`region`:`account-id`:volume/`volume-id` ``                                                          |
-| Amazon EC2 VPC                                                     | `` arn:aws:ec2:`region`:`account-id`:vpc/`vpc-id` ``                                                                |
-| Amazon EC2 VPN connection                                          | `` arn:aws:ec2:`region`:`account-id`:vpn-connection/`vpn-id` ``                                                     |
-| Amazon EC2 VPN gateway                                             | `` arn:aws:ec2:`region`:`account-id`:vpn-gateway/`vgw-id` ``                                                        |
-| AWS Elastic Beanstalk application                                  | `` arn:aws:elasticbeanstalk:`region`:`account-id`:application/`applicationname` ``                                  |
-| Elastic Load Balancing (Classic Load Balancer)                     | `` arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/`name` ``                                        |
-| Elastic Load Balancing (Application Load Balancer)                 | `` arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/app/`load-balancer-name`/`load-balancer-id` ``   |
-| Elastic Load Balancing (Network Load Balancer)                     | `` arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/net/`load-balancer-name`/`load-balancer-id` ``   |
-| AWS Identity and Access Management (IAM) group                     | `` arn:aws:iam::`account-id`:group/`group-name` ``                                                                  |
-| IAM policy                                                         | `` arn:aws:iam::`account-id`:policy/`policy-name` ``                                                                |
-| IAM role                                                           | `` arn:aws:iam::`account-id`:role/`role-name` ``                                                                    |
-| IAM user                                                           | `` arn:aws:iam::`account-id`:user/`user-name` ``                                                                    |
-| AWS Lambda function                                                | `` arn:aws:lambda:`region`:`account-id`:function:`function-name` ``                                                 |
-| Amazon Relational Database Service (Amazon RDS) cluster            | `` arn:aws:rds:`region`:`account-id`:cluster:`db-cluster-name` ``                                                   |
-| Amazon RDS database instance                                       | `` arn:aws:rds:`region`:`account-id`:db:`db-instance-name` ``                                                       |
-| Amazon RDS subscription                                            | `` arn:aws:rds:`region`:`account-id`:es:`subscription-name` ``                                                      |
-| Amazon RDS security group                                          | `` arn:aws:rds:`region`:`account-id`:secgrp:`security-group-name` ``                                                |
-| Amazon RDS cluster snapshot                                        | `` arn:aws:rds:`region`:`account-id`:cluster-snapshot:`cluster-snapshot-name` ``                                    |
-| Amazon RDS subnet group                                            | `` arn:aws:rds:`region`:`account-id`:subgrp:`subnet-group-name` ``                                                  |
-| Amazon Redshift cluster                                            | `` arn:aws:redshift:`region`:`account-id`:cluster:`cluster-name` ``                                                 |
-| Amazon Redshift parameter group                                    | `` arn:aws:redshift:`region`:`account-id`:parametergroup:`parameter-group-name` ``                                  |
-| Amazon Redshift security group                                     | `` arn:aws:redshift:`region`:`account-id`:securitygroup:`security-group-name` ``                                    |
-| Amazon Redshift cluster snapshot                                   | `` arn:aws:redshift:`region`:`account-id`:snapshot:`cluster-name`/`snapshot-name` ``                                |
-| Amazon Redshift subnet group                                       | `` arn:aws:redshift:`region`:`account-id`:subnetgroup:`subnet-group-name` ``                                        |
-| Amazon Simple Storage Service (Amazon S3) bucket                   | `` arn:aws:s3:::`bucket_name` ``                                                                                    |
-| AWS Config recording of AWS Systems Manager managed node inventory | `` arn:aws:ssm:`region`:`account-id`:managed-instance-inventory/`node_id` ``                                        |
-| Systems Manager State Manager association                          | `` arn:aws:ssm:`region`:`account-id`:association/`association_ID` ``                                                |
+| Supported resource types                                           | Resource name                                                                                                             | ARN format |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| AWS Certificate Manager certificate                                | ``<br>arn:aws:acm:`region`:`account-id`:certificate/`certificate-id`<br>``                                                |
+| Amazon EC2 Auto Scaling group                                      | ``<br>arn:aws:autoscaling:`region`:`account-id`:autoScalingGroup:`groupid`:autoScalingGroupName/`groupfriendlyname`<br>`` |
+| Amazon CloudFront distribution                                     | ``<br>arn:aws:cloudfront::`account-id`:*<br>``                                                                            |
+| AWS CloudFormation stack                                           | ``<br>arn:aws:cloudformation:`region`:`account-id`:stack/`stackname`/`additionalidentifier`<br>``                         |
+| Amazon CloudWatch alarm                                            | ``<br>arn:aws:cloudwatch:`region`:`account-id`:alarm:`alarm-name`<br>``                                                   |
+| AWS CloudTrail trail                                               | ``<br>arn:aws:cloudtrail:`region`:`account-id`:trail/`trailname`<br>``                                                    |
+| AWS CodeBuild project                                              | ``<br>arn:aws:codebuild:`region`:`account-id`:`resourcetype`/`resource`<br>``                                             |
+| AWS CodePipeline                                                   | ``<br>arn:aws:codepipeline:`region`:`account-id`:`resource-specifier`<br>``                                               |
+| Amazon DevOps Guru insight                                         | ``<br>arn:aws:devops-guru:`region`:`account-id`:insight/`proactive or reactive`/`resource-id`<br>``                       |
+| Amazon DynamoDB table                                              | ``<br>arn:aws:dynamodb:`region`:`account-id`:table/`tablename`<br>``                                                      |
+| Amazon Elastic Compute Cloud (Amazon EC2) customer gateway         | ``<br>arn:aws:ec2:`region`:`account-id`:customer-gateway/`cgw-id`<br>``                                                   |
+| Amazon EC2 elastic IP                                              | ``<br>arn:aws:ec2:`region`:`account-id`:eip/`eipalloc-id`<br>``                                                           |
+| Amazon EC2 Dedicated Host                                          | ``<br>arn:aws:ec2:`region`:`account-id`:dedicated-host/`host-id`<br>``                                                    |
+| Amazon EC2 instance                                                | ``<br>arn:aws:ec2:`region`:`account-id`:instance/`instance-id`<br>``                                                      |
+| Amazon EC2 internet gateway                                        | ``<br>arn:aws:ec2:`region`:`account-id`:internet-gateway/`igw-id`<br>``                                                   |
+| Amazon EC2 network access control list (network ACL)               | ``<br>arn:aws:ec2:`region`:`account-id`:network-acl/`nacl-id`<br>``                                                       |
+| Amazon EC2 network interface                                       | ``<br>arn:aws:ec2:`region`:`account-id`:network-interface/`eni-id`<br>``                                                  |
+| Amazon EC2 route table                                             | ``<br>arn:aws:ec2:`region`:`account-id`:route-table/`route-table-id`<br>``                                                |
+| Amazon EC2 security group                                          | ``<br>arn:aws:ec2:`region`:`account-id`:security-group/`security-group-id`<br>``                                          |
+| Amazon EC2 subnet                                                  | ``<br>arn:aws:ec2:`region`:`account-id`:subnet/`subnet-id`<br>``                                                          |
+| Amazon EC2 volume                                                  | ``<br>arn:aws:ec2:`region`:`account-id`:volume/`volume-id`<br>``                                                          |
+| Amazon EC2 VPC                                                     | ``<br>arn:aws:ec2:`region`:`account-id`:vpc/`vpc-id`<br>``                                                                |
+| Amazon EC2 VPN connection                                          | ``<br>arn:aws:ec2:`region`:`account-id`:vpn-connection/`vpn-id`<br>``                                                     |
+| Amazon EC2 VPN gateway                                             | ``<br>arn:aws:ec2:`region`:`account-id`:vpn-gateway/`vgw-id`<br>``                                                        |
+| AWS Elastic Beanstalk application                                  | ``<br>arn:aws:elasticbeanstalk:`region`:`account-id`:application/`applicationname`<br>``                                  |
+| Elastic Load Balancing (Classic Load Balancer)                     | ``<br>arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/`name`<br>``                                        |
+| Elastic Load Balancing (Application Load Balancer)                 | ``<br>arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/app/`load-balancer-name`/`load-balancer-id`<br>``   |
+| Elastic Load Balancing (Network Load Balancer)                     | ``<br>arn:aws:elasticloadbalancing:`region`:`account-id`:loadbalancer/net/`load-balancer-name`/`load-balancer-id`<br>``   |
+| AWS Identity and Access Management (IAM) group                     | ``<br>arn:aws:iam::`account-id`:group/`group-name`<br>``                                                                  |
+| IAM policy                                                         | ``<br>arn:aws:iam::`account-id`:policy/`policy-name`<br>``                                                                |
+| IAM role                                                           | ``<br>arn:aws:iam::`account-id`:role/`role-name`<br>``                                                                    |
+| IAM user                                                           | ``<br>arn:aws:iam::`account-id`:user/`user-name`<br>``                                                                    |
+| AWS Lambda function                                                | ``<br>arn:aws:lambda:`region`:`account-id`:function:`function-name`<br>``                                                 |
+| Amazon Relational Database Service (Amazon RDS) cluster            | ``<br>arn:aws:rds:`region`:`account-id`:cluster:`db-cluster-name`<br>``                                                   |
+| Amazon RDS database instance                                       | ``<br>arn:aws:rds:`region`:`account-id`:db:`db-instance-name`<br>``                                                       |
+| Amazon RDS subscription                                            | ``<br>arn:aws:rds:`region`:`account-id`:es:`subscription-name`<br>``                                                      |
+| Amazon RDS security group                                          | ``<br>arn:aws:rds:`region`:`account-id`:secgrp:`security-group-name`<br>``                                                |
+| Amazon RDS cluster snapshot                                        | ``<br>arn:aws:rds:`region`:`account-id`:cluster-snapshot:`cluster-snapshot-name`<br>``                                    |
+| Amazon RDS subnet group                                            | ``<br>arn:aws:rds:`region`:`account-id`:subgrp:`subnet-group-name`<br>``                                                  |
+| Amazon Redshift cluster                                            | ``<br>arn:aws:redshift:`region`:`account-id`:cluster:`cluster-name`<br>``                                                 |
+| Amazon Redshift parameter group                                    | ``<br>arn:aws:redshift:`region`:`account-id`:parametergroup:`parameter-group-name`<br>``                                  |
+| Amazon Redshift security group                                     | ``<br>arn:aws:redshift:`region`:`account-id`:securitygroup:`security-group-name`<br>``                                    |
+| Amazon Redshift cluster snapshot                                   | ``<br>arn:aws:redshift:`region`:`account-id`:snapshot:`cluster-name`/`snapshot-name`<br>``                                |
+| Amazon Redshift subnet group                                       | ``<br>arn:aws:redshift:`region`:`account-id`:subnetgroup:`subnet-group-name`<br>``                                        |
+| Amazon Simple Storage Service (Amazon S3) bucket                   | ``<br>arn:aws:s3:::`bucket_name`<br>``                                                                                    |
+| AWS Config recording of AWS Systems Manager managed node inventory | ``<br>arn:aws:ssm:`region`:`account-id`:managed-instance-inventory/`node_id`<br>``                                        |
+| Systems Manager State Manager association                          | ``<br>arn:aws:ssm:`region`:`account-id`:association/`association_ID`<br>``                                                |

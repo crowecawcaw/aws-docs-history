@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Session Manager plugin on GitHub
 
 The source code for Session Manager plugin is available on [GitHub](https://github.com/aws/session-manager-plugin "https://github.com/aws/session-manager-plugin")

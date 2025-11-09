@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # AWS Systems Manager Patch Manager
 
 Patch Manager, a tool in AWS Systems Manager, automates the process of patching managed nodes with both

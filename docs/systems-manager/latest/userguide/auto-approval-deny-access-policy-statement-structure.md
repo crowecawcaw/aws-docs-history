@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Statement
 
 structure and built-in operators for auto-approval and deny-access
@@ -6,26 +9,202 @@ policies
 The following table shows the structure of auto-approval and deny-access
 policies.
 
-| Component | Syntax                          |
-| --------- | ------------------------------- | ------- | ---------------- | ---------------------------------------------------------- |
-| effect    | `permit                         | forbid` |
-| scope     | `(principal, action, resource)` |         | condition clause | ``when { `principal or resource` has `attribute name` };`` |
+| Component        | Syntax                                                                   |
+| ---------------- | ------------------------------------------------------------------------ | ------- |
+| effect           | `permit                                                                  | forbid` |
+| scope            | `(principal, action, resource)`                                          |
+| condition clause | ``<br>when {<br>`principal or resource` has `attribute name`<br>};<br>`` |
 
-| ## Policy components An auto-approval or deny-access policy contains the following components: <br>• Effect – Either `permit` (allow) or `forbid` (deny) access. <br>• Scope – The principals, actions, and resources to which the effect applies. You can leave the scope in Cedar undefined by not identifying specific principals, actions, or resources. In this case, the policy applies to all possible principals, actions, and resources. For just-in-time node access, the `action` is always `AWS::SSM::Action::"getTokenForInstanceAccess"`. <br>• **Condition clause** – The context in which the effect applies. ## Comments You can include comments in your policies. Comments are defined as a line starting with `//` and ending with a newline character. The following example shows comments in a policy. `// Allows users in the Engineering group from the Platform org to automatically connect to nodes tagged with Engineering and Production keys. permit ( principal in AWS::IdentityStore::Group::"d4q81745-r081-7079-d789-14da1EXAMPLE", action == AWS::SSM::Action::"getTokenForInstanceAccess", resource ) when { principal has organization && resource.hasTag("Engineering") && resource.hasTag("Production") && principal.organization == "Platform" };` ## Multiple clauses You can use more than one condition clause in a policy statement using the `&&` operator. `// Allow access if node has tag where the tag key is Environment // & tag value is Development permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource) when { resource.hasTag("Environment") && resource.getTag("Environment") == "Development" };` ## Reserved characters The following example shows how to write a policy if a context property uses a `:` (semicolon), which is a reserved character in the policy language. `permit ( principal, action == AWS::SSM::Action::"getTokenForInstanceAccess", resource ) when { principal has employeeNumber && principal.employeeNumber like "E-1*" && resource.hasTag("Purpose") && resource.getTag("Purpose") == "Testing" }` For additional examples, see [Example policy statements](#policy-statement-examples "#policy-statement-examples"). ## Just-in-time node access schema The following is the Cedar schema for just-in-time node access. `namespace AWS::EC2 { entity Instance tags String; } namespace AWS::IdentityStore { entity Group; entity User in [Group] { employeeNumber?: String, costCenter?: String, organization?: String, division?: String, }; } namespace AWS::IAM { entity Role; type AuthorizationContext = { principalTags: PrincipalTags, }; entity PrincipalTags tags String; } namespace AWS::SSM { entity ManagedInstance tags String; action "getTokenForInstanceAccess" appliesTo { principal: [AWS::IdentityStore::User], resource: [AWS::EC2::Instance, AWS::SSM::ManagedInstance], context: { "iam": AWS::IAM::AuthorizationContext } }; }` ## Built-in operators When creating the context of an auto-approval or deny-access policy using various conditions, you can use the `&&` operator to add additional conditions. There are also many other built-in operators that you can use to add additional expressive power to your policy conditions. The following table contains all the built-in operators for reference.
-| Operator | Types and overloads | Description |
-| --- | --- | --- |
-| ! | Boolean → Boolean | Logical not. |
-| == | any → any | Equality. Works on arguments of any type, even if the types don't match. Values of different types are never equal to each other. |
-| != | any → any | Inequality; the exact inverse of equality (see above). |
-| < | (long, long) → Boolean | Long integer less-than. |
-| <= | (long, long) → Boolean | Long integer less-than-or-equal-to. |
-| > | (long, long) → Boolean | Long integer greater-than. |
-| >= | (long, long) → Boolean | Long integer greater-than-or-equal-to. |
-| in | (entity, entity) → Boolean | Hierarchy membership (reflexive: A in A is always true). |
-| (entity, set(entity)) → Boolean | Hierarchy membership: A in [B, C, ...] is true if (A and B) || (A in C) || … error if the set contains a non-entity. |
-| && | (Boolean, Boolean) → Boolean | Logical and (short-circuiting). |
-| || | (Boolean, Boolean) → Boolean | Logical or (short-circuiting). |
-| .exists() | entity → Boolean | Entity existence. | | has | (entity, attribute) → Boolean | Infix operator. `e has f` tests if the record or entity `e` has a binding for the attribute `f`. Returns `false` if `e` does not exist or if `e` does exist but doesn't have the attribute `f`. Attributes can be expressed as identifiers or string literals. |
-| like | (string, string) → Boolean | Infix operator. `t like p` checks if the text `t` matches the pattern `p`, which may include wildcard characters `*` that match 0 or more of any character. In order to match a literal star character in `t`, you can use the special escaped character sequence `\*` in `p`. | | .hasTag() | (entity, string) → Boolean | Checks if entity has the specified tag applied. |
-| .getTag() | (entity, string) → Boolean | Returns the value of the specified tag key. | | .contains() | (set, any) → Boolean | Set membership (is B an element of A). |
-| .containsAll() | (set, set) → Boolean | Tests if set A contains all of the elements in set B. | | .containsAny() | (set, set) → Boolean | Tests if set A contains any of the elements in set B. | ## Example policy statements The following are policy statement examples. `// Users assuming IAM roles with a principal tag of "Elevated" can automatically access nodes tagged with the "Environment" key when the value equals "prod" permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource) when { // Verify IAM role principal tag context.iam.principalTags.getTag("AccessLevel") == "Elevated" && // Verify the node has a tag with "Environment" tag key and a tag value of "prod" resource.hasTag("Environment") && resource.getTag("Environment") == "prod" };` `// Identity Center users in the "Contractor" division can automatically access nodes tagged with the "Environment" key when the value equals "dev" permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource) when { // Verify that the user is part of the "Contractor" division principal.division == "Contractor" && // Verify the node has a tag with "Environment" tag key and a tag value of "dev" resource.hasTag("Environment") && resource.getTag("Environment") == "dev" };` `// Identity Center users in a specified group can automatically access nodes tagged with the "Environment" key when the value equals "Production" permit(principal in AWS::IdentityStore::Group::"d4q81745-r081-7079-d789-14da1EXAMPLE", action == AWS::SSM::getTokenForInstanceAccess, resource) when { resource.hasTag("Environment") && resource.getTag("Environment") == "Production" };`
+## Policy components
+
+An auto-approval or deny-access policy contains the following
+components:
+
+- Effect – Either
+  `permit` (allow) or `forbid` (deny)
+  access.
+- Scope – The principals,
+  actions, and resources to which the effect applies. You can leave
+  the scope in Cedar undefined by not identifying specific principals,
+  actions, or resources. In this case, the policy applies to all
+  possible principals, actions, and resources. For just-in-time node
+  access, the `action` is always
+  `AWS::SSM::Action::"getTokenForInstanceAccess"`.
+- **Condition clause** – The
+  context in which the effect applies.
+
+## Comments
+
+You can include comments in your policies. Comments are defined as a line
+starting with `//` and ending with a newline character.
+
+The following example shows comments in a policy.
+
+```
+// Allows users in the Engineering group from the Platform org to automatically connect to nodes tagged with Engineering and Production keys.
+permit (
+    principal in AWS::IdentityStore::Group::"d4q81745-r081-7079-d789-14da1EXAMPLE",
+    action == AWS::SSM::Action::"getTokenForInstanceAccess",
+    resource
+)
+when {
+    principal has organization && resource.hasTag("Engineering") && resource.hasTag("Production") && principal.organization == "Platform"
+};
+```
+
+## Multiple clauses
+
+You can use more than one condition clause in a policy statement using the
+`&&` operator.
+
+```
+// Allow access if node has tag where the tag key is Environment
+// & tag value is Development
+
+permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource)
+when {
+    resource.hasTag("Environment") &&
+    resource.getTag("Environment") == "Development"
+};
+```
+
+## Reserved characters
+
+The following example shows how to write a policy if a context property
+uses a `:` (semicolon), which is a reserved character in the
+policy language.
+
+```
+permit (
+    principal,
+    action == AWS::SSM::Action::"getTokenForInstanceAccess",
+    resource
+)
+when {
+    principal has employeeNumber && principal.employeeNumber like "E-1*" && resource.hasTag("Purpose") && resource.getTag("Purpose") == "Testing"
+}
+```
+
+For additional examples, see [Example policy
+statements](#policy-statement-examples "#policy-statement-examples").
+
+## Just-in-time node access schema
+
+The following is the Cedar schema for just-in-time node access.
+
+```
+namespace AWS::EC2 {
+    entity Instance tags String;
+}
+
+
+namespace AWS::IdentityStore {
+    entity Group;
+
+    entity User in [Group] {
+    employeeNumber?: String,
+    costCenter?: String,
+    organization?: String,
+    division?: String,
+    };
+
+}
+
+
+namespace AWS::IAM {
+
+    entity Role;
+
+    type AuthorizationContext = {
+        principalTags: PrincipalTags,
+    };
+
+    entity PrincipalTags tags String;
+}
+
+namespace AWS::SSM {
+
+    entity ManagedInstance tags String;
+
+    action "getTokenForInstanceAccess" appliesTo {
+    principal: [AWS::IdentityStore::User],
+    resource: [AWS::EC2::Instance, AWS::SSM::ManagedInstance],
+    context: {
+        "iam": AWS::IAM::AuthorizationContext
+        }
+    };
+}
+```
+
+## Built-in operators
+
+When creating the context of an auto-approval or deny-access policy using
+various conditions, you can use the `&&` operator to add
+additional conditions. There are also many other built-in operators that you
+can use to add additional expressive power to your policy conditions. The
+following table contains all the built-in operators for reference.
+
+| Operator                        | Types and overloads                                            | Description                                                                                                                                                                                                                                                                                      |
+| ------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | ------------------------------ | -------------------------------------------- |
+| !                               | Boolean → Boolean                                              | Logical not.                                                                                                                                                                                                                                                                                     |
+| ==                              | any → any                                                      | Equality. Works on arguments of any type, even if the<br>types don't match. Values of different types are never<br>equal to each other.                                                                                                                                                          |
+| !=                              | any → any                                                      | Inequality; the exact inverse of equality (see<br>above).                                                                                                                                                                                                                                        |
+| <                               | (long, long) → Boolean                                         | Long integer less-than.                                                                                                                                                                                                                                                                          |
+| <=                              | (long, long) → Boolean                                         | Long integer less-than-or-equal-to.                                                                                                                                                                                                                                                              |
+| >                               | (long, long) → Boolean                                         | Long integer greater-than.                                                                                                                                                                                                                                                                       |
+| >=                              | (long, long) → Boolean                                         | Long integer greater-than-or-equal-to.                                                                                                                                                                                                                                                           |
+| in                              | (entity, entity) → Boolean                                     | Hierarchy membership (reflexive: A in A is always<br>true).                                                                                                                                                                                                                                      |
+| (entity, set(entity)) → Boolean | Hierarchy membership: A in [B, C, ...] is true if (A and<br>B) |                                                                                                                                                                                                                                                                                                  | (A in C)                     |                                | … error if the set contains a<br>non-entity. |
+| &&                              | (Boolean, Boolean) → Boolean                                   | Logical and (short-circuiting).                                                                                                                                                                                                                                                                  |
+|                                 |                                                                |                                                                                                                                                                                                                                                                                                  | (Boolean, Boolean) → Boolean | Logical or (short-circuiting). |
+| .exists()                       | entity → Boolean                                               | Entity existence.                                                                                                                                                                                                                                                                                |
+| has                             | (entity, attribute) → Boolean                                  | Infix operator. `e has f` tests if the record<br>or entity `e` has a binding for the attribute<br>`f`. Returns `false` if<br>`e` does not exist or if `e` does<br>exist but doesn't have the attribute `f`.<br>Attributes can be expressed as identifiers or string<br>literals.                 |
+| like                            | (string, string) → Boolean                                     | Infix operator. `t like p` checks if the text<br>`t` matches the pattern `p`, which<br>may include wildcard characters `*` that match 0<br>or more of any character. In order to match a literal star<br>character in `t`, you can use the special escaped<br>character sequence `\*` in<br>`p`. |
+| .hasTag()                       | (entity, string) → Boolean                                     | Checks if entity has the specified tag applied.                                                                                                                                                                                                                                                  |
+| .getTag()                       | (entity, string) → Boolean                                     | Returns the value of the specified tag key.                                                                                                                                                                                                                                                      |
+| .contains()                     | (set, any) → Boolean                                           | Set membership (is B an element of A).                                                                                                                                                                                                                                                           |
+| .containsAll()                  | (set, set) → Boolean                                           | Tests if set A contains all of the elements in set<br>B.                                                                                                                                                                                                                                         |
+| .containsAny()                  | (set, set) → Boolean                                           | Tests if set A contains any of the elements in set<br>B.                                                                                                                                                                                                                                         |
+
+## Example policy
+
+statements
+
+The following are policy statement examples.
+
+```
+// Users assuming IAM roles with a principal tag of "Elevated" can automatically access nodes tagged with the "Environment" key when the value equals "prod"
+permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource)
+when {
+    // Verify IAM role principal tag
+    context.iam.principalTags.getTag("AccessLevel") == "Elevated" &&
+
+    // Verify the node has a tag with "Environment" tag key and a tag value of "prod"
+    resource.hasTag("Environment") &&
+    resource.getTag("Environment") == "prod"
+};
+```
+
+```
+// Identity Center users in the "Contractor" division can automatically access nodes tagged with the "Environment" key when the value equals "dev"
+permit(principal, action == AWS::SSM::getTokenForInstanceAccess, resource)
+when {
+    // Verify that the user is part of the "Contractor" division
+    principal.division == "Contractor" &&
+
+    // Verify the node has a tag with "Environment" tag key and a tag value of "dev"
+    resource.hasTag("Environment") &&
+    resource.getTag("Environment") == "dev"
+};
+```
+
+```
+// Identity Center users in a specified group can automatically access nodes tagged with the "Environment" key when the value equals "Production"
+permit(principal in AWS::IdentityStore::Group::"d4q81745-r081-7079-d789-14da1EXAMPLE",
+    action == AWS::SSM::getTokenForInstanceAccess,
+    resource)
+when {
+    resource.hasTag("Environment") &&
+    resource.getTag("Environment") == "Production"
+};
+```

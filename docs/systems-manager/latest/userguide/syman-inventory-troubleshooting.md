@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Troubleshooting problems with Systems Manager
 
 Inventory
@@ -113,7 +116,7 @@ AWS Regions that offer Amazon Athena. If the following tabs aren't displayed on 
 Inventory page, it means Athena isn't available in the Region and you can't use the
 **Detailed View** to query data.
 
-![Displaying Inventory Dashboard | Detailed View | Settings tabs](/images/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
+![Displaying Inventory Dashboard | Detailed View | Settings tabs](images/inventory-detailed-view-for-error.png)
 
 ## UnsupportedAgent
 

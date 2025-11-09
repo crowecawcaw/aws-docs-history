@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Using roles to send just-in-time node access request notifications
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSystemsManagerNotifications`**. AWS Systems Manager uses this IAM service role to send notifications to access request approvers.

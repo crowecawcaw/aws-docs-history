@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Walkthrough: Use the AWS CLI with Run Command
 
 The following sample walkthrough shows you how to use the AWS Command Line Interface (AWS CLI) to

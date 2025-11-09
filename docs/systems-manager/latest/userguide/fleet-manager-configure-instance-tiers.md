@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Configuring instance
 
 tiers
@@ -84,9 +87,16 @@ all hybrid-activated nodes, even if you have fewer than
 Use the following table to review when you must use the advanced-instances
 tier, and for which scenarios additional charges apply.
 
-| Scenario                                                                                                                                                                                                                                                   | Advanced-instances tier required? | Additional charges apply? |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The number of hybrid-activated nodes in my Region in a specific account is more than 1,000.                                                                                                                                                                | Yes                               | Yes                       |
-| I want to use Patch Manager to patch Microsoft-released applications on any number of hybrid-activated nodes, even less than 1,000.                                                                                                                        | Yes                               | Yes                       |
-| I want to use Session Manager to connect to any number of hybrid-activated nodes, even less than 1,000.                                                                                                                                                    | Yes                               | Yes                       |
-| 1. The number of hybrid-activated nodes in a Region in a specific account is 1,000 or less; and 2. I am not patching Microsoft applications on any hybrid-activated nodes; and 3. I am not connecting to any hybrid-activated nodes using Session Manager. | No                                | No                        | ###### Topics <br>• [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md") <br>• [Reverting from the advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md") |
+| Scenario                                                                                                                                                                                                                                                                  | Advanced-instances tier required? | Additional charges apply? |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------------- |
+| The number of hybrid-activated nodes in my Region in a<br>specific account is more than 1,000.                                                                                                                                                                            | Yes                               | Yes                       |
+| I want to use Patch Manager to patch Microsoft-released<br>applications on any number of hybrid-activated nodes, even<br>less than 1,000.                                                                                                                                 | Yes                               | Yes                       |
+| I want to use Session Manager to connect to any number of<br>hybrid-activated nodes, even less than 1,000.                                                                                                                                                                | Yes                               | Yes                       |
+| 1. The number of hybrid-activated nodes in a Region<br>in a specific account is 1,000 or less; and<br>2. I am not patching Microsoft applications on any<br>hybrid-activated nodes; and<br>3. I am not connecting to any hybrid-activated nodes<br>using Session Manager. | No                                | No                        |
+
+###### Topics
+
+- [Turning on the
+  advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md")
+- [Reverting from the
+  advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md")

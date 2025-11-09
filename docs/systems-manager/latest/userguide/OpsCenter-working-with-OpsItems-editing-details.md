@@ -1,15 +1,14 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Editing an
 
 OpsItem
 
-The **OpsItem details** section includes information about an OpsItem,
-
-including the description, title, source, OpsItem ID, and the status.
-You can edit a
-single OpsItem or you can select multiple OpsItems and edit the
-following fields:
-**Status**, **Priority**,
-
+The **OpsItem details** section includes information about an OpsItem, 
+including the description, title, source, OpsItem ID, and the status.  You can edit a
+single OpsItem or you can select multiple OpsItems and edit the  following fields:
+**Status**, **Priority**, 
 **Severity**, **Category**.
 
 When Amazon EventBridge creates an OpsItem, it populates the **Title**,

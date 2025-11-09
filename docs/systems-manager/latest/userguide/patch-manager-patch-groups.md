@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Patch groups
 
 ###### Note
@@ -136,12 +139,91 @@ The full process is explained below the illustration.
 In this example, we have three groups of EC2 instances for Windows Server with the
 following tags applied:
 
-| EC2 instances group    | Tags                                              |
-| ---------------------- | ------------------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Group 1                | `key=OS,value=Windows` `key=PatchGroup,value=DEV` |
-| Group 2                | `key=OS,value=Windows`                            |
-| Group 3                | `key=OS,value=Windows` `key=PatchGroup,value=QA`  | For this example, we also have these two Windows Server patch baselines: |
-| Patch baseline ID      | Default                                           | Associated patch group                                                   |
-| ---                    | ---                                               | ---                                                                      |
-| `pb-0123456789abcdef0` | Yes                                               | `Default`                                                                |
-| `pb-9876543210abcdef0` | No                                                | `DEV`                                                                    | The general process to scan or install patches using Run Command, a tool in AWS Systems Manager, and Patch Manager is as follows: 1. **Send a command to patch**: Use the Systems Manager console, SDK, AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell to send a Run Command task using the document `AWS-RunPatchBaseline`. The diagram shows a Run Command task to patch managed instances by targeting the tag `key=OS,value=Windows`. 2. **Patch baseline determination**: SSM Agent verifies the patch group tags applied to the EC2 instance and queries Patch Manager for the corresponding patch baseline. <br>• **Matching patch group value associated with patch baseline:** 1. SSM Agent, which is installed on EC2 instances in group one, receives the command issued in Step 1 to begin a patching operation. SSM Agent validates that the EC2 instances have the patch group tag-value `DEV` applied and queries Patch Manager for an associated patch baseline. 2. Patch Manager verifies that patch baseline `pb-9876543210abcdef0` has the patch group `DEV` associated and notifies SSM Agent. 3. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in `pb-9876543210abcdef0` and proceeds to the next step. <br>• **No patch group tag added to instance:** 1. SSM Agent, which is installed on EC2 instances in group two, receives the command issued in Step 1 to begin a patching operation. SSM Agent validates that the EC2 instances don't have a `Patch Group` or `PatchGroup` tag applied and as a result, SSM Agent queries Patch Manager for the default Windows patch baseline. 2. Patch Manager verifies that the default Windows Server patch baseline is `pb-0123456789abcdef0` and notifies SSM Agent. 3. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step. <br>• **No matching patch group value associated with a patch baseline:** 1. SSM Agent, which is installed on EC2 instances in group three, receives the command issued in Step 1 to begin a patching operation. SSM Agent validates that the EC2 instances have the patch group tag-value `QA` applied and queries Patch Manager for an associated patch baseline. 2. Patch Manager doesn't find a patch baseline that has the patch group `QA` associated. 3. Patch Manager notifies SSM Agent to use the default Windows patch baseline `pb-0123456789abcdef0`. 4. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step. 3. **Patch scan or install**: After determining the appropriate patch baseline to use, SSM Agent begins either scanning for or installing patches based on the operation value specified in Step 1. The patches that are scanned for or installed are determined by the approval rules and patch exceptions defined in the patch baseline snapshot provided by Patch Manager. **More info** <br>• [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md") |
+| EC2 instances group | Tags                                                 |
+| ------------------- | ---------------------------------------------------- |
+| Group 1             | `key=OS,value=Windows`<br>`key=PatchGroup,value=DEV` |
+| Group 2             | `key=OS,value=Windows`                               |
+| Group 3             | `key=OS,value=Windows`<br>`key=PatchGroup,value=QA`  |
+
+For this example, we also have these two Windows Server patch baselines:
+
+| Patch baseline ID      | Default | Associated patch group |
+| ---------------------- | ------- | ---------------------- |
+| `pb-0123456789abcdef0` | Yes     | `Default`              |
+| `pb-9876543210abcdef0` | No      | `DEV`                  |
+
+The general process to scan or install patches using Run Command, a tool in
+AWS Systems Manager, and Patch Manager is as follows:
+
+1. **Send a command to patch**: Use the
+   Systems Manager console, SDK, AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell to send a Run Command
+   task using the document `AWS-RunPatchBaseline`. The diagram
+   shows a Run Command task to patch managed instances by targeting the tag
+   `key=OS,value=Windows`.
+2. **Patch baseline determination**:
+   SSM Agent verifies the patch group tags applied to the EC2 instance and
+   queries Patch Manager for the corresponding patch baseline.
+   - **Matching patch group value associated
+     with patch baseline:**
+     1. SSM Agent, which is installed on EC2 instances in group
+        one, receives the command issued in Step 1 to begin a
+        patching operation. SSM Agent validates that the EC2
+        instances have the patch group tag-value
+        `DEV` applied and queries Patch Manager for an
+        associated patch baseline.
+     2. Patch Manager verifies that patch baseline
+        `pb-9876543210abcdef0` has the patch
+        group `DEV` associated and notifies
+        SSM Agent.
+     3. SSM Agent retrieves a patch baseline snapshot from
+        Patch Manager based on the approval rules and exceptions
+        configured in `pb-9876543210abcdef0` and
+        proceeds to the next step.
+
+   - **No patch group tag added to
+     instance:**
+     1. SSM Agent, which is installed on EC2 instances in group
+        two, receives the command issued in Step 1 to begin a
+        patching operation. SSM Agent validates that the EC2
+        instances don't have a `Patch Group` or
+        `PatchGroup` tag applied and as a result,
+        SSM Agent queries Patch Manager for the default Windows patch
+        baseline.
+     2. Patch Manager verifies that the default Windows Server patch
+        baseline is `pb-0123456789abcdef0` and
+        notifies SSM Agent.
+     3. SSM Agent retrieves a patch baseline snapshot from
+        Patch Manager based on the approval rules and exceptions
+        configured in the default patch baseline
+        `pb-0123456789abcdef0` and proceeds to
+        the next step.
+
+   - **No matching patch group value associated
+     with a patch baseline:**
+     1. SSM Agent, which is installed on EC2 instances in group
+        three, receives the command issued in Step 1 to begin a
+        patching operation. SSM Agent validates that the EC2
+        instances have the patch group tag-value `QA`
+        applied and queries Patch Manager for an associated patch
+        baseline.
+     2. Patch Manager doesn't find a patch baseline that has the
+        patch group `QA` associated.
+     3. Patch Manager notifies SSM Agent to use the default Windows
+        patch baseline `pb-0123456789abcdef0`.
+     4. SSM Agent retrieves a patch baseline snapshot from
+        Patch Manager based on the approval rules and exceptions
+        configured in the default patch baseline
+        `pb-0123456789abcdef0` and proceeds to
+        the next step.
+
+3. **Patch scan or install**: After
+   determining the appropriate patch baseline to use, SSM Agent begins
+   either scanning for or installing patches based on the operation value
+   specified in Step 1. The patches that are scanned for or installed are
+   determined by the approval rules and patch exceptions defined in the
+   patch baseline snapshot provided by Patch Manager.
+
+**More info**
+
+- [Patch compliance state
+  values](patch-manager-compliance-states.md "patch-manager-compliance-states.md")

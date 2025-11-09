@@ -1,3 +1,6 @@
+AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
+
 # Monitoring Run Command metrics using
 
 Amazon CloudWatch
@@ -54,8 +57,17 @@ Systems Manager sends the following command metrics to CloudWatch.
 These metrics use `Count` as the unit, so `Sum` and
 `SampleCount` are the most useful statistics.
 
-| Metric                     | Description                                                                 |
-| -------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CommandsDeliveryTimedOut` | The number of commands that have a terminal status of `Delivery Timed Out`. |
-| `CommandsFailed`           | The number of commands that have a terminal status of `Failed`.             |
-| `CommandsSucceeded`        | The number of commands that have a terminal status of `Success`.            | For more information about working with CloudWatch metrics, see the following topics in the _Amazon CloudWatch User Guide_: <br>• [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric") <br>• [Using Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") <br>• [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") |
+| Metric                     | Description                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| `CommandsDeliveryTimedOut` | The number of commands that have a terminal status of<br>`Delivery Timed Out`. |
+| `CommandsFailed`           | The number of commands that have a terminal status of<br>`Failed`.             |
+| `CommandsSucceeded`        | The number of commands that have a terminal status of<br>`Success`.            |
+
+For more information about working with CloudWatch metrics, see the following topics in
+the _Amazon CloudWatch User Guide_:
+
+- [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric")
+- [Using
+  Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
+- [Using
+  Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
