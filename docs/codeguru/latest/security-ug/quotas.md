@@ -18,13 +18,28 @@ Your AWS account has the following quotas related to CodeGuru Security.
 
 ## Code resources
 
-| Resource                                                                                           | Default                             |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum input file size                                                                            | 5 GB                                |
-| Maximum Java source code size                                                                      | 300 MB                              |
-| Maximum JavaScript source code size                                                                | 300 MB                              |
-| Maximum Python source code size                                                                    | 50 MB                               | ## CodeGuru Security quotas for creating, deploying, and managing an API The following fixed quotas apply to creating, deploying, and managing an API in CodeGuru Security, using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs. These quotas can't be increased. The default quota for all except two CodeGuru Security APIs is 10 requests per second per account. None of these quotas can be increased. For a list of all CodeGuru Security APIs, see [Amazon CodeGuru Security Actions](../security-api/API_Operations.md "../security-api/API_Operations.md"). The two APIs with different default quotas are in the following table. |
-| Action                                                                                             | Default quota                       | Can be increased                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---                                                                                                | ---                                 | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| [CreateUploadUrl](../security-api/API_CreateUploadUrl.md "../security-api/API_CreateUploadUrl.md") | 2 requests every second per account | No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [CreateScan](../security-api/API_CreateScan.md "../security-api/API_CreateScan.md")                | 2 requests every second per account | No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Resource                            | Default |
+| ----------------------------------- | ------- |
+| Maximum input file size             | 5 GB    |
+| Maximum Java source code size       | 300 MB  |
+| Maximum JavaScript source code size | 300 MB  |
+| Maximum Python source code size     | 50 MB   |
+
+## CodeGuru Security quotas for
+
+creating, deploying, and managing an API
+
+The following fixed quotas apply to creating, deploying, and managing an API in
+CodeGuru Security, using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs. These
+quotas can't be increased.
+
+The default quota for all except two CodeGuru Security APIs is 10 requests per second per
+account. None of these quotas can be increased. For a list of all CodeGuru Security APIs, see
+[Amazon CodeGuru Security Actions](../security-api/API_Operations.md "../security-api/API_Operations.md").
+
+The two APIs with different default quotas are in the following table.
+
+| Action                                                                                             | Default quota                       | Can be increased |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------------- |
+| [CreateUploadUrl](../security-api/API_CreateUploadUrl.md "../security-api/API_CreateUploadUrl.md") | 2 requests every second per account | No               |
+| [CreateScan](../security-api/API_CreateScan.md "../security-api/API_CreateScan.md")                | 2 requests every second per account | No               |
